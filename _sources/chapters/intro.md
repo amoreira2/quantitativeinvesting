@@ -1,7 +1,7 @@
-# Computational and Inferential Thinking: The Foundations of Data Science
+# Quantitative Investing
 
-By [Ani Adhikari](http://statistics.berkeley.edu/people/ani-adhikari) and [John DeNero](http://denero.org)
-with contributions by [David Wagner](https://www.cs.berkeley.edu/~daw/) and Henry Milner.
+By [Alan Moreira](https://sites.google.com/view/alanmoreira/)
+
 
 This text was originally developed for the UC Berkeley course [Data 8: Foundations of Data Science][data8].
 
