@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>13.4. Least Squares Regression &#8212; Quantitative Investing</title>
+    <title>14.4. Least Squares Regression &#8212; Quantitative Investing</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -59,8 +59,8 @@
     <link rel="shortcut icon" href="../../../_static/figuremain.jpg"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="13.5. Visual Diagnostics" href="../5/Visual_Diagnostics.html" />
-    <link rel="prev" title="13.3. The Method of Least Squares" href="../3/Method_of_Least_Squares.html" />
+    <link rel="next" title="14.5. Visual Diagnostics" href="../5/Visual_Diagnostics.html" />
+    <link rel="prev" title="14.3. The Method of Least Squares" href="../3/Method_of_Least_Squares.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -100,37 +100,38 @@
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <ul class="current nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1">
   <a class="reference internal" href="../../01/what-is-quant-investing.html">
-   1. Quantitative Investing
+   1. What is Quantitative Investing?
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../01/what-is-quant-investing.html#why-data-science">
+   2. Why Data Science?
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2 collapsible-parent">
-    <a class="reference internal" href="../../01/1/intro.html">
-     1.1. Introduction
+    <a class="reference internal" href="../../01/1/getting_started.html">
+     2.1. Getting Started
     </a>
     <ul class="collapse-ul">
-     <li class="toctree-l3 collapsible-parent">
-      <a class="reference internal" href="../../01/1/1/getting_started.html">
-       1.1.1. Getting Started
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../01/1/1/local_install.html">
+       2.1.3.1. Local installation
       </a>
-      <ul class="simple collapse-ul">
-      </ul>
-      <i class="fas fa-chevron-down">
-      </i>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../01/1/2/cloud_setup.html">
+       2.1.3.2. Cloud Setup
+      </a>
      </li>
     </ul>
     <i class="fas fa-chevron-down">
     </i>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../01/1/2/statistical-techniques.html">
-     1.2. Statistical Techniques
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../01/2/why-data-science.html">
-     1.3. Why Data Science?
+    <a class="reference internal" href="../../01/2/statistical-techniques.html">
+     2.2. Statistical Techniques
     </a>
    </li>
   </ul>
@@ -139,22 +140,22 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../../04/Data_Types.html">
-   2. Data Types
+   3. Data Types
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../../04/1/Numbers.html">
-     2.1. Numbers
+     3.1. Numbers
     </a>
    </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../../04/2/Strings.html">
-     2.2. Strings
+     3.2. Strings
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../../04/2/1/String_Methods.html">
-       2.2.1. String Methods
+       3.2.1. String Methods
       </a>
      </li>
     </ul>
@@ -163,7 +164,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../04/3/Comparison.html">
-     2.3. Comparisons
+     3.3. Comparisons
     </a>
    </li>
   </ul>
@@ -172,22 +173,22 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../../05/Sequences.html">
-   3. Sequences
+   4. Sequences
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../../05/1/Arrays.html">
-     3.1. Arrays
+     4.1. Arrays
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../05/2/Ranges.html">
-     3.2. Ranges
+     4.2. Ranges
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../05/3/More_on_Arrays.html">
-     3.3. More on Arrays
+     4.3. More on Arrays
     </a>
    </li>
   </ul>
@@ -196,27 +197,27 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../../06/Tables.html">
-   4. Tables
+   5. Tables
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../../06/1/Sorting_Rows.html">
-     4.1. Sorting Rows
+     5.1. Sorting Rows
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../06/2/Selecting_Rows.html">
-     4.2. Selecting Rows
+     5.2. Selecting Rows
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../06/3/Example_Trends_in_the_Population_of_the_United_States.html">
-     4.3. Example: Population Trends
+     5.3. Example: Population Trends
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../06/4/Example_Gender_Ratio_in_the_US_Population.html">
-     4.4. Example: Trends in Gender
+     5.4. Example: Trends in Gender
     </a>
    </li>
   </ul>
@@ -225,22 +226,22 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../../07/Visualization.html">
-   5. Visualization
+   6. Visualization
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../../07/1/Visualizing_Categorical_Distributions.html">
-     5.1. Categorical Distributions
+     6.1. Categorical Distributions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../07/2/Visualizing_Numerical_Distributions.html">
-     5.2. Numerical Distributions
+     6.2. Numerical Distributions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../07/3/Overlaid_Graphs.html">
-     5.3. Overlaid Graphs
+     6.3. Overlaid Graphs
     </a>
    </li>
   </ul>
@@ -249,32 +250,32 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../../08/Functions_and_Tables.html">
-   6. Functions and Tables
+   7. Functions and Tables
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../../08/1/Applying_a_Function_to_a_Column.html">
-     6.1. Applying Functions to Columns
+     7.1. Applying Functions to Columns
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../08/2/Classifying_by_One_Variable.html">
-     6.2. Classifying by One Variable
+     7.2. Classifying by One Variable
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../08/3/Cross-Classifying_by_More_than_One_Variable.html">
-     6.3. Cross-Classifying
+     7.3. Cross-Classifying
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../08/4/Joining_Tables_by_Columns.html">
-     6.4. Joining Tables by Columns
+     7.4. Joining Tables by Columns
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../08/5/Bike_Sharing_in_the_Bay_Area.html">
-     6.5. Bike Sharing in the Bay Area
+     7.5. Bike Sharing in the Bay Area
     </a>
    </li>
   </ul>
@@ -283,32 +284,32 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../../09/Randomness.html">
-   7. Randomness
+   8. Randomness
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../../09/1/Conditional_Statements.html">
-     7.1. Conditional Statements
+     8.1. Conditional Statements
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../09/2/Iteration.html">
-     7.2. Iteration
+     8.2. Iteration
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../09/3/Simulation.html">
-     7.3. Simulation
+     8.3. Simulation
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../09/4/Monty_Hall_Problem.html">
-     7.4. The Monty Hall Problem
+     8.4. The Monty Hall Problem
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../09/5/Finding_Probabilities.html">
-     7.5. Finding Probabilities
+     8.5. Finding Probabilities
     </a>
    </li>
   </ul>
@@ -317,22 +318,22 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../../10/Sampling_and_Empirical_Distributions.html">
-   8. Sampling and Empirical Distributions
+   9. Sampling and Empirical Distributions
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../../10/1/Empirical_Distributions.html">
-     8.1. Empirical Distributions
+     9.1. Empirical Distributions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../10/2/Sampling_from_a_Population.html">
-     8.2. Sampling from a Population
+     9.2. Sampling from a Population
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../10/3/Empirical_Distribution_of_a_Statistic.html">
-     8.3. Empirical Distibution of a Statistic
+     9.3. Empirical Distibution of a Statistic
     </a>
    </li>
   </ul>
@@ -341,27 +342,27 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../../11/Testing_Hypotheses.html">
-   9. Testing Hypotheses
+   10. Testing Hypotheses
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../../11/1/Assessing_Models.html">
-     9.1. Assessing Models
+     10.1. Assessing Models
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../11/2/Multiple_Categories.html">
-     9.2. Multiple Categories
+     10.2. Multiple Categories
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../11/3/Decisions_and_Uncertainty.html">
-     9.3. Decisions and Uncertainty
+     10.3. Decisions and Uncertainty
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../11/4/Error_Probabilities.html">
-     9.4. Error Probabilities
+     10.4. Error Probabilities
     </a>
    </li>
   </ul>
@@ -370,22 +371,22 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../../12/Comparing_Two_Samples.html">
-   10. Comparing Two Samples
+   11. Comparing Two Samples
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../../12/1/AB_Testing.html">
-     10.1. A/B Testing
+     11.1. A/B Testing
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../12/2/Deflategate.html">
-     10.2. Deflategate
+     11.2. Deflategate
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../12/3/Causality.html">
-     10.3. Causality
+     11.3. Causality
     </a>
    </li>
   </ul>
@@ -394,27 +395,27 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../../13/Estimation.html">
-   11. Estimation
+   12. Estimation
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../../13/1/Percentiles.html">
-     11.1. Percentiles
+     12.1. Percentiles
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../13/2/Bootstrap.html">
-     11.2. The Bootstrap
+     12.2. The Bootstrap
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../13/3/Confidence_Intervals.html">
-     11.3. Confidence Intervals
+     12.3. Confidence Intervals
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../13/4/Using_Confidence_Intervals.html">
-     11.4. Using Confidence Intervals
+     12.4. Using Confidence Intervals
     </a>
    </li>
   </ul>
@@ -423,37 +424,37 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../../14/Why_the_Mean_Matters.html">
-   12. Why the Mean Matters
+   13. Why the Mean Matters
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../../14/1/Properties_of_the_Mean.html">
-     12.1. Properties of the Mean
+     13.1. Properties of the Mean
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../14/2/Variability.html">
-     12.2. Variability
+     13.2. Variability
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../14/3/SD_and_the_Normal_Curve.html">
-     12.3. The SD and the Normal Curve
+     13.3. The SD and the Normal Curve
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../14/4/Central_Limit_Theorem.html">
-     12.4. The Central Limit Theorem
+     13.4. The Central Limit Theorem
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../14/5/Variability_of_the_Sample_Mean.html">
-     12.5. The Variability of the Sample Mean
+     13.5. The Variability of the Sample Mean
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../14/6/Choosing_a_Sample_Size.html">
-     12.6. Choosing a Sample Size
+     13.6. Choosing a Sample Size
     </a>
    </li>
   </ul>
@@ -462,37 +463,37 @@
  </li>
  <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="../Prediction.html">
-   13. Prediction
+   14. Prediction
   </a>
   <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../1/Correlation.html">
-     13.1. Correlation
+     14.1. Correlation
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../2/Regression_Line.html">
-     13.2. The Regression Line
+     14.2. The Regression Line
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../3/Method_of_Least_Squares.html">
-     13.3. The Method of Least Squares
+     14.3. The Method of Least Squares
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     13.4. Least Squares Regression
+     14.4. Least Squares Regression
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../5/Visual_Diagnostics.html">
-     13.5. Visual Diagnostics
+     14.5. Visual Diagnostics
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../6/Numerical_Diagnostics.html">
-     13.6. Numerical Diagnostics
+     14.6. Numerical Diagnostics
     </a>
    </li>
   </ul>
@@ -501,22 +502,22 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../../16/Inference_for_Regression.html">
-   14. Inference for Regression
+   15. Inference for Regression
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../../16/1/Regression_Model.html">
-     14.1. A Regression Model
+     15.1. A Regression Model
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../16/2/Inference_for_the_True_Slope.html">
-     14.2. Inference for the True Slope
+     15.2. Inference for the True Slope
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../16/3/Prediction_Intervals.html">
-     14.3. Prediction Intervals
+     15.3. Prediction Intervals
     </a>
    </li>
   </ul>
@@ -525,37 +526,37 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../../17/Classification.html">
-   15. Classification
+   16. Classification
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../../17/1/Nearest_Neighbors.html">
-     15.1. Nearest Neighbors
+     16.1. Nearest Neighbors
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../17/2/Training_and_Testing.html">
-     15.2. Training and Testing
+     16.2. Training and Testing
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../17/3/Rows_of_Tables.html">
-     15.3. Rows of Tables
+     16.3. Rows of Tables
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../17/4/Implementing_the_Classifier.html">
-     15.4. Implementing the Classifier
+     16.4. Implementing the Classifier
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../17/5/Accuracy_of_the_Classifier.html">
-     15.5. The Accuracy of the Classifier
+     16.5. The Accuracy of the Classifier
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../17/6/Multiple_Regression.html">
-     15.6. Multiple Regression
+     16.6. Multiple Regression
     </a>
    </li>
   </ul>
@@ -564,17 +565,17 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../../18/Updating_Predictions.html">
-   16. Updating Predictions
+   17. Updating Predictions
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../../18/1/More_Likely_than_Not_Binary_Classifier.html">
-     16.1. A "More Likely Than Not" Binary Classifier
+     17.1. A "More Likely Than Not" Binary Classifier
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../18/2/Making_Decisions.html">
-     16.2. Making Decisions
+     17.2. Making Decisions
     </a>
    </li>
   </ul>
@@ -698,7 +699,7 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#nonlinear-regression">
-   13.4.1. Nonlinear Regression
+   14.4.1. Nonlinear Regression
   </a>
  </li>
 </ul>
@@ -716,7 +717,7 @@
   <div class="cell tag_remove-input docutils container">
 </div>
 <div class="section" id="least-squares-regression">
-<h1><span class="section-number">13.4. </span>Least Squares Regression<a class="headerlink" href="#least-squares-regression" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">14.4. </span>Least Squares Regression<a class="headerlink" href="#least-squares-regression" title="Permalink to this headline">¶</a></h1>
 <p>In an earlier section, we developed formulas for the slope and intercept of the regression line through a <em>football shaped</em> scatter diagram. It turns out that the slope and intercept of the least squares line have the same formulas as those we developed, <em>regardless of the shape of the scatter plot</em>.</p>
 <p>We saw this in the example about Little Women, but let’s confirm it in an example where the scatter plot clearly isn’t football shaped. For the data, we are once again indebted to the rich <a class="reference external" href="http://www.stat.ufl.edu/~winner/datasets.html">data archive of Prof. Larry Winner</a> of the University of Florida. A <a class="reference external" href="http://digitalcommons.wku.edu/ijes/vol6/iss2/10/">2013 study</a> in the International Journal of Exercise Science studied collegiate shot put athletes and examined the relation between strength and shot put distance. The population consists of 28 female collegiate athletes. Strength was measured by the the biggest amount (in kilograms) that the athlete lifted in the “1RM power clean” in the pre-season. The distance (in meters) was the athlete’s personal best.</p>
 <div class="cell tag_remove-input docutils container">
@@ -861,7 +862,7 @@
 </div>
 </div>
 <div class="section" id="nonlinear-regression">
-<h2><span class="section-number">13.4.1. </span>Nonlinear Regression<a class="headerlink" href="#nonlinear-regression" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">14.4.1. </span>Nonlinear Regression<a class="headerlink" href="#nonlinear-regression" title="Permalink to this headline">¶</a></h2>
 <p>The graph above reinforces our earlier observation that the scatter plot is a bit curved. So it is better to fit a curve than a straight line. The <a class="reference external" href="http://digitalcommons.wku.edu/ijes/vol6/iss2/10/">study</a> postulated a quadratic relation between the weight lifted and the shot put distance. So let’s use quadratic functions as our predictors and see if we can find the best one.</p>
 <p>We have to find the best quadratic function among all quadratic functions, instead of the best straight line among all straight lines. The method of least squares allows us to do this.</p>
 <p>The mathematics of this minimization is complicated and not easy to see just by examining the scatter plot. But numerical minimization is just as easy as it was with linear predictors! We can get the best quadratic predictor by once again using <code class="docutils literal notranslate"><span class="pre">minimize</span></code>. Let’s see how this works.</p>
@@ -963,8 +964,8 @@ f(x) ~=~ ax^2 + bx + c
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../3/Method_of_Least_Squares.html" title="previous page"><span class="section-number">13.3. </span>The Method of Least Squares</a>
-    <a class='right-next' id="next-link" href="../5/Visual_Diagnostics.html" title="next page"><span class="section-number">13.5. </span>Visual Diagnostics</a>
+    <a class='left-prev' id="prev-link" href="../3/Method_of_Least_Squares.html" title="previous page"><span class="section-number">14.3. </span>The Method of Least Squares</a>
+    <a class='right-next' id="next-link" href="../5/Visual_Diagnostics.html" title="next page"><span class="section-number">14.5. </span>Visual Diagnostics</a>
 
         </div>
         
