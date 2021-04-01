@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4.1.1.3. Applied Linear Algebra &#8212; Quantitative Investing</title>
+    <title>4.1.3. Applied Linear Algebra &#8212; Quantitative Investing</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -59,8 +59,8 @@
     <link rel="shortcut icon" href="../../_static/figuremain.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="4.1.1.4. Randomness" href="randomness1.html" />
-    <link rel="prev" title="4.1.1.2. Plotting" href="plotting1.html" />
+    <link rel="next" title="4.1.4. Randomness" href="randomness1.html" />
+    <link rel="prev" title="4.1.2. Plotting" href="plotting1.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -236,22 +236,22 @@
     <ul class="current collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="numpy1.html">
-       4.1.1.1. Numpy
+       4.1.1. Numpy
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="plotting1.html">
-       4.1.1.2. Plotting
+       4.1.2. Plotting
       </a>
      </li>
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
-       4.1.1.3. Linear algebra
+       4.1.3. Linear algebra
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="randomness1.html">
-       4.1.1.4. Randomness
+       4.1.4. Randomness
       </a>
      </li>
     </ul>
@@ -628,42 +628,42 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#outline">
-   4.1.1.3.1. Outline
+   4.1.3.1. Outline
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#vectors-and-matrices">
-   4.1.1.3.2. Vectors and Matrices
+   4.1.3.2. Vectors and Matrices
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#vectors">
-     4.1.1.3.2.1. Vectors
+     4.1.3.2.1. Vectors
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#matrices">
-     4.1.1.3.2.2. Matrices
+     4.1.3.2.2. Matrices
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#other-linear-algebra-concepts">
-     4.1.1.3.2.3. Other Linear Algebra Concepts
+     4.1.3.2.3. Other Linear Algebra Concepts
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#transpose">
-       4.1.1.3.2.3.1. Transpose
+       4.1.3.2.3.1. Transpose
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#identity-matrix">
-       4.1.1.3.2.3.2. Identity Matrix
+       4.1.3.2.3.2. Identity Matrix
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#inverse">
-       4.1.1.3.2.3.3. Inverse
+       4.1.3.2.3.3. Inverse
       </a>
      </li>
     </ul>
@@ -672,29 +672,29 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#portfolios">
-   4.1.1.3.3. Portfolios
+   4.1.3.3. Portfolios
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#static-payoffs">
-     4.1.1.3.3.1. Static Payoffs
+     4.1.3.3.1. Static Payoffs
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#npv-of-a-portfolio">
-     4.1.1.3.3.2. NPV of a Portfolio
+     4.1.3.3.2. NPV of a Portfolio
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#unemployment-dynamics">
-     4.1.1.3.3.3. Unemployment Dynamics
+     4.1.3.3.3. Unemployment Dynamics
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   4.1.1.3.4. Exercises
+   4.1.3.4. Exercises
   </a>
  </li>
 </ul>
@@ -710,7 +710,7 @@
               <div>
                 
   <div class="section" id="applied-linear-algebra">
-<h1><span class="section-number">4.1.1.3. </span>Applied Linear Algebra<a class="headerlink" href="#applied-linear-algebra" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">4.1.3. </span>Applied Linear Algebra<a class="headerlink" href="#applied-linear-algebra" title="Permalink to this headline">¶</a></h1>
 <p><strong>Prerequisites</strong></p>
 <ul class="simple">
 <li><p><span class="xref myst">Introduction to Numpy</span></p></li>
@@ -722,7 +722,7 @@
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">numpy</span></code> to do linear algebra operations</p></li>
 </ul>
 <div class="section" id="outline">
-<h2><span class="section-number">4.1.1.3.1. </span>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.3.1. </span>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="#Applied-Linear-Algebra">Applied Linear Algebra</a></p>
 <ul>
@@ -756,9 +756,9 @@
 </div>
 </div>
 <div class="section" id="vectors-and-matrices">
-<h2><span class="section-number">4.1.1.3.2. </span>Vectors and Matrices<a class="headerlink" href="#vectors-and-matrices" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.3.2. </span>Vectors and Matrices<a class="headerlink" href="#vectors-and-matrices" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="vectors">
-<h3><span class="section-number">4.1.1.3.2.1. </span>Vectors<a class="headerlink" href="#vectors" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.3.2.1. </span>Vectors<a class="headerlink" href="#vectors" title="Permalink to this headline">¶</a></h3>
 <p>A (N-element) vector is <span class="math notranslate nohighlight">\( N \)</span> numbers stored together.</p>
 <p>We typically write a vector as <span class="math notranslate nohighlight">\( x = \begin{bmatrix} x_1 \\ x_2 \\ \dots \\ x_N \end{bmatrix} \)</span>.</p>
 <p>In numpy terms, a vector is a 1-dimensional array.</p>
@@ -876,7 +876,7 @@ equal to <span class="math notranslate nohighlight">\( \sum_{i=1}^N x_i y_i \)</
 </div>
 </div>
 <div class="section" id="matrices">
-<h3><span class="section-number">4.1.1.3.2.2. </span>Matrices<a class="headerlink" href="#matrices" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.3.2.2. </span>Matrices<a class="headerlink" href="#matrices" title="Permalink to this headline">¶</a></h3>
 <p>An <span class="math notranslate nohighlight">\( N \times M \)</span> matrix can be thought of as a collection of M
 N-element vectors stacked side-by-side as columns.</p>
 <p>We write a matrix as</p>
@@ -1035,9 +1035,9 @@ it is simplest to read and write.</p>
 </div></blockquote>
 </div>
 <div class="section" id="other-linear-algebra-concepts">
-<h3><span class="section-number">4.1.1.3.2.3. </span>Other Linear Algebra Concepts<a class="headerlink" href="#other-linear-algebra-concepts" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.3.2.3. </span>Other Linear Algebra Concepts<a class="headerlink" href="#other-linear-algebra-concepts" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="transpose">
-<h4><span class="section-number">4.1.1.3.2.3.1. </span>Transpose<a class="headerlink" href="#transpose" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.1.3.2.3.1. </span>Transpose<a class="headerlink" href="#transpose" title="Permalink to this headline">¶</a></h4>
 <p>A matrix transpose is an operation that flips all elements of a matrix along the diagonal.</p>
 <p>More formally, the <span class="math notranslate nohighlight">\( (i, j) \)</span> element of <span class="math notranslate nohighlight">\( x \)</span> becomes the <span class="math notranslate nohighlight">\( (j, i) \)</span> element of
 <span class="math notranslate nohighlight">\( x^T \)</span>.</p>
@@ -1078,7 +1078,7 @@ x = \begin{bmatrix} 1 &amp; 4 &amp; 7 \\
 </div>
 </div>
 <div class="section" id="identity-matrix">
-<h4><span class="section-number">4.1.1.3.2.3.2. </span>Identity Matrix<a class="headerlink" href="#identity-matrix" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.1.3.2.3.2. </span>Identity Matrix<a class="headerlink" href="#identity-matrix" title="Permalink to this headline">¶</a></h4>
 <p>In linear algebra, one particular matrix acts very similarly to how 1 behaves for scalar numbers.</p>
 <p>This matrix is known as the <em>identity matrix</em> and is given by</p>
 <div class="math notranslate nohighlight">
@@ -1125,7 +1125,7 @@ y @ I
 </div>
 </div>
 <div class="section" id="inverse">
-<h4><span class="section-number">4.1.1.3.2.3.3. </span>Inverse<a class="headerlink" href="#inverse" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.1.3.2.3.3. </span>Inverse<a class="headerlink" href="#inverse" title="Permalink to this headline">¶</a></h4>
 <p>If you recall, you learned in your primary education about solving equations for certain variables.</p>
 <p>For example, you might have been given the equation</p>
 <div class="math notranslate nohighlight">
@@ -1194,14 +1194,14 @@ Check that A @ A inverse is I
 </div>
 </div>
 <div class="section" id="portfolios">
-<h2><span class="section-number">4.1.1.3.3. </span>Portfolios<a class="headerlink" href="#portfolios" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.3.3. </span>Portfolios<a class="headerlink" href="#portfolios" title="Permalink to this headline">¶</a></h2>
 <p>In <span class="xref myst">control flow</span>, we learned to value a stream of payoffs from a single
 asset.</p>
 <p>In this section, we generalize this to value a portfolio of multiple assets, or an asset
 that has easily separable components.</p>
 <p>Vectors and inner products give us a convenient way to organize and calculate these payoffs.</p>
 <div class="section" id="static-payoffs">
-<h3><span class="section-number">4.1.1.3.3.1. </span>Static Payoffs<a class="headerlink" href="#static-payoffs" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.3.3.1. </span>Static Payoffs<a class="headerlink" href="#static-payoffs" title="Permalink to this headline">¶</a></h3>
 <p>As an example, consider a portfolio with 4 units of asset A, 2.5 units of asset B, and 8 units of
 asset C.</p>
 <p>At a particular point in time, the assets pay <span class="math notranslate nohighlight">\( 3 \)</span>/unit of asset A, <span class="math notranslate nohighlight">\( 5 \)</span>/unit of B, and
@@ -1292,7 +1292,7 @@ Calculating with matrices
 </div>
 </div>
 <div class="section" id="npv-of-a-portfolio">
-<h3><span class="section-number">4.1.1.3.3.2. </span>NPV of a Portfolio<a class="headerlink" href="#npv-of-a-portfolio" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.3.3.2. </span>NPV of a Portfolio<a class="headerlink" href="#npv-of-a-portfolio" title="Permalink to this headline">¶</a></h3>
 <p>If a set of assets has payoffs over time, we can calculate the NPV of that portfolio in a similar way to the calculation in
 <a class="reference external" href="../python_fundamentals/control_flow.ipynb#npv">Net Present Value</a>.</p>
 <p>First, consider an example with an asset with claims to multiple streams of payoffs which are easily
@@ -1469,7 +1469,7 @@ complicated <code class="docutils literal notranslate"><span class="pre">A</span
 linear state-space models with Python <a class="reference external" href="https://lectures.quantecon.org/py/linear_models.html">https://lectures.quantecon.org/py/linear_models.html</a>).</p>
 </div>
 <div class="section" id="unemployment-dynamics">
-<h3><span class="section-number">4.1.1.3.3.3. </span>Unemployment Dynamics<a class="headerlink" href="#unemployment-dynamics" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.3.3.3. </span>Unemployment Dynamics<a class="headerlink" href="#unemployment-dynamics" title="Permalink to this headline">¶</a></h3>
 <p>Consider an economy where in any given year, <span class="math notranslate nohighlight">\( \alpha = 5\% \)</span> of workers lose their jobs and
 <span class="math notranslate nohighlight">\( \phi = 10\% \)</span> of unemployed workers find jobs.</p>
 <p>Define the vector <span class="math notranslate nohighlight">\( x_0 = \begin{bmatrix} 900,000 &amp; 100,000 \end{bmatrix} \)</span> as the number of
@@ -1607,7 +1607,7 @@ of <span class="math notranslate nohighlight">\( A' \)</span>, corresponding to 
 </div>
 </div>
 <div class="section" id="exercises">
-<h2><span class="section-number">4.1.1.3.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.3.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <p><a id='exerciselist-0'></a>
 <strong>Exercise 1</strong></p>
 <p>Alice is a stock broker who owns two types of assets: A and B. She owns 100
@@ -1680,8 +1680,8 @@ create errors because of size issues?</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="plotting1.html" title="previous page"><span class="section-number">4.1.1.2. </span>Plotting</a>
-    <a class='right-next' id="next-link" href="randomness1.html" title="next page"><span class="section-number">4.1.1.4. </span>Randomness</a>
+    <a class='left-prev' id="prev-link" href="plotting1.html" title="previous page"><span class="section-number">4.1.2. </span>Plotting</a>
+    <a class='right-next' id="next-link" href="randomness1.html" title="next page"><span class="section-number">4.1.4. </span>Randomness</a>
 
         </div>
         
