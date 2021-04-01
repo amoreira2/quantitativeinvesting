@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>10. Testing Hypotheses &#8212; Quantitative Investing</title>
+    <title>1.2. Computational Tools &#8212; Quantitative Investing</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -53,22 +53,22 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://amoreira2.github.io/quantitativeinvesting/chapters/11/Testing_Hypotheses.html" />
+    <link rel="canonical" href="https://amoreira2.github.io/quantitativeinvesting/chapters/01/computational-tools.html" />
     <link rel="shortcut icon" href="../../_static/figuremain.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="10.1. Assessing Models" href="1/Assessing_Models.html" />
-    <link rel="prev" title="9.3. Empirical Distribution of a Statistic" href="../10/3/Empirical_Distribution_of_a_Statistic.html" />
+    <link rel="next" title="2. Getting Started" href="../02/getting_started.html" />
+    <link rel="prev" title="1.1. Statistical Techniques" href="statistical-techniques.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="https://amoreira2.github.io/quantitativeinvesting/chapters/11/Testing_Hypotheses.html" />
+<meta property="og:url"         content="https://amoreira2.github.io/quantitativeinvesting/chapters/01/computational-tools.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Testing Hypotheses" />
-<meta property="og:description" content="Testing Hypotheses  Data scientists are often faced with yes-no questions about the world. You have seen some examples of such questions in this course:  Is cho" />
+<meta property="og:title"       content="Computational Tools" />
+<meta property="og:description" content="Computational Tools  This text uses the Python 3 programming language, along with a standard set of numerical and data visualization tools that are used widely " />
 <meta property="og:image"       content="https://amoreira2.github.io/quantitativeinvesting/_static/figuremain.jpg" />
 
 <meta name="twitter:card" content="summary" />
@@ -98,18 +98,18 @@
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <ul class="current nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../01/what-is-quant-investing.html">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="what-is-quant-investing.html">
    1. What is Quantitative Investing?
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../01/statistical-techniques.html">
+    <a class="reference internal" href="statistical-techniques.html">
      1.1. Statistical Techniques
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../01/computational-tools.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      1.2. Computational tools
     </a>
    </li>
@@ -338,28 +338,28 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 current active collapsible-parent">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../11/Testing_Hypotheses.html">
    10. Testing Hypotheses
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="1/Assessing_Models.html">
+    <a class="reference internal" href="../11/1/Assessing_Models.html">
      10.1. Assessing Models
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2/Multiple_Categories.html">
+    <a class="reference internal" href="../11/2/Multiple_Categories.html">
      10.2. Multiple Categories
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="3/Decisions_and_Uncertainty.html">
+    <a class="reference internal" href="../11/3/Decisions_and_Uncertainty.html">
      10.3. Decisions and Uncertainty
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="4/Error_Probabilities.html">
+    <a class="reference internal" href="../11/4/Error_Probabilities.html">
      10.4. Error Probabilities
     </a>
    </li>
@@ -620,9 +620,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/chapters/11/Testing_Hypotheses.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/chapters/01/computational-tools.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -653,42 +653,31 @@
 
             <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/amoreira2/Lectures/main?urlpath=tree/chapters/11/Testing_Hypotheses.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        <a class="jupyterhub-button" href="https://pims.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https://github.com/amoreira2/Lectures/&urlpath=tree/Lectures/chapters/11/Testing_Hypotheses.ipynb&branch=main"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="../../_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/amoreira2/Lectures/blob/main/chapters/11/Testing_Hypotheses.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
         </div>
 
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-python">
+   1.2.1. Why Python?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-open-source">
+   1.2.2. Why Open Source?
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -697,18 +686,69 @@
         
               <div>
                 
-  <div class="section" id="testing-hypotheses">
-<h1><span class="section-number">10. </span>Testing Hypotheses<a class="headerlink" href="#testing-hypotheses" title="Permalink to this headline">¶</a></h1>
-<p>Data scientists are often faced with yes-no questions about the world. You have seen some examples of such questions in this course:</p>
+  <div class="section" id="computational-tools">
+<h1><span class="section-number">1.2. </span>Computational Tools<a class="headerlink" href="#computational-tools" title="Permalink to this headline">¶</a></h1>
+<p>This text uses the Python 3 programming language, along with a standard set of numerical and data visualization tools that are used widely in commercial applications, scientific experiments, and open-source projects. Python has recruited enthusiasts from many professions that use data to draw conclusions. By learning the Python language, you will join a million-person-strong community of software developers and data scientists.</p>
+<p>A programming language is, loosely speaking, a structured subset of natural language (words) and special characters (e.g. , or {) that allow humans to describe operations they would like their computer to perform on their behalf.</p>
+<p>The programming language translates these words and symbols into instructions the computer can execute.</p>
+<div class="section" id="why-python">
+<h2><span class="section-number">1.2.1. </span>Why Python?<a class="headerlink" href="#why-python" title="Permalink to this headline">¶</a></h2>
+<p>Among the hundreds of programming languages to choose from, we chose to teach you Python for the
+following reasons:</p>
 <ul class="simple">
-<li><p>Is chocolate good for you?</p></li>
-<li><p>Did water from the Broad Street pump cause cholera?</p></li>
-<li><p>Have the demographics in California changed over the past decade?</p></li>
+<li><p>Easy to learn and use (relative to other programming languages).</p></li>
+<li><p>Designed with readability in mind.</p></li>
+<li><p>Excellent tools for handling data efficiently and succinctly.</p></li>
+<li><p>Cemented as the world’s <a class="reference external" href="https://www.zdnet.com/article/programming-language-of-the-year-python-is-standout-in-latest-rankings/">third most popular</a>
+programming language, the most popular scripting language, and an increasing standard for
+<a class="reference external" href="https://medium.com/&#64;data_driven/python-vs-r-for-data-science-and-the-winner-is-3ebb1a968197">data analysis in industry</a>.</p></li>
+<li><p>General purpose: Initially you will learn Python for data analysis, but it
+can also used for websites, database management, web scraping, financial
+modeling, data visualization, etc.  In particular, it is the world’s best language for
+<a class="reference external" href="https://en.wikipedia.org/wiki/Glue_code">gluing</a>  those different pieces together.</p></li>
 </ul>
-<p>Whether we answer questions like these depends on the data we have. Census data about California can settle questions about demographics with hardly any uncertainty about the answer. We know that Broad Street pump water was contaminated by waste from cholera victims, so we can make a pretty good guess about whether it caused cholera.</p>
-<p>Whether chocolate or any other treatment is good for you will almost certainly have to be decided by medical experts, but an initial step consists of using data science to analyze data from studies and randomized experiments.</p>
-<p>In this chapter, we will try to answer such yes-no questions, basing our conclusions on random samples and empirical distributions.</p>
-<div class="toctree-wrapper compound">
+<p>However, the general purpose nature of Python comes at a cost: it is often said that Python is “the
+best language for nothing but the second best language for everything”.</p>
+<p>We aren’t sure this is true, but a more optimistic view of that quote is that Python is a great
+language to have in your toolbox to solve all sorts of problems and patch them together.</p>
+<p>A versatile “second-best” language might be the best one to learn first.</p>
+<p>Some other languages to consider:</p>
+<ul class="simple">
+<li><p>R has an impressive ecosystem of statistical packages, and is defensible as a choice for pure
+data science. It could be a useful second language to learn for projects that are entirely
+statistical.</p></li>
+<li><p>Matlab has much more natural notation for writing linear algebra heavy code.  However, it is:
+(a) expensive; (b) poor at dealing with data analysis; (c) grossly inferior to Python as a
+language; and (d) being left behind as Python and Julia ecosystems expand to more packages.</p></li>
+<li><p>Julia is in part a far better version of Matlab, which can be as fast as Fortran or C.  However,
+it has a young and immature environment and is currently more appropriate for academics and
+scientific computing specialists.</p></li>
+</ul>
+<p>Another consideration for programming language choice is runtime performance. On this dimension,
+Python, R, and Matlab can be slow for certain types of tasks.</p>
+<p>Luckily, this will not be an issue for data science and the types of analysis we will do in this
+course, because most of the data analytics packages in Python (and R) rely on high-performance
+code written in other languages in the background.</p>
+</div>
+<div class="section" id="why-open-source">
+<h2><span class="section-number">1.2.2. </span>Why Open Source?<a class="headerlink" href="#why-open-source" title="Permalink to this headline">¶</a></h2>
+<p>Software development has changed radically in the last decade, increasingly becoming a process of
+stitching together both established high quality libraries, and state-of-the-art research projects.</p>
+<p>A major disadvantage of Matlab, Stata, and other proprietary languages is that they are not
+open-source, and unable to work within this new paradigm.</p>
+<p>Forgetting the cost for a moment, the benefits of using an open-source language are pragmatic rather
+than ideological.</p>
+<ul class="simple">
+<li><p>Open source languages are easier for everyone in the world to write and share packages because
+the code is accessible and available.</p></li>
+<li><p>With the right kinds of open source licenses; academics, businesses, and hobbyists all have
+incentives to contribute.</p></li>
+<li><p>Because open-source languages are managed on publicly accessible sites (e.g. GitHub), it is
+easier to build a community and collaborate.</p></li>
+<li><p>Package management systems (i.e. a way to find, download, install, and upgrade packages) in
+open-source languages can be very open and accessible since they don’t need to deal with
+proprietary software licenses.</p></li>
+</ul>
 </div>
 </div>
 
@@ -725,7 +765,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./chapters/11"
+            path: "./chapters/01"
         },
         predefinedOutput: true
     }
@@ -737,8 +777,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../10/3/Empirical_Distribution_of_a_Statistic.html" title="previous page"><span class="section-number">9.3. </span>Empirical Distribution of a Statistic</a>
-    <a class='right-next' id="next-link" href="1/Assessing_Models.html" title="next page"><span class="section-number">10.1. </span>Assessing Models</a>
+    <a class='left-prev' id="prev-link" href="statistical-techniques.html" title="previous page"><span class="section-number">1.1. </span>Statistical Techniques</a>
+    <a class='right-next' id="next-link" href="../02/getting_started.html" title="next page"><span class="section-number">2. </span>Getting Started</a>
 
         </div>
         
