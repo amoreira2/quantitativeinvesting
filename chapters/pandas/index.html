@@ -1,0 +1,812 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pandas &#8212; Quantitative Investing</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/book.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://amoreira2.github.io/quantitativeinvesting/chapters/pandas/index.html" />
+    <link rel="shortcut icon" href="../../_static/figuremain.jpg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://amoreira2.github.io/quantitativeinvesting/chapters/pandas/index.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="pandas" />
+<meta property="og:description" content="pandas  This section of the workshop covers data ingestion, cleaning, manipulation, analysis, and visualization in Python.  We build on the skills learned in th" />
+<meta property="og:image"       content="https://amoreira2.github.io/quantitativeinvesting/_static/figuremain.jpg" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/figuremain.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Quantitative Investing</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../01/what-is-quant-investing.html">
+   1. What is Quantitative Investing?
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/statistical-techniques.html">
+     1.1. Statistical Techniques
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/computational-tools.html">
+     1.2. Computational tools
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/Finance.html">
+     1.3. Finance
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../02/getting_started.html">
+   2. Getting Started
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/local_install.html">
+     2.2.1. Local installation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/cloud_setup.html">
+     2.2.2. Cloud Setup
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../03/programming-in-python.html">
+   3. First Steps with Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/1/Expressions.html">
+     3.1. Expressions
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../03/2/Names.html">
+     3.2. Names
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/2/1/Growth.html">
+       3.2.1. Example: Growth Rates
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/3/Calls.html">
+     3.3. Call Expressions
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../04/Data_Types.html">
+     3.4. Data Types
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/1/Numbers.html">
+       3.4.1. Numbers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/2/Strings.html">
+       3.4.2. Strings
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/3/Comparison.html">
+       3.4.3. Comparisons
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../05/Sequences.html">
+     3.5. Sequences
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05/1/Arrays.html">
+       3.5.1. Arrays
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05/2/Ranges.html">
+       3.5.2. Ranges
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05/3/More_on_Arrays.html">
+       3.5.3. More on Arrays
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../essentials/essentials.html">
+   4. Python Essentials
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../essentials/basics.html">
+     4.1. Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../essentials/collections.html">
+     4.2. Collections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../essentials/control_flow.html">
+     4.3. Flow control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../essentials/functions.html">
+     4.4. Functions
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="intro.html">
+   5. Working with Data
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="basics.html">
+     5.7.1. Pandas Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="the_index.html">
+     5.7.2. Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data_clean.html">
+     5.7.3. Cleaning data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="reshape.html">
+     5.7.4. Reshape
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="merge.html">
+     5.7.5. Merge
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="groupby.html">
+     5.7.6. Group-by
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="timeseries.html">
+     5.7.7. Time-Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="matplotlib.html">
+     5.7.8. Plotting
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../additional/additional.html">
+   6. Additional Statistics Material
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../10/Sampling_and_Empirical_Distributions.html">
+     6.1. Sampling and Empirical Distributions
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../10/1/Empirical_Distributions.html">
+       6.1.1. Empirical Distributions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../10/2/Sampling_from_a_Population.html">
+       6.1.2. Sampling from a Population
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../10/3/Empirical_Distribution_of_a_Statistic.html">
+       6.1.3. Empirical Distibution of a Statistic
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../11/Testing_Hypotheses.html">
+     6.2. Testing Hypotheses
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../11/1/Assessing_Models.html">
+       6.2.1. Assessing Models
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../11/2/Multiple_Categories.html">
+       6.2.2. Multiple Categories
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../11/3/Decisions_and_Uncertainty.html">
+       6.2.3. Decisions and Uncertainty
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../11/4/Error_Probabilities.html">
+       6.2.4. Error Probabilities
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../13/Estimation.html">
+     6.3. Estimation
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13/1/Percentiles.html">
+       6.3.1. Percentiles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13/2/Bootstrap.html">
+       6.3.2. The Bootstrap
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13/3/Confidence_Intervals.html">
+       6.3.3. Confidence Intervals
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13/4/Using_Confidence_Intervals.html">
+       6.3.4. Using Confidence Intervals
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../14/Why_the_Mean_Matters.html">
+     6.4. Why the Mean Matters
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/1/Properties_of_the_Mean.html">
+       6.4.1. Properties of the Mean
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/2/Variability.html">
+       6.4.2. Variability
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/3/SD_and_the_Normal_Curve.html">
+       6.4.3. The SD and the Normal Curve
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/4/Central_Limit_Theorem.html">
+       6.4.4. The Central Limit Theorem
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/5/Variability_of_the_Sample_Mean.html">
+       6.4.5. The Variability of the Sample Mean
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/6/Choosing_a_Sample_Size.html">
+       6.4.6. Choosing a Sample Size
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../15/Prediction.html">
+     6.5. Prediction
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/1/Correlation.html">
+       6.5.1. Correlation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/2/Regression_Line.html">
+       6.5.2. The Regression Line
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/3/Method_of_Least_Squares.html">
+       6.5.3. The Method of Least Squares
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/4/Least_Squares_Regression.html">
+       6.5.4. Least Squares Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/5/Visual_Diagnostics.html">
+       6.5.5. Visual Diagnostics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/6/Numerical_Diagnostics.html">
+       6.5.6. Numerical Diagnostics
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../16/Inference_for_Regression.html">
+     6.6. Inference for Regression
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../16/1/Regression_Model.html">
+       6.6.1. A Regression Model
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../16/2/Inference_for_the_True_Slope.html">
+       6.6.2. Inference for the True Slope
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../16/3/Prediction_Intervals.html">
+       6.6.3. Prediction Intervals
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/chapters/pandas/index.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/amoreira2/Lectures/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/amoreira2/Lectures/main?urlpath=tree/chapters/pandas/index.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://pims.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https://github.com/amoreira2/Lectures/&urlpath=tree/Lectures/chapters/pandas/index.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/amoreira2/Lectures/blob/main/chapters/pandas/index.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="pandas">
+<h1>pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h1>
+<p>This section of the workshop covers data ingestion, cleaning,
+manipulation, analysis, and visualization in Python.</p>
+<p>We build on the skills learned in the <span class="xref myst">Python
+fundamentals</span> section and teach the
+<a class="reference external" href="https://pandas.pydata.org">pandas</a> library.</p>
+<p>At the end of this section, you will be able to:</p>
+<ul class="simple">
+<li><p>Access data stored in a variety of formats</p></li>
+<li><p>Combine multiple datasets based on observations that link them
+together</p></li>
+<li><p>Perform custom operations on tables of data</p></li>
+<li><p>Use the split-apply-combine method for analyzing sub-groups of data</p></li>
+<li><p>Automate static analysis on changing data</p></li>
+<li><p>Produce publication quality visualizations</p></li>
+</ul>
+<p>In the end, our goal with this section is to provide you the
+necessary skills to – at a minimum – <strong>immediately</strong> replicate your current
+data analysis workflow in Python with no loss of total (computer +
+human) time.</p>
+<p>This is a lower bound on the benefits you should expect to receive by
+studying this section.</p>
+<p>The expression “practice makes perfect” is especially true here.</p>
+<p>As you work with these tools, both the time to write and the time to run
+your programs will fall dramatically.</p>
+<div class="toctree">
+<ul class="simple">
+<li><p><a class="reference internal" href="intro.html"><span class="doc std std-doc">Introduction</span></a></p>
+<ul>
+<li><p><a class="reference external" href="intro.ipynb#pandas">pandas</a></p></li>
+<li><p><a class="reference external" href="intro.ipynb#series">Series</a></p></li>
+<li><p><a class="reference external" href="intro.ipynb#dataframe">DataFrame</a></p></li>
+<li><p><a class="reference external" href="intro.ipynb#data-types">Data Types</a></p></li>
+<li><p><a class="reference external" href="intro.ipynb#changing-dataframes">Changing DataFrames</a></p></li>
+<li><p><a class="reference external" href="intro.ipynb#exercises">Exercises</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="basics.html"><span class="doc std std-doc">Basic Functionality</span></a></p>
+<ul>
+<li><p><a class="reference external" href="basics.ipynb#state-unemployment-data">State Unemployment Data</a></p></li>
+<li><p><a class="reference external" href="basics.ipynb#dates-in-pandas">Dates in pandas</a></p></li>
+<li><p><a class="reference external" href="basics.ipynb#dataframe-aggregations">DataFrame Aggregations</a></p></li>
+<li><p><a class="reference external" href="basics.ipynb#transforms">Transforms</a></p></li>
+<li><p><a class="reference external" href="basics.ipynb#boolean-selection">Boolean Selection</a></p></li>
+<li><p><a class="reference external" href="basics.ipynb#exercises">Exercises</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="the_index.html"><span class="doc std std-doc">The Index</span></a></p>
+<ul>
+<li><p><a class="reference external" href="the_index.ipynb#so-what-is-this-index">So What is this Index?</a></p></li>
+<li><p><a class="reference external" href="the_index.ipynb#setting-the-index">Setting the Index</a></p></li>
+<li><p><a class="reference external" href="the_index.ipynb#re-setting-the-index">Re-setting the Index</a></p></li>
+<li><p><a class="reference external" href="the_index.ipynb#choose-the-index-carefully">Choose the Index Carefully</a></p></li>
+<li><p><a class="reference external" href="the_index.ipynb#exercises">Exercises</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="storage_formats.html"><span class="doc std std-doc">Storage Formats</span></a></p>
+<ul>
+<li><p><a class="reference external" href="storage_formats.ipynb#file-formats">File Formats</a></p></li>
+<li><p><a class="reference external" href="storage_formats.ipynb#writing-dataframes">Writing DataFrames</a></p></li>
+<li><p><a class="reference external" href="storage_formats.ipynb#reading-files-into-dataframes">Reading Files into DataFrames</a></p></li>
+<li><p><a class="reference external" href="storage_formats.ipynb#practice">Practice</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="data_clean.html"><span class="doc std std-doc">Cleaning Data</span></a></p>
+<ul>
+<li><p><a class="reference external" href="data_clean.ipynb#id1">Cleaning Data</a></p></li>
+<li><p><a class="reference external" href="data_clean.ipynb#string-methods">String Methods</a></p></li>
+<li><p><a class="reference external" href="data_clean.ipynb#type-conversions">Type Conversions</a></p></li>
+<li><p><a class="reference external" href="data_clean.ipynb#missing-data">Missing Data</a></p></li>
+<li><p><a class="reference external" href="data_clean.ipynb#case-study">Case Study</a></p></li>
+<li><p><a class="reference external" href="data_clean.ipynb#appendix-performance-of-str-methods">Appendix: Performance of <code class="docutils literal notranslate"><span class="pre">.str</span></code> Methods</a></p></li>
+<li><p><a class="reference external" href="data_clean.ipynb#exercises">Exercises</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="reshape.html"><span class="doc std std-doc">Reshape</span></a></p>
+<ul>
+<li><p><a class="reference external" href="reshape.ipynb#tidy-data">Tidy Data</a></p></li>
+<li><p><a class="reference external" href="reshape.ipynb#reshaping-your-data">Reshaping your Data</a></p></li>
+<li><p><a class="reference external" href="reshape.ipynb#long-vs-wide">Long vs Wide</a></p></li>
+<li><p><a class="reference external" href="reshape.ipynb#set-index-reset-index-and-transpose"><code class="docutils literal notranslate"><span class="pre">set_index</span></code>, <code class="docutils literal notranslate"><span class="pre">reset_index</span></code>, and Transpose</a></p></li>
+<li><p><a class="reference external" href="reshape.ipynb#stack-and-unstack"><code class="docutils literal notranslate"><span class="pre">stack</span></code> and <code class="docutils literal notranslate"><span class="pre">unstack</span></code></a></p></li>
+<li><p><a class="reference external" href="reshape.ipynb#melt"><code class="docutils literal notranslate"><span class="pre">melt</span></code></a></p></li>
+<li><p><a class="reference external" href="reshape.ipynb#pivot-and-pivot-table"><code class="docutils literal notranslate"><span class="pre">pivot</span></code> and <code class="docutils literal notranslate"><span class="pre">pivot_table</span></code></a></p></li>
+<li><p><a class="reference external" href="reshape.ipynb#visualizing-reshaping">Visualizing Reshaping</a></p></li>
+<li><p><a class="reference external" href="reshape.ipynb#exercises">Exercises</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="merge.html"><span class="doc std std-doc">Merge</span></a></p>
+<ul>
+<li><p><a class="reference external" href="merge.ipynb#combining-datasets">Combining Datasets</a></p></li>
+<li><p><a class="reference external" href="merge.ipynb#pd-concat"><code class="docutils literal notranslate"><span class="pre">pd.concat</span></code></a></p></li>
+<li><p><a class="reference external" href="merge.ipynb#pd-merge"><code class="docutils literal notranslate"><span class="pre">pd.merge</span></code></a></p></li>
+<li><p><a class="reference external" href="merge.ipynb#arguments-to-merge">Arguments to <code class="docutils literal notranslate"><span class="pre">merge</span></code></a></p></li>
+<li><p><a class="reference external" href="merge.ipynb#df-join"><code class="docutils literal notranslate"><span class="pre">df.join</span></code></a></p></li>
+<li><p><a class="reference external" href="merge.ipynb#case-study">Case Study</a></p></li>
+<li><p><a class="reference external" href="merge.ipynb#extra-example-airline-delays">Extra Example: Airline Delays</a></p></li>
+<li><p><a class="reference external" href="merge.ipynb#visualizing-merge-operations">Visualizing Merge Operations</a></p></li>
+<li><p><a class="reference external" href="merge.ipynb#exercises">Exercises</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="groupby.html"><span class="doc std std-doc">GroupBy</span></a></p>
+<ul>
+<li><p><a class="reference external" href="groupby.ipynb#split-apply-combine">Split-Apply-Combine</a></p></li>
+<li><p><a class="reference external" href="groupby.ipynb#case-study-airline-delays">Case Study: Airline Delays</a></p></li>
+<li><p><a class="reference external" href="groupby.ipynb#exercise-cohort-analysis-using-shopify-data">Exercise: Cohort Analysis using Shopify Data</a></p></li>
+<li><p><a class="reference external" href="groupby.ipynb#exercises">Exercises</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="timeseries.html"><span class="doc std std-doc">Time series</span></a></p>
+<ul>
+<li><p><a class="reference external" href="timeseries.ipynb#intro">Intro</a></p></li>
+<li><p><a class="reference external" href="timeseries.ipynb#parsing-strings-as-dates">Parsing Strings as Dates</a></p></li>
+<li><p><a class="reference external" href="timeseries.ipynb#date-formatting">Date Formatting</a></p></li>
+<li><p><a class="reference external" href="timeseries.ipynb#extracting-data">Extracting Data</a></p></li>
+<li><p><a class="reference external" href="timeseries.ipynb#accessing-date-properties">Accessing Date Properties</a></p></li>
+<li><p><a class="reference external" href="timeseries.ipynb#leads-and-lags-df-shift">Leads and Lags: <code class="docutils literal notranslate"><span class="pre">df.shift</span></code></a></p></li>
+<li><p><a class="reference external" href="timeseries.ipynb#rolling-computations-rolling">Rolling Computations: <code class="docutils literal notranslate"><span class="pre">.rolling</span></code></a></p></li>
+<li><p><a class="reference external" href="timeseries.ipynb#changing-frequencies-resample">Changing Frequencies: <code class="docutils literal notranslate"><span class="pre">.resample</span></code></a></p></li>
+<li><p><a class="reference external" href="timeseries.ipynb#optional-api-keys">Optional: API keys</a></p></li>
+<li><p><a class="reference external" href="timeseries.ipynb#exercises">Exercises</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="matplotlib.html"><span class="doc std std-doc">Intermediate Plotting</span></a></p>
+<ul>
+<li><p><a class="reference external" href="matplotlib.ipynb#introduction">Introduction</a></p></li>
+<li><p><a class="reference external" href="matplotlib.ipynb#the-want-operator-replicate-a-professional-figure">The Want Operator: Replicate a Professional Figure</a></p></li>
+<li><p><a class="reference external" href="matplotlib.ipynb#data">Data</a></p></li>
+<li><p><a class="reference external" href="matplotlib.ipynb#warmup">Warmup</a></p></li>
+<li><p><a class="reference external" href="matplotlib.ipynb#data-cleaning">Data Cleaning</a></p></li>
+<li><p><a class="reference external" href="matplotlib.ipynb#constructing-the-plot">Constructing the Plot</a></p></li>
+<li><p><a class="reference external" href="matplotlib.ipynb#saving-the-figure">Saving the Figure</a></p></li>
+<li><p><a class="reference external" href="matplotlib.ipynb#exercises">Exercises</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "amoreira2/Lectures",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Alan Moreira<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-148221575-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>
