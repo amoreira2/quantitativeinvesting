@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5.7.6. GroupBy &#8212; Quantitative Investing</title>
+    <title>4.2.7.6. GroupBy &#8212; Quantitative Investing</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -48,17 +48,17 @@
     <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://amoreira2.github.io/quantitativeinvesting/chapters/pandas/groupby.html" />
     <link rel="shortcut icon" href="../../_static/figuremain.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="5.7.7. Time series" href="timeseries.html" />
-    <link rel="prev" title="5.7.5. Merge" href="merge.html" />
+    <link rel="next" title="4.2.7.7. Time series" href="timeseries.html" />
+    <link rel="prev" title="4.2.7.5. Merge" href="merge.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -222,79 +222,93 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../essentials/essentials.html">
-   4. Python Essentials
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../essentials/basics.html">
-     4.1. Basics
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../essentials/collections.html">
-     4.2. Collections
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../essentials/control_flow.html">
-     4.3. Flow control
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../essentials/functions.html">
-     4.4. Functions
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
  <li class="toctree-l1 current active collapsible-parent">
-  <a class="reference internal" href="intro.html">
-   5. Working with Data
+  <a class="reference internal" href="../essentials/essentials.html">
+   4. Python
   </a>
   <ul class="current collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="basics.html">
-     5.7.1. Pandas Basics
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../scientific/intro.html">
+     4.1. Scientific Computing
     </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../scientific/numpy1.html">
+       4.1.1.1. Numpy
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../scientific/plotting1.html">
+       4.1.1.2. Plotting
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../scientific/linear_algebra1.html">
+       4.1.1.3. Linear algebra
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../scientific/randomness1.html">
+       4.1.1.4. Randomness
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="the_index.html">
-     5.7.2. Indexing
+   <li class="toctree-l2 current active collapsible-parent">
+    <a class="reference internal" href="intro.html">
+     4.2. Working with Data
     </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="data_clean.html">
-     5.7.3. Cleaning data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="reshape.html">
-     5.7.4. Reshape
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="merge.html">
-     5.7.5. Merge
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     5.7.6. Group-by
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="timeseries.html">
-     5.7.7. Time-Series
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="matplotlib.html">
-     5.7.8. Plotting
-    </a>
+    <ul class="current collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="basics.html">
+       4.2.7.1. Pandas Basics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="the_index.html">
+       4.2.7.2. Indexing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="data_clean.html">
+       4.2.7.3. Cleaning data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="reshape.html">
+       4.2.7.4. Reshape
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="merge.html">
+       4.2.7.5. Merge
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       4.2.7.6. Group-by
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="timeseries.html">
+       4.2.7.7. Time-Series
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib.html">
+       4.2.7.8. Plotting
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="storage_formats.html">
+       4.2.7.9. Data Storage
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
    </li>
   </ul>
   <i class="fas fa-chevron-down">
@@ -302,27 +316,27 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../additional/additional.html">
-   6. Additional Statistics Material
+   5. Additional Statistics Material
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../10/Sampling_and_Empirical_Distributions.html">
-     6.1. Sampling and Empirical Distributions
+     5.1. Sampling and Empirical Distributions
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../10/1/Empirical_Distributions.html">
-       6.1.1. Empirical Distributions
+       5.1.1. Empirical Distributions
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../10/2/Sampling_from_a_Population.html">
-       6.1.2. Sampling from a Population
+       5.1.2. Sampling from a Population
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../10/3/Empirical_Distribution_of_a_Statistic.html">
-       6.1.3. Empirical Distibution of a Statistic
+       5.1.3. Empirical Distibution of a Statistic
       </a>
      </li>
     </ul>
@@ -331,27 +345,27 @@
    </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../11/Testing_Hypotheses.html">
-     6.2. Testing Hypotheses
+     5.2. Testing Hypotheses
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../11/1/Assessing_Models.html">
-       6.2.1. Assessing Models
+       5.2.1. Assessing Models
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../11/2/Multiple_Categories.html">
-       6.2.2. Multiple Categories
+       5.2.2. Multiple Categories
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../11/3/Decisions_and_Uncertainty.html">
-       6.2.3. Decisions and Uncertainty
+       5.2.3. Decisions and Uncertainty
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../11/4/Error_Probabilities.html">
-       6.2.4. Error Probabilities
+       5.2.4. Error Probabilities
       </a>
      </li>
     </ul>
@@ -360,27 +374,27 @@
    </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../13/Estimation.html">
-     6.3. Estimation
+     5.3. Estimation
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../13/1/Percentiles.html">
-       6.3.1. Percentiles
+       5.3.1. Percentiles
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../13/2/Bootstrap.html">
-       6.3.2. The Bootstrap
+       5.3.2. The Bootstrap
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../13/3/Confidence_Intervals.html">
-       6.3.3. Confidence Intervals
+       5.3.3. Confidence Intervals
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../13/4/Using_Confidence_Intervals.html">
-       6.3.4. Using Confidence Intervals
+       5.3.4. Using Confidence Intervals
       </a>
      </li>
     </ul>
@@ -389,37 +403,37 @@
    </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../14/Why_the_Mean_Matters.html">
-     6.4. Why the Mean Matters
+     5.4. Why the Mean Matters
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../14/1/Properties_of_the_Mean.html">
-       6.4.1. Properties of the Mean
+       5.4.1. Properties of the Mean
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../14/2/Variability.html">
-       6.4.2. Variability
+       5.4.2. Variability
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../14/3/SD_and_the_Normal_Curve.html">
-       6.4.3. The SD and the Normal Curve
+       5.4.3. The SD and the Normal Curve
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../14/4/Central_Limit_Theorem.html">
-       6.4.4. The Central Limit Theorem
+       5.4.4. The Central Limit Theorem
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../14/5/Variability_of_the_Sample_Mean.html">
-       6.4.5. The Variability of the Sample Mean
+       5.4.5. The Variability of the Sample Mean
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../14/6/Choosing_a_Sample_Size.html">
-       6.4.6. Choosing a Sample Size
+       5.4.6. Choosing a Sample Size
       </a>
      </li>
     </ul>
@@ -428,37 +442,37 @@
    </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../15/Prediction.html">
-     6.5. Prediction
+     5.5. Prediction
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../15/1/Correlation.html">
-       6.5.1. Correlation
+       5.5.1. Correlation
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../15/2/Regression_Line.html">
-       6.5.2. The Regression Line
+       5.5.2. The Regression Line
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../15/3/Method_of_Least_Squares.html">
-       6.5.3. The Method of Least Squares
+       5.5.3. The Method of Least Squares
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../15/4/Least_Squares_Regression.html">
-       6.5.4. Least Squares Regression
+       5.5.4. Least Squares Regression
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../15/5/Visual_Diagnostics.html">
-       6.5.5. Visual Diagnostics
+       5.5.5. Visual Diagnostics
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../15/6/Numerical_Diagnostics.html">
-       6.5.6. Numerical Diagnostics
+       5.5.6. Numerical Diagnostics
       </a>
      </li>
     </ul>
@@ -467,22 +481,22 @@
    </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../16/Inference_for_Regression.html">
-     6.6. Inference for Regression
+     5.6. Inference for Regression
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../16/1/Regression_Model.html">
-       6.6.1. A Regression Model
+       5.6.1. A Regression Model
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../16/2/Inference_for_the_True_Slope.html">
-       6.6.2. Inference for the True Slope
+       5.6.2. Inference for the True Slope
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../16/3/Prediction_Intervals.html">
-       6.6.3. Prediction Intervals
+       5.6.3. Prediction Intervals
       </a>
      </li>
     </ul>
@@ -549,11 +563,16 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/amoreira2/Lectures/"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/amoreira2/Lectures"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
-        
-        
+        <a class="issues-button"
+            href="https://github.com/amoreira2/Lectures/issues/new?title=Issue%20on%20page%20%2Fchapters/pandas/groupby.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/amoreira2/Lectures/edit/main/chapters/pandas/groupby.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
 </div>
 
@@ -578,7 +597,7 @@
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://pims.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https://github.com/amoreira2/Lectures/&urlpath=tree/Lectures/chapters/pandas/groupby.ipynb&branch=main"><button type="button"
+        <a class="jupyterhub-button" href="https://pims.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https://github.com/amoreira2/Lectures&urlpath=tree/Lectures/chapters/pandas/groupby.ipynb&branch=main"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
@@ -590,9 +609,6 @@
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
         
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -610,27 +626,27 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#outline">
-   5.7.6.1. Outline
+   4.2.7.6.1. Outline
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#split-apply-combine">
-   5.7.6.2. Split-Apply-Combine
+   4.2.7.6.2. Split-Apply-Combine
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#simple-example">
-     5.7.6.2.1. Simple Example
+     4.2.7.6.2.1. Simple Example
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#custom-aggregate-functions">
-     5.7.6.2.2. Custom Aggregate Functions
+     4.2.7.6.2.2. Custom Aggregate Functions
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#transforms-the-apply-method">
-     5.7.6.2.3. Transforms: The
+     4.2.7.6.2.3. Transforms: The
      <code class="docutils literal notranslate">
       <span class="pre">
        apply
@@ -641,7 +657,7 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pd-grouper">
-     5.7.6.2.4.
+     4.2.7.6.2.4.
      <code class="docutils literal notranslate">
       <span class="pre">
        pd.Grouper
@@ -653,24 +669,24 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#case-study-airline-delays">
-   5.7.6.3. Case Study: Airline Delays
+   4.2.7.6.3. Case Study: Airline Delays
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercise-cohort-analysis-using-shopify-data">
-   5.7.6.4. Exercise: Cohort Analysis using Shopify Data
+   4.2.7.6.4. Exercise: Cohort Analysis using Shopify Data
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#extended-exercise">
-     5.7.6.4.1. Extended Exercise
+     4.2.7.6.4.1. Extended Exercise
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   5.7.6.5. Exercises
+   4.2.7.6.5. Exercises
   </a>
  </li>
 </ul>
@@ -686,7 +702,7 @@
               <div>
                 
   <div class="section" id="groupby">
-<h1><span class="section-number">5.7.6. </span>GroupBy<a class="headerlink" href="#groupby" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">4.2.7.6. </span>GroupBy<a class="headerlink" href="#groupby" title="Permalink to this headline">¶</a></h1>
 <p><strong>Prerequisites</strong></p>
 <ul class="simple">
 <li><p><span class="xref myst">Functions</span></p></li>
@@ -732,7 +748,7 @@ Statistics</a></p></li>
 </div>
 </div>
 <div class="section" id="outline">
-<h2><span class="section-number">5.7.6.1. </span>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.2.7.6.1. </span>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="#GroupBy">GroupBy</a></p>
 <ul>
@@ -745,7 +761,7 @@ Statistics</a></p></li>
 </ul>
 </div>
 <div class="section" id="split-apply-combine">
-<h2><span class="section-number">5.7.6.2. </span>Split-Apply-Combine<a class="headerlink" href="#split-apply-combine" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.2.7.6.2. </span>Split-Apply-Combine<a class="headerlink" href="#split-apply-combine" title="Permalink to this headline">¶</a></h2>
 <p>One powerful paradigm for analyzing data is the “Split-Apply-Combine”
 strategy.</p>
 <p>This strategy has three steps:</p>
@@ -841,7 +857,7 @@ then work through extended example and exercises with real data.</p>
 </div></div></div>
 </div>
 <div class="section" id="simple-example">
-<h3><span class="section-number">5.7.6.2.1. </span>Simple Example<a class="headerlink" href="#simple-example" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.7.6.2.1. </span>Simple Example<a class="headerlink" href="#simple-example" title="Permalink to this headline">¶</a></h3>
 <p>To perform the <em>Split</em> step, we call the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> method on our
 DataFrame.</p>
 <p>The first argument to <code class="docutils literal notranslate"><span class="pre">groupby</span></code> is a description of how we want to
@@ -1121,7 +1137,7 @@ with one index level per group key.</p>
 </div></blockquote>
 </div>
 <div class="section" id="custom-aggregate-functions">
-<h3><span class="section-number">5.7.6.2.2. </span>Custom Aggregate Functions<a class="headerlink" href="#custom-aggregate-functions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.7.6.2.2. </span>Custom Aggregate Functions<a class="headerlink" href="#custom-aggregate-functions" title="Permalink to this headline">¶</a></h3>
 <p>So far, we have been applying built-in aggregations to our GroupBy object.</p>
 <p>We can also apply custom aggregations to each group of a GroupBy in two
 steps:</p>
@@ -1214,7 +1230,7 @@ with one item per column in the original DataFrame.</p>
 our function as a DataFrame (or Series).</p>
 </div>
 <div class="section" id="transforms-the-apply-method">
-<h3><span class="section-number">5.7.6.2.3. </span>Transforms: The <code class="docutils literal notranslate"><span class="pre">apply</span></code> Method<a class="headerlink" href="#transforms-the-apply-method" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.7.6.2.3. </span>Transforms: The <code class="docutils literal notranslate"><span class="pre">apply</span></code> Method<a class="headerlink" href="#transforms-the-apply-method" title="Permalink to this headline">¶</a></h3>
 <p>As we saw in the <a class="reference internal" href="basics.html"><span class="doc std std-doc">basics lecture</span></a>, we can apply transforms to DataFrames.</p>
 <p>We can do the same with GroupBy objects using the <code class="docutils literal notranslate"><span class="pre">.apply</span></code> method.</p>
 <p>Let’s see an example.</p>
@@ -1379,7 +1395,7 @@ that would appear in the result of the call to <code class="docutils literal not
 </div></blockquote>
 </div>
 <div class="section" id="pd-grouper">
-<h3><span class="section-number">5.7.6.2.4. </span><code class="docutils literal notranslate"><span class="pre">pd.Grouper</span></code><a class="headerlink" href="#pd-grouper" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.7.6.2.4. </span><code class="docutils literal notranslate"><span class="pre">pd.Grouper</span></code><a class="headerlink" href="#pd-grouper" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes, in order to construct the groups you want, you need to give
 pandas more information than just a column name.</p>
 <p>Some examples are:</p>
@@ -1695,7 +1711,7 @@ denotes a column name</p>
 </div>
 </div>
 <div class="section" id="case-study-airline-delays">
-<h2><span class="section-number">5.7.6.3. </span>Case Study: Airline Delays<a class="headerlink" href="#case-study-airline-delays" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.2.7.6.3. </span>Case Study: Airline Delays<a class="headerlink" href="#case-study-airline-delays" title="Permalink to this headline">¶</a></h2>
 <p>Let’s apply our new split-apply-combine skills to the airline dataset we
 saw in the <a class="reference internal" href="merge.html"><span class="doc std std-doc">merge</span></a> lecture.</p>
 <div class="cell docutils container">
@@ -2560,7 +2576,7 @@ November 2016 data, with two lines of code).</p>
 <p>Keep that in mind as we work through the rest of the materials.</p>
 </div>
 <div class="section" id="exercise-cohort-analysis-using-shopify-data">
-<h2><span class="section-number">5.7.6.4. </span>Exercise: Cohort Analysis using Shopify Data<a class="headerlink" href="#exercise-cohort-analysis-using-shopify-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.2.7.6.4. </span>Exercise: Cohort Analysis using Shopify Data<a class="headerlink" href="#exercise-cohort-analysis-using-shopify-data" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">qeds</span></code> library includes routines to simulate data sets in the
 format of common sources</p>
 <p>One of these sources is <a class="reference external" href="https://www.shopify.com/">Shopify</a> — an
@@ -2736,7 +2752,7 @@ complete.</p>
 total quantity separated by customer cohort and customer type.</p>
 <p>Read that carefully one more time…</p>
 <div class="section" id="extended-exercise">
-<h3><span class="section-number">5.7.6.4.1. </span>Extended Exercise<a class="headerlink" href="#extended-exercise" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.7.6.4.1. </span>Extended Exercise<a class="headerlink" href="#extended-exercise" title="Permalink to this headline">¶</a></h3>
 <p>Using the reshape and <code class="docutils literal notranslate"><span class="pre">groupby</span></code> tools you have learned, apply the want
 operator described above.</p>
 <p>See below for advice on how to proceed.</p>
@@ -2793,7 +2809,7 @@ move things to the right place in rows and columns.</p></li>
 </div>
 </div>
 <div class="section" id="exercises">
-<h2><span class="section-number">5.7.6.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.2.7.6.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <p><a id='exerciselist-0'></a>
 <strong>Exercise 1</strong></p>
 <p>Look closely at the output of the cells below.</p>
@@ -3031,8 +3047,8 @@ appropriate values to replicate the plots from above.</p>
     {
         requestKernel: true,
         binderOptions: {
-            repo: "amoreira2/Lectures",
-            ref: "main",
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -3052,8 +3068,8 @@ appropriate values to replicate the plots from above.</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="merge.html" title="previous page"><span class="section-number">5.7.5. </span>Merge</a>
-    <a class='right-next' id="next-link" href="timeseries.html" title="next page"><span class="section-number">5.7.7. </span>Time series</a>
+    <a class='left-prev' id="prev-link" href="merge.html" title="previous page"><span class="section-number">4.2.7.5. </span>Merge</a>
+    <a class='right-next' id="next-link" href="timeseries.html" title="next page"><span class="section-number">4.2.7.7. </span>Time series</a>
 
         </div>
         

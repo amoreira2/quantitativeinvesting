@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4.3. Control Flow &#8212; Quantitative Investing</title>
+    <title>Control Flow &#8212; Quantitative Investing</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -48,9 +48,9 @@
     <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -59,8 +59,6 @@
     <link rel="shortcut icon" href="../../_static/figuremain.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="4.4. Functions" href="functions.html" />
-    <link rel="prev" title="4.2. Collections" href="collections.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -99,7 +97,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="current nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../01/what-is-quant-investing.html">
    1. What is Quantitative Investing?
@@ -224,79 +222,93 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 current active collapsible-parent">
-  <a class="reference internal" href="essentials.html">
-   4. Python Essentials
-  </a>
-  <ul class="current collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="basics.html">
-     4.1. Basics
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="collections.html">
-     4.2. Collections
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     4.3. Flow control
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="functions.html">
-     4.4. Functions
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../pandas/intro.html">
-   5. Working with Data
+  <a class="reference internal" href="essentials.html">
+   4. Python
   </a>
   <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../pandas/basics.html">
-     5.7.1. Pandas Basics
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../scientific/intro.html">
+     4.1. Scientific Computing
     </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../scientific/numpy1.html">
+       4.1.1.1. Numpy
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../scientific/plotting1.html">
+       4.1.1.2. Plotting
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../scientific/linear_algebra1.html">
+       4.1.1.3. Linear algebra
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../scientific/randomness1.html">
+       4.1.1.4. Randomness
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../pandas/the_index.html">
-     5.7.2. Indexing
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../pandas/intro.html">
+     4.2. Working with Data
     </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../pandas/data_clean.html">
-     5.7.3. Cleaning data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../pandas/reshape.html">
-     5.7.4. Reshape
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../pandas/merge.html">
-     5.7.5. Merge
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../pandas/groupby.html">
-     5.7.6. Group-by
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../pandas/timeseries.html">
-     5.7.7. Time-Series
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../pandas/matplotlib.html">
-     5.7.8. Plotting
-    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../pandas/basics.html">
+       4.2.7.1. Pandas Basics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../pandas/the_index.html">
+       4.2.7.2. Indexing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../pandas/data_clean.html">
+       4.2.7.3. Cleaning data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../pandas/reshape.html">
+       4.2.7.4. Reshape
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../pandas/merge.html">
+       4.2.7.5. Merge
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../pandas/groupby.html">
+       4.2.7.6. Group-by
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../pandas/timeseries.html">
+       4.2.7.7. Time-Series
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../pandas/matplotlib.html">
+       4.2.7.8. Plotting
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../pandas/storage_formats.html">
+       4.2.7.9. Data Storage
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
    </li>
   </ul>
   <i class="fas fa-chevron-down">
@@ -304,27 +316,27 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../additional/additional.html">
-   6. Additional Statistics Material
+   5. Additional Statistics Material
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../10/Sampling_and_Empirical_Distributions.html">
-     6.1. Sampling and Empirical Distributions
+     5.1. Sampling and Empirical Distributions
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../10/1/Empirical_Distributions.html">
-       6.1.1. Empirical Distributions
+       5.1.1. Empirical Distributions
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../10/2/Sampling_from_a_Population.html">
-       6.1.2. Sampling from a Population
+       5.1.2. Sampling from a Population
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../10/3/Empirical_Distribution_of_a_Statistic.html">
-       6.1.3. Empirical Distibution of a Statistic
+       5.1.3. Empirical Distibution of a Statistic
       </a>
      </li>
     </ul>
@@ -333,27 +345,27 @@
    </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../11/Testing_Hypotheses.html">
-     6.2. Testing Hypotheses
+     5.2. Testing Hypotheses
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../11/1/Assessing_Models.html">
-       6.2.1. Assessing Models
+       5.2.1. Assessing Models
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../11/2/Multiple_Categories.html">
-       6.2.2. Multiple Categories
+       5.2.2. Multiple Categories
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../11/3/Decisions_and_Uncertainty.html">
-       6.2.3. Decisions and Uncertainty
+       5.2.3. Decisions and Uncertainty
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../11/4/Error_Probabilities.html">
-       6.2.4. Error Probabilities
+       5.2.4. Error Probabilities
       </a>
      </li>
     </ul>
@@ -362,27 +374,27 @@
    </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../13/Estimation.html">
-     6.3. Estimation
+     5.3. Estimation
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../13/1/Percentiles.html">
-       6.3.1. Percentiles
+       5.3.1. Percentiles
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../13/2/Bootstrap.html">
-       6.3.2. The Bootstrap
+       5.3.2. The Bootstrap
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../13/3/Confidence_Intervals.html">
-       6.3.3. Confidence Intervals
+       5.3.3. Confidence Intervals
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../13/4/Using_Confidence_Intervals.html">
-       6.3.4. Using Confidence Intervals
+       5.3.4. Using Confidence Intervals
       </a>
      </li>
     </ul>
@@ -391,37 +403,37 @@
    </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../14/Why_the_Mean_Matters.html">
-     6.4. Why the Mean Matters
+     5.4. Why the Mean Matters
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../14/1/Properties_of_the_Mean.html">
-       6.4.1. Properties of the Mean
+       5.4.1. Properties of the Mean
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../14/2/Variability.html">
-       6.4.2. Variability
+       5.4.2. Variability
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../14/3/SD_and_the_Normal_Curve.html">
-       6.4.3. The SD and the Normal Curve
+       5.4.3. The SD and the Normal Curve
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../14/4/Central_Limit_Theorem.html">
-       6.4.4. The Central Limit Theorem
+       5.4.4. The Central Limit Theorem
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../14/5/Variability_of_the_Sample_Mean.html">
-       6.4.5. The Variability of the Sample Mean
+       5.4.5. The Variability of the Sample Mean
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../14/6/Choosing_a_Sample_Size.html">
-       6.4.6. Choosing a Sample Size
+       5.4.6. Choosing a Sample Size
       </a>
      </li>
     </ul>
@@ -430,37 +442,37 @@
    </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../15/Prediction.html">
-     6.5. Prediction
+     5.5. Prediction
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../15/1/Correlation.html">
-       6.5.1. Correlation
+       5.5.1. Correlation
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../15/2/Regression_Line.html">
-       6.5.2. The Regression Line
+       5.5.2. The Regression Line
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../15/3/Method_of_Least_Squares.html">
-       6.5.3. The Method of Least Squares
+       5.5.3. The Method of Least Squares
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../15/4/Least_Squares_Regression.html">
-       6.5.4. Least Squares Regression
+       5.5.4. Least Squares Regression
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../15/5/Visual_Diagnostics.html">
-       6.5.5. Visual Diagnostics
+       5.5.5. Visual Diagnostics
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../15/6/Numerical_Diagnostics.html">
-       6.5.6. Numerical Diagnostics
+       5.5.6. Numerical Diagnostics
       </a>
      </li>
     </ul>
@@ -469,22 +481,22 @@
    </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../16/Inference_for_Regression.html">
-     6.6. Inference for Regression
+     5.6. Inference for Regression
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../16/1/Regression_Model.html">
-       6.6.1. A Regression Model
+       5.6.1. A Regression Model
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../16/2/Inference_for_the_True_Slope.html">
-       6.6.2. Inference for the True Slope
+       5.6.2. Inference for the True Slope
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../16/3/Prediction_Intervals.html">
-       6.6.3. Prediction Intervals
+       5.6.3. Prediction Intervals
       </a>
      </li>
     </ul>
@@ -551,11 +563,16 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/amoreira2/Lectures/"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/amoreira2/Lectures"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
-        
-        
+        <a class="issues-button"
+            href="https://github.com/amoreira2/Lectures/issues/new?title=Issue%20on%20page%20%2Fchapters/essentials/control_flow.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/amoreira2/Lectures/edit/main/chapters/essentials/control_flow.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
 </div>
 
@@ -580,7 +597,7 @@
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://pims.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https://github.com/amoreira2/Lectures/&urlpath=tree/Lectures/chapters/essentials/control_flow.ipynb&branch=main"><button type="button"
+        <a class="jupyterhub-button" href="https://pims.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https://github.com/amoreira2/Lectures&urlpath=tree/Lectures/chapters/essentials/control_flow.ipynb&branch=main"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
@@ -592,9 +609,6 @@
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
         
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -612,29 +626,28 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#outline">
-   4.3.1. Outline
+   Outline
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#net-present-values-and-asset-pricing">
-   4.3.2. Net Present Values and Asset Pricing
+   Net Present Values and Asset Pricing
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#net-present-value">
-     4.3.2.1. Net Present Value
+     Net Present Value
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#conditional-statements-and-blocks">
-   4.3.3. Conditional Statements and Blocks
+   Conditional Statements and Blocks
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#elif-clauses">
-     4.3.3.1.
      <code class="docutils literal notranslate">
       <span class="pre">
        elif
@@ -647,17 +660,16 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#iteration">
-   4.3.4. Iteration
+   Iteration
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#a-contrived-example">
-     4.3.4.1. A Contrived Example
+     A Contrived Example
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#for-loops">
-     4.3.4.2.
      <code class="docutils literal notranslate">
       <span class="pre">
        for
@@ -668,7 +680,6 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#while-loops">
-     4.3.4.3.
      <code class="docutils literal notranslate">
       <span class="pre">
        while
@@ -679,7 +690,6 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#break-and-continue">
-     4.3.4.4.
      <code class="docutils literal notranslate">
       <span class="pre">
        break
@@ -695,7 +705,6 @@
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#break-out-of-a-loop">
-       4.3.4.4.1.
        <code class="docutils literal notranslate">
         <span class="pre">
          break
@@ -706,7 +715,6 @@
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#continue-to-the-next-iteration">
-       4.3.4.4.2.
        <code class="docutils literal notranslate">
         <span class="pre">
          continue
@@ -721,12 +729,12 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#comprehension">
-   4.3.5. Comprehension
+   Comprehension
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   4.3.6. Exercises
+   Exercises
   </a>
  </li>
 </ul>
@@ -742,7 +750,7 @@
               <div>
                 
   <div class="section" id="control-flow">
-<h1><span class="section-number">4.3. </span>Control Flow<a class="headerlink" href="#control-flow" title="Permalink to this headline">¶</a></h1>
+<h1>Control Flow<a class="headerlink" href="#control-flow" title="Permalink to this headline">¶</a></h1>
 <p><strong>Prerequisites</strong></p>
 <ul class="simple">
 <li><p>Booleans section in <a class="reference internal" href="basics.html"><span class="doc std std-doc">Basics</span></a></p></li>
@@ -772,7 +780,7 @@
 </li>
 </ul>
 <div class="section" id="outline">
-<h2><span class="section-number">4.3.1. </span>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
+<h2>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="#Control-Flow">Control Flow</a></p>
 <ul>
@@ -787,7 +795,7 @@
 <p><a id='deterministic-asset-pricing'></a></p>
 </div>
 <div class="section" id="net-present-values-and-asset-pricing">
-<h2><span class="section-number">4.3.2. </span>Net Present Values and Asset Pricing<a class="headerlink" href="#net-present-values-and-asset-pricing" title="Permalink to this headline">¶</a></h2>
+<h2>Net Present Values and Asset Pricing<a class="headerlink" href="#net-present-values-and-asset-pricing" title="Permalink to this headline">¶</a></h2>
 <p>In this lecture, we’ll introduce two related topics from economics:</p>
 <ul class="simple">
 <li><p>Net present valuations</p></li>
@@ -825,7 +833,7 @@ consuming 1.00 today and <span class="math notranslate nohighlight">\( (1+r)(1+r
 </div>
 <p><a id='npv'></a></p>
 <div class="section" id="net-present-value">
-<h3><span class="section-number">4.3.2.1. </span>Net Present Value<a class="headerlink" href="#net-present-value" title="Permalink to this headline">¶</a></h3>
+<h3>Net Present Value<a class="headerlink" href="#net-present-value" title="Permalink to this headline">¶</a></h3>
 <p>If an asset pays a stream of payoffs over multiple time periods, then we
 can use a discount rate to calculate the value to the consumer of a entire
 sequence of payoffs.</p>
@@ -872,7 +880,7 @@ pays 1 forever is <span class="math notranslate nohighlight">\( \frac{1+r}{r} \)
 </div>
 </div>
 <div class="section" id="conditional-statements-and-blocks">
-<h2><span class="section-number">4.3.3. </span>Conditional Statements and Blocks<a class="headerlink" href="#conditional-statements-and-blocks" title="Permalink to this headline">¶</a></h2>
+<h2>Conditional Statements and Blocks<a class="headerlink" href="#conditional-statements-and-blocks" title="Permalink to this headline">¶</a></h2>
 <p>Sometimes, we will only want to execute some piece of code if a certain condition
 is met.</p>
 <p>These conditions can be anything.</p>
@@ -1021,7 +1029,7 @@ before, but now, we added an <code class="docutils literal notranslate"><span cl
 <div><p>See exercise 4 in the <a class="reference external" href="#exerciselist-0"><em>exercise list</em></a></p>
 </div></blockquote>
 <div class="section" id="elif-clauses">
-<h3><span class="section-number">4.3.3.1. </span><code class="docutils literal notranslate"><span class="pre">elif</span></code> clauses<a class="headerlink" href="#elif-clauses" title="Permalink to this headline">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">elif</span></code> clauses<a class="headerlink" href="#elif-clauses" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes, you have more than one condition you want to check.</p>
 <p>For example, you might want to run a different set of code based on which
 quarter a particular transaction took place in.</p>
@@ -1074,7 +1082,7 @@ associated with <code class="docutils literal notranslate"><span class="pre">hal
 </div>
 </div>
 <div class="section" id="iteration">
-<h2><span class="section-number">4.3.4. </span>Iteration<a class="headerlink" href="#iteration" title="Permalink to this headline">¶</a></h2>
+<h2>Iteration<a class="headerlink" href="#iteration" title="Permalink to this headline">¶</a></h2>
 <p>When doing computations or analyzing data, we often need to repeat certain
 operations a finite number of times or until some condition is met.</p>
 <p>Examples include processing all data files in a directory (folder), aggregating
@@ -1085,7 +1093,7 @@ that we wrote down above.)</p>
 <p>We feel the concept is best understood through example, so we will present a
 contrived example and then discuss the details behind doing iteration in Python.</p>
 <div class="section" id="a-contrived-example">
-<h3><span class="section-number">4.3.4.1. </span>A Contrived Example<a class="headerlink" href="#a-contrived-example" title="Permalink to this headline">¶</a></h3>
+<h3>A Contrived Example<a class="headerlink" href="#a-contrived-example" title="Permalink to this headline">¶</a></h3>
 <p>Suppose we wanted to print out the first 10 integers and their squares.</p>
 <p>We <em>could</em> do something like this.</p>
 <div class="cell docutils container">
@@ -1149,7 +1157,7 @@ for each new value it did the operations in the indented block (here
 just one line that called the <code class="docutils literal notranslate"><span class="pre">print</span></code> function).</p>
 </div>
 <div class="section" id="for-loops">
-<h3><span class="section-number">4.3.4.2. </span><code class="docutils literal notranslate"><span class="pre">for</span></code> Loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">for</span></code> Loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h3>
 <p>The general structure of a standard <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is as follows.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
    <span class="c1"># operation 1 with item</span>
@@ -1239,7 +1247,7 @@ New York is in New York
 </div></blockquote>
 </div>
 <div class="section" id="while-loops">
-<h3><span class="section-number">4.3.4.3. </span><code class="docutils literal notranslate"><span class="pre">while</span></code> Loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">while</span></code> Loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">¶</a></h3>
 <p>A related but slightly different form of iteration is to repeat something
 until some condition is met.</p>
 <p>This is typically achieved using a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop.</p>
@@ -1350,9 +1358,9 @@ done
 </div></blockquote>
 </div>
 <div class="section" id="break-and-continue">
-<h3><span class="section-number">4.3.4.4. </span><code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code><a class="headerlink" href="#break-and-continue" title="Permalink to this headline">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code><a class="headerlink" href="#break-and-continue" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="break-out-of-a-loop">
-<h4><span class="section-number">4.3.4.4.1. </span><code class="docutils literal notranslate"><span class="pre">break</span></code> Out of a Loop<a class="headerlink" href="#break-out-of-a-loop" title="Permalink to this headline">¶</a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">break</span></code> Out of a Loop<a class="headerlink" href="#break-out-of-a-loop" title="Permalink to this headline">¶</a></h4>
 <p>Sometimes we want to stop a loop early if some condition is met.</p>
 <p>Let’s revisit the example of finding the smallest <code class="docutils literal notranslate"><span class="pre">N</span></code> such that
 <span class="math notranslate nohighlight">\( \sum_{i=0}^N i &gt; 1000 \)</span>.</p>
@@ -1384,7 +1392,7 @@ iterating through our range once total goes above 1000.</p>
 </div></blockquote>
 </div>
 <div class="section" id="continue-to-the-next-iteration">
-<h4><span class="section-number">4.3.4.4.2. </span><code class="docutils literal notranslate"><span class="pre">continue</span></code> to the Next Iteration<a class="headerlink" href="#continue-to-the-next-iteration" title="Permalink to this headline">¶</a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">continue</span></code> to the Next Iteration<a class="headerlink" href="#continue-to-the-next-iteration" title="Permalink to this headline">¶</a></h4>
 <p>Sometimes we might want to stop the <em>body of a loop</em> early if a condition is met.</p>
 <p>To do this we can use the <code class="docutils literal notranslate"><span class="pre">continue</span></code> keyword.</p>
 <p>The basic syntax for doing this is:</p>
@@ -1429,7 +1437,7 @@ nothing otherwise.</p>
 </div>
 </div>
 <div class="section" id="comprehension">
-<h2><span class="section-number">4.3.5. </span>Comprehension<a class="headerlink" href="#comprehension" title="Permalink to this headline">¶</a></h2>
+<h2>Comprehension<a class="headerlink" href="#comprehension" title="Permalink to this headline">¶</a></h2>
 <p>Often, we will want to perform a very simple operation for every element of some iterable and
 create a new iterable with these values.</p>
 <p>This could be done by writing a for loop and saving each
@@ -1561,7 +1569,7 @@ and in <code class="docutils literal notranslate"><span class="pre">x2_comp</spa
 </div>
 </div>
 <div class="section" id="exercises">
-<h2><span class="section-number">4.3.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <p><a id='exerciselist-0'></a>
 <strong>Exercise 1</strong></p>
 <p>Government bonds are often issued as <em>zero-coupon bonds</em> meaning that they
@@ -1789,8 +1797,8 @@ using a <code class="docutils literal notranslate"><span class="pre">zip</span><
     {
         requestKernel: true,
         binderOptions: {
-            repo: "amoreira2/Lectures",
-            ref: "main",
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -1810,8 +1818,6 @@ using a <code class="docutils literal notranslate"><span class="pre">zip</span><
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="collections.html" title="previous page"><span class="section-number">4.2. </span>Collections</a>
-    <a class='right-next' id="next-link" href="functions.html" title="next page"><span class="section-number">4.4. </span>Functions</a>
 
         </div>
         

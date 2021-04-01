@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6.5.1. Correlation &#8212; Quantitative Investing</title>
+    <title>5.5.1. Correlation &#8212; Quantitative Investing</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -48,9 +48,9 @@
     <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -59,8 +59,8 @@
     <link rel="shortcut icon" href="../../../_static/figuremain.jpg"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="6.5.2. The Regression Line" href="../2/Regression_Line.html" />
-    <link rel="prev" title="6.5. Prediction" href="../Prediction.html" />
+    <link rel="next" title="5.5.2. The Regression Line" href="../2/Regression_Line.html" />
+    <link rel="prev" title="5.5. Prediction" href="../Prediction.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -226,77 +226,91 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../../essentials/essentials.html">
-   4. Python Essentials
+   4. Python
   </a>
   <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../essentials/basics.html">
-     4.1. Basics
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../scientific/intro.html">
+     4.1. Scientific Computing
     </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../scientific/numpy1.html">
+       4.1.1.1. Numpy
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../scientific/plotting1.html">
+       4.1.1.2. Plotting
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../scientific/linear_algebra1.html">
+       4.1.1.3. Linear algebra
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../scientific/randomness1.html">
+       4.1.1.4. Randomness
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../essentials/collections.html">
-     4.2. Collections
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../pandas/intro.html">
+     4.2. Working with Data
     </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../essentials/control_flow.html">
-     4.3. Flow control
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../essentials/functions.html">
-     4.4. Functions
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../../pandas/intro.html">
-   5. Working with Data
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../pandas/basics.html">
-     5.7.1. Pandas Basics
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../pandas/the_index.html">
-     5.7.2. Indexing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../pandas/data_clean.html">
-     5.7.3. Cleaning data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../pandas/reshape.html">
-     5.7.4. Reshape
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../pandas/merge.html">
-     5.7.5. Merge
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../pandas/groupby.html">
-     5.7.6. Group-by
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../pandas/timeseries.html">
-     5.7.7. Time-Series
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../pandas/matplotlib.html">
-     5.7.8. Plotting
-    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../pandas/basics.html">
+       4.2.7.1. Pandas Basics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../pandas/the_index.html">
+       4.2.7.2. Indexing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../pandas/data_clean.html">
+       4.2.7.3. Cleaning data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../pandas/reshape.html">
+       4.2.7.4. Reshape
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../pandas/merge.html">
+       4.2.7.5. Merge
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../pandas/groupby.html">
+       4.2.7.6. Group-by
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../pandas/timeseries.html">
+       4.2.7.7. Time-Series
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../pandas/matplotlib.html">
+       4.2.7.8. Plotting
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../pandas/storage_formats.html">
+       4.2.7.9. Data Storage
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
    </li>
   </ul>
   <i class="fas fa-chevron-down">
@@ -304,27 +318,27 @@
  </li>
  <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="../../additional/additional.html">
-   6. Additional Statistics Material
+   5. Additional Statistics Material
   </a>
   <ul class="current collapse-ul">
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../../10/Sampling_and_Empirical_Distributions.html">
-     6.1. Sampling and Empirical Distributions
+     5.1. Sampling and Empirical Distributions
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../../10/1/Empirical_Distributions.html">
-       6.1.1. Empirical Distributions
+       5.1.1. Empirical Distributions
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../10/2/Sampling_from_a_Population.html">
-       6.1.2. Sampling from a Population
+       5.1.2. Sampling from a Population
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../10/3/Empirical_Distribution_of_a_Statistic.html">
-       6.1.3. Empirical Distibution of a Statistic
+       5.1.3. Empirical Distibution of a Statistic
       </a>
      </li>
     </ul>
@@ -333,27 +347,27 @@
    </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../../11/Testing_Hypotheses.html">
-     6.2. Testing Hypotheses
+     5.2. Testing Hypotheses
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../../11/1/Assessing_Models.html">
-       6.2.1. Assessing Models
+       5.2.1. Assessing Models
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../11/2/Multiple_Categories.html">
-       6.2.2. Multiple Categories
+       5.2.2. Multiple Categories
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../11/3/Decisions_and_Uncertainty.html">
-       6.2.3. Decisions and Uncertainty
+       5.2.3. Decisions and Uncertainty
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../11/4/Error_Probabilities.html">
-       6.2.4. Error Probabilities
+       5.2.4. Error Probabilities
       </a>
      </li>
     </ul>
@@ -362,27 +376,27 @@
    </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../../13/Estimation.html">
-     6.3. Estimation
+     5.3. Estimation
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../../13/1/Percentiles.html">
-       6.3.1. Percentiles
+       5.3.1. Percentiles
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../13/2/Bootstrap.html">
-       6.3.2. The Bootstrap
+       5.3.2. The Bootstrap
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../13/3/Confidence_Intervals.html">
-       6.3.3. Confidence Intervals
+       5.3.3. Confidence Intervals
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../13/4/Using_Confidence_Intervals.html">
-       6.3.4. Using Confidence Intervals
+       5.3.4. Using Confidence Intervals
       </a>
      </li>
     </ul>
@@ -391,37 +405,37 @@
    </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../../14/Why_the_Mean_Matters.html">
-     6.4. Why the Mean Matters
+     5.4. Why the Mean Matters
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../../14/1/Properties_of_the_Mean.html">
-       6.4.1. Properties of the Mean
+       5.4.1. Properties of the Mean
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../14/2/Variability.html">
-       6.4.2. Variability
+       5.4.2. Variability
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../14/3/SD_and_the_Normal_Curve.html">
-       6.4.3. The SD and the Normal Curve
+       5.4.3. The SD and the Normal Curve
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../14/4/Central_Limit_Theorem.html">
-       6.4.4. The Central Limit Theorem
+       5.4.4. The Central Limit Theorem
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../14/5/Variability_of_the_Sample_Mean.html">
-       6.4.5. The Variability of the Sample Mean
+       5.4.5. The Variability of the Sample Mean
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../14/6/Choosing_a_Sample_Size.html">
-       6.4.6. Choosing a Sample Size
+       5.4.6. Choosing a Sample Size
       </a>
      </li>
     </ul>
@@ -430,37 +444,37 @@
    </li>
    <li class="toctree-l2 current active collapsible-parent">
     <a class="reference internal" href="../Prediction.html">
-     6.5. Prediction
+     5.5. Prediction
     </a>
     <ul class="current collapse-ul">
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
-       6.5.1. Correlation
+       5.5.1. Correlation
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../2/Regression_Line.html">
-       6.5.2. The Regression Line
+       5.5.2. The Regression Line
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../3/Method_of_Least_Squares.html">
-       6.5.3. The Method of Least Squares
+       5.5.3. The Method of Least Squares
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../4/Least_Squares_Regression.html">
-       6.5.4. Least Squares Regression
+       5.5.4. Least Squares Regression
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../5/Visual_Diagnostics.html">
-       6.5.5. Visual Diagnostics
+       5.5.5. Visual Diagnostics
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../6/Numerical_Diagnostics.html">
-       6.5.6. Numerical Diagnostics
+       5.5.6. Numerical Diagnostics
       </a>
      </li>
     </ul>
@@ -469,22 +483,22 @@
    </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../../16/Inference_for_Regression.html">
-     6.6. Inference for Regression
+     5.6. Inference for Regression
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../../16/1/Regression_Model.html">
-       6.6.1. A Regression Model
+       5.6.1. A Regression Model
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../16/2/Inference_for_the_True_Slope.html">
-       6.6.2. Inference for the True Slope
+       5.6.2. Inference for the True Slope
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../16/3/Prediction_Intervals.html">
-       6.6.3. Prediction Intervals
+       5.6.3. Prediction Intervals
       </a>
      </li>
     </ul>
@@ -551,11 +565,16 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/amoreira2/Lectures/"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/amoreira2/Lectures"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
-        
-        
+        <a class="issues-button"
+            href="https://github.com/amoreira2/Lectures/issues/new?title=Issue%20on%20page%20%2Fchapters/15/1/Correlation.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/amoreira2/Lectures/edit/main/chapters/15/1/Correlation.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
 </div>
 
@@ -580,7 +599,7 @@
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://pims.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https://github.com/amoreira2/Lectures/&urlpath=tree/Lectures/chapters/15/1/Correlation.ipynb&branch=main"><button type="button"
+        <a class="jupyterhub-button" href="https://pims.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https://github.com/amoreira2/Lectures&urlpath=tree/Lectures/chapters/15/1/Correlation.ipynb&branch=main"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../../_static/images/logo_jupyterhub.svg"
@@ -592,9 +611,6 @@
                     src="../../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
         
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -612,12 +628,12 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-correlation-coefficient">
-   6.5.1.1. The correlation coefficient
+   5.5.1.1. The correlation coefficient
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#calculating-r">
-   6.5.1.2. Calculating
+   5.5.1.2. Calculating
    <span class="math notranslate nohighlight">
     \(r\)
    </span>
@@ -625,7 +641,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#properties-of-r">
-   6.5.1.3. Properties of
+   5.5.1.3. Properties of
    <span class="math notranslate nohighlight">
     \(r\)
    </span>
@@ -633,7 +649,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-correlation-function">
-   6.5.1.4. The
+   5.5.1.4. The
    <code class="docutils literal notranslate">
     <span class="pre">
      correlation
@@ -644,12 +660,12 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#association-is-not-causation">
-   6.5.1.5. Association is not Causation
+   5.5.1.5. Association is not Causation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#correlation-measures-linear-association">
-   6.5.1.6. Correlation Measures
+   5.5.1.6. Correlation Measures
    <em>
     Linear
    </em>
@@ -658,17 +674,17 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#correlation-is-affected-by-outliers">
-   6.5.1.7. Correlation is Affected by Outliers
+   5.5.1.7. Correlation is Affected by Outliers
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ecological-correlations-should-be-interpreted-with-care">
-   6.5.1.8. Ecological Correlations Should be Interpreted with Care
+   5.5.1.8. Ecological Correlations Should be Interpreted with Care
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#serious-or-tongue-in-cheek">
-   6.5.1.9. Serious or tongue-in-cheek?
+   5.5.1.9. Serious or tongue-in-cheek?
   </a>
  </li>
 </ul>
@@ -686,7 +702,7 @@
   <div class="cell tag_remove-input docutils container">
 </div>
 <div class="section" id="correlation">
-<h1><span class="section-number">6.5.1. </span>Correlation<a class="headerlink" href="#correlation" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">5.5.1. </span>Correlation<a class="headerlink" href="#correlation" title="Permalink to this headline">¶</a></h1>
 <p>In this section we will develop a measure of how tightly clustered a scatter diagram is about a straight line. Formally, this is called measuring <em>linear association</em>.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
@@ -846,7 +862,7 @@
 <p>The associations that we see in these figures are the same as those we saw before. Also, because the two scatter diagrams are now drawn on exactly the same scale, we can see that the linear relation in the second diagram is a little more fuzzy than in the first.</p>
 <p>We will now define a measure that uses standard units to quantify the kinds of association that we have seen.</p>
 <div class="section" id="the-correlation-coefficient">
-<h2><span class="section-number">6.5.1.1. </span>The correlation coefficient<a class="headerlink" href="#the-correlation-coefficient" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.5.1.1. </span>The correlation coefficient<a class="headerlink" href="#the-correlation-coefficient" title="Permalink to this headline">¶</a></h2>
 <p>The <em>correlation coefficient</em> measures the strength of the linear relationship between two variables. Graphically, it measures how clustered the scatter diagram is around a straight line.</p>
 <p>The term <em>correlation coefficient</em> isn’t easy to say, so it is usually shortened to <em>correlation</em> and denoted by <span class="math notranslate nohighlight">\(r\)</span>.</p>
 <p>Here are some mathematical facts about <span class="math notranslate nohighlight">\(r\)</span> that we will just observe by simulation.</p>
@@ -900,7 +916,7 @@
 </div>
 </div>
 <div class="section" id="calculating-r">
-<h2><span class="section-number">6.5.1.2. </span>Calculating <span class="math notranslate nohighlight">\(r\)</span><a class="headerlink" href="#calculating-r" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.5.1.2. </span>Calculating <span class="math notranslate nohighlight">\(r\)</span><a class="headerlink" href="#calculating-r" title="Permalink to this headline">¶</a></h2>
 <p>The formula for <span class="math notranslate nohighlight">\(r\)</span> is not apparent from our observations so far. It has a mathematical basis that is outside the scope of this class. However, as you will see, the calculation is straightforward and helps us understand several of the properties of <span class="math notranslate nohighlight">\(r\)</span>.</p>
 <p><strong>Formula for <span class="math notranslate nohighlight">\(r\)</span></strong>:</p>
 <p><strong><span class="math notranslate nohighlight">\(r\)</span> is the average of the products of the two variables, when both variables are measured in standard units.</strong></p>
@@ -1053,7 +1069,7 @@
 <p>As expected, <span class="math notranslate nohighlight">\(r\)</span> is positive but not equal to 1.</p>
 </div>
 <div class="section" id="properties-of-r">
-<h2><span class="section-number">6.5.1.3. </span>Properties of <span class="math notranslate nohighlight">\(r\)</span><a class="headerlink" href="#properties-of-r" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.5.1.3. </span>Properties of <span class="math notranslate nohighlight">\(r\)</span><a class="headerlink" href="#properties-of-r" title="Permalink to this headline">¶</a></h2>
 <p>The calculation shows that:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(r\)</span> is a pure number. It has no units. This is because <span class="math notranslate nohighlight">\(r\)</span> is based on standard units.</p></li>
@@ -1072,7 +1088,7 @@
 </div>
 </div>
 <div class="section" id="the-correlation-function">
-<h2><span class="section-number">6.5.1.4. </span>The <code class="docutils literal notranslate"><span class="pre">correlation</span></code> function<a class="headerlink" href="#the-correlation-function" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.5.1.4. </span>The <code class="docutils literal notranslate"><span class="pre">correlation</span></code> function<a class="headerlink" href="#the-correlation-function" title="Permalink to this headline">¶</a></h2>
 <p>We are going to be calculating correlations repeatedly, so it will help to define a function that computes it by performing all the steps described above. Let’s define a function <code class="docutils literal notranslate"><span class="pre">correlation</span></code> that takes a table and the labels of two columns in the table. The function returns <span class="math notranslate nohighlight">\(r\)</span>, the mean of the products of those column values in standard units.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1141,11 +1157,11 @@
 <p>Correlation is a simple and powerful concept, but it is sometimes misused. Before using <span class="math notranslate nohighlight">\(r\)</span>, it is important to be aware of what correlation does and does not measure.</p>
 </div>
 <div class="section" id="association-is-not-causation">
-<h2><span class="section-number">6.5.1.5. </span>Association is not Causation<a class="headerlink" href="#association-is-not-causation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.5.1.5. </span>Association is not Causation<a class="headerlink" href="#association-is-not-causation" title="Permalink to this headline">¶</a></h2>
 <p>Correlation only measures association. Correlation does not imply causation. Though the correlation between the weight and the math ability of children in a school district may be positive, that does not mean that doing math makes children heavier or that putting on weight improves the children’s math skills. Age is a confounding variable: older children are both heavier and better at math than younger children, on average.</p>
 </div>
 <div class="section" id="correlation-measures-linear-association">
-<h2><span class="section-number">6.5.1.6. </span>Correlation Measures <em>Linear</em> Association<a class="headerlink" href="#correlation-measures-linear-association" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.5.1.6. </span>Correlation Measures <em>Linear</em> Association<a class="headerlink" href="#correlation-measures-linear-association" title="Permalink to this headline">¶</a></h2>
 <p>Correlation measures only one kind of association – linear. Variables that have strong non-linear association might have very low correlation. Here is an example of variables that have a perfect quadratic relation <span class="math notranslate nohighlight">\(y = x^2\)</span> but have correlation equal to 0.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1176,7 +1192,7 @@
 </div>
 </div>
 <div class="section" id="correlation-is-affected-by-outliers">
-<h2><span class="section-number">6.5.1.7. </span>Correlation is Affected by Outliers<a class="headerlink" href="#correlation-is-affected-by-outliers" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.5.1.7. </span>Correlation is Affected by Outliers<a class="headerlink" href="#correlation-is-affected-by-outliers" title="Permalink to this headline">¶</a></h2>
 <p>Outliers can have a big effect on correlation. Here is an example where a scatter plot for which <span class="math notranslate nohighlight">\(r\)</span> is equal to 1 is turned into a plot for which <span class="math notranslate nohighlight">\(r\)</span> is equal to 0, by the addition of just one outlying point.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1232,7 +1248,7 @@
 </div>
 </div>
 <div class="section" id="ecological-correlations-should-be-interpreted-with-care">
-<h2><span class="section-number">6.5.1.8. </span>Ecological Correlations Should be Interpreted with Care<a class="headerlink" href="#ecological-correlations-should-be-interpreted-with-care" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.5.1.8. </span>Ecological Correlations Should be Interpreted with Care<a class="headerlink" href="#ecological-correlations-should-be-interpreted-with-care" title="Permalink to this headline">¶</a></h2>
 <p>Correlations based on aggregated data can be misleading. As an example, here are data on the Critical Reading and Math SAT scores in 2014. There is one point for each of the 50 states and one for Washington, D.C. The column <code class="docutils literal notranslate"><span class="pre">Participation</span> <span class="pre">Rate</span></code> contains the percent of high school seniors who took the test. The next three columns show the average score in the state on each portion of the test, and the final column is the average of the total scores on the test.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1311,7 +1327,7 @@
 <p>Correlations based on aggregates and averages are called <em>ecological correlations</em> and are frequently reported. As we have just seen, they must be interpreted with care.</p>
 </div>
 <div class="section" id="serious-or-tongue-in-cheek">
-<h2><span class="section-number">6.5.1.9. </span>Serious or tongue-in-cheek?<a class="headerlink" href="#serious-or-tongue-in-cheek" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.5.1.9. </span>Serious or tongue-in-cheek?<a class="headerlink" href="#serious-or-tongue-in-cheek" title="Permalink to this headline">¶</a></h2>
 <p>In 2012, a <a class="reference external" href="http://www.biostat.jhsph.edu/courses/bio621/misc/Chocolate%20consumption%20cognitive%20function%20and%20nobel%20laurates%20%28NEJM%29.pdf">paper</a> in the respected New England Journal of Medicine examined the relation between chocolate consumption and Nobel Prizes in a group of countries. The <a class="reference external" href="http://blogs.scientificamerican.com/the-curious-wavefunction/chocolate-consumption-and-nobel-prizes-a-bizarre-juxtaposition-if-there-ever-was-one/">Scientific American</a> responded seriously whereas
 <a class="reference external" href="http://www.reuters.com/article/2012/10/10/us-eat-chocolate-win-the-nobel-prize-idUSBRE8991MS20121010#vFdfFkbPVlilSjsB.97">others</a> were more relaxed. You are welcome to make your own decision! The following graph, provided in the paper, should motivate you to go and take a look.</p>
 <div class="cell tag_remove-input docutils container">
@@ -1326,8 +1342,8 @@
     {
         requestKernel: true,
         binderOptions: {
-            repo: "amoreira2/Lectures",
-            ref: "main",
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -1347,8 +1363,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../Prediction.html" title="previous page"><span class="section-number">6.5. </span>Prediction</a>
-    <a class='right-next' id="next-link" href="../2/Regression_Line.html" title="next page"><span class="section-number">6.5.2. </span>The Regression Line</a>
+    <a class='left-prev' id="prev-link" href="../Prediction.html" title="previous page"><span class="section-number">5.5. </span>Prediction</a>
+    <a class='right-next' id="next-link" href="../2/Regression_Line.html" title="next page"><span class="section-number">5.5.2. </span>The Regression Line</a>
 
         </div>
         
