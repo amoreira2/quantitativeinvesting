@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Basics &#8212; Quantitative Investing</title>
+    <title>4.1.1. Basics &#8212; Quantitative Investing</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -59,6 +59,8 @@
     <link rel="shortcut icon" href="../../_static/figuremain.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4.1.2. Collections" href="collections.html" />
+    <link rel="prev" title="4.1. Python essentials" href="essentials.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -97,7 +99,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+    <ul class="current nav sidenav_l1">
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../01/what-is-quant-investing.html">
    1. What is Quantitative Investing?
@@ -222,34 +224,63 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="essentials.html">
-   4. Python
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="intro.html">
+   4. Programing with Python
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active collapsible-parent">
+    <a class="reference internal" href="essentials.html">
+     4.1. Python Essentials
+    </a>
+    <ul class="current collapse-ul">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       4.1.1. Basics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="collections.html">
+       4.1.2. Collections
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="control_flow.html">
+       4.1.3. Flow control
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="functions.html">
+       4.1.4. Functions
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../scientific/intro.html">
-     4.1. Scientific Computing
+     4.2. Scientific Computing
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../scientific/numpy1.html">
-       4.1.1. Numpy
+       4.2.1. Numpy
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../scientific/plotting1.html">
-       4.1.2. Plotting
+       4.2.2. Plotting
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../scientific/linear_algebra1.html">
-       4.1.3. Linear algebra
+       4.2.3. Linear algebra
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../scientific/randomness1.html">
-       4.1.4. Randomness
+       4.2.4. Randomness
       </a>
      </li>
     </ul>
@@ -258,52 +289,52 @@
    </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../pandas/intro.html">
-     4.2. Working with Data
+     4.3. Working with Data
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../pandas/basics.html">
-       4.2.7.1. Pandas Basics
+       4.3.7.1. Pandas Basics
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../pandas/the_index.html">
-       4.2.7.2. Indexing
+       4.3.7.2. Indexing
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../pandas/data_clean.html">
-       4.2.7.3. Cleaning data
+       4.3.7.3. Cleaning data
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../pandas/reshape.html">
-       4.2.7.4. Reshape
+       4.3.7.4. Reshape
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../pandas/merge.html">
-       4.2.7.5. Merge
+       4.3.7.5. Merge
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../pandas/groupby.html">
-       4.2.7.6. Group-by
+       4.3.7.6. Group-by
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../pandas/timeseries.html">
-       4.2.7.7. Time-Series
+       4.3.7.7. Time-Series
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../pandas/matplotlib.html">
-       4.2.7.8. Plotting
+       4.3.7.8. Plotting
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../pandas/storage_formats.html">
-       4.2.7.9. Data Storage
+       4.3.7.9. Data Storage
       </a>
      </li>
     </ul>
@@ -626,78 +657,78 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#outline">
-   Outline
+   4.1.1.1. Outline
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#first-steps">
-   First Steps
+   4.1.1.2. First Steps
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#variable-assignment">
-     Variable Assignment
+     4.1.1.2.1. Variable Assignment
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#code-comments">
-     Code Comments
+     4.1.1.2.2. Code Comments
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#functions">
-   Functions
+   4.1.1.3. Functions
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#getting-help">
-     Getting Help
+     4.1.1.3.1. Getting Help
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#objects-and-types">
-   Objects and Types
+   4.1.1.4. Objects and Types
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#modules">
-   Modules
+   4.1.1.5. Modules
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#module-aliases">
-     Module Aliases
+     4.1.1.5.1. Module Aliases
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#good-code-habits">
-   Good Code Habits
+   4.1.1.6. Good Code Habits
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#numbers">
-   Numbers
+   4.1.1.7. Numbers
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#python-as-a-calculator">
-     Python as a Calculator
+     4.1.1.7.1. Python as a Calculator
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#other-math-functions">
-     Other Math Functions
+     4.1.1.7.2. Other Math Functions
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#floor-modulus-division-operators">
-       Floor/Modulus Division Operators
+       4.1.1.7.2.1. Floor/Modulus Division Operators
       </a>
      </li>
     </ul>
@@ -706,48 +737,49 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#strings">
-   Strings
+   4.1.1.8. Strings
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#string-operations">
-     String Operations
+     4.1.1.8.1. String Operations
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#string-methods">
-     String Methods
+     4.1.1.8.2. String Methods
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#string-formatting">
-     String Formatting
+     4.1.1.8.3. String Formatting
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#booleans">
-   Booleans
+   4.1.1.9. Booleans
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#comparison-operators">
-     Comparison Operators
+     4.1.1.9.1. Comparison Operators
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#negation">
-     Negation
+     4.1.1.9.2. Negation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#multiple-comparisons-and-or">
-     Multiple Comparisons (and/or)
+     4.1.1.9.3. Multiple Comparisons (and/or)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#all-and-any">
+     4.1.1.9.4.
      <code class="docutils literal notranslate">
       <span class="pre">
        all
@@ -765,7 +797,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   Exercises
+   4.1.1.10. Exercises
   </a>
  </li>
 </ul>
@@ -781,7 +813,7 @@
               <div>
                 
   <div class="section" id="basics">
-<h1>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">4.1.1. </span>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h1>
 <p><strong>Prerequisites</strong></p>
 <ul class="simple">
 <li><p><span class="xref myst">Getting Started</span></p></li>
@@ -818,7 +850,7 @@
 </li>
 </ul>
 <div class="section" id="outline">
-<h2>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.1.1. </span>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="#Basics">Basics</a></p>
 <ul>
@@ -836,12 +868,12 @@
 </ul>
 </div>
 <div class="section" id="first-steps">
-<h2>First Steps<a class="headerlink" href="#first-steps" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.1.2. </span>First Steps<a class="headerlink" href="#first-steps" title="Permalink to this headline">¶</a></h2>
 <p>We are ready to begin writing code!</p>
 <p>In this section, we will teach you some basic concepts of programming
 and where to search for help.</p>
 <div class="section" id="variable-assignment">
-<h3>Variable Assignment<a class="headerlink" href="#variable-assignment" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.1.2.1. </span>Variable Assignment<a class="headerlink" href="#variable-assignment" title="Permalink to this headline">¶</a></h3>
 <p>The first thing we will learn is the idea of <em>variable assignment</em>.</p>
 <p>Variable assignment associates a value to a variable.</p>
 <p>Below, we assign the value “Hello World” to the variable <code class="docutils literal notranslate"><span class="pre">x</span></code></p>
@@ -895,7 +927,7 @@ equal sign.</p>
 </div>
 </div>
 <div class="section" id="code-comments">
-<h3>Code Comments<a class="headerlink" href="#code-comments" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.1.2.2. </span>Code Comments<a class="headerlink" href="#code-comments" title="Permalink to this headline">¶</a></h3>
 <p>Comments are short notes that you leave for yourself and for others who read your
 code.</p>
 <p>They should be used to explain what the code does.</p>
@@ -915,7 +947,7 @@ code.</p>
 </div>
 </div>
 <div class="section" id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.1.3. </span>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <p>Functions are processes that take an input (or inputs) and produce an output.</p>
 <p>If we had a function called <code class="docutils literal notranslate"><span class="pre">f</span></code> that took two arguments <code class="docutils literal notranslate"><span class="pre">x</span></code> and
 <code class="docutils literal notranslate"><span class="pre">y</span></code>, we would write <code class="docutils literal notranslate"><span class="pre">f(x,</span> <span class="pre">y)</span></code> to use the function.</p>
@@ -929,7 +961,7 @@ Recall the variable we created called <code class="docutils literal notranslate"
 </div>
 </div>
 <div class="section" id="getting-help">
-<h3>Getting Help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.1.3.1. </span>Getting Help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h3>
 <p>We can figure out what a function does by asking for help.</p>
 <p>In Jupyter notebooks, this is done by placing a <code class="docutils literal notranslate"><span class="pre">?</span></code> after the function
 name (without using parenthesis) and evaluating the cell.</p>
@@ -972,7 +1004,7 @@ future lecture.</p>
 </div>
 </div>
 <div class="section" id="objects-and-types">
-<h2>Objects and Types<a class="headerlink" href="#objects-and-types" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.1.4. </span>Objects and Types<a class="headerlink" href="#objects-and-types" title="Permalink to this headline">¶</a></h2>
 <p>Everything in Python is an <em>object</em>.</p>
 <p>Objects are “things” that contain 1) data and 2) functions that can operate on
 the data.</p>
@@ -1046,7 +1078,7 @@ soon, so stay tuned!</p>
 <p><a id='modules'></a></p>
 </div>
 <div class="section" id="modules">
-<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.1.5. </span>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
 <p>Python takes a modular approach to tools.</p>
 <p>By this we mean that sets of related tools are bundled together into <em>packages</em>.
 (You may also hear the term modules to describe the same thing.)</p>
@@ -1081,7 +1113,7 @@ be accessed by using <code class="docutils literal notranslate"><span class="pre
 <div><p>See exercise 3 in the <a class="reference external" href="#exerciselist-0"><em>exercise list</em></a></p>
 </div></blockquote>
 <div class="section" id="module-aliases">
-<h3>Module Aliases<a class="headerlink" href="#module-aliases" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.1.5.1. </span>Module Aliases<a class="headerlink" href="#module-aliases" title="Permalink to this headline">¶</a></h3>
 <p>Some packages have long names (see <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, for example) which
 makes accessing the package functionality somewhat inconvenient.</p>
 <p>To ease this burden, Python allows us to give aliases or “nicknames” to packages.</p>
@@ -1108,7 +1140,7 @@ to the common ones.</p>
 </div>
 </div>
 <div class="section" id="good-code-habits">
-<h2>Good Code Habits<a class="headerlink" href="#good-code-habits" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.1.6. </span>Good Code Habits<a class="headerlink" href="#good-code-habits" title="Permalink to this headline">¶</a></h2>
 <p>A common saying in the software engineering world is:</p>
 <blockquote>
 <div><p>Always code as if the guy who ends up maintaining your code will be
@@ -1131,7 +1163,7 @@ and right to read your code. We recommend no more than 80 characters per line.</
 </ul>
 </div>
 <div class="section" id="numbers">
-<h2>Numbers<a class="headerlink" href="#numbers" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.1.7. </span>Numbers<a class="headerlink" href="#numbers" title="Permalink to this headline">¶</a></h2>
 <p>Python has two types of numbers.</p>
 <ol class="simple">
 <li><p>Integer (<code class="docutils literal notranslate"><span class="pre">int</span></code>): These can only take the values of the integers
@@ -1160,7 +1192,7 @@ floating point numbers to the variables <code class="docutils literal notranslat
 <div><p>See exercise 5 in the <a class="reference external" href="#exerciselist-0"><em>exercise list</em></a></p>
 </div></blockquote>
 <div class="section" id="python-as-a-calculator">
-<h3>Python as a Calculator<a class="headerlink" href="#python-as-a-calculator" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.1.7.1. </span>Python as a Calculator<a class="headerlink" href="#python-as-a-calculator" title="Permalink to this headline">¶</a></h3>
 <p>You can use Python to perform mathematical calculations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1220,7 +1252,7 @@ multiplication and division, followed by addition and subtraction.</p>
 </div></blockquote>
 </div>
 <div class="section" id="other-math-functions">
-<h3>Other Math Functions<a class="headerlink" href="#other-math-functions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.1.7.2. </span>Other Math Functions<a class="headerlink" href="#other-math-functions" title="Permalink to this headline">¶</a></h3>
 <p>We often want to use other math functions on our numbers. Let’s try to
 calculate sin(2.5).</p>
 <div class="cell docutils container">
@@ -1263,7 +1295,7 @@ standard math functions – are contained in the <code class="docutils literal n
 <div><p>See exercise 7 in the <a class="reference external" href="#exerciselist-0"><em>exercise list</em></a></p>
 </div></blockquote>
 <div class="section" id="floor-modulus-division-operators">
-<h4>Floor/Modulus Division Operators<a class="headerlink" href="#floor-modulus-division-operators" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.1.1.7.2.1. </span>Floor/Modulus Division Operators<a class="headerlink" href="#floor-modulus-division-operators" title="Permalink to this headline">¶</a></h4>
 <p>You are less likely to run into the following operators, but understanding
 that they exist is useful.</p>
 <p>For two numbers assigned to the variables <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>,</p>
@@ -1300,7 +1332,7 @@ and modulus division returns the remainder.</p>
 </div>
 </div>
 <div class="section" id="strings">
-<h2>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.1.8. </span>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h2>
 <p>Textual information is stored in a data type called a string.</p>
 <p>To denote that you would like something to be stored as a string, you place it
 inside of quotation marks.</p>
@@ -1326,7 +1358,7 @@ its answer to <code class="docutils literal notranslate"><span class="pre">str</
 <div><p>See exercise 8 in the <a class="reference external" href="#exerciselist-0"><em>exercise list</em></a></p>
 </div></blockquote>
 <div class="section" id="string-operations">
-<h3>String Operations<a class="headerlink" href="#string-operations" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.1.8.1. </span>String Operations<a class="headerlink" href="#string-operations" title="Permalink to this headline">¶</a></h3>
 <p>Some of the arithmetic operators we saw in the numbers lecture also work
 on strings:</p>
 <ul class="simple">
@@ -1379,7 +1411,7 @@ on strings:</p>
 </div></blockquote>
 </div>
 <div class="section" id="string-methods">
-<h3>String Methods<a class="headerlink" href="#string-methods" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.1.8.2. </span>String Methods<a class="headerlink" href="#string-methods" title="Permalink to this headline">¶</a></h3>
 <p>We can use many <em>methods</em> to manipulate strings.</p>
 <p>We will not be able to cover all of them here, but let’s take a look at
 some of the most useful ones.</p>
@@ -1428,7 +1460,7 @@ some of the most useful ones.</p>
 </div></blockquote>
 </div>
 <div class="section" id="string-formatting">
-<h3>String Formatting<a class="headerlink" href="#string-formatting" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.1.8.3. </span>String Formatting<a class="headerlink" href="#string-formatting" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes we’d like to reuse some portion of a string repeatedly, but
 still make some relatively small changes at each usage.</p>
 <p>We can do this with <em>string formatting</em>, which done by using <code class="docutils literal notranslate"><span class="pre">{}</span></code> as a
@@ -1493,7 +1525,7 @@ that can be done…), see the <a class="reference external" href="https://docs.p
 </div>
 </div>
 <div class="section" id="booleans">
-<h2>Booleans<a class="headerlink" href="#booleans" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.1.9. </span>Booleans<a class="headerlink" href="#booleans" title="Permalink to this headline">¶</a></h2>
 <p>A boolean is a type that denotes true or false.</p>
 <p>As you will soon see in the <a class="reference internal" href="control_flow.html"><span class="doc std std-doc">control flow chapter</span></a>, using
 boolean values allows you to perform or skip operations depending on whether or
@@ -1524,7 +1556,7 @@ not a condition is met.</p>
 </div>
 </div>
 <div class="section" id="comparison-operators">
-<h3>Comparison Operators<a class="headerlink" href="#comparison-operators" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.1.9.1. </span>Comparison Operators<a class="headerlink" href="#comparison-operators" title="Permalink to this headline">¶</a></h3>
 <p>Rather than directly write <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>, you will usually
 create booleans by making a comparison.</p>
 <p>For example, you might want to evaluate whether the price of a particular asset
@@ -1554,7 +1586,7 @@ is greater than or less than some price.</p>
 </div>
 </div>
 <div class="section" id="negation">
-<h3>Negation<a class="headerlink" href="#negation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.1.9.2. </span>Negation<a class="headerlink" href="#negation" title="Permalink to this headline">¶</a></h3>
 <p>Occasionally, determining whether a statement is
 “not true” or “not false” is more convenient than simply “true” or “false”.</p>
 <p>This is known as <em>negating</em> a statement.</p>
@@ -1575,7 +1607,7 @@ is greater than or less than some price.</p>
 </div>
 </div>
 <div class="section" id="multiple-comparisons-and-or">
-<h3>Multiple Comparisons (and/or)<a class="headerlink" href="#multiple-comparisons-and-or" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.1.9.3. </span>Multiple Comparisons (and/or)<a class="headerlink" href="#multiple-comparisons-and-or" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes we need to evaluate multiple comparisons at once.</p>
 <p>This is done by using the words <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code>.</p>
 <p>However, these are the “mathematical” <em>and</em>s and <em>or</em>s – so they
@@ -1638,7 +1670,7 @@ I receive more vacation days” means that you would accept the job if
 </div></blockquote>
 </div>
 <div class="section" id="all-and-any">
-<h3><code class="docutils literal notranslate"><span class="pre">all</span></code> and <code class="docutils literal notranslate"><span class="pre">any</span></code><a class="headerlink" href="#all-and-any" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.1.9.4. </span><code class="docutils literal notranslate"><span class="pre">all</span></code> and <code class="docutils literal notranslate"><span class="pre">any</span></code><a class="headerlink" href="#all-and-any" title="Permalink to this headline">¶</a></h3>
 <p>We have seen how we can use the words <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code> to process two booleans
 at a time.</p>
 <p>The functions <code class="docutils literal notranslate"><span class="pre">all</span></code> and <code class="docutils literal notranslate"><span class="pre">any</span></code> allow us to process an unlimited number of
@@ -1654,7 +1686,7 @@ is <code class="docutils literal notranslate"><span class="pre">True</span></cod
 </div>
 </div>
 <div class="section" id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1.1.10. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <p><a id='exerciselist-0'></a>
 <strong>Exercise 1</strong></p>
 <p>What do you think the value of <code class="docutils literal notranslate"><span class="pre">z</span></code> is after running the code below?</p>
@@ -1915,6 +1947,8 @@ allow us to create lists which we will learn about in an upcoming lecture.</p>
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="essentials.html" title="previous page"><span class="section-number">4.1. </span>Python essentials</a>
+    <a class='right-next' id="next-link" href="collections.html" title="next page"><span class="section-number">4.1.2. </span>Collections</a>
 
         </div>
         
