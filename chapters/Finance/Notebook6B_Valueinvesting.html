@@ -1,0 +1,2558 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notebook 6 B &#8212; Quantitative Investing</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/book.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://amoreira2.github.io/quantitativeinvesting/chapters/Finance/Notebook6B_Valueinvesting.html" />
+    <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://amoreira2.github.io/quantitativeinvesting/chapters/Finance/Notebook6B_Valueinvesting.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Notebook 6 B" />
+<meta property="og:description" content="Notebook 6 B  (covered this in 2:30 hours)  Topics covered    Cross-Sectional strategies  Value  Momentum  Scalable approach to portfolio construction  Building" />
+<meta property="og:image"       content="https://amoreira2.github.io/quantitativeinvesting/_static/figuremain2.jpg" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/figuremain2.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Quantitative Investing</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../01/what-is-quant-investing.html">
+   1. What is Quantitative Investing?
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/statistical-techniques.html">
+     1.1. Statistical Techniques
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/computational-tools.html">
+     1.2. Computational tools
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/Finance.html">
+     1.3. Finance
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../02/getting_started.html">
+   2. Getting Started
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/local_install.html">
+     2.2.1. Local installation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/cloud_setup.html">
+     2.2.2. Cloud Setup
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../03/programming-in-python.html">
+   3. First Steps with Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/1/Expressions.html">
+     3.1. Expressions
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../03/2/Names.html">
+     3.2. Names
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/2/1/Growth.html">
+       3.2.1. Example: Growth Rates
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/3/Calls.html">
+     3.3. Call Expressions
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../04/Data_Types.html">
+     3.4. Data Types
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/1/Numbers.html">
+       3.4.1. Numbers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/2/Strings.html">
+       3.4.2. Strings
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/3/Comparison.html">
+       3.4.3. Comparisons
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../05/Sequences.html">
+     3.5. Sequences
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05/1/Arrays.html">
+       3.5.1. Arrays
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05/2/Ranges.html">
+       3.5.2. Ranges
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05/3/More_on_Arrays.html">
+       3.5.3. More on Arrays
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../essentials/essentials.html">
+   4. Python Essentials
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../essentials/basics.html">
+     4.1. Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../essentials/collections.html">
+     4.2. Collections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../essentials/control_flow.html">
+     4.3. Flow control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../essentials/functions.html">
+     4.4. Functions
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../scientific/intro.html">
+   5. Scientific Computing
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scientific/numpy1.html">
+     5.1. Numpy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scientific/plotting1.html">
+     5.2. Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scientific/linear_algebra1.html">
+     5.3. Linear algebra
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scientific/randomness1.html">
+     5.4. Randomness
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../pandas/intro.html">
+   6. Working with Data
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/basics.html">
+     6.7.1. Pandas Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/the_index.html">
+     6.7.2. Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/data_clean.html">
+     6.7.3. Cleaning data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/reshape.html">
+     6.7.4. Reshape
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/merge.html">
+     6.7.5. Merge
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/groupby.html">
+     6.7.6. Group-by
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/timeseries.html">
+     6.7.7. Time-Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/matplotlib.html">
+     6.7.8. Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/storage_formats.html">
+     6.7.9. Data Storage
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../additional/additional.html">
+   7. Additional Statistics Material
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../10/Sampling_and_Empirical_Distributions.html">
+     7.1. Sampling and Empirical Distributions
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../10/1/Empirical_Distributions.html">
+       7.1.1. Empirical Distributions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../10/2/Sampling_from_a_Population.html">
+       7.1.2. Sampling from a Population
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../10/3/Empirical_Distribution_of_a_Statistic.html">
+       7.1.3. Empirical Distibution of a Statistic
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../11/Testing_Hypotheses.html">
+     7.2. Testing Hypotheses
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../11/1/Assessing_Models.html">
+       7.2.1. Assessing Models
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../11/2/Multiple_Categories.html">
+       7.2.2. Multiple Categories
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../11/3/Decisions_and_Uncertainty.html">
+       7.2.3. Decisions and Uncertainty
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../11/4/Error_Probabilities.html">
+       7.2.4. Error Probabilities
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../13/Estimation.html">
+     7.3. Estimation
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13/1/Percentiles.html">
+       7.3.1. Percentiles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13/2/Bootstrap.html">
+       7.3.2. The Bootstrap
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13/3/Confidence_Intervals.html">
+       7.3.3. Confidence Intervals
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13/4/Using_Confidence_Intervals.html">
+       7.3.4. Using Confidence Intervals
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../14/Why_the_Mean_Matters.html">
+     7.4. Why the Mean Matters
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/1/Properties_of_the_Mean.html">
+       7.4.1. Properties of the Mean
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/2/Variability.html">
+       7.4.2. Variability
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/3/SD_and_the_Normal_Curve.html">
+       7.4.3. The SD and the Normal Curve
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/4/Central_Limit_Theorem.html">
+       7.4.4. The Central Limit Theorem
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/5/Variability_of_the_Sample_Mean.html">
+       7.4.5. The Variability of the Sample Mean
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/6/Choosing_a_Sample_Size.html">
+       7.4.6. Choosing a Sample Size
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../15/Prediction.html">
+     7.5. Prediction
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/1/Correlation.html">
+       7.5.1. Correlation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/2/Regression_Line.html">
+       7.5.2. The Regression Line
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/3/Method_of_Least_Squares.html">
+       7.5.3. The Method of Least Squares
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/4/Least_Squares_Regression.html">
+       7.5.4. Least Squares Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/5/Visual_Diagnostics.html">
+       7.5.5. Visual Diagnostics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/6/Numerical_Diagnostics.html">
+       7.5.6. Numerical Diagnostics
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../16/Inference_for_Regression.html">
+     7.6. Inference for Regression
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../16/1/Regression_Model.html">
+       7.6.1. A Regression Model
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../16/2/Inference_for_the_True_Slope.html">
+       7.6.2. Inference for the True Slope
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../16/3/Prediction_Intervals.html">
+       7.6.3. Prediction Intervals
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/chapters/Finance/Notebook6B_Valueinvesting.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/amoreira2/Lectures"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/amoreira2/Lectures/issues/new?title=Issue%20on%20page%20%2Fchapters/Finance/Notebook6B_Valueinvesting.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/amoreira2/Lectures/main?urlpath=lab/tree/chapters/Finance/Notebook6B_Valueinvesting.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://pims.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https://github.com/amoreira2/Lectures&urlpath=lab/tree/Lectures/chapters/Finance/Notebook6B_Valueinvesting.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/amoreira2/Lectures/blob/main/chapters/Finance/Notebook6B_Valueinvesting.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#topics-covered">
+   Topics covered
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#value-investing">
+   Value investing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#this-means-we-will-start-with-step-1-already-done-for-us-signal-construction-and-we-will-move-directly-to-step-2">
+     -&gt;This means we will start with step 1 already done for us (signal construction), and we will move directly to step 2
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-is-important-is-that-it-is-lagged-by-at-least-12-months-to-make-sure-that-the-bm-data-was-available-at-the-day-of-portfolio-formation">
+       What is important is that it is lagged by at least 12 months, to make sure that the BM data was available at the day of portfolio formation!
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-does-the-value-signal-look-like">
+     What does the value signal look like?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quantitative-investing-is-all-about-ranking">
+     Quantitative investing is all about ranking
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-rank">
+     How to rank?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#from-signals-to-weights-portfolio-formation-tradeoffs">
+       From signals to weights: Portfolio formation tradeoffs
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculate-the-portfolio-return">
+     Calculate the portfolio return
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#why-does-the-mean-operator-implements-the-equal-weighted-portfolio">
+       -&gt; Why does the mean operator implements the Equal weighted portfolio?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-do-you-see-here">
+       What do you see here?
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#long-short-portfolio">
+     Long-short portfolio
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#attention-r-hml-is-an-excess-return-to-look-at-cumulative-returns-overtime-we-need-to-add-back-the-risk-free-rate-to-it">
+       Attention: R_hml is an excess return! to look at cumulative returns overtime we need to add back  the risk-free rate to it
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#value-weighted-portfolios">
+   Value-weighted portfolios
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <img src='https://www.dropbox.com/s/125k1wnxkl6bgs0/class_logo.jpg?dl=1' alt="Smiley face" align="center" style="width: 600px;"/>
+<div class="section" id="notebook-6-b">
+<h1>Notebook 6 B<a class="headerlink" href="#notebook-6-b" title="Permalink to this headline">¶</a></h1>
+<p>(covered this in 2:30 hours)</p>
+<div class="section" id="topics-covered">
+<h2>Topics covered<a class="headerlink" href="#topics-covered" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Cross-Sectional strategies</p>
+<ul>
+<li><p>Value</p></li>
+<li><p>Momentum</p></li>
+</ul>
+</li>
+<li><p>Scalable approach to portfolio construction</p></li>
+<li><p>Building Value-weighted portfolios</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># start by loading data on the returns of the market portfolio and the risk-free rate</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="value-investing">
+<h2>Value investing<a class="headerlink" href="#value-investing" title="Permalink to this headline">¶</a></h2>
+<p>One of the most popular quantitative investing strategies is broadly refered to as “value investing”</p>
+<ul class="simple">
+<li><p>It consists of tilting the portfolio towards stocks that have a low price relative to a proxy for it’s fundamental value</p></li>
+<li><p>and tilt away form stocks with high price relative to fundamentals</p></li>
+<li><p>Broadly speaking: Buy cheap, sell expensive</p></li>
+<li><p>weights:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[W_t \propto \frac{F_t}{P_t}\]</div>
+<ul class="simple">
+<li><p>Where <span class="math notranslate nohighlight">\(F_t\)</span> is some proxy for the firm’s fundamental value</p></li>
+<li><p>typically some accounting measure</p></li>
+<li><p>There is a vast number of proxys for fundamentals</p>
+<ul>
+<li><p>Dividends</p></li>
+<li><p>Book value</p></li>
+<li><p>Earnings</p></li>
+<li><p>Cash flows</p></li>
+<li><p>Sales</p></li>
+</ul>
+</li>
+<li><p>The strategy is the “cross-sectional” counterpart of market timing strategies that rely on earnings to price ratio of aggregate market as a proxy for whether the market is expensive or cheap</p></li>
+<li><p>However, the evidence is that cross-sectional strategy is much more reliable, even if it still quite risky. It actually has done terribly in the last 10 years!</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.dropbox.com/s/lyvzy649na6p8su/value_characteristic.csv?dl=1&quot;</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">date</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">date</span><span class="p">,</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%m%y&#39;</span><span class="p">)</span>
+<span class="n">Data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">Data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>permno</th>
+      <th>re</th>
+      <th>rf</th>
+      <th>size</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1972-07-01</td>
+      <td>10006</td>
+      <td>0.028600</td>
+      <td>0.0031</td>
+      <td>12.399869</td>
+      <td>-0.125361</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1972-07-01</td>
+      <td>10102</td>
+      <td>0.039757</td>
+      <td>0.0031</td>
+      <td>12.217334</td>
+      <td>0.354954</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1972-07-01</td>
+      <td>10137</td>
+      <td>-0.044767</td>
+      <td>0.0031</td>
+      <td>13.069874</td>
+      <td>-0.088697</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1972-07-01</td>
+      <td>10145</td>
+      <td>-0.062422</td>
+      <td>0.0031</td>
+      <td>13.608366</td>
+      <td>0.075484</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1972-07-01</td>
+      <td>10153</td>
+      <td>-0.065600</td>
+      <td>0.0031</td>
+      <td>11.752572</td>
+      <td>0.944457</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>486422</th>
+      <td>2016-12-01</td>
+      <td>93420</td>
+      <td>0.011056</td>
+      <td>0.0003</td>
+      <td>14.337515</td>
+      <td>1.049163</td>
+    </tr>
+    <tr>
+      <th>486423</th>
+      <td>2016-12-01</td>
+      <td>93422</td>
+      <td>-0.063881</td>
+      <td>0.0003</td>
+      <td>15.256946</td>
+      <td>0.829353</td>
+    </tr>
+    <tr>
+      <th>486424</th>
+      <td>2016-12-01</td>
+      <td>93423</td>
+      <td>0.039950</td>
+      <td>0.0003</td>
+      <td>15.502888</td>
+      <td>-2.128977</td>
+    </tr>
+    <tr>
+      <th>486425</th>
+      <td>2016-12-01</td>
+      <td>93429</td>
+      <td>0.072124</td>
+      <td>0.0003</td>
+      <td>15.504722</td>
+      <td>-3.001095</td>
+    </tr>
+    <tr>
+      <th>486426</th>
+      <td>2016-12-01</td>
+      <td>93436</td>
+      <td>0.127947</td>
+      <td>0.0003</td>
+      <td>17.262975</td>
+      <td>-3.328269</td>
+    </tr>
+  </tbody>
+</table>
+<p>486427 rows × 6 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Data</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 486427 entries, 0 to 486426
+Data columns (total 6 columns):
+ #   Column  Non-Null Count   Dtype         
+---  ------  --------------   -----         
+ 0   date    486427 non-null  datetime64[ns]
+ 1   permno  486427 non-null  int64         
+ 2   re      486427 non-null  float64       
+ 3   rf      486427 non-null  float64       
+ 4   size    486427 non-null  float64       
+ 5   value   486427 non-null  float64       
+dtypes: datetime64[ns](1), float64(4), int64(1)
+memory usage: 22.3 MB
+</pre></div>
+</div>
+</div>
+</div>
+<ul>
+<li><p>above we load a data set with our value signal, Book-to-Market already constructed. Here is the definition of the value variable:</p>
+<blockquote>
+<div><p>Value (annual) (value). Follows Fama and French (1993). value = log(BE/ME). At the end of June of each year, we use book equity from the previous fiscal year and market equity from December of the previous year. Rebalanced annually.</p>
+</div></blockquote>
+</li>
+<li><p>The data set also containts a size variable:</p>
+<blockquote>
+<div><p>Size (size). Follows Fama and French (1993). size = MEJun. The CRSP end of June price times shares outstanding. Rebalanced annually</p>
+</div></blockquote>
+</li>
+</ul>
+<p>And contains excess returns (re) for individual stocks and the risk-free rate  of the relvant date</p>
+<ul class="simple">
+<li><p>permno is an identifier for the stock</p></li>
+<li><p>Note the format of the data set where stock and dates are stacked vertically</p></li>
+<li><p>We will need two indexes (date and permno) to perfectly identify an observation</p></li>
+</ul>
+<div class="section" id="this-means-we-will-start-with-step-1-already-done-for-us-signal-construction-and-we-will-move-directly-to-step-2">
+<h3>-&gt;This means we will start with step 1 already done for us (signal construction), and we will move directly to step 2<a class="headerlink" href="#this-means-we-will-start-with-step-1-already-done-for-us-signal-construction-and-we-will-move-directly-to-step-2" title="Permalink to this headline">¶</a></h3>
+<p>Details on how the value signal was constructed</p>
+<ul class="simple">
+<li><p>Value portfolios are typically rebalanced every July using Book-to-Market data from the year before</p></li>
+<li><p>This means that from July/2006 to June/2007 you use Book-to-Market data from December/2005</p></li>
+<li><p>Because the way we construct the data, the BM data is the same from Jan/2005 to December/2005</p></li>
+</ul>
+<div class="section" id="what-is-important-is-that-it-is-lagged-by-at-least-12-months-to-make-sure-that-the-bm-data-was-available-at-the-day-of-portfolio-formation">
+<h4>What is important is that it is lagged by at least 12 months, to make sure that the BM data was available at the day of portfolio formation!<a class="headerlink" href="#what-is-important-is-that-it-is-lagged-by-at-least-12-months-to-make-sure-that-the-bm-data-was-available-at-the-day-of-portfolio-formation" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We will shift the date to end of month as I know that july here means the return for buying end of june, selling end of july</span>
+
+<span class="n">Data</span><span class="o">.</span><span class="n">date</span><span class="o">=</span><span class="n">Data</span><span class="o">.</span><span class="n">date</span><span class="o">+</span><span class="n">pd</span><span class="o">.</span><span class="n">tseries</span><span class="o">.</span><span class="n">offsets</span><span class="o">.</span><span class="n">MonthEnd</span><span class="p">()</span>
+<span class="n">Data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>permno</th>
+      <th>re</th>
+      <th>rf</th>
+      <th>size</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1972-07-31</td>
+      <td>10006</td>
+      <td>0.028600</td>
+      <td>0.0031</td>
+      <td>12.399869</td>
+      <td>-0.125361</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1972-07-31</td>
+      <td>10102</td>
+      <td>0.039757</td>
+      <td>0.0031</td>
+      <td>12.217334</td>
+      <td>0.354954</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1972-07-31</td>
+      <td>10137</td>
+      <td>-0.044767</td>
+      <td>0.0031</td>
+      <td>13.069874</td>
+      <td>-0.088697</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1972-07-31</td>
+      <td>10145</td>
+      <td>-0.062422</td>
+      <td>0.0031</td>
+      <td>13.608366</td>
+      <td>0.075484</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1972-07-31</td>
+      <td>10153</td>
+      <td>-0.065600</td>
+      <td>0.0031</td>
+      <td>11.752572</td>
+      <td>0.944457</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>486422</th>
+      <td>2016-12-31</td>
+      <td>93420</td>
+      <td>0.011056</td>
+      <td>0.0003</td>
+      <td>14.337515</td>
+      <td>1.049163</td>
+    </tr>
+    <tr>
+      <th>486423</th>
+      <td>2016-12-31</td>
+      <td>93422</td>
+      <td>-0.063881</td>
+      <td>0.0003</td>
+      <td>15.256946</td>
+      <td>0.829353</td>
+    </tr>
+    <tr>
+      <th>486424</th>
+      <td>2016-12-31</td>
+      <td>93423</td>
+      <td>0.039950</td>
+      <td>0.0003</td>
+      <td>15.502888</td>
+      <td>-2.128977</td>
+    </tr>
+    <tr>
+      <th>486425</th>
+      <td>2016-12-31</td>
+      <td>93429</td>
+      <td>0.072124</td>
+      <td>0.0003</td>
+      <td>15.504722</td>
+      <td>-3.001095</td>
+    </tr>
+    <tr>
+      <th>486426</th>
+      <td>2016-12-31</td>
+      <td>93436</td>
+      <td>0.127947</td>
+      <td>0.0003</td>
+      <td>17.262975</td>
+      <td>-3.328269</td>
+    </tr>
+  </tbody>
+</table>
+<p>486427 rows × 6 columns</p>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="what-does-the-value-signal-look-like">
+<h3>What does the value signal look like?<a class="headerlink" href="#what-does-the-value-signal-look-like" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lets look at what out value measure looks like for a particular date:</span>
+<span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">Data</span><span class="p">[</span><span class="n">Data</span><span class="o">.</span><span class="n">date</span><span class="o">==</span><span class="s1">&#39;2016-12-31&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1fdd09b5550&gt;
+</pre></div>
+</div>
+<img alt="../../_images/Notebook6B_Valueinvesting_11_1.png" src="../../_images/Notebook6B_Valueinvesting_11_1.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>A lot of cross-section variation across firms</p></li>
+<li><p>some firms have very low book-to-market: accounting value low relative to market value</p></li>
+<li><p>Other firms have high book to market: accounting value high relative to market value</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lets look overtime</span>
+
+<span class="n">Data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1fdd2918310&gt;
+</pre></div>
+</div>
+<img alt="../../_images/Notebook6B_Valueinvesting_13_1.png" src="../../_images/Notebook6B_Valueinvesting_13_1.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>a lot of time-variation in it</p>
+<ul>
+<li><p>everything tends to be value at the same time</p></li>
+</ul>
+</li>
+<li><p>instead of time-variation, strategy that we want to construct want to explore variation across stocks</p></li>
+<li><p>lets look at how the signal dispersion changed</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">())</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1fdd12de220&gt;
+</pre></div>
+</div>
+<img alt="../../_images/Notebook6B_Valueinvesting_15_1.png" src="../../_images/Notebook6B_Valueinvesting_15_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="quantitative-investing-is-all-about-ranking">
+<h3>Quantitative investing is all about ranking<a class="headerlink" href="#quantitative-investing-is-all-about-ranking" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>[<span class="math notranslate nohighlight">\(\checkmark\)</span>] Get returns for each asset</p></li>
+<li><p>[<span class="math notranslate nohighlight">\(\checkmark\)</span>] Construct the signals for each asset</p></li>
+</ul>
+<ul class="simple">
+<li><p>[X]  Rank the signals in each date</p></li>
+<li><p>[X]  Choose how many assets to pool together. Trade-off between signal strength and diversification</p>
+<ul>
+<li><p>If you only buy the highest signal asset, you lose diversification</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="how-to-rank">
+<h3>How to rank?<a class="headerlink" href="#how-to-rank" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>We will assign the stocks in to quantiles according to it’s relative characteristic position in the particular date</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">Data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now do both the ranking and grouping in one single command</p>
+<ul>
+<li><p>Here we use <code class="docutils literal notranslate"><span class="pre">qdcut</span></code> to split the portfolios by Book-to-Market into 10 quantiles</p>
+<p>(<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.qcut.html">https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.qcut.html</a>)</p>
+</li>
+<li><p>The key here is to use the groupby operation to group things by date and do the quantile grouping in each date</p></li>
+<li><p>For each date, Pandas ranks portfolios and labels the lowest portfolio <span class="math notranslate nohighlight">\(0\)</span></p></li>
+<li><p>Because Pandas ranking starts at 0, we add 1 so our portfolio ranks are from 1 to 5</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;date&#39;</span><span class="p">])[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>date
+1972-07-31   -0.626205
+1972-08-31   -0.623892
+1972-09-30   -0.620197
+1972-10-31   -0.624844
+1972-11-30   -0.635536
+                ...   
+2016-08-31   -1.055661
+2016-09-30   -1.048324
+2016-10-31   -1.047085
+2016-11-30   -1.042955
+2016-12-31   -1.022753
+Name: value, Length: 534, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">date</span><span class="o">==</span><span class="s1">&#39;1972-07-31&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>permno</th>
+      <th>re</th>
+      <th>rf</th>
+      <th>size</th>
+      <th>value</th>
+      <th>value_group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>678</th>
+      <td>1972-07-31</td>
+      <td>42753</td>
+      <td>-0.191779</td>
+      <td>0.0031</td>
+      <td>11.485841</td>
+      <td>-3.347548</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>560</th>
+      <td>1972-07-31</td>
+      <td>34649</td>
+      <td>-0.450313</td>
+      <td>0.0031</td>
+      <td>12.852010</td>
+      <td>-3.321926</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>767</th>
+      <td>1972-07-31</td>
+      <td>47335</td>
+      <td>0.059757</td>
+      <td>0.0031</td>
+      <td>13.506375</td>
+      <td>-2.901124</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>631</th>
+      <td>1972-07-31</td>
+      <td>40416</td>
+      <td>0.040664</td>
+      <td>0.0031</td>
+      <td>15.698746</td>
+      <td>-2.885152</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>541</th>
+      <td>1972-07-31</td>
+      <td>31659</td>
+      <td>0.060031</td>
+      <td>0.0031</td>
+      <td>12.844695</td>
+      <td>-2.804002</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>650</th>
+      <td>1972-07-31</td>
+      <td>41419</td>
+      <td>-0.102152</td>
+      <td>0.0031</td>
+      <td>13.629061</td>
+      <td>-2.697078</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>585</th>
+      <td>1972-07-31</td>
+      <td>38324</td>
+      <td>-0.052893</td>
+      <td>0.0031</td>
+      <td>13.967502</td>
+      <td>-2.696856</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>310</th>
+      <td>1972-07-31</td>
+      <td>22648</td>
+      <td>0.051588</td>
+      <td>0.0031</td>
+      <td>13.005848</td>
+      <td>-2.692740</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>594</th>
+      <td>1972-07-31</td>
+      <td>38850</td>
+      <td>-0.079593</td>
+      <td>0.0031</td>
+      <td>13.532816</td>
+      <td>-2.656754</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>713</th>
+      <td>1972-07-31</td>
+      <td>44644</td>
+      <td>0.069934</td>
+      <td>0.0031</td>
+      <td>13.124501</td>
+      <td>-2.521507</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>776</th>
+      <td>1972-07-31</td>
+      <td>47837</td>
+      <td>0.097443</td>
+      <td>0.0031</td>
+      <td>12.858179</td>
+      <td>-2.481124</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>740</th>
+      <td>1972-07-31</td>
+      <td>46295</td>
+      <td>-0.184181</td>
+      <td>0.0031</td>
+      <td>13.181552</td>
+      <td>-2.358361</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>457</th>
+      <td>1972-07-31</td>
+      <td>26593</td>
+      <td>-0.030422</td>
+      <td>0.0031</td>
+      <td>13.321339</td>
+      <td>-2.344372</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>749</th>
+      <td>1972-07-31</td>
+      <td>46578</td>
+      <td>-0.010974</td>
+      <td>0.0031</td>
+      <td>13.474039</td>
+      <td>-2.330007</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>760</th>
+      <td>1972-07-31</td>
+      <td>46922</td>
+      <td>0.038336</td>
+      <td>0.0031</td>
+      <td>13.065555</td>
+      <td>-2.323548</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>690</th>
+      <td>1972-07-31</td>
+      <td>43449</td>
+      <td>-0.028416</td>
+      <td>0.0031</td>
+      <td>14.610389</td>
+      <td>-2.317941</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>555</th>
+      <td>1972-07-31</td>
+      <td>33814</td>
+      <td>-0.011480</td>
+      <td>0.0031</td>
+      <td>14.298955</td>
+      <td>-2.290667</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>773</th>
+      <td>1972-07-31</td>
+      <td>47773</td>
+      <td>-0.066645</td>
+      <td>0.0031</td>
+      <td>12.973710</td>
+      <td>-2.277594</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>775</th>
+      <td>1972-07-31</td>
+      <td>47829</td>
+      <td>-0.019493</td>
+      <td>0.0031</td>
+      <td>12.721967</td>
+      <td>-2.274825</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>628</th>
+      <td>1972-07-31</td>
+      <td>40272</td>
+      <td>0.054152</td>
+      <td>0.0031</td>
+      <td>13.951092</td>
+      <td>-2.273362</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>1972-07-31</td>
+      <td>11308</td>
+      <td>0.060570</td>
+      <td>0.0031</td>
+      <td>15.890368</td>
+      <td>-2.273250</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>400</th>
+      <td>1972-07-31</td>
+      <td>25013</td>
+      <td>0.049346</td>
+      <td>0.0031</td>
+      <td>14.903187</td>
+      <td>-2.221500</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>540</th>
+      <td>1972-07-31</td>
+      <td>31536</td>
+      <td>-0.031225</td>
+      <td>0.0031</td>
+      <td>12.342350</td>
+      <td>-2.211185</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>730</th>
+      <td>1972-07-31</td>
+      <td>45751</td>
+      <td>-0.102452</td>
+      <td>0.0031</td>
+      <td>13.529528</td>
+      <td>-2.182460</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>620</th>
+      <td>1972-07-31</td>
+      <td>40010</td>
+      <td>0.049532</td>
+      <td>0.0031</td>
+      <td>14.064470</td>
+      <td>-2.168778</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>291</th>
+      <td>1972-07-31</td>
+      <td>22111</td>
+      <td>-0.011247</td>
+      <td>0.0031</td>
+      <td>15.739679</td>
+      <td>-2.166638</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>312</th>
+      <td>1972-07-31</td>
+      <td>22752</td>
+      <td>0.083717</td>
+      <td>0.0031</td>
+      <td>15.549739</td>
+      <td>-2.150246</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>698</th>
+      <td>1972-07-31</td>
+      <td>43721</td>
+      <td>-0.098577</td>
+      <td>0.0031</td>
+      <td>13.818169</td>
+      <td>-2.143311</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>774</th>
+      <td>1972-07-31</td>
+      <td>47781</td>
+      <td>-0.170916</td>
+      <td>0.0031</td>
+      <td>11.869883</td>
+      <td>-2.136280</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>613</th>
+      <td>1972-07-31</td>
+      <td>39773</td>
+      <td>-0.067139</td>
+      <td>0.0031</td>
+      <td>11.492705</td>
+      <td>-2.118917</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>681</th>
+      <td>1972-07-31</td>
+      <td>42868</td>
+      <td>0.001610</td>
+      <td>0.0031</td>
+      <td>12.307175</td>
+      <td>-2.114033</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>127</th>
+      <td>1972-07-31</td>
+      <td>15667</td>
+      <td>0.063880</td>
+      <td>0.0031</td>
+      <td>15.519777</td>
+      <td>-2.107238</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>507</th>
+      <td>1972-07-31</td>
+      <td>27983</td>
+      <td>0.041676</td>
+      <td>0.0031</td>
+      <td>16.280728</td>
+      <td>-2.098844</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>576</th>
+      <td>1972-07-31</td>
+      <td>36740</td>
+      <td>-0.087230</td>
+      <td>0.0031</td>
+      <td>12.453160</td>
+      <td>-2.076861</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>625</th>
+      <td>1972-07-31</td>
+      <td>40141</td>
+      <td>0.008871</td>
+      <td>0.0031</td>
+      <td>13.221316</td>
+      <td>-2.022278</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>1972-07-31</td>
+      <td>12749</td>
+      <td>0.015601</td>
+      <td>0.0031</td>
+      <td>15.341995</td>
+      <td>-2.019847</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>737</th>
+      <td>1972-07-31</td>
+      <td>46201</td>
+      <td>-0.015221</td>
+      <td>0.0031</td>
+      <td>13.176461</td>
+      <td>-1.998444</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>290</th>
+      <td>1972-07-31</td>
+      <td>22103</td>
+      <td>0.045358</td>
+      <td>0.0031</td>
+      <td>14.464547</td>
+      <td>-1.962623</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>570</th>
+      <td>1972-07-31</td>
+      <td>36003</td>
+      <td>-0.009389</td>
+      <td>0.0031</td>
+      <td>13.083405</td>
+      <td>-1.945182</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>557</th>
+      <td>1972-07-31</td>
+      <td>34032</td>
+      <td>0.068578</td>
+      <td>0.0031</td>
+      <td>13.142126</td>
+      <td>-1.901390</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>1972-07-31</td>
+      <td>12570</td>
+      <td>-0.058256</td>
+      <td>0.0031</td>
+      <td>15.137024</td>
+      <td>-1.898891</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>614</th>
+      <td>1972-07-31</td>
+      <td>39810</td>
+      <td>0.089923</td>
+      <td>0.0031</td>
+      <td>11.461948</td>
+      <td>-1.897977</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>154</th>
+      <td>1972-07-31</td>
+      <td>17005</td>
+      <td>0.105812</td>
+      <td>0.0031</td>
+      <td>13.405941</td>
+      <td>-1.872489</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>635</th>
+      <td>1972-07-31</td>
+      <td>40571</td>
+      <td>-0.096433</td>
+      <td>0.0031</td>
+      <td>11.784288</td>
+      <td>-1.869243</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>758</th>
+      <td>1972-07-31</td>
+      <td>46877</td>
+      <td>0.030874</td>
+      <td>0.0031</td>
+      <td>12.656200</td>
+      <td>-1.849213</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>568</th>
+      <td>1972-07-31</td>
+      <td>35537</td>
+      <td>-0.102515</td>
+      <td>0.0031</td>
+      <td>12.998080</td>
+      <td>-1.849054</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>756</th>
+      <td>1972-07-31</td>
+      <td>46818</td>
+      <td>-0.064076</td>
+      <td>0.0031</td>
+      <td>11.662311</td>
+      <td>-1.841156</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>781</th>
+      <td>1972-07-31</td>
+      <td>48063</td>
+      <td>-0.141063</td>
+      <td>0.0031</td>
+      <td>11.589887</td>
+      <td>-1.840862</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>766</th>
+      <td>1972-07-31</td>
+      <td>47327</td>
+      <td>-0.003100</td>
+      <td>0.0031</td>
+      <td>11.936361</td>
+      <td>-1.839732</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>1972-07-31</td>
+      <td>11754</td>
+      <td>0.034600</td>
+      <td>0.0031</td>
+      <td>16.880065</td>
+      <td>-1.837976</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ngroups</span><span class="o">=</span><span class="mi">10</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;value_group&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;date&#39;</span><span class="p">])[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ngroups</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">duplicates</span><span class="o">=</span><span class="s1">&#39;drop&#39;</span><span class="p">))</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>permno</th>
+      <th>re</th>
+      <th>rf</th>
+      <th>size</th>
+      <th>value</th>
+      <th>value_group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1972-07-31</td>
+      <td>10006</td>
+      <td>0.028600</td>
+      <td>0.0031</td>
+      <td>12.399869</td>
+      <td>-0.125361</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1972-07-31</td>
+      <td>10102</td>
+      <td>0.039757</td>
+      <td>0.0031</td>
+      <td>12.217334</td>
+      <td>0.354954</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1972-07-31</td>
+      <td>10137</td>
+      <td>-0.044767</td>
+      <td>0.0031</td>
+      <td>13.069874</td>
+      <td>-0.088697</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1972-07-31</td>
+      <td>10145</td>
+      <td>-0.062422</td>
+      <td>0.0031</td>
+      <td>13.608366</td>
+      <td>0.075484</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1972-07-31</td>
+      <td>10153</td>
+      <td>-0.065600</td>
+      <td>0.0031</td>
+      <td>11.752572</td>
+      <td>0.944457</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>486422</th>
+      <td>2016-12-31</td>
+      <td>93420</td>
+      <td>0.011056</td>
+      <td>0.0003</td>
+      <td>14.337515</td>
+      <td>1.049163</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>486423</th>
+      <td>2016-12-31</td>
+      <td>93422</td>
+      <td>-0.063881</td>
+      <td>0.0003</td>
+      <td>15.256946</td>
+      <td>0.829353</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>486424</th>
+      <td>2016-12-31</td>
+      <td>93423</td>
+      <td>0.039950</td>
+      <td>0.0003</td>
+      <td>15.502888</td>
+      <td>-2.128977</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>486425</th>
+      <td>2016-12-31</td>
+      <td>93429</td>
+      <td>0.072124</td>
+      <td>0.0003</td>
+      <td>15.504722</td>
+      <td>-3.001095</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>486426</th>
+      <td>2016-12-31</td>
+      <td>93436</td>
+      <td>0.127947</td>
+      <td>0.0003</td>
+      <td>17.262975</td>
+      <td>-3.328269</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>486427 rows × 7 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># vizualization</span>
+
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">date</span><span class="o">==</span><span class="s1">&#39;2016-12-31&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;value_group&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1fdd136f7f0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/Notebook6B_Valueinvesting_23_1.png" src="../../_images/Notebook6B_Valueinvesting_23_1.png" />
+</div>
+</div>
+<div class="section" id="from-signals-to-weights-portfolio-formation-tradeoffs">
+<h4>From signals to weights: Portfolio formation tradeoffs<a class="headerlink" href="#from-signals-to-weights-portfolio-formation-tradeoffs" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>We will start by constructing Equal weighted portfolios within each signal bucket</p></li>
+<li><p>Why not sort in 100 groups instead on only 10? This way your top value would be much more value</p></li>
+<li><p>Why no simply focus on the highest value stock?</p>
+<ol class="simple">
+<li><p>Individual stocks have <span class="math notranslate nohighlight">\(\sigma\)</span> = 40 − 80%, so <span class="math notranslate nohighlight">\(\sigma/\sqrt{T}\)</span> makes it nearly impossible to accurately measure E(R). Portfolios have lower <span class="math notranslate nohighlight">\(\sigma\)</span> by diversification.</p></li>
+<li><p>So if you have to trade-off strengh of the signal against benefits of diversification</p></li>
+</ol>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="calculate-the-portfolio-return">
+<h3>Calculate the portfolio return<a class="headerlink" href="#calculate-the-portfolio-return" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[\sum_i^I W_{it} R_{it}\]</div>
+<p>Where the weights must add up to 1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lets start by constructin equal weighted portfolios because they are easy</span>
+
+<span class="n">value</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="s1">&#39;value_group&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">re</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">value</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>date        value_group
+1972-07-31  0.0           -0.019413
+            1.0           -0.031952
+            2.0           -0.020647
+            3.0           -0.035959
+            4.0           -0.024635
+            5.0           -0.039905
+            6.0           -0.021154
+            7.0           -0.020123
+            8.0           -0.007755
+            9.0           -0.019082
+1972-08-31  0.0           -0.001142
+            1.0           -0.005426
+            2.0            0.023772
+            3.0            0.022265
+            4.0            0.045362
+            5.0            0.034890
+            6.0            0.030207
+            7.0            0.046286
+            8.0            0.046104
+            9.0            0.061007
+Name: re, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="why-does-the-mean-operator-implements-the-equal-weighted-portfolio">
+<h4>-&gt; Why does the mean operator implements the Equal weighted portfolio?<a class="headerlink" href="#why-does-the-mean-operator-implements-the-equal-weighted-portfolio" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># to look we wiill first unstack</span>
+
+<span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">value</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>value_group</th>
+      <th>0.0</th>
+      <th>1.0</th>
+      <th>2.0</th>
+      <th>3.0</th>
+      <th>4.0</th>
+      <th>5.0</th>
+      <th>6.0</th>
+      <th>7.0</th>
+      <th>8.0</th>
+      <th>9.0</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1972-07-31</th>
+      <td>-0.019413</td>
+      <td>-0.031952</td>
+      <td>-0.020647</td>
+      <td>-0.035959</td>
+      <td>-0.024635</td>
+      <td>-0.039905</td>
+      <td>-0.021154</td>
+      <td>-0.020123</td>
+      <td>-0.007755</td>
+      <td>-0.019082</td>
+    </tr>
+    <tr>
+      <th>1972-08-31</th>
+      <td>-0.001142</td>
+      <td>-0.005426</td>
+      <td>0.023772</td>
+      <td>0.022265</td>
+      <td>0.045362</td>
+      <td>0.034890</td>
+      <td>0.030207</td>
+      <td>0.046286</td>
+      <td>0.046104</td>
+      <td>0.061007</td>
+    </tr>
+    <tr>
+      <th>1972-09-30</th>
+      <td>-0.017616</td>
+      <td>-0.016387</td>
+      <td>-0.034466</td>
+      <td>-0.036333</td>
+      <td>-0.017730</td>
+      <td>-0.009669</td>
+      <td>-0.021047</td>
+      <td>-0.020553</td>
+      <td>-0.024226</td>
+      <td>-0.040173</td>
+    </tr>
+    <tr>
+      <th>1972-10-31</th>
+      <td>-0.019626</td>
+      <td>-0.025251</td>
+      <td>-0.001835</td>
+      <td>-0.014175</td>
+      <td>0.008467</td>
+      <td>0.004370</td>
+      <td>0.023685</td>
+      <td>0.022813</td>
+      <td>0.000293</td>
+      <td>-0.013171</td>
+    </tr>
+    <tr>
+      <th>1972-11-30</th>
+      <td>0.032307</td>
+      <td>0.051885</td>
+      <td>0.046909</td>
+      <td>0.062400</td>
+      <td>0.067479</td>
+      <td>0.060958</td>
+      <td>0.070035</td>
+      <td>0.072612</td>
+      <td>0.072457</td>
+      <td>0.091100</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2016-08-31</th>
+      <td>-0.001996</td>
+      <td>-0.002620</td>
+      <td>0.006674</td>
+      <td>0.013181</td>
+      <td>-0.005727</td>
+      <td>0.013239</td>
+      <td>0.014881</td>
+      <td>0.009360</td>
+      <td>0.005812</td>
+      <td>0.017716</td>
+    </tr>
+    <tr>
+      <th>2016-09-30</th>
+      <td>0.000467</td>
+      <td>0.000368</td>
+      <td>-0.009791</td>
+      <td>-0.006281</td>
+      <td>-0.002992</td>
+      <td>0.012975</td>
+      <td>0.003570</td>
+      <td>0.006279</td>
+      <td>0.010710</td>
+      <td>0.013285</td>
+    </tr>
+    <tr>
+      <th>2016-10-31</th>
+      <td>-0.041339</td>
+      <td>-0.036376</td>
+      <td>-0.025003</td>
+      <td>-0.024703</td>
+      <td>-0.032303</td>
+      <td>-0.019515</td>
+      <td>-0.012217</td>
+      <td>-0.012475</td>
+      <td>-0.004770</td>
+      <td>-0.026986</td>
+    </tr>
+    <tr>
+      <th>2016-11-30</th>
+      <td>0.049054</td>
+      <td>0.035482</td>
+      <td>0.038543</td>
+      <td>0.071041</td>
+      <td>0.068552</td>
+      <td>0.076313</td>
+      <td>0.095947</td>
+      <td>0.084811</td>
+      <td>0.101356</td>
+      <td>0.103625</td>
+    </tr>
+    <tr>
+      <th>2016-12-31</th>
+      <td>-0.007561</td>
+      <td>0.004542</td>
+      <td>0.006427</td>
+      <td>0.016894</td>
+      <td>0.008279</td>
+      <td>0.008627</td>
+      <td>0.023967</td>
+      <td>0.022173</td>
+      <td>0.037158</td>
+      <td>0.012235</td>
+    </tr>
+  </tbody>
+</table>
+<p>534 rows × 10 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">value</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">cumprod</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1fdd1479af0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/Notebook6B_Valueinvesting_28_1.png" src="../../_images/Notebook6B_Valueinvesting_28_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">value</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">cumprod</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">logy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1fdd1eac160&gt;
+</pre></div>
+</div>
+<img alt="../../_images/Notebook6B_Valueinvesting_29_1.png" src="../../_images/Notebook6B_Valueinvesting_29_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="what-do-you-see-here">
+<h4>What do you see here?<a class="headerlink" href="#what-do-you-see-here" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Over time “value” (high book to market) stocks tend to perform well going forward</p></li>
+<li><p>“growth” stocks  (low book to market) tend to perform poorly going forward</p></li>
+<li><p>You can implement a value strategy in a varity of ways depending of what you can do</p>
+<ul>
+<li><p>instead of buying the market just buy portfolios 5 to 9, or even only portfolio 9</p></li>
+<li><p>Or are you can also buy portfolio 9 and SHORT portfolio 0, that is a value minus growth strategy. Nice becasue it is close to market neutral so you can add market exposure on top of that. But of course, you do need to short!</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="long-short-portfolio">
+<h3>Long-short portfolio<a class="headerlink" href="#long-short-portfolio" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>What is a long-short portfolio?</p></li>
+<li><p>It is a portfolio that is self-financed, for each dollar of stocks that it buys, it finances the position by shorting 1 dollar worth of stock in the other side</p></li>
+<li><p>So the returns of long-short portfolio are already excess returns</p></li>
+<li><p>We have worked with long-short portfolios before starting Notebook 3</p></li>
+<li><p>But there our short side was always the risk-free rate</p>
+<ul>
+<li><p>When we write <span class="math notranslate nohighlight">\(R^e_{mkt}=R_{mkt}-R_f\)</span>, we are constructing a long-short portfolio that goes long the market and short the risk-free asset</p></li>
+<li><p>This portfolio as we discussed in Notebook 3 has zero cost, i.e., you don’t need any capital, so it allow us to completely separate the time-value of money question from the risk premium question</p></li>
+<li><p>The only difference is that now our short side will be a risky asset too, but the logic is the same</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R_HmL</span><span class="o">=</span><span class="n">value</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="p">(</span><span class="n">R_HmL</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Notebook6B_Valueinvesting_32_0.png" src="../../_images/Notebook6B_Valueinvesting_32_0.png" />
+</div>
+</div>
+<div class="section" id="attention-r-hml-is-an-excess-return-to-look-at-cumulative-returns-overtime-we-need-to-add-back-the-risk-free-rate-to-it">
+<h4>Attention: R_hml is an excess return! to look at cumulative returns overtime we need to add back  the risk-free rate to it<a class="headerlink" href="#attention-r-hml-is-an-excess-return-to-look-at-cumulative-returns-overtime-we-need-to-add-back-the-risk-free-rate-to-it" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rf</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rf</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">rf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>date
+1972-07-31    0.0031
+1972-08-31    0.0029
+1972-09-30    0.0034
+1972-10-31    0.0040
+1972-11-30    0.0037
+               ...  
+2016-08-31    0.0002
+2016-09-30    0.0002
+2016-10-31    0.0002
+2016-11-30    0.0001
+2016-12-31    0.0003
+Name: rf, Length: 534, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># note that here pandas is doing this seemlessly without need an explicit merge operation becasue the dataset </span>
+<span class="c1"># are already alined</span>
+<span class="c1"># as they were constructed form the same data set and have the same indnetical index.</span>
+<span class="p">(</span><span class="n">R_HmL</span><span class="o">+</span><span class="n">rf</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">cumprod</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1fdd2184c10&gt;
+</pre></div>
+</div>
+<img alt="../../_images/Notebook6B_Valueinvesting_35_1.png" src="../../_images/Notebook6B_Valueinvesting_35_1.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="value-weighted-portfolios">
+<h2>Value-weighted portfolios<a class="headerlink" href="#value-weighted-portfolios" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>We have so far focused on Equal-weighted portfolios</p></li>
+<li><p>This is fine in this case as the industries themselves are Value-weighted</p></li>
+<li><p>When working with stocks, if you EW you most load on tiny stocks</p></li>
+<li><p>So whatever pattern you find is unlikely to be tradable, because small stocks tend to be very illiquid</p></li>
+<li><p>Even if tradable, the scale of the strategy will be quite limited as prices will move quickly up as you start to buy</p></li>
+<li><p>So lets construct Market-Cap weighted portfolio</p></li>
+<li><p>These portfolios buy in proportion to the market cap of the firm, so small stocks will only get a small allocation to it</p></li>
+<li><p>This makes the portfolios much easier to trade</p></li>
+<li><p>Doing this is very easy, essentially a weighted average of returns</p></li>
+<li><p>Here is more involved because we need to construct the market cap measure and merge back to our original data set before doing the final step</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For a given date, for a given group, take the value-weighted average return</span>
+<span class="k">def</span> <span class="nf">wavg</span><span class="p">(</span><span class="n">group</span><span class="p">):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;re&#39;</span><span class="p">]</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span>
+    <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">d</span> <span class="o">*</span> <span class="n">w</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">w</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+<span class="n">ngroups</span><span class="o">=</span><span class="mi">10</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;value_group&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;date&#39;</span><span class="p">])[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ngroups</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">duplicates</span><span class="o">=</span><span class="s1">&#39;drop&#39;</span><span class="p">))</span>
+
+<span class="n">value_sizeweighted</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="s1">&#39;value_group&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">wavg</span><span class="p">)</span>
+
+<span class="n">value_sizeweighted</span><span class="o">=</span><span class="n">value_sizeweighted</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">value_sizeweighted</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>value_group</th>
+      <th>0.0</th>
+      <th>1.0</th>
+      <th>2.0</th>
+      <th>3.0</th>
+      <th>4.0</th>
+      <th>5.0</th>
+      <th>6.0</th>
+      <th>7.0</th>
+      <th>8.0</th>
+      <th>9.0</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1972-07-31</th>
+      <td>-0.016512</td>
+      <td>-0.029192</td>
+      <td>-0.020649</td>
+      <td>-0.034619</td>
+      <td>-0.025278</td>
+      <td>-0.037691</td>
+      <td>-0.020747</td>
+      <td>-0.020043</td>
+      <td>-0.008014</td>
+      <td>-0.019219</td>
+    </tr>
+    <tr>
+      <th>1972-08-31</th>
+      <td>-0.000045</td>
+      <td>-0.004055</td>
+      <td>0.023487</td>
+      <td>0.023287</td>
+      <td>0.046704</td>
+      <td>0.035910</td>
+      <td>0.032162</td>
+      <td>0.046798</td>
+      <td>0.048889</td>
+      <td>0.061428</td>
+    </tr>
+    <tr>
+      <th>1972-09-30</th>
+      <td>-0.016667</td>
+      <td>-0.014786</td>
+      <td>-0.033966</td>
+      <td>-0.036410</td>
+      <td>-0.017814</td>
+      <td>-0.009716</td>
+      <td>-0.021399</td>
+      <td>-0.020599</td>
+      <td>-0.023082</td>
+      <td>-0.040054</td>
+    </tr>
+    <tr>
+      <th>1972-10-31</th>
+      <td>-0.017074</td>
+      <td>-0.022969</td>
+      <td>-0.000557</td>
+      <td>-0.013126</td>
+      <td>0.009148</td>
+      <td>0.004804</td>
+      <td>0.023004</td>
+      <td>0.022681</td>
+      <td>0.001232</td>
+      <td>-0.012606</td>
+    </tr>
+    <tr>
+      <th>1972-11-30</th>
+      <td>0.030157</td>
+      <td>0.050792</td>
+      <td>0.047116</td>
+      <td>0.063041</td>
+      <td>0.068412</td>
+      <td>0.060683</td>
+      <td>0.069578</td>
+      <td>0.073453</td>
+      <td>0.073004</td>
+      <td>0.092717</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">value_sizeweighted</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1fdd219ae80&gt;
+</pre></div>
+</div>
+<img alt="../../_images/Notebook6B_Valueinvesting_39_1.png" src="../../_images/Notebook6B_Valueinvesting_39_1.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>It is important when constructing any weights that the weights you are using are a function only of variables known before the time of the trade.</p></li>
+<li><p>Here in this case we are using the size variable which is the market cap of the firm last december as explained above</p></li>
+<li><p>what is important is that this info is tradable, ideally we would use more recent market caps, but market caps are very persistent, so the result will be similar</p></li>
+<li><p>If you didn’t lag what would it be the problem? That is suppose that you use market cap from the end of the trading month? What bias would that introduce? Would this be a valid strategy?</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/Finance"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Alan Moreira<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,1685 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notebook 5 &#8212; Quantitative Investing</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/book.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://amoreira2.github.io/quantitativeinvesting/chapters/Finance/Notebook5_EstimationUncertainty.html" />
+    <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://amoreira2.github.io/quantitativeinvesting/chapters/Finance/Notebook5_EstimationUncertainty.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Notebook 5" />
+<meta property="og:description" content="Notebook 5  Topics covered    Portfolio optimization with constraints  Estimation uncertainty  Statistical tests  Minimum-Variance investing  Risk-parity invest" />
+<meta property="og:image"       content="https://amoreira2.github.io/quantitativeinvesting/_static/figuremain2.jpg" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/figuremain2.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Quantitative Investing</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../01/what-is-quant-investing.html">
+   1. What is Quantitative Investing?
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/statistical-techniques.html">
+     1.1. Statistical Techniques
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/computational-tools.html">
+     1.2. Computational tools
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/Finance.html">
+     1.3. Finance
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../02/getting_started.html">
+   2. Getting Started
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/local_install.html">
+     2.2.1. Local installation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/cloud_setup.html">
+     2.2.2. Cloud Setup
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../03/programming-in-python.html">
+   3. First Steps with Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/1/Expressions.html">
+     3.1. Expressions
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../03/2/Names.html">
+     3.2. Names
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/2/1/Growth.html">
+       3.2.1. Example: Growth Rates
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/3/Calls.html">
+     3.3. Call Expressions
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../04/Data_Types.html">
+     3.4. Data Types
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/1/Numbers.html">
+       3.4.1. Numbers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/2/Strings.html">
+       3.4.2. Strings
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/3/Comparison.html">
+       3.4.3. Comparisons
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../05/Sequences.html">
+     3.5. Sequences
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05/1/Arrays.html">
+       3.5.1. Arrays
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05/2/Ranges.html">
+       3.5.2. Ranges
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05/3/More_on_Arrays.html">
+       3.5.3. More on Arrays
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../essentials/essentials.html">
+   4. Python Essentials
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../essentials/basics.html">
+     4.1. Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../essentials/collections.html">
+     4.2. Collections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../essentials/control_flow.html">
+     4.3. Flow control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../essentials/functions.html">
+     4.4. Functions
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../scientific/intro.html">
+   5. Scientific Computing
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scientific/numpy1.html">
+     5.1. Numpy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scientific/plotting1.html">
+     5.2. Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scientific/linear_algebra1.html">
+     5.3. Linear algebra
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scientific/randomness1.html">
+     5.4. Randomness
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../pandas/intro.html">
+   6. Working with Data
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/basics.html">
+     6.7.1. Pandas Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/the_index.html">
+     6.7.2. Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/data_clean.html">
+     6.7.3. Cleaning data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/reshape.html">
+     6.7.4. Reshape
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/merge.html">
+     6.7.5. Merge
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/groupby.html">
+     6.7.6. Group-by
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/timeseries.html">
+     6.7.7. Time-Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/matplotlib.html">
+     6.7.8. Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/storage_formats.html">
+     6.7.9. Data Storage
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../additional/additional.html">
+   7. Additional Statistics Material
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../10/Sampling_and_Empirical_Distributions.html">
+     7.1. Sampling and Empirical Distributions
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../10/1/Empirical_Distributions.html">
+       7.1.1. Empirical Distributions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../10/2/Sampling_from_a_Population.html">
+       7.1.2. Sampling from a Population
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../10/3/Empirical_Distribution_of_a_Statistic.html">
+       7.1.3. Empirical Distibution of a Statistic
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../11/Testing_Hypotheses.html">
+     7.2. Testing Hypotheses
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../11/1/Assessing_Models.html">
+       7.2.1. Assessing Models
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../11/2/Multiple_Categories.html">
+       7.2.2. Multiple Categories
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../11/3/Decisions_and_Uncertainty.html">
+       7.2.3. Decisions and Uncertainty
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../11/4/Error_Probabilities.html">
+       7.2.4. Error Probabilities
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../13/Estimation.html">
+     7.3. Estimation
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13/1/Percentiles.html">
+       7.3.1. Percentiles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13/2/Bootstrap.html">
+       7.3.2. The Bootstrap
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13/3/Confidence_Intervals.html">
+       7.3.3. Confidence Intervals
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13/4/Using_Confidence_Intervals.html">
+       7.3.4. Using Confidence Intervals
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../14/Why_the_Mean_Matters.html">
+     7.4. Why the Mean Matters
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/1/Properties_of_the_Mean.html">
+       7.4.1. Properties of the Mean
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/2/Variability.html">
+       7.4.2. Variability
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/3/SD_and_the_Normal_Curve.html">
+       7.4.3. The SD and the Normal Curve
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/4/Central_Limit_Theorem.html">
+       7.4.4. The Central Limit Theorem
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/5/Variability_of_the_Sample_Mean.html">
+       7.4.5. The Variability of the Sample Mean
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/6/Choosing_a_Sample_Size.html">
+       7.4.6. Choosing a Sample Size
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../15/Prediction.html">
+     7.5. Prediction
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/1/Correlation.html">
+       7.5.1. Correlation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/2/Regression_Line.html">
+       7.5.2. The Regression Line
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/3/Method_of_Least_Squares.html">
+       7.5.3. The Method of Least Squares
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/4/Least_Squares_Regression.html">
+       7.5.4. Least Squares Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/5/Visual_Diagnostics.html">
+       7.5.5. Visual Diagnostics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/6/Numerical_Diagnostics.html">
+       7.5.6. Numerical Diagnostics
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../16/Inference_for_Regression.html">
+     7.6. Inference for Regression
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../16/1/Regression_Model.html">
+       7.6.1. A Regression Model
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../16/2/Inference_for_the_True_Slope.html">
+       7.6.2. Inference for the True Slope
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../16/3/Prediction_Intervals.html">
+       7.6.3. Prediction Intervals
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/chapters/Finance/Notebook5_EstimationUncertainty.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/amoreira2/Lectures"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/amoreira2/Lectures/issues/new?title=Issue%20on%20page%20%2Fchapters/Finance/Notebook5_EstimationUncertainty.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/amoreira2/Lectures/main?urlpath=lab/tree/chapters/Finance/Notebook5_EstimationUncertainty.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://pims.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https://github.com/amoreira2/Lectures&urlpath=lab/tree/Lectures/chapters/Finance/Notebook5_EstimationUncertainty.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/amoreira2/Lectures/blob/main/chapters/Finance/Notebook5_EstimationUncertainty.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Notebook 5
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#topics-covered">
+     Topics covered
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#portfolio-optimization-in-practice">
+   Portfolio optimization in practice
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimation-uncertainty">
+   Estimation uncertainty
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statistical-tests">
+   Statistical tests
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#t-stat">
+     T-stat
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#one-sided-hypothesis-testing">
+     One-sided hypothesis testing
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#two-sided-intervals">
+     Two-sided intervals
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pvalues">
+     Pvalues
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-if-all-assets-have-the-same-average-return">
+     Test if all assets have the same average return
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <img src='https://www.dropbox.com/s/125k1wnxkl6bgs0/class_logo.jpg?dl=1' alt="Smiley face" align="center" style="width: 600px;"/>
+<div class="section" id="notebook-5">
+<h1>Notebook 5<a class="headerlink" href="#notebook-5" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="topics-covered">
+<h2>Topics covered<a class="headerlink" href="#topics-covered" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Portfolio optimization with constraints</p></li>
+<li><p>Estimation uncertainty</p></li>
+<li><p>Statistical tests</p></li>
+<li><p>Minimum-Variance investing</p></li>
+<li><p>Risk-parity investing</p></li>
+<li><p>Portfolio choice using equilibirum thinking</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="c1">#GlobalFinMonthly</span>
+<span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://www.dropbox.com/s/3k35mt3t57ygff2/GlobalFinMonthly.csv?dl=1&quot;</span>
+<span class="n">Data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">na_values</span><span class="o">=-</span><span class="mi">99</span><span class="p">)</span>
+<span class="c1"># tell python Date is date:</span>
+<span class="n">Data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">Data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
+<span class="c1"># set an an index</span>
+<span class="n">Data</span><span class="o">=</span><span class="n">Data</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
+<span class="n">Data</span><span class="o">=</span><span class="n">Data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="n">Data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="s2">&quot;MKTUS&quot;</span><span class="p">,</span><span class="n">Data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="s2">&quot;BondUS&quot;</span><span class="p">,</span>
+                          <span class="n">Data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="s2">&quot;EM&quot;</span><span class="p">,</span><span class="n">Data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="s2">&quot;MKTxUS&quot;</span><span class="p">,</span><span class="n">Data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="s2">&quot;BondxUS&quot;</span> <span class="p">})</span>
+<span class="n">Re</span><span class="o">=</span><span class="p">(</span><span class="n">Data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;RF&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">Data</span><span class="p">[</span><span class="s1">&#39;RF&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+<span class="n">Re</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MKTUS</th>
+      <th>BondUS</th>
+      <th>EM</th>
+      <th>MKTxUS</th>
+      <th>BondxUS</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2016-08-31</th>
+      <td>0.0050</td>
+      <td>-0.008617</td>
+      <td>0.024986</td>
+      <td>0.000638</td>
+      <td>-0.009752</td>
+    </tr>
+    <tr>
+      <th>2016-09-30</th>
+      <td>0.0025</td>
+      <td>-0.016617</td>
+      <td>0.012953</td>
+      <td>0.012536</td>
+      <td>0.009779</td>
+    </tr>
+    <tr>
+      <th>2016-10-31</th>
+      <td>-0.0202</td>
+      <td>-0.049660</td>
+      <td>0.002274</td>
+      <td>-0.020583</td>
+      <td>-0.043676</td>
+    </tr>
+    <tr>
+      <th>2016-11-30</th>
+      <td>0.0486</td>
+      <td>-0.081736</td>
+      <td>-0.046071</td>
+      <td>-0.019898</td>
+      <td>-0.050459</td>
+    </tr>
+    <tr>
+      <th>2016-12-31</th>
+      <td>0.0182</td>
+      <td>-0.005596</td>
+      <td>0.002604</td>
+      <td>0.034083</td>
+      <td>-0.023507</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="portfolio-optimization-in-practice">
+<h1>Portfolio optimization in practice<a class="headerlink" href="#portfolio-optimization-in-practice" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Investment managers rarely apply the Markowitz framework in it’s more pure form as studied in Notebook 4</p></li>
+<li><p>Pension funds typically use a 60/40 equity/bond allocation</p></li>
+<li><p>Why not used more often?</p></li>
+<li><p>Requires specifying expected return assumption for entire universe of assets</p></li>
+<li><p>Mean-variance optimization weights heavily on assets that have extreme average returns and with attractive covariance properties, i.e., high correlation with asset yielding slightly different return</p></li>
+<li><p>What problems that might cause?</p></li>
+<li><p>The key problem is that we are dealing with a limited sample of data</p></li>
+<li><p>We are interested in finding the ex-ante tangency portfolio</p></li>
+<li><p>But MV analysis identifies the ex-post tangency portfolio, i.e. a portfolio that did well in the sample, but it can be a statistical fluke</p></li>
+</ul>
+<blockquote>
+<div><p>How to evaluate the amount of uncertainty and it’s impact on our results?</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Another practical issue that practioners face is that MV analysis (in it’s more pure form) does not account for several real world frictions that are more or less important depending on the investor:</p></li>
+<li><p>Shorting an asset requires paying a borrowing fee to the owner of the asset. Shorting costs are sometimes prohibitive for small illiquid stocks</p></li>
+<li><p>Most investors cannot really borrow at anything close to the risk-free rate–i.e., often they have to pay a substantially higher rate to borrow than to lend.</p></li>
+</ul>
+<blockquote>
+<div><p>Between two assets, one with high beta with respect to the tangency portfolio and one with low beta, which one does a constrained investor prefer?</p>
+</div></blockquote>
+</div>
+<div class="section" id="estimation-uncertainty">
+<h1>Estimation uncertainty<a class="headerlink" href="#estimation-uncertainty" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>We will start by evaluating the uncertainty regarding our average expected excess return estimates for each asset</p></li>
+<li><p>We will then show how the weights change as we pertubate these estimates in a way that is consistent with the amount of uncertainty</p></li>
+<li><p>We will then show how sensitive the benefits of international diversification are</p></li>
+<li><p>If observations are serially uncorrelated over time, which returns are close to being, then the standard deviation of a sample average is simply</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[std\left(\sum_i^N\frac{x_i}{N}\right)=\frac{std(x_i)}{\sqrt{N}}\]</div>
+<ul class="simple">
+<li><p>This measures how uncertain we are about the sample mean</p></li>
+<li><p>For example, there is a 5% probability that the actual mean <span class="math notranslate nohighlight">\(E[x_i]\leq\overline{x_i}-1.64{std(\overline{x_i})}\)</span></p></li>
+<li><p>So <span class="math notranslate nohighlight">\(std(\overline{x_i})\)</span> gives a measure of how close our estimate is to the true expected value</p></li>
+<li><p>Lets compare the sample average and the sample average standard deviation for our assets</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Re</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MKTUS</th>
+      <th>BondUS</th>
+      <th>EM</th>
+      <th>MKTxUS</th>
+      <th>BondxUS</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1963-02-28</th>
+      <td>-0.0238</td>
+      <td>-0.004178</td>
+      <td>0.095922</td>
+      <td>-0.005073</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1963-03-31</th>
+      <td>0.0308</td>
+      <td>0.001042</td>
+      <td>0.011849</td>
+      <td>-0.001929</td>
+      <td>-0.000387</td>
+    </tr>
+    <tr>
+      <th>1963-04-30</th>
+      <td>0.0451</td>
+      <td>-0.004343</td>
+      <td>-0.149555</td>
+      <td>-0.005836</td>
+      <td>0.005502</td>
+    </tr>
+    <tr>
+      <th>1963-05-31</th>
+      <td>0.0176</td>
+      <td>-0.004207</td>
+      <td>-0.014572</td>
+      <td>-0.002586</td>
+      <td>0.002289</td>
+    </tr>
+    <tr>
+      <th>1963-06-30</th>
+      <td>-0.0200</td>
+      <td>-0.000634</td>
+      <td>-0.057999</td>
+      <td>-0.013460</td>
+      <td>0.000839</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First we get the total number of observations and store it as `T`</span>
+<span class="n">T</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>647
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lets contrast the WMVE weights with the SR of each </span>
+
+<span class="c1"># (1) standard deviation of the sample average of excess return for each asset</span>
+<span class="n">avg_std</span><span class="o">=</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="n">T</span><span class="o">**</span><span class="mf">0.5</span><span class="p">))</span>
+
+<span class="c1"># (2) sample average of excess return for each asset</span>
+<span class="n">avg</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># (3) save as ERstd (excess return standard deviation)</span>
+<span class="n">ERstd</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">avg_std</span><span class="p">,</span><span class="n">avg</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ERstd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>MKTUS</th>
+      <td>0.001735</td>
+      <td>0.005140</td>
+    </tr>
+    <tr>
+      <th>BondUS</th>
+      <td>0.001377</td>
+      <td>0.002523</td>
+    </tr>
+    <tr>
+      <th>EM</th>
+      <td>0.002344</td>
+      <td>0.006923</td>
+    </tr>
+    <tr>
+      <th>MKTxUS</th>
+      <td>0.001836</td>
+      <td>0.004149</td>
+    </tr>
+    <tr>
+      <th>BondxUS</th>
+      <td>0.000793</td>
+      <td>0.002054</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lets contrast the WMVE weights with the SR of each </span>
+
+<span class="c1"># (1) standard deviation of the sample average of excess return for each asset</span>
+<span class="n">avg_std</span><span class="o">=</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="n">T</span><span class="o">**</span><span class="mf">0.5</span><span class="p">))</span>
+
+<span class="c1"># (2) sample average of excess return for each asset</span>
+<span class="n">avg</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># (3) save as ERstd (excess return standard deviation)</span>
+<span class="n">ERstd</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">avg_std</span><span class="p">,</span><span class="n">avg</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># (4) rename columns</span>
+<span class="n">ERstd</span><span class="o">=</span><span class="n">ERstd</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;avg_std&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;avg&#39;</span><span class="p">})</span>
+
+<span class="c1"># (5) plot </span>
+<span class="n">ERstd</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Notebook5_EstimationUncertainty_8_0.png" src="../../_images/Notebook5_EstimationUncertainty_8_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Note that our data set has  50 years of data, there is still considerable uncertainty, specially for bonds</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#number of years</span>
+<span class="n">T</span><span class="o">/</span><span class="mi">12</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>53.916666666666664
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="statistical-tests">
+<h1>Statistical tests<a class="headerlink" href="#statistical-tests" title="Permalink to this headline">¶</a></h1>
+<p>In this section we will learn how to do hypothesis testing. Two main questions we try to answer here are: 1) if the average return of an asset is different from zero; 2) if different assets have different average returns.</p>
+<div class="section" id="t-stat">
+<h2>T-stat<a class="headerlink" href="#t-stat" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>T-stat for a given hypothesis <span class="math notranslate nohighlight">\(\mu_{j}^0\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[t_j(\mu_0)=\frac{\bar{R_j}-\mu_{j}^0}{\sigma(\bar{R_j})}\]</div>
+</div>
+<div class="section" id="one-sided-hypothesis-testing">
+<h2>One-sided hypothesis testing<a class="headerlink" href="#one-sided-hypothesis-testing" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>For example lets assume we have strong theoretical reasons to believe that these assets must not have a negative expected returns. (True for the value-weighted stock market, less true for bonds)</p></li>
+<li><p>So lets do a 1-sided test with 5% interval and ask what it is the largest expected return <span class="math notranslate nohighlight">\(X_j\)</span> that we can say with 95% confidence that the asset j has expected return higher than <span class="math notranslate nohighlight">\(X_j\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[1.64=\frac{\bar{R_j}-\mu_{j}^0}{\sigma(\bar{R_j})}\]</div>
+<ul class="simple">
+<li><p>If we are evaluating the hypothesis that <span class="math notranslate nohighlight">\(\mu_{j}=0\)</span>, we say that</p>
+<ul>
+<li><p>if <span class="math notranslate nohighlight">\(\frac{\bar{R_j}-0}{\sigma(\bar{R_j})}\geq 1.64\)</span>, we can statistically reject that <span class="math notranslate nohighlight">\(\mu_{j}=0\)</span> with a 95% confidence (or alternatively: we can statistically reject that <span class="math notranslate nohighlight">\(\mu_{j}=0\)</span> with a 5% probabilit value (pvalue) )</p></li>
+<li><p>if <span class="math notranslate nohighlight">\(\frac{\bar{R_j}-0}{\sigma(\bar{R_j})}&lt;1.64\)</span>, we fail to statistically reject that <span class="math notranslate nohighlight">\(\mu_{j}=0\)</span> with a 95% confidence (or alternatively: we fail to statistically reject that <span class="math notranslate nohighlight">\(\mu_{j}=0\)</span> with a 5% probability value (pvalue) )</p></li>
+</ul>
+</li>
+<li><p>Equivalently we can also construct our confidence intervals for the expected mean</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\mu_{j}^{-,95\%}=\bar{R_j}-1.64\sigma(\bar{R_j})\]</div>
+<div class="math notranslate nohighlight">
+\[\mu_{j}^{+,95\%}=\bar{R_j}+1.64\sigma(\bar{R_j})\]</div>
+<ul class="simple">
+<li><p>We say that this interval <span class="math notranslate nohighlight">\([\mu_{j}^{-,95\%}, \mu_{j}^{+,95\%}]\)</span> contains the true expected value with 95% probability</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ERstd</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>          avg_std       avg
+MKTUS    0.001735  0.005140
+BondUS   0.001377  0.002523
+EM       0.002344  0.006923
+MKTxUS   0.001836  0.004149
+BondxUS  0.000793  0.002054
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is a look at t-stats relative to a zero null-hypothesis (which is what people often do)</p>
+<blockquote>
+<div><p>Side comment: Why am using 1.64?</p>
+</div></blockquote>
+<p>Recall from Notebook 3:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="n">ps</span><span class="o">=</span><span class="n">norm</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ps</span><span class="o">.</span><span class="n">isf</span><span class="p">(</span><span class="mf">0.02</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.053748910631823
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we can look at the t-stats (against zero) for the assets</span>
+<span class="c1"># the average return divided by the average return estimator standard deviation</span>
+<span class="n">ERstd</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">ERstd</span><span class="p">,</span> <span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="n">T</span><span class="o">**</span><span class="mf">0.5</span><span class="p">))],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ERstd</span><span class="o">=</span><span class="n">ERstd</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;t_stat&#39;</span><span class="p">})</span>
+<span class="n">ERstd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>avg_std</th>
+      <th>avg</th>
+      <th>t_stat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>MKTUS</th>
+      <td>0.001735</td>
+      <td>0.005140</td>
+      <td>2.962459</td>
+    </tr>
+    <tr>
+      <th>BondUS</th>
+      <td>0.001377</td>
+      <td>0.002523</td>
+      <td>1.832010</td>
+    </tr>
+    <tr>
+      <th>EM</th>
+      <td>0.002344</td>
+      <td>0.006923</td>
+      <td>2.953007</td>
+    </tr>
+    <tr>
+      <th>MKTxUS</th>
+      <td>0.001836</td>
+      <td>0.004149</td>
+      <td>2.259454</td>
+    </tr>
+    <tr>
+      <th>BondxUS</th>
+      <td>0.000793</td>
+      <td>0.002054</td>
+      <td>2.591087</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot t-stats for each asset</span>
+<span class="n">ERstd</span><span class="o">.</span><span class="n">t_stat</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Notebook5_EstimationUncertainty_19_0.png" src="../../_images/Notebook5_EstimationUncertainty_19_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the left hand side of the confidence interval and the average return </span>
+<span class="c1">#   for each asset</span>
+<span class="n">ER0</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">-</span><span class="mf">1.64</span><span class="o">*</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="n">T</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)),</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ER0</span><span class="o">=</span><span class="n">ER0</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;one-sided&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;avg&#39;</span><span class="p">})</span>
+<span class="n">ER0</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Notebook5_EstimationUncertainty_20_0.png" src="../../_images/Notebook5_EstimationUncertainty_20_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="two-sided-intervals">
+<h2>Two-sided intervals<a class="headerlink" href="#two-sided-intervals" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>If we are more agnostic and believe less in the economic theories we have,</p></li>
+<li><p>Or the theories are silent</p></li>
+<li><p>For example, the theories are silent in long-short portfolios of equities, for example, the portfolio that goes long the US market and sells the international market.</p></li>
+<li><p>Then we must do a two-sided interval</p></li>
+</ul>
+<blockquote>
+<div><p>What is the 95% threshold for a two sided test?</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ps</span><span class="o">.</span><span class="n">isf</span><span class="p">(</span><span class="mf">0.05</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.9599639845400545
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the lower bar of the two-sided confidence interval</span>
+
+<span class="n">ER0</span><span class="p">[</span><span class="s1">&#39;twosided&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">-</span><span class="mf">1.96</span><span class="o">*</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mf">0.5</span><span class="p">))</span>
+<span class="n">ER0</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Notebook5_EstimationUncertainty_24_0.png" src="../../_images/Notebook5_EstimationUncertainty_24_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="pvalues">
+<h2>Pvalues<a class="headerlink" href="#pvalues" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Instead of using our t-stats to do a test at a particular level of significance, say 95%</p></li>
+<li><p>We can use the normal cdf to find p-value, which gives us the highest level of significance our data is consistent with</p></li>
+<li><p>Here again, against the zero null hypothesis</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can also construct p&#39;values</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="c1"># and I am creating this `ps` object which is the standard normal distribution</span>
+<span class="n">ps</span><span class="o">=</span><span class="n">norm</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ps</span><span class="o">.</span><span class="n">isf</span><span class="p">(</span><span class="mf">0.95</span><span class="p">)</span>
+<span class="n">ps</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.95</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.6448536269514722
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ER0</span><span class="p">[</span><span class="s1">&#39;pvalues(one-sided)&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">ps</span><span class="o">.</span><span class="n">cdf</span><span class="p">((</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)))</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">ER0</span><span class="p">[</span><span class="s1">&#39;pvalues(two-sided)&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">ps</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)))</span><span class="o">.</span><span class="n">values</span><span class="p">)))</span><span class="o">*</span><span class="mi">2</span>
+<span class="n">ER0</span><span class="p">[[</span><span class="s1">&#39;pvalues(one-sided)&#39;</span><span class="p">,</span><span class="s1">&#39;pvalues(two-sided)&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Notebook5_EstimationUncertainty_29_0.png" src="../../_images/Notebook5_EstimationUncertainty_29_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lets look at a two-sided 95% confidence interval (I am annulaizing for convenience)</span>
+
+<span class="c1"># (1) choose the confidence level</span>
+<span class="n">interval</span><span class="o">=</span><span class="mf">0.95</span>
+<span class="c1"># in the two-sided case, tail probability is half of (1-interval)</span>
+<span class="n">tails</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">interval</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+
+<span class="c1"># (2) construct a normal distribution using the mean and standard deviation of a chosen asset</span>
+<span class="n">asset</span><span class="o">=</span><span class="s1">&#39;MKTUS&#39;</span>
+<span class="n">mu</span><span class="o">=</span><span class="n">Re</span><span class="p">[</span><span class="n">asset</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">mu_sigma</span><span class="o">=</span><span class="n">Re</span><span class="p">[</span><span class="n">asset</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="n">Re</span><span class="p">[</span><span class="n">asset</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">**</span><span class="mf">0.5</span>
+<span class="c1"># do also at yearly, but do so with explanation</span>
+
+<span class="n">p</span><span class="o">=</span><span class="n">norm</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span><span class="n">mu_sigma</span><span class="p">)</span>
+
+<span class="c1"># (3) get the value of the left tail and the right tail</span>
+<span class="n">lefttail</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">tails</span><span class="p">)</span>
+<span class="n">righttail</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">tails</span><span class="p">)</span>
+<span class="c1"># note that x=pnorm.isf(q) is the inverse of the CDF.</span>
+<span class="c1"># The inverse CDF at `q` is also referred to as the `q quantile` of a distribution.</span>
+<span class="c1"># For a continuous distribution `DIST`, the inverse CDF at q is the value x such that CDF[DIST,x]=q. </span>
+<span class="c1"># So there is exactly probability q that the realization is higher than x.</span>
+
+<span class="c1"># or equivalently</span>
+<span class="c1">#lefttail=mu+pnorm.isf(tails)*musigma</span>
+<span class="c1">#righttail=mu+pnorm.isf(1-tails)*musigma</span>
+
+<span class="c1"># (4) plot</span>
+<span class="n">grid</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">lefttail</span><span class="p">,</span><span class="n">righttail</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="c1"># this constructs a grid going spanning the region given by the confidence interval</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">grid</span><span class="o">*</span><span class="mi">12</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">grid</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Notebook5_EstimationUncertainty_30_0.png" src="../../_images/Notebook5_EstimationUncertainty_30_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="test-if-all-assets-have-the-same-average-return">
+<h2>Test if all assets have the same average return<a class="headerlink" href="#test-if-all-assets-have-the-same-average-return" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>A more relevant test is whether all these assets have the same average return</p></li>
+</ul>
+<blockquote>
+<div><p>Why that is the most relevant hypothesis for us as we do MV optimization?</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>For assets that have a average return below the average, I compute the probability that this expected return is indeed below, and  for assets that have the avg return above avg I compute the probability that the expected return is indeed above the mean across assets</p></li>
+<li><p>I will simply use the absolute value to do that</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MKTUS      0.005140
+BondUS     0.002523
+EM         0.006923
+MKTxUS     0.004149
+BondxUS    0.002054
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ER0[&#39;same_avg_pvalue&#39;]=\</span>
+<span class="c1"># (1-pnorm.cdf(((Re.mean()-Re.mean().mean())/(Re.std()/(Re.shape[0]**0.5))).values))*(Re.mean()&gt;Re.mean().mean())\</span>
+<span class="c1"># +(pnorm.cdf(((Re.mean()-Re.mean().mean())/(Re.std()/(Re.shape[0]**0.5))).values))*(Re.mean()&lt;=Re.mean().mean())</span>
+<span class="c1">#(probability of being above the average)*(average above avg across assets?)</span>
+<span class="c1">#(probability of being below the average)*(average below avg across assets?)</span>
+
+<span class="c1"># or much more easily:</span>
+<span class="c1"># (1) save the standard deviation of the average excess return of each asset as `stdmean`</span>
+<span class="n">stdmean</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="c1"># (2) construct the t-stat for each asset</span>
+<span class="n">tstatmean</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">-</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">/</span><span class="n">stdmean</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<span class="c1"># (3) calculate p-values for two-sided hypothesis testing</span>
+<span class="n">ER0</span><span class="p">[</span><span class="s1">&#39;same_avg_pvalue&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">ps</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">tstatmean</span><span class="p">))</span><span class="o">*</span><span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ER0</span><span class="p">)</span>
+
+<span class="c1"># pvalue is the probability that the null hupothesis is right. So in this case it tells us that there is </span>
+<span class="c1"># a 60% probability that the mktus return equals to the average  and 100% probability that the MKTxUS expected return</span>
+<span class="c1"># is equal to the average of all assets average returns</span>
+
+<span class="c1"># here we can only clearly reject the hypothesis that non us bonds expected returns are equal to the average returns</span>
+<span class="n">ER0</span><span class="o">.</span><span class="n">same_avg_pvalue</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         one-sided       avg  twosided  pvalues(one-sided)  \
+MKTUS     0.002295  0.005140  0.001739            0.001526   
+BondUS    0.000264  0.002523 -0.000176            0.033475   
+EM        0.003078  0.006923  0.002328            0.001573   
+MKTxUS    0.001137  0.004149  0.000550            0.011928   
+BondxUS   0.000754  0.002054  0.000500            0.004784   
+
+         pvalues(two-sided)  same_avg_pvalue  
+MKTUS              0.003052         0.571257  
+BondUS             0.066950         0.235012  
+EM                 0.003147         0.238187  
+MKTxUS             0.023855         0.996144  
+BondxUS            0.009567         0.007963  
+</pre></div>
+</div>
+<img alt="../../_images/Notebook5_EstimationUncertainty_33_1.png" src="../../_images/Notebook5_EstimationUncertainty_33_1.png" />
+</div>
+</div>
+<blockquote>
+<div><p>Can you interepret this plot?</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lets look at what happens with weights and Sharpes as we pertubate the mean of the market return by one standard deviation</span>
+<span class="n">Wmve</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([],</span><span class="n">index</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="n">Ere</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">T</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1"># lets perturb the market mean using the 1 sided 95% confidence</span>
+
+<span class="n">ERemsig</span><span class="o">=</span><span class="n">Ere</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">asset</span><span class="o">=</span><span class="s1">&#39;MKTUS&#39;</span>
+<span class="n">pertubation</span><span class="o">=</span><span class="mf">1.64</span>
+<span class="n">mu</span><span class="o">=</span><span class="n">Re</span><span class="p">[</span><span class="n">asset</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">musigma</span><span class="o">=</span><span class="n">Re</span><span class="p">[</span><span class="n">asset</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="n">T</span><span class="o">**</span><span class="mf">0.5</span>
+<span class="n">ERemsig</span><span class="p">[</span><span class="n">asset</span><span class="p">]</span><span class="o">=</span><span class="n">mu</span><span class="o">-</span><span class="n">pertubation</span><span class="o">*</span><span class="n">musigma</span>
+
+<span class="c1"># mve for perturbed mean</span>
+<span class="n">Wmve</span><span class="p">[</span><span class="n">asset</span><span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">pertubation</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;std&#39;</span><span class="p">]</span> <span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Cove</span><span class="p">)</span> <span class="o">@</span> <span class="n">ERemsig</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># mve for sample mean</span>
+<span class="n">Wmve</span><span class="p">[</span><span class="s1">&#39;samplemean&#39;</span><span class="p">]</span> <span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Cove</span><span class="p">)</span> <span class="o">@</span> <span class="n">ERe</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># why I am using absolute values to normalize the weights?</span>
+<span class="n">Wmve</span><span class="o">=</span><span class="n">Wmve</span><span class="o">/</span><span class="n">Wmve</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
+<span class="n">Wmve</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MKTUS-1.64std</th>
+      <th>samplemean</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>MKTUS</th>
+      <td>-0.112862</td>
+      <td>0.254790</td>
+    </tr>
+    <tr>
+      <th>BondUS</th>
+      <td>0.309397</td>
+      <td>0.197599</td>
+    </tr>
+    <tr>
+      <th>EM</th>
+      <td>0.325360</td>
+      <td>0.222844</td>
+    </tr>
+    <tr>
+      <th>MKTxUS</th>
+      <td>0.048003</td>
+      <td>-0.142493</td>
+    </tr>
+    <tr>
+      <th>BondxUS</th>
+      <td>0.430103</td>
+      <td>0.467259</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Re</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MKTUS</th>
+      <th>BondUS</th>
+      <th>EM</th>
+      <th>MKTxUS</th>
+      <th>BondxUS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>MKTUS</th>
+      <td>1.000000</td>
+      <td>0.071609</td>
+      <td>0.491055</td>
+      <td>0.613081</td>
+      <td>0.210263</td>
+    </tr>
+    <tr>
+      <th>BondUS</th>
+      <td>0.071609</td>
+      <td>1.000000</td>
+      <td>-0.097846</td>
+      <td>-0.007781</td>
+      <td>0.373399</td>
+    </tr>
+    <tr>
+      <th>EM</th>
+      <td>0.491055</td>
+      <td>-0.097846</td>
+      <td>1.000000</td>
+      <td>0.596177</td>
+      <td>0.207206</td>
+    </tr>
+    <tr>
+      <th>MKTxUS</th>
+      <td>0.613081</td>
+      <td>-0.007781</td>
+      <td>0.596177</td>
+      <td>1.000000</td>
+      <td>0.447951</td>
+    </tr>
+    <tr>
+      <th>BondxUS</th>
+      <td>0.210263</td>
+      <td>0.373399</td>
+      <td>0.207206</td>
+      <td>0.447951</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lets compare with the MVE weights using the sample mean</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">ERe</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="n">Wmve</span><span class="p">[</span><span class="s1">&#39;samplemean&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">ERe</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="n">Wmve</span><span class="p">[</span><span class="s1">&#39;MKTUS-1.64std&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Wmve</span><span class="p">[</span><span class="s1">&#39;MKTUS-1.64std&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># observation: In class I got all confused with this plot. Basically, I was dividing by the sum of the weights to normalize </span>
+<span class="c1"># the weights so we could clearly see in the plot (again, only relative weights matters becasue we are looking as excess returns)</span>
+<span class="c1"># but obviously I cannot multiply/divide by a negative number otherwise I will be shorting instead of going long the tangency portfolio</span>
+<span class="c1"># which would be a stupid thing to do! </span>
+<span class="c1"># So Wmve[&#39;MKTUS-1.96std&#39;]/(Wmve[&#39;MKTUS-1.96std&#39;].sum())</span>
+<span class="c1"># was doing two things, It was normalizing but also multiplying by a negative number since (Wmve[&#39;MKTUS-1.96std&#39;].sum())&lt;0</span>
+<span class="c1"># So now by having the abosulte value function I am just normalizing.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Notebook5_EstimationUncertainty_37_0.png" src="../../_images/Notebook5_EstimationUncertainty_37_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/Finance"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Alan Moreira<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

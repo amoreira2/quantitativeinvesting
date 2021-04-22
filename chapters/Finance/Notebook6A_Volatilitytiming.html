@@ -1,0 +1,1808 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notebook 6 A &#8212; Quantitative Investing</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/book.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://amoreira2.github.io/quantitativeinvesting/chapters/Finance/Notebook6A_Volatilitytiming.html" />
+    <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://amoreira2.github.io/quantitativeinvesting/chapters/Finance/Notebook6A_Volatilitytiming.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Notebook 6 A" />
+<meta property="og:description" content="Notebook 6 A  Topics covered    What is a valid trading strategy?  Quantitative trading strategies  Constructing a trading strategy  Signals-&gt;weights-&gt; strategy" />
+<meta property="og:image"       content="https://amoreira2.github.io/quantitativeinvesting/_static/figuremain2.jpg" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/figuremain2.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Quantitative Investing</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../01/what-is-quant-investing.html">
+   1. What is Quantitative Investing?
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/statistical-techniques.html">
+     1.1. Statistical Techniques
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/computational-tools.html">
+     1.2. Computational tools
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/Finance.html">
+     1.3. Finance
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../02/getting_started.html">
+   2. Getting Started
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/local_install.html">
+     2.2.1. Local installation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/cloud_setup.html">
+     2.2.2. Cloud Setup
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../03/programming-in-python.html">
+   3. First Steps with Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/1/Expressions.html">
+     3.1. Expressions
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../03/2/Names.html">
+     3.2. Names
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/2/1/Growth.html">
+       3.2.1. Example: Growth Rates
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/3/Calls.html">
+     3.3. Call Expressions
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../04/Data_Types.html">
+     3.4. Data Types
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/1/Numbers.html">
+       3.4.1. Numbers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/2/Strings.html">
+       3.4.2. Strings
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/3/Comparison.html">
+       3.4.3. Comparisons
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../05/Sequences.html">
+     3.5. Sequences
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05/1/Arrays.html">
+       3.5.1. Arrays
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05/2/Ranges.html">
+       3.5.2. Ranges
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05/3/More_on_Arrays.html">
+       3.5.3. More on Arrays
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../essentials/essentials.html">
+   4. Python Essentials
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../essentials/basics.html">
+     4.1. Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../essentials/collections.html">
+     4.2. Collections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../essentials/control_flow.html">
+     4.3. Flow control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../essentials/functions.html">
+     4.4. Functions
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../scientific/intro.html">
+   5. Scientific Computing
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scientific/numpy1.html">
+     5.1. Numpy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scientific/plotting1.html">
+     5.2. Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scientific/linear_algebra1.html">
+     5.3. Linear algebra
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scientific/randomness1.html">
+     5.4. Randomness
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../pandas/intro.html">
+   6. Working with Data
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/basics.html">
+     6.7.1. Pandas Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/the_index.html">
+     6.7.2. Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/data_clean.html">
+     6.7.3. Cleaning data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/reshape.html">
+     6.7.4. Reshape
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/merge.html">
+     6.7.5. Merge
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/groupby.html">
+     6.7.6. Group-by
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/timeseries.html">
+     6.7.7. Time-Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/matplotlib.html">
+     6.7.8. Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/storage_formats.html">
+     6.7.9. Data Storage
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../additional/additional.html">
+   7. Additional Statistics Material
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../10/Sampling_and_Empirical_Distributions.html">
+     7.1. Sampling and Empirical Distributions
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../10/1/Empirical_Distributions.html">
+       7.1.1. Empirical Distributions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../10/2/Sampling_from_a_Population.html">
+       7.1.2. Sampling from a Population
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../10/3/Empirical_Distribution_of_a_Statistic.html">
+       7.1.3. Empirical Distibution of a Statistic
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../11/Testing_Hypotheses.html">
+     7.2. Testing Hypotheses
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../11/1/Assessing_Models.html">
+       7.2.1. Assessing Models
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../11/2/Multiple_Categories.html">
+       7.2.2. Multiple Categories
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../11/3/Decisions_and_Uncertainty.html">
+       7.2.3. Decisions and Uncertainty
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../11/4/Error_Probabilities.html">
+       7.2.4. Error Probabilities
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../13/Estimation.html">
+     7.3. Estimation
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13/1/Percentiles.html">
+       7.3.1. Percentiles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13/2/Bootstrap.html">
+       7.3.2. The Bootstrap
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13/3/Confidence_Intervals.html">
+       7.3.3. Confidence Intervals
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13/4/Using_Confidence_Intervals.html">
+       7.3.4. Using Confidence Intervals
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../14/Why_the_Mean_Matters.html">
+     7.4. Why the Mean Matters
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/1/Properties_of_the_Mean.html">
+       7.4.1. Properties of the Mean
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/2/Variability.html">
+       7.4.2. Variability
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/3/SD_and_the_Normal_Curve.html">
+       7.4.3. The SD and the Normal Curve
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/4/Central_Limit_Theorem.html">
+       7.4.4. The Central Limit Theorem
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/5/Variability_of_the_Sample_Mean.html">
+       7.4.5. The Variability of the Sample Mean
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/6/Choosing_a_Sample_Size.html">
+       7.4.6. Choosing a Sample Size
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../15/Prediction.html">
+     7.5. Prediction
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/1/Correlation.html">
+       7.5.1. Correlation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/2/Regression_Line.html">
+       7.5.2. The Regression Line
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/3/Method_of_Least_Squares.html">
+       7.5.3. The Method of Least Squares
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/4/Least_Squares_Regression.html">
+       7.5.4. Least Squares Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/5/Visual_Diagnostics.html">
+       7.5.5. Visual Diagnostics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/6/Numerical_Diagnostics.html">
+       7.5.6. Numerical Diagnostics
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../16/Inference_for_Regression.html">
+     7.6. Inference for Regression
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../16/1/Regression_Model.html">
+       7.6.1. A Regression Model
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../16/2/Inference_for_the_True_Slope.html">
+       7.6.2. Inference for the True Slope
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../16/3/Prediction_Intervals.html">
+       7.6.3. Prediction Intervals
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/chapters/Finance/Notebook6A_Volatilitytiming.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/amoreira2/Lectures"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/amoreira2/Lectures/issues/new?title=Issue%20on%20page%20%2Fchapters/Finance/Notebook6A_Volatilitytiming.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/amoreira2/Lectures/main?urlpath=lab/tree/chapters/Finance/Notebook6A_Volatilitytiming.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://pims.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https://github.com/amoreira2/Lectures&urlpath=lab/tree/Lectures/chapters/Finance/Notebook6A_Volatilitytiming.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/amoreira2/Lectures/blob/main/chapters/Finance/Notebook6A_Volatilitytiming.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#topics-covered">
+   Topics covered
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#volatility-timing-a-more-sophisitcated-timing-strategy">
+   Volatility timing: A more sophisitcated timing strategy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#download-data-from-wrds">
+     Download data from WRDS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-have-daily-data-how-to-construct-monthly-realized-variance">
+     We have daily data. How to construct monthly realized variance?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#from-signal-to-weights">
+     From signal to weights
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#construct-returns-to-the-trategy">
+     Construct returns to the trategy
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#aggregate-daily-returns-to-monthly">
+       Aggregate daily returns to monthly
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#construct-strategy-returns">
+       Construct strategy returns
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <img src='https://www.dropbox.com/s/125k1wnxkl6bgs0/class_logo.jpg?dl=1' alt="Smiley face" align="center" style="width: 600px;"/>
+<div class="section" id="notebook-6-a">
+<h1>Notebook 6 A<a class="headerlink" href="#notebook-6-a" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="topics-covered">
+<h2>Topics covered<a class="headerlink" href="#topics-covered" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>What is a valid trading strategy?</p></li>
+<li><p>Quantitative trading strategies</p></li>
+<li><p>Constructing a trading strategy</p>
+<ul>
+<li><p>Signals-&gt;weights-&gt; strategy returns</p></li>
+</ul>
+</li>
+<li><p>Timing Strategies</p>
+<ul>
+<li><p>Continuation</p></li>
+<li><p>Volatility timing</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="volatility-timing-a-more-sophisitcated-timing-strategy">
+<h2>Volatility timing: A more sophisitcated timing strategy<a class="headerlink" href="#volatility-timing-a-more-sophisitcated-timing-strategy" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>You guys learned in 411 that a mean-variance investor invests in the risky asset proportionally to the risk-return trade-off</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[W_t=\frac{\mu_t}{\gamma \sigma_t^2}\]</div>
+<ul class="simple">
+<li><p>Measuring variation in <span class="math notranslate nohighlight">\(\mu_t\)</span>, the expected excess return on the market is really hard</p>
+<ul>
+<li><p>There are theoretically motivated ways to do it, which we will discuss later, but they are not great empirically</p></li>
+</ul>
+</li>
+<li><p>But measuring variaiton in volatility is much easier because volatility periods tend to cluster together</p></li>
+<li><p>Lets download daily stock market data to show this visually</p></li>
+</ul>
+<div class="section" id="download-data-from-wrds">
+<h3>Download data from WRDS<a class="headerlink" href="#download-data-from-wrds" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>We can download data directly from the WRDS (Wharton Reseach Data Services ) server</p></li>
+<li><p>If you want you can get a login to get acess to it as well. All you need is to follow the steps</p></li>
+</ul>
+<p><a class="reference external" href="https://wrds-web.wharton.upenn.edu/wrds/?register=1">https://wrds-web.wharton.upenn.edu/wrds/?register=1</a></p>
+<ul class="simple">
+<li><p>Anyone doing serious quant work needs a way to get a lot of data quickly.</p></li>
+<li><p>WRDS has plenty of the basic data sources</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># install packages</span>
+<span class="o">!</span>pip install wrds
+<span class="o">!</span>pip install psycopg2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+<span class="kn">import</span> <span class="nn">wrds</span>
+<span class="kn">import</span> <span class="nn">psycopg2</span> 
+<span class="kn">from</span> <span class="nn">dateutil.relativedelta</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<span class="c1"># connect with their server</span>
+<span class="n">conn</span><span class="o">=</span><span class="n">wrds</span><span class="o">.</span><span class="n">Connection</span><span class="p">()</span>
+
+<span class="c1"># get the value-weighted market returns and date from the data base crsp.dsi</span>
+<span class="n">mkt_d</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">raw_sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                      select a.date, a.vwretd</span>
+<span class="s2">                      from crsp.dsi as a</span>
+<span class="s2">                      &quot;&quot;&quot;</span><span class="p">)</span> 
+<span class="c1"># get the risk-free rate</span>
+<span class="n">rf_d</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">raw_sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                      select a.date, a.rf</span>
+<span class="s2">                      from ff.factors_daily as a</span>
+<span class="s2">                      &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="c1"># save data locally</span>
+<span class="c1">#rf_d.to_csv(&#39;E:/Dropbox/Public/Fin418/Data/rf_d.csv&#39;)</span>
+<span class="c1">#mkt_d.to_csv(&#39;E:/Dropbox/Public/Fin418/Data/mk_d.csv&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter your WRDS username [Alan Moreira]:moreira5
+Enter your password:········
+WRDS recommends setting up a .pgpass file.
+You can find more info here:
+https://www.postgresql.org/docs/9.5/static/libpq-pgpass.html.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exception during reset or similar
+Traceback (most recent call last):
+  File &quot;C:\ProgramData\Anaconda3\lib\site-packages\sqlalchemy\pool\base.py&quot;, line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File &quot;C:\ProgramData\Anaconda3\lib\site-packages\sqlalchemy\pool\base.py&quot;, line 893, in _reset
+    pool._dialect.do_rollback(self)
+  File &quot;C:\ProgramData\Anaconda3\lib\site-packages\sqlalchemy\engine\default.py&quot;, line 543, in do_rollback
+    dbapi_connection.rollback()
+psycopg2.OperationalError: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading library list...
+Done
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># alternatively simply import from dropbox or download from blackboard as usual</span>
+
+<span class="n">rf_d</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://www.dropbox.com/s/85n50ul6of2fsca/rf_d.csv?dl=1&#39;</span><span class="p">)</span>
+<span class="n">mk_d</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://www.dropbox.com/s/ns191hnic5gpx13/mk_d.csv?dl=1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mkt_d</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>vwretd</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>24788</th>
+      <td>2019-12-24</td>
+      <td>0.000379</td>
+    </tr>
+    <tr>
+      <th>24789</th>
+      <td>2019-12-26</td>
+      <td>0.004618</td>
+    </tr>
+    <tr>
+      <th>24790</th>
+      <td>2019-12-27</td>
+      <td>-0.000643</td>
+    </tr>
+    <tr>
+      <th>24791</th>
+      <td>2019-12-30</td>
+      <td>-0.005108</td>
+    </tr>
+    <tr>
+      <th>24792</th>
+      <td>2019-12-31</td>
+      <td>0.002965</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rf_d</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>rf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>24849</th>
+      <td>2020-10-26</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>24850</th>
+      <td>2020-10-27</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>24851</th>
+      <td>2020-10-28</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>24852</th>
+      <td>2020-10-29</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>24853</th>
+      <td>2020-10-30</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this set the index</span>
+<span class="n">mkt_d</span><span class="o">=</span><span class="n">mkt_d</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
+
+<span class="n">mkt_d</span><span class="o">=</span><span class="n">mkt_d</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">mkt_d</span><span class="o">.</span><span class="n">index</span><span class="p">),</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
+
+<span class="n">rf_d</span><span class="o">=</span><span class="n">rf_d</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
+
+<span class="n">rf_d</span><span class="o">=</span><span class="n">rf_d</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">rf_d</span><span class="o">.</span><span class="n">index</span><span class="p">),</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
+
+<span class="c1"># we merge</span>
+
+<span class="n">daily</span><span class="o">=</span><span class="n">mkt_d</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">rf_d</span><span class="p">,</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span><span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">daily</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>vwretd</th>
+      <th>rf</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2019-12-24</th>
+      <td>0.000379</td>
+      <td>0.00007</td>
+    </tr>
+    <tr>
+      <th>2019-12-26</th>
+      <td>0.004618</td>
+      <td>0.00007</td>
+    </tr>
+    <tr>
+      <th>2019-12-27</th>
+      <td>-0.000643</td>
+      <td>0.00007</td>
+    </tr>
+    <tr>
+      <th>2019-12-30</th>
+      <td>-0.005108</td>
+      <td>0.00007</td>
+    </tr>
+    <tr>
+      <th>2019-12-31</th>
+      <td>0.002965</td>
+      <td>0.00007</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="we-have-daily-data-how-to-construct-monthly-realized-variance">
+<h3>We have daily data. How to construct monthly realized variance?<a class="headerlink" href="#we-have-daily-data-how-to-construct-monthly-realized-variance" title="Permalink to this headline">¶</a></h3>
+<p>You basically use pandas time series function that shifts all dates to the end of the month, so this way you are technically grouping by the end of the month day.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">daily</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;1925-12-31&#39;, &#39;1926-01-02&#39;, &#39;1926-01-04&#39;, &#39;1926-01-05&#39;,
+               &#39;1926-01-06&#39;, &#39;1926-01-07&#39;, &#39;1926-01-08&#39;, &#39;1926-01-09&#39;,
+               &#39;1926-01-11&#39;, &#39;1926-01-12&#39;,
+               ...
+               &#39;2019-12-17&#39;, &#39;2019-12-18&#39;, &#39;2019-12-19&#39;, &#39;2019-12-20&#39;,
+               &#39;2019-12-23&#39;, &#39;2019-12-24&#39;, &#39;2019-12-26&#39;, &#39;2019-12-27&#39;,
+               &#39;2019-12-30&#39;, &#39;2019-12-31&#39;],
+              dtype=&#39;datetime64[ns]&#39;, name=&#39;date&#39;, length=24793, freq=None)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">daily</span><span class="o">.</span><span class="n">index</span><span class="o">+</span><span class="n">MonthEnd</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;1925-12-31&#39;, &#39;1926-01-31&#39;, &#39;1926-01-31&#39;, &#39;1926-01-31&#39;,
+               &#39;1926-01-31&#39;, &#39;1926-01-31&#39;, &#39;1926-01-31&#39;, &#39;1926-01-31&#39;,
+               &#39;1926-01-31&#39;, &#39;1926-01-31&#39;,
+               ...
+               &#39;2019-12-31&#39;, &#39;2019-12-31&#39;, &#39;2019-12-31&#39;, &#39;2019-12-31&#39;,
+               &#39;2019-12-31&#39;, &#39;2019-12-31&#39;, &#39;2019-12-31&#39;, &#39;2019-12-31&#39;,
+               &#39;2019-12-31&#39;, &#39;2019-12-31&#39;],
+              dtype=&#39;datetime64[ns]&#39;, name=&#39;date&#39;, length=24793, freq=None)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas.tseries.offsets</span> <span class="kn">import</span> <span class="n">MonthEnd</span>
+
+<span class="c1"># We denote `realized variance` for the market return as `RV`</span>
+<span class="n">RV</span><span class="o">=</span><span class="n">daily</span><span class="p">[[</span><span class="s1">&#39;vwretd&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">daily</span><span class="o">.</span><span class="n">index</span><span class="o">+</span><span class="n">MonthEnd</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
+<span class="c1"># rename column to clarify</span>
+<span class="n">RV</span><span class="o">=</span><span class="n">RV</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;vwretd&#39;</span><span class="p">:</span><span class="s1">&#39;RV&#39;</span><span class="p">})</span>
+<span class="n">RV</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RV</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2019-08-31</th>
+      <td>0.000187</td>
+    </tr>
+    <tr>
+      <th>2019-09-30</th>
+      <td>0.000031</td>
+    </tr>
+    <tr>
+      <th>2019-10-31</th>
+      <td>0.000061</td>
+    </tr>
+    <tr>
+      <th>2019-11-30</th>
+      <td>0.000014</td>
+    </tr>
+    <tr>
+      <th>2019-12-31</th>
+      <td>0.000020</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Another way to groupby month</span>
+<span class="n">RV1</span><span class="o">=</span><span class="n">daily</span><span class="p">[[</span><span class="s1">&#39;vwretd&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Grouper</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
+<span class="n">RV1</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>vwretd</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2019-08-31</th>
+      <td>0.000187</td>
+    </tr>
+    <tr>
+      <th>2019-09-30</th>
+      <td>0.000031</td>
+    </tr>
+    <tr>
+      <th>2019-10-31</th>
+      <td>0.000061</td>
+    </tr>
+    <tr>
+      <th>2019-11-30</th>
+      <td>0.000014</td>
+    </tr>
+    <tr>
+      <th>2019-12-31</th>
+      <td>0.000020</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the monthly realized variance</span>
+<span class="n">RV</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Notebook6A_Volatilitytiming_17_0.png" src="../../_images/Notebook6A_Volatilitytiming_17_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="from-signal-to-weights">
+<h3>From signal to weights<a class="headerlink" href="#from-signal-to-weights" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>We now need to do the trading strategy, motivated by the fact that the realized variance in month t is a good proxy for the expected variance in month t+1 (see plot above!)</p></li>
+<li><p>So we will form the following strategy:</p>
+<ul>
+<li><p>weight on the market:
+$<span class="math notranslate nohighlight">\(W_t=c\frac{1}{RV_t}=\frac{\mu}{\gamma RV_t}\)</span>$</p></li>
+<li><p>weight on the risk-free rate: <span class="math notranslate nohighlight">\(1-W_t\)</span></p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(c\)</span> controls how levered is the strategy on average.</p></li>
+<li><p>As we saw before all timing strategies involved some in and out of the market, but you also need to determine the average position. That is the role of <span class="math notranslate nohighlight">\(c\)</span>.</p></li>
+<li><p>For example:</p>
+<ul>
+<li><p>Lets set <span class="math notranslate nohighlight">\(c\)</span> such that the leverage is 4 when the annualized standard deviation is 4% (which is equivalent to a daily variance of <span class="math notranslate nohighlight">\(RV=0.04^2/252\)</span>)</p></li>
+<li><p>leverage is <span class="math notranslate nohighlight">\(W_t-1\)</span> (you borrow by shorting the risk-free rate)
+$<span class="math notranslate nohighlight">\(W_t-1=\frac{c}{RV_t}-1\leq 4\)</span>$</p></li>
+<li><p>So <span class="math notranslate nohighlight">\(c= 5 RV_t=5*0.04^2/252\)</span></p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate weights for the risky assets (market)</span>
+<span class="n">c</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="mf">0.04</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">252</span><span class="p">)</span>
+<span class="n">RV</span><span class="p">[</span><span class="s1">&#39;W&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">c</span><span class="o">/</span><span class="n">RV</span><span class="o">.</span><span class="n">RV</span>
+<span class="n">c</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.1746031746031745e-05
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the weights on the risky assets</span>
+<span class="n">RV</span><span class="o">.</span><span class="n">W</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Notebook6A_Volatilitytiming_21_0.png" src="../../_images/Notebook6A_Volatilitytiming_21_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the weights on the risk-free rate</span>
+<span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">RV</span><span class="o">.</span><span class="n">W</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Notebook6A_Volatilitytiming_22_0.png" src="../../_images/Notebook6A_Volatilitytiming_22_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">RV</span><span class="o">.</span><span class="n">W</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9241556985891785
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">daily</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>vwretd</th>
+      <th>rf</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1925-12-31</th>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1926-01-02</th>
+      <td>0.005689</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1926-01-04</th>
+      <td>0.000706</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1926-01-05</th>
+      <td>-0.004821</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1926-01-06</th>
+      <td>-0.000423</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2019-12-24</th>
+      <td>0.000379</td>
+      <td>0.00007</td>
+    </tr>
+    <tr>
+      <th>2019-12-26</th>
+      <td>0.004618</td>
+      <td>0.00007</td>
+    </tr>
+    <tr>
+      <th>2019-12-27</th>
+      <td>-0.000643</td>
+      <td>0.00007</td>
+    </tr>
+    <tr>
+      <th>2019-12-30</th>
+      <td>-0.005108</td>
+      <td>0.00007</td>
+    </tr>
+    <tr>
+      <th>2019-12-31</th>
+      <td>0.002965</td>
+      <td>0.00007</td>
+    </tr>
+  </tbody>
+</table>
+<p>24793 rows × 2 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="construct-returns-to-the-trategy">
+<h3>Construct returns to the trategy<a class="headerlink" href="#construct-returns-to-the-trategy" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="aggregate-daily-returns-to-monthly">
+<h4>Aggregate daily returns to monthly<a class="headerlink" href="#aggregate-daily-returns-to-monthly" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Since the strategy will trade monthly, we now need to construct monthly returns</p></li>
+<li><p>we do that by cumulating daily returns within a month</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># aggregate daily returns to monthly returns</span>
+<span class="n">Ret</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">daily</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">daily</span><span class="o">.</span><span class="n">index</span><span class="o">+</span><span class="n">MonthEnd</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">prod</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span>
+<span class="c1"># rename columns to clarify</span>
+<span class="n">Ret</span><span class="o">=</span><span class="n">Ret</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;vwretd&#39;</span><span class="p">:</span><span class="s1">&#39;Mkt&#39;</span><span class="p">,</span><span class="s1">&#39;rf&#39;</span><span class="p">:</span><span class="s1">&#39;Rf&#39;</span><span class="p">})</span>
+<span class="n">Ret</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Mkt</th>
+      <th>Rf</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2019-08-31</th>
+      <td>-0.020256</td>
+      <td>0.001541</td>
+    </tr>
+    <tr>
+      <th>2019-09-30</th>
+      <td>0.015960</td>
+      <td>0.001802</td>
+    </tr>
+    <tr>
+      <th>2019-10-31</th>
+      <td>0.019249</td>
+      <td>0.001611</td>
+    </tr>
+    <tr>
+      <th>2019-11-30</th>
+      <td>0.034953</td>
+      <td>0.001201</td>
+    </tr>
+    <tr>
+      <th>2019-12-31</th>
+      <td>0.028492</td>
+      <td>0.001471</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">RV</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RV</th>
+      <th>W</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2019-08-31</th>
+      <td>0.000187</td>
+      <td>0.170048</td>
+    </tr>
+    <tr>
+      <th>2019-09-30</th>
+      <td>0.000031</td>
+      <td>1.036153</td>
+    </tr>
+    <tr>
+      <th>2019-10-31</th>
+      <td>0.000061</td>
+      <td>0.521629</td>
+    </tr>
+    <tr>
+      <th>2019-11-30</th>
+      <td>0.000014</td>
+      <td>2.331902</td>
+    </tr>
+    <tr>
+      <th>2019-12-31</th>
+      <td>0.000020</td>
+      <td>1.594953</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Merge Ret (monthly return) with RV (realized variance and weights)</span>
+<span class="n">df</span><span class="o">=</span><span class="n">RV</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">Ret</span><span class="p">,</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span><span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RV</th>
+      <th>W</th>
+      <th>Mkt</th>
+      <th>Rf</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2019-08-31</th>
+      <td>0.000187</td>
+      <td>0.170048</td>
+      <td>-0.020256</td>
+      <td>0.001541</td>
+    </tr>
+    <tr>
+      <th>2019-09-30</th>
+      <td>0.000031</td>
+      <td>1.036153</td>
+      <td>0.015960</td>
+      <td>0.001802</td>
+    </tr>
+    <tr>
+      <th>2019-10-31</th>
+      <td>0.000061</td>
+      <td>0.521629</td>
+      <td>0.019249</td>
+      <td>0.001611</td>
+    </tr>
+    <tr>
+      <th>2019-11-30</th>
+      <td>0.000014</td>
+      <td>2.331902</td>
+      <td>0.034953</td>
+      <td>0.001201</td>
+    </tr>
+    <tr>
+      <th>2019-12-31</th>
+      <td>0.000020</td>
+      <td>1.594953</td>
+      <td>0.028492</td>
+      <td>0.001471</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="construct-strategy-returns">
+<h4>Construct strategy returns<a class="headerlink" href="#construct-strategy-returns" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Now to construct the strategy return recall that we use the relaized variance in month t to buy the market at the closing of month t and earn the return accrued in month t+1</p></li>
+<li><p>So we need to lag our weights, or lead the returns</p></li>
+<li><p>I will call the strategy as <span class="math notranslate nohighlight">\(\textbf{VMS}\)</span> (Volatility Managed Strategy)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">W</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>date
+1925-12-31         NaN
+1926-01-31    0.919672
+1926-02-28    0.708324
+1926-03-31    0.138235
+1926-04-30    0.586952
+                ...   
+2019-08-31    0.170048
+2019-09-30    1.036153
+2019-10-31    0.521629
+2019-11-30    2.331902
+2019-12-31    1.594953
+Name: W, Length: 1129, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">W</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>date
+1925-12-31         NaN
+1926-01-31         NaN
+1926-02-28    0.919672
+1926-03-31    0.708324
+1926-04-30    0.138235
+                ...   
+2019-08-31    1.235581
+2019-09-30    0.170048
+2019-10-31    1.036153
+2019-11-30    0.521629
+2019-12-31    2.331902
+Name: W, Length: 1129, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">W</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">df</span><span class="o">.</span><span class="n">W</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>date
+1925-12-31    NaN
+1926-01-31    NaN
+1926-02-28    1.0
+1926-03-31    1.0
+1926-04-30    1.0
+             ... 
+2019-08-31    1.0
+2019-09-30    1.0
+2019-10-31    1.0
+2019-11-30    1.0
+2019-12-31    1.0
+Name: W, Length: 1129, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;VMS&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">W</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">df</span><span class="o">.</span><span class="n">Mkt</span><span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">df</span><span class="o">.</span><span class="n">W</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">df</span><span class="o">.</span><span class="n">Rf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Mkt&#39;</span><span class="p">,</span><span class="s1">&#39;VMS&#39;</span><span class="p">]]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">cumprod</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">logy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Notebook6A_Volatilitytiming_35_0.png" src="../../_images/Notebook6A_Volatilitytiming_35_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Mkt&#39;</span><span class="p">,</span><span class="s1">&#39;VMS&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mkt    0.009239
+VMS    0.008606
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Mkt&#39;</span><span class="p">,</span><span class="s1">&#39;VMS&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mkt    0.053142
+VMS    0.039161
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sharpe ratio</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Mkt&#39;</span><span class="p">,</span><span class="s1">&#39;VMS&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Rf</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">/</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Mkt&#39;</span><span class="p">,</span><span class="s1">&#39;VMS&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span><span class="o">*</span><span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mkt    0.425594
+VMS    0.521141
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tail risk</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Mkt&#39;</span><span class="p">,</span><span class="s1">&#39;VMS&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="mf">0.005</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mkt   -0.188058
+VMS   -0.134315
+Name: 0.005, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>What are other natural measures of risk to look at?</p></li>
+<li><p>Does any of this mean that VMS is a good/bad idea?</p></li>
+<li><p>What does this mean for a mean-variance investor that can borrow and lend at the risk-free rate and must choose between investing in the risk-free and the market or the risk-free and VMS?</p></li>
+<li><p>Is there a degree of risk aversion that would make the investor prefer Market over VMS?</p></li>
+<li><p>What if the investor could invest in all three assets? would he ever invest in the market or only on vms?</p></li>
+</ul>
+<ul class="simple">
+<li><p>This was just an example!</p></li>
+<li><p>There are a lot of timing strategies</p></li>
+<li><p>I like this one, becuase I (and Tyler Muir) came up with it. (<a class="reference external" href="https://www.google.com/url?q=https%3A%2F%2Fwww.dropbox.com%2Fs%2F022escr52x9oe51%2FVolPortfolios_published.pdf%3Fdl%3D0&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGMECt2zp77lDfZRGJlkXQbGmqn1A">https://www.google.com/url?q=https://www.dropbox.com/s/022escr52x9oe51/VolPortfolios_published.pdf?dl=0&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGMECt2zp77lDfZRGJlkXQbGmqn1A</a>)</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/Finance"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Alan Moreira<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

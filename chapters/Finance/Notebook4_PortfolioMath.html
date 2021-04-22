@@ -1,0 +1,1695 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notebook 4 &#8212; Quantitative Investing</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/book.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://amoreira2.github.io/quantitativeinvesting/chapters/Finance/Notebook4_PortfolioMath.html" />
+    <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://amoreira2.github.io/quantitativeinvesting/chapters/Finance/Notebook4_PortfolioMath.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Notebook 4" />
+<meta property="og:description" content="Notebook 4  Topics covered    Portfolio math  Diversification  Capital allocation line  Mean-variance frontier  Tangency portfolio  Two-fund separation  Case st" />
+<meta property="og:image"       content="https://amoreira2.github.io/quantitativeinvesting/_static/figuremain2.jpg" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/figuremain2.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Quantitative Investing</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../01/what-is-quant-investing.html">
+   1. What is Quantitative Investing?
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/statistical-techniques.html">
+     1.1. Statistical Techniques
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/computational-tools.html">
+     1.2. Computational tools
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/Finance.html">
+     1.3. Finance
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../02/getting_started.html">
+   2. Getting Started
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/local_install.html">
+     2.2.1. Local installation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/cloud_setup.html">
+     2.2.2. Cloud Setup
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../03/programming-in-python.html">
+   3. First Steps with Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/1/Expressions.html">
+     3.1. Expressions
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../03/2/Names.html">
+     3.2. Names
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/2/1/Growth.html">
+       3.2.1. Example: Growth Rates
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/3/Calls.html">
+     3.3. Call Expressions
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../04/Data_Types.html">
+     3.4. Data Types
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/1/Numbers.html">
+       3.4.1. Numbers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/2/Strings.html">
+       3.4.2. Strings
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/3/Comparison.html">
+       3.4.3. Comparisons
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../05/Sequences.html">
+     3.5. Sequences
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05/1/Arrays.html">
+       3.5.1. Arrays
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05/2/Ranges.html">
+       3.5.2. Ranges
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05/3/More_on_Arrays.html">
+       3.5.3. More on Arrays
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../essentials/essentials.html">
+   4. Python Essentials
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../essentials/basics.html">
+     4.1. Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../essentials/collections.html">
+     4.2. Collections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../essentials/control_flow.html">
+     4.3. Flow control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../essentials/functions.html">
+     4.4. Functions
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../scientific/intro.html">
+   5. Scientific Computing
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scientific/numpy1.html">
+     5.1. Numpy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scientific/plotting1.html">
+     5.2. Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scientific/linear_algebra1.html">
+     5.3. Linear algebra
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scientific/randomness1.html">
+     5.4. Randomness
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../pandas/intro.html">
+   6. Working with Data
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/basics.html">
+     6.7.1. Pandas Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/the_index.html">
+     6.7.2. Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/data_clean.html">
+     6.7.3. Cleaning data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/reshape.html">
+     6.7.4. Reshape
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/merge.html">
+     6.7.5. Merge
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/groupby.html">
+     6.7.6. Group-by
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/timeseries.html">
+     6.7.7. Time-Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/matplotlib.html">
+     6.7.8. Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/storage_formats.html">
+     6.7.9. Data Storage
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../additional/additional.html">
+   7. Additional Statistics Material
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../10/Sampling_and_Empirical_Distributions.html">
+     7.1. Sampling and Empirical Distributions
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../10/1/Empirical_Distributions.html">
+       7.1.1. Empirical Distributions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../10/2/Sampling_from_a_Population.html">
+       7.1.2. Sampling from a Population
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../10/3/Empirical_Distribution_of_a_Statistic.html">
+       7.1.3. Empirical Distibution of a Statistic
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../11/Testing_Hypotheses.html">
+     7.2. Testing Hypotheses
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../11/1/Assessing_Models.html">
+       7.2.1. Assessing Models
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../11/2/Multiple_Categories.html">
+       7.2.2. Multiple Categories
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../11/3/Decisions_and_Uncertainty.html">
+       7.2.3. Decisions and Uncertainty
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../11/4/Error_Probabilities.html">
+       7.2.4. Error Probabilities
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../13/Estimation.html">
+     7.3. Estimation
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13/1/Percentiles.html">
+       7.3.1. Percentiles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13/2/Bootstrap.html">
+       7.3.2. The Bootstrap
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13/3/Confidence_Intervals.html">
+       7.3.3. Confidence Intervals
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13/4/Using_Confidence_Intervals.html">
+       7.3.4. Using Confidence Intervals
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../14/Why_the_Mean_Matters.html">
+     7.4. Why the Mean Matters
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/1/Properties_of_the_Mean.html">
+       7.4.1. Properties of the Mean
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/2/Variability.html">
+       7.4.2. Variability
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/3/SD_and_the_Normal_Curve.html">
+       7.4.3. The SD and the Normal Curve
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/4/Central_Limit_Theorem.html">
+       7.4.4. The Central Limit Theorem
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/5/Variability_of_the_Sample_Mean.html">
+       7.4.5. The Variability of the Sample Mean
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../14/6/Choosing_a_Sample_Size.html">
+       7.4.6. Choosing a Sample Size
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../15/Prediction.html">
+     7.5. Prediction
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/1/Correlation.html">
+       7.5.1. Correlation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/2/Regression_Line.html">
+       7.5.2. The Regression Line
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/3/Method_of_Least_Squares.html">
+       7.5.3. The Method of Least Squares
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/4/Least_Squares_Regression.html">
+       7.5.4. Least Squares Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/5/Visual_Diagnostics.html">
+       7.5.5. Visual Diagnostics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../15/6/Numerical_Diagnostics.html">
+       7.5.6. Numerical Diagnostics
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../16/Inference_for_Regression.html">
+     7.6. Inference for Regression
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../16/1/Regression_Model.html">
+       7.6.1. A Regression Model
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../16/2/Inference_for_the_True_Slope.html">
+       7.6.2. Inference for the True Slope
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../16/3/Prediction_Intervals.html">
+       7.6.3. Prediction Intervals
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/chapters/Finance/Notebook4_PortfolioMath.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/amoreira2/Lectures"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/amoreira2/Lectures/issues/new?title=Issue%20on%20page%20%2Fchapters/Finance/Notebook4_PortfolioMath.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/amoreira2/Lectures/main?urlpath=lab/tree/chapters/Finance/Notebook4_PortfolioMath.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://pims.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https://github.com/amoreira2/Lectures&urlpath=lab/tree/Lectures/chapters/Finance/Notebook4_PortfolioMath.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/amoreira2/Lectures/blob/main/chapters/Finance/Notebook4_PortfolioMath.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Notebook 4
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#topics-covered">
+     Topics covered
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#portfolio-math">
+   Portfolio “Math”
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#portfolio-weights">
+     Portfolio weights
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#portfolio-returns">
+     Portfolio returns
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#portfolio-expected-returns">
+     Portfolio Expected returns
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#portfolio-variance">
+     Portfolio Variance
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diversification">
+   Diversification
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <img src='https://www.dropbox.com/s/125k1wnxkl6bgs0/class_logo.jpg?dl=1' alt="Smiley face" align="center" style="width: 600px;"/>
+<div class="section" id="notebook-4">
+<h1>Notebook 4<a class="headerlink" href="#notebook-4" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="topics-covered">
+<h2>Topics covered<a class="headerlink" href="#topics-covered" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Portfolio math</p></li>
+<li><p>Diversification</p></li>
+<li><p>Capital allocation line</p></li>
+<li><p>Mean-variance frontier</p></li>
+<li><p>Tangency portfolio</p></li>
+<li><p>Two-fund separation</p></li>
+<li><p>Case study on international diversification</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="c1">#GlobalFinMonthly</span>
+<span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://www.dropbox.com/s/3k35mt3t57ygff2/GlobalFinMonthly.csv?dl=1&quot;</span>
+<span class="c1"># url=&quot;C:/Users/Alan Moreira/Dropbox/Public/Fin418/Data/GlobalFinMonthly.csv&quot;</span>
+<span class="n">Data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">na_values</span><span class="o">=-</span><span class="mi">99</span><span class="p">)</span>
+<span class="c1"># tell python Date is date:</span>
+<span class="n">Data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">Data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
+<span class="c1"># set an an index</span>
+<span class="n">Data</span><span class="o">=</span><span class="n">Data</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">=</span><span class="n">Data</span><span class="p">[[</span><span class="s1">&#39;RF&#39;</span><span class="p">,</span><span class="s1">&#39;MKT&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RF</th>
+      <th>MKT</th>
+      <th>USA30yearGovBond</th>
+      <th>EmergingMarkets</th>
+      <th>WorldxUSA</th>
+      <th>WorldxUSAGovBond</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1963-02-28</th>
+      <td>0.0023</td>
+      <td>-0.0215</td>
+      <td>-0.001878</td>
+      <td>0.098222</td>
+      <td>-0.002773</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1963-03-31</th>
+      <td>0.0023</td>
+      <td>0.0331</td>
+      <td>0.003342</td>
+      <td>0.014149</td>
+      <td>0.000371</td>
+      <td>0.001913</td>
+    </tr>
+    <tr>
+      <th>1963-04-30</th>
+      <td>0.0025</td>
+      <td>0.0476</td>
+      <td>-0.001843</td>
+      <td>-0.147055</td>
+      <td>-0.003336</td>
+      <td>0.008002</td>
+    </tr>
+    <tr>
+      <th>1963-05-31</th>
+      <td>0.0024</td>
+      <td>0.0200</td>
+      <td>-0.001807</td>
+      <td>-0.012172</td>
+      <td>-0.000186</td>
+      <td>0.004689</td>
+    </tr>
+    <tr>
+      <th>1963-06-30</th>
+      <td>0.0023</td>
+      <td>-0.0177</td>
+      <td>0.001666</td>
+      <td>-0.055699</td>
+      <td>-0.011160</td>
+      <td>0.003139</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2016-08-31</th>
+      <td>0.0002</td>
+      <td>0.0052</td>
+      <td>-0.008417</td>
+      <td>0.025186</td>
+      <td>0.000838</td>
+      <td>-0.009552</td>
+    </tr>
+    <tr>
+      <th>2016-09-30</th>
+      <td>0.0002</td>
+      <td>0.0027</td>
+      <td>-0.016417</td>
+      <td>0.013153</td>
+      <td>0.012736</td>
+      <td>0.009979</td>
+    </tr>
+    <tr>
+      <th>2016-10-31</th>
+      <td>0.0002</td>
+      <td>-0.0200</td>
+      <td>-0.049460</td>
+      <td>0.002474</td>
+      <td>-0.020383</td>
+      <td>-0.043476</td>
+    </tr>
+    <tr>
+      <th>2016-11-30</th>
+      <td>0.0001</td>
+      <td>0.0487</td>
+      <td>-0.081636</td>
+      <td>-0.045971</td>
+      <td>-0.019798</td>
+      <td>-0.050359</td>
+    </tr>
+    <tr>
+      <th>2016-12-31</th>
+      <td>0.0003</td>
+      <td>0.0185</td>
+      <td>-0.005296</td>
+      <td>0.002904</td>
+      <td>0.034383</td>
+      <td>-0.023207</td>
+    </tr>
+  </tbody>
+</table>
+<p>647 rows × 6 columns</p>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="portfolio-math">
+<h1>Portfolio “Math”<a class="headerlink" href="#portfolio-math" title="Permalink to this headline">¶</a></h1>
+<p>In this section we will learn how to do some basic math at portfolio level. You will know how to calculate return, expected return, and volatility given portfolio weights.</p>
+<div class="section" id="portfolio-weights">
+<h2>Portfolio weights<a class="headerlink" href="#portfolio-weights" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>The portfolio weight for stock <span class="math notranslate nohighlight">\(j\)</span> , denoted <span class="math notranslate nohighlight">\(w_j\)</span>, is the fraction of a portfolio value held in stock <span class="math notranslate nohighlight">\(j\)</span></p>
+<div class="math notranslate nohighlight">
+\[w_j=\frac{\text{Dollar held in stock j}}{\text{Dollar value of portfolio}}\]</div>
+</li>
+<li><p>By construction, the portfolio weights allways add up to one: you invest all you got somewhere, and nothing more</p>
+<ul class="simple">
+<li><p>This doesn’t mean that you can’t borrow to invest, just means that you will have a negative weight somewhere offsetting the positive position in the other assets</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\sum_{j=1}^N w_j=1\]</div>
+<ul class="simple">
+<li><p>In matrix notation</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\mathbf{1}'W=1\]</div>
+<ul class="simple">
+<li><p>where <span class="math notranslate nohighlight">\(\mathbf{1}\)</span> is a N by 1 vector of 1’s (i.e. a vector with entry 1 in each position) and <span class="math notranslate nohighlight">\(W\)</span> is the N by 1 vector of portfolio weights</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="portfolio-returns">
+<h2>Portfolio returns<a class="headerlink" href="#portfolio-returns" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[ R_p=\sum_{j=1}^N w_jR_j=W'R\]</div>
+<ul class="simple">
+<li><p>Where <span class="math notranslate nohighlight">\(R\)</span> is the N by 1 vector of realized asset returns</p></li>
+</ul>
+<p>For example:</p>
+<p>This below is the vector of return realization for a particular date</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Data</span><span class="p">[</span><span class="s1">&#39;1963-02&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RF</th>
+      <th>MKT</th>
+      <th>USA30yearGovBond</th>
+      <th>EmergingMarkets</th>
+      <th>WorldxUSA</th>
+      <th>WorldxUSAGovBond</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1963-02-28</th>
+      <td>0.0023</td>
+      <td>-0.0215</td>
+      <td>-0.001878</td>
+      <td>0.098222</td>
+      <td>-0.002773</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ul class="simple">
+<li><p>Since the return on a portfolio is a weighted sum of the returns on the securities, we need to determine how the distribution of this sum of r.v. (<span class="math notranslate nohighlight">\(R_p\)</span>) is related to the orignal distribution of eah r.v. (the individual securities returns <span class="math notranslate nohighlight">\(R_j\)</span>, <span class="math notranslate nohighlight">\(j=1...N\)</span>).</p></li>
+<li><p>The analysis of portfolio risk becomes much simpler by assuming that return distributions are normal.</p></li>
+<li><p>This means we only need to worry about mean and variance (even if we care about these really bad tail events)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lets start by constructing an equal-weighted portfolio</span>
+<span class="n">W</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">/</span><span class="mi">6</span>
+
+<span class="n">W</span><span class="o">.</span><span class="n">shape</span>
+<span class="c1"># W is a 6 by 1 matrix</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6,)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9999999999999999
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;9/2008&#39;</span><span class="p">]</span>
+<span class="c1"># R is a 1 by 6 matrix</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RF</th>
+      <th>MKT</th>
+      <th>USA30yearGovBond</th>
+      <th>EmergingMarkets</th>
+      <th>WorldxUSA</th>
+      <th>WorldxUSAGovBond</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2008-09-30</th>
+      <td>0.0015</td>
+      <td>-0.0909</td>
+      <td>0.023693</td>
+      <td>-0.174897</td>
+      <td>-0.144244</td>
+      <td>-0.031262</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;9/2008&#39;</span><span class="p">]</span> <span class="o">@</span> <span class="n">W</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Date
+2008-09-30   -0.069352
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>What do we do to construct the returns for all the months?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(647, 6)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Rp</span><span class="o">=</span><span class="n">Data</span> <span class="o">@</span> <span class="n">W</span>
+<span class="n">Rp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Date
+1963-02-28         NaN
+1963-03-31    0.009196
+1963-04-30   -0.015689
+1963-05-31    0.002154
+1963-06-30   -0.012909
+                ...   
+2016-08-31    0.002242
+2016-09-30    0.003725
+2016-10-31   -0.021774
+2016-11-30   -0.024827
+2016-12-31    0.004597
+Length: 647, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Rp</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1f82fa015b0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/Notebook4_PortfolioMath_16_1.png" src="../../_images/Notebook4_PortfolioMath_16_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Rp</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007367453311403502
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="portfolio-expected-returns">
+<h2>Portfolio Expected returns<a class="headerlink" href="#portfolio-expected-returns" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The expected return of a portfolio is the portfolio weighted average of the expected returns of the individual assets.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[E[R_p]=E[\sum_{j=1}^N w_jR_j]=\sum_{j=1}^N w_jE[R_j]=W'E[R]\]</div>
+<blockquote>
+<div><p>Can you use the definition of expected values we learn in notebook 3 to verify that this is correct?</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Lets compute for our EW portfolio:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To make sure we do the matrix multiplication correctly, it is good to see the shape of matrix first</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Data</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6,)
+(6,)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We use transpose function `T` to transpose W to a 1 by 6 matrix</span>
+<span class="n">W</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Data</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007376761284897114
+</pre></div>
+</div>
+</div>
+</div>
+<p>It should be true that taking the sample mean of our portfolio return realizations should give the same answer</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Rp</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007367453311403502
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="portfolio-variance">
+<h2>Portfolio Variance<a class="headerlink" href="#portfolio-variance" title="Permalink to this headline">¶</a></h2>
+<p>Two asset case:</p>
+<div class="math notranslate nohighlight">
+\[Var(R_p)= Var(w_1R_1+w_2R_2)=Cov(w_1R_1+w_2R_2,w_1R_1+w_2R_2)\]</div>
+<ul class="simple">
+<li><p>where we used that <span class="math notranslate nohighlight">\(Var(x)=Cov(x,x)\)</span></p></li>
+<li><p>We then distribute the terms</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[Cov(w_1R_1,w_1R_1+w_2R_2)+Cov(w_2R_2,w_1R_1+w_2R_2)=Cov(w_1R_1,w_1R_1)+Cov(w_2R_2,w_2R_2)+Cov(w_2R_2,w_1R_1)+Cov(w_1R_1,w_2R_2)\]</div>
+<ul class="simple">
+<li><p>This yields the classic formula</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[Var(R_p)= w_1^2Var(R_1)+2w_2w_1Cov(R_2,R_1)+w_2^2Var(R_2)\]</div>
+<p>From the “term distribution”  above it is intuitive what the N asset case would look like</p>
+<div class="math notranslate nohighlight">
+\[Var(R_p)= Var(\sum_{j=1}^N w_jR_j)=Cov(\sum_{j=1}^N w_jR_j,\sum_{i=1}^N w_iR_i)=\sum_{j=1}^N  w_j Cov(R_j,\sum_{i=1}^N w_iR_i)=\sum_{j=1}^N \sum_{i=1}^N w_jw_iCov(R_j, R_i)\]</div>
+<ul class="simple">
+<li><p>For a portfolio of 50 assets, this expression has 50 variance terms and 2450 covariance terms!</p></li>
+<li><p>Good thing we learned in Notebook 1 how to make this computation really easy</p></li>
+<li><p>We can write</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\sum_{j=1}^N \sum_{i=1}^N w_jw_iCov(R_j, R_i)=W' Cov(R) W\]</div>
+<ul class="simple">
+<li><p>where <span class="math notranslate nohighlight">\(Cov(R)\)</span> is the N by N variance covariance matrix of the assets and W is the vector of weights</p></li>
+<li><p>Why is this?</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[Var(R_p)=Var(W'R)=Cov(W'R,W'R)=W'Cov(R,W'R)=(W'Cov(R,W'R))'=Cov(W'R,R)W=W'Cov(R)W\]</div>
+<ul class="simple">
+<li><p>Where we used that covariance is a linear operator(can take constants out of it, one at a time) and that it is symmetric(cov(x,y)=cov(y,x)), so the covariance is a symmetic matrix X’=X.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Data</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6,)
+(6, 6)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Data</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RF</th>
+      <th>MKT</th>
+      <th>USA30yearGovBond</th>
+      <th>EmergingMarkets</th>
+      <th>WorldxUSA</th>
+      <th>WorldxUSAGovBond</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>RF</th>
+      <td>6.942408e-06</td>
+      <td>-0.000002</td>
+      <td>0.000003</td>
+      <td>-0.000003</td>
+      <td>1.864051e-09</td>
+      <td>0.000004</td>
+    </tr>
+    <tr>
+      <th>MKT</th>
+      <td>-2.377807e-06</td>
+      <td>0.001936</td>
+      <td>0.000104</td>
+      <td>0.001280</td>
+      <td>1.254553e-03</td>
+      <td>0.000182</td>
+    </tr>
+    <tr>
+      <th>USA30yearGovBond</th>
+      <td>3.048525e-06</td>
+      <td>0.000104</td>
+      <td>0.001226</td>
+      <td>-0.000211</td>
+      <td>-1.662154e-05</td>
+      <td>0.000264</td>
+    </tr>
+    <tr>
+      <th>EmergingMarkets</th>
+      <td>-2.911724e-06</td>
+      <td>0.001280</td>
+      <td>-0.000211</td>
+      <td>0.003544</td>
+      <td>1.650762e-03</td>
+      <td>0.000243</td>
+    </tr>
+    <tr>
+      <th>WorldxUSA</th>
+      <td>1.864051e-09</td>
+      <td>0.001255</td>
+      <td>-0.000017</td>
+      <td>0.001651</td>
+      <td>2.174723e-03</td>
+      <td>0.000419</td>
+    </tr>
+    <tr>
+      <th>WorldxUSAGovBond</th>
+      <td>3.905048e-06</td>
+      <td>0.000182</td>
+      <td>0.000264</td>
+      <td>0.000243</td>
+      <td>4.191618e-04</td>
+      <td>0.000407</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W</span> <span class="o">@</span> <span class="n">Data</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span> <span class="o">@</span> <span class="n">W</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0005455164562658996
+</pre></div>
+</div>
+</div>
+</div>
+<p>to get the volatility, i.e. , standard deviation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">T</span><span class="o">@</span> <span class="n">Data</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span> <span class="o">@</span> <span class="n">W</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02335629371852263
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, the sample variance of the portfolio return realizations we constructed above should exactly match this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Rp</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.023370767135194474
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>How do I get the daily volatility?</p>
+</div></blockquote>
+<blockquote>
+<div><p>How do I get weekly volatility?</p>
+</div></blockquote>
+<blockquote>
+<div><p>How do I get quartely volatility?</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="diversification">
+<h1>Diversification<a class="headerlink" href="#diversification" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>A key concept in investing is diversification</p></li>
+<li><p>The famous: “don’t put all your eggs in one basket” advice</p></li>
+<li><p>There are potential benefits of diversifcation for an investor when there are assets that  are imperfecly correlated with the investor portfolio</p></li>
+<li><p>So lets look at this from the vantage point of a US investors that is fully invested in the US equity market portfolio and is considering the benefits of investing in other world equity markets</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># here is the co-movement across the asset</span>
+<span class="n">Data</span><span class="p">[[</span><span class="s1">&#39;MKT&#39;</span><span class="p">,</span><span class="s1">&#39;WorldxUSA&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MKT</th>
+      <th>WorldxUSA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>MKT</th>
+      <td>1.000000</td>
+      <td>0.611369</td>
+    </tr>
+    <tr>
+      <th>WorldxUSA</th>
+      <td>0.611369</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>What is noteworthy about this correlation matrix?</p>
+<p>Are there any benefits of diversification?</p>
+<p>Lets compute how the variance of the investor portfolio varies as she varies her portfolio weight on the world market</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.05</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">w</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.  , 0.05, 0.1 , 0.15, 0.2 , 0.25, 0.3 , 0.35, 0.4 , 0.45, 0.5 ,
+       0.55, 0.6 , 0.65, 0.7 , 0.75, 0.8 , 0.85, 0.9 , 0.95, 1.  ])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="o">=</span><span class="n">Data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;MKT&#39;</span><span class="p">,</span><span class="s1">&#39;WorldxUSA&#39;</span><span class="p">]]</span>
+<span class="n">UsW</span><span class="o">=</span><span class="p">[]</span>
+<span class="c1"># w here is a vector of weights on the US MKT and 1-w is the the weight on the international market</span>
+<span class="n">w</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.05</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">w</span><span class="p">:</span>
+    <span class="n">W</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+    <span class="c1"># save the weight on the world market as the first element of UsW</span>
+    <span class="c1"># save the vol of the investor&#39;s portfolio as the second element of UsW</span>
+    <span class="c1">#UsW.append([1-x,((W.T @ D.cov() @ W)**0.5)*12**0.5])</span>
+    <span class="n">Rp</span><span class="o">=</span><span class="n">D</span><span class="o">@</span> <span class="n">W</span>
+    <span class="n">UsW</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">,</span><span class="n">Rp</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">*</span><span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span><span class="p">])</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0. 1.]
+[0.05 0.95]
+[0.1 0.9]
+[0.15 0.85]
+[0.2 0.8]
+[0.25 0.75]
+[0.3 0.7]
+[0.35 0.65]
+[0.4 0.6]
+[0.45 0.55]
+[0.5 0.5]
+[0.55 0.45]
+[0.6 0.4]
+[0.65 0.35]
+[0.7 0.3]
+[0.75 0.25]
+[0.8 0.2]
+[0.85 0.15]
+[0.9 0.1]
+[0.95 0.05]
+[1. 0.]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UsW</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">UsW</span><span class="p">)</span>
+<span class="c1"># The first column of UsW is the weights on the world market</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1"># The second column of UsW is the vol of the portfolio</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.95 0.9  0.85 0.8  0.75 0.7  0.65 0.6  0.55 0.5  0.45 0.4  0.35
+ 0.3  0.25 0.2  0.15 0.1  0.05 0.  ]
+[0.16154465 0.15824199 0.15517892 0.15236987 0.14982914 0.14757059
+ 0.14560735 0.1439515  0.14261376 0.14160313 0.14092665 0.14058915
+ 0.14059308 0.14093839 0.1416226  0.14264082 0.14398597 0.145649
+ 0.14761916 0.14988433 0.15243138]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a sacatter plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Weight on World&#39;</span><span class="p">)</span>
+<span class="c1">#plt.ylim([0.04,0.05])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Notebook4_PortfolioMath_39_0.png" src="../../_images/Notebook4_PortfolioMath_39_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>We can also look at the investment frontier that such an investor faces: How her expected returns change with the variance</p></li>
+<li><p>Lets also look at annualized quantities for more intution</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*</span><span class="mi">12</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MKT          0.108621
+WorldxUSA    0.096725
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">*</span><span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MKT          0.152431
+WorldxUSA    0.161545
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UsW</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">w</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.05</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">w</span><span class="p">:</span>
+    <span class="n">W</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">])</span>
+    <span class="c1"># save the weight on the world market as the first element of UsW</span>
+    <span class="c1"># save the annulized vol of the portfolio as the second element of UsW</span>
+    <span class="c1"># save the annulized expected return of the portfolio as the third element of UsW</span>
+    <span class="n">UsW</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">,(</span><span class="n">W</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">D</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span> <span class="o">@</span> <span class="n">W</span><span class="o">*</span><span class="mi">12</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,</span><span class="n">W</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">*</span><span class="mi">12</span><span class="p">])</span>
+<span class="n">UsW</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">UsW</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># UsW[:,1], the annulized vol of the portfolio</span>
+<span class="c1"># UsW[:,2], the annulized expected return of the portfolio</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Volatility&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average return&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Notebook4_PortfolioMath_44_0.png" src="../../_images/Notebook4_PortfolioMath_44_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Can you tell which extreme dot corresponds to each asset?</p></li>
+<li><p>How can you find out easily?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*</span><span class="mi">12</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MKT          0.108621
+WorldxUSA    0.096725
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">*</span><span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MKT          0.152431
+WorldxUSA    0.161545
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>So it seems like that for some investors there is no diversification benefit?</p></li>
+<li><p>If you are a US investor and you are comfortable with the US market volatlity, why would you ever invest in an asset of lower expected return?</p></li>
+<li><p>For the world investors, clearly they can benefit of holding a bit of the US market-and this does not depend on the preferences for risk as they can get higher returns and lower volatility through diversification</p></li>
+</ul>
+<blockquote>
+<div><p>Why might the US investor want to invest in the world market even if if has a lower expected return and higher variance?</p>
+</div></blockquote>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/Finance"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Alan Moreira<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
