@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Notebook 3 &#8212; Quantitative Investing</title>
+    <title>7. Notebook 3 &#8212; Quantitative Investing</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -59,6 +59,8 @@
     <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="10.1. The choice of frequency and Annualization of returns" href="Notebook3_TheChoiceofFrequency.html" />
+    <link rel="prev" title="6.7.9. Storage Formats" href="../pandas/storage_formats.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -97,7 +99,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+    <ul class="current nav sidenav_l1">
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../01/what-is-quant-investing.html">
    1. What is Quantitative Investing?
@@ -334,29 +336,181 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   7. Notebook 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#distribution-of-returns">
+   8. Distribution of Returns
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#risk-variances-and-covariances">
+   9. Risk, Variances, and Covariances
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="#excess-returns-and-risk-premiums">
+   10. Excess returns and risk-premiums
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Notebook3_TheChoiceofFrequency.html">
+     10.1. The Choice of Frequency and Annualization of Returns
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Notebook4_PortfolioMath.html">
+   11. Notebook 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Notebook4_PortfolioMath.html#portfolio-math">
+   12. Portfolio “Math”
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Notebook4_PortfolioMath.html#diversification">
+   13. Diversification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Notebook4_MeanVariance.html">
+   14. Notebook 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Notebook4_MeanVariance.html#the-mean-variance-investment-frontier-and-the-tangency-portfolio">
+   15. The mean-variance investment frontier and the Tangency portfolio
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="Notebook4_MeanVariance.html#case-study-on-international-portfolio-diversification">
+   16. Case study on international portfolio diversification
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Notebook4_CaseStudy.html">
+     16.2.1. Notebook 4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Notebook4_CaseStudy.html#case-study-on-international-portfolio-diversification">
+     16.2.2. Case study on international portfolio diversification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Notebook5_Portfoliooptimizationwithconstraints.html">
+     16.2.3. Notebook 5
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Notebook5_Portfoliooptimizationwithconstraints.html#portfolio-constraints">
+     16.2.4. Portfolio constraints
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Notebook5_EstimationUncertainty.html">
+   17. Notebook 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Notebook5_EstimationUncertainty.html#portfolio-optimization-in-practice">
+   18. Portfolio optimization in practice
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Notebook5_EstimationUncertainty.html#estimation-uncertainty">
+   19. Estimation uncertainty
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Notebook5_EstimationUncertainty.html#statistical-tests">
+   20. Statistical tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Notebook6A_TradingStrategies.html">
+   21. Notebook 6 A
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Notebook6A_TradingStrategies.html#what-is-a-valid-trading-strategy">
+   22. What is a valid trading strategy?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Notebook6A_TradingStrategies.html#quantitative-trading-strategies">
+   23. Quantitative trading strategies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Notebook6A_TradingStrategies.html">
+   21. Notebook 6 A
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Notebook6A_TradingStrategies.html#what-is-a-valid-trading-strategy">
+   22. What is a valid trading strategy?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Notebook6A_TradingStrategies.html#quantitative-trading-strategies">
+   23. Quantitative trading strategies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Notebook6B_crosssectionalequitystrategies.html">
+   24. Notebook 6 B
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="Notebook6B_crosssectionalequitystrategies.html#cross-sectional-strategies">
+   25. Cross-sectional strategies
+  </a>
+  <ul class="simple collapse-ul">
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Notebook5_equilibrium.html">
+   26. Equilbrium Thinking
+  </a>
+ </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../additional/additional.html">
-   7. Additional Statistics Material
+   27. Additional Statistics Material
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../10/Sampling_and_Empirical_Distributions.html">
-     7.1. Sampling and Empirical Distributions
+     27.1. Sampling and Empirical Distributions
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../10/1/Empirical_Distributions.html">
-       7.1.1. Empirical Distributions
+       27.1.1. Empirical Distributions
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../10/2/Sampling_from_a_Population.html">
-       7.1.2. Sampling from a Population
+       27.1.2. Sampling from a Population
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../10/3/Empirical_Distribution_of_a_Statistic.html">
-       7.1.3. Empirical Distibution of a Statistic
+       27.1.3. Empirical Distibution of a Statistic
       </a>
      </li>
     </ul>
@@ -365,27 +519,27 @@
    </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../11/Testing_Hypotheses.html">
-     7.2. Testing Hypotheses
+     27.2. Testing Hypotheses
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../11/1/Assessing_Models.html">
-       7.2.1. Assessing Models
+       27.2.1. Assessing Models
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../11/2/Multiple_Categories.html">
-       7.2.2. Multiple Categories
+       27.2.2. Multiple Categories
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../11/3/Decisions_and_Uncertainty.html">
-       7.2.3. Decisions and Uncertainty
+       27.2.3. Decisions and Uncertainty
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../11/4/Error_Probabilities.html">
-       7.2.4. Error Probabilities
+       27.2.4. Error Probabilities
       </a>
      </li>
     </ul>
@@ -394,27 +548,27 @@
    </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../13/Estimation.html">
-     7.3. Estimation
+     27.3. Estimation
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../13/1/Percentiles.html">
-       7.3.1. Percentiles
+       27.3.1. Percentiles
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../13/2/Bootstrap.html">
-       7.3.2. The Bootstrap
+       27.3.2. The Bootstrap
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../13/3/Confidence_Intervals.html">
-       7.3.3. Confidence Intervals
+       27.3.3. Confidence Intervals
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../13/4/Using_Confidence_Intervals.html">
-       7.3.4. Using Confidence Intervals
+       27.3.4. Using Confidence Intervals
       </a>
      </li>
     </ul>
@@ -423,37 +577,37 @@
    </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../14/Why_the_Mean_Matters.html">
-     7.4. Why the Mean Matters
+     27.4. Why the Mean Matters
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../14/1/Properties_of_the_Mean.html">
-       7.4.1. Properties of the Mean
+       27.4.1. Properties of the Mean
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../14/2/Variability.html">
-       7.4.2. Variability
+       27.4.2. Variability
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../14/3/SD_and_the_Normal_Curve.html">
-       7.4.3. The SD and the Normal Curve
+       27.4.3. The SD and the Normal Curve
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../14/4/Central_Limit_Theorem.html">
-       7.4.4. The Central Limit Theorem
+       27.4.4. The Central Limit Theorem
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../14/5/Variability_of_the_Sample_Mean.html">
-       7.4.5. The Variability of the Sample Mean
+       27.4.5. The Variability of the Sample Mean
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../14/6/Choosing_a_Sample_Size.html">
-       7.4.6. Choosing a Sample Size
+       27.4.6. Choosing a Sample Size
       </a>
      </li>
     </ul>
@@ -462,37 +616,37 @@
    </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../15/Prediction.html">
-     7.5. Prediction
+     27.5. Prediction
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../15/1/Correlation.html">
-       7.5.1. Correlation
+       27.5.1. Correlation
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../15/2/Regression_Line.html">
-       7.5.2. The Regression Line
+       27.5.2. The Regression Line
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../15/3/Method_of_Least_Squares.html">
-       7.5.3. The Method of Least Squares
+       27.5.3. The Method of Least Squares
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../15/4/Least_Squares_Regression.html">
-       7.5.4. Least Squares Regression
+       27.5.4. Least Squares Regression
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../15/5/Visual_Diagnostics.html">
-       7.5.5. Visual Diagnostics
+       27.5.5. Visual Diagnostics
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../15/6/Numerical_Diagnostics.html">
-       7.5.6. Numerical Diagnostics
+       27.5.6. Numerical Diagnostics
       </a>
      </li>
     </ul>
@@ -501,22 +655,22 @@
    </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../16/Inference_for_Regression.html">
-     7.6. Inference for Regression
+     27.6. Inference for Regression
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="../16/1/Regression_Model.html">
-       7.6.1. A Regression Model
+       27.6.1. A Regression Model
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../16/2/Inference_for_the_True_Slope.html">
-       7.6.2. Inference for the True Slope
+       27.6.2. Inference for the True Slope
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../16/3/Prediction_Intervals.html">
-       7.6.3. Prediction Intervals
+       27.6.3. Prediction Intervals
       </a>
      </li>
     </ul>
@@ -644,89 +798,89 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Notebook 3
+   7. Notebook 3
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#topics-covered">
-     Topics covered
+     7.1. Topics covered
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#distribution-of-returns">
-   Distribution of Returns
+   8. Distribution of Returns
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#what-does-value-weighted-mean">
-     What does value weighted mean?
+     8.1. What does value weighted mean?
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#mean-and-standard-deviation">
-     Mean and Standard Deviation
+     8.2. Mean and Standard Deviation
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#random-variables">
-     Random variables
+     8.3. Random variables
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#what-is-a-probability-distribution">
-     What is a probability distribution?
+     8.4. What is a probability distribution?
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#moments">
-     Moments
+     8.5. Moments
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#sample-moments">
-     Sample moments
+     8.6. Sample moments
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#are-returns-normal">
-     Are returns normal?
+     8.7. Are returns normal?
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#the-normal-distribution">
-     The Normal distribution
+     8.8. The Normal distribution
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#what-is-a-return">
-     What is a return?
+     8.9. What is a return?
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#how-to-evaluate-whether-returns-are-normal">
-     How to evaluate whether returns are normal?
+     8.10. How to evaluate whether returns are normal?
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#log-returns-also-called-continously-compounded-returns-and-simple-returns">
-     Log returns (also called continously compounded returns) and Simple returns
+     8.11. Log returns (also called continously compounded returns) and Simple returns
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#log-returns">
-       Log returns
+       8.11.1. Log returns
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#how-to-go-back-and-fourth-between-log-and-simple-returns">
-       How to go back and fourth between log and simple returns?
+       8.11.2. How to go back and fourth between log and simple returns?
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#why-we-might-care-about-deviations-from-normality">
-       Why we might care about deviations from normality?
+       8.11.3. Why we might care about deviations from normality?
       </a>
      </li>
     </ul>
@@ -735,24 +889,24 @@
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#risk-variances-and-covariances">
-   Risk, Variances, and Covariances
+   9. Risk, Variances, and Covariances
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#volatility-and-variance">
-     Volatility and Variance
+     9.1. Volatility and Variance
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#but-what-risk-should-you-care-about-what-stock-should-be-risky-for-you">
-     But what risk should you care about? What stock should be risky for you?
+     9.2. But what risk should you care about? What stock should be risky for you?
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#excess-returns-and-risk-premiums">
-   Excess returns and risk-premiums
+   10. Excess returns and risk-premiums
   </a>
  </li>
 </ul>
@@ -769,9 +923,9 @@
                 
   <img src='https://www.dropbox.com/s/125k1wnxkl6bgs0/class_logo.jpg?dl=1' alt="Smiley face" align="center" style="width: 600px;"/>
 <div class="section" id="notebook-3">
-<h1>Notebook 3<a class="headerlink" href="#notebook-3" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">7. </span>Notebook 3<a class="headerlink" href="#notebook-3" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="topics-covered">
-<h2>Topics covered<a class="headerlink" href="#topics-covered" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.1. </span>Topics covered<a class="headerlink" href="#topics-covered" title="Permalink to this headline">¶</a></h2>
 <hr class="docutils" />
 <ul class="simple">
 <li><p>Return distributions and moments of a return distribution</p></li>
@@ -911,18 +1065,18 @@ memory usage: 35.4 KB
 </div>
 </div>
 <div class="section" id="distribution-of-returns">
-<h1>Distribution of Returns<a class="headerlink" href="#distribution-of-returns" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">8. </span>Distribution of Returns<a class="headerlink" href="#distribution-of-returns" title="Permalink to this headline">¶</a></h1>
 <p>Lets start by looking at the moments of the distribution of returns for the “market” portfolio</p>
 <p>This is really the portfolio of all the stocks listed in the United States</p>
 <p>To be more precise, it is the value-weighted basket of these stocks</p>
 <div class="section" id="what-does-value-weighted-mean">
-<h2>What does value weighted mean?<a class="headerlink" href="#what-does-value-weighted-mean" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.1. </span>What does value weighted mean?<a class="headerlink" href="#what-does-value-weighted-mean" title="Permalink to this headline">¶</a></h2>
 <div class="math notranslate nohighlight">
 \[w_{i,t}=\frac{Price_{i,t}*NShares_{i,t}}{\sum_{i=1}^I Price_{i,t}*NShares_{i,t}}\]</div>
 <p>What is <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(I\)</span>?</p>
 </div>
 <div class="section" id="mean-and-standard-deviation">
-<h2>Mean and Standard Deviation<a class="headerlink" href="#mean-and-standard-deviation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.2. </span>Mean and Standard Deviation<a class="headerlink" href="#mean-and-standard-deviation" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># looking at it&#39;s mean</span>
@@ -1000,7 +1154,7 @@ memory usage: 35.4 KB
 </div>
 </div>
 <div class="section" id="random-variables">
-<h2>Random variables<a class="headerlink" href="#random-variables" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.3. </span>Random variables<a class="headerlink" href="#random-variables" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>We think of the return realization, the numbers plotted above, as a random variable, i.e., a variable that we are uncertain about it’s realization.</p></li>
 <li><p>Random variable is any thing that we don’t known</p>
@@ -1013,7 +1167,7 @@ memory usage: 35.4 KB
 </ul>
 </div>
 <div class="section" id="what-is-a-probability-distribution">
-<h2>What is a probability distribution?<a class="headerlink" href="#what-is-a-probability-distribution" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4. </span>What is a probability distribution?<a class="headerlink" href="#what-is-a-probability-distribution" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>A probability distribution describes the probability that each outcome is realized.</p></li>
 <li><p>It can be described by a Probability Density Function (pdf).</p></li>
@@ -1026,7 +1180,7 @@ memory usage: 35.4 KB
 </ul>
 </div>
 <div class="section" id="moments">
-<h2>Moments<a class="headerlink" href="#moments" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.5. </span>Moments<a class="headerlink" href="#moments" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>One way to summarize the information in a probability distribution is the moments</p></li>
 <li><p>Mean or expected value <span class="math notranslate nohighlight">\(E[𝑥]=∑𝑥_𝑖 𝑃𝑟𝑜𝑏(𝑥=𝑥_𝑖 )\)</span>  𝑜𝑟 <span class="math notranslate nohighlight">\(∫𝑥𝑓(𝑥)𝑑𝑥\)</span>  often uses µ as symbol</p></li>
@@ -1056,7 +1210,7 @@ memory usage: 35.4 KB
 </ul>
 </div>
 <div class="section" id="sample-moments">
-<h2>Sample moments<a class="headerlink" href="#sample-moments" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.6. </span>Sample moments<a class="headerlink" href="#sample-moments" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Moments are  <strong>never</strong> truly known in real data</p></li>
 <li><p>Must be always estimated from some sample of the data</p></li>
@@ -1073,7 +1227,7 @@ memory usage: 35.4 KB
 </ul>
 </div>
 <div class="section" id="are-returns-normal">
-<h2>Are returns normal?<a class="headerlink" href="#are-returns-normal" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.7. </span>Are returns normal?<a class="headerlink" href="#are-returns-normal" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Most of what we do does not depend on the assumption of normality</p></li>
 <li><p>But normal distributions are very useful in statistical tests</p></li>
@@ -1081,7 +1235,7 @@ memory usage: 35.4 KB
 </ul>
 </div>
 <div class="section" id="the-normal-distribution">
-<h2>The Normal distribution<a class="headerlink" href="#the-normal-distribution" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.8. </span>The Normal distribution<a class="headerlink" href="#the-normal-distribution" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Probability that any random draw form a Normal distribution random variable <span class="math notranslate nohighlight">\(\tilde{x}\)</span> is within <span class="math notranslate nohighlight">\(n=1\)</span> standard deviation from the mean is 0.6826</p></li>
 </ul>
@@ -1108,7 +1262,7 @@ memory usage: 35.4 KB
 </ul>
 </div>
 <div class="section" id="what-is-a-return">
-<h2>What is a return?<a class="headerlink" href="#what-is-a-return" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.9. </span>What is a return?<a class="headerlink" href="#what-is-a-return" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>So we know what the normal distribution is</p></li>
 <li><p>but what exactly is a return?</p></li>
@@ -1129,7 +1283,7 @@ memory usage: 35.4 KB
 </div></blockquote>
 </div>
 <div class="section" id="how-to-evaluate-whether-returns-are-normal">
-<h2>How to evaluate whether returns are normal?<a class="headerlink" href="#how-to-evaluate-whether-returns-are-normal" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.10. </span>How to evaluate whether returns are normal?<a class="headerlink" href="#how-to-evaluate-whether-returns-are-normal" title="Permalink to this headline">¶</a></h2>
 <p>The standard approach is to look at higher moments.</p>
 <p>Because the normal is entired descibed by the first two moments, looking at these higher moments can give us a clue if that is really true for the data at hand.</p>
 <p>Here are a few:</p>
@@ -1249,9 +1403,9 @@ memory usage: 35.4 KB
 </div>
 </div>
 <div class="section" id="log-returns-also-called-continously-compounded-returns-and-simple-returns">
-<h2>Log returns (also called continously compounded returns) and Simple returns<a class="headerlink" href="#log-returns-also-called-continously-compounded-returns-and-simple-returns" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.11. </span>Log returns (also called continously compounded returns) and Simple returns<a class="headerlink" href="#log-returns-also-called-continously-compounded-returns-and-simple-returns" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="log-returns">
-<h3>Log returns<a class="headerlink" href="#log-returns" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.11.1. </span>Log returns<a class="headerlink" href="#log-returns" title="Permalink to this headline">¶</a></h3>
 <p>Insight: If innovations in log returns are iid then, log returns at long enough horizons must be normal (Central Limit Theorem)</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}1+𝑅_{1→𝑇}=((1+𝑅_1 )(1+𝑅_2 )…(1+𝑅_𝑇))⁡\\
@@ -1281,7 +1435,7 @@ ln⁡(1+𝑅_{1→𝑇} )=ln⁡(1+𝑅_1 )+ln⁡(1+𝑅_2 )+…+ln⁡(1+𝑅_�
 </div>
 </div>
 <div class="section" id="how-to-go-back-and-fourth-between-log-and-simple-returns">
-<h3>How to go back and fourth between log and simple returns?<a class="headerlink" href="#how-to-go-back-and-fourth-between-log-and-simple-returns" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.11.2. </span>How to go back and fourth between log and simple returns?<a class="headerlink" href="#how-to-go-back-and-fourth-between-log-and-simple-returns" title="Permalink to this headline">¶</a></h3>
 <p>Let R be a simple net return per period, i.e., if you invest 10 , you get 10(1+R) in the end of the period</p>
 <p>R is a number like 5% (0.05)</p>
 <p>We say 1+R, a number like 1.05 is a gross return.</p>
@@ -1375,15 +1529,15 @@ ln⁡(1+𝑅_{1→𝑇} )=ln⁡(1+𝑅_1 )+ln⁡(1+𝑅_2 )+…+ln⁡(1+𝑅_�
 </div>
 </div>
 <div class="section" id="why-we-might-care-about-deviations-from-normality">
-<h3>Why we might care about deviations from normality?<a class="headerlink" href="#why-we-might-care-about-deviations-from-normality" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.11.3. </span>Why we might care about deviations from normality?<a class="headerlink" href="#why-we-might-care-about-deviations-from-normality" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>
 <div class="section" id="risk-variances-and-covariances">
-<h1>Risk, Variances, and Covariances<a class="headerlink" href="#risk-variances-and-covariances" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">9. </span>Risk, Variances, and Covariances<a class="headerlink" href="#risk-variances-and-covariances" title="Permalink to this headline">¶</a></h1>
 <p>In this section we will learn how to calculate the volatility of a portfolio and the covariance between portfolios, and use these concepts to help us understand if adding another portfolio is more risky or not.</p>
 <div class="section" id="volatility-and-variance">
-<h2>Volatility and Variance<a class="headerlink" href="#volatility-and-variance" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.1. </span>Volatility and Variance<a class="headerlink" href="#volatility-and-variance" title="Permalink to this headline">¶</a></h2>
 <p>We know how to compute variance and what they are</p>
 <div class="math notranslate nohighlight">
 \[Data.MKT.std()=\sqrt{\sum_{t=1}^T\frac{(R_{MKT,t}-\overline{R_{MKT}})^2}{T}}\]</div>
@@ -1396,7 +1550,7 @@ ln⁡(1+𝑅_{1→𝑇} )=ln⁡(1+𝑅_1 )+ln⁡(1+𝑅_2 )+…+ln⁡(1+𝑅_�
 <p>Unless your entire portfolio is just that stock, you don’t really need to bear the stock risk–if you have 1% in a stock and the stock drops 20%, that is only 0.2% in your portfolio. You will not even notice the change.</p>
 </div>
 <div class="section" id="but-what-risk-should-you-care-about-what-stock-should-be-risky-for-you">
-<h2>But what risk should you care about? What stock should be risky for you?<a class="headerlink" href="#but-what-risk-should-you-care-about-what-stock-should-be-risky-for-you" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.2. </span>But what risk should you care about? What stock should be risky for you?<a class="headerlink" href="#but-what-risk-should-you-care-about-what-stock-should-be-risky-for-you" title="Permalink to this headline">¶</a></h2>
 <p>The great insight from Harry Markowitz was to think of risk in terms of what the stock adds to your portfolio</p>
 <p>Just like meat can be good for you if you are not eating any meat, it is terrible if you are eating a lot of it</p>
 <p>What investors should care about is, just like eaters, their final diet. If a given stock brings a lot of what you already have, it will be bad for you, i.e., risky.</p>
@@ -2044,7 +2198,7 @@ dtype: float64
 </div>
 </div>
 <div class="section" id="excess-returns-and-risk-premiums">
-<h1>Excess returns and risk-premiums<a class="headerlink" href="#excess-returns-and-risk-premiums" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">10. </span>Excess returns and risk-premiums<a class="headerlink" href="#excess-returns-and-risk-premiums" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>It is convenient to decompose the return earned in terms of what you earn due to</p>
 <ol class="simple">
@@ -2139,6 +2293,8 @@ dtype: float64
 </div>
 </div>
 </div>
+<div class="toctree-wrapper compound">
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -2166,6 +2322,8 @@ dtype: float64
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="../pandas/storage_formats.html" title="previous page"><span class="section-number">6.7.9. </span>Storage Formats</a>
+    <a class='right-next' id="next-link" href="Notebook3_TheChoiceofFrequency.html" title="next page"><span class="section-number">10.1. </span>The choice of frequency and Annualization of returns</a>
 
         </div>
         
