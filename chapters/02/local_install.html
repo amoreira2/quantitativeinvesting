@@ -809,27 +809,6 @@ computer’s operating system.</p>
 <li><p>Open a terminal.</p></li>
 <li><p>Run the following commands:</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install Python packages</span>
-
-conda create -n fin418 <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6 matplotlib scikit-learn scipy pandas numpy 
-conda activate fin418
-conda install -c conda-forge nodejs
-conda install -c conda-forge jupyter_contrib_nbextensions ipywidgets
-pip install fredapi wrds
-jupyter labextension install @jupyterlab/toc  --no-build
-jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build
-jupyter labextension install plotlywidget@1.1.1 --no-build
-jupyter labextension install jupyterlab-plotly@1.1.2 --no-build
-jupyter lab build
-jupyter nbextension <span class="nb">enable</span> spellchecker/main
-jupyter lab build
-dot -c
-</pre></div>
-</div>
-<p>Press <code class="docutils literal notranslate"><span class="pre">y</span></code> and enter whenever you see <code class="docutils literal notranslate"><span class="pre">Proceed</span> <span class="pre">[y]/n</span></code> from your terminal.</p>
-<ul class="simple">
-<li><p>Close the terminal when the installation finishes.</p></li>
-</ul>
 <p><strong>Windows</strong></p>
 <ul class="simple">
 <li><p>Type “cmd” in the search box to locate the command prompt icon.</p></li>
@@ -839,16 +818,15 @@ dot -c
 conda create -n fin418 <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6 matplotlib scikit-learn scipy pandas numpy 
 conda activate fin418
 conda install -c conda-forge nodejs
-conda install -c conda-forge jupyter_contrib_nbextensions ipywidgets
 pip install fredapi wrds
+conda install -c conda-forge jupyterlab
+conda install -c conda-forge jupyterlab-spellchecker
 jupyter labextension install @jupyterlab/toc  --no-build
-jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build
+<span class="c1">#upyter labextension install @jupyter-widgets/jupyterlab-manager --no-build</span>
 jupyter labextension install plotlywidget@1.1.1 --no-build
 jupyter labextension install jupyterlab-plotly@1.1.2 --no-build
+
 jupyter lab build
-jupyter nbextension <span class="nb">enable</span> spellchecker/main
-jupyter lab build
-dot -c
 </pre></div>
 </div>
 <p>Press <code class="docutils literal notranslate"><span class="pre">y</span></code> and enter whenever you see <code class="docutils literal notranslate"><span class="pre">Proceed</span> <span class="pre">[y]/n</span></code> from your terminal.</p>
@@ -868,7 +846,7 @@ the package with <code class="docutils literal notranslate"><span class="pre">co
 <p>Start JupyterLab by following these steps:</p>
 <ul class="simple">
 <li><p>Type “cmd” in the search box to locate the command prompt icon.</p></li>
-<li><p>click on the icon “Anaconda Prompt” (fr MAC\LINUX just open terminal)</p></li>
+<li><p>click on the icon “Anaconda Prompt” (fconda install -c conda-forge jupyter_contrib_nbextensions ipywidgetsr MAC\LINUX just open terminal)</p></li>
 <li><p>Change directory to the folder containing the course material. For example:</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd “C:\Users\Alan\Dropbox\Projects\Teaching\2021”
