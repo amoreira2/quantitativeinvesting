@@ -56,7 +56,7 @@
     <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="7.5.1. The choice of frequency and Annualization of returns" href="Notebook3_TheChoiceofFrequency.html" />
+    <link rel="next" title="7.1. The choice of frequency and Annualization of returns" href="Notebook3_TheChoiceofFrequency.html" />
     <link rel="prev" title="6.7.9. Storage Formats" href="../pandas/storage_formats.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -363,7 +363,7 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="Notebook3_TheChoiceofFrequency.html">
-     7.5.1. The Choice of Frequency and Annualization of Returns
+     7.1. The Choice of Frequency and Annualization of Returns
     </a>
    </li>
   </ul>
@@ -785,39 +785,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#random-variables">
-   7.1. Random variables
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-normal-distribution">
-   7.2. The Normal distribution
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#volatility-and-variance">
-   7.3. Volatility and Variance
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#excess-returns">
-   7.4. Excess returns
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#why-excess-returns">
-   7.5. Why Excess returns?
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -1018,8 +985,7 @@
 <img alt="../../_images/Notebook3_17_1.png" src="../../_images/Notebook3_17_1.png" />
 </div>
 </div>
-<div class="section" id="random-variables">
-<h2><span class="section-number">7.1. </span>Random variables<a class="headerlink" href="#random-variables" title="Permalink to this headline">¶</a></h2>
+<p><strong>Random variables</strong></p>
 <ul class="simple">
 <li><p>We think of the return realization, the numbers plotted above, as a random variable, i.e., a variable that we are uncertain about it’s realization.</p></li>
 <li><p>Random variable is any thing that we don’t known</p>
@@ -1086,9 +1052,7 @@
 <li><p>For population means they are weighted by the <strong>expected</strong> frequency, i.e. the probabilities</p></li>
 <li><p>We say that the sample average is an <strong>ESTIMATOR</strong> for the true expected value</p></li>
 </ul>
-</div>
-<div class="section" id="the-normal-distribution">
-<h2><span class="section-number">7.2. </span>The Normal distribution<a class="headerlink" href="#the-normal-distribution" title="Permalink to this headline">¶</a></h2>
+<p><strong>The Normal distribution</strong></p>
 <ul class="simple">
 <li><p>Most of what we do does not depend on the assumption of normality</p></li>
 <li><p>But normal distributions are very useful in statistical tests</p></li>
@@ -1259,9 +1223,7 @@
 </div>
 <p>If you compare this distribution with the kurtosis that we found on our data, what do you conclude?</p>
 <p><strong>Why we might care about deviations from normality?</strong></p>
-</div>
-<div class="section" id="volatility-and-variance">
-<h2><span class="section-number">7.3. </span>Volatility and Variance<a class="headerlink" href="#volatility-and-variance" title="Permalink to this headline">¶</a></h2>
+<p><strong>Volatility and Variance</strong></p>
 <p>We know how to compute variance and what they are</p>
 <div class="math notranslate nohighlight">
 \[Data.MKT.std()=\sqrt{\sum_{t=1}^T\frac{(R_{MKT,t}-\overline{R_{MKT}})^2}{T}}\]</div>
@@ -1539,9 +1501,7 @@
 <li><p>What is safer for an US investor? US bond portfolio or World bond portfolio?</p></li>
 <li><p>What is safer for an international investor? US bond portfolio or World bond portfolio?</p></li>
 </ul>
-</div>
-<div class="section" id="excess-returns">
-<h2><span class="section-number">7.4. </span>Excess returns<a class="headerlink" href="#excess-returns" title="Permalink to this headline">¶</a></h2>
+<p><strong>Excess returns</strong></p>
 <ul class="simple">
 <li><p>It is convenient to decompose the return earned in terms of what you earn due to</p>
 <ol class="simple">
@@ -1623,9 +1583,7 @@ dtype: float64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="why-excess-returns">
-<h2><span class="section-number">7.5. </span>Why Excess returns?<a class="headerlink" href="#why-excess-returns" title="Permalink to this headline">¶</a></h2>
+<p><strong>Why Excess returns?</strong></p>
 <p>All asset returns have both the risk-free component in it and the risk-premium component.</p>
 <p>The risk-free component is directly observed– for example in dollars it is convention to use the yield on the 3 month US goverment treasury bill.</p>
 <p>The particular instrument that you use to measure the risk-free rate might vary depending on a variety of complicated considerations</p>
@@ -1637,7 +1595,6 @@ dtype: float64
 <p>But the important point is that at any given moment you know the true risk-free rate. There is no point in estimating it</p>
 <p>The average risk-free rate of the last 30 years tells you nothing about the risk-less rate today BECAUSE you can directly observe it. It is literally thw rate of return that you get for sure if you buy a tbill and hold ultill maturity–and this rate of return is know in advance becasue we know the final price of the tbill.</p>
 <div class="toctree-wrapper compound">
-</div>
 </div>
 </div>
 
@@ -1667,7 +1624,7 @@ dtype: float64
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="../pandas/storage_formats.html" title="previous page"><span class="section-number">6.7.9. </span>Storage Formats</a>
-    <a class='right-next' id="next-link" href="Notebook3_TheChoiceofFrequency.html" title="next page"><span class="section-number">7.5.1. </span>The choice of frequency and Annualization of returns</a>
+    <a class='right-next' id="next-link" href="Notebook3_TheChoiceofFrequency.html" title="next page"><span class="section-number">7.1. </span>The choice of frequency and Annualization of returns</a>
 
         </div>
         

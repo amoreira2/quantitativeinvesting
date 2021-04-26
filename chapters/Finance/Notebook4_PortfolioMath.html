@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>8. Portfolio “Math” &#8212; Quantitative Investing</title>
+    <title>8. Portfolios &#8212; Quantitative Investing</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -57,7 +57,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="9. The Capital Allocation Line: Adding the Risk-free rate" href="Notebook4_CapitalAllocationLine.html" />
-    <link rel="prev" title="7.5.1. The choice of frequency and Annualization of returns" href="Notebook3_TheChoiceofFrequency.html" />
+    <link rel="prev" title="7.1. The choice of frequency and Annualization of returns" href="Notebook3_TheChoiceofFrequency.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -363,7 +363,7 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="Notebook3_TheChoiceofFrequency.html">
-     7.5.1. The Choice of Frequency and Annualization of Returns
+     7.1. The Choice of Frequency and Annualization of Returns
     </a>
    </li>
   </ul>
@@ -791,33 +791,18 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#topics-covered">
-   8.1. Topics covered
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#portfolio-weights">
-   8.2. Portfolio weights
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#portfolio-returns">
-   8.3. Portfolio returns
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#portfolio-expected-returns">
-   8.4. Portfolio Expected returns
+   8.1. Portfolio Expected returns
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#portfolio-variance">
-   8.5. Portfolio Variance
+   8.2. Portfolio Variance
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#diversification">
-   8.6. Diversification
+   8.3. Diversification
   </a>
  </li>
 </ul>
@@ -831,24 +816,11 @@
         
               <div>
                 
-  <div class="section" id="portfolio-math">
-<h1><span class="section-number">8. </span>Portfolio “Math”<a class="headerlink" href="#portfolio-math" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="portfolios">
+<h1><span class="section-number">8. </span>Portfolios<a class="headerlink" href="#portfolios" title="Permalink to this headline">¶</a></h1>
 <p>In this section we will learn how to do some basic math at portfolio level. You will know how to calculate return, expected return, and volatility given portfolio weights.</p>
-<div class="section" id="topics-covered">
-<h2><span class="section-number">8.1. </span>Topics covered<a class="headerlink" href="#topics-covered" title="Permalink to this headline">¶</a></h2>
-<hr class="docutils" />
-<ul class="simple">
-<li><p>Portfolio math</p></li>
-<li><p>Diversification</p></li>
-<li><p>Capital allocation line</p></li>
-<li><p>Mean-variance frontier</p></li>
-<li><p>Tangency portfolio</p></li>
-<li><p>Two-fund separation</p></li>
-<li><p>Case study on international diversification</p></li>
-</ul>
-</div>
-<div class="section" id="portfolio-weights">
-<h2><span class="section-number">8.2. </span>Portfolio weights<a class="headerlink" href="#portfolio-weights" title="Permalink to this headline">¶</a></h2>
+<p>A portfolio is described by a set of assets and a set of weights invested in each asset.</p>
+<p><strong>Portfolio weights</strong></p>
 <ul>
 <li><p>The portfolio weight for stock <span class="math notranslate nohighlight">\(j\)</span> , denoted <span class="math notranslate nohighlight">\(w_j\)</span>, is the fraction of a portfolio value held in stock <span class="math notranslate nohighlight">\(j\)</span></p>
 <div class="math notranslate nohighlight">
@@ -870,9 +842,7 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="portfolio-returns">
-<h2><span class="section-number">8.3. </span>Portfolio returns<a class="headerlink" href="#portfolio-returns" title="Permalink to this headline">¶</a></h2>
+<p><strong>Portfolio returns</strong></p>
 <div class="math notranslate nohighlight">
 \[ R_p=\sum_{j=1}^N w_jR_j=W'R\]</div>
 <ul class="simple">
@@ -1106,7 +1076,7 @@ Length: 647, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1f82fa015b0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/Notebook4_PortfolioMath_14_1.png" src="../../_images/Notebook4_PortfolioMath_14_1.png" />
+<img alt="../../_images/Notebook4_PortfolioMath_13_1.png" src="../../_images/Notebook4_PortfolioMath_13_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1121,9 +1091,8 @@ Length: 647, dtype: float64
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="portfolio-expected-returns">
-<h2><span class="section-number">8.4. </span>Portfolio Expected returns<a class="headerlink" href="#portfolio-expected-returns" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.1. </span>Portfolio Expected returns<a class="headerlink" href="#portfolio-expected-returns" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>The expected return of a portfolio is the portfolio weighted average of the expected returns of the individual assets.</p></li>
 </ul>
@@ -1178,7 +1147,7 @@ Length: 647, dtype: float64
 </div>
 </div>
 <div class="section" id="portfolio-variance">
-<h2><span class="section-number">8.5. </span>Portfolio Variance<a class="headerlink" href="#portfolio-variance" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.2. </span>Portfolio Variance<a class="headerlink" href="#portfolio-variance" title="Permalink to this headline">¶</a></h2>
 <p>Two asset case:</p>
 <div class="math notranslate nohighlight">
 \[Var(R_p)= Var(w_1R_1+w_2R_2)=Cov(w_1R_1+w_2R_2,w_1R_1+w_2R_2)\]</div>
@@ -1367,7 +1336,7 @@ Length: 647, dtype: float64
 </div></blockquote>
 </div>
 <div class="section" id="diversification">
-<h2><span class="section-number">8.6. </span>Diversification<a class="headerlink" href="#diversification" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.3. </span>Diversification<a class="headerlink" href="#diversification" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>A key concept in investing is diversification</p></li>
 <li><p>The famous: “don’t put all your eggs in one basket” advice</p></li>
@@ -1512,7 +1481,7 @@ Length: 647, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/Notebook4_PortfolioMath_37_0.png" src="../../_images/Notebook4_PortfolioMath_37_0.png" />
+<img alt="../../_images/Notebook4_PortfolioMath_36_0.png" src="../../_images/Notebook4_PortfolioMath_36_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1575,7 +1544,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/Notebook4_PortfolioMath_42_0.png" src="../../_images/Notebook4_PortfolioMath_42_0.png" />
+<img alt="../../_images/Notebook4_PortfolioMath_41_0.png" src="../../_images/Notebook4_PortfolioMath_41_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1646,7 +1615,7 @@ dtype: float64
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="Notebook3_TheChoiceofFrequency.html" title="previous page"><span class="section-number">7.5.1. </span>The choice of frequency and Annualization of returns</a>
+    <a class='left-prev' id="prev-link" href="Notebook3_TheChoiceofFrequency.html" title="previous page"><span class="section-number">7.1. </span>The choice of frequency and Annualization of returns</a>
     <a class='right-next' id="next-link" href="Notebook4_CapitalAllocationLine.html" title="next page"><span class="section-number">9. </span>The Capital Allocation Line: Adding the Risk-free rate</a>
 
         </div>
