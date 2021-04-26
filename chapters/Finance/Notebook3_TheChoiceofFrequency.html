@@ -791,18 +791,8 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#standard-annualization-the-quick-and-dirty-way">
-   7.5.1.1. Standard annualization (the quick and dirty way)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#however-we-will-always-use-the-standard-annualization">
-   7.5.1.2. However, we will always use the standard annualization
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#if-it-is-wrong-why-we-will-use-it">
-   7.5.1.3. If it is wrong, why we will use it?
+   7.5.1.1. If it is wrong, why we will use it?
   </a>
  </li>
 </ul>
@@ -816,7 +806,18 @@
         
               <div>
                 
-  <div class="section" id="the-choice-of-frequency-and-annualization-of-returns">
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load libraries used in this notebook</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="the-choice-of-frequency-and-annualization-of-returns">
 <h1><span class="section-number">7.5.1. </span>The choice of frequency and Annualization of returns<a class="headerlink" href="#the-choice-of-frequency-and-annualization-of-returns" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>The data that we get is structured at a particular frequency.</p></li>
@@ -830,8 +831,7 @@
 <li><p>Now we will discuss how to do that.</p></li>
 <li><p>For us this will be important, because it is much easier to keep the units at the yearly frequency in your head. So we will be frequently annualize our results just to get intuition about what they mean</p></li>
 </ul>
-<div class="section" id="standard-annualization-the-quick-and-dirty-way">
-<h2><span class="section-number">7.5.1.1. </span>Standard annualization (the quick and dirty way)<a class="headerlink" href="#standard-annualization-the-quick-and-dirty-way" title="Permalink to this headline">¶</a></h2>
+<p><strong>Standard annualization (the quick and dirty way)</strong></p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\hat{\mu}_A=12\times\hat{\mu}_M\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\hat{\sigma}^2_A=12\times\hat{\sigma}^2_M\)</span></p></li>
@@ -860,9 +860,7 @@
 <ul class="simple">
 <li><p>and this still ignores time-variation in volatility, auto-correlations..</p></li>
 </ul>
-</div>
-<div class="section" id="however-we-will-always-use-the-standard-annualization">
-<h2><span class="section-number">7.5.1.2. </span>However, we will always use the standard annualization<a class="headerlink" href="#however-we-will-always-use-the-standard-annualization" title="Permalink to this headline">¶</a></h2>
+<p><strong>However, we will always use the standard annualization</strong></p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\hat{\mu}_A=12\times\hat{\mu}_M\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\hat{\sigma}^2_A=12\times\hat{\sigma}^2_M\)</span></p></li>
@@ -908,9 +906,8 @@
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="if-it-is-wrong-why-we-will-use-it">
-<h2><span class="section-number">7.5.1.3. </span>If it is wrong, why we will use it?<a class="headerlink" href="#if-it-is-wrong-why-we-will-use-it" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.5.1.1. </span>If it is wrong, why we will use it?<a class="headerlink" href="#if-it-is-wrong-why-we-will-use-it" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Because it is the standard</p></li>
 <li><p>good idea about annual magnitudes</p></li>
@@ -978,20 +975,19 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Datayear</span><span class="o">=</span><span class="p">(</span><span class="n">Data</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">Data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span><span class="p">)</span><span class="o">.</span><span class="n">prod</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import data</span>
 
-<span class="c1"># we could want to calculate the standard devition, the mean, the median, the min, the max, or even to apply some customized function</span>
-<span class="c1"># in our case all we need is the product</span>
-
-<span class="p">[</span><span class="n">Datayear</span><span class="o">.</span><span class="n">MKT</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="n">Data</span><span class="o">.</span><span class="n">MKT</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*</span><span class="mi">12</span><span class="p">,</span><span class="n">Datayear</span><span class="o">.</span><span class="n">MKT</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span><span class="n">Data</span><span class="o">.</span><span class="n">MKT</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">*</span><span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span><span class="p">]</span>
+<span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://www.dropbox.com/s/3k35mt3t57ygff2/GlobalFinMonthly.csv?dl=1&quot;</span>
+<span class="n">Data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">na_values</span><span class="o">=-</span><span class="mi">99</span><span class="p">)</span>
+<span class="n">Data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">Data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
+<span class="n">Data</span><span class="o">=</span><span class="n">Data</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.1155945787163523,
- 0.10862132921174646,
- 0.172193319145506,
- 0.15243137919899172]
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Datayear</span><span class="o">=</span><span class="p">(</span><span class="n">Data</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">Data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span><span class="p">)</span><span class="o">.</span><span class="n">prod</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span>
 </pre></div>
 </div>
 </div>
@@ -1088,6 +1084,24 @@
 </table>
 </div></div></div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we could want to calculate the standard devition, the mean, the median, the min, the max, or even to apply some customized function</span>
+<span class="c1"># in our case all we need is the product</span>
+
+<span class="p">[</span><span class="n">Datayear</span><span class="o">.</span><span class="n">MKT</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="n">Data</span><span class="o">.</span><span class="n">MKT</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*</span><span class="mi">12</span><span class="p">,</span><span class="n">Datayear</span><span class="o">.</span><span class="n">MKT</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span><span class="n">Data</span><span class="o">.</span><span class="n">MKT</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">*</span><span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.1155945787163523,
+ 0.10862132921174653,
+ 0.17219331914550604,
+ 0.15243137919899177]
+</pre></div>
+</div>
+</div>
+</div>
 <ul class="simple">
 <li><p>In problem set I will always ask you about annual numbers</p></li>
 <li><p>You should always go for the quick and dirty annualization unless told otherwise</p></li>
@@ -1145,6 +1159,6 @@
   
   <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-  None
+  
   </body>
 </html>
