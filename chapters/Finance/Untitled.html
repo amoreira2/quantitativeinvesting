@@ -383,7 +383,7 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="UsingAPI.html">
-     9.2.1. Using APIs
+     9.1. Using APIs
     </a>
    </li>
   </ul>
@@ -400,12 +400,12 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="Notebook4_CaseStudy.html">
-     10.2.6.1. Case Study in International Diversification
+     10.1. Case Study in International Diversification
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Notebook5_Portfoliooptimizationwithconstraints.html">
-     10.2.6.2. Portfolio Optimization with constraints
+     10.2. Portfolio Optimization with constraints
     </a>
    </li>
   </ul>
@@ -793,6 +793,11 @@
    How to go back and fourth between log and simple returns?
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-tangency-portfolio-and-the-cross-sectional-of-expected-returns">
+   The tangency portfolio and the cross-sectional of expected returns
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -926,6 +931,109 @@ ln⁡(1+𝑅_{1→𝑇} )=ln⁡(1+𝑅_1 )+ln⁡(1+𝑅_2 )+…+ln⁡(1+𝑅_�
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="the-tangency-portfolio-and-the-cross-sectional-of-expected-returns">
+<h2>The tangency portfolio and the cross-sectional of expected returns<a class="headerlink" href="#the-tangency-portfolio-and-the-cross-sectional-of-expected-returns" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The optimal condition for our tangency portfolio:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ Var(R^e)W^*=cte \times E[R^e]\]</div>
+<ul class="simple">
+<li><p>This condition above defines the tangency portfolio</p></li>
+<li><p>We can rewirte the left hand side as</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[Var(R^e)W^*=Cov(R^e,R^e)W^*=Cov(R^e,(W^*)'R^e)=Cov(R^e,R^*)\]</div>
+<ul class="simple">
+<li><p>The left-hand side in the covariance vector of all the assets with the tangency portfolio</p></li>
+<li><p>This means that the expected return of an asset must be proportional to the covariance between the return of the asset and the return of the tangency portfolio</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ E[R^e]=cte \times Cov(R^e,R^*) \]</div>
+<ul class="simple">
+<li><p>This holds for all assets in your investment opportunity set (i.e. the assets included in the minimization problem that the tangency portfolio solves)</p></li>
+<li><p>This means that for any assets <span class="math notranslate nohighlight">\(j\)</span> and <span class="math notranslate nohighlight">\(i\)</span> we have</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\frac{E[R^e_i]}{Cov(R^e_i,R^*)}= \frac{E[R^e_j]}{Cov(R^e_j,R^*)} \]</div>
+<ul class="simple">
+<li><p>All assets have the same expected return per-unit of covariance with the tangency portoflio</p></li>
+<li><p>We can also apply this to the tangency portfolio itself</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ E[R^*]=cte \times Cov(R^*,R^*) \]</div>
+<ul class="simple">
+<li><p>Which means that <span class="math notranslate nohighlight">\(cte=\frac{E[R^*]}{Var(R^*)}\)</span></p></li>
+<li><p>Plugging back in the original and we get that for any asset <span class="math notranslate nohighlight">\(j\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ E[R^e_j]=\frac{E[R^*]}{Var(R^*)} Cov(R^e_j,R^*) =\frac{Cov(R^e_j,R^*)}{Var(R^*)}E[R^*]=\beta_{j,*}E[R^*] \]</div>
+<div class="math notranslate nohighlight">
+\[ E[R^e_j]=\beta_{j,*}E[R^*] \]</div>
+<blockquote>
+<div><p>What does that remind you?</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>All the information about the cross-sectional of expected returns–all the assets– can be summarized by the expected return of the tangency portfolio and the beta of each asset with respect to the tangency portfolio</p></li>
+<li><p>Or Alternatively: the risk-return trade-off  of the tangency portfolio  <span class="math notranslate nohighlight">\(\frac{E[R^*]}{Var(R^*)}\)</span> and the covariance of each asset with it.</p></li>
+<li><p>Once you have the right notion of risk, the reward to risk is the same across assets (no free lunch)</p></li>
+<li><p>What is the right notion? Covariance with the tangency portfolio</p></li>
+<li><p>In the sample that you estimated the moments this will be true by construction!</p></li>
+</ul>
+<p>Now we test if <span class="math notranslate nohighlight">\( E[R^e_j]=\frac{Cov(R^e_j,R^*)}{Var(R^*)}E[R^*] \)</span> in our sample</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Wstar</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Rstar</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">Rstar</span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Re</span> <span class="o">@</span> <span class="n">Wstar</span>
+<span class="n">Rstar</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cov</span><span class="o">=</span><span class="n">Wstar</span> <span class="o">@</span> <span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
+<span class="n">cov</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># expected return of the tangency portfolio</span>
+<span class="n">mu_star</span><span class="o">=</span><span class="n">Wstar</span> <span class="o">@</span> <span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="c1"># variance of the tangency portfolio</span>
+<span class="n">var_star</span><span class="o">=</span><span class="p">(</span><span class="n">Wstar</span> <span class="o">@</span> <span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span> <span class="o">@</span> <span class="n">Wstar</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="c1"># covariance between each asset return and the tangency portfolio</span>
+<span class="n">cov</span><span class="o">=</span><span class="n">Wstar</span> <span class="o">@</span> <span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
+
+<span class="n">predicted</span><span class="o">=</span> <span class="n">mu_star</span><span class="o">/</span><span class="n">var_star</span><span class="o">*</span><span class="n">cov</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">predicted</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>This comes from the fact that the tangency portfolio was constructed to be the portfolio with the maximum Sharpe Ratio</p></li>
+<li><p>It is a result of us knowing the moments of all assets summarized by <span class="math notranslate nohighlight">\(E[R^e]\)</span>  and <span class="math notranslate nohighlight">\(Var(R^e)\)</span></p></li>
+<li><p>Here we did everything IN SAMPLE. We used sample moments and evalauted it’s predictions using the same sample</p></li>
+<li><p>The challenge is that these moments are not always well estiamted, to put it mildly (more on this soon!)</p></li>
+<li><p>So the in sample tangency portfolio might not be very informative about the true tangency portfolio, which is the one that we actually care about</p></li>
+</ul>
+<blockquote>
+<div><p>Why? Because it can predict returns going forward and not only in sample (which is useless)</p>
+</div></blockquote>
 </div>
 </div>
 

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>10.2.6.1. Case study on international portfolio diversification &#8212; Quantitative Investing</title>
+    <title>10.1. Case study on international portfolio diversification &#8212; Quantitative Investing</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -56,7 +56,7 @@
     <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="10.2.6.2. Portfolio Optimization with constraints" href="Notebook5_Portfoliooptimizationwithconstraints.html" />
+    <link rel="next" title="10.2. Portfolio Optimization with constraints" href="Notebook5_Portfoliooptimizationwithconstraints.html" />
     <link rel="prev" title="10. The Mean-Variance Frontier" href="Notebook4_MeanVariance.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -385,7 +385,7 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="UsingAPI.html">
-     9.2.1. Using APIs
+     9.1. Using APIs
     </a>
    </li>
   </ul>
@@ -402,12 +402,12 @@
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     10.2.6.1. Case Study in International Diversification
+     10.1. Case Study in International Diversification
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Notebook5_Portfoliooptimizationwithconstraints.html">
-     10.2.6.2. Portfolio Optimization with constraints
+     10.2. Portfolio Optimization with constraints
     </a>
    </li>
   </ul>
@@ -785,29 +785,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#class-11-17-stopped-here">
-   10.2.6.1.1. Class 11/17 stopped here
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aside-when-is-it-ok-to-normalize-weights">
-   10.2.6.1.2. Aside: When is it ok to “normalize” weights?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-mean-variance-frontier-in-it-s-full-glory">
-   10.2.6.1.3. The mean-variance frontier in it’s full glory
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -816,10 +793,7 @@
         
               <div>
                 
-  <div class="section" id="case-study-on-international-portfolio-diversification">
-<h1><span class="section-number">10.2.6.1. </span>Case study on international portfolio diversification<a class="headerlink" href="#case-study-on-international-portfolio-diversification" title="Permalink to this headline">¶</a></h1>
-<p>In this section we will apply what we have learned so far on the international market. We will try to solve the optimal weights that give us the highest sharpe ratio, and how we should allocate our money between risk-free rate and risky asset to target on average return or volatility.</p>
-<div class="cell docutils container">
+  <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -827,17 +801,16 @@
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="c1">#GlobalFinMonthly</span>
 <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://www.dropbox.com/s/3k35mt3t57ygff2/GlobalFinMonthly.csv?dl=1&quot;</span>
-<span class="c1"># url=&quot;C:/Users/Alan Moreira/Dropbox/Public/Fin418/Data/GlobalFinMonthly.csv&quot;</span>
 <span class="n">Data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">na_values</span><span class="o">=-</span><span class="mi">99</span><span class="p">)</span>
-<span class="c1"># tell python Date is date:</span>
 <span class="n">Data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">Data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
-<span class="c1"># set an an index</span>
 <span class="n">Data</span><span class="o">=</span><span class="n">Data</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
-<span class="n">df</span><span class="o">=</span><span class="n">Data</span><span class="p">[[</span><span class="s1">&#39;RF&#39;</span><span class="p">,</span><span class="s1">&#39;MKT&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="section" id="case-study-on-international-portfolio-diversification">
+<h1><span class="section-number">10.1. </span>Case study on international portfolio diversification<a class="headerlink" href="#case-study-on-international-portfolio-diversification" title="Permalink to this headline">¶</a></h1>
+<p>In this section we will apply what we have learned so far on the international market. We will try to solve the optimal weights that give us the highest sharpe ratio, and how we should allocate our money between risk-free rate and risky asset to target on average return or volatility.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -1026,9 +999,10 @@
 </table>
 </div></div></div>
 </div>
+<p>Lets start by constructing a matrix with only excess returns</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lets start by constructing a matrix with only excess returns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># </span>
 <span class="n">Re</span><span class="o">=</span><span class="p">(</span><span class="n">Data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;RF&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">Data</span><span class="p">[</span><span class="s1">&#39;RF&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
 <span class="n">Re</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
@@ -1113,10 +1087,10 @@
 </table>
 </div></div></div>
 </div>
+<p>Now we estimate the expected return and the covariance using the sample moments</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now we estimate the expected return and the covariance using the sample moments</span>
-<span class="n">ERe</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ERe</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">ERe</span>
 </pre></div>
 </div>
@@ -1132,10 +1106,11 @@ dtype: float64
 </div>
 </div>
 </div>
+<p>Now we estimate the covariance matrix</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Cove</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
-<span class="n">Cove</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CovRe</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
+<span class="n">CovRe</span>
 </pre></div>
 </div>
 </div>
@@ -1213,17 +1188,8 @@ dtype: float64
 <ol class="simple">
 <li><p>First we will solve for the maxium Sharpe ratio feasible:</p></li>
 </ol>
-<ul class="simple">
-<li><p>What is this? It is the SR on the tangency  portfolio</p></li>
-<li><p>(I am using <span class="math notranslate nohighlight">\(W_*\)</span> to denote it to make it easier to show the transposes)</p></li>
-</ul>
 <p><span class="math notranslate nohighlight">\(\begin{align}
-  SR(R^*)&amp;=\frac{E[W_*'R^e]}{\sqrt{Var(W_*'R^e)}}\\
-  &amp;=\frac{W_*'E[R^e]}{\sqrt{W_*'Var(R^e)W_*}}\\
-  &amp;=\frac{(Var(R^e)^{-1}E[R^e])'E[R^e]}{\sqrt{(Var(R^e)^{-1}E[R^e])'Var(R^e)(Var(R^e)^{-1}E[R^e])}}\\
-  &amp;=\frac{E[R^e]'Var(R^e)^{-1}E[R^e]}{\sqrt{E[R^e]'Var(R^e)^{-1}Var(R^e)Var(R^e)^{-1}E[R^e]}}\\
-  &amp;=\frac{E[R^e]'Var(R^e)^{-1}E[R^e]}{\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}}\\
-  &amp;=\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}
+  SR(R^*)&amp;=\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}
   \end{align}\)</span></p>
 <ol class="simple">
 <li><p>Then we will solve for the weights that implement this Sharpe ratio</p></li>
@@ -1231,34 +1197,17 @@ dtype: float64
 <div class="math notranslate nohighlight">
 \[W_*=VAR(R^e)^{-1}E[R^e]\]</div>
 <ol class="simple">
-<li><p>And then we will solve for the position on it that implements a desired level of expected excess returns</p></li>
+<li><p>And then we will solve for the position on it that implements a desired level of volatility or expected returns</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ERe</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MKTUS      0.005140
-BondUS     0.002523
-EM         0.006923
-MKTxUS     0.004149
-BondxUS    0.002054
-dtype: float64
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SR_int</span><span class="o">=</span><span class="p">(</span><span class="n">ERe</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Cove</span><span class="p">)</span> <span class="o">@</span> <span class="n">ERe</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SR_int</span><span class="o">=</span><span class="p">(</span><span class="n">ERe</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">CovRe</span><span class="p">)</span> <span class="o">@</span> <span class="n">ERe</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
 <span class="n">SR_int</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.16368754895405602
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.163687548954056
 </pre></div>
 </div>
 </div>
@@ -1272,7 +1221,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5670303027096857
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5670303027096856
 </pre></div>
 </div>
 </div>
@@ -1286,11 +1235,13 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.40345097267659175
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4034509726765917
 </pre></div>
 </div>
 </div>
 </div>
+<p>We will now initate an empty dataframe that has in the columns the names of the assets</p>
+<p>We will use it to store the different portfolios that you solve for</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Wmve</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([],</span><span class="n">index</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
@@ -1341,10 +1292,7 @@ dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># construct the optimal weights</span>
-
-<span class="n">Wmve</span><span class="p">[</span><span class="s1">&#39;wghts_int&#39;</span><span class="p">]</span> <span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Cove</span><span class="p">)</span> <span class="o">@</span> <span class="n">ERe</span><span class="o">.</span><span class="n">values</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Wmve</span><span class="p">[</span><span class="s1">&#39;International&#39;</span><span class="p">]</span> <span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">CovRe</span><span class="p">)</span> <span class="o">@</span> <span class="n">ERe</span>
 <span class="n">Wmve</span>
 </pre></div>
 </div>
@@ -1368,7 +1316,7 @@ dtype: float64
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>wghts_int</th>
+      <th>International</th>
     </tr>
   </thead>
   <tbody>
@@ -1396,51 +1344,113 @@ dtype: float64
 </table>
 </div></div></div>
 </div>
-<div class="section" id="class-11-17-stopped-here">
-<h2><span class="section-number">10.2.6.1.1. </span>Class 11/17 stopped here<a class="headerlink" href="#class-11-17-stopped-here" title="Permalink to this headline">¶</a></h2>
-<ul>
-<li><p>To find the weights that implement a particular expected return target</p>
+<p><strong>Targeting desired Voaltiltiy</strong></p>
+<p>We will first find the particular scaling of the tangendy porfolio that implements a desired level of volatility</p>
+<p>As we previously saw</p>
+<div class="math notranslate nohighlight">
+\[W^*(\sigma^D)'=\frac{\sigma^D}{\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}}E[R^e]'Var(R^e)^{-1}\]</div>
+<p>where the denominator is the Sharpe Ratio of the tangency</p>
+<div class="math notranslate nohighlight">
+\[W^*(\sigma^D)=\frac{\sigma^D}{SR_*}W^*\]</div>
+<p>So you simply scale down the weights depending on whether your desired volatiltiy.</p>
+<p>In this case the obtained expected excess return is</p>
+<div class="math notranslate nohighlight">
+\[\mu^D-r_f=\frac{\sigma^D}{SR_*}E[W^*R^e]=\frac{\sigma^D}{SR_*}SR_*^2=\sigma^DSR^*\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># I am setting the target to be annual volatiltiy of 20% and </span>
+<span class="c1"># I am converting back to monthly by dividing by square roo of 12</span>
+<span class="n">sigma_desired</span><span class="o">=</span><span class="mf">0.20</span><span class="o">/</span><span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sigma_desired</span><span class="o">/</span><span class="n">SR_int</span><span class="p">)</span>
+<span class="n">Wmve</span><span class="p">[</span><span class="s1">&#39;International(voltarget)&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">sigma_desired</span><span class="o">/</span><span class="n">SR_int</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">CovRe</span><span class="p">)</span> <span class="o">@</span> <span class="n">ERe</span><span class="p">)</span>
+<span class="n">Wmve</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.35271483559918
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>International</th>
+      <th>International(voltarget)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>MKTUS</th>
+      <td>1.835334</td>
+      <td>0.647349</td>
+    </tr>
+    <tr>
+      <th>BondUS</th>
+      <td>1.423373</td>
+      <td>0.502045</td>
+    </tr>
+    <tr>
+      <th>EM</th>
+      <td>1.605223</td>
+      <td>0.566186</td>
+    </tr>
+    <tr>
+      <th>MKTxUS</th>
+      <td>-1.026421</td>
+      <td>-0.362034</td>
+    </tr>
+    <tr>
+      <th>BondxUS</th>
+      <td>3.365823</td>
+      <td>1.187176</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Targeting Desired Expected Return</strong></p>
 <p><span class="math notranslate nohighlight">\(\begin{align}
-\mu^{target}&amp;=r_f+(1-w_f)E[R^*] \\
-(1-w_f)&amp;=\frac{\mu^{target}-r_f}{E[R^*]} \\
-&amp;=\frac{\mu^{target}-r_f}{W_*'E[R^e]} \\
-&amp;=\frac{\mu^{target}-r_f}{(VAR(R^e)^{-1}E[R^e])'E[R^e]} \\
-&amp;=\frac{\mu^{target}-r_f}{E[R^e]'Var(R^e)^{-1}E[R^e]} \\
-\end{align}\)</span></p>
-</li>
-</ul>
-<blockquote>
-<div><p>How to choose <span class="math notranslate nohighlight">\(w_f\)</span> by targeting a desired level of vol?</p>
-</div></blockquote>
+  \mu^{D}&amp;=r_f+wE[R^*] \\
+  w &amp;=\frac{\mu^{D}-r_f}{E[R^*]} \\
+  &amp;=\frac{\mu^{D}-r_f}{E[R^e]'VAR(R^e)^{-1}E[R^e]} \\
+  &amp;=\frac{\mu^{D}-r_f}{SR_*^2} \\
+  \end{align}\)</span></p>
+<p>where the last step simply uses that the denominator is the square of the Sharpe Ratio of the tangency portfolio</p>
+<p>In this case the portfolio volatiliy is simply</p>
+<div class="math notranslate nohighlight">
+\[\sigma^D=\frac{\mu^{D}-r_f}{SR_*^2}STD(R^*)=\frac{\mu^{D}-r_f}{SR_*^2}SR_*=\frac{\mu^{D}-r_f}{SR_*}\]</div>
+<p>Here below I will simply set a target for the desired expected excess return</p>
+<p>If one wanted to set the target for the expected returns one ould simply subtract the <strong>current</strong> risk-free rate of this desired level</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">ERe</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Cove</span><span class="p">)</span> <span class="o">@</span> <span class="n">ERe</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">*</span><span class="mi">12</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3215233641910378
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># target ER (excess return)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># I am setting an annual target to 10% and convert to monthly by dividing by 12</span>
 
-<span class="n">mu_target</span><span class="o">=</span><span class="mf">0.10</span><span class="o">/</span><span class="mi">12</span>
-<span class="n">oneminuswf</span><span class="o">=</span><span class="p">(</span><span class="n">mu_target</span><span class="o">/</span><span class="p">(</span><span class="n">ERe</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Cove</span><span class="p">)</span> <span class="o">@</span> <span class="n">ERe</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">oneminuswf</span><span class="p">)</span>
-<span class="c1"># Here lamb is our 1-wf, which is the total dollar value invested in the risky portfolio</span>
+<span class="n">mu_desired</span><span class="o">=</span><span class="mf">0.10</span><span class="o">/</span><span class="mi">12</span>
+<span class="c1">#If setting target to expected return simply use mu_desired-rf instead of mu_desired in the formulas</span>
 
-<span class="c1"># must </span>
-<span class="n">Wmve</span><span class="p">[</span><span class="s1">&#39;wgths_int_target&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">oneminuswf</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Cove</span><span class="p">)</span> <span class="o">@</span> <span class="n">ERe</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mu_desired</span><span class="o">/</span><span class="n">SR_int</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">Wmve</span><span class="p">[</span><span class="s1">&#39;International(mutarget)&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">mu_desired</span><span class="o">/</span><span class="n">SR_int</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">CovRe</span><span class="p">)</span> <span class="o">@</span> <span class="n">ERe</span><span class="p">)</span>
 <span class="n">Wmve</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3110193881293913
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.31101938812939134
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -1461,132 +1471,112 @@ dtype: float64
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>wghts_int</th>
-      <th>wgths_int_target</th>
+      <th>International</th>
+      <th>International(voltarget)</th>
+      <th>International(mutarget)</th>
+      <th>Domestic</th>
+      <th>Domestic(voltarget)</th>
+      <th>Domestic(mutarget)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>MKTUS</th>
       <td>1.835334</td>
-      <td>0.570824</td>
-    </tr>
-    <tr>
-      <th>BondUS</th>
-      <td>1.423373</td>
-      <td>0.442696</td>
-    </tr>
-    <tr>
-      <th>EM</th>
-      <td>1.605223</td>
-      <td>0.499255</td>
-    </tr>
-    <tr>
-      <th>MKTxUS</th>
-      <td>-1.026421</td>
-      <td>-0.319237</td>
-    </tr>
-    <tr>
-      <th>BondxUS</th>
-      <td>3.365823</td>
-      <td>1.046836</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>lets compute the domestic mean-variance frontier</p>
-<p>(we only keep the first two columns MKT +Bonds)</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ERdom</span><span class="o">=</span><span class="n">Re</span><span class="p">[[</span><span class="s1">&#39;MKTUS&#39;</span><span class="p">,</span><span class="s1">&#39;BondUS&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">Covdom</span><span class="o">=</span><span class="n">Re</span><span class="p">[[</span><span class="s1">&#39;MKTUS&#39;</span><span class="p">,</span><span class="s1">&#39;BondUS&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
-<span class="n">SR_dom</span><span class="o">=</span><span class="p">(</span><span class="n">ERdom</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Covdom</span><span class="p">)</span> <span class="o">@</span> <span class="n">ERdom</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">SR_dom</span><span class="o">*</span><span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">Wmvedom</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Covdom</span><span class="p">)</span> <span class="o">@</span> <span class="n">ERdom</span><span class="o">.</span><span class="n">values</span>
-<span class="n">Wmve</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;MKTUS&#39;</span><span class="p">,</span><span class="s1">&#39;BondUS&#39;</span><span class="p">],</span><span class="s1">&#39;wghts_dom&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Wmvedom</span>
-<span class="n">Wmve</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.46009875470841877
-</pre></div>
-</div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>wghts_int</th>
-      <th>wgths_int_target</th>
-      <th>wghts_dom</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>MKTUS</th>
-      <td>1.835334</td>
+      <td>0.647349</td>
       <td>0.570824</td>
       <td>2.534954</td>
+      <td>1.101918</td>
+      <td>0.159048</td>
     </tr>
     <tr>
       <th>BondUS</th>
       <td>1.423373</td>
+      <td>0.502045</td>
       <td>0.442696</td>
       <td>1.827591</td>
+      <td>0.794434</td>
+      <td>0.114667</td>
     </tr>
     <tr>
       <th>EM</th>
       <td>1.605223</td>
+      <td>0.566186</td>
       <td>0.499255</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>MKTxUS</th>
       <td>-1.026421</td>
+      <td>-0.362034</td>
       <td>-0.319237</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>BondxUS</th>
       <td>3.365823</td>
+      <td>1.187176</td>
       <td>1.046836</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="aside-when-is-it-ok-to-normalize-weights">
-<h2><span class="section-number">10.2.6.1.2. </span>Aside: When is it ok to “normalize” weights?<a class="headerlink" href="#aside-when-is-it-ok-to-normalize-weights" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>To get a bit of intuition we can normalize the weights to add up to 1</p></li>
-<li><p>Why these weights do not have to add up to 1?</p></li>
-<li><p>Why is ok to normalize to 1?</p></li>
-<li><p>What changes when we do that? What does not change?</p></li>
-</ul>
+<p><strong>Domestic Tangency Portfolio</strong></p>
+<p>we only keep the first two columns MKT and Bonds</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Wmve</span><span class="o">/</span><span class="n">Wmve</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ERe_dom</span><span class="o">=</span><span class="n">ERe</span><span class="p">[[</span><span class="s1">&#39;MKTUS&#39;</span><span class="p">,</span><span class="s1">&#39;BondUS&#39;</span><span class="p">]]</span>
+<span class="n">CovRe_dom</span><span class="o">=</span><span class="n">CovRe</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;MKTUS&#39;</span><span class="p">,</span><span class="s1">&#39;BondUS&#39;</span><span class="p">],[</span><span class="s1">&#39;MKTUS&#39;</span><span class="p">,</span><span class="s1">&#39;BondUS&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The Sharpe Ratio of the domestic Tangency portolio</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SR_dom</span><span class="o">=</span><span class="p">(</span><span class="n">ERe_dom</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">CovRe_dom</span><span class="p">)</span> <span class="o">@</span> <span class="n">ERe_dom</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">SR_dom</span><span class="o">*</span><span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4600987547084185
+</pre></div>
+</div>
+</div>
+</div>
+<p>The weights of the domestic tangency portfolio</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Wmvedom</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">CovRe_dom</span><span class="p">)</span> <span class="o">@</span> <span class="n">ERe_dom</span><span class="o">.</span><span class="n">values</span>
+<span class="n">Wmve</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;MKTUS&#39;</span><span class="p">,</span><span class="s1">&#39;BondUS&#39;</span><span class="p">],</span><span class="s1">&#39;Domestic&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Wmvedom</span>
+
+<span class="n">sigma_desired</span><span class="o">=</span><span class="mf">0.20</span><span class="o">/</span><span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sigma_desired</span><span class="o">/</span><span class="n">SR_dom</span><span class="p">)</span>
+<span class="n">Wmve</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;MKTUS&#39;</span><span class="p">,</span><span class="s1">&#39;BondUS&#39;</span><span class="p">],</span><span class="s1">&#39;Domestic(voltarget)&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">sigma_desired</span><span class="o">/</span><span class="n">SR_dom</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">CovRe_dom</span><span class="p">)</span> <span class="o">@</span> <span class="n">ERe_dom</span><span class="p">)</span>
+
+<span class="n">mu_desired</span><span class="o">=</span><span class="mf">0.10</span><span class="o">/</span><span class="mi">12</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mu_desired</span><span class="o">/</span><span class="n">SR_dom</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">Wmve</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;MKTUS&#39;</span><span class="p">,</span><span class="s1">&#39;BondUS&#39;</span><span class="p">],</span><span class="s1">&#39;Domestic(mutarget)&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">mu_desired</span><span class="o">/</span><span class="n">SR_dom</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">CovRe_dom</span><span class="p">)</span> <span class="o">@</span> <span class="n">ERe_dom</span><span class="p">)</span>
+
+
+<span class="n">Wmve</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.43468928779593713
+0.47238694231134754
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1605,46 +1595,65 @@ dtype: float64
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>wghts_int</th>
-      <th>wgths_int_target</th>
-      <th>wghts_dom</th>
+      <th>International</th>
+      <th>International(voltarget)</th>
+      <th>International(mutarget)</th>
+      <th>Domestic</th>
+      <th>Domestic(voltarget)</th>
+      <th>Domestic(mutarget)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>MKTUS</th>
-      <td>0.254790</td>
-      <td>0.254790</td>
-      <td>0.581072</td>
+      <td>1.835334</td>
+      <td>0.647349</td>
+      <td>0.570824</td>
+      <td>2.534954</td>
+      <td>1.101918</td>
+      <td>1.197479</td>
     </tr>
     <tr>
       <th>BondUS</th>
-      <td>0.197599</td>
-      <td>0.197599</td>
-      <td>0.418928</td>
+      <td>1.423373</td>
+      <td>0.502045</td>
+      <td>0.442696</td>
+      <td>1.827591</td>
+      <td>0.794434</td>
+      <td>0.863330</td>
     </tr>
     <tr>
       <th>EM</th>
-      <td>0.222844</td>
-      <td>0.222844</td>
+      <td>1.605223</td>
+      <td>0.566186</td>
+      <td>0.499255</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>MKTxUS</th>
-      <td>-0.142493</td>
-      <td>-0.142493</td>
+      <td>-1.026421</td>
+      <td>-0.362034</td>
+      <td>-0.319237</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>BondxUS</th>
-      <td>0.467259</td>
-      <td>0.467259</td>
+      <td>3.365823</td>
+      <td>1.187176</td>
+      <td>1.046836</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
+<p><strong>The difference in Sharpe ratios reveal the benefits of internaitonal diversificaiton</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this difference is the benefits of international diversification</span>
@@ -1654,7 +1663,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10693154800126692
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10693154800126711
 </pre></div>
 </div>
 </div>
@@ -1665,34 +1674,14 @@ dtype: float64
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SR_int_y</span><span class="o">=</span><span class="n">SR_int</span><span class="o">*</span><span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span>
-<span class="n">SR_dom_y</span><span class="o">=</span><span class="n">SR_dom</span><span class="o">*</span><span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SR_dom_y</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.46009875470841877
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># international diversification</span>
-<span class="n">voltarget</span><span class="o">=</span><span class="mf">0.1</span>
-<span class="p">[</span><span class="n">SR_int_y</span><span class="o">*</span><span class="n">voltarget</span><span class="p">,</span><span class="n">SR_dom_y</span><span class="o">*</span><span class="n">voltarget</span><span class="p">]</span>
+<span class="n">voltarget</span><span class="o">=</span><span class="mf">0.2</span><span class="o">/</span><span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span>
+<span class="p">[</span><span class="n">SR_int</span><span class="o">*</span><span class="n">voltarget</span><span class="p">,</span><span class="n">SR_dom</span><span class="o">*</span><span class="n">voltarget</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.05670303027096857, 0.04600987547084188]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.009450505045161428, 0.007668312578473642]
 </pre></div>
 </div>
 </div>
@@ -1700,12 +1689,12 @@ dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># annualized  your returns increase by </span>
-<span class="p">(</span><span class="n">SR_int_y</span><span class="o">*</span><span class="n">voltarget</span> <span class="o">-</span><span class="n">SR_dom_y</span><span class="o">*</span><span class="n">voltarget</span><span class="p">)</span>
+<span class="p">(</span><span class="n">SR_int</span><span class="o">*</span><span class="n">voltarget</span> <span class="o">-</span><span class="n">SR_dom</span><span class="o">*</span><span class="n">voltarget</span><span class="p">)</span><span class="o">*</span><span class="mi">12</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.01069315480012669
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02138630960025343
 </pre></div>
 </div>
 </div>
@@ -1713,107 +1702,67 @@ dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># in percentual increase it is very meaningful</span>
-<span class="p">(</span><span class="n">SR_int_y</span><span class="o">*</span><span class="n">voltarget</span> <span class="o">-</span><span class="n">SR_dom_y</span><span class="o">*</span><span class="n">voltarget</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">SR_dom_y</span><span class="o">*</span><span class="n">voltarget</span><span class="p">)</span>
+<span class="p">(</span><span class="n">SR_int</span><span class="o">*</span><span class="n">voltarget</span> <span class="o">-</span><span class="n">SR_dom</span><span class="o">*</span><span class="n">voltarget</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">SR_dom</span><span class="o">*</span><span class="n">voltarget</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.23240999221793873
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.23240999221793937
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="the-mean-variance-frontier-in-it-s-full-glory">
-<h2><span class="section-number">10.2.6.1.3. </span>The mean-variance frontier in it’s full glory<a class="headerlink" href="#the-mean-variance-frontier-in-it-s-full-glory" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu_target</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.025</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">mu_target</span><span class="o">*</span><span class="mi">12</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.        , 0.01578947, 0.03157895, 0.04736842, 0.06315789,
-       0.07894737, 0.09473684, 0.11052632, 0.12631579, 0.14210526,
-       0.15789474, 0.17368421, 0.18947368, 0.20526316, 0.22105263,
-       0.23684211, 0.25263158, 0.26842105, 0.28421053, 0.3       ])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">STD_MVE_int</span><span class="o">=</span><span class="p">(</span><span class="n">Wmve</span><span class="p">[</span><span class="s1">&#39;wghts_int&#39;</span><span class="p">]</span> <span class="o">@</span> <span class="n">Cove</span> <span class="o">@</span> <span class="n">Wmve</span><span class="p">[</span><span class="s1">&#39;wghts_int&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
-
-<span class="n">ER_MVE_int</span><span class="o">=</span><span class="p">(</span><span class="n">Wmve</span><span class="p">[</span><span class="s1">&#39;wghts_int&#39;</span><span class="p">]</span> <span class="o">@</span> <span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
-<span class="c1">#   proportion of money investing in the international portfolio</span>
-<span class="c1">#lam=mu_target/(SR_int**2)</span>
-<span class="n">lam</span><span class="o">=</span><span class="n">mu_target</span><span class="o">/</span><span class="p">(</span><span class="n">ER_MVE_int</span><span class="p">)</span>
-<span class="n">lam</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.        , 0.04910832, 0.09821665, 0.14732497, 0.1964333 ,
-       0.24554162, 0.29464995, 0.34375827, 0.3928666 , 0.44197492,
-       0.49108324, 0.54019157, 0.58929989, 0.63840822, 0.68751654,
-       0.73662487, 0.78573319, 0.83484152, 0.88394984, 0.93305816])
-</pre></div>
-</div>
-</div>
-</div>
+<p><strong>The mean-variance frontier in it’s full glory</strong></p>
+<p>We will now plot the two frontiers together with the underlying assets</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lets visualize this in a plot including the two investment frontiers</span>
 
 <span class="c1"># set different expected return targets</span>
-<span class="n">mu_target</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.025</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">mu_target</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="o">/</span><span class="mi">12</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
 <span class="c1"># international portfolios</span>
-<span class="c1">#   standard deviation of the international portfolio</span>
-<span class="n">STD_MVE_int</span><span class="o">=</span><span class="p">(</span><span class="n">Wmve</span><span class="p">[</span><span class="s1">&#39;wghts_int&#39;</span><span class="p">]</span> <span class="o">@</span> <span class="n">Cove</span> <span class="o">@</span> <span class="n">Wmve</span><span class="p">[</span><span class="s1">&#39;wghts_int&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
 
-<span class="n">ER_MVE_int</span><span class="o">=</span><span class="p">(</span><span class="n">Wmve</span><span class="p">[</span><span class="s1">&#39;wghts_int&#39;</span><span class="p">]</span> <span class="o">@</span> <span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
-<span class="c1">#   proportion of money investing in the international portfolio</span>
-<span class="n">lam</span><span class="o">=</span><span class="n">mu_target</span><span class="o">/</span><span class="p">(</span><span class="n">SR_int</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">lam</span><span class="o">=</span><span class="n">mu_target</span><span class="o">/</span><span class="p">(</span><span class="n">ER_MVE_int</span><span class="p">)</span>
-
-<span class="c1">#   standard deviation of the investment portfolio</span>
-<span class="n">STD_target_int</span><span class="o">=</span><span class="n">lam</span><span class="o">*</span><span class="n">STD_MVE_int</span>
-
-<span class="c1"># do the plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">STD_target_int</span><span class="p">,</span><span class="n">mu_target</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mu_target</span><span class="o">/</span><span class="n">SR_int</span><span class="p">,</span><span class="n">mu_target</span><span class="p">)</span>
 
 <span class="c1">#Domestic portfolios</span>
-<span class="n">STD_MVE_dom</span><span class="o">=</span><span class="p">(</span><span class="n">Wmve</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;MKTUS&#39;</span><span class="p">,</span><span class="s1">&#39;BondUS&#39;</span><span class="p">],</span><span class="s1">&#39;wghts_dom&#39;</span><span class="p">]</span> <span class="o">@</span> <span class="n">Covdom</span> <span class="o">@</span> <span class="n">Wmve</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;MKTUS&#39;</span><span class="p">,</span><span class="s1">&#39;BondUS&#39;</span><span class="p">],</span><span class="s1">&#39;wghts_dom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
-
-<span class="n">STD_target_dom</span><span class="o">=</span><span class="n">mu_target</span><span class="o">/</span><span class="p">(</span><span class="n">SR_dom</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">STD_MVE_dom</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">STD_target_dom</span><span class="p">,</span><span class="n">mu_target</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
-
-<span class="c1"># lets add some labels so we know which point is each portfolio</span>
-<span class="c1"># First time that I use loop? If yes discuss</span>
-
-<span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">Re</span><span class="o">.</span><span class="n">columns</span> <span class="p">:</span>
-   <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">std</span><span class="p">()[</span><span class="n">label</span><span class="p">],</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="n">label</span><span class="p">],</span><span class="n">label</span><span class="p">)</span>
-
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mu_target</span><span class="o">/</span><span class="n">SR_dom</span><span class="p">,</span><span class="n">mu_target</span><span class="p">)</span>
+<span class="c1">#Individual assets</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;standard deviation&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;expected return&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Benefits of international diversification&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/Notebook4_CaseStudy_33_0.png" src="../../_images/Notebook4_CaseStudy_33_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x216674229a0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/Notebook4_CaseStudy_34_1.png" src="../../_images/Notebook4_CaseStudy_34_1.png" />
 </div>
 </div>
+<p>Lets add label to the dots so we know which asset corresponds to each point</p>
+<p>For that I will run the same code above and add a for loop that lopps though the column name of the <code class="docutils literal notranslate"><span class="pre">Re</span></code> dataframe and uses the text functio to write the column name in the correct position where the x-dimension is the asset volatility and y-dimension is the asset avereage return</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu_target</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="o">/</span><span class="mi">12</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mu_target</span><span class="o">/</span><span class="n">SR_int</span><span class="p">,</span><span class="n">mu_target</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mu_target</span><span class="o">/</span><span class="n">SR_dom</span><span class="p">,</span><span class="n">mu_target</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;standard deviation&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;expected return&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Benefits of international diversification&#39;</span><span class="p">)</span>
+<span class="c1"># lets add some labels so we know which point is each portfolio</span>
+
+
+<span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">Re</span><span class="o">.</span><span class="n">columns</span> <span class="p">:</span>
+   <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">std</span><span class="p">()[</span><span class="n">label</span><span class="p">],</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="n">label</span><span class="p">],</span><span class="n">label</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Notebook4_CaseStudy_36_0.png" src="../../_images/Notebook4_CaseStudy_36_0.png" />
 </div>
 </div>
 </div>
@@ -1844,7 +1793,7 @@ dtype: float64
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="Notebook4_MeanVariance.html" title="previous page"><span class="section-number">10. </span>The Mean-Variance Frontier</a>
-    <a class='right-next' id="next-link" href="Notebook5_Portfoliooptimizationwithconstraints.html" title="next page"><span class="section-number">10.2.6.2. </span>Portfolio Optimization with constraints</a>
+    <a class='right-next' id="next-link" href="Notebook5_Portfoliooptimizationwithconstraints.html" title="next page"><span class="section-number">10.2. </span>Portfolio Optimization with constraints</a>
 
         </div>
         

@@ -56,8 +56,8 @@
     <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="10.2.6.1. Case study on international portfolio diversification" href="Notebook4_CaseStudy.html" />
-    <link rel="prev" title="9.2.1. Using APIs" href="UsingAPI.html" />
+    <link rel="next" title="10.1. Case study on international portfolio diversification" href="Notebook4_CaseStudy.html" />
+    <link rel="prev" title="9.1. Using APIs" href="UsingAPI.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -385,7 +385,7 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="UsingAPI.html">
-     9.2.1. Using APIs
+     9.1. Using APIs
     </a>
    </li>
   </ul>
@@ -402,12 +402,12 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="Notebook4_CaseStudy.html">
-     10.2.6.1. Case Study in International Diversification
+     10.1. Case Study in International Diversification
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Notebook5_Portfoliooptimizationwithconstraints.html">
-     10.2.6.2. Portfolio Optimization with constraints
+     10.2. Portfolio Optimization with constraints
     </a>
    </li>
   </ul>
@@ -785,56 +785,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mean-variance-frontier">
-   10.1. Mean-variance Frontier
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-tangecy-portfolio">
-   10.2. The Tangecy  portfolio
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     10.2.1. $
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#aside-matrix-inversion-intuition">
-     10.2.2. Aside: Matrix inversion intuition
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#two-fund-separation">
-     10.2.3. Two-fund separation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-tangency-portfolio-and-the-cross-sectional-of-expected-returns">
-     10.2.4. The tangency portfolio and the cross-sectional of expected returns
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#portfolio-advice-summary">
-     10.2.5. Portfolio advice summary
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-1-trillion-dollar-question-what-is-the-tangency-portfolio-how-to-find-it">
-     10.2.6. The 1 trillion dollar question: What is the Tangency portfolio? How to find it?
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -843,16 +793,35 @@
         
               <div>
                 
-  <div class="section" id="the-mean-variance-frontier">
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://www.dropbox.com/s/3k35mt3t57ygff2/GlobalFinMonthly.csv?dl=1&quot;</span>
+<span class="n">Data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">na_values</span><span class="o">=-</span><span class="mi">99</span><span class="p">)</span>
+<span class="n">Data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">Data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
+<span class="n">Data</span><span class="o">=</span><span class="n">Data</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="the-mean-variance-frontier">
 <h1><span class="section-number">10. </span>The Mean-Variance Frontier<a class="headerlink" href="#the-mean-variance-frontier" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Below I reproduce the plot of constructed last chapter</p></li>
+<li><p>It shows the average <strong>EXCESS</strong> return and standard deviation for portfolios that vary the weight in the risk-free asset and also the weight between the US stock market and the international stock market</p></li>
+</ul>
+<p><img alt="MVfronties" src="../../_images/MV1.jpg" /></p>
 <ul class="simple">
 <li><p>Note the upper envelope that defines the “investment frontier”, i.e., what is achiavable in terms of risk and returns</p></li>
 <li><p>If you are in this envelope, you know that in order to get less risk you will have to get less return</p></li>
 <li><p>There is no portfolio with a higher average return and the same volatility</p></li>
 <li><p>And no portfolio with the same expected return and lower volatility</p></li>
-<li><p>In volatility-expected return space all these portfolio are in a straight line,</p></li>
+<li><p>In volatility-expected return space all these “investment frontier” portfolio are in a straight line</p></li>
 <li><p>Meaning that they achieve exactly the same ratio or expected excess return per unit of volatility since a stragith line has constant slope</p></li>
-<li><p>So all these portfolios have exactly the same Sharpe ratio (<span class="math notranslate nohighlight">\(\frac{E[R_p-R_f]}{std(R_p-R_f)}\)</span>),</p></li>
+<li><p>So all these portfolios have exactly the same Sharpe ratio (<span class="math notranslate nohighlight">\(\frac{E[r_p-R_f]}{std(r_p-R_f)}\)</span>)</p></li>
 <li><p>This is also the maximum SR among all possible portfolios of the basis assets</p>
 <ul>
 <li><p>(in this case only two: US and world portfolio)</p></li>
@@ -860,55 +829,62 @@
 </li>
 </ul>
 <blockquote>
-<div><p>What do these “efficient” portfolios look like?</p>
+<div><p>What do these “efficient” portfolios look like? Do they have the same weights? How do the weights in the assets vary?</p>
 </div></blockquote>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="c1">#GlobalFinMonthly</span>
-<span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://www.dropbox.com/s/3k35mt3t57ygff2/GlobalFinMonthly.csv?dl=1&quot;</span>
-<span class="c1"># url=&quot;C:/Users/Alan Moreira/Dropbox/Public/Fin418/Data/GlobalFinMonthly.csv&quot;</span>
-<span class="n">Data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">na_values</span><span class="o">=-</span><span class="mi">99</span><span class="p">)</span>
-<span class="c1"># tell python Date is date:</span>
-<span class="n">Data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">Data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
-<span class="c1"># set an an index</span>
-<span class="n">Data</span><span class="o">=</span><span class="n">Data</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
-<span class="n">df</span><span class="o">=</span><span class="n">Data</span><span class="p">[[</span><span class="s1">&#39;RF&#39;</span><span class="p">,</span><span class="s1">&#39;MKT&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="mean-variance-frontier">
-<h2><span class="section-number">10.1. </span>Mean-variance Frontier<a class="headerlink" href="#mean-variance-frontier" title="Permalink to this headline">¶</a></h2>
+<p><strong>Mathematical derivaiton of the Mean-variance Frontier</strong></p>
 <ul class="simple">
 <li><p>These portfolios all can be thought as minimizing variance/volatility for a given desired expected return</p></li>
 <li><p>or maximizing expected returns for a given dislike of variance</p></li>
-<li><p>Formally they solve the following minimization problem</p></li>
+<li><p>Formally they are choosing their composition of their portfolio</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[r_p(X)=X'R+(1-\sum_i^I X_i)r_f\]</div>
+<ul class="simple">
+<li><p>Which is a portfolio that invests in risky assets (vector of returns R) and the rest <span class="math notranslate nohighlight">\((1-\sum_i^I X_i)\)</span> at the risk-free rate.</p></li>
+<li><p>note that I use big R here to emphasize that this is a vector of asset returns, like (<span class="math notranslate nohighlight">\([R^{AAPL},R^{TSLA},..]\)</span>), and little <span class="math notranslate nohighlight">\(r_f\)</span> to emphasize this is just a scalar (like 1%)</p></li>
+<li><p>Note that <span class="math notranslate nohighlight">\((1-\sum_i^I X_i)&lt;0\)</span>. what is the interpretation of this number being negative? What is the interpreation of being positive?</p></li>
+<li><p>So given weights W, asset returns R and rf, the portfolio returns <span class="math notranslate nohighlight">\(r_p(X)\)</span></p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
-maximize_{W,w_f} rf+ (1-w_f)E[W'R^e]- \gamma Var((1-w_f)W'R^e+r_f)\\
-maximize_{W,w_f} rf+ (1-w_f)W'E[R^e]- \gamma (1-w_f)^2W'Var(R^e)W\\
+maximize_{(X)} E[r_p(X)]- \gamma/2 Var(r_p(X))\\
 \end{aligned}
 \end{split}\]</div>
+<p><strong>Excess return representation</strong></p>
+<p>It is much easier to do the math and see what is going on if we separate the excess returns and the return piece so we represent our portolio as</p>
+<div class="math notranslate nohighlight">
+\[r_p(X)=X'R+(1-\sum_i^I X_i)r_f=X'R+r_f-(\sum_i^I X_i)r_f=X'(R-r_f)+r_f\]</div>
+<div class="math notranslate nohighlight">
+\[r_p(X)=X'R^e+r_f\]</div>
 <ul class="simple">
-<li><p>If you understand calculus the answer is immediate.</p></li>
-<li><p>All you need is to take the derivative of the expression with respect to the risky portfolio weights <span class="math notranslate nohighlight">\(W\)</span> :</p></li>
+<li><p>where <span class="math notranslate nohighlight">\(R^e\)</span>  is the vector of excess returns</p></li>
+<li><p>It is KEY to note that all the risky assets are now zero cost portfolios</p></li>
+<li><p>so each risky asset is really a portfolio that is long the risky asset and short the risk-free rate</p></li>
+<li><p>this means that no matter the sum of the weights in X, the cost of this risky portfolio is zero</p></li>
+<li><p>so the way this works is that you get your dollar and invest in the risk-free rate and now decide “two things”</p>
+<ul>
+<li><p>What your risky portfolio shoudl look like by choosing <span class="math notranslate nohighlight">\(X/\sum X\)</span></p></li>
+<li><p>How much of this dollar to allocate to the risk asset , by choosing <span class="math notranslate nohighlight">\(\sum X\)</span> the total fraction invested in the risky assets</p></li>
+<li><p>If  <span class="math notranslate nohighlight">\(\sum X&gt;1\)</span> then you are leveraging, i.e. borrowing money to invest more than you have in the risky assets, so you are shorting the risk-free asset</p></li>
+<li><p>It <span class="math notranslate nohighlight">\(\sum X&lt;1\)</span> then you are leaving some money invested in the risk-free rate, so you are buying the risk free asset</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Solution</strong></p>
+<ul class="simple">
+<li><p>All you need is to take the derivative of the expression with respect to the risky portfolio weights <span class="math notranslate nohighlight">\(X\)</span> :</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[(1-w_f)E[R^e]- 2\gamma(1-w_f)^2 Var(R^e)W\]</div>
+\[E[R^e]- 2\gamma/2 Var(R^e)X\]</div>
 <ul class="simple">
 <li><p>and impose the “first order condition”:
 $<span class="math notranslate nohighlight">\(
 \begin{aligned}
-(1-w_f)E[R^e]- 2\gamma(1-w_f)^2 Var(R^e)W^*=0
+E[R^e]- \gamma Var(R^e)X^*=0
 \end{aligned}
 \)</span>$</p></li>
-<li><p>which simply means that if <span class="math notranslate nohighlight">\(W^*\)</span> is really the weight that minimizes the expression, if you move it a little bit in any direction, the value of the expression shouldn’t move much</p></li>
+<li><p>which simply means that if <span class="math notranslate nohighlight">\(X^*\)</span> is really the weight that maximizes the expression, if you move it a little bit in any direction, the value of the expression shouldn’t move much</p></li>
 <li><p>In fact, for a tiny move in either direction, the benefit should be zero either way</p></li>
 <li><p>Here is the intuition:</p>
 <ul>
@@ -923,6 +899,12 @@ $<span class="math notranslate nohighlight">\(
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x21ce22aa490&gt;
+</pre></div>
+</div>
+<img alt="../../_images/Notebook4_MeanVariance_3_1.png" src="../../_images/Notebook4_MeanVariance_3_1.png" />
+</div>
 </div>
 <ul class="simple">
 <li><p>This is maximized at 2</p></li>
@@ -936,31 +918,35 @@ $<span class="math notranslate nohighlight">\(
 <li><p>close to the optimal, the expression is flat.</p></li>
 <li><p>This is a general result</p></li>
 </ul>
-</div>
-<div class="section" id="the-tangecy-portfolio">
-<h2><span class="section-number">10.2. </span>The Tangecy  portfolio<a class="headerlink" href="#the-tangecy-portfolio" title="Permalink to this headline">¶</a></h2>
+<p><strong>The Tangecy  portfolio</strong></p>
 <ul class="simple">
 <li><p>Rewriting our first order condition we have</p></li>
 </ul>
-<div class="section" id="id1">
-<h3><span class="section-number">10.2.1. </span>$<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>\begin{align}
-2\gamma(1-w_f)^2 Var(R^e)W^* &amp;=(1-w_f)E[R^e]\
-(2\gamma (1-w_f)^2Var(R^e))^{-1}2\gamma(1-w_f)^2 Var(R^e)W^* &amp;=(2\gamma (1-w_f)^2Var(R^e))^{-1}(1-w_f)E[R^e]\
-W^* &amp;=\frac{1}{2\gamma(1-w_f)}(Var(R^e))^{-1}E[R^e]
-\end{align}$</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{align}
+\gamma Var(R^e)X^* &amp;=E[R^e]\\
+(\gamma Var(R^e))^{-1}\gamma Var(R^e)W^* &amp;=(\gamma Var(R^e))^{-1}E[R^e]\\
+W^* &amp;=(\gamma Var(R^e))^{-1}E[R^e]\\
+W^* &amp;=\frac{1}{\gamma} Var(R^e)^{-1}E[R^e]
+\end{align}\)</span></p>
 <ul class="simple">
-<li><p>Does your distaste for risk <span class="math notranslate nohighlight">\(\gamma\)</span> impact your portfolio composition?</p></li>
-<li><p>Does it impact the relative weights in the risky assets?</p></li>
-<li><p>Does your choice of how much to invest in the risk-free asset <span class="math notranslate nohighlight">\(w_f\)</span> impacts the composition of your risky portfolio?</p></li>
-<li><p>Note that <span class="math notranslate nohighlight">\(W^*\)</span> is the optimal position in risky assets and therefore has the same dimension as the number of assets you are considering.</p></li>
-<li><p>In our simple case 2 assets</p></li>
-<li><p>Note that <span class="math notranslate nohighlight">\(\frac{1}{2\gamma(1-w_f)}\)</span> is a scalar, which means that this is a number not a vector</p></li>
+<li><p>We simply m,ultiplied both the RHS and the LHS by the inverse of the matrix <span class="math notranslate nohighlight">\(\gamma Var(R^e)\)</span> that was multiplying thw weight</p></li>
+<li><p>This is equvalent to solving 5x=4, by dividing though by 5 to get x=4/5</p></li>
 </ul>
-</div>
-<div class="section" id="aside-matrix-inversion-intuition">
-<h3><span class="section-number">10.2.2. </span>Aside: Matrix inversion intuition<a class="headerlink" href="#aside-matrix-inversion-intuition" title="Permalink to this headline">¶</a></h3>
+<p><em>Questions</em></p>
 <ul class="simple">
+<li><p>How does your distaste for risk <span class="math notranslate nohighlight">\(\gamma\)</span> impact your portfolio composition?</p></li>
+<li><p>Does it impact the relative weights in the risky assets?</p></li>
+<li><p>Note that <span class="math notranslate nohighlight">\(X^*\)</span> is the optimal position in risky assets and therefore has the same dimension as the number of assets you are considering.</p></li>
+<li><p>In our simple case 2 assets</p></li>
+</ul>
+<hr class="docutils" />
+<p><em>Aside: Matrix inversion</em></p>
+<ul class="simple">
+<li><p>You only need to understand how to operationaize it and in an conceptual level what it does</p></li>
+<li><p>But you don’t need to really get the tiny details here.</p></li>
+<li><p>If you are itnerested. Please see this below.</p></li>
+<li><p>If you need even more please see section 5.3</p></li>
 <li><p>Note that <span class="math notranslate nohighlight">\((2)^{-1}=1/2=0.5\)</span> (naturally!), <span class="math notranslate nohighlight">\((Var(R^e))^{-1}\)</span> is kind of like this,</p></li>
 <li><p>but more complicated because <span class="math notranslate nohighlight">\(Var(R^e)\)</span> is a N by N matrix and we can’t simply divide over</p></li>
 <li><p>The definition of the inverse function is <span class="math notranslate nohighlight">\(f(x)=x^{-1}=y\)</span> where <span class="math notranslate nohighlight">\(y*x=1\)</span></p></li>
@@ -985,19 +971,36 @@ $<span class="math notranslate nohighlight">\(
 \end{aligned}\)</span>$</p></li>
 <li><p>which in this case has an easy solution [a,b,c,d]=[1/3,-7/27,0,1/9]</p></li>
 <li><p>But we should be thankful for being born after the 70’s, when people had to do these inversions by hand–for very large matrixes</p></li>
-<li><p>Now we can simply us the linear algebra library build in numpy  we discussed in Notebook 1 and invert the matrix:</p></li>
+<li><p>Now we can simply us the linear algebra library build in numpy  we discussed in Notebook 1 and invert the matrix</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span>
-<span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">@</span> <span class="n">a</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3 7]
+ [0 9]]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.33333333, -0.25925926],
+       [ 0.        ,  0.11111111]])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="o">@</span> <span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.00000000e+00, 3.33066907e-16],
+       [0.00000000e+00, 1.00000000e+00]])
 </pre></div>
 </div>
 </div>
@@ -1008,230 +1011,281 @@ $<span class="math notranslate nohighlight">\(
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">())</span> 
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[3, 0],
+       [7, 9]])
 </pre></div>
 </div>
 </div>
 </div>
+<p><strong>Finding the Tangency portfolio</strong></p>
+<p>First lets construct our vector of excess returns for our risky two assets US equity market and International equity market</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">@</span> <span class="n">a</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Re</span><span class="o">=</span><span class="p">(</span><span class="n">Data</span><span class="p">[[</span><span class="s1">&#39;RF&#39;</span><span class="p">,</span><span class="s1">&#39;MKT&#39;</span><span class="p">,</span><span class="s1">&#39;WorldxUSA&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">Data</span><span class="p">[</span><span class="s1">&#39;RF&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;RF&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Re</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MKT</th>
+      <th>WorldxUSA</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1963-02-28</th>
+      <td>-0.0238</td>
+      <td>-0.005073</td>
+    </tr>
+    <tr>
+      <th>1963-03-31</th>
+      <td>0.0308</td>
+      <td>-0.001929</td>
+    </tr>
+    <tr>
+      <th>1963-04-30</th>
+      <td>0.0451</td>
+      <td>-0.005836</td>
+    </tr>
+    <tr>
+      <th>1963-05-31</th>
+      <td>0.0176</td>
+      <td>-0.002586</td>
+    </tr>
+    <tr>
+      <th>1963-06-30</th>
+      <td>-0.0200</td>
+      <td>-0.013460</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-<p>And our optimal weights must be proportional to</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Wstar</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">())</span> <span class="o">@</span> <span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">Wstar</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>We start by estimating the covariance matrix from our data <span class="math notranslate nohighlight">\(Var(R^e)\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Re</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>But these weights don’t add up to one?</p></li>
-<li><p>Why does this still make sense? Why these weights define a portfolio?</p></li>
-<li><p>Cacluating weights below for a fully invested portfolio</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Wstar</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">Wstar</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="two-fund-separation">
-<h3><span class="section-number">10.2.3. </span>Two-fund separation<a class="headerlink" href="#two-fund-separation" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Take a moment to appreciate this.</p></li>
-<li><p>How you distribute your wealth across different risky assets DOES NOT depend on your preferences for risk!</p></li>
-<li><p>It DOES NOT depend on how much you are investing in the risk-free rate</p></li>
-<li><p>We can go back and now solve to the position in the risky-free asset and the risk portfolio</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{aligned}
-maximize_{w_f} rf+ (1-w_f)E[R^*]- (1-w_f)^2\gamma Var(R^*)\\
-\end{aligned}
-\end{split}\]</div>
-<ul class="simple">
-<li><p>Where <span class="math notranslate nohighlight">\(R^*=(W^*)'R^e\)</span> is the returns on the optimal risk portfolio (the TANGENCY portfolio)</p></li>
-<li><p>The First order condition for <span class="math notranslate nohighlight">\(w_f\)</span> is simply</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{aligned}
--E[R^*]+ 2(1-w_f)\gamma Var(R^*)=0\\
- (1-w_f)=\frac{1}{2\gamma}\frac{E[R^*]}{Var(R^*)}
-\end{aligned}
-\end{split}\]</div>
-<ul>
-<li><p>Note that now we can divide over the variance term, becasue it is the variance of one asset, our portfolio, which is just a scalar</p></li>
-<li><p>Recall that <span class="math notranslate nohighlight">\(1-w_f\)</span> is the position of the optimal risky portfolio (the TANGENCY portfolio)</p></li>
-<li><p>So this formula has a lot of intuition:</p>
-<ul class="simple">
-<li><p>Your position on the risky portfolio depends:</p>
-<ul>
-<li><p>on your distaste for risk <span class="math notranslate nohighlight">\((2\gamma)\)</span></p></li>
-<li><p>The risk-return trade-off on your  risky portfolio</p></li>
-<li><p>Recall that the optimal risky portfolio is the portfolio with best risk-return trade-off !</p></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>You can also rewrite the solution in terms of your choice of your overall portfolio volatility,</p></li>
-<li><p>which is <span class="math notranslate nohighlight">\((1-w_f)std(R^*)\)</span></p>
-<div class="math notranslate nohighlight">
-\[ (1-w_f)std(R^*)=\frac{1}{2\gamma}\frac{E[R^*]}{std(R^*)}\]</div>
-</li>
-<li><p>So your position on the risky asset depends on the Sharpe ratio of your risky portfolio</p></li>
-<li><p>Note that we can simply define the tangency portfolio as :</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[W^*=(Var(R^e))^{-1}E[R^e]\]</div>
-<ul class="simple">
-<li><p>Because any constant term will simply change the position in the risky-free asset</p></li>
-<li><p>For example, since any constant multiplying <span class="math notranslate nohighlight">\(W^*\)</span> does not change it’s sharpe ratio (can you show that?),</p></li>
-<li><p>then from the equation above it is immediate that a more volatile <span class="math notranslate nohighlight">\(R^*\)</span> would simply imply a higher position in the risk-free asset, keeping the total portfolio volatility constant.</p></li>
-</ul>
-</div>
-<div class="section" id="the-tangency-portfolio-and-the-cross-sectional-of-expected-returns">
-<h3><span class="section-number">10.2.4. </span>The tangency portfolio and the cross-sectional of expected returns<a class="headerlink" href="#the-tangency-portfolio-and-the-cross-sectional-of-expected-returns" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>The optimal condition for our tangency portfolio:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[ Var(R^e)W^*=cte \times E[R^e]\]</div>
-<ul class="simple">
-<li><p>This condition above defines the tangency portfolio</p></li>
-<li><p>We can rewirte the left hand side as</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[Var(R^e)W^*=Cov(R^e,R^e)W^*=Cov(R^e,(W^*)'R^e)=Cov(R^e,R^*)\]</div>
-<ul class="simple">
-<li><p>The left-hand side in the covariance vector of all the assets with the tangency portfolio</p></li>
-<li><p>This means that the expected return of an asset must be proportional to the covariance between the return of the asset and the return of the tangency portfolio</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[ E[R^e]=cte \times Cov(R^e,R^*) \]</div>
-<ul class="simple">
-<li><p>This holds for all assets in your investment opportunity set (i.e. the assets included in the minimization problem that the tangency portfolio solves)</p></li>
-<li><p>This means that for any assets <span class="math notranslate nohighlight">\(j\)</span> and <span class="math notranslate nohighlight">\(i\)</span> we have</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\frac{E[R^e_i]}{Cov(R^e_i,R^*)}= \frac{E[R^e_j]}{Cov(R^e_j,R^*)} \]</div>
-<ul class="simple">
-<li><p>All assets have the same expected return per-unit of covariance with the tangency portoflio</p></li>
-<li><p>We can also apply this to the tangency portfolio itself</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[ E[R^*]=cte \times Cov(R^*,R^*) \]</div>
-<ul class="simple">
-<li><p>Which means that <span class="math notranslate nohighlight">\(cte=\frac{E[R^*]}{Var(R^*)}\)</span></p></li>
-<li><p>Plugging back in the original and we get that for any asset <span class="math notranslate nohighlight">\(j\)</span></p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[ E[R^e_j]=\frac{E[R^*]}{Var(R^*)} Cov(R^e_j,R^*) =\frac{Cov(R^e_j,R^*)}{Var(R^*)}E[R^*]=\beta_{j,*}E[R^*] \]</div>
-<div class="math notranslate nohighlight">
-\[ E[R^e_j]=\beta_{j,*}E[R^*] \]</div>
-<blockquote>
-<div><p>What does that remind you?</p>
-</div></blockquote>
-<ul class="simple">
-<li><p>All the information about the cross-sectional of expected returns–all the assets– can be summarized by the expected return of the tangency portfolio and the beta of each asset with respect to the tangency portfolio</p></li>
-<li><p>Or Alternatively: the risk-return trade-off  of the tangency portfolio  <span class="math notranslate nohighlight">\(\frac{E[R^*]}{Var(R^*)}\)</span> and the covariance of each asset with it.</p></li>
-<li><p>Once you have the right notion of risk, the reward to risk is the same across assets (no free lunch)</p></li>
-<li><p>What is the right notion? Covariance with the tangency portfolio</p></li>
-<li><p>In the sample that you estimated the moments this will be true by construction!</p></li>
-</ul>
-<p>Now we test if <span class="math notranslate nohighlight">\( E[R^e_j]=\frac{Cov(R^e_j,R^*)}{Var(R^*)}E[R^*] \)</span> in our sample</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Wstar</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Rstar</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">Rstar</span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Re</span> <span class="o">@</span> <span class="n">Wstar</span>
-<span class="n">Rstar</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cov</span><span class="o">=</span><span class="n">Wstar</span> <span class="o">@</span> <span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
-<span class="n">cov</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># expected return of the tangency portfolio</span>
-<span class="n">mu_star</span><span class="o">=</span><span class="n">Wstar</span> <span class="o">@</span> <span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="c1"># variance of the tangency portfolio</span>
-<span class="n">var_star</span><span class="o">=</span><span class="p">(</span><span class="n">Wstar</span> <span class="o">@</span> <span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span> <span class="o">@</span> <span class="n">Wstar</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-<span class="c1"># covariance between each asset return and the tangency portfolio</span>
-<span class="n">cov</span><span class="o">=</span><span class="n">Wstar</span> <span class="o">@</span> <span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="n">predicted</span><span class="o">=</span> <span class="n">mu_star</span><span class="o">/</span><span class="n">var_star</span><span class="o">*</span><span class="n">cov</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="nb">print</span><span class="p">(</span><span class="n">predicted</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MKT</th>
+      <th>WorldxUSA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>MKT</th>
+      <td>0.001948</td>
+      <td>0.001264</td>
+    </tr>
+    <tr>
+      <th>WorldxUSA</th>
+      <td>0.001264</td>
+      <td>0.002182</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We then estiamte the expected excess return, the premium you expect to earn by investing in each asset <span class="math notranslate nohighlight">\(E[R^e]\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MKT          0.005140
+WorldxUSA    0.004149
+dtype: float64
 </pre></div>
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>This comes from the fact that the tangency portfolio was constructed to be the portfolio with the maximum Sharpe Ratio</p></li>
-<li><p>It is a result of us knowing the moments of all assets summarized by <span class="math notranslate nohighlight">\(E[R^e]\)</span>  and <span class="math notranslate nohighlight">\(Var(R^e)\)</span></p></li>
-<li><p>Here we did everything IN SAMPLE. We used sample moments and evalauted it’s predictions using the same sample</p></li>
-<li><p>The challenge is that these moments are not always well estiamted, to put it mildly (more on this soon!)</p></li>
-<li><p>So the in sample tangency portfolio might not be very informative about the true tangency portfolio, which is the one that we actually care about</p></li>
-</ul>
-<blockquote>
-<div><p>Why? Because it can predict returns going forward and not only in sample (which is useless)</p>
-</div></blockquote>
+<p>We then invert the covaraicne matrix <span class="math notranslate nohighlight">\(Var(R^e)^{-1}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">())</span> 
+</pre></div>
 </div>
-<div class="section" id="portfolio-advice-summary">
-<h3><span class="section-number">10.2.5. </span>Portfolio advice summary<a class="headerlink" href="#portfolio-advice-summary" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>All investors invest in the same fund of risky assets, regardless of risk aversion.</p></li>
-<li><p>Depending on risk aversion, they choose an appropriate mix of money market and risky fund investments</p></li>
-<li><p>What about the investment horizon?</p></li>
-<li><p>Same portfolio advice applies for investors with longer horizons if we assume that investors are drawn from the same distribution each period</p></li>
-<li><p>Your investment horizon (age) does not matter if returns are i.i.d. (independently and identically distributed over time)</p></li>
-</ul>
 </div>
-<div class="section" id="the-1-trillion-dollar-question-what-is-the-tangency-portfolio-how-to-find-it">
-<h3><span class="section-number">10.2.6. </span>The 1 trillion dollar question: What is the Tangency portfolio? How to find it?<a class="headerlink" href="#the-1-trillion-dollar-question-what-is-the-tangency-portfolio-how-to-find-it" title="Permalink to this headline">¶</a></h3>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 822.50792137, -476.49212708],
+       [-476.49212708,  734.40580739]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>we then use the dot product to cross-mulitply our vector of expected excess returns by the inverse of the covariance matrix</p>
+<div class="math notranslate nohighlight">
+\[Var(R^e)^{-1}E[R^e]\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">())</span> <span class="o">@</span> <span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">W</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.25099751, 0.597729  ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now for a given level of risk-aversion <span class="math notranslate nohighlight">\(gamma\)</span> we can find the optimal risky portfolio</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gamma</span><span class="o">=</span><span class="mi">4</span>
+
+<span class="n">Wstar</span><span class="o">=</span><span class="n">W</span><span class="o">/</span><span class="n">gamma</span>
+<span class="n">Wstar</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.56274938, 0.14943225])
+</pre></div>
+</div>
+</div>
+</div>
+<p>and the amount allocated to the risk-free asset</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">Wstar</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2878183714834085
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>But what is your risk-aversion?</strong></p>
+<p>That is a hard question to answer!</p>
+<p>A more productive way to think about this choice is in terms of the level of volatiltiy that you are confortable with.</p>
+<p>You can bascially choose a gamma that implmenets your desired volatility</p>
+<div class="math notranslate nohighlight">
+\[Var((W^*)'R^e)=Var(\frac{1}{\gamma}E[R^e]'Var(R^e)^{-1}R^e)\]</div>
+<p>We first pull the <span class="math notranslate nohighlight">\(1/\gamma\)</span> out. Recall that <span class="math notranslate nohighlight">\(Var(nx)=n^2Var(x)\)</span></p>
+<div class="math notranslate nohighlight">
+\[Var((W^*)'R^e)=\frac{1}{\gamma^2}Var(E[R^e]'Var(R^e)^{-1}R^e)\]</div>
+<p>We now simply pull the vector <span class="math notranslate nohighlight">\(E[R^e]'Var(R^e)^{-1}\)</span> out which because it is a vector the math is a bit <a class="reference external" href="http://different.In">different.In</a> this case if the random variable X is a vector being multiplied by another vector W, then <span class="math notranslate nohighlight">\(Var(WX)=WVar(X)W^T\)</span>. Apply thin here we get</p>
+<div class="math notranslate nohighlight">
+\[Var((W^*)'R^e)=\frac{1}{\gamma^2}E[R^e]'Var(R^e)^{-1}Var(R^e)Var(R^e)^{-1}E[R^e]\]</div>
+<p>Using that <span class="math notranslate nohighlight">\(Var(R^e)^{-1}Var(R^e)=I\)</span>, i.e. the indentiy matrix, we get</p>
+<p><span class="math notranslate nohighlight">\(Var((W^*)'R^e)=\frac{1}{\gamma^2}E[R^e]'Var(R^e)^{-1}E[R^e]\)</span></p>
+<p>We can now solve for the desired level, say you want you portfolio to be mean-variance efficient and have volatility (meaning standard deviaiton) equal to a target <span class="math notranslate nohighlight">\(\sigma^{D}\)</span>, D for desired.</p>
+<p><span class="math notranslate nohighlight">\(\sigma^D=\sqrt{Var((W^*)'R^e)}=\frac{1}{\gamma}\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}\)</span></p>
+<p>where above we took the square root to go from variance to standard deviation. We can now solve for <span class="math notranslate nohighlight">\(\gamma\)</span></p>
+<div class="math notranslate nohighlight">
+\[\gamma(\sigma^D)=\frac{\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}}{\sigma^D}\]</div>
+<p>Thus the optimal weights are</p>
+<div class="math notranslate nohighlight">
+\[W^*(\sigma^D)'=\frac{\sigma^D}{\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}}E[R^e]'Var(R^e)^{-1}\]</div>
+<p>the intuition here is simple. <span class="math notranslate nohighlight">\(\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}\)</span> is the volatility of the optimal portfolio with risk-aversion 1 ,<span class="math notranslate nohighlight">\(E[R^e]'Var(R^e)^{-1}\)</span>. You simply scale up the weights up and down to hit your desired volatility level</p>
+<p>The important point is that <span class="math notranslate nohighlight">\(\frac{\sigma^D}{\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}}\)</span> is a scalar, so you are increasing/decreasing expsorue in the risky asset proportionally.</p>
+<p>Your position in the risk-free asset can be simply solved for</p>
+<div class="math notranslate nohighlight">
+\[1-1'W^*(\sigma^D)=1- \frac{\sigma^D}{\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}}1'Var(R^e)^{-1}E[R^e]\]</div>
+<p>So the more volatility you want, the less you invest in the risk-free asset and the more you invest in the risky assets.</p>
+<p><strong>Two-fund separation</strong></p>
+<ul class="simple">
+<li><p>This above is a classic result in finance.</p></li>
+<li><p>It tells us that the decision of which assets to invest is completely independent of your risk-aversion</p></li>
+<li><p>Your risky portfolio is always the same, and you risk-aversion simply determines how much of it you will have, versus the risk-free rate</p></li>
+<li><p>Please take a moment to appreciate this because understading this result</p></li>
+<li><p>Why that happens?</p></li>
+</ul>
+<p>Because any portfolio that is proportional to <span class="math notranslate nohighlight">\(Var(R^e)^{-1}E[R^e]\)</span> achieve the highest feasible Sharpe Ratio</p>
+<ul class="simple">
+<li><p>Why is that?</p></li>
+</ul>
+<p>Recall what a SR is : <span class="math notranslate nohighlight">\(E[r-r_f]/\sigma(r-r_f)\)</span>. Since this portfolio solves the problem of maximizing expected return for a given level of volatility, it also is the portfolio with maximum Sharpe Ratio</p>
+<p>Note further that any linear compibration fo this portfolio with the risk-free rate will achieve exactly the same sharpe ratio.</p>
+<p>Let <span class="math notranslate nohighlight">\(r_p=r_f+wr^*\)</span> then <span class="math notranslate nohighlight">\(E[r_p-r_f]/\sigma(r_p-r_f)=E[wr^*]/\sigma(wr^*)=E[r^*]/\sigma(r^*)\)</span></p>
+<p>Which happens becasue the risk-free rate has zero volatiltiy.</p>
+<p><strong>Properties of the Tangency Portfolio</strong></p>
+<p>Any portfolio that is proportional to  <span class="math notranslate nohighlight">\(Var(R^e)^{-1}E[R^e]\)</span> is in the <strong>Tangency</strong> of the mean-variance frontier</p>
+<p>I will refer to <span class="math notranslate nohighlight">\(W_T=Var(R^e)^{-1}E[R^e]\)</span> as the tangency portfolio, but formally anyy other portfolio that is of the form <span class="math notranslate nohighlight">\(x W_T\)</span> where x is a scalar is also tangency.</p>
+<ol class="simple">
+<li><p>What is the expected excess return of the tangency portfolio?</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[E[W_T'R^e]=E[E[R^e]'Var(R^e)^{-1}R^e]=E[R^e]'Var(R^e)^{-1}E[R^e]\]</div>
+<ol class="simple">
+<li><p>What is the volatility of the tangency portfolio?</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[Var[W_T'R^e]=Var(E[R^e]'Var(R^e)^{-1}R^e)=E[R^e]'Var(R^e)^{-1}Var(R^e)Var(R^e)^{-1}E[R^e]\]</div>
+<div class="math notranslate nohighlight">
+\[Var[W_T'R^e]=E[R^e]'Var(R^e)^{-1}E[R^e]\]</div>
+<div class="math notranslate nohighlight">
+\[STD[W_T'R^e]=\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}\]</div>
+<ol class="simple">
+<li><p>What is the Sharpe Ratio of the Tangency portfolio?</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\frac{E[W_T'R^e]}{STD[W_T'R^e]}=\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}\]</div>
+<p>As we saw before, the Sharpe Ratio is invariant to the precise location that you choose in the investment frontier. Of course volatiity and Expected excess return will vary, but any leverage effect will exactyl cancel out when you look at the Sharpe Ratio</p>
+<p>So Sharpe Ratio is nice becasuse it is invariant to leverage</p>
+<p><strong>Portfolio advice summary (so far!)</strong></p>
+<ul class="simple">
+<li><p>All investors invest in the same portfolio of risky assets, regardless of risk aversion.</p></li>
+<li><p>Depending on risk aversion (desired level of volatility) , they choose an appropriate mix of risk-free and risky fund investments</p></li>
+</ul>
+<hr class="docutils" />
+<p><em>Reality is a bit more complicated</em></p>
+<ul class="simple">
+<li><p>Here we assume your preferences: You like higher portfolio expected returns and dislikes portfolio variance</p></li>
+<li><p>Peoples preferences for risk are likely to be much richer than these simple preferences</p></li>
+<li><p>We will discuss later how to incorporate other risk dimensions (tail risks, background risks, etc)</p></li>
+<li><p>We also ignore investment horizon effects which we will discuss later in the course</p></li>
+</ul>
 <div class="toctree-wrapper compound">
-</div>
-</div>
 </div>
 </div>
 
@@ -1260,8 +1314,8 @@ maximize_{w_f} rf+ (1-w_f)E[R^*]- (1-w_f)^2\gamma Var(R^*)\\
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="UsingAPI.html" title="previous page"><span class="section-number">9.2.1. </span>Using APIs</a>
-    <a class='right-next' id="next-link" href="Notebook4_CaseStudy.html" title="next page"><span class="section-number">10.2.6.1. </span>Case study on international portfolio diversification</a>
+    <a class='left-prev' id="prev-link" href="UsingAPI.html" title="previous page"><span class="section-number">9.1. </span>Using APIs</a>
+    <a class='right-next' id="next-link" href="Notebook4_CaseStudy.html" title="next page"><span class="section-number">10.1. </span>Case study on international portfolio diversification</a>
 
         </div>
         

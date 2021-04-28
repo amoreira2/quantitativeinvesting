@@ -385,7 +385,7 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="UsingAPI.html">
-     9.2.1. Using APIs
+     9.1. Using APIs
     </a>
    </li>
   </ul>
@@ -402,12 +402,12 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="Notebook4_CaseStudy.html">
-     10.2.6.1. Case Study in International Diversification
+     10.1. Case Study in International Diversification
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Notebook5_Portfoliooptimizationwithconstraints.html">
-     10.2.6.2. Portfolio Optimization with constraints
+     10.2. Portfolio Optimization with constraints
     </a>
    </li>
   </ul>
@@ -1594,6 +1594,45 @@ dtype: float64
 </ul>
 <p>But the important point is that at any given moment you know the true risk-free rate. There is no point in estimating it</p>
 <p>The average risk-free rate of the last 30 years tells you nothing about the risk-less rate today BECAUSE you can directly observe it. It is literally thw rate of return that you get for sure if you buy a tbill and hold ultill maturity–and this rate of return is know in advance becasue we know the final price of the tbill.</p>
+<p><strong>Trading Interpretation</strong></p>
+<ul class="simple">
+<li><p>Excess reutrns have a nice trading interpretation.</p></li>
+<li><p>For example the excess return on the market is</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[R^{e,MKT}=R^{MKT}-R^F\]</div>
+<ul class="simple">
+<li><p>This is really a portfolio that has weights 1 on the market and -1 on the risk-free rate</p></li>
+<li><p>This type of portfolio is very important</p></li>
+<li><p>We call it a “self-financed portfolio” or “zero cost portfolio”</p></li>
+<li><p>The key is you are not putting any capital in it because you borrow 1 dollar to invest 1 dollar in the market (or in any other assets)</p></li>
+</ul>
+<p><em>Reality is a bit more complicated</em></p>
+<ul class="simple">
+<li><p>we will discuss this later, but in practice you always have to put some capital on the trade</p></li>
+<li><p>some investors don;t really need to put much like banks and dealers, but others like retail investors are asket to put much more.</p></li>
+<li><p>These portfolios are nevertheless super useful empirically to understand the data even if in the real world you cannot directly buy the zero cost portfolios</p></li>
+</ul>
+<p><strong>How to go from the SAMPLE to the POPULATION distribution?</strong></p>
+<p>We are interested in the true distribution of an asset returns going forward</p>
+<p>WE have it’s historical behavior.How do we extrapolate form it to the future?</p>
+<p>We need a model!</p>
+<p>In most of this class we will use a model where the distribution of excess returns is constant (does not vary over time).</p>
+<ul class="simple">
+<li><p>under this assumption the sample mean of the asset excess return is a good estimator for the expected return of the asset going forward</p></li>
+<li><p>under the assumption that investors expected the average, the standard deviaiton is a good measure of the asset risk, becasue it measures deviations from expectations</p></li>
+</ul>
+<p><strong>One more way that the riskfree rate is different</strong></p>
+<p>We interpret the time-variation in the risk-free rate as all about time-variaiton in what investors expected to get from investign in the tbill and none of it as risk/deviations of expectation</p>
+<p><strong>why?</strong></p>
+<p>Becasue we know that investor know the tbill yield so they perfectly know what they will get from investing in the tbill–and that is the reason we call it risk-free rate!</p>
+<p><em>Reality is a bit more complicated</em></p>
+<p>This “constant premiuns” with time-varying risk-free rate allows us go a long way.</p>
+<p>But of course the data is more complicated!</p>
+<ul class="simple">
+<li><p>you might be able to predict an asset and in this case, volatility will over-estimate the degree of risk, since part of the movement was not surprising to you</p></li>
+<li><p>certianly in the data there is some evidecne that we can predict some moments and we will certainly talk about it, but for know we will stick with this simpler model to interpret the data</p></li>
+</ul>
 <div class="toctree-wrapper compound">
 </div>
 </div>

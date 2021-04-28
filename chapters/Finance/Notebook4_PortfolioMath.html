@@ -385,7 +385,7 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="UsingAPI.html">
-     9.2.1. Using APIs
+     9.1. Using APIs
     </a>
    </li>
   </ul>
@@ -402,12 +402,12 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="Notebook4_CaseStudy.html">
-     10.2.6.1. Case Study in International Diversification
+     10.1. Case Study in International Diversification
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Notebook5_Portfoliooptimizationwithconstraints.html">
-     10.2.6.2. Portfolio Optimization with constraints
+     10.2. Portfolio Optimization with constraints
     </a>
    </li>
   </ul>
@@ -785,29 +785,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#portfolio-expected-returns">
-   8.1. Portfolio Expected returns
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#portfolio-variance">
-   8.2. Portfolio Variance
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#diversification">
-   8.3. Diversification
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -816,7 +793,25 @@
         
               <div>
                 
-  <div class="section" id="portfolios">
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#lets first import the data</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="c1">#GlobalFinMonthly</span>
+<span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://www.dropbox.com/s/3k35mt3t57ygff2/GlobalFinMonthly.csv?dl=1&quot;</span>
+<span class="n">Data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">na_values</span><span class="o">=-</span><span class="mi">99</span><span class="p">)</span>
+<span class="c1"># tell python Date is date:</span>
+<span class="n">Data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">Data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
+<span class="c1"># set an an index</span>
+<span class="n">Data</span><span class="o">=</span><span class="n">Data</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="portfolios">
 <h1><span class="section-number">8. </span>Portfolios<a class="headerlink" href="#portfolios" title="Permalink to this headline">¶</a></h1>
 <p>In this section we will learn how to do some basic math at portfolio level. You will know how to calculate return, expected return, and volatility given portfolio weights.</p>
 <p>A portfolio is described by a set of assets and a set of weights invested in each asset.</p>
@@ -844,30 +839,14 @@
 </ul>
 <p><strong>Portfolio returns</strong></p>
 <div class="math notranslate nohighlight">
-\[ R_p=\sum_{j=1}^N w_jR_j=W'R\]</div>
+\[ r_p=\sum_{j=1}^N w_jr_j=W'R\]</div>
 <ul class="simple">
 <li><p>Where <span class="math notranslate nohighlight">\(R\)</span> is the N by 1 vector of realized asset returns</p></li>
+<li><p>I use big R and big W here to emphasize that they are vectors, like  (<span class="math notranslate nohighlight">\([r^{RF},r^{MKT},..]\)</span>), (<span class="math notranslate nohighlight">\([w^{RF},w^{MKT},..]\)</span>),</p></li>
+<li><p>I use litlle <span class="math notranslate nohighlight">\(r_p\)</span> becasue the return on a portfolio is just a scalar</p></li>
 </ul>
 <p>For example:</p>
 <p>This below is the vector of return realization for a particular date</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#lets first import the data</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="c1">#GlobalFinMonthly</span>
-<span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://www.dropbox.com/s/3k35mt3t57ygff2/GlobalFinMonthly.csv?dl=1&quot;</span>
-<span class="n">Data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">na_values</span><span class="o">=-</span><span class="mi">99</span><span class="p">)</span>
-<span class="c1"># tell python Date is date:</span>
-<span class="n">Data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">Data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
-<span class="c1"># set an an index</span>
-<span class="n">Data</span><span class="o">=</span><span class="n">Data</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Data</span><span class="p">[</span><span class="s1">&#39;1963-02&#39;</span><span class="p">]</span>
@@ -1091,13 +1070,12 @@ Length: 647, dtype: float64
 </div>
 </div>
 </div>
-<div class="section" id="portfolio-expected-returns">
-<h2><span class="section-number">8.1. </span>Portfolio Expected returns<a class="headerlink" href="#portfolio-expected-returns" title="Permalink to this headline">¶</a></h2>
+<p><strong>Portfolio Expected returns</strong></p>
 <ul class="simple">
 <li><p>The expected return of a portfolio is the portfolio weighted average of the expected returns of the individual assets.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[E[R_p]=E[\sum_{j=1}^N w_jR_j]=\sum_{j=1}^N w_jE[R_j]=W'E[R]\]</div>
+\[E[R_p]=E[\sum_{j=1}^N w_jr_j]=\sum_{j=1}^N w_jE[r_j]=W'E[R]\]</div>
 <blockquote>
 <div><p>Can you use the definition of expected values we learn in notebook 3 to verify that this is correct?</p>
 </div></blockquote>
@@ -1145,39 +1123,37 @@ Length: 647, dtype: float64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="portfolio-variance">
-<h2><span class="section-number">8.2. </span>Portfolio Variance<a class="headerlink" href="#portfolio-variance" title="Permalink to this headline">¶</a></h2>
+<p><strong>Portfolio Variance</strong></p>
 <p>Two asset case:</p>
 <div class="math notranslate nohighlight">
-\[Var(R_p)= Var(w_1R_1+w_2R_2)=Cov(w_1R_1+w_2R_2,w_1R_1+w_2R_2)\]</div>
+\[Var(r_p)= Var(w_1r_1+w_2r_2)=Cov(w_1r_1+w_2r_2,w_1r_1+w_2r_2)\]</div>
 <ul class="simple">
 <li><p>where we used that <span class="math notranslate nohighlight">\(Var(x)=Cov(x,x)\)</span></p></li>
 <li><p>We then distribute the terms</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[Cov(w_1R_1,w_1R_1+w_2R_2)+Cov(w_2R_2,w_1R_1+w_2R_2)=Cov(w_1R_1,w_1R_1)+Cov(w_2R_2,w_2R_2)+Cov(w_2R_2,w_1R_1)+Cov(w_1R_1,w_2R_2)\]</div>
+\[Cov(w_1r_1,w_1r_1+w_2r_2)+Cov(w_2r_2,w_1r_1+w_2r_2)=Cov(w_1r_1,w_1r_1)+Cov(w_2r_2,w_2r_2)+Cov(w_2r_2,w_1r_1)+Cov(w_1r_1,w_2r_2)\]</div>
 <ul class="simple">
 <li><p>This yields the classic formula</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[Var(R_p)= w_1^2Var(R_1)+2w_2w_1Cov(R_2,R_1)+w_2^2Var(R_2)\]</div>
+\[Var(r_p)= w_1^2Var(r_1)+2w_2w_1Cov(r_2,r_1)+w_2^2Var(r_2)\]</div>
+<p><strong>N-asset case</strong></p>
 <p>From the “term distribution”  above it is intuitive what the N asset case would look like</p>
 <div class="math notranslate nohighlight">
-\[Var(R_p)= Var(\sum_{j=1}^N w_jR_j)=Cov(\sum_{j=1}^N w_jR_j,\sum_{i=1}^N w_iR_i)=\sum_{j=1}^N  w_j Cov(R_j,\sum_{i=1}^N w_iR_i)=\sum_{j=1}^N \sum_{i=1}^N w_jw_iCov(R_j, R_i)\]</div>
+\[Var(r_p)= Var(\sum_{j=1}^N w_jr_j)=Cov(\sum_{j=1}^N w_jr_j,\sum_{i=1}^N w_ir_i)=\sum_{j=1}^N  w_j Cov(r_j,\sum_{i=1}^N w_ir_i)=\sum_{j=1}^N \sum_{i=1}^N w_jw_iCov(r_j, r_i)\]</div>
 <ul class="simple">
 <li><p>For a portfolio of 50 assets, this expression has 50 variance terms and 2450 covariance terms!</p></li>
-<li><p>Good thing we learned in Notebook 1 how to make this computation really easy</p></li>
 <li><p>We can write</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[\sum_{j=1}^N \sum_{i=1}^N w_jw_iCov(R_j, R_i)=W' Cov(R) W\]</div>
+\[\sum_{j=1}^N \sum_{i=1}^N w_jw_iCov(r_j, r_i)=W' Cov(R) W\]</div>
 <ul class="simple">
 <li><p>where <span class="math notranslate nohighlight">\(Cov(R)\)</span> is the N by N variance covariance matrix of the assets and W is the vector of weights</p></li>
 <li><p>Why is this?</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[Var(R_p)=Var(W'R)=Cov(W'R,W'R)=W'Cov(R,W'R)=(W'Cov(R,W'R))'=Cov(W'R,R)W=W'Cov(R)W\]</div>
+\[Var(r_p)=Var(W'R)=Cov(W'R,W'R)=W'Cov(R,W'R)=(W'Cov(R,W'R))'=Cov(W'R,R)W=W'Cov(R)W\]</div>
 <ul class="simple">
 <li><p>Where we used that covariance is a linear operator(can take constants out of it, one at a time) and that it is symmetric(cov(x,y)=cov(y,x)), so the covariance is a symmetic matrix X’=X.</p></li>
 </ul>
@@ -1325,18 +1301,14 @@ Length: 647, dtype: float64
 </div>
 </div>
 </div>
-<blockquote>
-<div><p>How do I get the daily volatility?</p>
-</div></blockquote>
-<blockquote>
-<div><p>How do I get weekly volatility?</p>
-</div></blockquote>
-<blockquote>
-<div><p>How do I get quartely volatility?</p>
-</div></blockquote>
-</div>
-<div class="section" id="diversification">
-<h2><span class="section-number">8.3. </span>Diversification<a class="headerlink" href="#diversification" title="Permalink to this headline">¶</a></h2>
+<p><strong>Takeways</strong></p>
+<p>To compute the in sample variance of a portfolio you have two options</p>
+<ol class="simple">
+<li><p>Compute the time-series the portfolio returns. This will give you one time-series whch you can simply compute the variance (“.var()” method</p></li>
+<li><p>You can estimate the covariance matrix across assets using .cov() method and apply the quadratic formula “W &#64; Data.cov() &#64; W”</p></li>
+</ol>
+<p>They are <strong>MATHEMATICALLY</strong> identical! option 2 is easier and more intuitive , but option 1 is important to understand portfolio maximization which we will do soon</p>
+<p><strong>Diversification</strong></p>
 <ul class="simple">
 <li><p>A key concept in investing is diversification</p></li>
 <li><p>The famous: “don’t put all your eggs in one basket” advice</p></li>
@@ -1587,7 +1559,6 @@ dtype: float64
 <blockquote>
 <div><p>Why might the US investor want to invest in the world market even if if has a lower expected return and higher variance?</p>
 </div></blockquote>
-</div>
 </div>
 
     <script type="text/x-thebe-config">
