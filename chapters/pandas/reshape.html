@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6.7.4. Reshape &#8212; Quantitative Investing</title>
+    <title>6.5. Reshape &#8212; Quantitative Investing</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -54,8 +54,8 @@
     <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="6.7.5. Merge" href="merge.html" />
-    <link rel="prev" title="6.7.3. Cleaning Data" href="data_clean.html" />
+    <link rel="next" title="6.6. Merge" href="merge.html" />
+    <link rel="prev" title="6.4. Cleaning Data" href="data_clean.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -293,7 +293,7 @@
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="intro.html">
+  <a class="reference internal" href="workingwithdata.html">
    6. Working with Data
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
@@ -303,48 +303,53 @@
   </label>
   <ul class="current">
    <li class="toctree-l2">
+    <a class="reference internal" href="intro.html">
+     6.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="basics.html">
-     6.7.1. Pandas Basics
+     6.2. Pandas Basics
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="the_index.html">
-     6.7.2. Indexing
+     6.3. Indexing
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="data_clean.html">
-     6.7.3. Cleaning data
+     6.4. Cleaning data
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     6.7.4. Reshape
+     6.5. Reshape
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="merge.html">
-     6.7.5. Merge
+     6.6. Merge
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="groupby.html">
-     6.7.6. Group-by
+     6.7. Group-by
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="timeseries.html">
-     6.7.7. Time-Series
+     6.8. Time-Series
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="matplotlib.html">
-     6.7.8. Plotting
+     6.9. Plotting
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="storage_formats.html">
-     6.7.9. Data Storage
+     6.10. Data Storage
     </a>
    </li>
   </ul>
@@ -812,27 +817,27 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#outline">
-   6.7.4.1. Outline
+   6.5.1. Outline
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#tidy-data">
-   6.7.4.2. Tidy Data
+   6.5.2. Tidy Data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#reshaping-your-data">
-   6.7.4.3. Reshaping your Data
+   6.5.3. Reshaping your Data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#long-vs-wide">
-   6.7.4.4. Long vs Wide
+   6.5.4. Long vs Wide
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#set-index-reset-index-and-transpose">
-   6.7.4.5.
+   6.5.5.
    <code class="docutils literal notranslate">
     <span class="pre">
      set_index
@@ -849,7 +854,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#stack-and-unstack">
-   6.7.4.6.
+   6.5.6.
    <code class="docutils literal notranslate">
     <span class="pre">
      stack
@@ -865,7 +870,7 @@
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#stack">
-     6.7.4.6.1.
+     6.5.6.1.
      <code class="docutils literal notranslate">
       <span class="pre">
        stack
@@ -875,7 +880,7 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#unstack">
-     6.7.4.6.2.
+     6.5.6.2.
      <code class="docutils literal notranslate">
       <span class="pre">
        unstack
@@ -885,14 +890,14 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#summary">
-     6.7.4.6.3. Summary
+     6.5.6.3. Summary
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#melt">
-   6.7.4.7.
+   6.5.7.
    <code class="docutils literal notranslate">
     <span class="pre">
      melt
@@ -902,7 +907,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pivot-and-pivot-table">
-   6.7.4.8.
+   6.5.8.
    <code class="docutils literal notranslate">
     <span class="pre">
      pivot
@@ -918,7 +923,7 @@
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pivot-table">
-     6.7.4.8.1.
+     6.5.8.1.
      <code class="docutils literal notranslate">
       <span class="pre">
        pivot_table
@@ -930,12 +935,12 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#visualizing-reshaping">
-   6.7.4.9. Visualizing Reshaping
+   6.5.9. Visualizing Reshaping
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id1">
-     6.7.4.9.1.
+     6.5.9.1.
      <code class="docutils literal notranslate">
       <span class="pre">
        stack
@@ -951,7 +956,7 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id2">
-     6.7.4.9.2.
+     6.5.9.2.
      <code class="docutils literal notranslate">
       <span class="pre">
        melt
@@ -963,7 +968,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   6.7.4.10. Exercises
+   6.5.10. Exercises
   </a>
  </li>
 </ul>
@@ -978,7 +983,7 @@
               <div>
                 
   <div class="section" id="reshape">
-<h1><span class="section-number">6.7.4. </span>Reshape<a class="headerlink" href="#reshape" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.5. </span>Reshape<a class="headerlink" href="#reshape" title="Permalink to this headline">¶</a></h1>
 <p><strong>Prerequisites</strong></p>
 <ul class="simple">
 <li><p><a class="reference internal" href="intro.html"><span class="doc std std-doc">pandas intro</span></a></p></li>
@@ -1013,7 +1018,7 @@
 </div>
 </div>
 <div class="section" id="outline">
-<h2><span class="section-number">6.7.4.1. </span>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.5.1. </span>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="#Reshape">Reshape</a></p>
 <ul>
@@ -1031,7 +1036,7 @@
 </ul>
 </div>
 <div class="section" id="tidy-data">
-<h2><span class="section-number">6.7.4.2. </span>Tidy Data<a class="headerlink" href="#tidy-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.5.2. </span>Tidy Data<a class="headerlink" href="#tidy-data" title="Permalink to this headline">¶</a></h2>
 <p>While pushed more generally in the <code class="docutils literal notranslate"><span class="pre">R</span></code> language, the concept of “<a class="reference external" href="https://en.wikipedia.org/wiki/Tidy_data">tidy data</a>” is helpful in understanding the
 objectives for reshaping data, which in turn makes advanced features like
 <a class="reference internal" href="groupby.html"><span class="doc std std-doc">GroupBy</span></a> more seamless.</p>
@@ -1079,7 +1084,7 @@ analysis easier.  This doesn’t break the tidy format since those examples are
 ephemeral states used in analysis.</p>
 </div>
 <div class="section" id="reshaping-your-data">
-<h2><span class="section-number">6.7.4.3. </span>Reshaping your Data<a class="headerlink" href="#reshaping-your-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.5.3. </span>Reshaping your Data<a class="headerlink" href="#reshaping-your-data" title="Permalink to this headline">¶</a></h2>
 <p>The data you receive is not always in a “shape” that makes it easy to analyze.</p>
 <p>What do we mean by shape? The number of rows and columns in a
 DataFrame and how information is stored in the index and column names.</p>
@@ -1249,7 +1254,7 @@ memory usage: 656.0+ bytes
 </div>
 </div>
 <div class="section" id="long-vs-wide">
-<h2><span class="section-number">6.7.4.4. </span>Long vs Wide<a class="headerlink" href="#long-vs-wide" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.5.4. </span>Long vs Wide<a class="headerlink" href="#long-vs-wide" title="Permalink to this headline">¶</a></h2>
 <p>Many of these operations change between long and wide DataFrames.</p>
 <p>What does it mean for a DataFrame to be long or wide?</p>
 <p>Here is long possible long-form representation of our basketball data.</p>
@@ -1803,7 +1808,7 @@ memory usage: 656.0+ bytes
 </div>
 </div>
 <div class="section" id="set-index-reset-index-and-transpose">
-<h2><span class="section-number">6.7.4.5. </span><code class="docutils literal notranslate"><span class="pre">set_index</span></code>, <code class="docutils literal notranslate"><span class="pre">reset_index</span></code>, and Transpose<a class="headerlink" href="#set-index-reset-index-and-transpose" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.5.5. </span><code class="docutils literal notranslate"><span class="pre">set_index</span></code>, <code class="docutils literal notranslate"><span class="pre">reset_index</span></code>, and Transpose<a class="headerlink" href="#set-index-reset-index-and-transpose" title="Permalink to this headline">¶</a></h2>
 <p>We have already seen a few basic methods for reshaping a
 DataFrame.</p>
 <ul class="simple">
@@ -2021,11 +2026,11 @@ them either columns or drop from DataFrame.</p></li>
 </div>
 </div>
 <div class="section" id="stack-and-unstack">
-<h2><span class="section-number">6.7.4.6. </span><code class="docutils literal notranslate"><span class="pre">stack</span></code> and <code class="docutils literal notranslate"><span class="pre">unstack</span></code><a class="headerlink" href="#stack-and-unstack" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.5.6. </span><code class="docutils literal notranslate"><span class="pre">stack</span></code> and <code class="docutils literal notranslate"><span class="pre">unstack</span></code><a class="headerlink" href="#stack-and-unstack" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">stack</span></code> and <code class="docutils literal notranslate"><span class="pre">unstack</span></code> methods operate directly on the index
 and/or column labels.</p>
 <div class="section" id="stack">
-<h3><span class="section-number">6.7.4.6.1. </span><code class="docutils literal notranslate"><span class="pre">stack</span></code><a class="headerlink" href="#stack" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.5.6.1. </span><code class="docutils literal notranslate"><span class="pre">stack</span></code><a class="headerlink" href="#stack" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">stack</span></code> is used to move certain levels of the column labels into the
 index (i.e. moving from wide to long)</p>
 <p>Let’s take <code class="docutils literal notranslate"><span class="pre">ball_wide</span></code> as an example.</p>
@@ -2812,7 +2817,7 @@ level and that their order matched the order we passed in our list argument to
 <code class="docutils literal notranslate"><span class="pre">level</span></code>.</p>
 </div>
 <div class="section" id="unstack">
-<h3><span class="section-number">6.7.4.6.2. </span><code class="docutils literal notranslate"><span class="pre">unstack</span></code><a class="headerlink" href="#unstack" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.5.6.2. </span><code class="docutils literal notranslate"><span class="pre">unstack</span></code><a class="headerlink" href="#unstack" title="Permalink to this headline">¶</a></h3>
 <p>Now suppose that we wanted to see a bar chart of each player’s stats.</p>
 <p>This chart should have one “section” for each player and a different colored
 bar for each variable.</p>
@@ -3041,7 +3046,7 @@ levels to <code class="docutils literal notranslate"><span class="pre">unstack</
 </div></blockquote>
 </div>
 <div class="section" id="summary">
-<h3><span class="section-number">6.7.4.6.3. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.5.6.3. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h3>
 <p>In some ways <code class="docutils literal notranslate"><span class="pre">set_index</span></code>, <code class="docutils literal notranslate"><span class="pre">reset_index</span></code>, <code class="docutils literal notranslate"><span class="pre">stack</span></code>, and <code class="docutils literal notranslate"><span class="pre">unstack</span></code>
 are the “most fundamental” reshaping operations…</p>
 <p>The other operations we discuss can be formulated with these
@@ -3052,7 +3057,7 @@ levels <strong>U</strong>p</p>
 </div>
 </div>
 <div class="section" id="melt">
-<h2><span class="section-number">6.7.4.7. </span><code class="docutils literal notranslate"><span class="pre">melt</span></code><a class="headerlink" href="#melt" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.5.7. </span><code class="docutils literal notranslate"><span class="pre">melt</span></code><a class="headerlink" href="#melt" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">melt</span></code> method is used to move from wide to long form.</p>
 <p>It can be used to move all of the “values” stored in your DataFrame to a
 single column with all other columns being used to contain identifying
@@ -3577,7 +3582,7 @@ above.</p>
 </div></blockquote>
 </div>
 <div class="section" id="pivot-and-pivot-table">
-<h2><span class="section-number">6.7.4.8. </span><code class="docutils literal notranslate"><span class="pre">pivot</span></code> and <code class="docutils literal notranslate"><span class="pre">pivot_table</span></code><a class="headerlink" href="#pivot-and-pivot-table" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.5.8. </span><code class="docutils literal notranslate"><span class="pre">pivot</span></code> and <code class="docutils literal notranslate"><span class="pre">pivot_table</span></code><a class="headerlink" href="#pivot-and-pivot-table" title="Permalink to this headline">¶</a></h2>
 <p>The next two reshaping methods that we will use are closely related.</p>
 <p>Some of you might even already be familiar with these ideas because you
 have previously used <em>pivot tables</em> in Excel.</p>
@@ -3722,7 +3727,7 @@ work, the index/column pairs must be <em>unique</em>!</p>
 </pre></div>
 </div>
 <div class="section" id="pivot-table">
-<h3><span class="section-number">6.7.4.8.1. </span><code class="docutils literal notranslate"><span class="pre">pivot_table</span></code><a class="headerlink" href="#pivot-table" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.5.8.1. </span><code class="docutils literal notranslate"><span class="pre">pivot_table</span></code><a class="headerlink" href="#pivot-table" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">pivot_table</span></code> method is a generalization of <code class="docutils literal notranslate"><span class="pre">pivot</span></code>.</p>
 <p>It overcomes two limitations of <code class="docutils literal notranslate"><span class="pre">pivot</span></code>:</p>
 <ol class="simple">
@@ -4376,7 +4381,7 @@ associated values of 2 and 5.</p>
 </div>
 </div>
 <div class="section" id="visualizing-reshaping">
-<h2><span class="section-number">6.7.4.9. </span>Visualizing Reshaping<a class="headerlink" href="#visualizing-reshaping" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.5.9. </span>Visualizing Reshaping<a class="headerlink" href="#visualizing-reshaping" title="Permalink to this headline">¶</a></h2>
 <p>Now that you have learned the basics and had a chance to experiment,
 we will use some generic data to provide a visualization of what the above
 reshape operations do.</p>
@@ -4607,7 +4612,7 @@ memory usage: 240.0+ bytes
 </div></div></div>
 </div>
 <div class="section" id="id1">
-<h3><span class="section-number">6.7.4.9.1. </span><code class="docutils literal notranslate"><span class="pre">stack</span></code> and <code class="docutils literal notranslate"><span class="pre">unstack</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.5.9.1. </span><code class="docutils literal notranslate"><span class="pre">stack</span></code> and <code class="docutils literal notranslate"><span class="pre">unstack</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Below is an animation that shows how stacking works.</p>
 <img src="https://datascience.quantecon.org/assets/_static/reshape_files/stack.gif" alt="stack.gif" style=""><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4863,7 +4868,7 @@ dtype: int64
 </div>
 </div>
 <div class="section" id="id2">
-<h3><span class="section-number">6.7.4.9.2. </span><code class="docutils literal notranslate"><span class="pre">melt</span></code><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.5.9.2. </span><code class="docutils literal notranslate"><span class="pre">melt</span></code><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>As noted above, the <code class="docutils literal notranslate"><span class="pre">melt</span></code> method transforms data from wide to long in form.</p>
 <p>Here’s a visualization of that operation.</p>
 <img src="https://datascience.quantecon.org/assets/_static/reshape_files/melt.gif" alt="melt.gif" style=""><div class="cell docutils container">
@@ -5059,7 +5064,7 @@ dtype: int64
 </div>
 </div>
 <div class="section" id="exercises">
-<h2><span class="section-number">6.7.4.10. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.5.10. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <p><a id='exerciselist-0'></a>
 <strong>Exercise 1</strong></p>
 <p>(<em>Warning</em>: This one is challenging):</p>
@@ -5315,8 +5320,8 @@ each of the values in the resultant pivot table.</p></li>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="data_clean.html" title="previous page"><span class="section-number">6.7.3. </span>Cleaning Data</a>
-    <a class='right-next' id="next-link" href="merge.html" title="next page"><span class="section-number">6.7.5. </span>Merge</a>
+    <a class='left-prev' id="prev-link" href="data_clean.html" title="previous page"><span class="section-number">6.4. </span>Cleaning Data</a>
+    <a class='right-next' id="next-link" href="merge.html" title="next page"><span class="section-number">6.6. </span>Merge</a>
 
         </div>
         

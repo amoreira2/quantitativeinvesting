@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6.7.8. Intermediate Plotting &#8212; Quantitative Investing</title>
+    <title>6.9. Intermediate Plotting &#8212; Quantitative Investing</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -54,8 +54,8 @@
     <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="6.7.9. Storage Formats" href="storage_formats.html" />
-    <link rel="prev" title="6.7.7. Time series" href="timeseries.html" />
+    <link rel="next" title="6.10. Storage Formats" href="storage_formats.html" />
+    <link rel="prev" title="6.8. Time series" href="timeseries.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -293,7 +293,7 @@
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="intro.html">
+  <a class="reference internal" href="workingwithdata.html">
    6. Working with Data
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
@@ -303,48 +303,53 @@
   </label>
   <ul class="current">
    <li class="toctree-l2">
+    <a class="reference internal" href="intro.html">
+     6.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="basics.html">
-     6.7.1. Pandas Basics
+     6.2. Pandas Basics
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="the_index.html">
-     6.7.2. Indexing
+     6.3. Indexing
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="data_clean.html">
-     6.7.3. Cleaning data
+     6.4. Cleaning data
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="reshape.html">
-     6.7.4. Reshape
+     6.5. Reshape
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="merge.html">
-     6.7.5. Merge
+     6.6. Merge
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="groupby.html">
-     6.7.6. Group-by
+     6.7. Group-by
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="timeseries.html">
-     6.7.7. Time-Series
+     6.8. Time-Series
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     6.7.8. Plotting
+     6.9. Plotting
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="storage_formats.html">
-     6.7.9. Data Storage
+     6.10. Data Storage
     </a>
    </li>
   </ul>
@@ -812,42 +817,42 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#outline">
-   6.7.8.1. Outline
+   6.9.1. Outline
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
-   6.7.8.2. Introduction
+   6.9.2. Introduction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-want-operator-replicate-a-professional-figure">
-   6.7.8.3. The Want Operator: Replicate a Professional Figure
+   6.9.3. The Want Operator: Replicate a Professional Figure
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data">
-   6.7.8.4. Data
+   6.9.4. Data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#warmup">
-   6.7.8.5. Warmup
+   6.9.5. Warmup
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-cleaning">
-   6.7.8.6. Data Cleaning
+   6.9.6. Data Cleaning
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#constructing-the-plot">
-   6.7.8.7. Constructing the Plot
+   6.9.7. Constructing the Plot
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#subplot-spacing-fig-tight-layout">
-     6.7.8.7.1. Subplot Spacing:
+     6.9.7.1. Subplot Spacing:
      <code class="docutils literal notranslate">
       <span class="pre">
        fig.tight_layout
@@ -857,12 +862,12 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#properties-of-the-figure">
-     6.7.8.7.2. Properties of the Figure
+     6.9.7.2. Properties of the Figure
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#properties-of-an-axes">
-     6.7.8.7.3. Properties of an
+     6.9.7.3. Properties of an
      <code class="docutils literal notranslate">
       <span class="pre">
        Axes
@@ -872,31 +877,31 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#transforms-and-lines">
-     6.7.8.7.4. Transforms and Lines
+     6.9.7.4. Transforms and Lines
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#annotations">
-     6.7.8.7.5. Annotations
+     6.9.7.5. Annotations
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#saving-the-figure">
-   6.7.8.8. Saving the Figure
+   6.9.8. Saving the Figure
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#summary">
-     6.7.8.8.1. Summary
+     6.9.8.1. Summary
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   6.7.8.9. Exercises
+   6.9.9. Exercises
   </a>
  </li>
 </ul>
@@ -911,7 +916,7 @@
               <div>
                 
   <div class="section" id="intermediate-plotting">
-<h1><span class="section-number">6.7.8. </span>Intermediate Plotting<a class="headerlink" href="#intermediate-plotting" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.9. </span>Intermediate Plotting<a class="headerlink" href="#intermediate-plotting" title="Permalink to this headline">¶</a></h1>
 <p><strong>Prerequisites</strong></p>
 <ul class="simple">
 <li><p><a class="reference internal" href="intro.html"><span class="doc std std-doc">Introduction</span></a></p></li>
@@ -961,7 +966,7 @@ of a Jupyter notebook</p></li>
 </div>
 </div>
 <div class="section" id="outline">
-<h2><span class="section-number">6.7.8.1. </span>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.9.1. </span>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="#Intermediate-Plotting">Intermediate Plotting</a></p>
 <ul>
@@ -978,7 +983,7 @@ of a Jupyter notebook</p></li>
 </ul>
 </div>
 <div class="section" id="introduction">
-<h2><span class="section-number">6.7.8.2. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.9.2. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>We have already seen a few examples of basic visualizations created
 using the <code class="docutils literal notranslate"><span class="pre">.plot</span></code> method for a DataFrame.</p>
 <p>When we use the <code class="docutils literal notranslate"><span class="pre">.plot</span></code> method, pandas uses a package called
@@ -988,7 +993,7 @@ the DataFrame <code class="docutils literal notranslate"><span class="pre">.plot
 use matplotlib directly to unlock unlimited control over our figures.</p>
 </div>
 <div class="section" id="the-want-operator-replicate-a-professional-figure">
-<h2><span class="section-number">6.7.8.3. </span>The Want Operator: Replicate a Professional Figure<a class="headerlink" href="#the-want-operator-replicate-a-professional-figure" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.9.3. </span>The Want Operator: Replicate a Professional Figure<a class="headerlink" href="#the-want-operator-replicate-a-professional-figure" title="Permalink to this headline">¶</a></h2>
 <p>Visualization is a complex subject.</p>
 <p><a class="reference external" href="https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks&amp;field-keywords=data+visualization&amp;rh=n%3A283155%2Ck%3Adata+visualization">Many
 books</a>
@@ -1010,7 +1015,7 @@ the lecture is to show what is possible and expose you a variety of the
 methods you can use.</p>
 </div>
 <div class="section" id="data">
-<h2><span class="section-number">6.7.8.4. </span>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.9.4. </span>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
 <p>Let’s get the data.</p>
 <p>First, we create a Series containing the date of each iPhone
 announcement that appears in the FT original chart.</p>
@@ -1190,7 +1195,7 @@ weeks before the first announcement.</p>
 </div>
 </div>
 <div class="section" id="warmup">
-<h2><span class="section-number">6.7.8.5. </span>Warmup<a class="headerlink" href="#warmup" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.9.5. </span>Warmup<a class="headerlink" href="#warmup" title="Permalink to this headline">¶</a></h2>
 <p>Matplotlib figures are composed two main types of Python objects:</p>
 <ol class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Figure</span></code>: represents the entirety of the visualization</p></li>
@@ -1310,7 +1315,7 @@ the <code class="docutils literal notranslate"><span class="pre">ax</span></code
 </div></blockquote>
 </div>
 <div class="section" id="data-cleaning">
-<h2><span class="section-number">6.7.8.6. </span>Data Cleaning<a class="headerlink" href="#data-cleaning" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.9.6. </span>Data Cleaning<a class="headerlink" href="#data-cleaning" title="Permalink to this headline">¶</a></h2>
 <p>Let’s continue on our path to recreating the Financial Times
 visualization from above.</p>
 <p>Before we can actually make the plot, we first have to clean the data.</p>
@@ -1904,7 +1909,7 @@ each announcement date to 100 and scale all neighbors accordingly.</p>
 </div>
 </div>
 <div class="section" id="constructing-the-plot">
-<h2><span class="section-number">6.7.8.7. </span>Constructing the Plot<a class="headerlink" href="#constructing-the-plot" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.9.7. </span>Constructing the Plot<a class="headerlink" href="#constructing-the-plot" title="Permalink to this headline">¶</a></h2>
 <p>Now that we have cleaned up the data, let’s construct the plot.</p>
 <p>We do this by using the DataFrame <code class="docutils literal notranslate"><span class="pre">.plot</span></code> method and then using the
 matplotlib methods and functions to fine tune our plot, changing one
@@ -1960,7 +1965,7 @@ function.</p>
 <div><p>See exercise 4 in the <a class="reference external" href="#exerciselist-0"><em>exercise list</em></a></p>
 </div></blockquote>
 <div class="section" id="subplot-spacing-fig-tight-layout">
-<h3><span class="section-number">6.7.8.7.1. </span>Subplot Spacing: <code class="docutils literal notranslate"><span class="pre">fig.tight_layout</span></code><a class="headerlink" href="#subplot-spacing-fig-tight-layout" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.9.7.1. </span>Subplot Spacing: <code class="docutils literal notranslate"><span class="pre">fig.tight_layout</span></code><a class="headerlink" href="#subplot-spacing-fig-tight-layout" title="Permalink to this headline">¶</a></h3>
 <p>That figure has the basic lines we are after, but is quite ugly when
 compared to the FT figure we are trying to produce.</p>
 <p>Let’s refine the plot one step at a time.</p>
@@ -1985,7 +1990,7 @@ subplots.</p>
 </div>
 </div>
 <div class="section" id="properties-of-the-figure">
-<h3><span class="section-number">6.7.8.7.2. </span>Properties of the Figure<a class="headerlink" href="#properties-of-the-figure" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.9.7.2. </span>Properties of the Figure<a class="headerlink" href="#properties-of-the-figure" title="Permalink to this headline">¶</a></h3>
 <p>Now, let’s make the background of our figure match the background of the
 FT post.</p>
 <p>To do this, we will use the <code class="docutils literal notranslate"><span class="pre">fig.set_facecolor</span></code> method.</p>
@@ -2003,7 +2008,7 @@ FT post.</p>
 </div>
 </div>
 <div class="section" id="properties-of-an-axes">
-<h3><span class="section-number">6.7.8.7.3. </span>Properties of an <code class="docutils literal notranslate"><span class="pre">Axes</span></code><a class="headerlink" href="#properties-of-an-axes" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.9.7.3. </span>Properties of an <code class="docutils literal notranslate"><span class="pre">Axes</span></code><a class="headerlink" href="#properties-of-an-axes" title="Permalink to this headline">¶</a></h3>
 <p>Notice that this worked for the figure as a whole, but not for any of
 the Axes.</p>
 <p>To fix this, we will need to call <code class="docutils literal notranslate"><span class="pre">.set_facecolor</span></code> on each Axes.</p>
@@ -2106,7 +2111,7 @@ plots.</p>
 </div>
 </div>
 <div class="section" id="transforms-and-lines">
-<h3><span class="section-number">6.7.8.7.4. </span>Transforms and Lines<a class="headerlink" href="#transforms-and-lines" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.9.7.4. </span>Transforms and Lines<a class="headerlink" href="#transforms-and-lines" title="Permalink to this headline">¶</a></h3>
 <p>Now we would like to add a horizontal line that lines up with each
 vertical tick label (the numbers from 90 to 115) and runs across the
 entire figure.</p>
@@ -2196,7 +2201,7 @@ Axes.</p>
 </div>
 </div>
 <div class="section" id="annotations">
-<h3><span class="section-number">6.7.8.7.5. </span>Annotations<a class="headerlink" href="#annotations" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.9.7.5. </span>Annotations<a class="headerlink" href="#annotations" title="Permalink to this headline">¶</a></h3>
 <p>The last step on our journey is to add annotations that mark Tim Cook’s
 first announcement as CEO, the lackluster market response to <code class="docutils literal notranslate"><span class="pre">S</span></code> model
 announcements, and a label showing that the white dot on each subplot is
@@ -2270,7 +2275,7 @@ by what is happening here.</p>
 </div>
 </div>
 <div class="section" id="saving-the-figure">
-<h2><span class="section-number">6.7.8.8. </span>Saving the Figure<a class="headerlink" href="#saving-the-figure" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.9.8. </span>Saving the Figure<a class="headerlink" href="#saving-the-figure" title="Permalink to this headline">¶</a></h2>
 <p>Now that we have a finished product we are happy with, let’s save it to
 a file on our computer using the <code class="docutils literal notranslate"><span class="pre">fig.savefig</span></code> function.</p>
 <div class="cell docutils container">
@@ -2304,7 +2309,7 @@ document, or presentation is is placed in).</p>
 </div>
 </div>
 <div class="section" id="summary">
-<h3><span class="section-number">6.7.8.8.1. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.9.8.1. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h3>
 <p>Phew, we made it!</p>
 <p>We ended up writing quite a bit of code to get the figure to look
 <em>exactly</em> how we wanted it to look.</p>
@@ -2314,7 +2319,7 @@ properties as professional journalists do.</p>
 </div>
 </div>
 <div class="section" id="exercises">
-<h2><span class="section-number">6.7.8.9. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.9.9. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <p><a id='exerciselist-0'></a>
 <strong>Exercise 1</strong></p>
 <p><strong>Exercise:</strong> Using the <code class="docutils literal notranslate"><span class="pre">.plot</span></code> method, plot the opening share price
@@ -2415,8 +2420,8 @@ you remember them when you need them later on.</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="timeseries.html" title="previous page"><span class="section-number">6.7.7. </span>Time series</a>
-    <a class='right-next' id="next-link" href="storage_formats.html" title="next page"><span class="section-number">6.7.9. </span>Storage Formats</a>
+    <a class='left-prev' id="prev-link" href="timeseries.html" title="previous page"><span class="section-number">6.8. </span>Time series</a>
+    <a class='right-next' id="next-link" href="storage_formats.html" title="next page"><span class="section-number">6.10. </span>Storage Formats</a>
 
         </div>
         

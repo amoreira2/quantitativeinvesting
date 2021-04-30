@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6.7.3. Cleaning Data &#8212; Quantitative Investing</title>
+    <title>6.4. Cleaning Data &#8212; Quantitative Investing</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -54,8 +54,8 @@
     <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="6.7.4. Reshape" href="reshape.html" />
-    <link rel="prev" title="6.7.2. The Index" href="the_index.html" />
+    <link rel="next" title="6.5. Reshape" href="reshape.html" />
+    <link rel="prev" title="6.3. The Index" href="the_index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -293,7 +293,7 @@
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="intro.html">
+  <a class="reference internal" href="workingwithdata.html">
    6. Working with Data
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
@@ -303,48 +303,53 @@
   </label>
   <ul class="current">
    <li class="toctree-l2">
+    <a class="reference internal" href="intro.html">
+     6.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="basics.html">
-     6.7.1. Pandas Basics
+     6.2. Pandas Basics
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="the_index.html">
-     6.7.2. Indexing
+     6.3. Indexing
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     6.7.3. Cleaning data
+     6.4. Cleaning data
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="reshape.html">
-     6.7.4. Reshape
+     6.5. Reshape
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="merge.html">
-     6.7.5. Merge
+     6.6. Merge
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="groupby.html">
-     6.7.6. Group-by
+     6.7. Group-by
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="timeseries.html">
-     6.7.7. Time-Series
+     6.8. Time-Series
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="matplotlib.html">
-     6.7.8. Plotting
+     6.9. Plotting
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="storage_formats.html">
-     6.7.9. Data Storage
+     6.10. Data Storage
     </a>
    </li>
   </ul>
@@ -812,37 +817,37 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#outline">
-   6.7.3.1. Outline
+   6.4.1. Outline
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
-   6.7.3.2. Cleaning Data
+   6.4.2. Cleaning Data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#string-methods">
-   6.7.3.3. String Methods
+   6.4.3. String Methods
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#type-conversions">
-   6.7.3.4. Type Conversions
+   6.4.4. Type Conversions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#missing-data">
-   6.7.3.5. Missing Data
+   6.4.5. Missing Data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#case-study">
-   6.7.3.6. Case Study
+   6.4.6. Case Study
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#appendix-performance-of-str-methods">
-   6.7.3.7. Appendix: Performance of
+   6.4.7. Appendix: Performance of
    <code class="docutils literal notranslate">
     <span class="pre">
      .str
@@ -853,7 +858,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   6.7.3.8. Exercises
+   6.4.8. Exercises
   </a>
  </li>
 </ul>
@@ -868,7 +873,7 @@
               <div>
                 
   <div class="section" id="cleaning-data">
-<h1><span class="section-number">6.7.3. </span>Cleaning Data<a class="headerlink" href="#cleaning-data" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.4. </span>Cleaning Data<a class="headerlink" href="#cleaning-data" title="Permalink to this headline">¶</a></h1>
 <p><strong>Prerequisites</strong></p>
 <ul class="simple">
 <li><p><a class="reference internal" href="intro.html"><span class="doc std std-doc">Intro</span></a></p></li>
@@ -904,7 +909,7 @@ Grubhub orders</p></li>
 </div>
 </div>
 <div class="section" id="outline">
-<h2><span class="section-number">6.7.3.1. </span>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.4.1. </span>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="#Cleaning-Data">Cleaning Data</a></p>
 <ul>
@@ -920,7 +925,7 @@ Grubhub orders</p></li>
 </ul>
 </div>
 <div class="section" id="id1">
-<h2><span class="section-number">6.7.3.2. </span>Cleaning Data<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.4.2. </span>Cleaning Data<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>For many data projects, a <a class="reference external" href="https://www.forbes.com/sites/gilpress/2016/03/23/data-preparation-most-time-consuming-least-enjoyable-data-science-task-survey-says/#74d447456f63">significant proportion of
 time</a>
 is spent collecting and cleaning the data — not performing the analysis.</p>
@@ -1032,7 +1037,7 @@ bottom.</p>
 </div></blockquote>
 </div>
 <div class="section" id="string-methods">
-<h2><span class="section-number">6.7.3.3. </span>String Methods<a class="headerlink" href="#string-methods" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.4.3. </span>String Methods<a class="headerlink" href="#string-methods" title="Permalink to this headline">¶</a></h2>
 <p>Our solution to the previous exercise was to remove the <code class="docutils literal notranslate"><span class="pre">#</span></code> by using
 the <code class="docutils literal notranslate"><span class="pre">replace</span></code> string method: <code class="docutils literal notranslate"><span class="pre">int(c2n.replace(&quot;#&quot;,</span> <span class="pre">&quot;&quot;))</span></code>.</p>
 <p>One way to make this change to every element of a column would be to
@@ -1143,7 +1148,7 @@ Name: colors, dtype: object
 </div></blockquote>
 </div>
 <div class="section" id="type-conversions">
-<h2><span class="section-number">6.7.3.4. </span>Type Conversions<a class="headerlink" href="#type-conversions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.4.4. </span>Type Conversions<a class="headerlink" href="#type-conversions" title="Permalink to this headline">¶</a></h2>
 <p>In our example above, the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> of the <code class="docutils literal notranslate"><span class="pre">numbers_str</span></code> column shows that pandas still treats
 it as a string even after we have removed the <code class="docutils literal notranslate"><span class="pre">&quot;#&quot;</span></code>.</p>
 <p>We need to convert this column to numbers.</p>
@@ -1315,7 +1320,7 @@ Name: numbers_numeric, dtype: float64
 </div></blockquote>
 </div>
 <div class="section" id="missing-data">
-<h2><span class="section-number">6.7.3.5. </span>Missing Data<a class="headerlink" href="#missing-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.4.5. </span>Missing Data<a class="headerlink" href="#missing-data" title="Permalink to this headline">¶</a></h2>
 <p>Many datasets have missing data.</p>
 <p>In our example, we are missing an element from the <code class="docutils literal notranslate"><span class="pre">&quot;nums&quot;</span></code> column.</p>
 <div class="cell docutils container">
@@ -2023,7 +2028,7 @@ article</a>.</p>
 chapters.</p>
 </div>
 <div class="section" id="case-study">
-<h2><span class="section-number">6.7.3.6. </span>Case Study<a class="headerlink" href="#case-study" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.4.6. </span>Case Study<a class="headerlink" href="#case-study" title="Permalink to this headline">¶</a></h2>
 <p>We will now use data from an
 <a class="reference external" href="https://www.nytimes.com/interactive/2015/02/17/upshot/what-do-people-actually-order-at-chipotle.html">article</a>
 written by The Upshot at the NYTimes.</p>
@@ -2113,7 +2118,7 @@ includes information on what was ordered and how much it cost.</p>
 </div></blockquote>
 </div>
 <div class="section" id="appendix-performance-of-str-methods">
-<h2><span class="section-number">6.7.3.7. </span>Appendix: Performance of <code class="docutils literal notranslate"><span class="pre">.str</span></code> Methods<a class="headerlink" href="#appendix-performance-of-str-methods" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.4.7. </span>Appendix: Performance of <code class="docutils literal notranslate"><span class="pre">.str</span></code> Methods<a class="headerlink" href="#appendix-performance-of-str-methods" title="Permalink to this headline">¶</a></h2>
 <p>Let’s repeat the “remove the <code class="docutils literal notranslate"><span class="pre">#</span></code>” example from above, but this time on
 a much larger dataset.</p>
 <div class="cell docutils container">
@@ -2225,7 +2230,7 @@ Wall time: 49 ms
 <p>We got the exact same result in a fraction of the time!</p>
 </div>
 <div class="section" id="exercises">
-<h2><span class="section-number">6.7.3.8. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.4.8. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <p><a id='exerciselist-0'></a>
 <strong>Exercise 1</strong></p>
 <p>Convert the string below into a number.</p>
@@ -2292,8 +2297,8 @@ float)</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="the_index.html" title="previous page"><span class="section-number">6.7.2. </span>The Index</a>
-    <a class='right-next' id="next-link" href="reshape.html" title="next page"><span class="section-number">6.7.4. </span>Reshape</a>
+    <a class='left-prev' id="prev-link" href="the_index.html" title="previous page"><span class="section-number">6.3. </span>The Index</a>
+    <a class='right-next' id="next-link" href="reshape.html" title="next page"><span class="section-number">6.5. </span>Reshape</a>
 
         </div>
         

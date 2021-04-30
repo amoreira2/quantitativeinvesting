@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6.7.2. The Index &#8212; Quantitative Investing</title>
+    <title>6.3. The Index &#8212; Quantitative Investing</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -56,8 +56,8 @@
     <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="6.7.3. Cleaning Data" href="data_clean.html" />
-    <link rel="prev" title="6.7.1. Basic Functionality" href="basics.html" />
+    <link rel="next" title="6.4. Cleaning Data" href="data_clean.html" />
+    <link rel="prev" title="6.2. Basic Functionality" href="basics.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -295,7 +295,7 @@
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="intro.html">
+  <a class="reference internal" href="workingwithdata.html">
    6. Working with Data
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
@@ -305,48 +305,53 @@
   </label>
   <ul class="current">
    <li class="toctree-l2">
+    <a class="reference internal" href="intro.html">
+     6.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="basics.html">
-     6.7.1. Pandas Basics
+     6.2. Pandas Basics
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     6.7.2. Indexing
+     6.3. Indexing
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="data_clean.html">
-     6.7.3. Cleaning data
+     6.4. Cleaning data
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="reshape.html">
-     6.7.4. Reshape
+     6.5. Reshape
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="merge.html">
-     6.7.5. Merge
+     6.6. Merge
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="groupby.html">
-     6.7.6. Group-by
+     6.7. Group-by
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="timeseries.html">
-     6.7.7. Time-Series
+     6.8. Time-Series
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="matplotlib.html">
-     6.7.8. Plotting
+     6.9. Plotting
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="storage_formats.html">
-     6.7.9. Data Storage
+     6.10. Data Storage
     </a>
    </li>
   </ul>
@@ -814,44 +819,44 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#outline">
-   6.7.2.1. Outline
+   6.3.1. Outline
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#so-what-is-this-index">
-   6.7.2.2. So What is this Index?
+   6.3.2. So What is this Index?
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#automatic-alignment">
-     6.7.2.2.1. Automatic Alignment
+     6.3.2.1. Automatic Alignment
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#handling-missing-data">
-     6.7.2.2.2. Handling Missing Data
+     6.3.2.2. Handling Missing Data
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#setting-the-index">
-   6.7.2.3. Setting the Index
+   6.3.3. Setting the Index
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#setting-a-hierarchical-index">
-     6.7.2.3.1. Setting a Hierarchical Index
+     6.3.3.1. Setting a Hierarchical Index
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#slicing-a-hierarchical-index">
-     6.7.2.3.2. Slicing a Hierarchical Index
+     6.3.3.2. Slicing a Hierarchical Index
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#alignment-with-multiindex">
-     6.7.2.3.3. Alignment with
+     6.3.3.3. Alignment with
      <code class="docutils literal notranslate">
       <span class="pre">
        MultiIndex
@@ -861,7 +866,7 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pd-indexslice">
-     6.7.2.3.4.
+     6.3.3.4.
      <code class="docutils literal notranslate">
       <span class="pre">
        pd.IndexSlice
@@ -871,31 +876,31 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#multi-index-columns">
-     6.7.2.3.5. Multi-index Columns
+     6.3.3.5. Multi-index Columns
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#re-setting-the-index">
-   6.7.2.4. Re-setting the Index
+   6.3.4. Re-setting the Index
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#choose-the-index-carefully">
-   6.7.2.5. Choose the Index Carefully
+   6.3.5. Choose the Index Carefully
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#know-your-goal">
-     6.7.2.5.1. Know Your Goal
+     6.3.5.1. Know Your Goal
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   6.7.2.6. Exercises
+   6.3.6. Exercises
   </a>
  </li>
 </ul>
@@ -910,7 +915,7 @@
               <div>
                 
   <div class="section" id="the-index">
-<h1><span class="section-number">6.7.2. </span>The Index<a class="headerlink" href="#the-index" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.3. </span>The Index<a class="headerlink" href="#the-index" title="Permalink to this headline">¶</a></h1>
 <p><strong>Prerequisites</strong></p>
 <ul class="simple">
 <li><p><a class="reference internal" href="intro.html"><span class="doc std std-doc">Introduction to pandas</span></a></p></li>
@@ -923,7 +928,7 @@
 <li><p>Understand that for DataFrames, the column names also align data</p></li>
 </ul>
 <div class="section" id="outline">
-<h2><span class="section-number">6.7.2.1. </span>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3.1. </span>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="#The-Index">The Index</a></p>
 <ul>
@@ -953,7 +958,7 @@
 </div>
 </div>
 <div class="section" id="so-what-is-this-index">
-<h2><span class="section-number">6.7.2.2. </span>So What is this Index?<a class="headerlink" href="#so-what-is-this-index" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3.2. </span>So What is this Index?<a class="headerlink" href="#so-what-is-this-index" title="Permalink to this headline">¶</a></h2>
 <p>Every Series or DataFrame has an index.</p>
 <p>We told you that the index was the “row labels” for the data.</p>
 <p>This is true, but an index in pandas does much more than label the rows.</p>
@@ -1555,7 +1560,7 @@ within each DataFrame.</p></li>
 </div>
 <p>Whoa, a lot happened! Let’s break it down.</p>
 <div class="section" id="automatic-alignment">
-<h3><span class="section-number">6.7.2.2.1. </span>Automatic Alignment<a class="headerlink" href="#automatic-alignment" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.2.1. </span>Automatic Alignment<a class="headerlink" href="#automatic-alignment" title="Permalink to this headline">¶</a></h3>
 <p>For all (row, column) combinations that appear in both DataFrames (e.g.
 rows <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">3]</span></code> and columns <code class="docutils literal notranslate"><span class="pre">[Imports,</span> <span class="pre">Exports]</span></code>), the value of <code class="docutils literal notranslate"><span class="pre">im_ex_tiny</span></code>
 is equal to <code class="docutils literal notranslate"><span class="pre">df_tiny.loc[row,</span> <span class="pre">col]</span> <span class="pre">+</span> <span class="pre">im_ex.loc[row,</span> <span class="pre">col]</span></code>.</p>
@@ -1578,7 +1583,7 @@ extract the value.</p></li>
 quickly</em>.</p>
 </div>
 <div class="section" id="handling-missing-data">
-<h3><span class="section-number">6.7.2.2.2. </span>Handling Missing Data<a class="headerlink" href="#handling-missing-data" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.2.2. </span>Handling Missing Data<a class="headerlink" href="#handling-missing-data" title="Permalink to this headline">¶</a></h3>
 <p>For all elements in row <code class="docutils literal notranslate"><span class="pre">1</span></code> or columns
 <code class="docutils literal notranslate"><span class="pre">[&quot;country&quot;,</span> <span class="pre">&quot;year&quot;,</span> <span class="pre">&quot;GovExpend&quot;,</span> <span class="pre">&quot;Consumption&quot;,</span> <span class="pre">&quot;GDP&quot;]</span></code>,
 the value in <code class="docutils literal notranslate"><span class="pre">im_ex_tiny</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
@@ -1594,7 +1599,7 @@ that the result is missing (spelled <code class="docutils literal notranslate"><
 </div>
 </div>
 <div class="section" id="setting-the-index">
-<h2><span class="section-number">6.7.2.3. </span>Setting the Index<a class="headerlink" href="#setting-the-index" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3.3. </span>Setting the Index<a class="headerlink" href="#setting-the-index" title="Permalink to this headline">¶</a></h2>
 <p>For a DataFrame <code class="docutils literal notranslate"><span class="pre">df</span></code>, the <code class="docutils literal notranslate"><span class="pre">df.set_index</span></code> method allows us to use one
 (or more) of the DataFrame’s columns as the index.</p>
 <p>Here’s an example.</p>
@@ -2289,7 +2294,7 @@ same amount.</p>
 <p>To make these types operation easier, we need to include both the year
 and country in the index…</p>
 <div class="section" id="setting-a-hierarchical-index">
-<h3><span class="section-number">6.7.2.3.1. </span>Setting a Hierarchical Index<a class="headerlink" href="#setting-a-hierarchical-index" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.3.1. </span>Setting a Hierarchical Index<a class="headerlink" href="#setting-a-hierarchical-index" title="Permalink to this headline">¶</a></h3>
 <p>Include multiple columns in the index is advantageous in some situations.</p>
 <p>These situations might include:</p>
 <ul class="simple">
@@ -2517,7 +2522,7 @@ right-most) level is named <code class="docutils literal notranslate"><span clas
 refer to the DataFrame as having a hierarchical index.</p>
 </div>
 <div class="section" id="slicing-a-hierarchical-index">
-<h3><span class="section-number">6.7.2.3.2. </span>Slicing a Hierarchical Index<a class="headerlink" href="#slicing-a-hierarchical-index" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.3.2. </span>Slicing a Hierarchical Index<a class="headerlink" href="#slicing-a-hierarchical-index" title="Permalink to this headline">¶</a></h3>
 <p>Now, we can answer our friend’s questions in a much more straightforward way.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2590,7 +2595,7 @@ Series)</p></li>
 </div></blockquote>
 </div>
 <div class="section" id="alignment-with-multiindex">
-<h3><span class="section-number">6.7.2.3.3. </span>Alignment with <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code><a class="headerlink" href="#alignment-with-multiindex" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.3.3. </span>Alignment with <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code><a class="headerlink" href="#alignment-with-multiindex" title="Permalink to this headline">¶</a></h3>
 <p>The data alignment features we talked about above also apply to a
 <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> DataFrame.</p>
 <p>The exercise below gives you a chance to experiment with this.</p>
@@ -2600,7 +2605,7 @@ Series)</p></li>
 </div></blockquote>
 </div>
 <div class="section" id="pd-indexslice">
-<h3><span class="section-number">6.7.2.3.4. </span><code class="docutils literal notranslate"><span class="pre">pd.IndexSlice</span></code><a class="headerlink" href="#pd-indexslice" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.3.4. </span><code class="docutils literal notranslate"><span class="pre">pd.IndexSlice</span></code><a class="headerlink" href="#pd-indexslice" title="Permalink to this headline">¶</a></h3>
 <p>When we want to extract rows for a few values of the outer index and all
 values for an inner index level, we can use the convenient
 <code class="docutils literal notranslate"><span class="pre">df.loc[[id11,</span> <span class="pre">id22]]</span></code> shorthand.</p>
@@ -3105,7 +3110,7 @@ level and that the <code class="docutils literal notranslate"><span class="pre">
 </div></blockquote>
 </div>
 <div class="section" id="multi-index-columns">
-<h3><span class="section-number">6.7.2.3.5. </span>Multi-index Columns<a class="headerlink" href="#multi-index-columns" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.3.5. </span>Multi-index Columns<a class="headerlink" href="#multi-index-columns" title="Permalink to this headline">¶</a></h3>
 <p>The functionality of <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> also applies to the column names.</p>
 <p>Let’s see how it works.</p>
 <div class="cell docutils container">
@@ -3698,7 +3703,7 @@ have a hierarchical index for column names.</p>
 </div>
 </div>
 <div class="section" id="re-setting-the-index">
-<h2><span class="section-number">6.7.2.4. </span>Re-setting the Index<a class="headerlink" href="#re-setting-the-index" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3.4. </span>Re-setting the Index<a class="headerlink" href="#re-setting-the-index" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">df.reset_index</span></code> method will move one or more level of the index
 back into the DataFrame as a normal column.</p>
 <p>With no additional arguments, it moves all levels out of the index and
@@ -4360,7 +4365,7 @@ sets the index of the returned DataFrame to the default of
 </div></blockquote>
 </div>
 <div class="section" id="choose-the-index-carefully">
-<h2><span class="section-number">6.7.2.5. </span>Choose the Index Carefully<a class="headerlink" href="#choose-the-index-carefully" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3.5. </span>Choose the Index Carefully<a class="headerlink" href="#choose-the-index-carefully" title="Permalink to this headline">¶</a></h2>
 <p>So, now that we know that we use index and column names for
 aligning data, “how should we pick the index?” is a natural question to ask.</p>
 <p>To guide us to the right answer, we will list the first two components
@@ -4383,7 +4388,7 @@ represent the date.</p>
 <p>Using hierarchical row and column indices allows us to store higher
 dimensional data in our (inherently) two dimensional DataFrame.</p>
 <div class="section" id="know-your-goal">
-<h3><span class="section-number">6.7.2.5.1. </span>Know Your Goal<a class="headerlink" href="#know-your-goal" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.5.1. </span>Know Your Goal<a class="headerlink" href="#know-your-goal" title="Permalink to this headline">¶</a></h3>
 <p>The correct column(s) to choose for the index often depends on the context of
 your analysis.</p>
 <p>For example, if I were studying how GDP and consumption evolved over time for
@@ -4397,7 +4402,7 @@ correct index.</p>
 </div>
 </div>
 <div class="section" id="exercises">
-<h2><span class="section-number">6.7.2.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <p><a id='exerciselist-0'></a>
 <strong>Exercise 1</strong></p>
 <p>What happens when you apply the <code class="docutils literal notranslate"><span class="pre">mean</span></code> method to <code class="docutils literal notranslate"><span class="pre">im_ex_tiny</span></code>?</p>
@@ -5319,8 +5324,8 @@ learn how to do the following:</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="basics.html" title="previous page"><span class="section-number">6.7.1. </span>Basic Functionality</a>
-    <a class='right-next' id="next-link" href="data_clean.html" title="next page"><span class="section-number">6.7.3. </span>Cleaning Data</a>
+    <a class='left-prev' id="prev-link" href="basics.html" title="previous page"><span class="section-number">6.2. </span>Basic Functionality</a>
+    <a class='right-next' id="next-link" href="data_clean.html" title="next page"><span class="section-number">6.4. </span>Cleaning Data</a>
 
         </div>
         

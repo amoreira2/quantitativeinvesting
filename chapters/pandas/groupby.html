@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6.7.6. GroupBy &#8212; Quantitative Investing</title>
+    <title>6.7. GroupBy &#8212; Quantitative Investing</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -54,8 +54,8 @@
     <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="6.7.7. Time series" href="timeseries.html" />
-    <link rel="prev" title="6.7.5. Merge" href="merge.html" />
+    <link rel="next" title="6.8. Time series" href="timeseries.html" />
+    <link rel="prev" title="6.6. Merge" href="merge.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -293,7 +293,7 @@
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="intro.html">
+  <a class="reference internal" href="workingwithdata.html">
    6. Working with Data
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
@@ -303,48 +303,53 @@
   </label>
   <ul class="current">
    <li class="toctree-l2">
+    <a class="reference internal" href="intro.html">
+     6.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="basics.html">
-     6.7.1. Pandas Basics
+     6.2. Pandas Basics
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="the_index.html">
-     6.7.2. Indexing
+     6.3. Indexing
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="data_clean.html">
-     6.7.3. Cleaning data
+     6.4. Cleaning data
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="reshape.html">
-     6.7.4. Reshape
+     6.5. Reshape
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="merge.html">
-     6.7.5. Merge
+     6.6. Merge
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     6.7.6. Group-by
+     6.7. Group-by
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="timeseries.html">
-     6.7.7. Time-Series
+     6.8. Time-Series
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="matplotlib.html">
-     6.7.8. Plotting
+     6.9. Plotting
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="storage_formats.html">
-     6.7.9. Data Storage
+     6.10. Data Storage
     </a>
    </li>
   </ul>
@@ -812,27 +817,27 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#outline">
-   6.7.6.1. Outline
+   6.7.1. Outline
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#split-apply-combine">
-   6.7.6.2. Split-Apply-Combine
+   6.7.2. Split-Apply-Combine
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#simple-example">
-     6.7.6.2.1. Simple Example
+     6.7.2.1. Simple Example
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#custom-aggregate-functions">
-     6.7.6.2.2. Custom Aggregate Functions
+     6.7.2.2. Custom Aggregate Functions
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#transforms-the-apply-method">
-     6.7.6.2.3. Transforms: The
+     6.7.2.3. Transforms: The
      <code class="docutils literal notranslate">
       <span class="pre">
        apply
@@ -843,7 +848,7 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pd-grouper">
-     6.7.6.2.4.
+     6.7.2.4.
      <code class="docutils literal notranslate">
       <span class="pre">
        pd.Grouper
@@ -855,24 +860,24 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#case-study-airline-delays">
-   6.7.6.3. Case Study: Airline Delays
+   6.7.3. Case Study: Airline Delays
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercise-cohort-analysis-using-shopify-data">
-   6.7.6.4. Exercise: Cohort Analysis using Shopify Data
+   6.7.4. Exercise: Cohort Analysis using Shopify Data
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#extended-exercise">
-     6.7.6.4.1. Extended Exercise
+     6.7.4.1. Extended Exercise
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   6.7.6.5. Exercises
+   6.7.5. Exercises
   </a>
  </li>
 </ul>
@@ -887,7 +892,7 @@
               <div>
                 
   <div class="section" id="groupby">
-<h1><span class="section-number">6.7.6. </span>GroupBy<a class="headerlink" href="#groupby" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.7. </span>GroupBy<a class="headerlink" href="#groupby" title="Permalink to this headline">¶</a></h1>
 <p><strong>Prerequisites</strong></p>
 <ul class="simple">
 <li><p><span class="xref myst">Functions</span></p></li>
@@ -933,7 +938,7 @@ Statistics</a></p></li>
 </div>
 </div>
 <div class="section" id="outline">
-<h2><span class="section-number">6.7.6.1. </span>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.7.1. </span>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="#GroupBy">GroupBy</a></p>
 <ul>
@@ -946,7 +951,7 @@ Statistics</a></p></li>
 </ul>
 </div>
 <div class="section" id="split-apply-combine">
-<h2><span class="section-number">6.7.6.2. </span>Split-Apply-Combine<a class="headerlink" href="#split-apply-combine" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.7.2. </span>Split-Apply-Combine<a class="headerlink" href="#split-apply-combine" title="Permalink to this headline">¶</a></h2>
 <p>One powerful paradigm for analyzing data is the “Split-Apply-Combine”
 strategy.</p>
 <p>This strategy has three steps:</p>
@@ -1042,7 +1047,7 @@ then work through extended example and exercises with real data.</p>
 </div></div></div>
 </div>
 <div class="section" id="simple-example">
-<h3><span class="section-number">6.7.6.2.1. </span>Simple Example<a class="headerlink" href="#simple-example" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.7.2.1. </span>Simple Example<a class="headerlink" href="#simple-example" title="Permalink to this headline">¶</a></h3>
 <p>To perform the <em>Split</em> step, we call the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> method on our
 DataFrame.</p>
 <p>The first argument to <code class="docutils literal notranslate"><span class="pre">groupby</span></code> is a description of how we want to
@@ -1322,7 +1327,7 @@ with one index level per group key.</p>
 </div></blockquote>
 </div>
 <div class="section" id="custom-aggregate-functions">
-<h3><span class="section-number">6.7.6.2.2. </span>Custom Aggregate Functions<a class="headerlink" href="#custom-aggregate-functions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.7.2.2. </span>Custom Aggregate Functions<a class="headerlink" href="#custom-aggregate-functions" title="Permalink to this headline">¶</a></h3>
 <p>So far, we have been applying built-in aggregations to our GroupBy object.</p>
 <p>We can also apply custom aggregations to each group of a GroupBy in two
 steps:</p>
@@ -1415,7 +1420,7 @@ with one item per column in the original DataFrame.</p>
 our function as a DataFrame (or Series).</p>
 </div>
 <div class="section" id="transforms-the-apply-method">
-<h3><span class="section-number">6.7.6.2.3. </span>Transforms: The <code class="docutils literal notranslate"><span class="pre">apply</span></code> Method<a class="headerlink" href="#transforms-the-apply-method" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.7.2.3. </span>Transforms: The <code class="docutils literal notranslate"><span class="pre">apply</span></code> Method<a class="headerlink" href="#transforms-the-apply-method" title="Permalink to this headline">¶</a></h3>
 <p>As we saw in the <a class="reference internal" href="basics.html"><span class="doc std std-doc">basics lecture</span></a>, we can apply transforms to DataFrames.</p>
 <p>We can do the same with GroupBy objects using the <code class="docutils literal notranslate"><span class="pre">.apply</span></code> method.</p>
 <p>Let’s see an example.</p>
@@ -1580,7 +1585,7 @@ that would appear in the result of the call to <code class="docutils literal not
 </div></blockquote>
 </div>
 <div class="section" id="pd-grouper">
-<h3><span class="section-number">6.7.6.2.4. </span><code class="docutils literal notranslate"><span class="pre">pd.Grouper</span></code><a class="headerlink" href="#pd-grouper" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.7.2.4. </span><code class="docutils literal notranslate"><span class="pre">pd.Grouper</span></code><a class="headerlink" href="#pd-grouper" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes, in order to construct the groups you want, you need to give
 pandas more information than just a column name.</p>
 <p>Some examples are:</p>
@@ -1896,7 +1901,7 @@ denotes a column name</p>
 </div>
 </div>
 <div class="section" id="case-study-airline-delays">
-<h2><span class="section-number">6.7.6.3. </span>Case Study: Airline Delays<a class="headerlink" href="#case-study-airline-delays" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.7.3. </span>Case Study: Airline Delays<a class="headerlink" href="#case-study-airline-delays" title="Permalink to this headline">¶</a></h2>
 <p>Let’s apply our new split-apply-combine skills to the airline dataset we
 saw in the <a class="reference internal" href="merge.html"><span class="doc std std-doc">merge</span></a> lecture.</p>
 <div class="cell docutils container">
@@ -2761,7 +2766,7 @@ November 2016 data, with two lines of code).</p>
 <p>Keep that in mind as we work through the rest of the materials.</p>
 </div>
 <div class="section" id="exercise-cohort-analysis-using-shopify-data">
-<h2><span class="section-number">6.7.6.4. </span>Exercise: Cohort Analysis using Shopify Data<a class="headerlink" href="#exercise-cohort-analysis-using-shopify-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.7.4. </span>Exercise: Cohort Analysis using Shopify Data<a class="headerlink" href="#exercise-cohort-analysis-using-shopify-data" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">qeds</span></code> library includes routines to simulate data sets in the
 format of common sources</p>
 <p>One of these sources is <a class="reference external" href="https://www.shopify.com/">Shopify</a> — an
@@ -2937,7 +2942,7 @@ complete.</p>
 total quantity separated by customer cohort and customer type.</p>
 <p>Read that carefully one more time…</p>
 <div class="section" id="extended-exercise">
-<h3><span class="section-number">6.7.6.4.1. </span>Extended Exercise<a class="headerlink" href="#extended-exercise" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.7.4.1. </span>Extended Exercise<a class="headerlink" href="#extended-exercise" title="Permalink to this headline">¶</a></h3>
 <p>Using the reshape and <code class="docutils literal notranslate"><span class="pre">groupby</span></code> tools you have learned, apply the want
 operator described above.</p>
 <p>See below for advice on how to proceed.</p>
@@ -2994,7 +2999,7 @@ move things to the right place in rows and columns.</p></li>
 </div>
 </div>
 <div class="section" id="exercises">
-<h2><span class="section-number">6.7.6.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.7.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <p><a id='exerciselist-0'></a>
 <strong>Exercise 1</strong></p>
 <p>Look closely at the output of the cells below.</p>
@@ -3253,8 +3258,8 @@ appropriate values to replicate the plots from above.</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="merge.html" title="previous page"><span class="section-number">6.7.5. </span>Merge</a>
-    <a class='right-next' id="next-link" href="timeseries.html" title="next page"><span class="section-number">6.7.7. </span>Time series</a>
+    <a class='left-prev' id="prev-link" href="merge.html" title="previous page"><span class="section-number">6.6. </span>Merge</a>
+    <a class='right-next' id="next-link" href="timeseries.html" title="next page"><span class="section-number">6.8. </span>Time series</a>
 
         </div>
         
