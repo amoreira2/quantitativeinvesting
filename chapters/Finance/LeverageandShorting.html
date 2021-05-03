@@ -1076,8 +1076,21 @@ Done
 \[w\times r^i_t+(1-w)r^f+\min(w,0)sf^i\]</div>
 <ul class="simple">
 <li><p>where inital margin constraint  implies that |w| has to be lower than 2.</p></li>
-<li><p>and after the trade is initated</p></li>
-<li><p>where <span class="math notranslate nohighlight">\(sf^i\)</span> is the shorting fee you pay per period to short, which typically is quoted in annualized terms and can change briskly over time.</p></li>
+<li><p>and after the trade is initated is cannot go above 1/0.3</p></li>
+</ul>
+<p><strong>How does this work for a long-short trade?</strong></p>
+<p>Suppose you want to a “market netural trade where you buy 1M worth of different fintech stocks and short 1M worth of banks. How mucy capital do you need?</p>
+<ul class="simple">
+<li><p>to initiate the long-trade you will need 500k, 50% margin on 1M position</p></li>
+<li><p>same thing for the short position, you will need 500 to satisfy the 50% marging</p></li>
+<li><p>So in the end your portfolio looks like (+1M Fintech,-1M Banks, 1M treasuries)</p></li>
+<li><p>so your 1 Million dollar still earns the risk-free rate</p></li>
+<li><p>so for someone that can fund themselves at the risk-free rate– or have money parked in treasuries anyways, the lond-short is costless as we modeled</p></li>
+<li><p>In practice most arbitrageurs have the bear minimum in treasuries and have a much higher cost of funding then treasuries</p></li>
+</ul>
+<p><strong>Shorting fees</strong></p>
+<ul class="simple">
+<li><p>In the expression above <span class="math notranslate nohighlight">\(sf^i\)</span> is the shorting fee you pay per period to short, which typically is quoted in annualized terms and can change briskly over time.</p></li>
 <li><p>Here is a snapshort of the fee to borrow GME stock early this year (the borrowing rate is in red)</p></li>
 </ul>
 <p><img alt="image.png" src="../../_images/leverageandshorting4.jpg" /></p>
@@ -1089,7 +1102,7 @@ Done
 <ul class="simple">
 <li><p>Where <span class="math notranslate nohighlight">\(\sum_i^I |w^i|\leq 1/m_{initial}\)</span></p></li>
 </ul>
-<p>**Application: Shorting GME **</p>
+<p><strong>Application: Shorting GME</strong></p>
 <p>Now consider a big unconsitraiend hedge fund that started shorting GME early 2020. We will now assume that they jsut inject cash as nedded in the trade. We will then track their capital commited to the trade and their dollar “P&amp;L” , i.e the dollars profits/losses of the trade.</p>
 <p>We will start assuming shorting fee is zero</p>
 <div class="cell docutils container">
