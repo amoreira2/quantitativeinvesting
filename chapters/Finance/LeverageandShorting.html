@@ -855,7 +855,7 @@
 <li><p>here are the <a class="reference external" href="https://www.interactivebrokers.com/en/index.php?f=46376">lending rates of a big retail broker</a></p></li>
 <li><p>Here is snapshot from May/2021</p></li>
 </ul>
-<p><img alt="image.png" src="chapters/Finance/attachment:cdf24902-a4ab-4add-9495-a745fda02b67.png" /></p>
+<p><img alt="image.png" src="../../_images/leverageandshorting1.jpg" /></p>
 <ul class="simple">
 <li><p>The structure of the rate is the following</p></li>
 </ul>
@@ -884,7 +884,7 @@
 </li>
 <li><p>here is for a US retial broker. Focus on the top row, 50% initial , 30% maintenance, which translates to 1/0.5=2 initial leverage and 1/0.3=2.33 maintenance leverage</p></li>
 </ul>
-<p><img alt="image.png" src="chapters/Finance/attachment:3449b88c-67bd-45f5-b4dd-7e6a2f306974.png" /></p>
+<p><img alt="image.png" src="../../_images/leverageandshorting2.jpg" /></p>
 <p><strong>Example</strong></p>
 <p>lets say  <span class="math notranslate nohighlight">\(m_{initial}=0.5\)</span> and <span class="math notranslate nohighlight">\(m_{maintenance}=0.3\)</span>. Say you have 100k in your brokerage account and you can buy up to 200K in stocks. The broker lends to you 100k and hold the whole 200k in assets as protection. The value of your networth is still 100k. 200k in stocks -100k in the risk-free asset. For simplicity lets assume the risk-free rate is zero in this example.</p>
 <ul class="simple">
@@ -926,7 +926,7 @@
 <li><p>If you don’t do it your broker will certainly sell fro you and  might even liquidiate your entire position</p></li>
 <li><p>for example, here is from a retail broker</p></li>
 </ul>
-<p><img alt="image.png" src="chapters/Finance/attachment:c99d5ff3-87ae-40ff-8f43-b1d163fc073f.png" /></p>
+<p><img alt="image.png" src="../../_images/leverageandshorting3.jpg" /></p>
 <ul class="simple">
 <li><p>When the position to be sold is large, this can lead to very sharp price movements</p></li>
 <li><p>The dealers does not care at all about the price that he sells for as long he can get his money</p>
@@ -1080,7 +1080,7 @@ Done
 <li><p>where <span class="math notranslate nohighlight">\(sf^i\)</span> is the shorting fee you pay per period to short, which typically is quoted in annualized terms and can change briskly over time.</p></li>
 <li><p>Here is a snapshort of the fee to borrow GME stock early this year (the borrowing rate is in red)</p></li>
 </ul>
-<p><img alt="image.png" src="chapters/Finance/attachment:d20d3cbd-3a60-4f33-991b-84ee2d6559ec.png" /></p>
+<p><img alt="image.png" src="../../_images/leverageandshorting4.jpg" /></p>
 <ul class="simple">
 <li><p>A full portfolio looks like (here I am assuming you don’t lever up)</p></li>
 </ul>
@@ -1151,6 +1151,29 @@ Done
 </div>
 <img alt="../../_images/LeverageandShorting_12_3.png" src="../../_images/LeverageandShorting_12_3.png" />
 <img alt="../../_images/LeverageandShorting_12_4.png" src="../../_images/LeverageandShorting_12_4.png" />
+</div>
+</div>
+<p>Suppose you were a hedge fund with 200M capital, you placed a fairly small 1 million dollar trade. You were fully commited and thoguht you had the cpaital to support it.</p>
+<p>By late january sustaining the trade required 140 million dollars! And this does not take into account the fact that margin requirements became much tighter du to the immense volatiltiy of GME stock in the period.</p>
+<ul class="simple">
+<li><p>You can see above that the volatiltiy of the fund net position went to 800%!</p></li>
+<li><p>This is 50% daily volatility!</p></li>
+<li><p>A two standard deviaiton even would wipe out your margin!</p></li>
+<li><p>As response to this retail brokers increase margin requirements on GME shorts to 300%</p></li>
+<li><p>I am not sure what intitutional brokers did, but likely they increased their leverage reuqirements too.</p></li>
+<li><p>This implies required capital would increase 6 fold going from 140 to 840 Million dollars</p></li>
+<li><p>840 million dollars to sustain the 1 million dollars trade!</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">8</span><span class="o">/</span><span class="mi">252</span><span class="o">**</span><span class="mf">0.5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5039526306789696
+</pre></div>
+</div>
 </div>
 </div>
 </div>
