@@ -922,8 +922,7 @@
 
 <span class="n">daily</span><span class="o">=</span><span class="n">mkt_d</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">rf_d</span><span class="p">,</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span><span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1"># save data locally</span>
-<span class="n">daily</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="s1">&#39;../../assets/data/daily.pkl&#39;</span><span class="p">)</span>
-<span class="c1">#mkt_d.to_csv(&#39;E:/Dropbox/Public/Fin418/Data/mk_d.csv&#39;)</span>
+<span class="c1">#daily.to_pickle(&#39;../../assets/data/daily.pkl&#39;)</span>
 </pre></div>
 </div>
 </div>
@@ -931,7 +930,7 @@
 <p>Alternatively simply import from Gihub by substituting the address below</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">daily</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;../../assets/data/daily.pkl&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">daily</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;https://github.com/amoreira2/Lectures/blob/main/assets/data/daily.pkl?raw=true&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

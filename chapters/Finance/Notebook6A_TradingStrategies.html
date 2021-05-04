@@ -849,7 +849,7 @@
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="c1">#GlobalFinMonthly</span>
-<span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://www.dropbox.com/s/3k35mt3t57ygff2/GlobalFinMonthly.csv?dl=1&quot;</span>
+<span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://raw.githubusercontent.com/amoreira2/Lectures/4b95c7d60e869dffa6367c1730183b68920ed2b9/assets/data/GlobalFinMonthly.csv&quot;</span>
 <span class="n">Data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">na_values</span><span class="o">=-</span><span class="mi">99</span><span class="p">)</span>
 <span class="n">Data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">Data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
 <span class="n">Data</span><span class="o">=</span><span class="n">Data</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
@@ -1546,6 +1546,8 @@ Name: 1972-12-31 00:00:00, dtype: float64
 <span class="s2">                      and b.shrcd between 10 and 11</span>
 <span class="s2">                      &quot;&quot;&quot;</span><span class="p">,</span> <span class="n">date_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span> 
 
+<span class="c1"># this saves it</span>
+<span class="c1">#crsp_m.to_pickle(&#39;../../assets/data/crspm2005_2020.pkl&#39;)</span>
 <span class="c1"># variables downloaded</span>
 
 <span class="c1"># 1. Permno-- are unique indentifier to a security </span>
@@ -1581,8 +1583,7 @@ Done
 <p><em>If you don’t want to deal with that you can simply get the data by running the code below</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">crsp_m</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="s1">&#39;crspm2005_2020.pkl&#39;</span><span class="p">)</span>
-<span class="n">crsp_m</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;crspm2005_2020.pkl&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">crsp_m</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;https://github.com/amoreira2/Lectures/blob/main/assets/data/crspm2005_2020.pkl?raw=true&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
