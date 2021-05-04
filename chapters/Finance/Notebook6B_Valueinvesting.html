@@ -504,8 +504,13 @@
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="Equilbrium.html">
+     16.1. Intepreting Factor models
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="Implementation.html">
-     16.1. Strategy Implementation
+     16.2. Strategy Implementation
     </a>
    </li>
   </ul>
@@ -925,7 +930,7 @@ all anomalies, with a rational risk-based interpretation.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.dropbox.com/s/lyvzy649na6p8su/value_characteristic.csv?dl=1&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/amoreira2/Lectures/main/assets/data/value_characteristic.csv&quot;</span>
 <span class="n">parser</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">date</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">date</span><span class="p">,</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%m%y&#39;</span><span class="p">)</span>
 <span class="n">Data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="c1"># This simply shits the date to be in an end of month basis</span>
