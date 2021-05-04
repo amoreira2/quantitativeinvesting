@@ -868,7 +868,13 @@
         
               <div>
                 
-  <div class="cell tag_remove-input docutils container">
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">array</span>
+<span class="n">path_data</span> <span class="o">=</span> <span class="s1">&#39;../../../assets/data/&#39;</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="arrays">
 <h1><span class="section-number">3.5.1. </span>Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h1>
@@ -876,7 +882,7 @@
 <p>Arrays can also contain strings or other types of values, but a single array can only contain a single kind of data. (It usually doesn’t make sense to group together unlike data anyway.)  For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">english_parts_of_speech</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">(</span><span class="s2">&quot;noun&quot;</span><span class="p">,</span> <span class="s2">&quot;pronoun&quot;</span><span class="p">,</span> <span class="s2">&quot;verb&quot;</span><span class="p">,</span> <span class="s2">&quot;adverb&quot;</span><span class="p">,</span> <span class="s2">&quot;adjective&quot;</span><span class="p">,</span> <span class="s2">&quot;conjunction&quot;</span><span class="p">,</span> <span class="s2">&quot;preposition&quot;</span><span class="p">,</span> <span class="s2">&quot;interjection&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">english_parts_of_speech</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="s2">&quot;noun&quot;</span><span class="p">,</span> <span class="s2">&quot;pronoun&quot;</span><span class="p">,</span> <span class="s2">&quot;verb&quot;</span><span class="p">,</span> <span class="s2">&quot;adverb&quot;</span><span class="p">,</span> <span class="s2">&quot;adjective&quot;</span><span class="p">,</span> <span class="s2">&quot;conjunction&quot;</span><span class="p">,</span> <span class="s2">&quot;preposition&quot;</span><span class="p">,</span> <span class="s2">&quot;interjection&quot;</span><span class="p">])</span>
 <span class="n">english_parts_of_speech</span>
 </pre></div>
 </div>
@@ -892,10 +898,10 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseline_high</span> <span class="o">=</span> <span class="mf">14.48</span>
-<span class="n">highs</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">(</span><span class="n">baseline_high</span> <span class="o">-</span> <span class="mf">0.880</span><span class="p">,</span> 
+<span class="n">highs</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="n">baseline_high</span> <span class="o">-</span> <span class="mf">0.880</span><span class="p">,</span> 
                    <span class="n">baseline_high</span> <span class="o">-</span> <span class="mf">0.093</span><span class="p">,</span>
                    <span class="n">baseline_high</span> <span class="o">+</span> <span class="mf">0.105</span><span class="p">,</span> 
-                   <span class="n">baseline_high</span> <span class="o">+</span> <span class="mf">0.684</span><span class="p">)</span>
+                   <span class="n">baseline_high</span> <span class="o">+</span> <span class="mf">0.684</span><span class="p">])</span>
 <span class="n">highs</span>
 </pre></div>
 </div>
@@ -980,6 +986,8 @@
 </div>
 </div>
 </div>
+<p>Teh <code class="docutils literal notranslate"><span class="pre">array</span></code> function we used earier is actually a numpy function that we imported in the first row.</p>
+<p>It is however much more conveninet to simply import the entture numpy library with <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code> and the call the fuction with the command <code class="docutils literal notranslate"><span class="pre">np.array()</span></code></p>
 <p>The <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/">full Numpy reference</a> lists these functions exhaustively, but only a small subset are used commonly for data processing applications. These are grouped into different packages within <code class="docutils literal notranslate"><span class="pre">np</span></code>. Learning this vocabulary is an important part of learning the Python language, so refer back to this list often as you work through examples and problems.</p>
 <p>However, you <strong>don’t need to memorize these</strong>.  Use this as a reference.</p>
 <p>Each of these functions takes an array as an argument and returns a single value.</p>
@@ -1088,6 +1096,7 @@
 </tr>
 </tbody>
 </table>
+<p>We will cover numpy functionality in detail in chapter 5.</p>
 </div>
 </div>
 

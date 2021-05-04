@@ -50,8 +50,6 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="canonical" href="https://amoreira2.github.io/quantitativeinvesting/chapters/05/2/Ranges.html" />
     <link rel="shortcut icon" href="../../../_static/figuremain2.jpg"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -849,27 +847,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-leibniz-s-formula-for-pi">
-   3.5.2.1. Example: Leibniz’s formula for
-   <span class="math notranslate nohighlight">
-    \(\pi\)
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#footnotes">
-   3.5.2.2. Footnotes
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -946,82 +923,6 @@ Ranges are useful in a surprisingly large number of situations, so it’s worthw
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="example-leibniz-s-formula-for-pi">
-<h2><span class="section-number">3.5.2.1. </span>Example: Leibniz’s formula for <span class="math notranslate nohighlight">\(\pi\)</span><a class="headerlink" href="#example-leibniz-s-formula-for-pi" title="Permalink to this headline">¶</a></h2>
-<p>The great German mathematician and philosopher <a class="reference external" href="https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz">Gottfried Wilhelm Leibniz</a>
-(1646 - 1716) discovered a wonderful formula for <span class="math notranslate nohighlight">\(\pi\)</span> as an infinite sum of simple fractions. The formula is</p>
-<div class="math notranslate nohighlight">
-\[\pi = 4 \cdot \left(1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} - \frac{1}{11} + \dots\right)\]</div>
-<p>Though some math is needed to establish this, we can use arrays to convince ourselves that the formula works. Let’s calculate the first 5000 terms of Leibniz’s infinite sum and see if it is close to <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[4 \cdot \left(1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} - \frac{1}{11} + \dots - \frac{1}{9999} \right)\]</div>
-<p>We will calculate this finite sum by adding all the positive terms first and then subtracting the sum of all the negative terms <a class="reference external" href="#footnotes">[1]</a>:</p>
-<div class="math notranslate nohighlight">
-\[4 \cdot \left( \left(1 + \frac{1}{5} + \frac{1}{9} + \dots + \frac{1}{9997} \right) - \left(\frac{1}{3} + \frac{1}{7} + \frac{1}{11} + \dots + \frac{1}{9999} \right) \right)\]</div>
-<p>The positive terms in the sum have 1, 5, 9, and so on in the denominators. The array <code class="docutils literal notranslate"><span class="pre">by_four_to_20</span></code> contains these numbers up to 17:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">by_four_to_20</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">by_four_to_20</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1,  5,  9, 13, 17])
-</pre></div>
-</div>
-</div>
-</div>
-<p>To get an accurate approximation to <span class="math notranslate nohighlight">\(\pi\)</span>, we’ll use the much longer array <code class="docutils literal notranslate"><span class="pre">positive_term_denominators</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">positive_term_denominators</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">positive_term_denominators</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([   1,    5,    9, ..., 9989, 9993, 9997])
-</pre></div>
-</div>
-</div>
-</div>
-<p>The positive terms we actually want to add together are just 1 over these denominators:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">positive_terms</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">positive_term_denominators</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The negative terms have 3, 7, 11, and so on on in their denominators. This array is just 2 added to <code class="docutils literal notranslate"><span class="pre">positive_term_denominators</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">negative_terms</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">positive_term_denominators</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The overall sum is</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="o">*</span> <span class="p">(</span> <span class="nb">sum</span><span class="p">(</span><span class="n">positive_terms</span><span class="p">)</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">(</span><span class="n">negative_terms</span><span class="p">)</span> <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.1413926535917955
-</pre></div>
-</div>
-</div>
-</div>
-<p>This is very close to <span class="math notranslate nohighlight">\(\pi = 3.14159\dots\)</span>. Leibniz’s formula is looking good!</p>
-<p><a id='footnotes'></a></p>
-</div>
-<div class="section" id="footnotes">
-<h2><span class="section-number">3.5.2.2. </span>Footnotes<a class="headerlink" href="#footnotes" title="Permalink to this headline">¶</a></h2>
-<p>[1] Surprisingly, when we add  <em>infinitely</em> many fractions, the order can matter! But our approximation to <span class="math notranslate nohighlight">\(\pi\)</span> uses only a large finite number of fractions, so it’s okay to add the terms in any convenient order.</p>
 </div>
 </div>
 

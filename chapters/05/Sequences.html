@@ -855,17 +855,23 @@
         
               <div>
                 
-  <div class="cell tag_remove-input docutils container">
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">array</span>
+<span class="n">path_data</span> <span class="o">=</span> <span class="s1">&#39;../../data/&#39;</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="sequences">
 <h1><span class="section-number">3.5. </span>Sequences<a class="headerlink" href="#sequences" title="Permalink to this headline">¶</a></h1>
 <p>Values can be grouped together into collections, which allows programmers to organize those values and refer to all of them with a single name. By grouping values together, we can write code that performs a computation on many pieces of data at once.</p>
-<p>Calling the function <code class="docutils literal notranslate"><span class="pre">make_array</span></code> on several values places them into an <em>array</em>, which is a kind of sequential collection. Below, we collect four different temperatures into an array called <code class="docutils literal notranslate"><span class="pre">highs</span></code>. These are the <a class="reference external" href="http://berkeleyearth.lbl.gov/regions/global-land">estimated average daily high temperatures</a> over all land on Earth (in degrees Celsius) for the decades surrounding 1850, 1900, 1950, and 2000, respectively, expressed as deviations from the average absolute high temperature between 1951 and 1980, which was 14.48 degrees.</p>
+<p>Calling the function <code class="docutils literal notranslate"><span class="pre">array</span></code> on several values places them into an <em>array</em>, which is a kind of sequential collection. Below, we collect four different temperatures into an array called <code class="docutils literal notranslate"><span class="pre">highs</span></code>. These are the <a class="reference external" href="http://berkeleyearth.lbl.gov/regions/global-land">estimated average daily high temperatures</a> over all land on Earth (in degrees Celsius) for the decades surrounding 1850, 1900, 1950, and 2000, respectively, expressed as deviations from the average absolute high temperature between 1951 and 1980, which was 14.48 degrees.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseline_high</span> <span class="o">=</span> <span class="mf">14.48</span>
-<span class="n">highs</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">(</span><span class="n">baseline_high</span> <span class="o">-</span> <span class="mf">0.880</span><span class="p">,</span> <span class="n">baseline_high</span> <span class="o">-</span> <span class="mf">0.093</span><span class="p">,</span>
-                   <span class="n">baseline_high</span> <span class="o">+</span> <span class="mf">0.105</span><span class="p">,</span> <span class="n">baseline_high</span> <span class="o">+</span> <span class="mf">0.684</span><span class="p">)</span>
+<span class="n">highs</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="n">baseline_high</span> <span class="o">-</span> <span class="mf">0.880</span><span class="p">,</span> <span class="n">baseline_high</span> <span class="o">-</span> <span class="mf">0.093</span><span class="p">,</span>
+                   <span class="n">baseline_high</span> <span class="o">+</span> <span class="mf">0.105</span><span class="p">,</span> <span class="n">baseline_high</span> <span class="o">+</span> <span class="mf">0.684</span><span class="p">])</span>
 <span class="n">highs</span>
 </pre></div>
 </div>

@@ -860,72 +860,40 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#application-production-functions">
-   4.4.2. Application: Production Functions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#factors-of-production">
-     4.4.2.1. Factors of Production
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#an-example-production-function">
-     4.4.2.2. An Example Production Function
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-are-python-functions">
-   4.4.3. What are (Python) Functions?
+   4.4.2. What are (Python) Functions?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#how-to-define-python-functions">
-   4.4.4. How to Define (Python) Functions?
+   4.4.3. How to Define (Python) Functions?
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#scope">
-     4.4.4.1. Scope
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#re-using-functions">
-     4.4.4.2. Re-using Functions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#multiple-returns">
-     4.4.4.3. Multiple Returns
+     4.4.3.1. Scope
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#documentation">
-     4.4.4.4. Documentation
+     4.4.3.2. Documentation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#default-and-keyword-arguments">
-     4.4.4.5. Default and Keyword Arguments
+     4.4.3.3. Default and Keyword Arguments
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#aside-methods">
-     4.4.4.6. Aside: Methods
+     4.4.3.4. Aside: Methods
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#more-on-scope-optional">
-   4.4.5. More on Scope (Optional)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   4.4.6. Exercises
+   4.4.4. Exercises
   </a>
  </li>
 </ul>
@@ -941,13 +909,6 @@
                 
   <div class="section" id="functions">
 <h1><span class="section-number">4.4. </span>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
-<p><strong>Prerequisites</strong></p>
-<ul class="simple">
-<li><p><span class="xref myst">Getting Started</span></p></li>
-<li><p><a class="reference internal" href="basics.html"><span class="doc std std-doc">Basics</span></a></p></li>
-<li><p><a class="reference internal" href="collections.html"><span class="doc std std-doc">Collections</span></a></p></li>
-<li><p><a class="reference internal" href="control_flow.html"><span class="doc std std-doc">Control Flow</span></a></p></li>
-</ul>
 <p><strong>Outcomes</strong></p>
 <ul class="simple">
 <li><p>Economic Production Functions</p>
@@ -979,62 +940,8 @@
 </ul>
 <p><a id='production-functions'></a></p>
 </div>
-<div class="section" id="application-production-functions">
-<h2><span class="section-number">4.4.2. </span>Application: Production Functions<a class="headerlink" href="#application-production-functions" title="Permalink to this headline">¶</a></h2>
-<p>Production functions are useful when modeling the economics of firms producing
-goods or the aggregate output in an economy.</p>
-<p>Though the term “function” is used in a mathematical sense here, we will be making
-tight connections between the programming of mathematical functions and Python
-functions.</p>
-<div class="section" id="factors-of-production">
-<h3><span class="section-number">4.4.2.1. </span>Factors of Production<a class="headerlink" href="#factors-of-production" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Factors_of_production">factors of production</a>
-are the inputs used in the production of some sort of output.</p>
-<p>Some example factors of production include</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Physical_capital">Physical capital</a>, e.g.
-machines, buildings, computers, and power stations.</p></li>
-<li><p>Labor, e.g. all of the hours of work from different types of employees of a
-firm.</p></li>
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Human_capital">Human Capital</a>, e.g. the
-knowledge of employees within a firm.</p></li>
-</ul>
-<p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Production_function">production function</a>
-maps a set of inputs to the output, e.g. the amount of wheat produced by a
-farm, or widgets produced in a factory.</p>
-<p>As an example of the notation, we denote the total units of labor and
-physical capital used in a factory as <span class="math notranslate nohighlight">\( L \)</span> and <span class="math notranslate nohighlight">\( K \)</span> respectively.</p>
-<p>If we denote the physical output of the factory as <span class="math notranslate nohighlight">\( Y \)</span>, then a production
-function <span class="math notranslate nohighlight">\( F \)</span> that transforms labor and capital into output might have the
-form:</p>
-<div class="math notranslate nohighlight">
-\[
-Y = F(K, L)
-\]</div>
-<p><a id='cobb-douglas-example'></a></p>
-</div>
-<div class="section" id="an-example-production-function">
-<h3><span class="section-number">4.4.2.2. </span>An Example Production Function<a class="headerlink" href="#an-example-production-function" title="Permalink to this headline">¶</a></h3>
-<p>Throughout this lecture, we will use the
-<a class="reference external" href="https://en.wikipedia.org/wiki/Cobb%E2%80%93Douglas_production_function">Cobb-Douglas</a>
-production function to help us understand how to create Python
-functions and why they are useful.</p>
-<p>The Cobb-Douglas production function has appealing statistical properties when brought to data.</p>
-<p>This function is displayed below.</p>
-<div class="math notranslate nohighlight">
-\[
-Y = z K^{\alpha} L^{1-\alpha}
-\]</div>
-<p>The function is parameterized by:</p>
-<ul class="simple">
-<li><p>A parameter <span class="math notranslate nohighlight">\( \alpha \in [0,1] \)</span>, called the “output elasticity of
-capital”.</p></li>
-<li><p>A value <span class="math notranslate nohighlight">\( z \)</span> called the <a class="reference external" href="https://en.wikipedia.org/wiki/Total_factor_productivity">Total Factor Productivity</a> (TFP).</p></li>
-</ul>
-</div>
-</div>
 <div class="section" id="what-are-python-functions">
-<h2><span class="section-number">4.4.3. </span>What are (Python) Functions?<a class="headerlink" href="#what-are-python-functions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.4.2. </span>What are (Python) Functions?<a class="headerlink" href="#what-are-python-functions" title="Permalink to this headline">¶</a></h2>
 <p>In this class, we will often talk about <code class="docutils literal notranslate"><span class="pre">function</span></code>s.</p>
 <p>So what is a function?</p>
 <p>We like to think of a function as a production line in a
@@ -1051,7 +958,7 @@ sharing pieces of code with collaborators.</p></li>
 </ul>
 </div>
 <div class="section" id="how-to-define-python-functions">
-<h2><span class="section-number">4.4.4. </span>How to Define (Python) Functions?<a class="headerlink" href="#how-to-define-python-functions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.4.3. </span>How to Define (Python) Functions?<a class="headerlink" href="#how-to-define-python-functions" title="Permalink to this headline">¶</a></h2>
 <p>The basic syntax to create our own function is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
     <span class="c1"># step 1</span>
@@ -1135,7 +1042,7 @@ controls blocks of code (along with the <a class="reference external" href="#sco
 </div>
 <p><a id='scope'></a></p>
 <div class="section" id="scope">
-<h3><span class="section-number">4.4.4.1. </span>Scope<a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.4.3.1. </span>Scope<a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h3>
 <p>Notice that we named the input to the function <code class="docutils literal notranslate"><span class="pre">x</span></code> and we called the output
 <code class="docutils literal notranslate"><span class="pre">the_mean</span></code>.</p>
 <p>When we defined the function, the input was called <code class="docutils literal notranslate"><span class="pre">numbers</span></code> and the output
@@ -1205,257 +1112,10 @@ don’t have to be given a name outside the function.</p>
 </div>
 </div>
 </div>
-<p>Notice that we didn’t name the input or the output, but the function was
-called successfully.</p>
-<p>Now, we’ll use our new knowledge to define a function which computes the output
-from a Cobb-Douglas production function with parameters <span class="math notranslate nohighlight">\( z = 1 \)</span> and
-<span class="math notranslate nohighlight">\( \alpha = 0.33 \)</span> and takes inputs <span class="math notranslate nohighlight">\( K \)</span> and <span class="math notranslate nohighlight">\( L \)</span>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cobb_douglas</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">L</span><span class="p">):</span>
-
-    <span class="c1"># Create alpha and z</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.33</span>
-
-    <span class="k">return</span> <span class="n">z</span> <span class="o">*</span> <span class="n">K</span><span class="o">**</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">L</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can use this function as we did the mean function.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cobb_douglas</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6285066872609142
-</pre></div>
-</div>
-</div>
-</div>
 <p><a id='returns-to-scale'></a></p>
 </div>
-<div class="section" id="re-using-functions">
-<h3><span class="section-number">4.4.4.2. </span>Re-using Functions<a class="headerlink" href="#re-using-functions" title="Permalink to this headline">¶</a></h3>
-<p>Economists are often interested in this question: how much does output
-change if we modify our inputs?</p>
-<p>For example, take a production function <span class="math notranslate nohighlight">\( Y_1 = F(K_1,L_1) \)</span> which produces
-<span class="math notranslate nohighlight">\( Y_1 \)</span> units of the goods.</p>
-<p>If we then multiply the inputs each by <span class="math notranslate nohighlight">\( \gamma \)</span>, so that
-<span class="math notranslate nohighlight">\( K_2 = \gamma K_1 \)</span> and <span class="math notranslate nohighlight">\( L_2 = \gamma L_1 \)</span>, then the output is</p>
-<div class="math notranslate nohighlight">
-\[
-Y_2 = F(K_2, L_2) = F(\gamma K_1, \gamma L_1)
-\]</div>
-<p>How does <span class="math notranslate nohighlight">\( Y_1 \)</span> compare to <span class="math notranslate nohighlight">\( Y_2 \)</span>?</p>
-<p>Answering this question involves something called <em>returns to scale</em>.</p>
-<p>Returns to scale tells us whether our inputs are more or less productive as we
-have more of them.</p>
-<p>For example, imagine that you run a restaurant. How would you expect the amount
-of food you could produce would change if you could build an exact replica of
-your restaurant and kitchen and hire the same number of cooks and waiters? You
-would probably expect it to double.</p>
-<p>If, for any <span class="math notranslate nohighlight">\( K, L \)</span>, we multiply <span class="math notranslate nohighlight">\( K, L \)</span> by a value <span class="math notranslate nohighlight">\( \gamma \)</span>
-then</p>
-<ul class="simple">
-<li><p>If <span class="math notranslate nohighlight">\( \frac{Y_2}{Y_1} &lt; \gamma \)</span> then we say the production function has
-decreasing returns to scale.</p></li>
-<li><p>If <span class="math notranslate nohighlight">\( \frac{Y_2}{Y_1} = \gamma \)</span> then we say the production function has
-constant returns to scale.</p></li>
-<li><p>If <span class="math notranslate nohighlight">\( \frac{Y_2}{Y_1} &gt; \gamma \)</span> then we say the production function has
-increasing returns to scale.</p></li>
-</ul>
-<p>Let’s try it and see what our function is!</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y1</span> <span class="o">=</span> <span class="n">cobb_douglas</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">y1</span><span class="p">)</span>
-<span class="n">y2</span> <span class="o">=</span> <span class="n">cobb_douglas</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">y2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6285066872609142
-1.2570133745218284
-</pre></div>
-</div>
-</div>
-</div>
-<p>How did <span class="math notranslate nohighlight">\( Y_1 \)</span> and <span class="math notranslate nohighlight">\( Y_2 \)</span> relate?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y2</span> <span class="o">/</span> <span class="n">y1</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0
-</pre></div>
-</div>
-</div>
-</div>
-<p><span class="math notranslate nohighlight">\( Y_2 \)</span> was exactly double <span class="math notranslate nohighlight">\( Y_1 \)</span>!</p>
-<p>Let’s write a function that will compute the returns to scale for different
-values of <span class="math notranslate nohighlight">\( K \)</span> and <span class="math notranslate nohighlight">\( L \)</span>.</p>
-<p>This is an example of how writing functions can allow us to re-use code
-in ways we might not originally anticipate. (You didn’t know we’d be
-writing a <code class="docutils literal notranslate"><span class="pre">returns_to_scale</span></code> function when we wrote <code class="docutils literal notranslate"><span class="pre">cobb_douglas</span></code>.)</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">returns_to_scale</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">gamma</span><span class="p">):</span>
-    <span class="n">y1</span> <span class="o">=</span> <span class="n">cobb_douglas</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
-    <span class="n">y2</span> <span class="o">=</span> <span class="n">cobb_douglas</span><span class="p">(</span><span class="n">gamma</span><span class="o">*</span><span class="n">K</span><span class="p">,</span> <span class="n">gamma</span><span class="o">*</span><span class="n">L</span><span class="p">)</span>
-    <span class="n">y_ratio</span> <span class="o">=</span> <span class="n">y2</span> <span class="o">/</span> <span class="n">y1</span>
-    <span class="k">return</span> <span class="n">y_ratio</span> <span class="o">/</span> <span class="n">gamma</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">returns_to_scale</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
-</pre></div>
-</div>
-</div>
-</div>
-<p><a id='exercise-0'></a></p>
-<blockquote>
-<div><p>See exercise 1 in the <a class="reference external" href="#exerciselist-0"><em>exercise list</em></a></p>
-</div></blockquote>
-<p>It turns out that with a little bit of algebra, we can check that this will
-always hold for our <a class="reference external" href="#cobb-douglas-example">Cobb-Douglas example</a> above.</p>
-<p>To show this, take an arbitrary <span class="math notranslate nohighlight">\( K, L \)</span> and multiply the inputs by an
-arbitrary <span class="math notranslate nohighlight">\( \gamma \)</span>.</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{aligned}
-    F(\gamma K, \gamma L) &amp;= z (\gamma K)^{\alpha} (\gamma L)^{1-\alpha}\\
-    &amp;=  z \gamma^{\alpha}\gamma^{1-\alpha} K^{\alpha} L^{1-\alpha}\\
-    &amp;= \gamma z K^{\alpha} L^{1-\alpha} = \gamma F(K, L)
-\end{aligned}
-\end{split}\]</div>
-<p>For an example of a production function that is not CRS, look at a
-generalization of the Cobb-Douglas production function that has different
-“output elasticities” for the 2 inputs.</p>
-<div class="math notranslate nohighlight">
-\[
-Y = z K^{\alpha_1} L^{\alpha_2}
-\]</div>
-<p>Note that if <span class="math notranslate nohighlight">\( \alpha_2 = 1 - \alpha_1 \)</span>, this is our Cobb-Douglas
-production function.</p>
-<p><a id='exercise-1'></a></p>
-<blockquote>
-<div><p>See exercise 2 in the <a class="reference external" href="#exerciselist-0"><em>exercise list</em></a></p>
-</div></blockquote>
-<p><a id='marginal-products'></a></p>
-</div>
-<div class="section" id="multiple-returns">
-<h3><span class="section-number">4.4.4.3. </span>Multiple Returns<a class="headerlink" href="#multiple-returns" title="Permalink to this headline">¶</a></h3>
-<p>Another valuable element to analyze on production functions is how
-output changes as we change only one of the inputs. We will call this the
-marginal product.</p>
-<p>For example, compare the output using <span class="math notranslate nohighlight">\( K, L \)</span> units of inputs to that with
-an <span class="math notranslate nohighlight">\( \epsilon \)</span> units of labor.</p>
-<p>Then the marginal product of labor (MPL) is defined as</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{F(K, L + \varepsilon) - F(K, L)}{\varepsilon}
-\]</div>
-<p>This tells us how much additional output is created relative to the additional
-input. (Spoiler alert: This should look like the definition for a partial
-derivative!)</p>
-<p>If the input can be divided into small units, then we can use calculus to take
-this limit, using the partial derivative of the production function relative to
-that input.</p>
-<p>In this case, we define the marginal product of labor (MPL) and marginal product
-of capital (MPK) as</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{aligned}
-MPL(K, L) &amp;= \frac{\partial F(K, L)}{\partial L}\\
-MPK(K, L) &amp;= \frac{\partial F(K, L)}{\partial K}
-\end{aligned}
-\end{split}\]</div>
-<p>In the <a class="reference external" href="#cobb-douglas-example">Cobb-Douglas</a> example above, this becomes</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{aligned}
-MPK(K, L) &amp;= z  \alpha \left(\frac{K}{L} \right)^{\alpha - 1}\\
-MPL(K, L) &amp;= (1-\alpha) z \left(\frac{K}{L} \right)^{\alpha}\\
-\end{aligned}
-\end{split}\]</div>
-<p>Let’s test it out with Python! We’ll also see that we can actually return
-multiple things in a Python function.</p>
-<p>The syntax for a return statement with multiple items is return item1, item2, ….</p>
-<p>In this case, we’ll compute both the MPL and the MPK and then return both.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">marginal_products</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">):</span>
-
-    <span class="n">mpl</span> <span class="o">=</span> <span class="p">(</span><span class="n">cobb_douglas</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">L</span> <span class="o">+</span> <span class="n">epsilon</span><span class="p">)</span> <span class="o">-</span> <span class="n">cobb_douglas</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">L</span><span class="p">))</span> <span class="o">/</span> <span class="n">epsilon</span>
-    <span class="n">mpk</span> <span class="o">=</span> <span class="p">(</span><span class="n">cobb_douglas</span><span class="p">(</span><span class="n">K</span> <span class="o">+</span> <span class="n">epsilon</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span> <span class="o">-</span> <span class="n">cobb_douglas</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">L</span><span class="p">))</span> <span class="o">/</span> <span class="n">epsilon</span>
-
-    <span class="k">return</span> <span class="n">mpl</span><span class="p">,</span> <span class="n">mpk</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tup</span> <span class="o">=</span> <span class="n">marginal_products</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">1e-4</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.8421711708284096, 0.20740025904131265)
-</pre></div>
-</div>
-</div>
-</div>
-<p>Instead of using the tuple, these can be directly unpacked to variables.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mpl</span><span class="p">,</span> <span class="n">mpk</span> <span class="o">=</span> <span class="n">marginal_products</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">1e-4</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;mpl = </span><span class="si">{</span><span class="n">mpl</span><span class="si">}</span><span class="s2">, mpk = </span><span class="si">{</span><span class="n">mpk</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mpl = 0.8421711708284096, mpk = 0.20740025904131265
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can use this to calculate the marginal products for different <code class="docutils literal notranslate"><span class="pre">K</span></code>, fixing <code class="docutils literal notranslate"><span class="pre">L</span></code>
-using a comprehension.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ks</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]</span>
-<span class="p">[</span><span class="n">marginal_products</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1e-4</span><span class="p">)</span> <span class="k">for</span> <span class="n">K</span> <span class="ow">in</span> <span class="n">Ks</span><span class="p">]</span> <span class="c1"># create a tuple for each K</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0.8421711708284096, 0.20740025904131265),
- (1.058620425367085, 0.13035463304111872),
- (1.2101811517950534, 0.09934539767386674)]
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 <div class="section" id="documentation">
-<h3><span class="section-number">4.4.4.4. </span>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.4.3.2. </span>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
 <p>In a previous exercise, we asked you to find help for the <code class="docutils literal notranslate"><span class="pre">cobb_douglas</span></code> and
 <code class="docutils literal notranslate"><span class="pre">returns_to_scale</span></code> functions using <code class="docutils literal notranslate"><span class="pre">?</span></code>.</p>
 <p>It didn’t provide any useful information.</p>
@@ -1475,27 +1135,38 @@ the first line of the <em>body</em> of the function (after the line with
     <span class="k">return</span> <span class="n">outputs</span>
 </pre></div>
 </div>
-<p>Let’s re-define our <code class="docutils literal notranslate"><span class="pre">cobb_douglas</span></code> function to include a docstring.</p>
+<p><strong>EDIT FROM HERE WITHA DIFFERENT FUNCTION</strong></p>
+<p>Let’s re-define our <code class="docutils literal notranslate"><span class="pre">portfolio_returns</span></code> function to include a docstring.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cobb_douglas</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">L</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">portfolio_returns</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Computes the production F(K, L) for a Cobb-Douglas production function</span>
+<span class="sd">    Computes the returns of a portfolio that invests w on the asset with return r and (1-w) in the risk-free rate</span>
 
-<span class="sd">    Takes the form F(K, L) = z K^{\alpha} L^{1 - \alpha}</span>
+<span class="sd">    Takes the form F(w, r,rf) = w*r+(1-w)rf, here we fix the rf to 0.01</span>
 
-<span class="sd">    We restrict z = 1 and alpha = 0.33</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">K</span><span class="o">**</span><span class="p">(</span><span class="mf">0.33</span><span class="p">)</span> <span class="o">*</span> <span class="n">L</span><span class="o">**</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="mf">0.33</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">w</span><span class="o">*</span><span class="n">r</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">w</span><span class="p">)</span><span class="o">*</span><span class="mf">0.01</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now when we have Jupyter evaluate <code class="docutils literal notranslate"><span class="pre">cobb_douglas?</span></code>, our message is
+<p>Now when we have Jupyter evaluate <code class="docutils literal notranslate"><span class="pre">portfolio_returns?</span></code>, our message is
 displayed (or use the Contextual Help window with Jupyterlab and <code class="docutils literal notranslate"><span class="pre">Ctrl-I</span></code> or <code class="docutils literal notranslate"><span class="pre">Cmd-I</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>cobb_douglas<span class="o">?</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>portfolio_returns<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Red">Signature:</span> portfolio_returns<span class=" -Color -Color-Bold -Color-Bold-Yellow">(</span>w<span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span> r<span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span> rf<span class=" -Color -Color-Bold -Color-Bold-Yellow">)</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">Docstring:</span>
+Computes the returns of a portfolio that invests w on the asset with return r and (1-w) in the risk-free rate
+
+Takes the form F(w, r,rf) = w*r+(1-w)rf
+<span class=" -Color -Color-Bold -Color-Bold-Red">File:</span>      c:\users\alan.moreira\documents\github\textbook\chapters\essentials\&lt;ipython-input-1-66f51d78caaa&gt;
+<span class=" -Color -Color-Bold -Color-Bold-Red">Type:</span>      function
 </pre></div>
 </div>
 </div>
@@ -1508,9 +1179,17 @@ for future readers/users (including yourself) to understand what the code does.<
 <blockquote>
 <div><p>See exercise 3 in the <a class="reference external" href="#exerciselist-0"><em>exercise list</em></a></p>
 </div></blockquote>
+<p>Evaluate the function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">portfolio_returns</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="default-and-keyword-arguments">
-<h3><span class="section-number">4.4.4.5. </span>Default and Keyword Arguments<a class="headerlink" href="#default-and-keyword-arguments" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.4.3.3. </span>Default and Keyword Arguments<a class="headerlink" href="#default-and-keyword-arguments" title="Permalink to this headline">¶</a></h3>
 <p>Functions can have optional arguments.</p>
 <p>To accomplish this, we must these arguments a <em>default value</em> by saying
 <code class="docutils literal notranslate"><span class="pre">name=default_value</span></code> instead of just <code class="docutils literal notranslate"><span class="pre">name</span></code> as we list the arguments.</p>
@@ -1518,27 +1197,28 @@ for future readers/users (including yourself) to understand what the code does.<
 arguments to our cobb_douglas function!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cobb_douglas</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">portfolio_returns</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span><span class="n">rf</span><span class="o">=</span><span class="mf">0.01</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Computes the production F(K, L) for a Cobb-Douglas production function</span>
+<span class="sd">    Computes the returns of a portfolio that invests w on the asset with return r and (1-w) in the risk-free rate</span>
 
-<span class="sd">    Takes the form F(K, L) = z K^{\alpha} L^{1 - \alpha}</span>
+<span class="sd">    Takes the form F(w, r,rf) = w*r+(1-w)rf</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">z</span> <span class="o">*</span> <span class="n">K</span><span class="o">**</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="n">L</span><span class="o">**</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">w</span><span class="o">*</span><span class="n">r</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">w</span><span class="p">)</span><span class="o">*</span><span class="n">rf</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>We can now call this function by passing in just K and L. Notice that it will
-produce same result as earlier because <code class="docutils literal notranslate"><span class="pre">alpha</span></code> and <code class="docutils literal notranslate"><span class="pre">z</span></code> are the same as earlier.</p>
+<p>We can now call this function by passing in just w and r. Notice that it will
+produce same result as earlier because  <code class="docutils literal notranslate"><span class="pre">rf</span></code> are the same as earlier.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cobb_douglas</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">portfolio_returns</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6285066872609142
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.030000000000000002
 </pre></div>
 </div>
 </div>
@@ -1547,12 +1227,12 @@ produce same result as earlier because <code class="docutils literal notranslate
 more than just K/L.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cobb_douglas</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">portfolio_returns</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span><span class="mf">0.03</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0196485018554098
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.04
 </pre></div>
 </div>
 </div>
@@ -1562,15 +1242,15 @@ more than just K/L.</p>
 position (order).</p>
 <p>To do this, we would write <code class="docutils literal notranslate"><span class="pre">func_name(arg=value)</span></code> for as many of the arguments
 as we want.</p>
-<p>Here’s how to do that with our <code class="docutils literal notranslate"><span class="pre">cobb_douglas</span></code> example.</p>
+<p>Here’s how to do that with our <code class="docutils literal notranslate"><span class="pre">portfolio_returns</span></code> example.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cobb_douglas</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">portfolio_returns</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span><span class="n">rf</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9427600308913713
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.035
 </pre></div>
 </div>
 </div>
@@ -1600,23 +1280,109 @@ different from any other <code class="docutils literal notranslate"><span class=
 <p>This is also true with named function arguments, above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="mf">1.5</span>
-<span class="n">cobb_douglas</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">z</span><span class="p">)</span> <span class="c1"># no problem!</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rf</span> <span class="o">=</span> <span class="mf">0.03</span>
+<span class="n">portfolio_returns</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span><span class="n">rf</span><span class="o">=</span><span class="n">rf</span><span class="p">)</span><span class="c1"># no problem!</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9427600308913713
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.04
 </pre></div>
 </div>
 </div>
 </div>
-<p>In that example, the <code class="docutils literal notranslate"><span class="pre">z</span></code> on the left hand side of <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">z</span></code> refers
-to the local variable name in the function whereas the <code class="docutils literal notranslate"><span class="pre">z</span></code> on the
-right hand side refers to the <code class="docutils literal notranslate"><span class="pre">z</span></code> in the outer scope.</p>
+<p>In that example, the <code class="docutils literal notranslate"><span class="pre">rf</span></code> on the left hand side of <code class="docutils literal notranslate"><span class="pre">rf</span> <span class="pre">=</span> <span class="pre">rf</span></code> refers
+to the local variable name in the function whereas the <code class="docutils literal notranslate"><span class="pre">rf</span></code> on the
+right hand side refers to the <code class="docutils literal notranslate"><span class="pre">rf</span></code> in the outer scope.</p>
+<p>This is an appealing feature of functions for avoiding coding errors: names of variables
+within the function are localized and won’t clash with those on the outside.</p>
+<p>Importantly, when Python looks for variables
+matching a particular name, it begins in the most local scope.</p>
+<p>That is, note that having an <code class="docutils literal notranslate"><span class="pre">rf</span></code> in the outer scope does not impact the local one.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">portfolio_returns</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span><span class="n">rf</span><span class="o">=</span><span class="mf">0.03</span><span class="p">))</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="mf">0.02</span>
+<span class="n">portfolio_returns</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span><span class="mf">0.03</span><span class="p">)</span><span class="c1"># no problem!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.04
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.04
+</pre></div>
+</div>
+</div>
+</div>
+<p>A crucial element of the above function is that the <code class="docutils literal notranslate"><span class="pre">rf</span></code> variable
+was available in the local scope of the function.</p>
+<p>Consider the alternative where it is not. We have removed the <code class="docutils literal notranslate"><span class="pre">rf</span></code>
+function parameter as well as the local definition of <code class="docutils literal notranslate"><span class="pre">rf</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">portfolio_returns</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes the returns of a portfolio that invests w on the asset with return r and (1-w) in the risk-free rate</span>
+<span class="sd">    net of fees fee</span>
+
+<span class="sd">    Takes the form F(w, r,rf) = w*r+(1-w)rf-fee</span>
+<span class="sd">     I set fees to zero</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fee</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">return</span> <span class="n">w</span><span class="o">*</span><span class="n">r</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">w</span><span class="p">)</span><span class="o">*</span><span class="n">rf</span><span class="o">-</span><span class="n">fee</span>
+
+<span class="n">rf</span> <span class="o">=</span> <span class="mf">0.02</span> <span class="c1"># in the outer scope</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;rf = </span><span class="si">{</span><span class="n">rf</span><span class="si">}</span><span class="s2"> gives </span><span class="si">{</span><span class="n">portfolio_returns</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="mf">0.03</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;rf = </span><span class="si">{</span><span class="n">rf</span><span class="si">}</span><span class="s2"> gives </span><span class="si">{</span><span class="n">portfolio_returns</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rf = 0.02 gives 0.035
+rf = 0.03 gives 0.04
+</pre></div>
+</div>
+</div>
+</div>
+<p>The intuition of scoping does not apply only for the “global” vs. “function”
+naming of variables, but also for nesting.</p>
+<p>For example, we can define a version of <code class="docutils literal notranslate"><span class="pre">portfolio_returns</span></code> which
+is also missing a <code class="docutils literal notranslate"><span class="pre">fee</span></code> in its inner-most scope, then put the function
+inside of another function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rf</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="k">def</span> <span class="nf">return_given_fee</span><span class="p">(</span><span class="n">fee</span><span class="p">):</span>
+    <span class="c1"># Scoping logic:</span>
+    <span class="c1"># 1. local function name doesn&#39;t clash with global one</span>
+    <span class="c1"># 2. fee comes from the function parameter</span>
+    <span class="c1"># 3. rf comes from the outer global scope</span>
+    <span class="k">def</span> <span class="nf">portfolio_returns</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">w</span><span class="o">*</span><span class="n">r</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">w</span><span class="p">)</span><span class="o">*</span><span class="n">rf</span><span class="o">-</span><span class="n">fee</span>
+
+    <span class="c1"># using this function</span>
+    <span class="k">return</span> <span class="n">portfolio_returns</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
+
+<span class="n">fee</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># this will not matter</span>
+<span class="n">fees</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">]</span>
+<span class="c1"># comprehension variables also have local scope</span>
+<span class="c1"># and don&#39;t clash with the alpha = 100</span>
+<span class="p">[</span><span class="n">return_given_fee</span><span class="p">(</span><span class="n">fee</span><span class="p">)</span> <span class="k">for</span> <span class="n">fee</span> <span class="ow">in</span> <span class="n">fees</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.010000000000000002, 3.469446951953614e-18, -0.02]
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="aside-methods">
-<h3><span class="section-number">4.4.4.6. </span>Aside: Methods<a class="headerlink" href="#aside-methods" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.4.3.4. </span>Aside: Methods<a class="headerlink" href="#aside-methods" title="Permalink to this headline">¶</a></h3>
 <p>As we learned earlier, all variables in Python have a type associated
 with them.</p>
 <p>Different types of variables have different functions or operations
@@ -1671,141 +1437,14 @@ described above.</p>
 </div>
 </div>
 </div>
-<div class="section" id="more-on-scope-optional">
-<h2><span class="section-number">4.4.5. </span>More on Scope (Optional)<a class="headerlink" href="#more-on-scope-optional" title="Permalink to this headline">¶</a></h2>
-<p>Keep in mind that with mathematical functions, the arguments are just dummy names
-that can be interchanged.</p>
-<p>That is, the following are identical.</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{eqnarray}
-    f(K, L) &amp;= z\, K^{\alpha} L^{1-\alpha}\\
-    f(K_2, L_2) &amp;= z\, K_2^{\alpha} L_2^{1-\alpha}
-\end{eqnarray}
-\end{split}\]</div>
-<p>The same concept applies to Python functions, where the arguments are just
-placeholder names, and our <code class="docutils literal notranslate"><span class="pre">cobb_douglas</span></code> function is identical to</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cobb_douglas2</span><span class="p">(</span><span class="n">K2</span><span class="p">,</span> <span class="n">L2</span><span class="p">):</span> <span class="c1"># changed dummy variable names</span>
-
-    <span class="c1"># Create alpha and z</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.33</span>
-
-    <span class="k">return</span> <span class="n">z</span> <span class="o">*</span> <span class="n">K2</span><span class="o">**</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">L2</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span>
-
-<span class="n">cobb_douglas2</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6285066872609142
-</pre></div>
-</div>
-</div>
-</div>
-<p>This is an appealing feature of functions for avoiding coding errors: names of variables
-within the function are localized and won’t clash with those on the outside (with
-more examples in <a class="reference external" href="#scope">scope</a>).</p>
-<p>Importantly, when Python looks for variables
-matching a particular name, it begins in the most local scope.</p>
-<p>That is, note that having an <code class="docutils literal notranslate"><span class="pre">alpha</span></code> in the outer scope does not impact the local one.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cobb_douglas3</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span> <span class="c1"># added new argument</span>
-
-    <span class="c1"># Create alpha and z</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="mi">1</span>
-
-    <span class="k">return</span> <span class="n">z</span> <span class="o">*</span> <span class="n">K</span><span class="o">**</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">L</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span> <span class="c1"># sees local argument alpha</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">cobb_douglas3</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Setting alpha, does the result change?&quot;</span><span class="p">)</span>
-<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># in the outer scope</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cobb_douglas3</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5743491774985174
-Setting alpha, does the result change?
-0.5743491774985174
-</pre></div>
-</div>
-</div>
-</div>
-<p>A crucial element of the above function is that the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> variable
-was available in the local scope of the function.</p>
-<p>Consider the alternative where it is not. We have removed the <code class="docutils literal notranslate"><span class="pre">alpha</span></code>
-function parameter as well as the local definition of <code class="docutils literal notranslate"><span class="pre">alpha</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cobb_douglas4</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">L</span><span class="p">):</span> <span class="c1"># added new argument</span>
-
-    <span class="c1"># Create alpha and z</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="mi">1</span>
-
-    <span class="c1"># there are no local alpha in scope!</span>
-    <span class="k">return</span> <span class="n">z</span> <span class="o">*</span> <span class="n">K</span><span class="o">**</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">L</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span>
-
-<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.2</span> <span class="c1"># in the outer scope</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;alpha = </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s2"> gives </span><span class="si">{</span><span class="n">cobb_douglas4</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.3</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;alpha = </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s2"> gives </span><span class="si">{</span><span class="n">cobb_douglas4</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>alpha = 0.2 gives 0.5743491774985174
-alpha = 0.3 gives 0.6155722066724582
-</pre></div>
-</div>
-</div>
-</div>
-<p>The intuition of scoping does not apply only for the “global” vs. “function”
-naming of variables, but also for nesting.</p>
-<p>For example, we can define a version of <code class="docutils literal notranslate"><span class="pre">cobb_douglas</span></code> which
-is also missing a <code class="docutils literal notranslate"><span class="pre">z</span></code> in its inner-most scope, then put the function
-inside of another function.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">def</span> <span class="nf">output_given_alpha</span><span class="p">(</span><span class="n">alpha</span><span class="p">):</span>
-    <span class="c1"># Scoping logic:</span>
-    <span class="c1"># 1. local function name doesn&#39;t clash with global one</span>
-    <span class="c1"># 2. alpha comes from the function parameter</span>
-    <span class="c1"># 3. z comes from the outer global scope</span>
-    <span class="k">def</span> <span class="nf">cobb_douglas</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">L</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">z</span> <span class="o">*</span> <span class="n">K</span><span class="o">**</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">L</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span>
-
-    <span class="c1"># using this function</span>
-    <span class="k">return</span> <span class="n">cobb_douglas</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-
-<span class="n">alpha</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># ignored</span>
-<span class="n">alphas</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
-<span class="c1"># comprehension variables also have local scope</span>
-<span class="c1"># and don&#39;t clash with the alpha = 100</span>
-<span class="p">[</span><span class="n">output_given_alpha</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">alphas</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.5743491774985174, 0.6155722066724582, 0.7071067811865476]
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 <div class="section" id="exercises">
-<h2><span class="section-number">4.4.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.4.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <p><a id='exerciselist-0'></a>
 <strong>Exercise 1</strong></p>
-<p>What happens if we try different inputs in our Cobb-Douglas production
-function?</p>
+<p>What happens if we try different inputs in our portfolio_returns function?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute returns to scale with different values of `K` and `L` and `gamma`</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute returns to scale with different values of `w` and `r` and `rf`</span>
 </pre></div>
 </div>
 </div>
@@ -1825,8 +1464,8 @@ defined earlier.</p>
 </div>
 <p>(<a class="reference external" href="#exercise-1"><em>back to text</em></a>)</p>
 <p><strong>Exercise 3</strong></p>
-<p>Redefine the <code class="docutils literal notranslate"><span class="pre">returns_to_scale</span></code> function and add a docstring.</p>
-<p>Confirm that it works by running the cell containing <code class="docutils literal notranslate"><span class="pre">returns_to_scale?</span></code> below.</p>
+<p>Redefine the <code class="docutils literal notranslate"><span class="pre">return_given_fee</span></code> function and add a docstring.</p>
+<p>Confirm that it works by running the cell containing <code class="docutils literal notranslate"><span class="pre">return_given_fee?</span></code> below.</p>
 <p><em>Note</em>: You do not need to change the actual code in the function — just
 copy/paste and add a docstring in the correct line.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># re-define the `returns_to_scale` function here</span>
@@ -1835,7 +1474,15 @@ copy/paste and add a docstring in the correct line.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test it here</span>
-returns_to_scale<span class="o">?</span>
+return_given_fee<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Red">Signature:</span> return_given_fee<span class=" -Color -Color-Bold -Color-Bold-Yellow">(</span>fee<span class=" -Color -Color-Bold -Color-Bold-Yellow">)</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">Docstring:</span> &lt;no docstring&gt;
+<span class=" -Color -Color-Bold -Color-Bold-Red">File:</span>      c:\users\alan.moreira\documents\github\textbook\chapters\essentials\&lt;ipython-input-19-ec5dedcb7a84&gt;
+<span class=" -Color -Color-Bold -Color-Bold-Red">Type:</span>      function
 </pre></div>
 </div>
 </div>
@@ -1847,6 +1494,7 @@ returns_to_scale<span class="o">?</span>
 <div class="highlight-python. notranslate"><div class="highlight"><pre><span></span># Your code here.
 </pre></div>
 </div>
+<p>print</p>
 <p>(<a class="reference external" href="#exercise-3"><em>back to text</em></a>)</p>
 </div>
 </div>
