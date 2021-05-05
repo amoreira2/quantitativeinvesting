@@ -842,19 +842,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fred">
-   9.1.1. FRED
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -868,20 +855,15 @@
 <ul class="simple">
 <li><p>Pandas has an eco-system of APIs that allow you to get data from the web directly into a pandas dataframe</p></li>
 </ul>
-<div class="section" id="fred">
-<h2><span class="section-number">9.1.1. </span>FRED<a class="headerlink" href="#fred" title="Permalink to this headline">¶</a></h2>
+<p><strong>FRED</strong></p>
 <ul>
 <li><p>Here we will look at one API that gets macro and financial data from the Federal Reserve Bank of St louis</p></li>
 <li><p>Lots and lots of data!</p>
 <p><a class="reference external" href="https://fred.stlouisfed.org/categories">https://fred.stlouisfed.org/categories</a></p>
 </li>
-<li><p>Right now our goal is just to get the lastest risk-free rate</p></li>
-<li><p>Which in this case is the yield on the three month treasury bill</p>
+<li><p>For example the yield on the three month treasury bill</p>
 <p><a class="reference external" href="https://fred.stlouisfed.org/series/DTB3">https://fred.stlouisfed.org/series/DTB3</a></p>
 </li>
-<li><p>note that the fredapi is not in the anaconda eco-system so you install by openning anaconda Prompt</p></li>
-<li><p>type “pip install fredapi”</p></li>
-<li><p>if it requires additional packages, install these packages to by tryping “pip install “name of required package”</p></li>
 <li><p>you will also need to apply for an API key here</p>
 <p><a class="reference external" href="https://research.stlouisfed.org/docs/api/api_key.html">https://research.stlouisfed.org/docs/api/api_key.html</a></p>
 </li>
@@ -889,8 +871,7 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install fredapi
-<span class="kn">from</span> <span class="nn">fredapi</span> <span class="kn">import</span> <span class="n">Fred</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fredapi</span> <span class="kn">import</span> <span class="n">Fred</span>
 <span class="n">fred</span> <span class="o">=</span> <span class="n">Fred</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s1">&#39;f9207136b3333d7cf92c07273f6f5530&#39;</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">fred</span><span class="o">.</span><span class="n">get_series</span><span class="p">(</span><span class="s1">&#39;DTB3&#39;</span><span class="p">)</span>
 </pre></div>
@@ -956,7 +937,978 @@ dtype: float64
 <img alt="../../_images/UsingAPI_5_1.png" src="../../_images/UsingAPI_5_1.png" />
 </div>
 </div>
+<p><strong>WRDS</strong></p>
+<p>WRDS has all sorts of amazing data for finance. For equity prices and mutual funds in particular.</p>
+<p>You can easily register for an account here <a class="reference external" href="https://wrds-www.wharton.upenn.edu/register/">https://wrds-www.wharton.upenn.edu/register/</a></p>
+<p>In this class we will use it go get stock market data and also data on company earnigns and other balance sheet information</p>
+<p>to use it you have to load two libraries</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">wrds</span>
+<span class="kn">import</span> <span class="nn">psycopg2</span> 
+</pre></div>
 </div>
+</div>
+</div>
+<p>You then initiate a connection when you are requested to type your pasword and username</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conn</span><span class="o">=</span><span class="n">wrds</span><span class="o">.</span><span class="n">Connection</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter your WRDS username [Alan.Moreira]: moreira5
+Enter your password: ···········
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WRDS recommends setting up a .pgpass file.
+You can find more info here:
+https://www.postgresql.org/docs/9.5/static/libpq-pgpass.html.
+Loading library list...
+Done
+</pre></div>
+</div>
+</div>
+</div>
+<p>With this connection you can use their SQL interface to get the desired data</p>
+<p>Here I recommend most copying and pasting code across the web.</p>
+<p>This website by Freda Drechsler provides lots of guidance and code on how to do it</p>
+<p><a class="reference external" href="https://www.fredasongdrechsler.com/intro-to-python-for-fnce/maneuvering-wrds-data">https://www.fredasongdrechsler.com/intro-to-python-for-fnce/maneuvering-wrds-data</a></p>
+<p>and also has lots of code that teaches you how to get both financial and accouting information from WRDS, for example, (<a class="reference external" href="https://www.fredasongdrechsler.com/full-python-code/dgtw">https://www.fredasongdrechsler.com/full-python-code/dgtw</a>)</p>
+<p>Below we will simply write a fucntion that dowloads dailt return data for a given firm</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_returns</span><span class="p">(</span><span class="n">tickers</span><span class="p">,</span><span class="n">conn</span><span class="p">,</span><span class="n">startdate</span><span class="p">,</span><span class="n">enddate</span><span class="p">):</span>
+    <span class="n">ticker</span><span class="o">=</span><span class="n">tickers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">raw_sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                          select a.permno, b.ticker, a.date,a.ret </span>
+<span class="s2">                          from crsp.dsf as a</span>
+<span class="s2">                          left join crsp.msenames as b</span>
+<span class="s2">                          on a.permno=b.permno</span>
+<span class="s2">                          and b.namedt&lt;=a.date</span>
+<span class="s2">                          and a.date&lt;=b.nameendt</span>
+<span class="s2">                          where a.date between &#39;&quot;&quot;&quot;</span><span class="o">+</span> <span class="n">startdate</span><span class="o">+</span><span class="s2">&quot;&quot;&quot;&#39;  and &#39;&quot;&quot;&quot;</span><span class="o">+</span> <span class="n">enddate</span><span class="o">+</span>            
+                          <span class="sd">&quot;&quot;&quot;&#39; and  b.ticker=&#39;&quot;&quot;&quot;</span><span class="o">+</span><span class="n">ticker</span><span class="o">+</span><span class="s2">&quot;&#39;&quot;</span><span class="p">)</span>
+            
+    <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="s1">&#39;permno&#39;</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">get_returns</span><span class="p">([</span><span class="s1">&#39;TSLA&#39;</span><span class="p">],</span><span class="n">conn</span><span class="p">,</span><span class="s1">&#39;1/1/2017&#39;</span><span class="p">,</span><span class="s1">&#39;1/1/2022&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If I wanted other information I would have to know this information is named in the database</p>
+<p>For example,</p>
+<ul class="simple">
+<li><p>vol gets tradign volume (in shares),</p></li>
+<li><p>prc gets the unadjusted price,</p></li>
+<li><p>retx gets returns without dividends</p></li>
+<li><p>shrout gets share outstanding</p></li>
+</ul>
+<p>In the end of this notebook you put a list of data that this particular data set in wrds allow you easy access <a class="reference external" href="http://to.It">to.It</a> also has a description of how missing values are handled.</p>
+<p>To construct the market cap you need both the price and the shareoutstanding, which you can easily download with a single function call by adding to your code</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">tickers</span><span class="p">,</span><span class="n">conn</span><span class="p">,</span><span class="n">startdate</span><span class="p">,</span><span class="n">enddate</span><span class="p">):</span>
+    <span class="n">ticker</span><span class="o">=</span><span class="n">tickers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">raw_sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                          select a.permno, b.ticker, a.date,a.prc,a.shrout </span>
+<span class="s2">                          from crsp.dsf as a</span>
+<span class="s2">                          left join crsp.msenames as b</span>
+<span class="s2">                          on a.permno=b.permno</span>
+<span class="s2">                          and b.namedt&lt;=a.date</span>
+<span class="s2">                          and a.date&lt;=b.nameendt</span>
+<span class="s2">                          where a.date between &#39;&quot;&quot;&quot;</span><span class="o">+</span> <span class="n">startdate</span><span class="o">+</span><span class="s2">&quot;&quot;&quot;&#39;  and &#39;&quot;&quot;&quot;</span><span class="o">+</span> <span class="n">enddate</span><span class="o">+</span>            
+                          <span class="sd">&quot;&quot;&quot;&#39; and  b.ticker=&#39;&quot;&quot;&quot;</span><span class="o">+</span><span class="n">ticker</span><span class="o">+</span><span class="s2">&quot;&#39;&quot;</span><span class="p">)</span>
+            
+    <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="s1">&#39;permno&#39;</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+ <span class="c1">#   I commented out this step because now I would like to get more than one variable so I cannot unstack</span>
+  <span class="c1">#  df=df[variable].unstack()</span>
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">get_data</span><span class="p">([</span><span class="s1">&#39;TSLA&#39;</span><span class="p">],</span><span class="n">conn</span><span class="p">,</span><span class="s1">&#39;1/1/2005&#39;</span><span class="p">,</span><span class="s1">&#39;1/1/2022&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>ticker</th>
+      <th>prc</th>
+      <th>shrout</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th>permno</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-12-24</th>
+      <th>93436.0</th>
+      <td>TSLA</td>
+      <td>661.770020</td>
+      <td>947901.0</td>
+    </tr>
+    <tr>
+      <th>2020-12-28</th>
+      <th>93436.0</th>
+      <td>TSLA</td>
+      <td>663.690002</td>
+      <td>947901.0</td>
+    </tr>
+    <tr>
+      <th>2020-12-29</th>
+      <th>93436.0</th>
+      <td>TSLA</td>
+      <td>665.989990</td>
+      <td>947901.0</td>
+    </tr>
+    <tr>
+      <th>2020-12-30</th>
+      <th>93436.0</th>
+      <td>TSLA</td>
+      <td>694.780029</td>
+      <td>947901.0</td>
+    </tr>
+    <tr>
+      <th>2020-12-31</th>
+      <th>93436.0</th>
+      <td>TSLA</td>
+      <td>705.669983</td>
+      <td>947901.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;mcap&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">prc</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">*</span><span class="n">df</span><span class="o">.</span><span class="n">shrout</span>
+<span class="c1"># the use a negative price to say that the price is not based on end of day transaction </span>
+<span class="c1">#but a mid price between bid and ask</span>
+<span class="n">df</span><span class="o">.</span><span class="n">mcap</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;date,permno&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/UsingAPI_17_1.png" src="../../_images/UsingAPI_17_1.png" />
+</div>
+</div>
+<p>This is ugly because we have the permno, the indentity of security as an index. To fix this, lets take this out of the index</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">mcap</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;date&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/UsingAPI_19_1.png" src="../../_images/UsingAPI_19_1.png" />
+</div>
+</div>
+<p>Truly mind blowing!</p>
+<p><strong>Pandas Datareader</strong></p>
+<p>this gives you acess to several data servers</p>
+<p>We will be particularly interested in the one Ken French updates with several quant strategies</p>
+<p>Please check out <a class="reference external" href="https://pandas-datareader.readthedocs.io/en/latest/remote_data.html">https://pandas-datareader.readthedocs.io/en/latest/remote_data.html</a> all the possiblities</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas_datareader.famafrench</span> <span class="kn">import</span> <span class="n">get_available_datasets</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">get_available_datasets</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>297
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are 297 different data sets in Ken French library!</p>
+<p>Below I show the full list. You can simply chose one to import, below I am import the <code class="docutils literal notranslate"><span class="pre">'49_Industry_Portfolios'</span></code> which has the portfolio of US stocks split in 49 industries.</p>
+<p>In fact if you print the <code class="docutils literal notranslate"><span class="pre">'DESCR'</span></code> field which contains the data set description you see that there are in fact 7 data sets as described below</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">pandas_datareader.data</span> <span class="k">as</span> <span class="nn">web</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">1926</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># this tell which month to start</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;49_Industry_Portfolios&#39;</span><span class="p">,</span> <span class="s1">&#39;famafrench&#39;</span><span class="p">,</span><span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;DESCR&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>49 Industry Portfolios
+----------------------
+
+This file was created by CMPT_IND_RETS using the 202103 CRSP database. It contains value- and equal-weighted returns for 49 industry portfolios. The portfolios are constructed at the end of June. The annual returns are from January to December. Missing data are indicated by -99.99 or -999. Copyright 2021 Kenneth R. French
+
+  0 : Average Value Weighted Returns -- Monthly (1137 rows x 49 cols)
+  1 : Average Equal Weighted Returns -- Monthly (1137 rows x 49 cols)
+  2 : Average Value Weighted Returns -- Annual (94 rows x 49 cols)
+  3 : Average Equal Weighted Returns -- Annual (94 rows x 49 cols)
+  4 : Number of Firms in Portfolios (1137 rows x 49 cols)
+  5 : Average Firm Size (1137 rows x 49 cols)
+  6 : Sum of BE / Sum of ME (95 rows x 49 cols)
+  7 : Value-Weighted Average of BE/ME (95 rows x 49 cols)
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you want Value weighted monthly returns you simply select <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Agric</th>
+      <th>Food</th>
+      <th>Soda</th>
+      <th>Beer</th>
+      <th>Smoke</th>
+      <th>Toys</th>
+      <th>Fun</th>
+      <th>Books</th>
+      <th>Hshld</th>
+      <th>Clths</th>
+      <th>...</th>
+      <th>Boxes</th>
+      <th>Trans</th>
+      <th>Whlsl</th>
+      <th>Rtail</th>
+      <th>Meals</th>
+      <th>Banks</th>
+      <th>Insur</th>
+      <th>RlEst</th>
+      <th>Fin</th>
+      <th>Other</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-11</th>
+      <td>15.18</td>
+      <td>7.32</td>
+      <td>9.22</td>
+      <td>10.88</td>
+      <td>8.05</td>
+      <td>21.89</td>
+      <td>11.40</td>
+      <td>22.89</td>
+      <td>5.80</td>
+      <td>14.27</td>
+      <td>...</td>
+      <td>10.79</td>
+      <td>17.10</td>
+      <td>15.33</td>
+      <td>7.57</td>
+      <td>11.30</td>
+      <td>18.25</td>
+      <td>11.92</td>
+      <td>21.45</td>
+      <td>16.78</td>
+      <td>15.65</td>
+    </tr>
+    <tr>
+      <th>2020-12</th>
+      <td>1.33</td>
+      <td>1.90</td>
+      <td>6.84</td>
+      <td>3.33</td>
+      <td>8.67</td>
+      <td>15.77</td>
+      <td>9.79</td>
+      <td>10.83</td>
+      <td>0.86</td>
+      <td>4.63</td>
+      <td>...</td>
+      <td>2.46</td>
+      <td>0.73</td>
+      <td>3.04</td>
+      <td>1.08</td>
+      <td>4.05</td>
+      <td>7.55</td>
+      <td>4.42</td>
+      <td>9.68</td>
+      <td>8.24</td>
+      <td>1.78</td>
+    </tr>
+    <tr>
+      <th>2021-01</th>
+      <td>2.49</td>
+      <td>-1.32</td>
+      <td>-9.60</td>
+      <td>-6.89</td>
+      <td>-2.28</td>
+      <td>6.21</td>
+      <td>-3.77</td>
+      <td>3.66</td>
+      <td>-5.78</td>
+      <td>-4.84</td>
+      <td>...</td>
+      <td>-5.13</td>
+      <td>-4.58</td>
+      <td>-1.53</td>
+      <td>0.80</td>
+      <td>-4.52</td>
+      <td>-3.40</td>
+      <td>-3.85</td>
+      <td>3.87</td>
+      <td>-1.25</td>
+      <td>-1.76</td>
+    </tr>
+    <tr>
+      <th>2021-02</th>
+      <td>12.40</td>
+      <td>-0.04</td>
+      <td>0.66</td>
+      <td>-3.21</td>
+      <td>5.73</td>
+      <td>-2.33</td>
+      <td>10.42</td>
+      <td>13.70</td>
+      <td>-0.12</td>
+      <td>4.07</td>
+      <td>...</td>
+      <td>0.87</td>
+      <td>8.78</td>
+      <td>5.70</td>
+      <td>-3.17</td>
+      <td>7.97</td>
+      <td>14.29</td>
+      <td>4.11</td>
+      <td>18.83</td>
+      <td>9.31</td>
+      <td>5.98</td>
+    </tr>
+    <tr>
+      <th>2021-03</th>
+      <td>3.35</td>
+      <td>8.07</td>
+      <td>7.15</td>
+      <td>8.45</td>
+      <td>11.71</td>
+      <td>-8.30</td>
+      <td>-3.22</td>
+      <td>5.14</td>
+      <td>7.31</td>
+      <td>0.27</td>
+      <td>...</td>
+      <td>6.00</td>
+      <td>7.84</td>
+      <td>8.73</td>
+      <td>5.36</td>
+      <td>3.15</td>
+      <td>4.90</td>
+      <td>9.18</td>
+      <td>-1.24</td>
+      <td>4.11</td>
+      <td>6.03</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 49 columns</p>
+</div></div></div>
+</div>
+<p>If you want the book to market ratio for each industry you select <code class="docutils literal notranslate"><span class="pre">6</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Agric</th>
+      <th>Food</th>
+      <th>Soda</th>
+      <th>Beer</th>
+      <th>Smoke</th>
+      <th>Toys</th>
+      <th>Fun</th>
+      <th>Books</th>
+      <th>Hshld</th>
+      <th>Clths</th>
+      <th>...</th>
+      <th>Boxes</th>
+      <th>Trans</th>
+      <th>Whlsl</th>
+      <th>Rtail</th>
+      <th>Meals</th>
+      <th>Banks</th>
+      <th>Insur</th>
+      <th>RlEst</th>
+      <th>Fin</th>
+      <th>Other</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2016</th>
+      <td>0.16</td>
+      <td>0.35</td>
+      <td>0.13</td>
+      <td>0.12</td>
+      <td>0.10</td>
+      <td>0.28</td>
+      <td>0.22</td>
+      <td>0.80</td>
+      <td>0.23</td>
+      <td>0.20</td>
+      <td>...</td>
+      <td>0.36</td>
+      <td>0.32</td>
+      <td>0.31</td>
+      <td>0.22</td>
+      <td>0.12</td>
+      <td>0.83</td>
+      <td>0.72</td>
+      <td>0.40</td>
+      <td>0.66</td>
+      <td>0.36</td>
+    </tr>
+    <tr>
+      <th>2017</th>
+      <td>0.12</td>
+      <td>0.37</td>
+      <td>0.12</td>
+      <td>0.13</td>
+      <td>0.09</td>
+      <td>0.25</td>
+      <td>0.17</td>
+      <td>0.71</td>
+      <td>0.22</td>
+      <td>0.21</td>
+      <td>...</td>
+      <td>0.29</td>
+      <td>0.25</td>
+      <td>0.31</td>
+      <td>0.21</td>
+      <td>0.16</td>
+      <td>0.63</td>
+      <td>0.60</td>
+      <td>0.33</td>
+      <td>0.49</td>
+      <td>0.34</td>
+    </tr>
+    <tr>
+      <th>2018</th>
+      <td>0.46</td>
+      <td>0.46</td>
+      <td>0.10</td>
+      <td>0.14</td>
+      <td>0.14</td>
+      <td>0.21</td>
+      <td>0.13</td>
+      <td>0.61</td>
+      <td>0.24</td>
+      <td>0.16</td>
+      <td>...</td>
+      <td>0.37</td>
+      <td>0.29</td>
+      <td>0.32</td>
+      <td>0.16</td>
+      <td>0.14</td>
+      <td>0.57</td>
+      <td>0.58</td>
+      <td>0.30</td>
+      <td>0.46</td>
+      <td>0.40</td>
+    </tr>
+    <tr>
+      <th>2019</th>
+      <td>0.61</td>
+      <td>0.44</td>
+      <td>0.08</td>
+      <td>0.14</td>
+      <td>0.17</td>
+      <td>0.17</td>
+      <td>0.14</td>
+      <td>0.71</td>
+      <td>0.18</td>
+      <td>0.16</td>
+      <td>...</td>
+      <td>0.36</td>
+      <td>0.28</td>
+      <td>0.33</td>
+      <td>0.16</td>
+      <td>0.11</td>
+      <td>0.58</td>
+      <td>0.55</td>
+      <td>0.42</td>
+      <td>0.53</td>
+      <td>0.34</td>
+    </tr>
+    <tr>
+      <th>2020</th>
+      <td>1.14</td>
+      <td>0.45</td>
+      <td>0.10</td>
+      <td>0.17</td>
+      <td>0.09</td>
+      <td>0.20</td>
+      <td>0.14</td>
+      <td>0.80</td>
+      <td>0.15</td>
+      <td>0.16</td>
+      <td>...</td>
+      <td>0.40</td>
+      <td>0.31</td>
+      <td>0.33</td>
+      <td>0.14</td>
+      <td>0.23</td>
+      <td>0.75</td>
+      <td>0.69</td>
+      <td>0.56</td>
+      <td>0.55</td>
+      <td>0.49</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 49 columns</p>
+</div></div></div>
+</div>
+<p>Below is the full list of datasets</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_available_datasets</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;F-F_Research_Data_Factors&#39;,
+ &#39;F-F_Research_Data_Factors_weekly&#39;,
+ &#39;F-F_Research_Data_Factors_daily&#39;,
+ &#39;F-F_Research_Data_5_Factors_2x3&#39;,
+ &#39;F-F_Research_Data_5_Factors_2x3_daily&#39;,
+ &#39;Portfolios_Formed_on_ME&#39;,
+ &#39;Portfolios_Formed_on_ME_Wout_Div&#39;,
+ &#39;Portfolios_Formed_on_ME_Daily&#39;,
+ &#39;Portfolios_Formed_on_BE-ME&#39;,
+ &#39;Portfolios_Formed_on_BE-ME_Wout_Div&#39;,
+ &#39;Portfolios_Formed_on_BE-ME_Daily&#39;,
+ &#39;Portfolios_Formed_on_OP&#39;,
+ &#39;Portfolios_Formed_on_OP_Wout_Div&#39;,
+ &#39;Portfolios_Formed_on_OP_Daily&#39;,
+ &#39;Portfolios_Formed_on_INV&#39;,
+ &#39;Portfolios_Formed_on_INV_Wout_Div&#39;,
+ &#39;Portfolios_Formed_on_INV_Daily&#39;,
+ &#39;6_Portfolios_2x3&#39;,
+ &#39;6_Portfolios_2x3_Wout_Div&#39;,
+ &#39;6_Portfolios_2x3_weekly&#39;,
+ &#39;6_Portfolios_2x3_daily&#39;,
+ &#39;25_Portfolios_5x5&#39;,
+ &#39;25_Portfolios_5x5_Wout_Div&#39;,
+ &#39;25_Portfolios_5x5_Daily&#39;,
+ &#39;100_Portfolios_10x10&#39;,
+ &#39;100_Portfolios_10x10_Wout_Div&#39;,
+ &#39;100_Portfolios_10x10_Daily&#39;,
+ &#39;6_Portfolios_ME_OP_2x3&#39;,
+ &#39;6_Portfolios_ME_OP_2x3_Wout_Div&#39;,
+ &#39;6_Portfolios_ME_OP_2x3_daily&#39;,
+ &#39;25_Portfolios_ME_OP_5x5&#39;,
+ &#39;25_Portfolios_ME_OP_5x5_Wout_Div&#39;,
+ &#39;25_Portfolios_ME_OP_5x5_daily&#39;,
+ &#39;100_Portfolios_ME_OP_10x10&#39;,
+ &#39;100_Portfolios_10x10_ME_OP_Wout_Div&#39;,
+ &#39;100_Portfolios_ME_OP_10x10_daily&#39;,
+ &#39;6_Portfolios_ME_INV_2x3&#39;,
+ &#39;6_Portfolios_ME_INV_2x3_Wout_Div&#39;,
+ &#39;6_Portfolios_ME_INV_2x3_daily&#39;,
+ &#39;25_Portfolios_ME_INV_5x5&#39;,
+ &#39;25_Portfolios_ME_INV_5x5_Wout_Div&#39;,
+ &#39;25_Portfolios_ME_INV_5x5_daily&#39;,
+ &#39;100_Portfolios_ME_INV_10x10&#39;,
+ &#39;100_Portfolios_10x10_ME_INV_Wout_Div&#39;,
+ &#39;100_Portfolios_ME_INV_10x10_daily&#39;,
+ &#39;25_Portfolios_BEME_OP_5x5&#39;,
+ &#39;25_Portfolios_BEME_OP_5x5_Wout_Div&#39;,
+ &#39;25_Portfolios_BEME_OP_5x5_daily&#39;,
+ &#39;25_Portfolios_BEME_INV_5x5&#39;,
+ &#39;25_Portfolios_BEME_INV_5x5_Wout_Div&#39;,
+ &#39;25_Portfolios_BEME_INV_5x5_daily&#39;,
+ &#39;25_Portfolios_OP_INV_5x5&#39;,
+ &#39;25_Portfolios_OP_INV_5x5_Wout_Div&#39;,
+ &#39;25_Portfolios_OP_INV_5x5_daily&#39;,
+ &#39;32_Portfolios_ME_BEME_OP_2x4x4&#39;,
+ &#39;32_Portfolios_ME_BEME_OP_2x4x4_Wout_Div&#39;,
+ &#39;32_Portfolios_ME_BEME_INV_2x4x4&#39;,
+ &#39;32_Portfolios_ME_BEME_INV_2x4x4_Wout_Div&#39;,
+ &#39;32_Portfolios_ME_OP_INV_2x4x4&#39;,
+ &#39;32_Portfolios_ME_OP_INV_2x4x4_Wout_Div&#39;,
+ &#39;Portfolios_Formed_on_E-P&#39;,
+ &#39;Portfolios_Formed_on_E-P_Wout_Div&#39;,
+ &#39;Portfolios_Formed_on_CF-P&#39;,
+ &#39;Portfolios_Formed_on_CF-P_Wout_Div&#39;,
+ &#39;Portfolios_Formed_on_D-P&#39;,
+ &#39;Portfolios_Formed_on_D-P_Wout_Div&#39;,
+ &#39;6_Portfolios_ME_EP_2x3&#39;,
+ &#39;6_Portfolios_ME_EP_2x3_Wout_Div&#39;,
+ &#39;6_Portfolios_ME_CFP_2x3&#39;,
+ &#39;6_Portfolios_ME_CFP_2x3_Wout_Div&#39;,
+ &#39;6_Portfolios_ME_DP_2x3&#39;,
+ &#39;6_Portfolios_ME_DP_2x3_Wout_Div&#39;,
+ &#39;F-F_Momentum_Factor&#39;,
+ &#39;F-F_Momentum_Factor_daily&#39;,
+ &#39;6_Portfolios_ME_Prior_12_2&#39;,
+ &#39;6_Portfolios_ME_Prior_12_2_Daily&#39;,
+ &#39;25_Portfolios_ME_Prior_12_2&#39;,
+ &#39;25_Portfolios_ME_Prior_12_2_Daily&#39;,
+ &#39;10_Portfolios_Prior_12_2&#39;,
+ &#39;10_Portfolios_Prior_12_2_Daily&#39;,
+ &#39;F-F_ST_Reversal_Factor&#39;,
+ &#39;F-F_ST_Reversal_Factor_daily&#39;,
+ &#39;6_Portfolios_ME_Prior_1_0&#39;,
+ &#39;6_Portfolios_ME_Prior_1_0_Daily&#39;,
+ &#39;25_Portfolios_ME_Prior_1_0&#39;,
+ &#39;25_Portfolios_ME_Prior_1_0_Daily&#39;,
+ &#39;10_Portfolios_Prior_1_0&#39;,
+ &#39;10_Portfolios_Prior_1_0_Daily&#39;,
+ &#39;F-F_LT_Reversal_Factor&#39;,
+ &#39;F-F_LT_Reversal_Factor_daily&#39;,
+ &#39;6_Portfolios_ME_Prior_60_13&#39;,
+ &#39;6_Portfolios_ME_Prior_60_13_Daily&#39;,
+ &#39;25_Portfolios_ME_Prior_60_13&#39;,
+ &#39;25_Portfolios_ME_Prior_60_13_Daily&#39;,
+ &#39;10_Portfolios_Prior_60_13&#39;,
+ &#39;10_Portfolios_Prior_60_13_Daily&#39;,
+ &#39;Portfolios_Formed_on_AC&#39;,
+ &#39;25_Portfolios_ME_AC_5x5&#39;,
+ &#39;Portfolios_Formed_on_BETA&#39;,
+ &#39;25_Portfolios_ME_BETA_5x5&#39;,
+ &#39;Portfolios_Formed_on_NI&#39;,
+ &#39;25_Portfolios_ME_NI_5x5&#39;,
+ &#39;Portfolios_Formed_on_VAR&#39;,
+ &#39;25_Portfolios_ME_VAR_5x5&#39;,
+ &#39;Portfolios_Formed_on_RESVAR&#39;,
+ &#39;25_Portfolios_ME_RESVAR_5x5&#39;,
+ &#39;5_Industry_Portfolios&#39;,
+ &#39;5_Industry_Portfolios_Wout_Div&#39;,
+ &#39;5_Industry_Portfolios_daily&#39;,
+ &#39;10_Industry_Portfolios&#39;,
+ &#39;10_Industry_Portfolios_Wout_Div&#39;,
+ &#39;10_Industry_Portfolios_daily&#39;,
+ &#39;12_Industry_Portfolios&#39;,
+ &#39;12_Industry_Portfolios_Wout_Div&#39;,
+ &#39;12_Industry_Portfolios_daily&#39;,
+ &#39;17_Industry_Portfolios&#39;,
+ &#39;17_Industry_Portfolios_Wout_Div&#39;,
+ &#39;17_Industry_Portfolios_daily&#39;,
+ &#39;30_Industry_Portfolios&#39;,
+ &#39;30_Industry_Portfolios_Wout_Div&#39;,
+ &#39;30_Industry_Portfolios_daily&#39;,
+ &#39;38_Industry_Portfolios&#39;,
+ &#39;38_Industry_Portfolios_Wout_Div&#39;,
+ &#39;38_Industry_Portfolios_daily&#39;,
+ &#39;48_Industry_Portfolios&#39;,
+ &#39;48_Industry_Portfolios_Wout_Div&#39;,
+ &#39;48_Industry_Portfolios_daily&#39;,
+ &#39;49_Industry_Portfolios&#39;,
+ &#39;49_Industry_Portfolios_Wout_Div&#39;,
+ &#39;49_Industry_Portfolios_daily&#39;,
+ &#39;ME_Breakpoints&#39;,
+ &#39;BE-ME_Breakpoints&#39;,
+ &#39;OP_Breakpoints&#39;,
+ &#39;INV_Breakpoints&#39;,
+ &#39;E-P_Breakpoints&#39;,
+ &#39;CF-P_Breakpoints&#39;,
+ &#39;D-P_Breakpoints&#39;,
+ &#39;Prior_2-12_Breakpoints&#39;,
+ &#39;Developed_3_Factors&#39;,
+ &#39;Developed_3_Factors_Daily&#39;,
+ &#39;Developed_ex_US_3_Factors&#39;,
+ &#39;Developed_ex_US_3_Factors_Daily&#39;,
+ &#39;Europe_3_Factors&#39;,
+ &#39;Europe_3_Factors_Daily&#39;,
+ &#39;Japan_3_Factors&#39;,
+ &#39;Japan_3_Factors_Daily&#39;,
+ &#39;Asia_Pacific_ex_Japan_3_Factors&#39;,
+ &#39;Asia_Pacific_ex_Japan_3_Factors_Daily&#39;,
+ &#39;North_America_3_Factors&#39;,
+ &#39;North_America_3_Factors_Daily&#39;,
+ &#39;Developed_5_Factors&#39;,
+ &#39;Developed_5_Factors_Daily&#39;,
+ &#39;Developed_ex_US_5_Factors&#39;,
+ &#39;Developed_ex_US_5_Factors_Daily&#39;,
+ &#39;Europe_5_Factors&#39;,
+ &#39;Europe_5_Factors_Daily&#39;,
+ &#39;Japan_5_Factors&#39;,
+ &#39;Japan_5_Factors_Daily&#39;,
+ &#39;Asia_Pacific_ex_Japan_5_Factors&#39;,
+ &#39;Asia_Pacific_ex_Japan_5_Factors_Daily&#39;,
+ &#39;North_America_5_Factors&#39;,
+ &#39;North_America_5_Factors_Daily&#39;,
+ &#39;Developed_Mom_Factor&#39;,
+ &#39;Developed_Mom_Factor_Daily&#39;,
+ &#39;Developed_ex_US_Mom_Factor&#39;,
+ &#39;Developed_ex_US_Mom_Factor_Daily&#39;,
+ &#39;Europe_Mom_Factor&#39;,
+ &#39;Europe_Mom_Factor_Daily&#39;,
+ &#39;Japan_Mom_Factor&#39;,
+ &#39;Japan_Mom_Factor_Daily&#39;,
+ &#39;Asia_Pacific_ex_Japan_MOM_Factor&#39;,
+ &#39;Asia_Pacific_ex_Japan_MOM_Factor_Daily&#39;,
+ &#39;North_America_Mom_Factor&#39;,
+ &#39;North_America_Mom_Factor_Daily&#39;,
+ &#39;Developed_6_Portfolios_ME_BE-ME&#39;,
+ &#39;Developed_6_Portfolios_ME_BE-ME_daily&#39;,
+ &#39;Developed_ex_US_6_Portfolios_ME_BE-ME&#39;,
+ &#39;Developed_ex_US_6_Portfolios_ME_BE-ME_daily&#39;,
+ &#39;Europe_6_Portfolios_ME_BE-ME&#39;,
+ &#39;Europe_6_Portfolios_ME_BE-ME_daily&#39;,
+ &#39;Japan_6_Portfolios_ME_BE-ME&#39;,
+ &#39;Japan_6_Portfolios_ME_BE-ME_daily&#39;,
+ &#39;Asia_Pacific_ex_Japan_6_Portfolios_ME_BE-ME&#39;,
+ &#39;Asia_Pacific_ex_Japan_6_Portfolios_ME_BE-ME_daily&#39;,
+ &#39;North_America_6_Portfolios_ME_BE-ME&#39;,
+ &#39;North_America_6_Portfolios_ME_BE-ME_daily&#39;,
+ &#39;Developed_25_Portfolios_ME_BE-ME&#39;,
+ &#39;Developed_25_Portfolios_ME_BE-ME_daily&#39;,
+ &#39;Developed_ex_US_25_Portfolios_ME_BE-ME&#39;,
+ &#39;Developed_ex_US_25_Portfolios_ME_BE-ME_daily&#39;,
+ &#39;Europe_25_Portfolios_ME_BE-ME&#39;,
+ &#39;Europe_25_Portfolios_ME_BE-ME_daily&#39;,
+ &#39;Japan_25_Portfolios_ME_BE-ME&#39;,
+ &#39;Japan_25_Portfolios_ME_BE-ME_daily&#39;,
+ &#39;Asia_Pacific_ex_Japan_25_Portfolios_ME_BE-ME&#39;,
+ &#39;Asia_Pacific_ex_Japan_25_Portfolios_ME_BE-ME_daily&#39;,
+ &#39;North_America_25_Portfolios_ME_BE-ME&#39;,
+ &#39;North_America_25_Portfolios_ME_BE-ME_daily&#39;,
+ &#39;Developed_6_Portfolios_ME_OP&#39;,
+ &#39;Developed_6_Portfolios_ME_OP_Daily&#39;,
+ &#39;Developed_ex_US_6_Portfolios_ME_OP&#39;,
+ &#39;Developed_ex_US_6_Portfolios_ME_OP_Daily&#39;,
+ &#39;Europe_6_Portfolios_ME_OP&#39;,
+ &#39;Europe_6_Portfolios_ME_OP_Daily&#39;,
+ &#39;Japan_6_Portfolios_ME_OP&#39;,
+ &#39;Japan_6_Portfolios_ME_OP_Daily&#39;,
+ &#39;Asia_Pacific_ex_Japan_6_Portfolios_ME_OP&#39;,
+ &#39;Asia_Pacific_ex_Japan_6_Portfolios_ME_OP_Daily&#39;,
+ &#39;North_America_6_Portfolios_ME_OP&#39;,
+ &#39;North_America_6_Portfolios_ME_OP_Daily&#39;,
+ &#39;Developed_25_Portfolios_ME_OP&#39;,
+ &#39;Developed_25_Portfolios_ME_OP_Daily&#39;,
+ &#39;Developed_ex_US_25_Portfolios_ME_OP&#39;,
+ &#39;Developed_ex_US_25_Portfolios_ME_OP_Daily&#39;,
+ &#39;Europe_25_Portfolios_ME_OP&#39;,
+ &#39;Europe_25_Portfolios_ME_OP_Daily&#39;,
+ &#39;Japan_25_Portfolios_ME_OP&#39;,
+ &#39;Japan_25_Portfolios_ME_OP_Daily&#39;,
+ &#39;Asia_Pacific_ex_Japan_25_Portfolios_ME_OP&#39;,
+ &#39;Asia_Pacific_ex_Japan_25_Portfolios_ME_OP_Daily&#39;,
+ &#39;North_America_25_Portfolios_ME_OP&#39;,
+ &#39;North_America_25_Portfolios_ME_OP_Daily&#39;,
+ &#39;Developed_6_Portfolios_ME_INV&#39;,
+ &#39;Developed_6_Portfolios_ME_INV_Daily&#39;,
+ &#39;Developed_ex_US_6_Portfolios_ME_INV&#39;,
+ &#39;Developed_ex_US_6_Portfolios_ME_INV_Daily&#39;,
+ &#39;Europe_6_Portfolios_ME_INV&#39;,
+ &#39;Europe_6_Portfolios_ME_INV_Daily&#39;,
+ &#39;Japan_6_Portfolios_ME_INV&#39;,
+ &#39;Japan_6_Portfolios_ME_INV_Daily&#39;,
+ &#39;Asia_Pacific_ex_Japan_6_Portfolios_ME_INV&#39;,
+ &#39;Asia_Pacific_ex_Japan_6_Portfolios_ME_INV_Daily&#39;,
+ &#39;North_America_6_Portfolios_ME_INV&#39;,
+ &#39;North_America_6_Portfolios_ME_INV_Daily&#39;,
+ &#39;Developed_25_Portfolios_ME_INV&#39;,
+ &#39;Developed_25_Portfolios_ME_INV_Daily&#39;,
+ &#39;Developed_ex_US_25_Portfolios_ME_INV&#39;,
+ &#39;Developed_ex_US_25_Portfolios_ME_INV_Daily&#39;,
+ &#39;Europe_25_Portfolios_ME_INV&#39;,
+ &#39;Europe_25_Portfolios_ME_INV_Daily&#39;,
+ &#39;Japan_25_Portfolios_ME_INV&#39;,
+ &#39;Japan_25_Portfolios_ME_INV_Daily&#39;,
+ &#39;Asia_Pacific_ex_Japan_25_Portfolios_ME_INV&#39;,
+ &#39;Asia_Pacific_ex_Japan_25_Portfolios_ME_INV_Daily&#39;,
+ &#39;North_America_25_Portfolios_ME_INV&#39;,
+ &#39;North_America_25_Portfolios_ME_INV_Daily&#39;,
+ &#39;Developed_6_Portfolios_ME_Prior_12_2&#39;,
+ &#39;Developed_6_Portfolios_ME_Prior_250_20_daily&#39;,
+ &#39;Developed_ex_US_6_Portfolios_ME_Prior_12_2&#39;,
+ &#39;Developed_ex_US_6_Portfolios_ME_Prior_250_20_daily&#39;,
+ &#39;Europe_6_Portfolios_ME_Prior_12_2&#39;,
+ &#39;Europe_6_Portfolios_ME_Prior_250_20_daily&#39;,
+ &#39;Japan_6_Portfolios_ME_Prior_12_2&#39;,
+ &#39;Japan_6_Portfolios_ME_Prior_250_20_daily&#39;,
+ &#39;Asia_Pacific_ex_Japan_6_Portfolios_ME_Prior_12_2&#39;,
+ &#39;Asia_Pacific_ex_Japan_6_Portfolios_ME_Prior_250_20_daily&#39;,
+ &#39;North_America_6_Portfolios_ME_Prior_12_2&#39;,
+ &#39;North_America_6_Portfolios_ME_Prior_250_20_daily&#39;,
+ &#39;Developed_25_Portfolios_ME_Prior_12_2&#39;,
+ &#39;Developed_25_Portfolios_ME_Prior_250_20_daily&#39;,
+ &#39;Developed_ex_US_25_Portfolios_ME_Prior_12_2&#39;,
+ &#39;Developed_ex_US_25_Portfolios_ME_Prior_250_20_daily&#39;,
+ &#39;Europe_25_Portfolios_ME_Prior_12_2&#39;,
+ &#39;Europe_25_Portfolios_ME_Prior_250_20_daily&#39;,
+ &#39;Japan_25_Portfolios_ME_Prior_12_2&#39;,
+ &#39;Japan_25_Portfolios_ME_Prior_250_20_daily&#39;,
+ &#39;Asia_Pacific_ex_Japan_25_Portfolios_ME_Prior_12_2&#39;,
+ &#39;Asia_Pacific_ex_Japan_25_Portfolios_ME_Prior_250_20_daily&#39;,
+ &#39;North_America_25_Portfolios_ME_Prior_12_2&#39;,
+ &#39;North_America_25_Portfolios_ME_Prior_250_20_daily&#39;,
+ &#39;Developed_32_Portfolios_ME_BE-ME_OP_2x4x4&#39;,
+ &#39;Developed_ex_US_32_Portfolios_ME_BE-ME_OP_2x4x4&#39;,
+ &#39;Europe_32_Portfolios_ME_BE-ME_OP_2x4x4&#39;,
+ &#39;Japan_32_Portfolios_ME_BE-ME_OP_2x4x4&#39;,
+ &#39;Asia_Pacific_ex_Japan_32_Portfolios_ME_BE-ME_OP_2x4x4&#39;,
+ &#39;North_America_32_Portfolios_ME_BE-ME_OP_2x4x4&#39;,
+ &#39;Developed_32_Portfolios_ME_BE-ME_INV(TA)_2x4x4&#39;,
+ &#39;Developed_ex_US_32_Portfolios_ME_BE-ME_INV(TA)_2x4x4&#39;,
+ &#39;Europe_32_Portfolios_ME_BE-ME_INV(TA)_2x4x4&#39;,
+ &#39;Japan_32_Portfolios_ME_BE-ME_INV(TA)_2x4x4&#39;,
+ &#39;Asia_Pacific_ex_Japan_32_Portfolios_ME_BE-ME_INV(TA)_2x4x4&#39;,
+ &#39;North_America_32_Portfolios_ME_BE-ME_INV(TA)_2x4x4&#39;,
+ &#39;Developed_32_Portfolios_ME_INV(TA)_OP_2x4x4&#39;,
+ &#39;Developed_ex_US_32_Portfolios_ME_INV(TA)_OP_2x4x4&#39;,
+ &#39;Europe_32_Portfolios_ME_INV(TA)_OP_2x4x4&#39;,
+ &#39;Japan_32_Portfolios_ME_INV(TA)_OP_2x4x4&#39;,
+ &#39;Asia_Pacific_ex_Japan_32_Portfolios_ME_INV(TA)_OP_2x4x4&#39;,
+ &#39;North_America_32_Portfolios_ME_INV(TA)_OP_2x4x4&#39;,
+ &#39;Emerging_5_Factors&#39;,
+ &#39;Emerging_MOM_Factor&#39;,
+ &#39;Emerging_Markets_6_Portfolios_ME_BE-ME&#39;,
+ &#39;Emerging_Markets_6_Portfolios_ME_OP&#39;,
+ &#39;Emerging_Markets_6_Portfolios_ME_INV&#39;,
+ &#39;Emerging_Markets_6_Portfolios_ME_Prior_12_2&#39;,
+ &#39;Emerging_Markets_4_Portfolios_BE-ME_OP&#39;,
+ &#39;Emerging_Markets_4_Portfolios_OP_INV&#39;,
+ &#39;Emerging_Markets_4_Portfolios_BE-ME_INV&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Variable reference for WRDS CRSP data set</strong>
+<img alt="image.png" src="../../_images/usingAPI1.jpg" />
+<img alt="image.png" src="../../_images/usingAPI2.jpg" />
+<img alt="image.png" src="../../_images/usingAPI3.jpg" /></p>
 </div>
 
     <script type="text/x-thebe-config">
