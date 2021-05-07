@@ -75,9 +75,14 @@ There are different types of "quants":
 Lots of recent attention to the quantitative investing community.
 
 Some books:
+* Asset Management: is a great book by an Academic that now is the head of research at Blackrock. I highly recommend it.
 
-* [Asset Management](https://www.amazon.com/Asset-Management-Systematic-Investing-Association-dp-0199959323/dp/0199959323/ref=mt_other?_encoding=UTF8&me=&qid=1620318973) is a great book by an Academic that now is the head of research at Blackrock. I highly recommend it.
+* Trillions: written by a pretty smart Financial Times journalist. I haven't read it yet, but should be good.
 
-* [Trillions](https://www.amazon.com/dp/0593087682) written by a pretty smart Financial Times journalist. I haven't read it yet, but should be good.
+* The Quants: not very good, but fun.
 
-* [The Quants](https://www.amazon.com/Quants-Whizzes-Conquered-Street-Destroyed/dp/0307453383) not very good, but fun.
+ ![fig](../../assets/plots/intro6.jpg)
+
+ Here some recent newspapers articles on Quantitative Investing:
+
+  [no good year for quants](../../assets/papers/A terrible, horrible, no-good year for quants _ Financial Times.pdf), [And they are back](../../assets/papers/‘Quant winter’ thaw ends long spell of drab returns for funds _ Financial Times.pdf), [But things are not quite the same](../../assets/papers/Investors brace for ‘major shift’ as momentum and value collide _ Financial Times.pdf)
