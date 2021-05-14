@@ -1035,7 +1035,7 @@ frequency.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Load up the data -- this will take a couple seconds</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/amoreira2/Lectures/main/assets/data/10_Industry_Portfolios.CSV&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/amoreira2/Lectures/main/assets/data/49_Industry_Portfolios.CSV&quot;</span>
 <span class="n">industret_raw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -1071,88 +1071,52 @@ the underlying CSV file.</p>
     <tr style="text-align: right;">
       <th></th>
       <th>Date</th>
-      <th>NoDur</th>
-      <th>Durbl</th>
-      <th>Manuf</th>
-      <th>Enrgy</th>
-      <th>HiTec</th>
-      <th>Telcm</th>
-      <th>Shops</th>
-      <th>Hlth</th>
-      <th>Utils</th>
-      <th>Other</th>
+      <th>level_1</th>
+      <th>returns</th>
+      <th>nfirms</th>
+      <th>size</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
       <td>1926-07-31</td>
-      <td>1.45</td>
-      <td>15.55</td>
-      <td>4.69</td>
-      <td>-1.18</td>
-      <td>2.90</td>
-      <td>0.83</td>
-      <td>0.11</td>
-      <td>1.77</td>
-      <td>7.04</td>
-      <td>2.16</td>
+      <td>Agric</td>
+      <td>2.37</td>
+      <td>3</td>
+      <td>99.80</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1926-08-31</td>
-      <td>3.97</td>
-      <td>3.68</td>
-      <td>2.81</td>
-      <td>3.47</td>
-      <td>2.66</td>
-      <td>2.17</td>
-      <td>-0.71</td>
-      <td>4.25</td>
-      <td>-1.69</td>
-      <td>4.38</td>
+      <td>1926-07-31</td>
+      <td>Food</td>
+      <td>0.12</td>
+      <td>40</td>
+      <td>31.19</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1926-09-30</td>
-      <td>1.14</td>
-      <td>4.80</td>
-      <td>1.15</td>
-      <td>-3.39</td>
-      <td>-0.38</td>
-      <td>2.41</td>
-      <td>0.21</td>
-      <td>0.69</td>
-      <td>2.04</td>
-      <td>0.29</td>
+      <td>1926-07-31</td>
+      <td>Soda</td>
+      <td>-99.99</td>
+      <td>0</td>
+      <td>-99.99</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1926-10-31</td>
-      <td>-1.24</td>
-      <td>-8.23</td>
-      <td>-3.63</td>
-      <td>-0.78</td>
-      <td>-4.58</td>
-      <td>-0.11</td>
-      <td>-2.29</td>
-      <td>-0.57</td>
-      <td>-2.63</td>
-      <td>-2.85</td>
+      <td>1926-07-31</td>
+      <td>Beer</td>
+      <td>-5.19</td>
+      <td>3</td>
+      <td>7.12</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1926-11-30</td>
-      <td>5.20</td>
-      <td>-0.19</td>
-      <td>4.10</td>
-      <td>0.01</td>
-      <td>4.71</td>
-      <td>1.63</td>
-      <td>6.43</td>
-      <td>5.42</td>
-      <td>3.71</td>
-      <td>2.11</td>
+      <td>1926-07-31</td>
+      <td>Smoke</td>
+      <td>1.29</td>
+      <td>16</td>
+      <td>59.72</td>
     </tr>
   </tbody>
 </table>

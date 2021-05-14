@@ -1488,17 +1488,130 @@ This file was created by CMPT_IND_RETS using the 202103 CRSP database. It contai
 <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">=</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">to_timestamp</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;E&#39;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">date</span>
-<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;../../assets/data/49_Industry_Portfolios.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;D&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{})</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>level_1</th>
+      <th>returns</th>
+      <th>nfirms</th>
+      <th>size</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1926-07-31</th>
+      <td>Agric</td>
+      <td>2.37</td>
+      <td>3</td>
+      <td>99.80</td>
+    </tr>
+    <tr>
+      <th>1926-07-31</th>
+      <td>Food</td>
+      <td>0.12</td>
+      <td>40</td>
+      <td>31.19</td>
+    </tr>
+    <tr>
+      <th>1926-07-31</th>
+      <td>Soda</td>
+      <td>-99.99</td>
+      <td>0</td>
+      <td>-99.99</td>
+    </tr>
+    <tr>
+      <th>1926-07-31</th>
+      <td>Beer</td>
+      <td>-5.19</td>
+      <td>3</td>
+      <td>7.12</td>
+    </tr>
+    <tr>
+      <th>1926-07-31</th>
+      <td>Smoke</td>
+      <td>1.29</td>
+      <td>16</td>
+      <td>59.72</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2021-03-31</th>
+      <td>Banks</td>
+      <td>4.90</td>
+      <td>412</td>
+      <td>7511.02</td>
+    </tr>
+    <tr>
+      <th>2021-03-31</th>
+      <td>Insur</td>
+      <td>9.18</td>
+      <td>98</td>
+      <td>13675.21</td>
+    </tr>
+    <tr>
+      <th>2021-03-31</th>
+      <td>RlEst</td>
+      <td>-1.24</td>
+      <td>29</td>
+      <td>2597.92</td>
+    </tr>
+    <tr>
+      <th>2021-03-31</th>
+      <td>Fin</td>
+      <td>4.11</td>
+      <td>85</td>
+      <td>11581.57</td>
+    </tr>
+    <tr>
+      <th>2021-03-31</th>
+      <td>Other</td>
+      <td>6.03</td>
+      <td>80</td>
+      <td>18769.40</td>
+    </tr>
+  </tbody>
+</table>
+<p>55713 rows × 4 columns</p>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
