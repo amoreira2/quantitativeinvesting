@@ -855,63 +855,53 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#outline">
-   5.4.1. Outline
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
-   5.4.2. Randomness
+   5.4.1. Randomness
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#probability">
-     5.4.2.1. Probability
+     5.4.1.1. Probability
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#simulating-randomness-in-python">
-     5.4.2.2. Simulating Randomness in Python
+     5.4.1.2. Simulating Randomness in Python
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#why-do-we-need-randomness">
-     5.4.2.3. Why Do We Need Randomness?
+     5.4.1.3. Why Do We Need Randomness?
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#discrete-distributions-opt">
-     5.4.2.4. Discrete Distributions (opt)
+     5.4.1.4. Discrete Distributions (opt)
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#aside-vectorized-computations">
-       5.4.2.4.1. Aside: Vectorized Computations
+       5.4.1.4.1. Aside: Vectorized Computations
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#profitability-threshold">
-       5.4.2.4.2. Profitability Threshold
+       5.4.1.4.2. Profitability Threshold
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#loan-states">
-       5.4.2.4.3. Loan States
+       5.4.1.4.3. Loan States
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#continuous-distributions">
-     5.4.2.5. Continuous Distributions
+     5.4.1.5. Continuous Distributions
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   5.4.3. Exercises
-  </a>
  </li>
 </ul>
 
@@ -939,16 +929,6 @@
 <li><p>Understand the basics of Markov chains and using the <code class="docutils literal notranslate"><span class="pre">quantecon</span></code> library to study them</p></li>
 <li><p>Simulate discrete and continuous random variables and processes</p></li>
 </ul>
-<div class="section" id="outline">
-<h2><span class="section-number">5.4.1. </span>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="#Randomness">Randomness</a></p>
-<ul>
-<li><p><a class="reference external" href="#Randomness">Randomness</a></p></li>
-<li><p><a class="reference external" href="#Exercises">Exercises</a></p></li>
-</ul>
-</li>
-</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uncomment following line to install on colab</span>
@@ -957,9 +937,8 @@
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="id1">
-<h2><span class="section-number">5.4.2. </span>Randomness<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.4.1. </span>Randomness<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>We will use the <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> package to simulate randomness in Python.</p>
 <p>This lecture will present various probability distributions and then use
 numpy.random to numerically verify some of the facts associated with them.</p>
@@ -977,7 +956,7 @@ numpy.random to numerically verify some of the facts associated with them.</p>
 </div>
 </div>
 <div class="section" id="probability">
-<h3><span class="section-number">5.4.2.1. </span>Probability<a class="headerlink" href="#probability" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.4.1.1. </span>Probability<a class="headerlink" href="#probability" title="Permalink to this headline">¶</a></h3>
 <p>Before we learn how to use Python to generate randomness, we should make sure
 that we all agree on some basic concepts of probability.</p>
 <p>To think about the probability of some event occurring, we must understand what possible
@@ -1008,7 +987,7 @@ the sum of the probabilities that each event occurs (known as independence).</p>
 help us reason through what is happening.</p>
 </div>
 <div class="section" id="simulating-randomness-in-python">
-<h3><span class="section-number">5.4.2.2. </span>Simulating Randomness in Python<a class="headerlink" href="#simulating-randomness-in-python" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.4.1.2. </span>Simulating Randomness in Python<a class="headerlink" href="#simulating-randomness-in-python" title="Permalink to this headline">¶</a></h3>
 <p>One of the most basic random numbers is a variable that has equal probability of being any value
 between 0 and 1.</p>
 <p>You may have previously learned about this probability distribution as the Uniform(0, 1).</p>
@@ -1079,7 +1058,7 @@ between 0 and 1.</p>
 </div>
 </div>
 <div class="section" id="why-do-we-need-randomness">
-<h3><span class="section-number">5.4.2.3. </span>Why Do We Need Randomness?<a class="headerlink" href="#why-do-we-need-randomness" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.4.1.3. </span>Why Do We Need Randomness?<a class="headerlink" href="#why-do-we-need-randomness" title="Permalink to this headline">¶</a></h3>
 <p>As economists and data scientists, we study complex systems.</p>
 <p>These systems have inherent randomness, but they do not readily reveal their underlying distribution
 to us.</p>
@@ -1117,7 +1096,7 @@ Numbers</em>.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/randomness1_13_0.png" src="../../_images/randomness1_13_0.png" />
+<img alt="../../_images/randomness1_12_0.png" src="../../_images/randomness1_12_0.png" />
 </div>
 </div>
 <p><a id='exercise-0'></a></p>
@@ -1126,7 +1105,7 @@ Numbers</em>.</p>
 </div></blockquote>
 </div>
 <div class="section" id="discrete-distributions-opt">
-<h3><span class="section-number">5.4.2.4. </span>Discrete Distributions (opt)<a class="headerlink" href="#discrete-distributions-opt" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.4.1.4. </span>Discrete Distributions (opt)<a class="headerlink" href="#discrete-distributions-opt" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes we will encounter variables that can only take one of a
 few possible values.</p>
 <p>We refer to this type of random variable as a discrete distribution.</p>
@@ -1176,7 +1155,7 @@ probability.</p>
 </div>
 </div>
 <div class="section" id="aside-vectorized-computations">
-<h4><span class="section-number">5.4.2.4.1. </span>Aside: Vectorized Computations<a class="headerlink" href="#aside-vectorized-computations" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.4.1.4.1. </span>Aside: Vectorized Computations<a class="headerlink" href="#aside-vectorized-computations" title="Permalink to this headline">¶</a></h4>
 <p>The code above illustrates the concepts we were discussing but is much slower than
 necessary.</p>
 <p>Below is a version of our function that uses numpy arrays to perform computations
@@ -1252,7 +1231,7 @@ element at a time.</p>
 <a class="reference external" href="https://lectures.quantecon.org/py/numba.html">QuantEcon lecture on performance Python</a> code.</p>
 </div>
 <div class="section" id="profitability-threshold">
-<h4><span class="section-number">5.4.2.4.2. </span>Profitability Threshold<a class="headerlink" href="#profitability-threshold" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.4.1.4.2. </span>Profitability Threshold<a class="headerlink" href="#profitability-threshold" title="Permalink to this headline">¶</a></h4>
 <p>Rather than looking for the break even point, we might be interested in the largest loan size that
 ensures we still have a 95% probability of profitability in a year we make 250 loans.</p>
 <p>This is something that could be computed by hand, but it is much easier to answer through
@@ -1296,7 +1275,7 @@ being profitable.</p>
 how the life of their loans progressed.</p>
 </div>
 <div class="section" id="loan-states">
-<h4><span class="section-number">5.4.2.4.3. </span>Loan States<a class="headerlink" href="#loan-states" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.4.1.4.3. </span>Loan States<a class="headerlink" href="#loan-states" title="Permalink to this headline">¶</a></h4>
 <p>Loans can have 3 potential statuses (or states):</p>
 <ol class="simple">
 <li><p>Repaying: Payments are being made on loan.</p></li>
@@ -1464,7 +1443,7 @@ At time 9 the distribution is [0.40829573 0.1241273  0.46757697]
 </div>
 </div>
 <div class="section" id="continuous-distributions">
-<h3><span class="section-number">5.4.2.5. </span>Continuous Distributions<a class="headerlink" href="#continuous-distributions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.4.1.5. </span>Continuous Distributions<a class="headerlink" href="#continuous-distributions" title="Permalink to this headline">¶</a></h3>
 <p>Recall that a continuous distribution is one where the value can take on an uncountable number of values.</p>
 <p>It differs from a discrete distribution in that the events are not
 countable.</p>
@@ -1498,7 +1477,7 @@ described by the mean and variance of that distribution.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x2777fb84a60&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/randomness1_38_1.png" src="../../_images/randomness1_38_1.png" />
+<img alt="../../_images/randomness1_37_1.png" src="../../_images/randomness1_37_1.png" />
 </div>
 </div>
 <p>Another common continuous distribution used in economics is the gamma distribution.</p>
@@ -1530,60 +1509,10 @@ parameter <span class="math notranslate nohighlight">\( k \)</span> and a scale 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/randomness1_40_0.png" src="../../_images/randomness1_40_0.png" />
-</div>
-</div>
-<p><a id='exercise-3'></a></p>
-<blockquote>
-<div><p>See exercise 4 in the <a class="reference external" href="#exerciselist-0"><em>exercise list</em></a></p>
-</div></blockquote>
-</div>
-</div>
-<div class="section" id="exercises">
-<h2><span class="section-number">5.4.3. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<p><strong>EDIT EXERCISESS</strong></p>
-<p><a id='exerciselist-0'></a>
-<strong>Exercise 1</strong></p>
-<p>Wikipedia and other credible statistics sources tell us that the mean and
-variance of the Uniform(0, 1) distribution are (1/2, 1/12) respectively.</p>
-<p>How could we check whether the numpy random numbers approximate these
-values?</p>
-<p>(<a class="reference external" href="#exercise-0"><em>back to text</em></a>)</p>
-<p><strong>Exercise 2</strong></p>
-<p>Some execise</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
-</pre></div>
+<img alt="../../_images/randomness1_39_0.png" src="../../_images/randomness1_39_0.png" />
 </div>
 </div>
 </div>
-<p>(<a class="reference external" href="#exercise-2"><em>back to text</em></a>)</p>
-<p><strong>Exercise 3</strong></p>
-<p>Assume you have been given the opportunity to choose between one of three financial assets:</p>
-<p>You will be given the asset for free, allowed to hold it indefinitely, and keeping all payoffs.</p>
-<p>Also assume the assets’ payoffs are distributed as follows:</p>
-<ol class="simple">
-<li><p>Normal with <span class="math notranslate nohighlight">\( \mu = 10, \sigma = 5 \)</span></p></li>
-<li><p>Gamma with <span class="math notranslate nohighlight">\( k = 5.3, \theta = 2 \)</span></p></li>
-<li><p>Gamma with <span class="math notranslate nohighlight">\( k = 5, \theta = 2 \)</span></p></li>
-</ol>
-<p>Use <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> to answer the following questions:</p>
-<ul class="simple">
-<li><p>Which asset has the highest average returns?</p></li>
-<li><p>Which asset has the highest median returns?</p></li>
-<li><p>Which asset has the lowest coefficient of variation (standard deviation divided by mean)?</p></li>
-<li><p>Which asset would you choose? Why? (Hint: There is not a single right answer here. Be creative
-and express your preferences)</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>(<a class="reference external" href="#exercise-3"><em>back to text</em></a>)</p>
 </div>
 </div>
 

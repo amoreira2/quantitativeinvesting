@@ -1,0 +1,1377 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercises &#8212; Quantitative Investing</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/book.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://amoreira2.github.io/quantitativeinvesting/chapters/pandas/Exercises.html" />
+    <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/figuremain2.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Quantitative Investing</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/what-is-quant-investing.html">
+   1. What is Quantitative Investing?
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/statistical-techniques.html">
+     1.1. Statistical Techniques
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/computational-tools.html">
+     1.2. Computational tools
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02/getting_started.html">
+   2. Getting Started
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/local_install.html">
+     2.2.1. Local installation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/cloud_setup.html">
+     2.2.2. Cloud Setup
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03/programming-in-python.html">
+   3. First Steps with Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/1/Expressions.html">
+     3.1. Expressions
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../03/2/Names.html">
+     3.2. Names
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/2/1/Growth.html">
+       3.2.1. Example: Growth Rates
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/3/Calls.html">
+     3.3. Call Expressions
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../03/4/Data_Types.html">
+     3.4. Data Types
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/4/1/Numbers.html">
+       3.4.1. Numbers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/4/2/Strings.html">
+       3.4.2. Strings
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../03/5/Sequences.html">
+     3.5. Sequences
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/5/1/Arrays.html">
+       3.5.1. Arrays
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/5/2/Ranges.html">
+       3.5.2. Ranges
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/5/3/More_on_Arrays.html">
+       3.5.3. More on Arrays
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../essentials/essentials.html">
+   4. Python Essentials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../essentials/basics.html">
+     4.1. Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../essentials/collections.html">
+     4.2. Collections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../essentials/control_flow.html">
+     4.3. Flow control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../essentials/functions.html">
+     4.4. Functions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../scientific/intro.html">
+   5. Scientific Computing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scientific/numpy1.html">
+     5.1. Numpy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scientific/plotting1.html">
+     5.2. Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scientific/linear_algebra1.html">
+     5.3. Linear algebra
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scientific/randomness1.html">
+     5.4. Randomness
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="workingwithdata.html">
+   6. Working with Data
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="intro.html">
+     6.1. Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="basics.html">
+     6.2. Pandas Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="the_index.html">
+     6.3. Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data_clean.html">
+     6.4. Cleaning data (opt)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="reshape.html">
+     6.5. Reshape (opt)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="merge.html">
+     6.6. Merge (opt)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="groupby.html">
+     6.7. Group-by (opt)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="timeseries.html">
+     6.8. Time-Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="matplotlib.html">
+     6.9. Plotting (opt)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="storage_formats.html">
+     6.10. Data Storage (opt)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Finance/Returns.html">
+   7. Asset Returns
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Finance/TheChoiceofFrequency.html">
+     7.1. The Choice of Frequency and Annualization of Returns
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Finance/PortfolioMath.html">
+   8. Portfolio Math
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Finance/CapitalAllocationLine.html">
+   9. Capital Allocation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Finance/UsingAPI.html">
+     9.1. Using APIs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Finance/MeanVariance.html">
+   10. Mean Variance Efficient Portfolios
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Finance/CaseStudy.html">
+     10.1. Case Study in International Diversification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Finance/LeverageandShorting.html">
+     10.2. Leverage and Shorting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Finance/Portfoliooptimizationwithconstraints.html">
+     10.3. Portfolio Optimization with constraints
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Finance/EstimationUncertainty.html">
+   11. Estimation Uncertainty and It's Implications for investing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Finance/TradingStrategies.html">
+   12. Trading Strategies
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Finance/Timing.html">
+   13. Timing Strategies
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Finance/Volatilitytiming.html">
+     13.1. Volatility Timing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Finance/crosssectionalequitystrategies.html">
+   14. Cross-Sectional Equity Strategies
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Finance/Valueinvesting.html">
+     14.1. Value
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Finance/Momentum.html">
+     14.2. Momentum
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Finance/OtherEquityStrategies.html">
+     14.3. Other Equity strategies
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Finance/Evaluation.html">
+   15. Evaluating a Trading Strategy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Finance/Econometrics.html">
+     15.1. The Econometrics of Strategy Evalaution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Finance/outofsample.html">
+     15.2. Out of Sample Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Finance/TailandBackground.html">
+     15.3. Tail Risks and Background Risks
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Finance/Topics.html">
+   16. Topics in Quantitative Investing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Finance/MultiFactorModels.html">
+     16.1. Multifactor Models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Finance/Equilbrium.html">
+     16.2. Intepreting Factor models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Finance/Implementation.html">
+     16.3. Strategy Implementation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Finance/Horizon.html">
+     16.4. Investment horizon effects
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../additional/additional.html">
+   17. Additional Statistics Material
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../additional/10/Sampling_and_Empirical_Distributions.html">
+     17.1.1. Sampling and Empirical Distributions
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+    <label for="toctree-checkbox-18">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/10/1/Empirical_Distributions.html">
+       17.1.1.1. Empirical Distributions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/10/2/Sampling_from_a_Population.html">
+       17.1.1.2. Sampling from a Population
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/10/3/Empirical_Distribution_of_a_Statistic.html">
+       17.1.1.3. Empirical Distibution of a Statistic
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../additional/11/Testing_Hypotheses.html">
+     17.1.2. Testing Hypotheses
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+    <label for="toctree-checkbox-19">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/11/1/Assessing_Models.html">
+       17.1.2.1. Assessing Models
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/11/2/Multiple_Categories.html">
+       17.1.2.2. Multiple Categories
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/11/3/Decisions_and_Uncertainty.html">
+       17.1.2.3. Decisions and Uncertainty
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/11/4/Error_Probabilities.html">
+       17.1.2.4. Error Probabilities
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../additional/13/Estimation.html">
+     17.1.3. Estimation
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+    <label for="toctree-checkbox-20">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/13/1/Percentiles.html">
+       17.1.3.1. Percentiles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/13/2/Bootstrap.html">
+       17.1.3.2. The Bootstrap
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/13/3/Confidence_Intervals.html">
+       17.1.3.3. Confidence Intervals
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/13/4/Using_Confidence_Intervals.html">
+       17.1.3.4. Using Confidence Intervals
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../additional/14/Why_the_Mean_Matters.html">
+     17.1.4. Why the Mean Matters
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
+    <label for="toctree-checkbox-21">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/14/1/Properties_of_the_Mean.html">
+       17.1.4.1. Properties of the Mean
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/14/2/Variability.html">
+       17.1.4.2. Variability
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/14/3/SD_and_the_Normal_Curve.html">
+       17.1.4.3. The SD and the Normal Curve
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/14/4/Central_Limit_Theorem.html">
+       17.1.4.4. The Central Limit Theorem
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/14/5/Variability_of_the_Sample_Mean.html">
+       17.1.4.5. The Variability of the Sample Mean
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/14/6/Choosing_a_Sample_Size.html">
+       17.1.4.6. Choosing a Sample Size
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../additional/15/Prediction.html">
+     17.1.5. Prediction
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+    <label for="toctree-checkbox-22">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/15/1/Correlation.html">
+       17.1.5.1. Correlation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/15/2/Regression_Line.html">
+       17.1.5.2. The Regression Line
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/15/3/Method_of_Least_Squares.html">
+       17.1.5.3. The Method of Least Squares
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/15/4/Least_Squares_Regression.html">
+       17.1.5.4. Least Squares Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/15/5/Visual_Diagnostics.html">
+       17.1.5.5. Visual Diagnostics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/15/6/Numerical_Diagnostics.html">
+       17.1.5.6. Numerical Diagnostics
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../additional/16/Inference_for_Regression.html">
+     17.1.6. Inference for Regression
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+    <label for="toctree-checkbox-23">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/16/1/Regression_Model.html">
+       17.1.6.1. A Regression Model
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/16/2/Inference_for_the_True_Slope.html">
+       17.1.6.2. Inference for the True Slope
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../additional/16/3/Prediction_Intervals.html">
+       17.1.6.3. Prediction Intervals
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/chapters/pandas/Exercises.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/amoreira2/Lectures"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/amoreira2/Lectures/issues/new?title=Issue%20on%20page%20%2Fchapters/pandas/Exercises.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/amoreira2/Lectures/main?urlpath=lab/tree/chapters/pandas/Exercises.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://pims.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https://github.com/amoreira2/Lectures&urlpath=lab/tree/Lectures/chapters/pandas/Exercises.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/amoreira2/Lectures/blob/main/chapters/pandas/Exercises.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scientific-numpy">
+   Scientific/Numpy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-1">
+     Exercise 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-2">
+     Exercise 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting">
+     Plotting
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Exercise 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-algebra">
+     Linear algebra
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#randomness">
+     Randomness
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pandas">
+     Pandas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#intro">
+     Intro
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#time-series">
+   Time Series
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="exercises">
+<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="scientific-numpy">
+<h2>Scientific/Numpy<a class="headerlink" href="#scientific-numpy" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id1">
+<h2>Exercises<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><strong>NEED TO CHECK IN exercises are approproiate</strong></p>
+<p><a id='exerciselist-0'></a>
+<strong>Exercise 1</strong></p>
+<p>Try indexing into another element of your choice from the
+3-dimensional array.</p>
+<p>Building an understanding of indexing means working through this
+type of operation several times – without skipping steps!</p>
+<p>(<a class="reference external" href="#exercise-0"><em>back to text</em></a>)</p>
+<p><strong>Exercise 2</strong></p>
+<p>Look at the 2-dimensional array <code class="docutils literal notranslate"><span class="pre">x_2d</span></code>.</p>
+<p>Does the inner-most index correspond to rows or columns? What does the
+outer-most index correspond to?</p>
+<p>Write your thoughts.</p>
+<p>(<a class="reference external" href="#exercise-1"><em>back to text</em></a>)</p>
+<p><strong>Exercise 3</strong></p>
+<p>What would you do to extract the array <code class="docutils literal notranslate"><span class="pre">[[5,</span> <span class="pre">6],</span> <span class="pre">[50,</span> <span class="pre">60]]</span></code>?</p>
+<p>(<a class="reference external" href="#exercise-2"><em>back to text</em></a>)</p>
+<p><strong>Exercise 4</strong></p>
+<p>Do you recall what multiplication by an integer did for lists?</p>
+<p>How does this differ?</p>
+<p>(<a class="reference external" href="#exercise-3"><em>back to text</em></a>)</p>
+<p><strong>Exercise 5</strong></p>
+<p>Let’s revisit a bond pricing example we saw in Control flow.</p>
+<p>Recall that the equation for pricing a bond with coupon payment <span class="math notranslate nohighlight">\( C \)</span>,
+face value <span class="math notranslate nohighlight">\( M \)</span>, yield to maturity <span class="math notranslate nohighlight">\( i \)</span>, and periods to maturity
+<span class="math notranslate nohighlight">\( N \)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+    P &amp;= \left(\sum_{n=1}^N \frac{C}{(i+1)^n}\right) + \frac{M}{(1+i)^N} \\
+      &amp;= C \left(\frac{1 - (1+i)^{-N}}{i} \right) + M(1+i)^{-N}
+\end{align*}
+\end{split}\]</div>
+<p>In the code cell below, we have defined variables for <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">M</span></code> and <code class="docutils literal notranslate"><span class="pre">C</span></code>.</p>
+<p>You have two tasks:</p>
+<ol class="simple">
+<li><p>Define a numpy array <code class="docutils literal notranslate"><span class="pre">N</span></code> that contains all maturities between 1 and 10 (<em>hint</em> look at the <code class="docutils literal notranslate"><span class="pre">np.arange</span></code> function).</p></li>
+<li><p>Using the equation above, determine the bond prices of all maturity levels in your array.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mf">0.03</span>
+<span class="n">M</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">C</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># Define array here</span>
+
+<span class="c1"># price bonds here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="exercise-1">
+<h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
+<p>Consider the polynomial expression</p>
+<p><a id='equation-np-polynom'></a>
+$<span class="math notranslate nohighlight">\(
+p(x) = a_0 + a_1 x + a_2 x^2 + \cdots a_N x^N = \sum_{n=0}^N a_n x^n \tag{1}
+\)</span>$</p>
+<p><a class="reference external" href="https://python-programming.quantecon.org/python_essentials.html#pyess-ex2">Earlier</a>, you wrote a simple function <code class="docutils literal notranslate"><span class="pre">p(x,</span> <span class="pre">coeff)</span></code> to evaluate <a class="reference external" href="#equation-np-polynom">(9.1)</a> without considering efficiency.</p>
+<p>Now write a new function that does the same job, but uses NumPy arrays and array operations for its computations, rather than any form of Python loop.</p>
+<p>(Such functionality is already implemented as <code class="docutils literal notranslate"><span class="pre">np.poly1d</span></code>, but for the sake of the exercise don’t use this class)</p>
+<ul class="simple">
+<li><p>Hint: Use <code class="docutils literal notranslate"><span class="pre">np.cumprod()</span></code></p></li>
+</ul>
+<p><a id='np-ex2'></a></p>
+</div>
+<div class="section" id="exercise-2">
+<h3>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h3>
+<p>Let <code class="docutils literal notranslate"><span class="pre">q</span></code> be a NumPy array of length <code class="docutils literal notranslate"><span class="pre">n</span></code> with <code class="docutils literal notranslate"><span class="pre">q.sum()</span> <span class="pre">==</span> <span class="pre">1</span></code>.</p>
+</div>
+<div class="section" id="plotting">
+<h3>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id2">
+<h3>Exercise 1<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Plot the function</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \cos(\pi \theta x) \exp(-x)
+\]</div>
+<p>over the interval <span class="math notranslate nohighlight">\( [0, 5] \)</span> for each <span class="math notranslate nohighlight">\( \theta \)</span> in <code class="docutils literal notranslate"><span class="pre">np.linspace(0,</span> <span class="pre">2,</span> <span class="pre">10)</span></code>.</p>
+<p>Place all the curves in the same figure.</p>
+<p>The output should look like this</p>
+<p><img alt="https://python-programming.quantecon.org/_static/lecture_specific/matplotlib/matplotlib_ex1.png" src="https://python-programming.quantecon.org/_static/lecture_specific/matplotlib/matplotlib_ex1.png" /></p>
+</div>
+<div class="section" id="linear-algebra">
+<h3>Linear algebra<a class="headerlink" href="#linear-algebra" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Exercises<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><a id='exerciselist-0'></a>
+<strong>Exercise 1</strong></p>
+<p>Alice is a stock broker who owns two types of assets: A and B. She owns 100
+units of asset A and 50 units of asset B. The current interest rate is 5%.
+Each of the A assets have a remaining duration of 6 years and pay
+\<span class="math notranslate nohighlight">\(1500 each year, while each of the B assets have a remaining duration
+of 4 years and pay \\\)</span>500 each year. Alice would like to retire if she
+can sell her assets for more than \$500,000. Use vector addition, scalar
+multiplication, and dot products to determine whether she can retire.</p>
+<p>(<a class="reference external" href="#exercise-0"><em>back to text</em></a>)</p>
+<p><strong>Exercise 2</strong></p>
+<p>Which of the following operations will work and which will
+create errors because of size issues?</p>
+<p>Test out your intuitions in the code cell below</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span> <span class="o">@</span> <span class="n">x2</span>
+<span class="n">x2</span> <span class="o">@</span> <span class="n">x1</span>
+<span class="n">x2</span> <span class="o">@</span> <span class="n">x3</span>
+<span class="n">x3</span> <span class="o">@</span> <span class="n">x2</span>
+<span class="n">x1</span> <span class="o">@</span> <span class="n">x3</span>
+<span class="n">x4</span> <span class="o">@</span> <span class="n">y1</span>
+<span class="n">x4</span> <span class="o">@</span> <span class="n">y2</span>
+<span class="n">y1</span> <span class="o">@</span> <span class="n">x4</span>
+<span class="n">y2</span> <span class="o">@</span> <span class="n">x4</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># testing area</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(<a class="reference external" href="#exercise-1"><em>back to text</em></a>)</p>
+<p><strong>Exercise 3</strong></p>
+<p>Compare the distribution above to the final values of a long simulation.</p>
+<p>If you multiply the distribution by 1,000,000 (the number of workers), do you get (roughly) the same number as the simulation?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(<a class="reference external" href="#exercise-2"><em>back to text</em></a>)</p>
+<div class="section" id="randomness">
+<h3>Randomness<a class="headerlink" href="#randomness" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>Exercises<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p><strong>EDIT EXERCISESS</strong></p>
+<p><a id='exerciselist-0'></a>
+<strong>Exercise 1</strong></p>
+<p>Wikipedia and other credible statistics sources tell us that the mean and
+variance of the Uniform(0, 1) distribution are (1/2, 1/12) respectively.</p>
+<p>How could we check whether the numpy random numbers approximate these
+values?</p>
+<p>(<a class="reference external" href="#exercise-0"><em>back to text</em></a>)</p>
+<p><strong>Exercise 2</strong></p>
+<p>Some execise</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(<a class="reference external" href="#exercise-2"><em>back to text</em></a>)</p>
+<p><strong>Exercise 3</strong></p>
+<p>Assume you have been given the opportunity to choose between one of three financial assets:</p>
+<p>You will be given the asset for free, allowed to hold it indefinitely, and keeping all payoffs.</p>
+<p>Also assume the assets’ payoffs are distributed as follows:</p>
+<ol class="simple">
+<li><p>Normal with <span class="math notranslate nohighlight">\( \mu = 10, \sigma = 5 \)</span></p></li>
+<li><p>Gamma with <span class="math notranslate nohighlight">\( k = 5.3, \theta = 2 \)</span></p></li>
+<li><p>Gamma with <span class="math notranslate nohighlight">\( k = 5, \theta = 2 \)</span></p></li>
+</ol>
+<p>Use <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> to answer the following questions:</p>
+<ul class="simple">
+<li><p>Which asset has the highest average returns?</p></li>
+<li><p>Which asset has the highest median returns?</p></li>
+<li><p>Which asset has the lowest coefficient of variation (standard deviation divided by mean)?</p></li>
+<li><p>Which asset would you choose? Why? (Hint: There is not a single right answer here. Be creative
+and express your preferences)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(<a class="reference external" href="#exercise-3"><em>back to text</em></a>)</p>
+<div class="section" id="pandas">
+<h3>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="intro">
+<h3>Intro<a class="headerlink" href="#intro" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>Exercises<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p><a id='exerciselist-0'></a>
+<strong>Exercise 1</strong></p>
+<p>For each of the following exercises, we recommend reading the documentation
+for help.</p>
+<ul class="simple">
+<li><p>Display only the first 2 elements of the Series using the <code class="docutils literal notranslate"><span class="pre">.head</span></code> method.</p></li>
+<li><p>Using the <code class="docutils literal notranslate"><span class="pre">plot</span></code> method, make a bar plot.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">.loc</span></code> to select the lowest/highest unemployment rate shown in the Series.</p></li>
+<li><p>Run the code <code class="docutils literal notranslate"><span class="pre">unemp.dtype</span></code> below. What does it give you? Where do you think it comes from?</p></li>
+</ul>
+<p>(<a class="reference external" href="#exercise-0"><em>back to text</em></a>)</p>
+<p><strong>Exercise 2</strong></p>
+<p>For each of the following, we recommend reading the documentation for help.</p>
+<ul class="simple">
+<li><p>Use introspection (or google-fu) to find a way to obtain a list with
+all of the column names in <code class="docutils literal notranslate"><span class="pre">unemp_region</span></code>.</p></li>
+<li><p>Using the <code class="docutils literal notranslate"><span class="pre">plot</span></code> method, make a bar plot. What does it look like
+now?</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">.loc</span></code> to select the the unemployment data for the
+<code class="docutils literal notranslate"><span class="pre">NorthEast</span></code> and <code class="docutils literal notranslate"><span class="pre">West</span></code> for the years 1995, 2005, 2011, and 2015.</p></li>
+<li><p>Run the code <code class="docutils literal notranslate"><span class="pre">unemp_region.dtypes</span></code> below. What does it give you?
+How does this compare with <code class="docutils literal notranslate"><span class="pre">unemp.dtype</span></code>?</p></li>
+</ul>
+<p>(<a class="reference external" href="#exercise-1"><em>back to text</em></a>)</p>
+</div>
+<div class="section" id="time-series">
+<h2>Time Series<a class="headerlink" href="#time-series" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id6">
+<h2>Exercises<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p><a id='exerciselist-0'></a>
+<strong>Exercise 1</strong></p>
+<p>By referring to table found at the link above, figure out the correct argument to
+pass as <code class="docutils literal notranslate"><span class="pre">format</span></code> in order to parse the dates in the next three cells below.</p>
+<p>Test your work by passing your format string to <code class="docutils literal notranslate"><span class="pre">pd.to_datetime</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">christmas_str2</span> <span class="o">=</span> <span class="s2">&quot;2017:12:25&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dbacks_win</span> <span class="o">=</span> <span class="s2">&quot;M:11 D:4 Y:2001 9:15 PM&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">america_bday</span> <span class="o">=</span> <span class="s2">&quot;America was born on July 4, 1776&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(<a class="reference external" href="#exercise-0"><em>back to text</em></a>)</p>
+<p><strong>Exercise 2</strong></p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">pd.to_datetime</span></code> to express the birthday of one of your friends
+or family members as a <code class="docutils literal notranslate"><span class="pre">datetime</span></code> object.</p>
+<p>Then use the <code class="docutils literal notranslate"><span class="pre">strftime</span></code> method to write a message of the format:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">NAME</span><span class="s1">&#39;s birthday is June 10, 1989 (a Saturday)</span>
+</pre></div>
+</div>
+<p>(where the name and date are replaced by the appropriate values)</p>
+<p>(<a class="reference external" href="#exercise-1"><em>back to text</em></a>)</p>
+<p><strong>Exercise 3</strong></p>
+<p>For each item in the list, extract the specified data from <code class="docutils literal notranslate"><span class="pre">btc_usd</span></code>:</p>
+<ul class="simple">
+<li><p>July 2017 through August 2017 (inclusive)</p></li>
+<li><p>April 25, 2015 to June 10, 2016</p></li>
+<li><p>October 31, 2017</p></li>
+</ul>
+<p>(<a class="reference external" href="#exercise-2"><em>back to text</em></a>)</p>
+<p><strong>Exercise 4</strong></p>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">shift</span></code> function, determine the week with the largest percent change
+in the volume of trades (the <code class="docutils literal notranslate"><span class="pre">&quot;Volume</span> <span class="pre">(BTC)&quot;</span></code> column).</p>
+<p>Repeat the analysis at the bi-weekly and monthly frequencies.</p>
+<p>Hint 1: We have data at a <em>daily</em> frequency and one week is <code class="docutils literal notranslate"><span class="pre">7</span></code> days.</p>
+<p>Hint 2: Approximate a month by 30 days.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(<a class="reference external" href="#exercise-3"><em>back to text</em></a>)</p>
+<p><strong>Exercise 5</strong></p>
+<p>Imagine that you have access to the <a class="reference external" href="https://en.wikipedia.org/wiki/DeLorean_time_machine">DeLorean time machine</a>
+from “Back to the Future”.</p>
+<p>You are allowed to use the DeLorean only once, subject to the following
+conditions:</p>
+<ul class="simple">
+<li><p>You may travel back to any day in the past.</p></li>
+<li><p>On that day, you may purchase one bitcoin <em>at market open</em>.</p></li>
+<li><p>You can then take the time machine 30 days into the future and sell your bitcoin <em>at market close</em>.</p></li>
+<li><p>Then you return to the present, pocketing the profits.</p></li>
+</ul>
+<p>How would you pick the day?</p>
+<p>Think carefully about what you would need to compute to make the
+optimal choice. Try writing it out in the markdown cell below so you
+have a clear description of the <em>want</em> operator that we will apply after
+the exercise.</p>
+<p>(Note: <strong>Don’t</strong> look too far below, because in the next non-empty cell
+we have written out our answer.)</p>
+<p>To make this decision, we want to know …</p>
+<p><strong>Your answer here</strong></p>
+<p>(<a class="reference external" href="#exercise-4"><em>back to text</em></a>)</p>
+<p><strong>Exercise 6</strong></p>
+<p>Do the following:</p>
+<ol class="simple">
+<li><p>Write a pandas function that implements your strategy.</p></li>
+<li><p>Pass it to the <code class="docutils literal notranslate"><span class="pre">agg</span></code> method of <code class="docutils literal notranslate"><span class="pre">rolling_btc</span></code>.</p></li>
+<li><p>Extract the <code class="docutils literal notranslate"><span class="pre">&quot;Open&quot;</span></code> column from the result.</p></li>
+<li><p>Find the date associated with the maximum value in that column.</p></li>
+</ol>
+<p>How much money did you make? Compare with your neighbor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">daily_value</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="c1"># DELETE `pass` below and replace it with your code</span>
+    <span class="k">pass</span>
+
+<span class="n">rolling_btc</span> <span class="o">=</span> <span class="n">btc_usd</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="s2">&quot;30d&quot;</span><span class="p">)</span>
+
+<span class="c1"># do steps 2-4 here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(<a class="reference external" href="#exercise-5"><em>back to text</em></a>)</p>
+<p><strong>Exercise 7</strong></p>
+<p>Now suppose you still have access to the DeLorean, but the conditions are
+slightly different.</p>
+<p>You may now:</p>
+<ul class="simple">
+<li><p>Travel back to the <em>first day</em> of any month in the past.</p></li>
+<li><p>On that day, you may purchase one bitcoin <em>at market open</em>.</p></li>
+<li><p>You can then travel to any day <em>in that month</em> and sell the bitcoin <em>at market close</em>.</p></li>
+<li><p>Then return to the present, pocketing the profits.</p></li>
+</ul>
+<p>To which month would you travel? On which day of that month would you return
+to sell the bitcoin?</p>
+<p>Discuss with your neighbor what you would need to compute to make the
+optimal choice. Try writing it out in the markdown cell below so you
+have a clear description of the <em>want</em> operator that we will apply after
+the exercise.</p>
+<p>(Note: <strong>Don’t</strong> look too many cells below, because we have written out
+our answer.)</p>
+<p>To make the optimal decision we need …</p>
+<p><strong>Your answer here</strong></p>
+<p>(<a class="reference external" href="#exercise-6"><em>back to text</em></a>)</p>
+<p><strong>Exercise 8</strong></p>
+<p>Do the following:</p>
+<ol class="simple">
+<li><p>Write a pandas function that implements your strategy.</p></li>
+<li><p>Pass it to the <code class="docutils literal notranslate"><span class="pre">agg</span></code> method of <code class="docutils literal notranslate"><span class="pre">resampled_btc</span></code>.</p></li>
+<li><p>Extract the <code class="docutils literal notranslate"><span class="pre">&quot;Open&quot;</span></code> column from the result.</p></li>
+<li><p>Find the date associated with the maximum value in that column.</p></li>
+</ol>
+<p>How much money did you make? Compare with your neighbor.</p>
+<p>Was this strategy more profitable than the previous one? By how much?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">monthly_value</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="c1"># DELETE `pass` below and replace it with your code</span>
+    <span class="k">pass</span>
+
+<span class="n">resampled_btc</span> <span class="o">=</span> <span class="n">btc_usd</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;MS&quot;</span><span class="p">)</span>
+
+<span class="c1"># Do steps 2-4 here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Alan Moreira<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
