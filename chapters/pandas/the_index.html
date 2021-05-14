@@ -935,11 +935,6 @@
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   6.3.6. Exercises
-  </a>
- </li>
 </ul>
 
             </nav>
@@ -1011,7 +1006,7 @@ example…</p>
 the World Bank’s World Development Indicators Dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://datascience.quantecon.org/assets/data/wdi_data.csv&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/amoreira2/Lectures/main/assets/data/wdi_data.csv&quot;</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 
@@ -1023,15 +1018,17 @@ the World Bank’s World Development Indicators Dataset.</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 72 entries, 0 to 71
 Data columns (total 7 columns):
-country        72 non-null object
-year           72 non-null int64
-GovExpend      72 non-null float64
-Consumption    72 non-null float64
-Exports        72 non-null float64
-Imports        72 non-null float64
-GDP            72 non-null float64
+ #   Column       Non-Null Count  Dtype  
+---  ------       --------------  -----  
+ 0   country      72 non-null     object 
+ 1   year         72 non-null     int64  
+ 2   GovExpend    72 non-null     float64
+ 3   Consumption  72 non-null     float64
+ 4   Exports      72 non-null     float64
+ 5   Imports      72 non-null     float64
+ 6   GDP          72 non-null     float64
 dtypes: float64(5), int64(1), object(1)
-memory usage: 4.0+ KB
+memory usage: 4.1+ KB
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -1625,10 +1622,6 @@ the value in <code class="docutils literal notranslate"><span class="pre">im_ex_
 only find a value in one DataFrame: the other value was missing.</p>
 <p>When pandas tries to add a number to something that is missing, it says
 that the result is missing (spelled <code class="docutils literal notranslate"><span class="pre">NaN</span></code>).</p>
-<p><a id='exercise-0'></a></p>
-<blockquote>
-<div><p>See exercise 1 in the <a class="reference external" href="#exerciselist-0"><em>exercise list</em></a></p>
-</div></blockquote>
 </div>
 </div>
 <div class="section" id="setting-the-index">
@@ -2577,8 +2570,8 @@ refer to the DataFrame as having a hierarchical index.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>country         year
-Germany         2010    3.417095
 United Kingdom  2010    2.452900
+Germany         2010    3.417095
 Name: GDP, dtype: float64
 </pre></div>
 </div>
@@ -2631,11 +2624,6 @@ Series)</p></li>
 <h3><span class="section-number">6.3.3.3. </span>Alignment with <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code><a class="headerlink" href="#alignment-with-multiindex" title="Permalink to this headline">¶</a></h3>
 <p>The data alignment features we talked about above also apply to a
 <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> DataFrame.</p>
-<p>The exercise below gives you a chance to experiment with this.</p>
-<p><a id='exercise-2'></a></p>
-<blockquote>
-<div><p>See exercise 3 in the <a class="reference external" href="#exerciselist-0"><em>exercise list</em></a></p>
-</div></blockquote>
 </div>
 <div class="section" id="pd-indexslice">
 <h3><span class="section-number">6.3.3.4. </span><code class="docutils literal notranslate"><span class="pre">pd.IndexSlice</span></code><a class="headerlink" href="#pd-indexslice" title="Permalink to this headline">¶</a></h3>
@@ -2687,151 +2675,6 @@ Canada.</p>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th rowspan="18" valign="top">Canada</th>
-      <th>2017</th>
-      <td>0.372665</td>
-      <td>1.095475</td>
-      <td>0.582831</td>
-      <td>0.600031</td>
-      <td>1.868164</td>
-    </tr>
-    <tr>
-      <th>2016</th>
-      <td>0.364899</td>
-      <td>1.058426</td>
-      <td>0.576394</td>
-      <td>0.575775</td>
-      <td>1.814016</td>
-    </tr>
-    <tr>
-      <th>2015</th>
-      <td>0.358303</td>
-      <td>1.035208</td>
-      <td>0.568859</td>
-      <td>0.575793</td>
-      <td>1.794270</td>
-    </tr>
-    <tr>
-      <th>2014</th>
-      <td>0.353485</td>
-      <td>1.011988</td>
-      <td>0.550323</td>
-      <td>0.572344</td>
-      <td>1.782252</td>
-    </tr>
-    <tr>
-      <th>2013</th>
-      <td>0.351541</td>
-      <td>0.986400</td>
-      <td>0.518040</td>
-      <td>0.558636</td>
-      <td>1.732714</td>
-    </tr>
-    <tr>
-      <th>2012</th>
-      <td>0.354342</td>
-      <td>0.961226</td>
-      <td>0.505969</td>
-      <td>0.547756</td>
-      <td>1.693428</td>
-    </tr>
-    <tr>
-      <th>2011</th>
-      <td>0.351887</td>
-      <td>0.943145</td>
-      <td>0.492349</td>
-      <td>0.528227</td>
-      <td>1.664240</td>
-    </tr>
-    <tr>
-      <th>2010</th>
-      <td>0.347332</td>
-      <td>0.921952</td>
-      <td>0.469949</td>
-      <td>0.500341</td>
-      <td>1.613543</td>
-    </tr>
-    <tr>
-      <th>2009</th>
-      <td>0.339686</td>
-      <td>0.890078</td>
-      <td>0.440692</td>
-      <td>0.439796</td>
-      <td>1.565291</td>
-    </tr>
-    <tr>
-      <th>2008</th>
-      <td>0.330766</td>
-      <td>0.889602</td>
-      <td>0.506350</td>
-      <td>0.502281</td>
-      <td>1.612862</td>
-    </tr>
-    <tr>
-      <th>2007</th>
-      <td>0.318777</td>
-      <td>0.864012</td>
-      <td>0.530453</td>
-      <td>0.498002</td>
-      <td>1.596876</td>
-    </tr>
-    <tr>
-      <th>2006</th>
-      <td>0.311382</td>
-      <td>0.827643</td>
-      <td>0.524461</td>
-      <td>0.470931</td>
-      <td>1.564608</td>
-    </tr>
-    <tr>
-      <th>2005</th>
-      <td>0.303043</td>
-      <td>0.794390</td>
-      <td>0.519950</td>
-      <td>0.447222</td>
-      <td>1.524608</td>
-    </tr>
-    <tr>
-      <th>2004</th>
-      <td>0.299854</td>
-      <td>0.764357</td>
-      <td>0.508657</td>
-      <td>0.416754</td>
-      <td>1.477317</td>
-    </tr>
-    <tr>
-      <th>2003</th>
-      <td>0.294335</td>
-      <td>0.741796</td>
-      <td>0.481993</td>
-      <td>0.384199</td>
-      <td>1.433089</td>
-    </tr>
-    <tr>
-      <th>2002</th>
-      <td>0.286094</td>
-      <td>0.721974</td>
-      <td>0.490465</td>
-      <td>0.368615</td>
-      <td>1.407725</td>
-    </tr>
-    <tr>
-      <th>2001</th>
-      <td>0.279767</td>
-      <td>0.694230</td>
-      <td>0.484696</td>
-      <td>0.362023</td>
-      <td>1.366590</td>
-    </tr>
-    <tr>
-      <th>2000</th>
-      <td>0.270553</td>
-      <td>0.677713</td>
-      <td>0.499526</td>
-      <td>0.380823</td>
-      <td>1.342805</td>
-    </tr>
     <tr>
       <th rowspan="18" valign="top">United States</th>
       <th>2017</th>
@@ -2977,6 +2820,151 @@ Canada.</p>
       <td>1.790995</td>
       <td>12.620268</td>
     </tr>
+    <tr>
+      <th rowspan="18" valign="top">Canada</th>
+      <th>2017</th>
+      <td>0.372665</td>
+      <td>1.095475</td>
+      <td>0.582831</td>
+      <td>0.600031</td>
+      <td>1.868164</td>
+    </tr>
+    <tr>
+      <th>2016</th>
+      <td>0.364899</td>
+      <td>1.058426</td>
+      <td>0.576394</td>
+      <td>0.575775</td>
+      <td>1.814016</td>
+    </tr>
+    <tr>
+      <th>2015</th>
+      <td>0.358303</td>
+      <td>1.035208</td>
+      <td>0.568859</td>
+      <td>0.575793</td>
+      <td>1.794270</td>
+    </tr>
+    <tr>
+      <th>2014</th>
+      <td>0.353485</td>
+      <td>1.011988</td>
+      <td>0.550323</td>
+      <td>0.572344</td>
+      <td>1.782252</td>
+    </tr>
+    <tr>
+      <th>2013</th>
+      <td>0.351541</td>
+      <td>0.986400</td>
+      <td>0.518040</td>
+      <td>0.558636</td>
+      <td>1.732714</td>
+    </tr>
+    <tr>
+      <th>2012</th>
+      <td>0.354342</td>
+      <td>0.961226</td>
+      <td>0.505969</td>
+      <td>0.547756</td>
+      <td>1.693428</td>
+    </tr>
+    <tr>
+      <th>2011</th>
+      <td>0.351887</td>
+      <td>0.943145</td>
+      <td>0.492349</td>
+      <td>0.528227</td>
+      <td>1.664240</td>
+    </tr>
+    <tr>
+      <th>2010</th>
+      <td>0.347332</td>
+      <td>0.921952</td>
+      <td>0.469949</td>
+      <td>0.500341</td>
+      <td>1.613543</td>
+    </tr>
+    <tr>
+      <th>2009</th>
+      <td>0.339686</td>
+      <td>0.890078</td>
+      <td>0.440692</td>
+      <td>0.439796</td>
+      <td>1.565291</td>
+    </tr>
+    <tr>
+      <th>2008</th>
+      <td>0.330766</td>
+      <td>0.889602</td>
+      <td>0.506350</td>
+      <td>0.502281</td>
+      <td>1.612862</td>
+    </tr>
+    <tr>
+      <th>2007</th>
+      <td>0.318777</td>
+      <td>0.864012</td>
+      <td>0.530453</td>
+      <td>0.498002</td>
+      <td>1.596876</td>
+    </tr>
+    <tr>
+      <th>2006</th>
+      <td>0.311382</td>
+      <td>0.827643</td>
+      <td>0.524461</td>
+      <td>0.470931</td>
+      <td>1.564608</td>
+    </tr>
+    <tr>
+      <th>2005</th>
+      <td>0.303043</td>
+      <td>0.794390</td>
+      <td>0.519950</td>
+      <td>0.447222</td>
+      <td>1.524608</td>
+    </tr>
+    <tr>
+      <th>2004</th>
+      <td>0.299854</td>
+      <td>0.764357</td>
+      <td>0.508657</td>
+      <td>0.416754</td>
+      <td>1.477317</td>
+    </tr>
+    <tr>
+      <th>2003</th>
+      <td>0.294335</td>
+      <td>0.741796</td>
+      <td>0.481993</td>
+      <td>0.384199</td>
+      <td>1.433089</td>
+    </tr>
+    <tr>
+      <th>2002</th>
+      <td>0.286094</td>
+      <td>0.721974</td>
+      <td>0.490465</td>
+      <td>0.368615</td>
+      <td>1.407725</td>
+    </tr>
+    <tr>
+      <th>2001</th>
+      <td>0.279767</td>
+      <td>0.694230</td>
+      <td>0.484696</td>
+      <td>0.362023</td>
+      <td>1.366590</td>
+    </tr>
+    <tr>
+      <th>2000</th>
+      <td>0.270553</td>
+      <td>0.677713</td>
+      <td>0.499526</td>
+      <td>0.380823</td>
+      <td>1.342805</td>
+    </tr>
   </tbody>
 </table>
 </div></div></div>
@@ -3031,23 +3019,7 @@ not outer-most level of our index.</p>
   </thead>
   <tbody>
     <tr>
-      <th rowspan="3" valign="top">Canada</th>
-      <th>2009</th>
-      <td>0.339686</td>
-      <td>0.890078</td>
-      <td>0.440692</td>
-      <td>0.439796</td>
-      <td>1.565291</td>
-    </tr>
-    <tr>
-      <th>2007</th>
-      <td>0.318777</td>
-      <td>0.864012</td>
-      <td>0.530453</td>
-      <td>0.498002</td>
-      <td>1.596876</td>
-    </tr>
-    <tr>
+      <th>Canada</th>
       <th>2005</th>
       <td>0.303043</td>
       <td>0.794390</td>
@@ -3056,23 +3028,7 @@ not outer-most level of our index.</p>
       <td>1.524608</td>
     </tr>
     <tr>
-      <th rowspan="3" valign="top">Germany</th>
-      <th>2009</th>
-      <td>0.645023</td>
-      <td>1.908393</td>
-      <td>1.260525</td>
-      <td>1.121914</td>
-      <td>3.283144</td>
-    </tr>
-    <tr>
-      <th>2007</th>
-      <td>0.605624</td>
-      <td>1.894219</td>
-      <td>1.442436</td>
-      <td>1.213835</td>
-      <td>3.441356</td>
-    </tr>
-    <tr>
+      <th>Germany</th>
       <th>2005</th>
       <td>0.591184</td>
       <td>1.866253</td>
@@ -3081,23 +3037,7 @@ not outer-most level of our index.</p>
       <td>3.213777</td>
     </tr>
     <tr>
-      <th rowspan="3" valign="top">United Kingdom</th>
-      <th>2009</th>
-      <td>0.519716</td>
-      <td>1.587152</td>
-      <td>0.653830</td>
-      <td>0.689011</td>
-      <td>2.411632</td>
-    </tr>
-    <tr>
-      <th>2007</th>
-      <td>0.504549</td>
-      <td>1.644789</td>
-      <td>0.710200</td>
-      <td>0.767699</td>
-      <td>2.527327</td>
-    </tr>
-    <tr>
+      <th>United Kingdom</th>
       <th>2005</th>
       <td>0.490806</td>
       <td>1.578914</td>
@@ -3106,15 +3046,43 @@ not outer-most level of our index.</p>
       <td>2.403352</td>
     </tr>
     <tr>
-      <th rowspan="3" valign="top">United States</th>
-      <th>2009</th>
-      <td>2.507390</td>
-      <td>10.010687</td>
-      <td>1.646432</td>
-      <td>2.086299</td>
-      <td>14.617299</td>
+      <th>United States</th>
+      <th>2005</th>
+      <td>2.287022</td>
+      <td>9.643098</td>
+      <td>1.431205</td>
+      <td>2.246246</td>
+      <td>14.332500</td>
     </tr>
     <tr>
+      <th>Canada</th>
+      <th>2007</th>
+      <td>0.318777</td>
+      <td>0.864012</td>
+      <td>0.530453</td>
+      <td>0.498002</td>
+      <td>1.596876</td>
+    </tr>
+    <tr>
+      <th>Germany</th>
+      <th>2007</th>
+      <td>0.605624</td>
+      <td>1.894219</td>
+      <td>1.442436</td>
+      <td>1.213835</td>
+      <td>3.441356</td>
+    </tr>
+    <tr>
+      <th>United Kingdom</th>
+      <th>2007</th>
+      <td>0.504549</td>
+      <td>1.644789</td>
+      <td>0.710200</td>
+      <td>0.767699</td>
+      <td>2.527327</td>
+    </tr>
+    <tr>
+      <th>United States</th>
       <th>2007</th>
       <td>2.351987</td>
       <td>10.159387</td>
@@ -3123,12 +3091,40 @@ not outer-most level of our index.</p>
       <td>15.018268</td>
     </tr>
     <tr>
-      <th>2005</th>
-      <td>2.287022</td>
-      <td>9.643098</td>
-      <td>1.431205</td>
-      <td>2.246246</td>
-      <td>14.332500</td>
+      <th>Canada</th>
+      <th>2009</th>
+      <td>0.339686</td>
+      <td>0.890078</td>
+      <td>0.440692</td>
+      <td>0.439796</td>
+      <td>1.565291</td>
+    </tr>
+    <tr>
+      <th>Germany</th>
+      <th>2009</th>
+      <td>0.645023</td>
+      <td>1.908393</td>
+      <td>1.260525</td>
+      <td>1.121914</td>
+      <td>3.283144</td>
+    </tr>
+    <tr>
+      <th>United Kingdom</th>
+      <th>2009</th>
+      <td>0.519716</td>
+      <td>1.587152</td>
+      <td>0.653830</td>
+      <td>0.689011</td>
+      <td>2.411632</td>
+    </tr>
+    <tr>
+      <th>United States</th>
+      <th>2009</th>
+      <td>2.507390</td>
+      <td>10.010687</td>
+      <td>1.646432</td>
+      <td>2.086299</td>
+      <td>14.617299</td>
     </tr>
   </tbody>
 </table>
@@ -3137,10 +3133,6 @@ not outer-most level of our index.</p>
 <p>Notice that the <code class="docutils literal notranslate"><span class="pre">:</span></code> in the first part of <code class="docutils literal notranslate"><span class="pre">[:,</span> <span class="pre">[&quot;A&quot;,</span> <span class="pre">&quot;D&quot;]]</span></code>
 instructed pandas to give us rows for all values of the outer most index
 level and that the <code class="docutils literal notranslate"><span class="pre">:</span></code> just before <code class="docutils literal notranslate"><span class="pre">]</span></code> said grab all the columns.</p>
-<p><a id='exercise-3'></a></p>
-<blockquote>
-<div><p>See exercise 4 in the <a class="reference external" href="#exerciselist-0"><em>exercise list</em></a></p>
-</div></blockquote>
 </div>
 <div class="section" id="multi-index-columns">
 <h3><span class="section-number">6.3.3.5. </span>Multi-index Columns<a class="headerlink" href="#multi-index-columns" title="Permalink to this headline">¶</a></h3>
@@ -3510,9 +3502,9 @@ have a hierarchical index for column names.</p>
   <thead>
     <tr>
       <th>country</th>
-      <th colspan="10" halign="left">Canada</th>
-      <th>...</th>
       <th colspan="10" halign="left">United States</th>
+      <th>...</th>
+      <th colspan="10" halign="left">Canada</th>
     </tr>
     <tr>
       <th>year</th>
@@ -3542,123 +3534,123 @@ have a hierarchical index for column names.</p>
   <tbody>
     <tr>
       <th>GovExpend</th>
-      <td>0.372665</td>
-      <td>0.364899</td>
-      <td>0.358303</td>
-      <td>0.353485</td>
-      <td>0.351541</td>
-      <td>0.354342</td>
-      <td>0.351887</td>
-      <td>0.347332</td>
-      <td>0.339686</td>
-      <td>0.330766</td>
-      <td>...</td>
+      <td>2.405743</td>
+      <td>2.407981</td>
+      <td>2.373130</td>
+      <td>2.334071</td>
+      <td>2.353381</td>
+      <td>2.398873</td>
+      <td>2.434378</td>
+      <td>2.510143</td>
       <td>2.507390</td>
       <td>2.407771</td>
-      <td>2.351987</td>
-      <td>2.314957</td>
-      <td>2.287022</td>
-      <td>2.267999</td>
-      <td>2.233519</td>
-      <td>2.193188</td>
-      <td>2.112038</td>
-      <td>2.040500</td>
+      <td>...</td>
+      <td>0.339686</td>
+      <td>0.330766</td>
+      <td>0.318777</td>
+      <td>0.311382</td>
+      <td>0.303043</td>
+      <td>0.299854</td>
+      <td>0.294335</td>
+      <td>0.286094</td>
+      <td>0.279767</td>
+      <td>0.270553</td>
     </tr>
     <tr>
       <th>Consumption</th>
-      <td>1.095475</td>
-      <td>1.058426</td>
-      <td>1.035208</td>
-      <td>1.011988</td>
-      <td>0.986400</td>
-      <td>0.961226</td>
-      <td>0.943145</td>
-      <td>0.921952</td>
-      <td>0.890078</td>
-      <td>0.889602</td>
-      <td>...</td>
+      <td>12.019266</td>
+      <td>11.722133</td>
+      <td>11.409800</td>
+      <td>11.000619</td>
+      <td>10.687214</td>
+      <td>10.534042</td>
+      <td>10.378060</td>
+      <td>10.185836</td>
       <td>10.010687</td>
       <td>10.137847</td>
-      <td>10.159387</td>
-      <td>9.938503</td>
-      <td>9.643098</td>
-      <td>9.311431</td>
-      <td>8.974708</td>
-      <td>8.698306</td>
-      <td>8.480461</td>
-      <td>8.272097</td>
+      <td>...</td>
+      <td>0.890078</td>
+      <td>0.889602</td>
+      <td>0.864012</td>
+      <td>0.827643</td>
+      <td>0.794390</td>
+      <td>0.764357</td>
+      <td>0.741796</td>
+      <td>0.721974</td>
+      <td>0.694230</td>
+      <td>0.677713</td>
     </tr>
     <tr>
       <th>Exports</th>
-      <td>0.582831</td>
-      <td>0.576394</td>
-      <td>0.568859</td>
-      <td>0.550323</td>
-      <td>0.518040</td>
-      <td>0.505969</td>
-      <td>0.492349</td>
-      <td>0.469949</td>
-      <td>0.440692</td>
-      <td>0.506350</td>
-      <td>...</td>
+      <td>2.287071</td>
+      <td>2.219937</td>
+      <td>2.222228</td>
+      <td>2.209555</td>
+      <td>2.118639</td>
+      <td>2.045509</td>
+      <td>1.978083</td>
+      <td>1.846280</td>
       <td>1.646432</td>
       <td>1.797347</td>
-      <td>1.701096</td>
-      <td>1.564920</td>
-      <td>1.431205</td>
-      <td>1.335978</td>
-      <td>1.218199</td>
-      <td>1.192180</td>
-      <td>1.213253</td>
-      <td>1.287739</td>
+      <td>...</td>
+      <td>0.440692</td>
+      <td>0.506350</td>
+      <td>0.530453</td>
+      <td>0.524461</td>
+      <td>0.519950</td>
+      <td>0.508657</td>
+      <td>0.481993</td>
+      <td>0.490465</td>
+      <td>0.484696</td>
+      <td>0.499526</td>
     </tr>
     <tr>
       <th>Imports</th>
-      <td>0.600031</td>
-      <td>0.575775</td>
-      <td>0.575793</td>
-      <td>0.572344</td>
-      <td>0.558636</td>
-      <td>0.547756</td>
-      <td>0.528227</td>
-      <td>0.500341</td>
-      <td>0.439796</td>
-      <td>0.502281</td>
-      <td>...</td>
+      <td>3.069954</td>
+      <td>2.936004</td>
+      <td>2.881337</td>
+      <td>2.732228</td>
+      <td>2.600198</td>
+      <td>2.560677</td>
+      <td>2.493194</td>
+      <td>2.360183</td>
       <td>2.086299</td>
       <td>2.400349</td>
-      <td>2.455016</td>
-      <td>2.395189</td>
-      <td>2.246246</td>
-      <td>2.108585</td>
-      <td>1.892825</td>
-      <td>1.804105</td>
-      <td>1.740797</td>
-      <td>1.790995</td>
+      <td>...</td>
+      <td>0.439796</td>
+      <td>0.502281</td>
+      <td>0.498002</td>
+      <td>0.470931</td>
+      <td>0.447222</td>
+      <td>0.416754</td>
+      <td>0.384199</td>
+      <td>0.368615</td>
+      <td>0.362023</td>
+      <td>0.380823</td>
     </tr>
     <tr>
       <th>GDP</th>
-      <td>1.868164</td>
-      <td>1.814016</td>
-      <td>1.794270</td>
-      <td>1.782252</td>
-      <td>1.732714</td>
-      <td>1.693428</td>
-      <td>1.664240</td>
-      <td>1.613543</td>
-      <td>1.565291</td>
-      <td>1.612862</td>
-      <td>...</td>
+      <td>17.348627</td>
+      <td>16.972348</td>
+      <td>16.710459</td>
+      <td>16.242526</td>
+      <td>15.853796</td>
+      <td>15.567038</td>
+      <td>15.224555</td>
+      <td>14.992053</td>
       <td>14.617299</td>
       <td>14.997756</td>
-      <td>15.018268</td>
-      <td>14.741688</td>
-      <td>14.332500</td>
-      <td>13.846058</td>
-      <td>13.339312</td>
-      <td>12.968263</td>
-      <td>12.746262</td>
-      <td>12.620268</td>
+      <td>...</td>
+      <td>1.565291</td>
+      <td>1.612862</td>
+      <td>1.596876</td>
+      <td>1.564608</td>
+      <td>1.524608</td>
+      <td>1.477317</td>
+      <td>1.433089</td>
+      <td>1.407725</td>
+      <td>1.366590</td>
+      <td>1.342805</td>
     </tr>
   </tbody>
 </table>
@@ -3667,7 +3659,7 @@ have a hierarchical index for column names.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wdiT</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">([</span><span class="s2">&quot;United States&quot;</span><span class="p">,</span> <span class="s2">&quot;Canada&quot;</span><span class="p">],</span> <span class="mi">2010</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wdiT</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">([</span><span class="s2">&quot;United States&quot;</span><span class="p">,</span> <span class="s2">&quot;Canada&quot;</span><span class="p">],</span> <span class="p">[</span><span class="mi">2008</span><span class="p">,</span><span class="mi">2010</span><span class="p">])]</span>
 </pre></div>
 </div>
 </div>
@@ -3690,40 +3682,52 @@ have a hierarchical index for column names.</p>
   <thead>
     <tr>
       <th>country</th>
-      <th>Canada</th>
-      <th>United States</th>
+      <th colspan="2" halign="left">United States</th>
+      <th colspan="2" halign="left">Canada</th>
     </tr>
     <tr>
       <th>year</th>
+      <th>2008</th>
       <th>2010</th>
+      <th>2008</th>
       <th>2010</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>GovExpend</th>
-      <td>0.347332</td>
+      <td>2.407771</td>
       <td>2.510143</td>
+      <td>0.330766</td>
+      <td>0.347332</td>
     </tr>
     <tr>
       <th>Consumption</th>
-      <td>0.921952</td>
+      <td>10.137847</td>
       <td>10.185836</td>
+      <td>0.889602</td>
+      <td>0.921952</td>
     </tr>
     <tr>
       <th>Exports</th>
-      <td>0.469949</td>
+      <td>1.797347</td>
       <td>1.846280</td>
+      <td>0.506350</td>
+      <td>0.469949</td>
     </tr>
     <tr>
       <th>Imports</th>
-      <td>0.500341</td>
+      <td>2.400349</td>
       <td>2.360183</td>
+      <td>0.502281</td>
+      <td>0.500341</td>
     </tr>
     <tr>
       <th>GDP</th>
-      <td>1.613543</td>
+      <td>14.997756</td>
       <td>14.992053</td>
+      <td>1.612862</td>
+      <td>1.613543</td>
     </tr>
   </tbody>
 </table>
@@ -3828,256 +3832,6 @@ sets the index of the returned DataFrame to the default of
       <td>1.732714</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>Canada</td>
-      <td>2012</td>
-      <td>0.354342</td>
-      <td>0.961226</td>
-      <td>0.505969</td>
-      <td>0.547756</td>
-      <td>1.693428</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Canada</td>
-      <td>2011</td>
-      <td>0.351887</td>
-      <td>0.943145</td>
-      <td>0.492349</td>
-      <td>0.528227</td>
-      <td>1.664240</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Canada</td>
-      <td>2010</td>
-      <td>0.347332</td>
-      <td>0.921952</td>
-      <td>0.469949</td>
-      <td>0.500341</td>
-      <td>1.613543</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Canada</td>
-      <td>2009</td>
-      <td>0.339686</td>
-      <td>0.890078</td>
-      <td>0.440692</td>
-      <td>0.439796</td>
-      <td>1.565291</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>Canada</td>
-      <td>2008</td>
-      <td>0.330766</td>
-      <td>0.889602</td>
-      <td>0.506350</td>
-      <td>0.502281</td>
-      <td>1.612862</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>Canada</td>
-      <td>2007</td>
-      <td>0.318777</td>
-      <td>0.864012</td>
-      <td>0.530453</td>
-      <td>0.498002</td>
-      <td>1.596876</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Canada</td>
-      <td>2006</td>
-      <td>0.311382</td>
-      <td>0.827643</td>
-      <td>0.524461</td>
-      <td>0.470931</td>
-      <td>1.564608</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>Canada</td>
-      <td>2005</td>
-      <td>0.303043</td>
-      <td>0.794390</td>
-      <td>0.519950</td>
-      <td>0.447222</td>
-      <td>1.524608</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>Canada</td>
-      <td>2004</td>
-      <td>0.299854</td>
-      <td>0.764357</td>
-      <td>0.508657</td>
-      <td>0.416754</td>
-      <td>1.477317</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>Canada</td>
-      <td>2003</td>
-      <td>0.294335</td>
-      <td>0.741796</td>
-      <td>0.481993</td>
-      <td>0.384199</td>
-      <td>1.433089</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>Canada</td>
-      <td>2002</td>
-      <td>0.286094</td>
-      <td>0.721974</td>
-      <td>0.490465</td>
-      <td>0.368615</td>
-      <td>1.407725</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>Canada</td>
-      <td>2001</td>
-      <td>0.279767</td>
-      <td>0.694230</td>
-      <td>0.484696</td>
-      <td>0.362023</td>
-      <td>1.366590</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>Canada</td>
-      <td>2000</td>
-      <td>0.270553</td>
-      <td>0.677713</td>
-      <td>0.499526</td>
-      <td>0.380823</td>
-      <td>1.342805</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>Germany</td>
-      <td>2017</td>
-      <td>0.745579</td>
-      <td>2.112009</td>
-      <td>1.930563</td>
-      <td>1.666348</td>
-      <td>3.883870</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>Germany</td>
-      <td>2016</td>
-      <td>0.734014</td>
-      <td>2.075615</td>
-      <td>1.844949</td>
-      <td>1.589495</td>
-      <td>3.801859</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>Germany</td>
-      <td>2015</td>
-      <td>0.706115</td>
-      <td>2.033666</td>
-      <td>1.803081</td>
-      <td>1.527074</td>
-      <td>3.718482</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>Germany</td>
-      <td>2014</td>
-      <td>0.685990</td>
-      <td>1.999953</td>
-      <td>1.712270</td>
-      <td>1.445409</td>
-      <td>3.654924</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>Germany</td>
-      <td>2013</td>
-      <td>0.675471</td>
-      <td>1.979458</td>
-      <td>1.635030</td>
-      <td>1.394385</td>
-      <td>3.577015</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>Germany</td>
-      <td>2012</td>
-      <td>0.666454</td>
-      <td>1.967390</td>
-      <td>1.607455</td>
-      <td>1.354122</td>
-      <td>3.559587</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>Germany</td>
-      <td>2011</td>
-      <td>0.659528</td>
-      <td>1.941340</td>
-      <td>1.563277</td>
-      <td>1.355008</td>
-      <td>3.542160</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>Germany</td>
-      <td>2010</td>
-      <td>0.653386</td>
-      <td>1.915481</td>
-      <td>1.443735</td>
-      <td>1.266126</td>
-      <td>3.417095</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>Germany</td>
-      <td>2009</td>
-      <td>0.645023</td>
-      <td>1.908393</td>
-      <td>1.260525</td>
-      <td>1.121914</td>
-      <td>3.283144</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>Germany</td>
-      <td>2008</td>
-      <td>0.626140</td>
-      <td>1.905520</td>
-      <td>1.470300</td>
-      <td>1.241057</td>
-      <td>3.478602</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>Germany</td>
-      <td>2007</td>
-      <td>0.605624</td>
-      <td>1.894219</td>
-      <td>1.442436</td>
-      <td>1.213835</td>
-      <td>3.441356</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>Germany</td>
-      <td>2006</td>
-      <td>0.596868</td>
-      <td>1.894219</td>
-      <td>1.319574</td>
-      <td>1.142552</td>
-      <td>3.332692</td>
-    </tr>
-    <tr>
       <th>...</th>
       <td>...</td>
       <td>...</td>
@@ -4086,256 +3840,6 @@ sets the index of the returned DataFrame to the default of
       <td>...</td>
       <td>...</td>
       <td>...</td>
-    </tr>
-    <tr>
-      <th>42</th>
-      <td>United Kingdom</td>
-      <td>2011</td>
-      <td>0.521716</td>
-      <td>1.588172</td>
-      <td>0.735331</td>
-      <td>0.750540</td>
-      <td>2.493244</td>
-    </tr>
-    <tr>
-      <th>43</th>
-      <td>United Kingdom</td>
-      <td>2010</td>
-      <td>0.521146</td>
-      <td>1.598563</td>
-      <td>0.690824</td>
-      <td>0.745065</td>
-      <td>2.452900</td>
-    </tr>
-    <tr>
-      <th>44</th>
-      <td>United Kingdom</td>
-      <td>2009</td>
-      <td>0.519716</td>
-      <td>1.587152</td>
-      <td>0.653830</td>
-      <td>0.689011</td>
-      <td>2.411632</td>
-    </tr>
-    <tr>
-      <th>45</th>
-      <td>United Kingdom</td>
-      <td>2008</td>
-      <td>0.513870</td>
-      <td>1.635333</td>
-      <td>0.713184</td>
-      <td>0.753502</td>
-      <td>2.518585</td>
-    </tr>
-    <tr>
-      <th>46</th>
-      <td>United Kingdom</td>
-      <td>2007</td>
-      <td>0.504549</td>
-      <td>1.644789</td>
-      <td>0.710200</td>
-      <td>0.767699</td>
-      <td>2.527327</td>
-    </tr>
-    <tr>
-      <th>47</th>
-      <td>United Kingdom</td>
-      <td>2006</td>
-      <td>0.499312</td>
-      <td>1.604404</td>
-      <td>0.717506</td>
-      <td>0.786134</td>
-      <td>2.464591</td>
-    </tr>
-    <tr>
-      <th>48</th>
-      <td>United Kingdom</td>
-      <td>2005</td>
-      <td>0.490806</td>
-      <td>1.578914</td>
-      <td>0.640088</td>
-      <td>0.715951</td>
-      <td>2.403352</td>
-    </tr>
-    <tr>
-      <th>49</th>
-      <td>United Kingdom</td>
-      <td>2004</td>
-      <td>0.471828</td>
-      <td>1.531808</td>
-      <td>0.593046</td>
-      <td>0.667995</td>
-      <td>2.329987</td>
-    </tr>
-    <tr>
-      <th>50</th>
-      <td>United Kingdom</td>
-      <td>2003</td>
-      <td>0.452743</td>
-      <td>1.484092</td>
-      <td>0.562653</td>
-      <td>0.625696</td>
-      <td>2.276538</td>
-    </tr>
-    <tr>
-      <th>51</th>
-      <td>United Kingdom</td>
-      <td>2002</td>
-      <td>0.434954</td>
-      <td>1.433861</td>
-      <td>0.546092</td>
-      <td>0.606795</td>
-      <td>2.202971</td>
-    </tr>
-    <tr>
-      <th>52</th>
-      <td>United Kingdom</td>
-      <td>2001</td>
-      <td>0.418387</td>
-      <td>1.380779</td>
-      <td>0.533999</td>
-      <td>0.574277</td>
-      <td>2.149246</td>
-    </tr>
-    <tr>
-      <th>53</th>
-      <td>United Kingdom</td>
-      <td>2000</td>
-      <td>0.401274</td>
-      <td>1.332093</td>
-      <td>0.523797</td>
-      <td>0.548044</td>
-      <td>2.089877</td>
-    </tr>
-    <tr>
-      <th>54</th>
-      <td>United States</td>
-      <td>2017</td>
-      <td>2.405743</td>
-      <td>12.019266</td>
-      <td>2.287071</td>
-      <td>3.069954</td>
-      <td>17.348627</td>
-    </tr>
-    <tr>
-      <th>55</th>
-      <td>United States</td>
-      <td>2016</td>
-      <td>2.407981</td>
-      <td>11.722133</td>
-      <td>2.219937</td>
-      <td>2.936004</td>
-      <td>16.972348</td>
-    </tr>
-    <tr>
-      <th>56</th>
-      <td>United States</td>
-      <td>2015</td>
-      <td>2.373130</td>
-      <td>11.409800</td>
-      <td>2.222228</td>
-      <td>2.881337</td>
-      <td>16.710459</td>
-    </tr>
-    <tr>
-      <th>57</th>
-      <td>United States</td>
-      <td>2014</td>
-      <td>2.334071</td>
-      <td>11.000619</td>
-      <td>2.209555</td>
-      <td>2.732228</td>
-      <td>16.242526</td>
-    </tr>
-    <tr>
-      <th>58</th>
-      <td>United States</td>
-      <td>2013</td>
-      <td>2.353381</td>
-      <td>10.687214</td>
-      <td>2.118639</td>
-      <td>2.600198</td>
-      <td>15.853796</td>
-    </tr>
-    <tr>
-      <th>59</th>
-      <td>United States</td>
-      <td>2012</td>
-      <td>2.398873</td>
-      <td>10.534042</td>
-      <td>2.045509</td>
-      <td>2.560677</td>
-      <td>15.567038</td>
-    </tr>
-    <tr>
-      <th>60</th>
-      <td>United States</td>
-      <td>2011</td>
-      <td>2.434378</td>
-      <td>10.378060</td>
-      <td>1.978083</td>
-      <td>2.493194</td>
-      <td>15.224555</td>
-    </tr>
-    <tr>
-      <th>61</th>
-      <td>United States</td>
-      <td>2010</td>
-      <td>2.510143</td>
-      <td>10.185836</td>
-      <td>1.846280</td>
-      <td>2.360183</td>
-      <td>14.992053</td>
-    </tr>
-    <tr>
-      <th>62</th>
-      <td>United States</td>
-      <td>2009</td>
-      <td>2.507390</td>
-      <td>10.010687</td>
-      <td>1.646432</td>
-      <td>2.086299</td>
-      <td>14.617299</td>
-    </tr>
-    <tr>
-      <th>63</th>
-      <td>United States</td>
-      <td>2008</td>
-      <td>2.407771</td>
-      <td>10.137847</td>
-      <td>1.797347</td>
-      <td>2.400349</td>
-      <td>14.997756</td>
-    </tr>
-    <tr>
-      <th>64</th>
-      <td>United States</td>
-      <td>2007</td>
-      <td>2.351987</td>
-      <td>10.159387</td>
-      <td>1.701096</td>
-      <td>2.455016</td>
-      <td>15.018268</td>
-    </tr>
-    <tr>
-      <th>65</th>
-      <td>United States</td>
-      <td>2006</td>
-      <td>2.314957</td>
-      <td>9.938503</td>
-      <td>1.564920</td>
-      <td>2.395189</td>
-      <td>14.741688</td>
-    </tr>
-    <tr>
-      <th>66</th>
-      <td>United States</td>
-      <td>2005</td>
-      <td>2.287022</td>
-      <td>9.643098</td>
-      <td>1.431205</td>
-      <td>2.246246</td>
-      <td>14.332500</td>
     </tr>
     <tr>
       <th>67</th>
@@ -4433,902 +3937,6 @@ variable on the index and have years be columns.</p>
 the data – and a little practice – will enable you to consistently select the
 correct index.</p>
 </div>
-</div>
-<div class="section" id="exercises">
-<h2><span class="section-number">6.3.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<p><a id='exerciselist-0'></a>
-<strong>Exercise 1</strong></p>
-<p>What happens when you apply the <code class="docutils literal notranslate"><span class="pre">mean</span></code> method to <code class="docutils literal notranslate"><span class="pre">im_ex_tiny</span></code>?</p>
-<p>In particular, what happens to columns that have missing data? (HINT:
-also looking at the output of the <code class="docutils literal notranslate"><span class="pre">sum</span></code> method might help)</p>
-<p>(<a class="reference external" href="#exercise-0"><em>back to text</em></a>)</p>
-<p><strong>Exercise 2</strong></p>
-<p>For each of the examples below do the following:</p>
-<ul class="simple">
-<li><p>Determine which of the rules above applies.</p></li>
-<li><p>Identify the <code class="docutils literal notranslate"><span class="pre">type</span></code> of the returned value.</p></li>
-<li><p>Explain why the slicing operation returned the data it did.</p></li>
-</ul>
-<p>Write your answers.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wdi</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;United States&quot;</span><span class="p">,</span> <span class="s2">&quot;Canada&quot;</span><span class="p">]]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>GovExpend</th>
-      <th>Consumption</th>
-      <th>Exports</th>
-      <th>Imports</th>
-      <th>GDP</th>
-    </tr>
-    <tr>
-      <th>country</th>
-      <th>year</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="18" valign="top">Canada</th>
-      <th>2017</th>
-      <td>0.372665</td>
-      <td>1.095475</td>
-      <td>0.582831</td>
-      <td>0.600031</td>
-      <td>1.868164</td>
-    </tr>
-    <tr>
-      <th>2016</th>
-      <td>0.364899</td>
-      <td>1.058426</td>
-      <td>0.576394</td>
-      <td>0.575775</td>
-      <td>1.814016</td>
-    </tr>
-    <tr>
-      <th>2015</th>
-      <td>0.358303</td>
-      <td>1.035208</td>
-      <td>0.568859</td>
-      <td>0.575793</td>
-      <td>1.794270</td>
-    </tr>
-    <tr>
-      <th>2014</th>
-      <td>0.353485</td>
-      <td>1.011988</td>
-      <td>0.550323</td>
-      <td>0.572344</td>
-      <td>1.782252</td>
-    </tr>
-    <tr>
-      <th>2013</th>
-      <td>0.351541</td>
-      <td>0.986400</td>
-      <td>0.518040</td>
-      <td>0.558636</td>
-      <td>1.732714</td>
-    </tr>
-    <tr>
-      <th>2012</th>
-      <td>0.354342</td>
-      <td>0.961226</td>
-      <td>0.505969</td>
-      <td>0.547756</td>
-      <td>1.693428</td>
-    </tr>
-    <tr>
-      <th>2011</th>
-      <td>0.351887</td>
-      <td>0.943145</td>
-      <td>0.492349</td>
-      <td>0.528227</td>
-      <td>1.664240</td>
-    </tr>
-    <tr>
-      <th>2010</th>
-      <td>0.347332</td>
-      <td>0.921952</td>
-      <td>0.469949</td>
-      <td>0.500341</td>
-      <td>1.613543</td>
-    </tr>
-    <tr>
-      <th>2009</th>
-      <td>0.339686</td>
-      <td>0.890078</td>
-      <td>0.440692</td>
-      <td>0.439796</td>
-      <td>1.565291</td>
-    </tr>
-    <tr>
-      <th>2008</th>
-      <td>0.330766</td>
-      <td>0.889602</td>
-      <td>0.506350</td>
-      <td>0.502281</td>
-      <td>1.612862</td>
-    </tr>
-    <tr>
-      <th>2007</th>
-      <td>0.318777</td>
-      <td>0.864012</td>
-      <td>0.530453</td>
-      <td>0.498002</td>
-      <td>1.596876</td>
-    </tr>
-    <tr>
-      <th>2006</th>
-      <td>0.311382</td>
-      <td>0.827643</td>
-      <td>0.524461</td>
-      <td>0.470931</td>
-      <td>1.564608</td>
-    </tr>
-    <tr>
-      <th>2005</th>
-      <td>0.303043</td>
-      <td>0.794390</td>
-      <td>0.519950</td>
-      <td>0.447222</td>
-      <td>1.524608</td>
-    </tr>
-    <tr>
-      <th>2004</th>
-      <td>0.299854</td>
-      <td>0.764357</td>
-      <td>0.508657</td>
-      <td>0.416754</td>
-      <td>1.477317</td>
-    </tr>
-    <tr>
-      <th>2003</th>
-      <td>0.294335</td>
-      <td>0.741796</td>
-      <td>0.481993</td>
-      <td>0.384199</td>
-      <td>1.433089</td>
-    </tr>
-    <tr>
-      <th>2002</th>
-      <td>0.286094</td>
-      <td>0.721974</td>
-      <td>0.490465</td>
-      <td>0.368615</td>
-      <td>1.407725</td>
-    </tr>
-    <tr>
-      <th>2001</th>
-      <td>0.279767</td>
-      <td>0.694230</td>
-      <td>0.484696</td>
-      <td>0.362023</td>
-      <td>1.366590</td>
-    </tr>
-    <tr>
-      <th>2000</th>
-      <td>0.270553</td>
-      <td>0.677713</td>
-      <td>0.499526</td>
-      <td>0.380823</td>
-      <td>1.342805</td>
-    </tr>
-    <tr>
-      <th rowspan="18" valign="top">United States</th>
-      <th>2017</th>
-      <td>2.405743</td>
-      <td>12.019266</td>
-      <td>2.287071</td>
-      <td>3.069954</td>
-      <td>17.348627</td>
-    </tr>
-    <tr>
-      <th>2016</th>
-      <td>2.407981</td>
-      <td>11.722133</td>
-      <td>2.219937</td>
-      <td>2.936004</td>
-      <td>16.972348</td>
-    </tr>
-    <tr>
-      <th>2015</th>
-      <td>2.373130</td>
-      <td>11.409800</td>
-      <td>2.222228</td>
-      <td>2.881337</td>
-      <td>16.710459</td>
-    </tr>
-    <tr>
-      <th>2014</th>
-      <td>2.334071</td>
-      <td>11.000619</td>
-      <td>2.209555</td>
-      <td>2.732228</td>
-      <td>16.242526</td>
-    </tr>
-    <tr>
-      <th>2013</th>
-      <td>2.353381</td>
-      <td>10.687214</td>
-      <td>2.118639</td>
-      <td>2.600198</td>
-      <td>15.853796</td>
-    </tr>
-    <tr>
-      <th>2012</th>
-      <td>2.398873</td>
-      <td>10.534042</td>
-      <td>2.045509</td>
-      <td>2.560677</td>
-      <td>15.567038</td>
-    </tr>
-    <tr>
-      <th>2011</th>
-      <td>2.434378</td>
-      <td>10.378060</td>
-      <td>1.978083</td>
-      <td>2.493194</td>
-      <td>15.224555</td>
-    </tr>
-    <tr>
-      <th>2010</th>
-      <td>2.510143</td>
-      <td>10.185836</td>
-      <td>1.846280</td>
-      <td>2.360183</td>
-      <td>14.992053</td>
-    </tr>
-    <tr>
-      <th>2009</th>
-      <td>2.507390</td>
-      <td>10.010687</td>
-      <td>1.646432</td>
-      <td>2.086299</td>
-      <td>14.617299</td>
-    </tr>
-    <tr>
-      <th>2008</th>
-      <td>2.407771</td>
-      <td>10.137847</td>
-      <td>1.797347</td>
-      <td>2.400349</td>
-      <td>14.997756</td>
-    </tr>
-    <tr>
-      <th>2007</th>
-      <td>2.351987</td>
-      <td>10.159387</td>
-      <td>1.701096</td>
-      <td>2.455016</td>
-      <td>15.018268</td>
-    </tr>
-    <tr>
-      <th>2006</th>
-      <td>2.314957</td>
-      <td>9.938503</td>
-      <td>1.564920</td>
-      <td>2.395189</td>
-      <td>14.741688</td>
-    </tr>
-    <tr>
-      <th>2005</th>
-      <td>2.287022</td>
-      <td>9.643098</td>
-      <td>1.431205</td>
-      <td>2.246246</td>
-      <td>14.332500</td>
-    </tr>
-    <tr>
-      <th>2004</th>
-      <td>2.267999</td>
-      <td>9.311431</td>
-      <td>1.335978</td>
-      <td>2.108585</td>
-      <td>13.846058</td>
-    </tr>
-    <tr>
-      <th>2003</th>
-      <td>2.233519</td>
-      <td>8.974708</td>
-      <td>1.218199</td>
-      <td>1.892825</td>
-      <td>13.339312</td>
-    </tr>
-    <tr>
-      <th>2002</th>
-      <td>2.193188</td>
-      <td>8.698306</td>
-      <td>1.192180</td>
-      <td>1.804105</td>
-      <td>12.968263</td>
-    </tr>
-    <tr>
-      <th>2001</th>
-      <td>2.112038</td>
-      <td>8.480461</td>
-      <td>1.213253</td>
-      <td>1.740797</td>
-      <td>12.746262</td>
-    </tr>
-    <tr>
-      <th>2000</th>
-      <td>2.040500</td>
-      <td>8.272097</td>
-      <td>1.287739</td>
-      <td>1.790995</td>
-      <td>12.620268</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wdi</span><span class="o">.</span><span class="n">loc</span><span class="p">[([</span><span class="s2">&quot;United States&quot;</span><span class="p">,</span> <span class="s2">&quot;Canada&quot;</span><span class="p">],</span> <span class="p">[</span><span class="mi">2010</span><span class="p">,</span> <span class="mi">2011</span><span class="p">,</span> <span class="mi">2012</span><span class="p">]),</span> <span class="p">:]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>GovExpend</th>
-      <th>Consumption</th>
-      <th>Exports</th>
-      <th>Imports</th>
-      <th>GDP</th>
-    </tr>
-    <tr>
-      <th>country</th>
-      <th>year</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="3" valign="top">Canada</th>
-      <th>2012</th>
-      <td>0.354342</td>
-      <td>0.961226</td>
-      <td>0.505969</td>
-      <td>0.547756</td>
-      <td>1.693428</td>
-    </tr>
-    <tr>
-      <th>2011</th>
-      <td>0.351887</td>
-      <td>0.943145</td>
-      <td>0.492349</td>
-      <td>0.528227</td>
-      <td>1.664240</td>
-    </tr>
-    <tr>
-      <th>2010</th>
-      <td>0.347332</td>
-      <td>0.921952</td>
-      <td>0.469949</td>
-      <td>0.500341</td>
-      <td>1.613543</td>
-    </tr>
-    <tr>
-      <th rowspan="3" valign="top">United States</th>
-      <th>2012</th>
-      <td>2.398873</td>
-      <td>10.534042</td>
-      <td>2.045509</td>
-      <td>2.560677</td>
-      <td>15.567038</td>
-    </tr>
-    <tr>
-      <th>2011</th>
-      <td>2.434378</td>
-      <td>10.378060</td>
-      <td>1.978083</td>
-      <td>2.493194</td>
-      <td>15.224555</td>
-    </tr>
-    <tr>
-      <th>2010</th>
-      <td>2.510143</td>
-      <td>10.185836</td>
-      <td>1.846280</td>
-      <td>2.360183</td>
-      <td>14.992053</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wdi</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;United States&quot;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>GovExpend</th>
-      <th>Consumption</th>
-      <th>Exports</th>
-      <th>Imports</th>
-      <th>GDP</th>
-    </tr>
-    <tr>
-      <th>year</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2017</th>
-      <td>2.405743</td>
-      <td>12.019266</td>
-      <td>2.287071</td>
-      <td>3.069954</td>
-      <td>17.348627</td>
-    </tr>
-    <tr>
-      <th>2016</th>
-      <td>2.407981</td>
-      <td>11.722133</td>
-      <td>2.219937</td>
-      <td>2.936004</td>
-      <td>16.972348</td>
-    </tr>
-    <tr>
-      <th>2015</th>
-      <td>2.373130</td>
-      <td>11.409800</td>
-      <td>2.222228</td>
-      <td>2.881337</td>
-      <td>16.710459</td>
-    </tr>
-    <tr>
-      <th>2014</th>
-      <td>2.334071</td>
-      <td>11.000619</td>
-      <td>2.209555</td>
-      <td>2.732228</td>
-      <td>16.242526</td>
-    </tr>
-    <tr>
-      <th>2013</th>
-      <td>2.353381</td>
-      <td>10.687214</td>
-      <td>2.118639</td>
-      <td>2.600198</td>
-      <td>15.853796</td>
-    </tr>
-    <tr>
-      <th>2012</th>
-      <td>2.398873</td>
-      <td>10.534042</td>
-      <td>2.045509</td>
-      <td>2.560677</td>
-      <td>15.567038</td>
-    </tr>
-    <tr>
-      <th>2011</th>
-      <td>2.434378</td>
-      <td>10.378060</td>
-      <td>1.978083</td>
-      <td>2.493194</td>
-      <td>15.224555</td>
-    </tr>
-    <tr>
-      <th>2010</th>
-      <td>2.510143</td>
-      <td>10.185836</td>
-      <td>1.846280</td>
-      <td>2.360183</td>
-      <td>14.992053</td>
-    </tr>
-    <tr>
-      <th>2009</th>
-      <td>2.507390</td>
-      <td>10.010687</td>
-      <td>1.646432</td>
-      <td>2.086299</td>
-      <td>14.617299</td>
-    </tr>
-    <tr>
-      <th>2008</th>
-      <td>2.407771</td>
-      <td>10.137847</td>
-      <td>1.797347</td>
-      <td>2.400349</td>
-      <td>14.997756</td>
-    </tr>
-    <tr>
-      <th>2007</th>
-      <td>2.351987</td>
-      <td>10.159387</td>
-      <td>1.701096</td>
-      <td>2.455016</td>
-      <td>15.018268</td>
-    </tr>
-    <tr>
-      <th>2006</th>
-      <td>2.314957</td>
-      <td>9.938503</td>
-      <td>1.564920</td>
-      <td>2.395189</td>
-      <td>14.741688</td>
-    </tr>
-    <tr>
-      <th>2005</th>
-      <td>2.287022</td>
-      <td>9.643098</td>
-      <td>1.431205</td>
-      <td>2.246246</td>
-      <td>14.332500</td>
-    </tr>
-    <tr>
-      <th>2004</th>
-      <td>2.267999</td>
-      <td>9.311431</td>
-      <td>1.335978</td>
-      <td>2.108585</td>
-      <td>13.846058</td>
-    </tr>
-    <tr>
-      <th>2003</th>
-      <td>2.233519</td>
-      <td>8.974708</td>
-      <td>1.218199</td>
-      <td>1.892825</td>
-      <td>13.339312</td>
-    </tr>
-    <tr>
-      <th>2002</th>
-      <td>2.193188</td>
-      <td>8.698306</td>
-      <td>1.192180</td>
-      <td>1.804105</td>
-      <td>12.968263</td>
-    </tr>
-    <tr>
-      <th>2001</th>
-      <td>2.112038</td>
-      <td>8.480461</td>
-      <td>1.213253</td>
-      <td>1.740797</td>
-      <td>12.746262</td>
-    </tr>
-    <tr>
-      <th>2000</th>
-      <td>2.040500</td>
-      <td>8.272097</td>
-      <td>1.287739</td>
-      <td>1.790995</td>
-      <td>12.620268</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wdi</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s2">&quot;United States&quot;</span><span class="p">,</span> <span class="mi">2010</span><span class="p">),</span> <span class="p">[</span><span class="s2">&quot;GDP&quot;</span><span class="p">,</span> <span class="s2">&quot;Exports&quot;</span><span class="p">]]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GDP        14.992053
-Exports     1.846280
-Name: (United States, 2010), dtype: float64
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wdi</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s2">&quot;United States&quot;</span><span class="p">,</span> <span class="mi">2010</span><span class="p">)]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GovExpend       2.510143
-Consumption    10.185836
-Exports         1.846280
-Imports         2.360183
-GDP            14.992053
-Name: (United States, 2010), dtype: float64
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wdi</span><span class="o">.</span><span class="n">loc</span><span class="p">[[(</span><span class="s2">&quot;United States&quot;</span><span class="p">,</span> <span class="mi">2010</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Canada&quot;</span><span class="p">,</span> <span class="mi">2015</span><span class="p">)]]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>GovExpend</th>
-      <th>Consumption</th>
-      <th>Exports</th>
-      <th>Imports</th>
-      <th>GDP</th>
-    </tr>
-    <tr>
-      <th>country</th>
-      <th>year</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>United States</th>
-      <th>2010</th>
-      <td>2.510143</td>
-      <td>10.185836</td>
-      <td>1.846280</td>
-      <td>2.360183</td>
-      <td>14.992053</td>
-    </tr>
-    <tr>
-      <th>Canada</th>
-      <th>2015</th>
-      <td>0.358303</td>
-      <td>1.035208</td>
-      <td>0.568859</td>
-      <td>0.575793</td>
-      <td>1.794270</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wdi</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;United States&quot;</span><span class="p">,</span> <span class="s2">&quot;Canada&quot;</span><span class="p">],</span> <span class="s2">&quot;GDP&quot;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>country        year
-Canada         2017     1.868164
-               2016     1.814016
-               2015     1.794270
-               2014     1.782252
-               2013     1.732714
-               2012     1.693428
-               2011     1.664240
-               2010     1.613543
-               2009     1.565291
-               2008     1.612862
-               2007     1.596876
-               2006     1.564608
-               2005     1.524608
-               2004     1.477317
-               2003     1.433089
-               2002     1.407725
-               2001     1.366590
-               2000     1.342805
-United States  2017    17.348627
-               2016    16.972348
-               2015    16.710459
-               2014    16.242526
-               2013    15.853796
-               2012    15.567038
-               2011    15.224555
-               2010    14.992053
-               2009    14.617299
-               2008    14.997756
-               2007    15.018268
-               2006    14.741688
-               2005    14.332500
-               2004    13.846058
-               2003    13.339312
-               2002    12.968263
-               2001    12.746262
-               2000    12.620268
-Name: GDP, dtype: float64
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wdi</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;United States&quot;</span><span class="p">,</span> <span class="s2">&quot;GDP&quot;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>year
-2017    17.348627
-2016    16.972348
-2015    16.710459
-2014    16.242526
-2013    15.853796
-2012    15.567038
-2011    15.224555
-2010    14.992053
-2009    14.617299
-2008    14.997756
-2007    15.018268
-2006    14.741688
-2005    14.332500
-2004    13.846058
-2003    13.339312
-2002    12.968263
-2001    12.746262
-2000    12.620268
-Name: GDP, dtype: float64
-</pre></div>
-</div>
-</div>
-</div>
-<p>(<a class="reference external" href="#exercise-1"><em>back to text</em></a>)</p>
-<p><strong>Exercise 3</strong></p>
-<p>Try setting <code class="docutils literal notranslate"><span class="pre">my_df</span></code> to some subset of the rows in <code class="docutils literal notranslate"><span class="pre">wdi</span></code> (use one of the
-<code class="docutils literal notranslate"><span class="pre">.loc</span></code> variations above).</p>
-<p>Then see what happens when you do <code class="docutils literal notranslate"><span class="pre">wdi</span> <span class="pre">/</span> <span class="pre">my_df</span></code> or <code class="docutils literal notranslate"><span class="pre">my_df</span> <span class="pre">**</span> <span class="pre">wdi</span></code>.</p>
-<p>Try changing the subset of rows in <code class="docutils literal notranslate"><span class="pre">my_df</span></code> and repeat until you
-understand what is happening.</p>
-<p>(<a class="reference external" href="#exercise-2"><em>back to text</em></a>)</p>
-<p><strong>Exercise 4</strong></p>
-<p>Below, we create <code class="docutils literal notranslate"><span class="pre">wdi2</span></code>, which is the same as <code class="docutils literal notranslate"><span class="pre">df4</span></code> except that the
-levels of the index are swapped.</p>
-<p>In the cells after <code class="docutils literal notranslate"><span class="pre">df6</span></code> is defined, we have commented out
-a few of the slicing examples from the previous exercise.</p>
-<p>For each of these examples, use <code class="docutils literal notranslate"><span class="pre">pd.IndexSlice</span></code> to extract the same
-data from <code class="docutils literal notranslate"><span class="pre">df6</span></code>.</p>
-<p>(HINT: You will need to <em>swap</em> the order of the row slicing arguments
-within the <code class="docutils literal notranslate"><span class="pre">pd.IndexSlice</span></code>.)</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wdi2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;country&quot;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># wdi.loc[&quot;United States&quot;]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># wdi.loc[([&quot;United States&quot;, &quot;Canada&quot;], [2010, 2011, 2012]), :]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># wdi.loc[[&quot;United States&quot;, &quot;Canada&quot;], &quot;GDP&quot;]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>(<a class="reference external" href="#exercise-3"><em>back to text</em></a>)</p>
-<p><strong>Exercise 5</strong></p>
-<p>Use <code class="docutils literal notranslate"><span class="pre">pd.IndexSlice</span></code> to extract all data from <code class="docutils literal notranslate"><span class="pre">wdiT</span></code> where the <code class="docutils literal notranslate"><span class="pre">year</span></code>
-level of the column names (the second level) is one of 2010, 2012, and 2014</p>
-<p>(<a class="reference external" href="#exercise-4"><em>back to text</em></a>)</p>
-<p><strong>Exercise 6</strong></p>
-<p>Look up the documentation for the <code class="docutils literal notranslate"><span class="pre">reset_index</span></code> method and study it to
-learn how to do the following:</p>
-<ul class="simple">
-<li><p>Move just the <code class="docutils literal notranslate"><span class="pre">year</span></code> level of the index back as a column.</p></li>
-<li><p>Completely throw away all levels of the index.</p></li>
-<li><p>Remove the <code class="docutils literal notranslate"><span class="pre">country</span></code> of the index and <em>do not</em> keep it as a column.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># remove just year level and add as column</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># throw away all levels of index</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove country from the index -- don&#39;t keep it as a column</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>(<a class="reference external" href="#exercise-5"><em>back to text</em></a>)</p>
 </div>
 </div>
 
