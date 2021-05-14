@@ -922,6 +922,18 @@
   <a class="reference internal nav-link" href="#id5">
    Exercises
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basics">
+     BASICS
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   Exercises
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#time-series">
@@ -929,7 +941,7 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
+  <a class="reference internal nav-link" href="#id7">
    Exercises
   </a>
  </li>
@@ -1169,12 +1181,150 @@ now?</p></li>
 How does this compare with <code class="docutils literal notranslate"><span class="pre">unemp.dtype</span></code>?</p></li>
 </ul>
 <p>(<a class="reference external" href="#exercise-1"><em>back to text</em></a>)</p>
+<div class="section" id="basics">
+<h3>BASICS<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>Exercises<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p><a id='exerciselist-0'></a>
+<strong>Exercise 1</strong></p>
+<p>Looking at the displayed DataFrame above, can you identify the index? The columns?</p>
+<p>You can use the cell below to verify your visual intuition.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(<a class="reference external" href="#exercise-0"><em>back to text</em></a>)</p>
+<p><strong>Exercise 2</strong></p>
+<p>Do the following exercises in separate code cells below:</p>
+<ul class="simple">
+<li><p>At each date, what is the minimum unemployment rate across all states
+in our sample?</p></li>
+<li><p>What was the median unemployment rate in each state?</p></li>
+<li><p>What was the maximum unemployment rate across the states in our
+sample? What state did it happen in? In what month/year was this
+achieved?</p>
+<ul>
+<li><p>Hint 1: What Python type (not <code class="docutils literal notranslate"><span class="pre">dtype</span></code>) is returned by the
+aggregation?</p></li>
+<li><p>Hint 2: Read documentation for the method <code class="docutils literal notranslate"><span class="pre">idxmax</span></code></p></li>
+</ul>
+</li>
+<li><p>Classify each state as high or low volatility based on whether the
+variance of their unemployment is above or below 4.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># min unemployment rate by state</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># median unemployment rate by state</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># max unemployment rate across all states and Year</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># low or high volatility</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(<a class="reference external" href="#exercise-1"><em>back to text</em></a>)</p>
+<p><strong>Exercise 3</strong></p>
+<p>Imagine that we want to determine whether unemployment was high (&gt; 6.5),
+medium (4.5 &lt; x &lt;= 6.5), or low (&lt;= 4.5) for each state and each month.</p>
+<ol class="simple">
+<li><p>Write a Python function that takes a single number as an input and
+outputs a single string noting if that number is high, medium, or low.</p></li>
+<li><p>Pass your function to <code class="docutils literal notranslate"><span class="pre">applymap</span></code> (quiz: why <code class="docutils literal notranslate"><span class="pre">applymap</span></code> and not
+<code class="docutils literal notranslate"><span class="pre">agg</span></code> or <code class="docutils literal notranslate"><span class="pre">apply</span></code>?) and save the result in a new DataFrame called
+<code class="docutils literal notranslate"><span class="pre">unemp_bins</span></code>.</p></li>
+<li><p>(Challenging) This exercise has multiple parts:</p></li>
+<li><p>Use another transform on <code class="docutils literal notranslate"><span class="pre">unemp_bins</span></code> to count how many
+times each state had each of the three classifications.<br />
+- Hint 1: Will this value counting function be a Series or scalar
+transform?<br />
+- Hint 2: Try googling “pandas count unique value” or something
+similar to find the right transform.</p></li>
+<li><p>Construct a horizontal bar chart of the number of occurrences of
+each level with one bar per state and classification (21 total
+bars).</p></li>
+<li><p>(Challenging) Repeat the previous step, but count how many states had
+each classification in each month. Which month had the most states
+with high unemployment? What about medium and low?</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Part 1: Write a Python function to classify unemployment levels.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Part 2: Pass your function from part 1 to applymap</span>
+<span class="n">unemp_bins</span> <span class="o">=</span> <span class="n">unemp</span><span class="o">.</span><span class="n">applymap</span><span class="c1">#replace this comment with your code!!</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Part 3: Count the number of times each state had each classification.</span>
+
+<span class="c1">## then make a horizontal bar chart here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Part 4: Apply the same transform from part 4, but to each date instead of to each state.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(<a class="reference external" href="#exercise-2"><em>back to text</em></a>)</p>
+<p><strong>Exercise 4</strong></p>
+<ul class="simple">
+<li><p>For a single state of your choice, determine what the mean
+unemployment is during “Low”, “Medium”, and “High” unemployment times
+(recall your <code class="docutils literal notranslate"><span class="pre">unemp_bins</span></code> DataFrame from the exercise above).</p>
+<ul>
+<li><p>Think about how you would do this for all the
+states in our sample and write your thoughts… We will soon
+learn tools that will <em>greatly</em> simplify operations like
+this that operate on distinct <em>groups</em> of data at a time.</p></li>
+</ul>
+</li>
+<li><p>Which states in our sample performs the best during “bad times?” To
+determine this, compute the mean unemployment for each state only for
+months in which the mean unemployment rate in our sample is greater
+than 7.</p></li>
+</ul>
+<p>(<a class="reference external" href="#exercise-3"><em>back to text</em></a>)</p>
 </div>
 <div class="section" id="time-series">
 <h2>Time Series<a class="headerlink" href="#time-series" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="id6">
-<h2>Exercises<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h2>Exercises<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <p><a id='exerciselist-0'></a>
 <strong>Exercise 1</strong></p>
 <p>By referring to table found at the link above, figure out the correct argument to
