@@ -489,6 +489,11 @@
      15.3. Tail Risks and Background Risks
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Finance/MultiFactorModels.html">
+     15.4. Multifactor Models
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -502,23 +507,18 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Finance/MultiFactorModels.html">
-     16.1. Multifactor Models
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../Finance/Equilbrium.html">
-     16.2. Intepreting Factor models
+     16.1. Intepreting Factor models
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Finance/Implementation.html">
-     16.3. Strategy Implementation
+     16.2. Strategy Implementation
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Finance/Horizon.html">
-     16.4. Investment horizon effects
+     16.3. Investment horizon effects
     </a>
    </li>
   </ul>
@@ -858,8 +858,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#state-unemployment-data">
-   6.2.2. State Unemployment Data
+  <a class="reference internal nav-link" href="#industry-portfolios-data">
+   6.2.2. Industry portfolios data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -976,16 +976,11 @@ own and apply them using <code class="docutils literal notranslate"><span class=
 <li><p>Be able to select subsets of the DataFrame using boolean selection</p></li>
 <li><p>Know what the “want operator” is and how to apply it</p></li>
 </ul>
-<p><strong>Data</strong></p>
-<ul class="simple">
-<li><p>US state unemployment data from Bureau of Labor Statistics</p></li>
-</ul>
 <div class="section" id="outline">
 <h2><span class="section-number">6.2.1. </span>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="#Basic-Functionality">Basic Functionality</a></p>
 <ul>
-<li><p><a class="reference external" href="#State-Unemployment-Data">State Unemployment Data</a></p></li>
 <li><p><a class="reference external" href="#Dates-in-pandas">Dates in pandas</a></p></li>
 <li><p><a class="reference external" href="#DataFrame-Aggregations">DataFrame Aggregations</a></p></li>
 <li><p><a class="reference external" href="#Transforms">Transforms</a></p></li>
@@ -1003,10 +998,11 @@ own and apply them using <code class="docutils literal notranslate"><span class=
 </div>
 </div>
 </div>
-<div class="section" id="state-unemployment-data">
-<h2><span class="section-number">6.2.2. </span>State Unemployment Data<a class="headerlink" href="#state-unemployment-data" title="Permalink to this headline">¶</a></h2>
-<p>In this lecture, we will use unemployment data by state at a monthly
+<div class="section" id="industry-portfolios-data">
+<h2><span class="section-number">6.2.2. </span>Industry portfolios data<a class="headerlink" href="#industry-portfolios-data" title="Permalink to this headline">¶</a></h2>
+<p>In this lecture, we will use industry portfolio  data by industry at a monthly
 frequency.</p>
+<p>those are portfolio of stocks of firms in different sectors of the economy</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1767,7 +1763,7 @@ dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># How does this differ from unemp.agg(high_or_low)?</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># How does this differ from returns.agg(high_or_low)?</span>
 <span class="n">returns</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">high_or_low</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1883,7 +1879,7 @@ dtype: object
 Series.</p>
 <p>Some examples:</p>
 <ul class="simple">
-<li><p>Compute the percentage change in unemployment from month to month.</p></li>
+<li><p>Compute the percentage change in average firm size from month to month.</p></li>
 <li><p>Calculate the cumulative sum of elements in each column.</p></li>
 </ul>
 <div class="section" id="built-in-transforms">
@@ -2209,10 +2205,10 @@ columns of a DataFrame. The steps are:</p>
 <li><p>Write a Python function that takes a Series and outputs a new Series.</p></li>
 <li><p>Pass our new function as an argument to the <code class="docutils literal notranslate"><span class="pre">apply</span></code> method (alternatively, the <code class="docutils literal notranslate"><span class="pre">transform</span></code> method).</p></li>
 </ol>
-<p>As an example, we will standardize our unemployment data to have mean 0
+<p>As an example, we will standardize our return data to have mean 0
 and standard deviation 1.</p>
 <p>After doing this, we can use an aggregation to determine at which date the
-unemployment rate is most different from “normal times” for each state.</p>
+return is most different from “normal times” for each state.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
@@ -3237,7 +3233,7 @@ take a collection of booleans and return a single boolean.</p>
 <p>Series and DataFrames with <code class="docutils literal notranslate"><span class="pre">dtype</span></code> bool have <code class="docutils literal notranslate"><span class="pre">.any</span></code> and <code class="docutils literal notranslate"><span class="pre">.all</span></code>
 methods that apply this logic to pandas objects.</p>
 <p>Let’s use these methods to count how many months all the states in our
-sample had high unemployment.</p>
+sample had low returns.</p>
 <p>As we work through this example, consider the [“want
 operator”], a helpful
 concept from Nobel Laureate <a class="reference external" href="http://www.tomsargent.com">Tom
