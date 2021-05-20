@@ -946,12 +946,11 @@ computer’s operating system.</p>
 <li><p>Right click on the icon “Anaconda Prompt” and choose “Run as administrator”</p></li>
 </ul>
 <p><strong>Run the following commands:</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n fin418 <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6 matplotlib scikit-learn scipy pandas numpy statsmodels pandas_datareader psycopg2 
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n fin418 <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6 matplotlib scikit-learn scipy pandas numpy statsmodels  psycopg2 
 conda activate fin418
-pip install fredapi wrds datascience
+pip install fredapi wrds datascience pandas-datareader
 conda install -c conda-forge jupyterlab
 conda install -c conda-forge nodejs
-conda install -c conda-forge jupyterlab-spellchecker --no-build
 jupyter labextension install plotlywidget@1.1.1 --no-build
 jupyter labextension install jupyterlab-plotly --no-build
 jupyter lab build
