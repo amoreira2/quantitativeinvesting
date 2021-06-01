@@ -906,11 +906,6 @@
 <h1><span class="section-number">4.4. </span>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
 <p><strong>Outcomes</strong></p>
 <ul class="simple">
-<li><p>Economic Production Functions</p>
-<ul>
-<li><p>Understand the basics of production functions in economics</p></li>
-</ul>
-</li>
 <li><p>Functions</p>
 <ul>
 <li><p>Know how to define your own function</p></li>
@@ -975,7 +970,7 @@ function.</p></li>
     <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
     <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
     <span class="n">answer</span> <span class="o">=</span> <span class="n">total</span> <span class="o">/</span> <span class="n">N</span>
-
+    <span class="c1">#print(answer)</span>
     <span class="k">return</span> <span class="n">answer</span>
 </pre></div>
 </div>
@@ -987,14 +982,27 @@ does three steps, and has one output (<code class="docutils literal notranslate"
 <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4]</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">numbers</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">the_mean</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">the_mean</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">the_mean</span><span class="p">)</span>
+<span class="n">answer</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.5
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">26</span><span class="o">-</span><span class="n">d50b8cd23b57</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">the_mean</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="n">the_mean</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">answer</span>
+
+<span class="ne">NameError</span>: name &#39;answer&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1076,19 +1084,21 @@ to variables inside of blocks of code and in the outer “scope”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="c1"># this function does this and that</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># a different &quot;x&quot;</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    
 <span class="n">f</span><span class="p">()</span> <span class="c1"># calls function</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x = 4
-x = 5
-x = 4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+5
+4
 </pre></div>
 </div>
 </div>
@@ -1130,7 +1140,6 @@ the first line of the <em>body</em> of the function (after the line with
     <span class="k">return</span> <span class="n">outputs</span>
 </pre></div>
 </div>
-<p><strong>EDIT FROM HERE WITHA DIFFERENT FUNCTION</strong></p>
 <p>Let’s re-define our <code class="docutils literal notranslate"><span class="pre">portfolio_returns</span></code> function to include a docstring.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1155,12 +1164,12 @@ displayed (or use the Contextual Help window with Jupyterlab and <code class="do
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Red">Signature:</span> portfolio_returns<span class=" -Color -Color-Bold -Color-Bold-Yellow">(</span>w<span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span> r<span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span> rf<span class=" -Color -Color-Bold -Color-Bold-Yellow">)</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Red">Signature:</span> portfolio_returns<span class=" -Color -Color-Bold -Color-Bold-Yellow">(</span>w<span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span> r<span class=" -Color -Color-Bold -Color-Bold-Yellow">)</span>
 <span class=" -Color -Color-Bold -Color-Bold-Red">Docstring:</span>
 Computes the returns of a portfolio that invests w on the asset with return r and (1-w) in the risk-free rate
 
-Takes the form F(w, r,rf) = w*r+(1-w)rf
-<span class=" -Color -Color-Bold -Color-Bold-Red">File:</span>      c:\users\alan.moreira\documents\github\textbook\chapters\essentials\&lt;ipython-input-1-66f51d78caaa&gt;
+Takes the form F(w, r,rf) = w*r+(1-w)rf, here we fix the rf to 0.01
+<span class=" -Color -Color-Bold -Color-Bold-Red">File:</span>      c:\users\alan.moreira\documents\github\textbook\chapters\essentials\&lt;ipython-input-32-4efdb59d826b&gt;
 <span class=" -Color -Color-Bold -Color-Bold-Red">Type:</span>      function
 </pre></div>
 </div>
@@ -1174,6 +1183,11 @@ for future readers/users (including yourself) to understand what the code does.<
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">portfolio_returns</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.030000000000000002
 </pre></div>
 </div>
 </div>
