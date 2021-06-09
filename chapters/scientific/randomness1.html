@@ -929,14 +929,6 @@
 <li><p>Understand the basics of Markov chains and using the <code class="docutils literal notranslate"><span class="pre">quantecon</span></code> library to study them</p></li>
 <li><p>Simulate discrete and continuous random variables and processes</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uncomment following line to install on colab</span>
-<span class="c1">#! pip install qeds</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="section" id="id1">
 <h2><span class="section-number">5.4.1. </span>Randomness<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>We will use the <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> package to simulate randomness in Python.</p>
@@ -948,9 +940,6 @@ numpy.random to numerically verify some of the facts associated with them.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="c1"># activate plot theme</span>
-<span class="kn">import</span> <span class="nn">qeds</span>
-<span class="n">qeds</span><span class="o">.</span><span class="n">themes</span><span class="o">.</span><span class="n">mpl_style</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -1000,7 +989,7 @@ between 0 and 1.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4941683193260944
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.26322078037408503
 </pre></div>
 </div>
 </div>
@@ -1013,11 +1002,11 @@ between 0 and 1.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.33448917, 0.86720122, 0.64110224, 0.569186  , 0.90152641,
-       0.7871668 , 0.76698266, 0.05750548, 0.95470962, 0.25611913,
-       0.7957892 , 0.23800418, 0.02118326, 0.4078392 , 0.78896451,
-       0.89245038, 0.63614996, 0.57116947, 0.20809692, 0.84104224,
-       0.97077144, 0.74248511, 0.8156158 , 0.7383549 , 0.9824022 ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.36061623, 0.31242872, 0.58326892, 0.12558815, 0.4620187 ,
+       0.28782051, 0.86257915, 0.12084517, 0.48935707, 0.34140173,
+       0.43616953, 0.68828897, 0.28233537, 0.14272351, 0.81286462,
+       0.01981704, 0.64797694, 0.53591264, 0.73331375, 0.82929317,
+       0.04086537, 0.9026042 , 0.46869886, 0.97426673, 0.74099426])
 </pre></div>
 </div>
 </div>
@@ -1029,11 +1018,11 @@ between 0 and 1.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.15414644, 0.02160862, 0.213002  , 0.73985218, 0.92302362],
-       [0.48411723, 0.97323734, 0.44136618, 0.770077  , 0.39661053],
-       [0.12572285, 0.96744043, 0.59128753, 0.91158235, 0.25399672],
-       [0.31214748, 0.75003013, 0.47155248, 0.42288897, 0.35531746],
-       [0.93121096, 0.30027337, 0.94748767, 0.46562423, 0.57916552]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.46186911, 0.41821968, 0.36160953, 0.0502781 , 0.65090345],
+       [0.3453095 , 0.33421571, 0.18455346, 0.12076724, 0.33032191],
+       [0.96943319, 0.83328017, 0.29883387, 0.02172205, 0.95632056],
+       [0.60151453, 0.82389585, 0.28551458, 0.10728677, 0.59717758],
+       [0.14576191, 0.07277934, 0.40452115, 0.40554952, 0.2340937 ]])
 </pre></div>
 </div>
 </div>
@@ -1045,13 +1034,13 @@ between 0 and 1.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[0.25490113, 0.31775185, 0.69872199, 0.50792259],
-        [0.93789015, 0.93154048, 0.78578876, 0.64512425],
-        [0.63047173, 0.93010465, 0.93434791, 0.09111112]],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[0.93536126, 0.93549655, 0.12436692, 0.1469521 ],
+        [0.52973566, 0.4896827 , 0.46753372, 0.81619532],
+        [0.48423212, 0.2639579 , 0.36469924, 0.08819488]],
 
-       [[0.68368505, 0.13924349, 0.81372797, 0.54388256],
-        [0.11664517, 0.89421565, 0.72787451, 0.37974686],
-        [0.51758975, 0.70974679, 0.35547068, 0.84228384]]])
+       [[0.23417584, 0.96875075, 0.4692465 , 0.25405469],
+        [0.72950201, 0.18430778, 0.81660447, 0.01637793],
+        [0.63715744, 0.8559052 , 0.92731636, 0.15972547]]])
 </pre></div>
 </div>
 </div>
@@ -1096,7 +1085,7 @@ Numbers</em>.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/randomness1_12_0.png" src="../../_images/randomness1_12_0.png" />
+<img alt="../../_images/randomness1_11_0.png" src="../../_images/randomness1_11_0.png" />
 </div>
 </div>
 <p><a id='exercise-0'></a></p>
@@ -1149,7 +1138,7 @@ probability.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20216.666666666664
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20208.571428571428
 </pre></div>
 </div>
 </div>
@@ -1189,7 +1178,7 @@ instead of only storing the values.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20218.571428571428
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20240.952380952378
 </pre></div>
 </div>
 </div>
@@ -1202,7 +1191,7 @@ instead of only storing the values.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>123 ms ± 2.12 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>114 ms ± 1 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -1214,12 +1203,12 @@ instead of only storing the values.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.99 ms ± 92.2 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.2 ms ± 80.7 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
 </div>
 </div>
-<p>The timings for my computer were 167 ms for <code class="docutils literal notranslate"><span class="pre">simulate_loan_repayments_slow</span></code> and 5.05 ms for
+<p>The timings for my computer were 1114 ms for <code class="docutils literal notranslate"><span class="pre">simulate_loan_repayments_slow</span></code> and 4.2 ms for
 <code class="docutils literal notranslate"><span class="pre">simulate_loan_repayments</span></code>.</p>
 <p>This function is simple enough that both times are acceptable, but the 33x time difference could
 matter in a more complicated operation.</p>
@@ -1432,14 +1421,6 @@ At time 9 the distribution is [0.40829573 0.1241273  0.46757697]
 </div>
 </div>
 </div>
-<p><a id='exercise-1'></a></p>
-<blockquote>
-<div><p>See exercise 2 in the <a class="reference external" href="#exerciselist-0"><em>exercise list</em></a></p>
-</div></blockquote>
-<p><a id='exercise-2'></a></p>
-<blockquote>
-<div><p>See exercise 3 in the <a class="reference external" href="#exerciselist-0"><em>exercise list</em></a></p>
-</div></blockquote>
 </div>
 </div>
 <div class="section" id="continuous-distributions">
@@ -1477,7 +1458,7 @@ described by the mean and variance of that distribution.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x2777fb84a60&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/randomness1_37_1.png" src="../../_images/randomness1_37_1.png" />
+<img alt="../../_images/randomness1_35_1.png" src="../../_images/randomness1_35_1.png" />
 </div>
 </div>
 <p>Another common continuous distribution used in economics is the gamma distribution.</p>
@@ -1509,7 +1490,7 @@ parameter <span class="math notranslate nohighlight">\( k \)</span> and a scale 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/randomness1_39_0.png" src="../../_images/randomness1_39_0.png" />
+<img alt="../../_images/randomness1_37_0.png" src="../../_images/randomness1_37_0.png" />
 </div>
 </div>
 </div>
