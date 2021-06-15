@@ -882,18 +882,23 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-contrived-example-opt">
+     6.3.3.1. A contrived example (opt)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#setting-a-hierarchical-index">
-     6.3.3.1. Setting a Hierarchical Index
+     6.3.3.2. Setting a Hierarchical Index
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#slicing-a-hierarchical-index">
-     6.3.3.2. Slicing a Hierarchical Index
+     6.3.3.3. Slicing a Hierarchical Index
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#alignment-with-multiindex">
-     6.3.3.3. Alignment with
+     6.3.3.4. Alignment with
      <code class="docutils literal notranslate">
       <span class="pre">
        MultiIndex
@@ -903,7 +908,7 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pd-indexslice">
-     6.3.3.4.
+     6.3.3.5.
      <code class="docutils literal notranslate">
       <span class="pre">
        pd.IndexSlice
@@ -913,7 +918,7 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#multi-index-columns">
-     6.3.3.5. Multi-index Columns
+     6.3.3.6. Multi-index Columns
     </a>
    </li>
   </ul>
@@ -968,14 +973,6 @@
 </ul>
 </li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uncomment following line to install on colab</span>
-<span class="c1">#! pip install qeds</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1958,6 +1955,9 @@ that is what we listed first in the call to <code class="docutils literal notran
 </div>
 <p>Setting just the year as index has one more potential issue: we will
 get data alignment only on the year, which may not be sufficient.</p>
+<p>Below an example what might go wrong if you are not careful</p>
+<div class="section" id="a-contrived-example-opt">
+<h3><span class="section-number">6.3.3.1. </span>A contrived example (opt)<a class="headerlink" href="#a-contrived-example-opt" title="Permalink to this headline">¶</a></h3>
 <p>To demonstrate this point, suppose now you are asked to use our WDI dataset
 to compute an approximation for net exports and investment in in 2009.</p>
 <p>As a seasoned economist, you would remember the expenditure formula for GDP is
@@ -2319,8 +2319,9 @@ pandas doesn’t complain.</p>
 same amount.</p>
 <p>To make these types operation easier, we need to include both the year
 and country in the index…</p>
+</div>
 <div class="section" id="setting-a-hierarchical-index">
-<h3><span class="section-number">6.3.3.1. </span>Setting a Hierarchical Index<a class="headerlink" href="#setting-a-hierarchical-index" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.3.2. </span>Setting a Hierarchical Index<a class="headerlink" href="#setting-a-hierarchical-index" title="Permalink to this headline">¶</a></h3>
 <p>Include multiple columns in the index is advantageous in some situations.</p>
 <p>These situations might include:</p>
 <ul class="simple">
@@ -2548,7 +2549,7 @@ right-most) level is named <code class="docutils literal notranslate"><span clas
 refer to the DataFrame as having a hierarchical index.</p>
 </div>
 <div class="section" id="slicing-a-hierarchical-index">
-<h3><span class="section-number">6.3.3.2. </span>Slicing a Hierarchical Index<a class="headerlink" href="#slicing-a-hierarchical-index" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.3.3. </span>Slicing a Hierarchical Index<a class="headerlink" href="#slicing-a-hierarchical-index" title="Permalink to this headline">¶</a></h3>
 <p>Now, we can answer our friend’s questions in a much more straightforward way.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2615,18 +2616,14 @@ Series)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">df.loc[rows,</span> <span class="pre">[&quot;GDP&quot;,</span> <span class="pre">&quot;Consumption&quot;]]</span></code>: return the rows specified by rows
 (see rules above) and only columns <code class="docutils literal notranslate"><span class="pre">GDP</span></code> and <code class="docutils literal notranslate"><span class="pre">Consumption</span></code></p></li>
 </ol>
-<p><a id='exercise-1'></a></p>
-<blockquote>
-<div><p>See exercise 2 in the <a class="reference external" href="#exerciselist-0"><em>exercise list</em></a></p>
-</div></blockquote>
 </div>
 <div class="section" id="alignment-with-multiindex">
-<h3><span class="section-number">6.3.3.3. </span>Alignment with <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code><a class="headerlink" href="#alignment-with-multiindex" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.3.4. </span>Alignment with <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code><a class="headerlink" href="#alignment-with-multiindex" title="Permalink to this headline">¶</a></h3>
 <p>The data alignment features we talked about above also apply to a
 <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> DataFrame.</p>
 </div>
 <div class="section" id="pd-indexslice">
-<h3><span class="section-number">6.3.3.4. </span><code class="docutils literal notranslate"><span class="pre">pd.IndexSlice</span></code><a class="headerlink" href="#pd-indexslice" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.3.5. </span><code class="docutils literal notranslate"><span class="pre">pd.IndexSlice</span></code><a class="headerlink" href="#pd-indexslice" title="Permalink to this headline">¶</a></h3>
 <p>When we want to extract rows for a few values of the outer index and all
 values for an inner index level, we can use the convenient
 <code class="docutils literal notranslate"><span class="pre">df.loc[[id11,</span> <span class="pre">id22]]</span></code> shorthand.</p>
@@ -3135,7 +3132,7 @@ instructed pandas to give us rows for all values of the outer most index
 level and that the <code class="docutils literal notranslate"><span class="pre">:</span></code> just before <code class="docutils literal notranslate"><span class="pre">]</span></code> said grab all the columns.</p>
 </div>
 <div class="section" id="multi-index-columns">
-<h3><span class="section-number">6.3.3.5. </span>Multi-index Columns<a class="headerlink" href="#multi-index-columns" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.3.6. </span>Multi-index Columns<a class="headerlink" href="#multi-index-columns" title="Permalink to this headline">¶</a></h3>
 <p>The functionality of <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> also applies to the column names.</p>
 <p>Let’s see how it works.</p>
 <div class="cell docutils container">
@@ -3733,10 +3730,6 @@ have a hierarchical index for column names.</p>
 </table>
 </div></div></div>
 </div>
-<p><a id='exercise-4'></a></p>
-<blockquote>
-<div><p>See exercise 5 in the <a class="reference external" href="#exerciselist-0"><em>exercise list</em></a></p>
-</div></blockquote>
 </div>
 </div>
 <div class="section" id="re-setting-the-index">
@@ -3896,10 +3889,6 @@ sets the index of the returned DataFrame to the default of
 <p>72 rows × 7 columns</p>
 </div></div></div>
 </div>
-<p><a id='exercise-5'></a></p>
-<blockquote>
-<div><p>See exercise 6 in the <a class="reference external" href="#exerciselist-0"><em>exercise list</em></a></p>
-</div></blockquote>
 </div>
 <div class="section" id="choose-the-index-carefully">
 <h2><span class="section-number">6.3.5. </span>Choose the Index Carefully<a class="headerlink" href="#choose-the-index-carefully" title="Permalink to this headline">¶</a></h2>

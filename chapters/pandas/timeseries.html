@@ -948,10 +948,6 @@ a column with <code class="docutils literal notranslate"><span class="pre">dtype
 <li><p>Understand both rolling and re-sampling operations and the difference
 between the two</p></li>
 </ul>
-<p><strong>Data</strong></p>
-<ul class="simple">
-<li><p>Bitcoin to USD exchange rates from March 2014 to the present</p></li>
-</ul>
 <div class="section" id="outline">
 <h2><span class="section-number">6.8.1. </span>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -972,28 +968,13 @@ between the two</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uncomment following line to install on colab</span>
-<span class="c1">#! pip install qeds</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">wallstreet</span> <span class="kn">import</span> <span class="n">Stock</span>
-<span class="kn">import</span> <span class="nn">qeds</span>
 
-<span class="c1"># see section on API keys at end of lecture!</span>
-<span class="n">quandl</span><span class="o">.</span><span class="n">ApiConfig</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;QUANDL_AUTH&quot;</span><span class="p">,</span> <span class="s2">&quot;Dn6BtVoBhzuKTuyo6hbp&quot;</span><span class="p">)</span>
-<span class="n">start_date</span> <span class="o">=</span> <span class="s2">&quot;2014-05-01&quot;</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="c1"># activate plot theme</span>
-<span class="kn">import</span> <span class="nn">qeds</span>
-<span class="n">qeds</span><span class="o">.</span><span class="n">themes</span><span class="o">.</span><span class="n">mpl_style</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -1179,7 +1160,7 @@ convenient indexing features for extracting data.</p>
 <p>The flexibility of these features is best understood through example,
 so let’s load up some data and take a look.</p>
 <hr class="docutils" />
-<p>Below we are using Quandl an API that allows us to get a wide range of data for free <a class="reference external" href="https://www.quandl.com/search?filters=%5B%22Free%22%5D&amp;page=3">here is a list of free data sets</a></p>
+<p>Below we are using WallStreet API that allows us to get yahoo/google finance data for free  <a class="reference external" href="https://pypi.org/project/wallstreet/0.1.5/">look here</a></p>
 <p>There is a wide range of different API for Python. We will later discuss a few more that we will use</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1194,18 +1175,18 @@ so let’s load up some data and take a look.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-DatetimeIndex: 2071 entries, 2013-02-25 to 2021-05-14
+DatetimeIndex: 2067 entries, 2013-04-01 to 2021-06-14
 Data columns (total 6 columns):
  #   Column     Non-Null Count  Dtype  
 ---  ------     --------------  -----  
- 0   Open       2071 non-null   float64
- 1   High       2071 non-null   float64
- 2   Low        2071 non-null   float64
- 3   Close      2071 non-null   float64
- 4   Adj Close  2071 non-null   float64
- 5   Volume     2071 non-null   int64  
+ 0   Open       2067 non-null   float64
+ 1   High       2067 non-null   float64
+ 2   Low        2067 non-null   float64
+ 3   Close      2067 non-null   float64
+ 4   Adj Close  2067 non-null   float64
+ 5   Volume     2067 non-null   int64  
 dtypes: float64(5), int64(1)
-memory usage: 113.3 KB
+memory usage: 113.0 KB
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -1245,56 +1226,55 @@ memory usage: 113.3 KB
   </thead>
   <tbody>
     <tr>
-      <th>2013-02-25</th>
-      <td>25.090000</td>
-      <td>25.200001</td>
-      <td>24.610001</td>
-      <td>24.610001</td>
-      <td>17.195938</td>
-      <td>1538700</td>
+      <th>2013-04-01</th>
+      <td>28.000000</td>
+      <td>30.070000</td>
+      <td>27.930000</td>
+      <td>29.760000</td>
+      <td>21.025162</td>
+      <td>7021500</td>
     </tr>
     <tr>
-      <th>2013-02-26</th>
-      <td>24.770000</td>
-      <td>25.219999</td>
-      <td>23.780001</td>
-      <td>24.790001</td>
-      <td>17.321712</td>
-      <td>2680500</td>
+      <th>2013-04-02</th>
+      <td>29.740000</td>
+      <td>30.340000</td>
+      <td>29.059999</td>
+      <td>30.240000</td>
+      <td>21.364277</td>
+      <td>4087300</td>
     </tr>
     <tr>
-      <th>2013-02-27</th>
-      <td>24.709999</td>
-      <td>25.389999</td>
-      <td>24.629999</td>
-      <td>25.240000</td>
-      <td>17.636143</td>
-      <td>3451800</td>
+      <th>2013-04-03</th>
+      <td>30.270000</td>
+      <td>30.610001</td>
+      <td>30.000000</td>
+      <td>30.250000</td>
+      <td>21.371344</td>
+      <td>4505100</td>
     </tr>
     <tr>
-      <th>2013-02-28</th>
-      <td>25.320000</td>
-      <td>25.660000</td>
-      <td>25.049999</td>
-      <td>25.059999</td>
-      <td>17.510372</td>
-      <td>2698600</td>
+      <th>2013-04-04</th>
+      <td>30.209999</td>
+      <td>31.100000</td>
+      <td>29.490000</td>
+      <td>29.889999</td>
+      <td>21.117004</td>
+      <td>4498800</td>
     </tr>
     <tr>
-      <th>2013-03-01</th>
-      <td>24.639999</td>
-      <td>24.850000</td>
-      <td>23.950001</td>
-      <td>24.049999</td>
-      <td>16.991102</td>
-      <td>3525900</td>
+      <th>2013-04-05</th>
+      <td>29.639999</td>
+      <td>30.070000</td>
+      <td>29.309999</td>
+      <td>29.959999</td>
+      <td>21.166460</td>
+      <td>2804300</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>Here, we have the Bitcoin (BTC) to US dollar (USD) exchange rate from
-March 2014 until today.</p>
+<p>Here, we have the Game Stop  from 2013 until today.</p>
 <p>Notice that the type of index is <code class="docutils literal notranslate"><span class="pre">DateTimeIndex</span></code>.</p>
 <p>This is the key that enables things like…</p>
 <p>Extracting all data for the year 2015 by passing <code class="docutils literal notranslate"><span class="pre">&quot;2015&quot;</span></code> to <code class="docutils literal notranslate"><span class="pre">.loc</span></code>.</p>
@@ -2113,10 +2093,6 @@ date for selection.</p>
 </table>
 </div></div></div>
 </div>
-<p><a id='exercise-2'></a></p>
-<blockquote>
-<div><p>See exercise 3 in the <a class="reference external" href="#exerciselist-0"><em>exercise list</em></a></p>
-</div></blockquote>
 </div>
 <div class="section" id="accessing-date-properties">
 <h2><span class="section-number">6.8.6. </span>Accessing Date Properties<a class="headerlink" href="#accessing-date-properties" title="Permalink to this headline">¶</a></h2>
@@ -2134,7 +2110,7 @@ like to access.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64Index([2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013,
             ...
             2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021],
-           dtype=&#39;int64&#39;, name=&#39;Date&#39;, length=2071)
+           dtype=&#39;int64&#39;, name=&#39;Date&#39;, length=2067)
 </pre></div>
 </div>
 </div>
@@ -2146,10 +2122,10 @@ like to access.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64Index([25, 26, 27, 28,  1,  4,  5,  6,  7,  8,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64Index([ 1,  2,  3,  4,  5,  8,  9, 10, 11, 12,
             ...
-             3,  4,  5,  6,  7, 10, 11, 12, 13, 14],
-           dtype=&#39;int64&#39;, name=&#39;Date&#39;, length=2071)
+             1,  2,  3,  4,  7,  8,  9, 10, 11, 14],
+           dtype=&#39;int64&#39;, name=&#39;Date&#39;, length=2067)
 </pre></div>
 </div>
 </div>
@@ -2197,53 +2173,53 @@ column, but we have to use a slightly different syntax.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>2013-02-25</td>
-      <td>25.090000</td>
-      <td>25.200001</td>
-      <td>24.610001</td>
-      <td>24.610001</td>
-      <td>17.195938</td>
-      <td>1538700</td>
+      <td>2013-04-01</td>
+      <td>28.000000</td>
+      <td>30.070000</td>
+      <td>27.930000</td>
+      <td>29.760000</td>
+      <td>21.025162</td>
+      <td>7021500</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2013-02-26</td>
-      <td>24.770000</td>
-      <td>25.219999</td>
-      <td>23.780001</td>
-      <td>24.790001</td>
-      <td>17.321712</td>
-      <td>2680500</td>
+      <td>2013-04-02</td>
+      <td>29.740000</td>
+      <td>30.340000</td>
+      <td>29.059999</td>
+      <td>30.240000</td>
+      <td>21.364277</td>
+      <td>4087300</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2013-02-27</td>
-      <td>24.709999</td>
-      <td>25.389999</td>
-      <td>24.629999</td>
-      <td>25.240000</td>
-      <td>17.636143</td>
-      <td>3451800</td>
+      <td>2013-04-03</td>
+      <td>30.270000</td>
+      <td>30.610001</td>
+      <td>30.000000</td>
+      <td>30.250000</td>
+      <td>21.371344</td>
+      <td>4505100</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>2013-02-28</td>
-      <td>25.320000</td>
-      <td>25.660000</td>
-      <td>25.049999</td>
-      <td>25.059999</td>
-      <td>17.510372</td>
-      <td>2698600</td>
+      <td>2013-04-04</td>
+      <td>30.209999</td>
+      <td>31.100000</td>
+      <td>29.490000</td>
+      <td>29.889999</td>
+      <td>21.117004</td>
+      <td>4498800</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>2013-03-01</td>
-      <td>24.639999</td>
-      <td>24.850000</td>
-      <td>23.950001</td>
-      <td>24.049999</td>
-      <td>16.991102</td>
-      <td>3525900</td>
+      <td>2013-04-05</td>
+      <td>29.639999</td>
+      <td>30.070000</td>
+      <td>29.309999</td>
+      <td>29.959999</td>
+      <td>21.166460</td>
+      <td>2804300</td>
     </tr>
   </tbody>
 </table>
@@ -2336,49 +2312,49 @@ date against data at another date.</p>
   </thead>
   <tbody>
     <tr>
-      <th>2013-02-25</th>
-      <td>25.090000</td>
-      <td>25.200001</td>
-      <td>24.610001</td>
-      <td>24.610001</td>
-      <td>17.195938</td>
-      <td>1538700</td>
+      <th>2013-04-01</th>
+      <td>28.000000</td>
+      <td>30.070000</td>
+      <td>27.930000</td>
+      <td>29.760000</td>
+      <td>21.025162</td>
+      <td>7021500</td>
     </tr>
     <tr>
-      <th>2013-02-26</th>
-      <td>24.770000</td>
-      <td>25.219999</td>
-      <td>23.780001</td>
-      <td>24.790001</td>
-      <td>17.321712</td>
-      <td>2680500</td>
+      <th>2013-04-02</th>
+      <td>29.740000</td>
+      <td>30.340000</td>
+      <td>29.059999</td>
+      <td>30.240000</td>
+      <td>21.364277</td>
+      <td>4087300</td>
     </tr>
     <tr>
-      <th>2013-02-27</th>
-      <td>24.709999</td>
-      <td>25.389999</td>
-      <td>24.629999</td>
-      <td>25.240000</td>
-      <td>17.636143</td>
-      <td>3451800</td>
+      <th>2013-04-03</th>
+      <td>30.270000</td>
+      <td>30.610001</td>
+      <td>30.000000</td>
+      <td>30.250000</td>
+      <td>21.371344</td>
+      <td>4505100</td>
     </tr>
     <tr>
-      <th>2013-02-28</th>
-      <td>25.320000</td>
-      <td>25.660000</td>
-      <td>25.049999</td>
-      <td>25.059999</td>
-      <td>17.510372</td>
-      <td>2698600</td>
+      <th>2013-04-04</th>
+      <td>30.209999</td>
+      <td>31.100000</td>
+      <td>29.490000</td>
+      <td>29.889999</td>
+      <td>21.117004</td>
+      <td>4498800</td>
     </tr>
     <tr>
-      <th>2013-03-01</th>
-      <td>24.639999</td>
-      <td>24.850000</td>
-      <td>23.950001</td>
-      <td>24.049999</td>
-      <td>16.991102</td>
-      <td>3525900</td>
+      <th>2013-04-05</th>
+      <td>29.639999</td>
+      <td>30.070000</td>
+      <td>29.309999</td>
+      <td>29.959999</td>
+      <td>21.166460</td>
+      <td>2804300</td>
     </tr>
   </tbody>
 </table>
@@ -2428,7 +2404,7 @@ date against data at another date.</p>
   </thead>
   <tbody>
     <tr>
-      <th>2013-02-25</th>
+      <th>2013-04-01</th>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2437,40 +2413,40 @@ date against data at another date.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>2013-02-26</th>
-      <td>25.090000</td>
-      <td>25.200001</td>
-      <td>24.610001</td>
-      <td>24.610001</td>
-      <td>17.195938</td>
-      <td>1538700.0</td>
+      <th>2013-04-02</th>
+      <td>28.000000</td>
+      <td>30.070000</td>
+      <td>27.930000</td>
+      <td>29.760000</td>
+      <td>21.025162</td>
+      <td>7021500.0</td>
     </tr>
     <tr>
-      <th>2013-02-27</th>
-      <td>24.770000</td>
-      <td>25.219999</td>
-      <td>23.780001</td>
-      <td>24.790001</td>
-      <td>17.321712</td>
-      <td>2680500.0</td>
+      <th>2013-04-03</th>
+      <td>29.740000</td>
+      <td>30.340000</td>
+      <td>29.059999</td>
+      <td>30.240000</td>
+      <td>21.364277</td>
+      <td>4087300.0</td>
     </tr>
     <tr>
-      <th>2013-02-28</th>
-      <td>24.709999</td>
-      <td>25.389999</td>
-      <td>24.629999</td>
-      <td>25.240000</td>
-      <td>17.636143</td>
-      <td>3451800.0</td>
+      <th>2013-04-04</th>
+      <td>30.270000</td>
+      <td>30.610001</td>
+      <td>30.000000</td>
+      <td>30.250000</td>
+      <td>21.371344</td>
+      <td>4505100.0</td>
     </tr>
     <tr>
-      <th>2013-03-01</th>
-      <td>25.320000</td>
-      <td>25.660000</td>
-      <td>25.049999</td>
-      <td>25.059999</td>
-      <td>17.510372</td>
-      <td>2698600.0</td>
+      <th>2013-04-05</th>
+      <td>30.209999</td>
+      <td>31.100000</td>
+      <td>29.490000</td>
+      <td>29.889999</td>
+      <td>21.117004</td>
+      <td>4498800.0</td>
     </tr>
   </tbody>
 </table>
@@ -2487,11 +2463,11 @@ data.)</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Date
-2013-02-25         NaN
-2013-02-26    0.007314
-2013-02-27    0.018152
-2013-02-28   -0.007132
-2013-03-01   -0.040303
+2013-04-01         NaN
+2013-04-02    0.016129
+2013-04-03    0.000331
+2013-04-04   -0.011901
+2013-04-05    0.002342
 Name: Close, dtype: float64
 </pre></div>
 </div>
@@ -2543,7 +2519,7 @@ Name: Close, dtype: float64
   </thead>
   <tbody>
     <tr>
-      <th>2013-02-25</th>
+      <th>2013-04-01</th>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2552,7 +2528,7 @@ Name: Close, dtype: float64
       <td>NaN</td>
     </tr>
     <tr>
-      <th>2013-02-26</th>
+      <th>2013-04-02</th>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2561,7 +2537,7 @@ Name: Close, dtype: float64
       <td>NaN</td>
     </tr>
     <tr>
-      <th>2013-02-27</th>
+      <th>2013-04-03</th>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2570,22 +2546,22 @@ Name: Close, dtype: float64
       <td>NaN</td>
     </tr>
     <tr>
-      <th>2013-02-28</th>
-      <td>25.09</td>
-      <td>25.200001</td>
-      <td>24.610001</td>
-      <td>24.610001</td>
-      <td>17.195938</td>
-      <td>1538700.0</td>
+      <th>2013-04-04</th>
+      <td>28.00</td>
+      <td>30.07</td>
+      <td>27.930000</td>
+      <td>29.76</td>
+      <td>21.025162</td>
+      <td>7021500.0</td>
     </tr>
     <tr>
-      <th>2013-03-01</th>
-      <td>24.77</td>
-      <td>25.219999</td>
-      <td>23.780001</td>
-      <td>24.790001</td>
-      <td>17.321712</td>
-      <td>2680500.0</td>
+      <th>2013-04-05</th>
+      <td>29.74</td>
+      <td>30.34</td>
+      <td>29.059999</td>
+      <td>30.24</td>
+      <td>21.364277</td>
+      <td>4087300.0</td>
     </tr>
   </tbody>
 </table>
@@ -2594,7 +2570,7 @@ Name: Close, dtype: float64
 <p>A negative value will shift the data <em>up</em> or apply a lead.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gme</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gme</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2686,7 +2662,7 @@ Name: Close, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gme</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gme</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2728,34 +2704,34 @@ Name: Close, dtype: float64
   </thead>
   <tbody>
     <tr>
-      <th>2021-05-10</th>
-      <td>145.699997</td>
-      <td>150.500000</td>
-      <td>142.229996</td>
-      <td>144.789993</td>
-      <td>144.789993</td>
-      <td>2731500.0</td>
+      <th>2021-06-08</th>
+      <td>282.000000</td>
+      <td>288.000000</td>
+      <td>211.000000</td>
+      <td>220.389999</td>
+      <td>220.389999</td>
+      <td>22980200.0</td>
     </tr>
     <tr>
-      <th>2021-05-11</th>
-      <td>147.440002</td>
-      <td>169.949997</td>
-      <td>146.429993</td>
-      <td>164.500000</td>
-      <td>164.500000</td>
-      <td>8860800.0</td>
+      <th>2021-06-09</th>
+      <td>222.350006</td>
+      <td>241.130005</td>
+      <td>206.130005</td>
+      <td>233.339996</td>
+      <td>233.339996</td>
+      <td>15549500.0</td>
     </tr>
     <tr>
-      <th>2021-05-12</th>
-      <td>147.440002</td>
-      <td>166.429993</td>
-      <td>156.229996</td>
-      <td>163.884995</td>
-      <td>163.884995</td>
-      <td>2270087.0</td>
+      <th>2021-06-10</th>
+      <td>236.500000</td>
+      <td>237.999893</td>
+      <td>219.199997</td>
+      <td>229.190094</td>
+      <td>229.190094</td>
+      <td>6992517.0</td>
     </tr>
     <tr>
-      <th>2021-05-13</th>
+      <th>2021-06-11</th>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2764,7 +2740,7 @@ Name: Close, dtype: float64
       <td>NaN</td>
     </tr>
     <tr>
-      <th>2021-05-14</th>
+      <th>2021-06-14</th>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2776,10 +2752,6 @@ Name: Close, dtype: float64
 </table>
 </div></div></div>
 </div>
-<p><a id='exercise-3'></a></p>
-<blockquote>
-<div><p>See exercise 4 in the <a class="reference external" href="#exerciselist-0"><em>exercise list</em></a></p>
-</div></blockquote>
 </div>
 <div class="section" id="rolling-computations-rolling">
 <h2><span class="section-number">6.8.8. </span>Rolling Computations: <code class="docutils literal notranslate"><span class="pre">.rolling</span></code><a class="headerlink" href="#rolling-computations-rolling" title="Permalink to this headline">¶</a></h2>
@@ -2832,58 +2804,58 @@ statistics</em>.</p>
   </thead>
   <tbody>
     <tr>
-      <th>2013-02-25</th>
-      <td>25.090000</td>
-      <td>25.200001</td>
-      <td>24.610001</td>
-      <td>24.610001</td>
-      <td>17.195938</td>
-      <td>1538700</td>
+      <th>2013-04-01</th>
+      <td>28.000000</td>
+      <td>30.070000</td>
+      <td>27.930000</td>
+      <td>29.760000</td>
+      <td>21.025162</td>
+      <td>7021500</td>
     </tr>
     <tr>
-      <th>2013-02-26</th>
-      <td>24.770000</td>
-      <td>25.219999</td>
-      <td>23.780001</td>
-      <td>24.790001</td>
-      <td>17.321712</td>
-      <td>2680500</td>
+      <th>2013-04-02</th>
+      <td>29.740000</td>
+      <td>30.340000</td>
+      <td>29.059999</td>
+      <td>30.240000</td>
+      <td>21.364277</td>
+      <td>4087300</td>
     </tr>
     <tr>
-      <th>2013-02-27</th>
-      <td>24.709999</td>
-      <td>25.389999</td>
-      <td>24.629999</td>
-      <td>25.240000</td>
-      <td>17.636143</td>
-      <td>3451800</td>
+      <th>2013-04-03</th>
+      <td>30.270000</td>
+      <td>30.610001</td>
+      <td>30.000000</td>
+      <td>30.250000</td>
+      <td>21.371344</td>
+      <td>4505100</td>
     </tr>
     <tr>
-      <th>2013-02-28</th>
-      <td>25.320000</td>
-      <td>25.660000</td>
-      <td>25.049999</td>
-      <td>25.059999</td>
-      <td>17.510372</td>
-      <td>2698600</td>
+      <th>2013-04-04</th>
+      <td>30.209999</td>
+      <td>31.100000</td>
+      <td>29.490000</td>
+      <td>29.889999</td>
+      <td>21.117004</td>
+      <td>4498800</td>
     </tr>
     <tr>
-      <th>2013-03-01</th>
-      <td>24.639999</td>
-      <td>24.850000</td>
-      <td>23.950001</td>
-      <td>24.049999</td>
-      <td>16.991102</td>
-      <td>3525900</td>
+      <th>2013-04-05</th>
+      <td>29.639999</td>
+      <td>30.070000</td>
+      <td>29.309999</td>
+      <td>29.959999</td>
+      <td>21.166460</td>
+      <td>2804300</td>
     </tr>
     <tr>
-      <th>2013-03-04</th>
-      <td>23.959999</td>
-      <td>24.070000</td>
-      <td>23.360001</td>
-      <td>23.540001</td>
-      <td>16.630795</td>
-      <td>3299800</td>
+      <th>2013-04-08</th>
+      <td>30.040001</td>
+      <td>30.540001</td>
+      <td>29.830000</td>
+      <td>30.260000</td>
+      <td>21.378408</td>
+      <td>2898500</td>
     </tr>
   </tbody>
 </table>
@@ -2934,58 +2906,58 @@ statistics</em>.</p>
   </thead>
   <tbody>
     <tr>
-      <th>2013-02-25</th>
-      <td>25.090000</td>
-      <td>25.200001</td>
-      <td>24.610001</td>
-      <td>24.610001</td>
-      <td>17.195938</td>
-      <td>1538700.0</td>
+      <th>2013-04-01</th>
+      <td>28.000000</td>
+      <td>30.070000</td>
+      <td>27.930000</td>
+      <td>29.760000</td>
+      <td>21.025162</td>
+      <td>7021500.0</td>
     </tr>
     <tr>
-      <th>2013-02-26</th>
-      <td>24.930000</td>
-      <td>25.210000</td>
-      <td>24.195001</td>
-      <td>24.700001</td>
-      <td>17.258825</td>
-      <td>2109600.0</td>
+      <th>2013-04-02</th>
+      <td>28.870000</td>
+      <td>30.205000</td>
+      <td>28.494999</td>
+      <td>30.000000</td>
+      <td>21.194720</td>
+      <td>5554400.0</td>
     </tr>
     <tr>
-      <th>2013-02-27</th>
-      <td>24.739999</td>
-      <td>25.304999</td>
-      <td>24.205000</td>
-      <td>25.015000</td>
-      <td>17.478928</td>
-      <td>3066150.0</td>
+      <th>2013-04-03</th>
+      <td>30.005000</td>
+      <td>30.475001</td>
+      <td>29.530000</td>
+      <td>30.245000</td>
+      <td>21.367811</td>
+      <td>4296200.0</td>
     </tr>
     <tr>
-      <th>2013-02-28</th>
-      <td>25.015000</td>
-      <td>25.524999</td>
-      <td>24.839999</td>
-      <td>25.149999</td>
-      <td>17.573258</td>
-      <td>3075200.0</td>
+      <th>2013-04-04</th>
+      <td>30.239999</td>
+      <td>30.855001</td>
+      <td>29.745000</td>
+      <td>30.070000</td>
+      <td>21.244174</td>
+      <td>4501950.0</td>
     </tr>
     <tr>
-      <th>2013-03-01</th>
-      <td>24.979999</td>
-      <td>25.255000</td>
-      <td>24.500000</td>
-      <td>24.554999</td>
-      <td>17.250737</td>
-      <td>3112250.0</td>
+      <th>2013-04-05</th>
+      <td>29.924999</td>
+      <td>30.585000</td>
+      <td>29.399999</td>
+      <td>29.924999</td>
+      <td>21.141732</td>
+      <td>3651550.0</td>
     </tr>
     <tr>
-      <th>2013-03-04</th>
-      <td>23.959999</td>
-      <td>24.070000</td>
-      <td>23.360001</td>
-      <td>23.540001</td>
-      <td>16.630795</td>
-      <td>3299800.0</td>
+      <th>2013-04-08</th>
+      <td>30.040001</td>
+      <td>30.540001</td>
+      <td>29.830000</td>
+      <td>30.260000</td>
+      <td>21.378408</td>
+      <td>2898500.0</td>
     </tr>
   </tbody>
 </table>
@@ -3011,10 +2983,10 @@ window for the whole dataset.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x29728d123a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x214fb7de7c0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/timeseries_61_1.png" src="../../_images/timeseries_61_1.png" />
+<img alt="../../_images/timeseries_58_1.png" src="../../_images/timeseries_58_1.png" />
 </div>
 </div>
 <p>We can also ask pandas to <code class="docutils literal notranslate"><span class="pre">apply</span></code> custom functions, similar to what we
@@ -3075,7 +3047,7 @@ saw when studying GroupBy.</p>
   </thead>
   <tbody>
     <tr>
-      <th>2013-02-25</th>
+      <th>2013-04-01</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -3084,7 +3056,16 @@ saw when studying GroupBy.</p>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>2013-02-26</th>
+      <th>2013-04-02</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2013-04-03</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -3093,7 +3074,7 @@ saw when studying GroupBy.</p>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>2013-02-27</th>
+      <th>2013-04-04</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -3102,7 +3083,7 @@ saw when studying GroupBy.</p>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>2013-02-28</th>
+      <th>2013-04-05</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -3111,16 +3092,7 @@ saw when studying GroupBy.</p>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>2013-03-01</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>2013-03-04</th>
+      <th>2013-04-08</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -3132,17 +3104,6 @@ saw when studying GroupBy.</p>
 </table>
 </div></div></div>
 </div>
-<p><a id='exercise-4'></a></p>
-<blockquote>
-<div><p>See exercise 5 in the <a class="reference external" href="#exerciselist-0"><em>exercise list</em></a></p>
-</div></blockquote>
-<p>To make the optimal decision, we need to know the maximum
-difference between the close price at the end of the window and the open
-price at the start of the window.</p>
-<p><a id='exercise-5'></a></p>
-<blockquote>
-<div><p>See exercise 6 in the <a class="reference external" href="#exerciselist-0"><em>exercise list</em></a></p>
-</div></blockquote>
 </div>
 <div class="section" id="changing-frequencies-resample-opt">
 <h2><span class="section-number">6.8.9. </span>Changing Frequencies: <code class="docutils literal notranslate"><span class="pre">.resample</span></code> (Opt)<a class="headerlink" href="#changing-frequencies-resample-opt" title="Permalink to this headline">¶</a></h2>
@@ -3845,18 +3806,9 @@ function at once.</p>
 </div>
 <p>As with <code class="docutils literal notranslate"><span class="pre">groupby</span></code> and <code class="docutils literal notranslate"><span class="pre">rolling</span></code>, you can also provide custom
 functions to <code class="docutils literal notranslate"><span class="pre">.resample(...).agg</span></code> and <code class="docutils literal notranslate"><span class="pre">.resample(...).apply</span></code></p>
-<p><a id='exercise-6'></a></p>
-<blockquote>
-<div><p>See exercise 7 in the <a class="reference external" href="#exerciselist-0"><em>exercise list</em></a></p>
-</div></blockquote>
 <p>To make the optimal decision we need to, for each month,
 compute the maximum value of the close price on any day minus the open
 price on the first day of the month.</p>
-<p><a id='exercise-7'></a></p>
-<blockquote>
-<div><p>See exercise 8 in the <a class="reference external" href="#exerciselist-0"><em>exercise list</em></a></p>
-</div></blockquote>
-<p>(<a class="reference external" href="#exercise-7"><em>back to text</em></a>)</p>
 </div>
 </div>
 
