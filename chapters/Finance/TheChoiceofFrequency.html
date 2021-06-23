@@ -849,6 +849,19 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changing-dataset-frequency">
+   7.1.1. changing dataset frequency
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -899,7 +912,6 @@
 <li><p><span class="math notranslate nohighlight">\(\hat{\mu}_A=12\times\hat{\mu}_M\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\hat{\sigma}^2_A=12\times\hat{\sigma}^2_M\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\hat{\sigma}_A=\sqrt{12}\times\hat{\sigma}_M\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(SR_A=\frac{\hat{\mu}_A}{\hat{\sigma}_A}=\sqrt{12}SR_M\)</span></p></li>
 </ul>
 <blockquote>
 <div><p>This last one is what we call the Sharpe ratio (for William Sharpe). It is a key moment that we will be looking at and the entire financial industry is organized around this moment.<br> It measures how much return you get per unit of volatility</p>
@@ -928,7 +940,6 @@
 <li><p><span class="math notranslate nohighlight">\(\hat{\mu}_A=12\times\hat{\mu}_M\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\hat{\sigma}^2_A=12\times\hat{\sigma}^2_M\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\hat{\sigma}_A=\sqrt{12}\times\hat{\sigma}_M\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(SR_A=\frac{\hat{\mu}_A}{\hat{\sigma}_A}=\sqrt{12}SR_M\)</span></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -976,6 +987,10 @@
 <li><p>allows you to compare across assets pretty well</p></li>
 <li><p>easy to get t-stats from monthly data</p></li>
 <li><p>ok if you don’t compare returns across frequencies, i.e., use annual data for real estate, and monthly for stocks</p></li>
+</ul>
+<div class="section" id="changing-dataset-frequency">
+<h2><span class="section-number">7.1.1. </span>changing dataset frequency<a class="headerlink" href="#changing-dataset-frequency" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
 <li><p>lets say that you only have one asset at the yearly frequency,</p></li>
 <li><p>then you have to aggregate the monthly data set to yearly and the compute the moments</p></li>
 <li><p>This makes no assumption and it is always right</p></li>
@@ -1156,6 +1171,7 @@
 <li><p>In problem set I will always ask you about annual numbers</p></li>
 <li><p>You should always go for the quick and dirty annualization unless told otherwise</p></li>
 </ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
