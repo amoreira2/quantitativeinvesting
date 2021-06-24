@@ -56,7 +56,7 @@
     <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="10.2. Case study on international portfolio diversification" href="CaseStudy.html" />
+    <link rel="next" title="10.1. Case study on international portfolio diversification" href="CaseStudy.html" />
     <link rel="prev" title="9.1. Using APIs" href="UsingAPI.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -397,17 +397,17 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="CaseStudy.html">
-     10.2. Case Study in International Diversification
+     10.1. Case Study in International Diversification
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="LeverageandShorting.html">
-     10.3. Leverage and Shorting
+     10.2. Leverage and Shorting
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Portfoliooptimizationwithconstraints.html">
-     10.4. Portfolio Optimization with constraints
+     10.3. Portfolio Optimization with constraints
     </a>
    </li>
   </ul>
@@ -849,19 +849,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mathematical-derivaiton-of-the-mean-variance-frontier">
-   10.1. Mathematical derivaiton of the Mean-variance Frontier
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -892,12 +879,12 @@
 </ul>
 <p><img alt="MVfrontier" src="../../_images/MV1.jpg" /></p>
 <ul class="simple">
-<li><p>Note the upper envelope that defines the “investment frontier”, i.e., what is achiavable in terms of risk and returns</p></li>
+<li><p>Note the upper envelope that defines the “investment frontier”, i.e., what is achievable in terms of risk and returns</p></li>
 <li><p>If you are in this envelope, you know that in order to get less risk you will have to get less return</p></li>
 <li><p>There is no portfolio with a higher average return and the same volatility</p></li>
 <li><p>And no portfolio with the same expected return and lower volatility</p></li>
 <li><p>In volatility-expected return space all these “investment frontier” portfolio are in a straight line</p></li>
-<li><p>Meaning that they achieve exactly the same ratio or expected excess return per unit of volatility since a stragith line has constant slope</p></li>
+<li><p>Meaning that they achieve exactly the same ratio or expected excess return per unit of volatility since a straight line has constant slope</p></li>
 <li><p>So all these portfolios have exactly the same Sharpe ratio (<span class="math notranslate nohighlight">\(\frac{E[r_p-R_f]}{std(r_p-R_f)}\)</span>)</p></li>
 <li><p>This is also the maximum SR among all possible portfolios of the basis assets</p>
 <ul>
@@ -908,8 +895,7 @@
 <blockquote>
 <div><p>What do these “efficient” portfolios look like? Do they have the same weights? How do the weights in the assets vary?</p>
 </div></blockquote>
-<div class="section" id="mathematical-derivaiton-of-the-mean-variance-frontier">
-<h2><span class="section-number">10.1. </span>Mathematical derivaiton of the Mean-variance Frontier<a class="headerlink" href="#mathematical-derivaiton-of-the-mean-variance-frontier" title="Permalink to this headline">¶</a></h2>
+<p><strong>Mathematical derivation of the Mean-variance Frontier</strong></p>
 <ul class="simple">
 <li><p>These portfolios all can be thought as minimizing variance/volatility for a given desired expected return</p></li>
 <li><p>or maximizing expected returns for a given dislike of variance</p></li>
@@ -920,7 +906,7 @@
 <ul class="simple">
 <li><p>Which is a portfolio that invests in risky assets (vector of returns R) and the rest <span class="math notranslate nohighlight">\((1-\sum_i^I W_i)\)</span> at the risk-free rate.</p></li>
 <li><p>note that I use big R here to emphasize that this is a vector of asset returns, like (<span class="math notranslate nohighlight">\([r^{AAPL},r^{TSLA},..]\)</span>), and little <span class="math notranslate nohighlight">\(r_f\)</span> to emphasize this is just a scalar (like 1%)</p></li>
-<li><p>Note that <span class="math notranslate nohighlight">\((1-\sum_i^I W_i)&lt;0\)</span>. what is the interpretation of this number being negative? What is the interpreation of being positive?</p></li>
+<li><p>Note that <span class="math notranslate nohighlight">\((1-\sum_i^I W_i)&lt;0\)</span>. what is the interpretation of this number being negative? What is the interpretation of being positive?</p></li>
 <li><p>So given weights W, asset returns R and rf, the portfolio returns <span class="math notranslate nohighlight">\(r_p(W)\)</span></p></li>
 </ul>
 <div class="math notranslate nohighlight">
@@ -930,7 +916,7 @@ maximize_{W} E[r_p(W)]- \frac{\gamma}{2} Var(r_p(W))\\
 \end{aligned}
 \end{split}\]</div>
 <p><strong>Excess return representation</strong></p>
-<p>It is much easier to do the math and see what is going on if we separate the excess returns and the return piece so we represent our portolio as</p>
+<p>It is much easier to do the math and see what is going on if we separate the excess returns and the return piece so we represent our portfolio as</p>
 <div class="math notranslate nohighlight">
 \[r_p(W)=W'R+(1-\sum_i^I W_i)r_f=W'R+r_f-(\sum_i^I W_i)r_f=W'(R-r_f)+r_f\]</div>
 <div class="math notranslate nohighlight">
@@ -942,7 +928,7 @@ maximize_{W} E[r_p(W)]- \frac{\gamma}{2} Var(r_p(W))\\
 <li><p>this means that no matter the sum of the weights in W, the cost of this risky portfolio is zero</p></li>
 <li><p>so the way this works is that you get your dollar and invest in the risk-free rate and now decide “two things”</p>
 <ul>
-<li><p>What your risky portfolio shoudl look like by choosing <span class="math notranslate nohighlight">\(W/\sum w_i\)</span></p></li>
+<li><p>What your risky portfolio should look like by choosing <span class="math notranslate nohighlight">\(W/\sum w_i\)</span></p></li>
 <li><p>How much of this dollar to allocate to the risk asset , by choosing <span class="math notranslate nohighlight">\(\sum w_i\)</span> the total fraction invested in the risky assets</p></li>
 <li><p>If  <span class="math notranslate nohighlight">\(\sum w_i&gt;1\)</span> then you are leveraging, i.e. borrowing money to invest more than you have in the risky assets, so you are shorting the risk-free asset</p></li>
 <li><p>It <span class="math notranslate nohighlight">\(\sum w_i&lt;1\)</span> then you are leaving some money invested in the risk-free rate, so you are buying the risk free asset</p></li>
@@ -1041,14 +1027,14 @@ maximize_{(X)} E[X'R^e]- \gamma/2 Var(X'R^e)\\
 minimize_{(X)} Var(X'R^e) \text{    subject to } E[X'R^e]\geq\mu^{Desired}\\
 \end{aligned}
 \end{split}\]</div>
-<p>or maximising the expected  return subject to hitting a desired volatility  target</p>
+<p>or maximizing the expected  return subject to hitting a desired volatility  target</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
 maximize_{(X)} E(X'R^e) \text{   subject to } Var(X'R^e)\leq Var^{Desired}\\
 \end{aligned}
 \end{split}\]</div>
-<p>This means that pmce we have the tangency portfolio solution we can simply scale up and down the portfolio weights to achieve the desired volatility or expected return</p>
+<p>This means that once we have the tangency portfolio solution we can simply scale up and down the portfolio weights to achieve the desired volatility or expected return</p>
 <hr class="docutils" />
 <p><em>Aside: Matrix inversion</em></p>
 <ul class="simple">
@@ -1059,7 +1045,7 @@ maximize_{(X)} E(X'R^e) \text{   subject to } Var(X'R^e)\leq Var^{Desired}\\
 <li><p>Note that <span class="math notranslate nohighlight">\((2)^{-1}=1/2=0.5\)</span> (naturally!), <span class="math notranslate nohighlight">\((Var(R^e))^{-1}\)</span> is kind of like this,</p></li>
 <li><p>but more complicated because <span class="math notranslate nohighlight">\(Var(R^e)\)</span> is a N by N matrix and we can’t simply divide over</p></li>
 <li><p>The definition of the inverse function is <span class="math notranslate nohighlight">\(f(x)=x^{-1}=y\)</span> where <span class="math notranslate nohighlight">\(y*x=1\)</span></p></li>
-<li><p>for matrixis it is the same: <span class="math notranslate nohighlight">\((Var(R^e))^{-1}Var(R^e)=I\)</span>, but now instead of 1, we have an indentity matrix, which is a matrix with 1’s in the diagonal and zero everywhere else</p></li>
+<li><p>for matrices it is the same: <span class="math notranslate nohighlight">\((Var(R^e))^{-1}Var(R^e)=I\)</span>, but now instead of 1, we have an identity matrix, which is a matrix with 1’s in the diagonal and zero everywhere else</p></li>
 <li><p>For example, lets say we want to inverse a 2 by 2 matrix:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
@@ -1079,7 +1065,7 @@ $<span class="math notranslate nohighlight">\(
 0*b+9*d=1\\
 \end{aligned}\)</span>$</p></li>
 <li><p>which in this case has an easy solution [a,b,c,d]=[1/3,-7/27,0,1/9]</p></li>
-<li><p>But we should be thankful for being born after the 70’s, when people had to do these inversions by hand–for very large matrixes</p></li>
+<li><p>But we should be thankful for being born after the 70’s, when people had to do these inversions by hand–for very large matrices</p></li>
 <li><p>Now we can simply us the linear algebra library build in numpy  we discussed in Notebook 1 and invert the matrix</p></li>
 </ul>
 <div class="cell docutils container">
@@ -1348,7 +1334,7 @@ dtype: float64
 <li><p>This above is a classic result in finance.</p></li>
 <li><p>It tells us that the decision of which assets to invest is completely independent of your risk-aversion</p></li>
 <li><p>Your risky portfolio is always the same, and you risk-aversion simply determines how much of it you will have, versus the risk-free rate</p></li>
-<li><p>Please take a moment to appreciate this because understading this result</p></li>
+<li><p>Please take a moment to appreciate this because understanding this result</p></li>
 <li><p>Why that happens?</p></li>
 </ul>
 <p>Because any portfolio that is proportional to <span class="math notranslate nohighlight">\(Var(R^e)^{-1}E[R^e]\)</span> achieve the highest feasible Sharpe Ratio</p>
@@ -1356,9 +1342,9 @@ dtype: float64
 <li><p>Why is that?</p></li>
 </ul>
 <p>Recall what a SR is : <span class="math notranslate nohighlight">\(E[r-r_f]/\sigma(r-r_f)\)</span>. Since this portfolio solves the problem of maximizing expected return for a given level of volatility, it also is the portfolio with maximum Sharpe Ratio</p>
-<p>Note further that any linear compibration fo this portfolio with the risk-free rate will achieve exactly the same sharpe ratio.</p>
+<p>Note further that any linear combination of this portfolio with the risk-free rate will achieve exactly the same sharpe ratio.</p>
 <p>Let <span class="math notranslate nohighlight">\(r_p=r_f+wr^*\)</span> then <span class="math notranslate nohighlight">\(E[r_p-r_f]/\sigma(r_p-r_f)=E[wr^*]/\sigma(wr^*)=E[r^*]/\sigma(r^*)\)</span></p>
-<p>Which happens becasue the risk-free rate has zero volatiltiy.</p>
+<p>Which happens because the risk-free rate has zero volatility.</p>
 <p><strong>Properties of the Tangency Portfolio</strong></p>
 <p>Any portfolio that is proportional to  <span class="math notranslate nohighlight">\(Var(R^e)^{-1}E[R^e]\)</span> is in the <strong>Tangency</strong> of the mean-variance frontier</p>
 <p>I will refer to <span class="math notranslate nohighlight">\(W_T=Var(R^e)^{-1}E[R^e]\)</span> as the tangency portfolio, but formally any other portfolio that is of the form <span class="math notranslate nohighlight">\(x W_T\)</span> where x is a scalar is also tangency.</p>
@@ -1396,7 +1382,6 @@ dtype: float64
 <li><p>We will discuss later how to incorporate other risk dimensions (tail risks, background risks, etc)</p></li>
 <li><p>We also ignore investment horizon effects which we will discuss later in the course</p></li>
 </ul>
-</div>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -1427,7 +1412,7 @@ dtype: float64
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="UsingAPI.html" title="previous page"><span class="section-number">9.1. </span>Using APIs</a>
-    <a class='right-next' id="next-link" href="CaseStudy.html" title="next page"><span class="section-number">10.2. </span>Case study on international portfolio diversification</a>
+    <a class='right-next' id="next-link" href="CaseStudy.html" title="next page"><span class="section-number">10.1. </span>Case study on international portfolio diversification</a>
 
         </div>
         
