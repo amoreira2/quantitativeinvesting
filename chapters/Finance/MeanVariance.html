@@ -56,7 +56,7 @@
     <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="10.1. Case study on international portfolio diversification" href="CaseStudy.html" />
+    <link rel="next" title="10.2. Case study on international portfolio diversification" href="CaseStudy.html" />
     <link rel="prev" title="9.1. Using APIs" href="UsingAPI.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -397,17 +397,17 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="CaseStudy.html">
-     10.1. Case Study in International Diversification
+     10.2. Case Study in International Diversification
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="LeverageandShorting.html">
-     10.2. Leverage and Shorting
+     10.3. Leverage and Shorting
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Portfoliooptimizationwithconstraints.html">
-     10.3. Portfolio Optimization with constraints
+     10.4. Portfolio Optimization with constraints
     </a>
    </li>
   </ul>
@@ -849,6 +849,19 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mathematical-derivaiton-of-the-mean-variance-frontier">
+   10.1. Mathematical derivaiton of the Mean-variance Frontier
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -863,7 +876,7 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://www.dropbox.com/s/3k35mt3t57ygff2/GlobalFinMonthly.csv?dl=1&quot;</span>
+<span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://raw.githubusercontent.com/amoreira2/Lectures/main/assets/data/GlobalFinMonthly.csv&quot;</span>
 <span class="n">Data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">na_values</span><span class="o">=-</span><span class="mi">99</span><span class="p">)</span>
 <span class="n">Data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">Data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
 <span class="n">Data</span><span class="o">=</span><span class="n">Data</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
@@ -895,60 +908,68 @@
 <blockquote>
 <div><p>What do these “efficient” portfolios look like? Do they have the same weights? How do the weights in the assets vary?</p>
 </div></blockquote>
-<p><strong>Mathematical derivaiton of the Mean-variance Frontier</strong></p>
+<div class="section" id="mathematical-derivaiton-of-the-mean-variance-frontier">
+<h2><span class="section-number">10.1. </span>Mathematical derivaiton of the Mean-variance Frontier<a class="headerlink" href="#mathematical-derivaiton-of-the-mean-variance-frontier" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>These portfolios all can be thought as minimizing variance/volatility for a given desired expected return</p></li>
 <li><p>or maximizing expected returns for a given dislike of variance</p></li>
 <li><p>Formally they are choosing their composition of their portfolio</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[r_p(X)=X'R+(1-\sum_i^I X_i)r_f\]</div>
+\[r_p(W)=X'R+(1-\sum_i^I W_i)r_f\]</div>
 <ul class="simple">
-<li><p>Which is a portfolio that invests in risky assets (vector of returns R) and the rest <span class="math notranslate nohighlight">\((1-\sum_i^I X_i)\)</span> at the risk-free rate.</p></li>
-<li><p>note that I use big R here to emphasize that this is a vector of asset returns, like (<span class="math notranslate nohighlight">\([R^{AAPL},R^{TSLA},..]\)</span>), and little <span class="math notranslate nohighlight">\(r_f\)</span> to emphasize this is just a scalar (like 1%)</p></li>
-<li><p>Note that <span class="math notranslate nohighlight">\((1-\sum_i^I X_i)&lt;0\)</span>. what is the interpretation of this number being negative? What is the interpreation of being positive?</p></li>
-<li><p>So given weights W, asset returns R and rf, the portfolio returns <span class="math notranslate nohighlight">\(r_p(X)\)</span></p></li>
+<li><p>Which is a portfolio that invests in risky assets (vector of returns R) and the rest <span class="math notranslate nohighlight">\((1-\sum_i^I W_i)\)</span> at the risk-free rate.</p></li>
+<li><p>note that I use big R here to emphasize that this is a vector of asset returns, like (<span class="math notranslate nohighlight">\([r^{AAPL},r^{TSLA},..]\)</span>), and little <span class="math notranslate nohighlight">\(r_f\)</span> to emphasize this is just a scalar (like 1%)</p></li>
+<li><p>Note that <span class="math notranslate nohighlight">\((1-\sum_i^I W_i)&lt;0\)</span>. what is the interpretation of this number being negative? What is the interpreation of being positive?</p></li>
+<li><p>So given weights W, asset returns R and rf, the portfolio returns <span class="math notranslate nohighlight">\(r_p(W)\)</span></p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
-maximize_{(X)} E[r_p(X)]- \frac{\gamma}{2} Var(r_p(X))\\
+maximize_{W} E[r_p(W)]- \frac{\gamma}{2} Var(r_p(W))\\
 \end{aligned}
 \end{split}\]</div>
 <p><strong>Excess return representation</strong></p>
 <p>It is much easier to do the math and see what is going on if we separate the excess returns and the return piece so we represent our portolio as</p>
 <div class="math notranslate nohighlight">
-\[r_p(X)=X'R+(1-\sum_i^I X_i)r_f=X'R+r_f-(\sum_i^I X_i)r_f=X'(R-r_f)+r_f\]</div>
+\[r_p(W)=W'R+(1-\sum_i^I W_i)r_f=W'R+r_f-(\sum_i^I W_i)r_f=W'(R-r_f)+r_f\]</div>
 <div class="math notranslate nohighlight">
-\[r_p(X)=X'R^e+r_f\]</div>
+\[r_p(W)=W'R^e+r_f\]</div>
 <ul class="simple">
 <li><p>where <span class="math notranslate nohighlight">\(R^e\)</span>  is the vector of excess returns</p></li>
 <li><p>It is KEY to note that all the risky assets are now zero cost portfolios</p></li>
 <li><p>so each risky asset is really a portfolio that is long the risky asset and short the risk-free rate</p></li>
-<li><p>this means that no matter the sum of the weights in X, the cost of this risky portfolio is zero</p></li>
+<li><p>this means that no matter the sum of the weights in W, the cost of this risky portfolio is zero</p></li>
 <li><p>so the way this works is that you get your dollar and invest in the risk-free rate and now decide “two things”</p>
 <ul>
-<li><p>What your risky portfolio shoudl look like by choosing <span class="math notranslate nohighlight">\(X/\sum X\)</span></p></li>
-<li><p>How much of this dollar to allocate to the risk asset , by choosing <span class="math notranslate nohighlight">\(\sum X\)</span> the total fraction invested in the risky assets</p></li>
-<li><p>If  <span class="math notranslate nohighlight">\(\sum X&gt;1\)</span> then you are leveraging, i.e. borrowing money to invest more than you have in the risky assets, so you are shorting the risk-free asset</p></li>
-<li><p>It <span class="math notranslate nohighlight">\(\sum X&lt;1\)</span> then you are leaving some money invested in the risk-free rate, so you are buying the risk free asset</p></li>
+<li><p>What your risky portfolio shoudl look like by choosing <span class="math notranslate nohighlight">\(W/\sum w_i\)</span></p></li>
+<li><p>How much of this dollar to allocate to the risk asset , by choosing <span class="math notranslate nohighlight">\(\sum w_i\)</span> the total fraction invested in the risky assets</p></li>
+<li><p>If  <span class="math notranslate nohighlight">\(\sum w_i&gt;1\)</span> then you are leveraging, i.e. borrowing money to invest more than you have in the risky assets, so you are shorting the risk-free asset</p></li>
+<li><p>It <span class="math notranslate nohighlight">\(\sum w_i&lt;1\)</span> then you are leaving some money invested in the risk-free rate, so you are buying the risk free asset</p></li>
 </ul>
 </li>
 </ul>
 <p><strong>Solution</strong></p>
 <ul class="simple">
-<li><p>All you need is to take the derivative of the expression with respect to the risky portfolio weights <span class="math notranslate nohighlight">\(X\)</span> :</p></li>
+<li><p>First write our objective function using the linear algebra we learned</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[E[R^e]- 2\gamma/2 Var(R^e)X\]</div>
+\[E[r_p(W)]- \frac{\gamma}{2} Var(r_p(W))=E[r_f+W'R^e]- \frac{\gamma}{2} Var(r_f+W'R^e)\]</div>
+<div class="math notranslate nohighlight">
+\[E[r_p(W)]- \frac{\gamma}{2} Var(r_p(W))=r_f+W'E[R^e]- \frac{\gamma}{2} W'Var(R^e)W\]</div>
+<ul class="simple">
+<li><p>All you need is to take the derivative of the expression with respect to the risky portfolio weights <span class="math notranslate nohighlight">\(W\)</span> :</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[E[R^e]- 2\gamma/2 Var(R^e)W\]</div>
 <ul class="simple">
 <li><p>and impose the “first order condition”:
 $<span class="math notranslate nohighlight">\(
 \begin{aligned}
-E[R^e]- \gamma Var(R^e)X^*=0
+E[R^e]- \gamma Var(R^e)W^*=0
 \end{aligned}
 \)</span>$</p></li>
-<li><p>which simply means that if <span class="math notranslate nohighlight">\(X^*\)</span> is really the weight that maximizes the expression, if you move it a little bit in any direction, the value of the expression shouldn’t move much</p></li>
+<li><p>which simply means that if <span class="math notranslate nohighlight">\(W^*\)</span> is really the weight that maximizes the expression, if you move it a little bit in any direction, the value of the expression shouldn’t move much</p></li>
 <li><p>In fact, for a tiny move in either direction, the benefit should be zero either way</p></li>
 <li><p>Here is the intuition:</p>
 <ul>
@@ -988,20 +1009,20 @@ E[R^e]- \gamma Var(R^e)X^*=0
 </ul>
 <p><span class="math notranslate nohighlight">\(
 \begin{align}
-\gamma Var(R^e)X^* &amp;=E[R^e]\\
+\gamma Var(R^e)W^* &amp;=E[R^e]\\
 (\gamma Var(R^e))^{-1}\gamma Var(R^e)W^* &amp;=(\gamma Var(R^e))^{-1}E[R^e]\\
 W^* &amp;=(\gamma Var(R^e))^{-1}E[R^e]\\
 W^* &amp;=\frac{1}{\gamma} Var(R^e)^{-1}E[R^e]
 \end{align}\)</span></p>
 <ul class="simple">
-<li><p>We simply m,ultiplied both the RHS and the LHS by the inverse of the matrix <span class="math notranslate nohighlight">\(\gamma Var(R^e)\)</span> that was multiplying thw weight</p></li>
-<li><p>This is equvalent to solving 5x=4, by dividing though by 5 to get x=4/5</p></li>
+<li><p>We simply multiplied both the RHS and the LHS by the inverse of the matrix <span class="math notranslate nohighlight">\(\gamma Var(R^e)\)</span> that was multiplying the weight</p></li>
+<li><p>This is equivalent to solving 5x=4, by dividing though by 5 to get x=4/5</p></li>
 </ul>
 <p><em>Questions</em></p>
 <ul class="simple">
 <li><p>How does your distaste for risk <span class="math notranslate nohighlight">\(\gamma\)</span> impact your portfolio composition?</p></li>
 <li><p>Does it impact the relative weights in the risky assets?</p></li>
-<li><p>Note that <span class="math notranslate nohighlight">\(X^*\)</span> is the optimal position in risky assets and therefore has the same dimension as the number of assets you are considering.</p></li>
+<li><p>Note that <span class="math notranslate nohighlight">\(W^*\)</span> is the optimal position in risky assets and therefore has the same dimension as the number of assets you are considering.</p></li>
 <li><p>In our simple case 2 assets</p></li>
 </ul>
 <hr class="docutils" />
@@ -1295,19 +1316,20 @@ dtype: float64
 </div>
 <p><strong>But what is your risk-aversion?</strong></p>
 <p>That is a hard question to answer!</p>
-<p>A more productive way to think about this choice is in terms of the level of volatiltiy that you are confortable with.</p>
-<p>You can bascially choose a gamma that implmenets your desired volatility</p>
+<p>A more productive way to think about this choice is in terms of the level of volatility that you are comfortable with.</p>
+<p>You can basically choose a gamma that implements your desired volatility</p>
+<p>using that <span class="math notranslate nohighlight">\(W^*=\frac{1}{\gamma}E[R^e]'Var(R^e)^{-1}\)</span> we get</p>
 <div class="math notranslate nohighlight">
 \[Var((W^*)'R^e)=Var(\frac{1}{\gamma}E[R^e]'Var(R^e)^{-1}R^e)\]</div>
 <p>We first pull the <span class="math notranslate nohighlight">\(1/\gamma\)</span> out. Recall that <span class="math notranslate nohighlight">\(Var(nx)=n^2Var(x)\)</span></p>
 <div class="math notranslate nohighlight">
 \[Var((W^*)'R^e)=\frac{1}{\gamma^2}Var(E[R^e]'Var(R^e)^{-1}R^e)\]</div>
-<p>We now simply pull the vector <span class="math notranslate nohighlight">\(E[R^e]'Var(R^e)^{-1}\)</span> out which because it is a vector the math is a bit <a class="reference external" href="http://different.In">different.In</a> this case if the random variable X is a vector being multiplied by another vector W, then <span class="math notranslate nohighlight">\(Var(WX)=WVar(X)W^T\)</span>. Apply thin here we get</p>
+<p>We now simply pull the vector <span class="math notranslate nohighlight">\(E[R^e]'Var(R^e)^{-1}\)</span> out which because it is a vector the math is a bit <a class="reference external" href="http://different.In">different.In</a> this case if the random variable X is a vector being multiplied by another vector W, then <span class="math notranslate nohighlight">\(Var(WX)=WVar(X)W^T\)</span>. Apply this here we get</p>
 <div class="math notranslate nohighlight">
 \[Var((W^*)'R^e)=\frac{1}{\gamma^2}E[R^e]'Var(R^e)^{-1}Var(R^e)Var(R^e)^{-1}E[R^e]\]</div>
-<p>Using that <span class="math notranslate nohighlight">\(Var(R^e)^{-1}Var(R^e)=I\)</span>, i.e. the indentiy matrix, we get</p>
+<p>Using that <span class="math notranslate nohighlight">\(Var(R^e)^{-1}Var(R^e)=I\)</span>, i.e. the identity matrix, we get</p>
 <p><span class="math notranslate nohighlight">\(Var((W^*)'R^e)=\frac{1}{\gamma^2}E[R^e]'Var(R^e)^{-1}E[R^e]\)</span></p>
-<p>We can now solve for the desired level, say you want you portfolio to be mean-variance efficient and have volatility (meaning standard deviaiton) equal to a target <span class="math notranslate nohighlight">\(\sigma^{D}\)</span>, D for desired.</p>
+<p>We can now solve for the desired level, say you want you portfolio to be mean-variance efficient and have volatility (meaning standard deviation) equal to a target <span class="math notranslate nohighlight">\(\sigma^{D}\)</span>, D for desired.</p>
 <p><span class="math notranslate nohighlight">\(\sigma^D=\sqrt{Var((W^*)'R^e)}=\frac{1}{\gamma}\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}\)</span></p>
 <p>where above we took the square root to go from variance to standard deviation. We can now solve for <span class="math notranslate nohighlight">\(\gamma\)</span></p>
 <div class="math notranslate nohighlight">
@@ -1315,8 +1337,8 @@ dtype: float64
 <p>Thus the optimal weights are</p>
 <div class="math notranslate nohighlight">
 \[W^*(\sigma^D)'=\frac{\sigma^D}{\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}}E[R^e]'Var(R^e)^{-1}\]</div>
-<p>the intuition here is simple. <span class="math notranslate nohighlight">\(\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}\)</span> is the volatility of the optimal portfolio with risk-aversion 1 ,<span class="math notranslate nohighlight">\(E[R^e]'Var(R^e)^{-1}\)</span>. You simply scale up the weights up and down to hit your desired volatility level</p>
-<p>The important point is that <span class="math notranslate nohighlight">\(\frac{\sigma^D}{\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}}\)</span> is a scalar, so you are increasing/decreasing expsorue in the risky asset proportionally.</p>
+<p>the intuition here is simple. <span class="math notranslate nohighlight">\(\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}\)</span> is the volatility of the optimal portfolio with risk-aversion 1 ,i.e. the portfolio <span class="math notranslate nohighlight">\(W^*=E[R^e]'Var(R^e)^{-1}\)</span>. You simply scale up the weights up and down to hit your desired volatility level</p>
+<p>The important point is that <span class="math notranslate nohighlight">\(\frac{\sigma^D}{\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}}\)</span> is a scalar, so you are increasing/decreasing exposure in the risky asset proportionally.</p>
 <p>Your position in the risk-free asset can be simply solved for</p>
 <div class="math notranslate nohighlight">
 \[1-1'W^*(\sigma^D)=1- \frac{\sigma^D}{\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}}1'Var(R^e)^{-1}E[R^e]\]</div>
@@ -1339,7 +1361,7 @@ dtype: float64
 <p>Which happens becasue the risk-free rate has zero volatiltiy.</p>
 <p><strong>Properties of the Tangency Portfolio</strong></p>
 <p>Any portfolio that is proportional to  <span class="math notranslate nohighlight">\(Var(R^e)^{-1}E[R^e]\)</span> is in the <strong>Tangency</strong> of the mean-variance frontier</p>
-<p>I will refer to <span class="math notranslate nohighlight">\(W_T=Var(R^e)^{-1}E[R^e]\)</span> as the tangency portfolio, but formally anyy other portfolio that is of the form <span class="math notranslate nohighlight">\(x W_T\)</span> where x is a scalar is also tangency.</p>
+<p>I will refer to <span class="math notranslate nohighlight">\(W_T=Var(R^e)^{-1}E[R^e]\)</span> as the tangency portfolio, but formally any other portfolio that is of the form <span class="math notranslate nohighlight">\(x W_T\)</span> where x is a scalar is also tangency.</p>
 <ol class="simple">
 <li><p>What is the expected excess return of the tangency portfolio?</p></li>
 </ol>
@@ -1359,8 +1381,8 @@ dtype: float64
 </ol>
 <div class="math notranslate nohighlight">
 \[\frac{E[W_T'R^e]}{STD[W_T'R^e]}=\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}\]</div>
-<p>As we saw before, the Sharpe Ratio is invariant to the precise location that you choose in the investment frontier. Of course volatiity and Expected excess return will vary, but any leverage effect will exactyl cancel out when you look at the Sharpe Ratio</p>
-<p>So Sharpe Ratio is nice becasuse it is invariant to leverage</p>
+<p>As we saw before, the Sharpe Ratio is invariant to the precise location that you choose in the investment frontier. Of course volatility and Expected excess return will vary, but any leverage effect will exactly cancel out when you look at the Sharpe Ratio</p>
+<p>So Sharpe Ratio is nice because it is invariant to leverage</p>
 <p><strong>Portfolio advice summary (so far!)</strong></p>
 <ul class="simple">
 <li><p>All investors invest in the same portfolio of risky assets, regardless of risk aversion.</p></li>
@@ -1374,6 +1396,7 @@ dtype: float64
 <li><p>We will discuss later how to incorporate other risk dimensions (tail risks, background risks, etc)</p></li>
 <li><p>We also ignore investment horizon effects which we will discuss later in the course</p></li>
 </ul>
+</div>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -1404,7 +1427,7 @@ dtype: float64
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="UsingAPI.html" title="previous page"><span class="section-number">9.1. </span>Using APIs</a>
-    <a class='right-next' id="next-link" href="CaseStudy.html" title="next page"><span class="section-number">10.1. </span>Case study on international portfolio diversification</a>
+    <a class='right-next' id="next-link" href="CaseStudy.html" title="next page"><span class="section-number">10.2. </span>Case study on international portfolio diversification</a>
 
         </div>
         
