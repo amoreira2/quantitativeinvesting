@@ -1041,16 +1041,29 @@ memory usage: 35.4 KB
 <p>Note that the expected return term is <code class="docutils literal notranslate"><span class="pre">+rf</span></code> instead of <code class="docutils literal notranslate"><span class="pre">+rf*xf</span></code> because we are using excess return instead of return. To better understand, we write out the expected return in the following way where <span class="math notranslate nohighlight">\(RW\)</span> below is the return on the risky portfolio</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{align}
+E[r_p]&amp;=E[x_f \times R_f + (1-x_f) \times R_W] \\
 E[r_p]&amp;=x_f \times R_f + (1-x_f) \times E[R_W] \\
 &amp;= x_f \times r_f + (1-x_f) \times E[(R_W-r_f)] + (1-x_f) \times r_f \\
 &amp;= (1-x_f) \times E[(R_W-r_f)] + r_f \\
 &amp;=(1-x_f) \times E[R_W^e] + r_f
 \end{align}
 \)</span></p>
+<p>Note also the math for the variance of the portfolio which is particular case of what we learn in the portfolio math chapter but with a zero volatility asset:</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{align}
+Var[r_p]&amp;=Var[x_f \times R_f + (1-x_f) \times R_W] \\
+Var[r_p]&amp;=Var[(1-x_f) \times R_W] \\
+&amp;= (1-x_f)^2 Var[R_W]  
+\end{align}
+\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UsW</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">UsW</span><span class="p">)</span>
+<span class="c1"># 2 is selecting the column with the volatility and 3 is selecting the column with the average excess return</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="c1"># below I am using the boolean indexing UsW[:,0]==0 to select only portfolio with zero weight on the risk-free asset and plotting it in blue.</span>
+<span class="c1"># recall that column 0 has the position on the risk-free asset</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Volatility&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average return&#39;</span><span class="p">)</span>
@@ -1074,7 +1087,7 @@ E[r_p]&amp;=x_f \times R_f + (1-x_f) \times E[R_W] \\
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># in &quot;variance space&quot;</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">UsW</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Variance&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average return&#39;</span><span class="p">)</span>
 
@@ -1115,6 +1128,8 @@ E[r_p]&amp;=x_f \times R_f + (1-x_f) \times E[R_W] \\
 
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="c1"># Below I am usign boolean index to select portfolio that are short the risk-free asset (i.e. they are levered) and I a plotting them in orange</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Volatility&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average return&#39;</span><span class="p">)</span>
