@@ -572,7 +572,7 @@
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="c1">#GlobalFinMonthly</span>
-<span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://raw.githubusercontent.com/amoreira2/Lectures/4b95c7d60e869dffa6367c1730183b68920ed2b9/assets/data/GlobalFinMonthly.csv&quot;</span>
+<span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://raw.githubusercontent.com/amoreira2/Lectures/main/assets/data/GlobalFinMonthly.csv&quot;</span>
 <span class="n">Data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">na_values</span><span class="o">=-</span><span class="mi">99</span><span class="p">)</span>
 <span class="n">Data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">Data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
 <span class="n">Data</span><span class="o">=</span><span class="n">Data</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
