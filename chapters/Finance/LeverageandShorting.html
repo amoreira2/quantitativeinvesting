@@ -582,11 +582,12 @@
 <div class="math notranslate nohighlight">
 \[r^p_t=W_tR_t+(1-\sum_i^Iw_i)r^f_t\]</div>
 <p>where <span class="math notranslate nohighlight">\(R\)</span> is a a vector of riksy asset returns.</p>
-<p>In practice things are not quite as simple. First lets discuss what happens as <span class="math notranslate nohighlight">\((1-\sum_i^Iw_i)\)</span> goes from a number between 0 and 1, meaning you have a positive fraction allocated to the risk-free asset to a negative number.</p>
+<p>In practice things are not quite as simple.</p>
+<p>First lets discuss what happens as <span class="math notranslate nohighlight">\((1-\sum_i^Iw_i)\)</span> goes from a number between 0 and 1 to a a negative number.  meaning you have a positive fraction allocated to the risk-free asset to a negative number.</p>
 <p>The case when this is above 1 is not very relevant as it would imply you are shorting the risky assets to invest more in the risk-free asset, which typically has much lower expected returns.</p>
 <p><strong>Leverage</strong></p>
-<p>When <span class="math notranslate nohighlight">\((1-\sum_i^Iw_i)\in[0,1]\)</span> you have a postive fraction of your portfolio in the risk-free asset. In this case you earn something close to the 3 month t-bill rate. In practice had me a tiny bit higher or a tiny bit lower if you park the money in a money market fund account in your broker. Of course you can literally just buy the t-bill if you want so the rate that you earn will be pretty close to the tbill rate.</p>
-<p>You can easily get this t-bill rate <a class="reference external" href="https://fred.stlouisfed.org/series/DTB3">from FRED</a>. Of course you can use the API do thet it quickly by using it’s name <code class="docutils literal notranslate"><span class="pre">DTB3</span></code>.</p>
+<p>When <span class="math notranslate nohighlight">\((1-\sum_i^Iw_i)\in[0,1]\)</span> you have a postive fraction of your portfolio in the risk-free asset. In this case you earn something close to the 3 month t-bill rate. In practice it can be a tiny bit higher or a tiny bit lower if you park the money in a money market fund account in your broker. Of course you can literally just buy the t-bill if you want so the rate that you earn will be pretty close to the tbill rate.</p>
+<p>You can easily get this t-bill rate <a class="reference external" href="https://fred.stlouisfed.org/series/DTB3">from FRED</a>. Of course you can use the API and get this data quickly by using it’s name <code class="docutils literal notranslate"><span class="pre">DTB3</span></code>.</p>
 <p>When <span class="math notranslate nohighlight">\((1-\sum_i^Iw_i)&lt;0\)</span> you have a negative weight on the risk-free asset. It means that you are borowing money to invest more in the risky assets, mechanically <span class="math notranslate nohighlight">\(\sum_i^Iw_i&gt;1\)</span>.</p>
 <p>What happens in this case?</p>
 <ul class="simple">
@@ -882,9 +883,9 @@ Done
 <ul class="simple">
 <li><p>You can see above that the volatiltiy of the fund net position went to 800%!</p></li>
 <li><p>This is 50% daily volatility!</p></li>
-<li><p>A two standard deviaiton even would wipe out your margin!</p></li>
+<li><p>A two standard deviaiton event would wipe out your margin!</p></li>
 <li><p>As response to this retail brokers increase margin requirements on GME shorts to 300%</p></li>
-<li><p>I am not sure what intitutional brokers did, but likely they increased their leverage reuqirements too.</p></li>
+<li><p>I am not sure what institutional brokers did, but likely they increased their leverage reuqirements too.</p></li>
 <li><p>This implies required capital would increase 6 fold going from 140 to 840 Million dollars</p></li>
 <li><p>840 million dollars to sustain the 1 million dollars trade!</p></li>
 </ul>
