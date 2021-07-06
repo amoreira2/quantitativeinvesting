@@ -655,17 +655,17 @@
 <li><p>So given data <span class="math notranslate nohighlight">\(X_{t}\)</span>, a quatitative trading strategy is a function that maps data into weights <span class="math notranslate nohighlight">\(W_{t+1}=f(X_t)\)</span></p></li>
 </ul>
 <p><strong>Our First Quantitative Strategy</strong></p>
-<p>Our MV optimization was quantitative but it would be only a valid strategy if we used future data.</p>
-<p>So one option would be to get new data to evaluate.</p>
-<p>Here what we will do is to do the mean-variance analysis assuming I am investor that si goign this in real time, so I will say the investor will start in 1973, 10 years after the beggining of the sample and simply use the past data to estiamte the means and covariances, compute the weights and invest on the assets according to this strategy for the next month</p>
-<p>I will do that for the enture sample.</p>
+<p>Our MV optimization was quantitative but it would be only a valid strategy if we used future data to evaluate it.</p>
+<p>So one option would be to wait for new data to evaluate.</p>
+<p>Here what we will do is to do the mean-variance analysis assuming I am an investor that is doing this in real time, so I will say the investor will start in 1973, 10 years after the beggining of the sample and simply use the past data to estimate the means and covariances, compute the weights and invest on the assets according to this strategy for the next month.</p>
+<p>I will do that for the entire sample.</p>
 <p>This will be valid because at not moment I will use information that an investor would not have had available in real time.</p>
 <hr class="docutils" />
 <p><em>An aside</em></p>
 <p>It is also valid in another conceputal sense: Markowitz dissertation was published in 1954, so in 73 we would know how to use these techiniques. This sounds strange, but this type of validity is important for example when we evalaute trading strategies associated with published papers. When we look back in the sample before the paper existed in some way we are endowing the information that he didn’t have even if he might have the informaation that he needs to construc the trading signals</p>
 <hr class="docutils" />
-<p>We will construct a portolio that in tagency in the estiamting sample and in the estiamtion sample has a volatility of 15%.</p>
-<p>We wills tart by using jsut the first 10 years and evalauting on the rest of the sample as a warm up</p>
+<p>We will construct a portolio that in tagency in the estimating sample and in the estimation sample has a volatility of 15%.</p>
+<p>We will start by using jsut the first 10 years and evalauting on the rest of the sample as a warm up</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Re</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">*</span><span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span>
@@ -683,6 +683,7 @@ dtype: float64
 </div>
 </div>
 </div>
+<p>Warm up</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Results</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([],</span><span class="n">index</span><span class="o">=</span><span class="p">[])</span>
@@ -984,7 +985,7 @@ Name: 1972-12-31 00:00:00, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Sharpe Ratio&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/TradingStrategies_13_1.png" src="../../_images/TradingStrategies_13_1.png" />
+<img alt="../../_images/TradingStrategies_14_1.png" src="../../_images/TradingStrategies_14_1.png" />
 </div>
 </div>
 <p>It is interesting also to look at the average reutrns and volatility in a rolling basis</p>
@@ -1005,7 +1006,7 @@ Name: 1972-12-31 00:00:00, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Volatility&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/TradingStrategies_15_1.png" src="../../_images/TradingStrategies_15_1.png" />
+<img alt="../../_images/TradingStrategies_16_1.png" src="../../_images/TradingStrategies_16_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1025,13 +1026,14 @@ Name: 1972-12-31 00:00:00, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Average Return&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/TradingStrategies_16_1.png" src="../../_images/TradingStrategies_16_1.png" />
+<img alt="../../_images/TradingStrategies_17_1.png" src="../../_images/TradingStrategies_17_1.png" />
 </div>
 </div>
 <p><strong>Practical approaches to deal with Estimation Uncertainty in the Mean-Variance framework</strong></p>
-<p>In econometrics there is a whole field dedicated towards findign features of the data that are “robust”. Feautres that don’t vary too much.</p>
-<p>As you can see this can be super useful here. This gets complicated very quickly with Bayesian methods, Shrinkage methods, and so on. Well beyond the scope of this class.</p>
-<p>The industry however uses two approaches that attempt to get at data by de-emphasizing information about the pieces of the data that we are most uncertain about.</p>
+<p>In econometrics there is a whole field dedicated towards finding features of the data that are “robust”. Feautres that don’t vary too much from sample to sample.</p>
+<p>As you can see this can be super useful here.</p>
+<p>This techiniques get complicated very quickly with Bayesian methods, Shrinkage methods, and so on. Well beyond the scope of this class.</p>
+<p>The industry however uses two approaches that attempt to get at that by de-emphasizing information about the pieces of the data that we are most uncertain about.</p>
 <p>Two approaches are particularly popular</p>
 <ul class="simple">
 <li><p>Minimum-variance investing</p></li>
@@ -1041,13 +1043,15 @@ Name: 1972-12-31 00:00:00, dtype: float64
 <ul class="simple">
 <li><p>Mean-variance investing under the assumption that all assets have same expected returns, but uses covariance matrix to minimize risk</p></li>
 <li><p>The idea is that expected returns signals are pure noise so we might as well assume there are no signals and all expected returns are the same</p></li>
-<li><p>For example this is behind Minimum volatility investing [for example,<a class="reference external" href="https://investor.vanguard.com/mutual-funds/profile/VMVFX">https://investor.vanguard.com/mutual-funds/profile/VMVFX</a>]</p></li>
-<li><p>Assumes all assets share the same expected return</p></li>
+<li><p>For example this is behind Minimum volatility investing for example, [<a class="reference external" href="https://investor.vanguard.com/mutual-funds/profile/VMVFX">https://investor.vanguard.com/mutual-funds/profile/VMVFX</a>]</p></li>
+<li><p>Assumes all assets have the same expected return</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[Min~ W'Var(R)W~ subject~ to~ \mathbf{1}'W=1\]</div>
 <div class="math notranslate nohighlight">
-\[W_{minvariance}=Var(R)^{-1}\mathbf{1}\]</div>
+\[W_{minvariance}\propto Var(R)^{-1}\mathbf{1}\]</div>
+<p>Imposing the constraint:
+$<span class="math notranslate nohighlight">\(W_{minvariance}=\frac{Var(R)^{-1}\mathbf{1}}{\mathbf{1}^TVar(R)^{-1}\mathbf{1}}\)</span>$</p>
 <ul class="simple">
 <li><p>I use this technique in “hedging-risk factors”, a recent academic paper, to construct portfolios with Sharpe-ratios of 0.8 at the yearly horizon, which is very large</p></li>
 </ul>
@@ -1094,7 +1098,7 @@ Name: 1972-12-31 00:00:00, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Sharpe Ratio&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/TradingStrategies_19_1.png" src="../../_images/TradingStrategies_19_1.png" />
+<img alt="../../_images/TradingStrategies_20_1.png" src="../../_images/TradingStrategies_20_1.png" />
 </div>
 </div>
 <p><strong>Risk- Parity</strong></p>
@@ -1118,7 +1122,7 @@ Name: 1972-12-31 00:00:00, dtype: float64
 <li><p>it follows</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[\begin{split}W_{RP}=Var_{RP}(R)^{-1}\mathbf{1}=\left[\begin{array}{c}\frac{1}{\sigma_1^2}\\\frac{1}{\sigma_2^2}\\\frac{1}{\sigma_3^2}\end{array}\right]\end{split}\]</div>
+\[\begin{split}W_{RP}\propto Var_{RP}(R)^{-1}\mathbf{1}=\left[\begin{array}{c}\frac{1}{\sigma_1^2}\\\frac{1}{\sigma_2^2}\\\frac{1}{\sigma_3^2}\end{array}\right]\end{split}\]</div>
 <ul class="simple">
 <li><p>another implementation is one where the Sharpe Ratio is the same across assets, so the Expected return scales with volatility.</p></li>
 </ul>
@@ -1212,7 +1216,7 @@ Name: 1972-12-31 00:00:00, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Sharpe Ratio&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/TradingStrategies_24_1.png" src="../../_images/TradingStrategies_24_1.png" />
+<img alt="../../_images/TradingStrategies_25_1.png" src="../../_images/TradingStrategies_25_1.png" />
 </div>
 </div>
 <p><strong>The Market-Cap Weighted strategy</strong></p>
@@ -1227,7 +1231,7 @@ Name: 1972-12-31 00:00:00, dtype: float64
 <p>So at end of month t you look at the market caps, construct the weights and buy the stocks accodingly earnign <span class="math notranslate nohighlight">\(W_tR_{t+1}\)</span> the end of the next month</p>
 <p>This portfolio has lots of beautiful properties</p>
 <ol class="simple">
-<li><p>In aggregate people will ahve to hold this portfolio, so the Capital Asset Pricing Model intution tell us that this portfolio should be at the tangency frontier (in reality it is not–more on that coming– but it should at least be much closer to it then a a portfolio made of a jsut a few stocks)</p></li>
+<li><p>In aggregate people will have to hold this portfolio, so the Capital Asset Pricing Model intution tell us that this portfolio should be at the tangency frontier (in reality it is not–more on that coming– but it should at least be much closer to it then a a portfolio made of a jsut a few stocks)</p></li>
 <li><p>This portfolio is very easy to trade. First it does not requitre rebalancing as you weights naturally go up if the stock rallie and go down if the stock crashes</p>
 <ul class="simple">
 <li><p>It only has to responds to share issuances and buybacks</p></li>
@@ -1486,7 +1490,7 @@ Done
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;date&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/TradingStrategies_36_1.png" src="../../_images/TradingStrategies_36_1.png" />
+<img alt="../../_images/TradingStrategies_37_1.png" src="../../_images/TradingStrategies_37_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1500,7 +1504,7 @@ Done
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;date&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/TradingStrategies_37_1.png" src="../../_images/TradingStrategies_37_1.png" />
+<img alt="../../_images/TradingStrategies_38_1.png" src="../../_images/TradingStrategies_38_1.png" />
 </div>
 </div>
 </div>
