@@ -685,54 +685,6 @@ the start of the holding period to avoid the short-term reversals documented by 
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>1972-07-31</td>
-      <td>10006</td>
-      <td>0.028600</td>
-      <td>0.0031</td>
-      <td>12.399869</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1972-07-31</td>
-      <td>10102</td>
-      <td>0.039757</td>
-      <td>0.0031</td>
-      <td>12.217334</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1972-07-31</td>
-      <td>10137</td>
-      <td>-0.044767</td>
-      <td>0.0031</td>
-      <td>13.069874</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>1972-07-31</td>
-      <td>10145</td>
-      <td>-0.062422</td>
-      <td>0.0031</td>
-      <td>13.608366</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1972-07-31</td>
-      <td>10153</td>
-      <td>-0.065600</td>
-      <td>0.0031</td>
-      <td>11.752572</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
       <th>486422</th>
       <td>2016-12-31</td>
       <td>93420</td>
@@ -774,7 +726,6 @@ the start of the holding period to avoid the short-term reversals documented by 
     </tr>
   </tbody>
 </table>
-<p>486427 rows × 5 columns</p>
 </div></div></div>
 </div>
 <p><strong>Construct the signal</strong></p>
@@ -1089,7 +1040,7 @@ the start of the holding period to avoid the short-term reversals documented by 
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ngroups</span><span class="o">=</span><span class="mi">10</span>
 <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;mom_group&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">temp</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;date&#39;</span><span class="p">])[</span><span class="s1">&#39;mom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ngroups</span><span class="p">,</span> \
                                                                        <span class="n">labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">duplicates</span><span class="o">=</span><span class="s1">&#39;drop&#39;</span><span class="p">))</span>
-<span class="n">mom</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">temp</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
