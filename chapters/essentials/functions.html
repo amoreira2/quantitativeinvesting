@@ -180,23 +180,8 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../scientific/numpy1.html">
-     5.1. Numpy
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../scientific/plotting1.html">
-     5.2. Plotting
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../scientific/linear_algebra1.html">
-     5.3. Linear algebra
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../scientific/randomness1.html">
-     5.4. Randomness
+     5.1. Randomness
     </a>
    </li>
   </ul>
@@ -563,38 +548,33 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#outline">
-   4.4.1. Outline
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-are-python-functions">
-   4.4.2. What are (Python) Functions?
+   4.4.1. What are (Python) Functions?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#how-to-define-python-functions">
-   4.4.3. How to Define (Python) Functions?
+   4.4.2. How to Define (Python) Functions?
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#scope">
-     4.4.3.1. Scope
+     4.4.2.1. Scope
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#documentation">
-     4.4.3.2. Documentation
+     4.4.2.2. Documentation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#default-and-keyword-arguments">
-     4.4.3.3. Default and Keyword Arguments
+     4.4.2.3. Default and Keyword Arguments
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#aside-methods">
-     4.4.3.4. Aside: Methods
+     4.4.2.4. Aside: Methods
     </a>
    </li>
   </ul>
@@ -612,34 +592,9 @@
                 
   <div class="section" id="functions">
 <h1><span class="section-number">4.4. </span>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
-<p><strong>Outcomes</strong></p>
-<ul class="simple">
-<li><p>Functions</p>
-<ul>
-<li><p>Know how to define your own function</p></li>
-<li><p>Know how to find and write your own function documentation</p></li>
-<li><p>Know why we use functions</p></li>
-<li><p>Understand scoping rules and blocks</p></li>
-</ul>
-</li>
-</ul>
-<div class="section" id="outline">
-<h2><span class="section-number">4.4.1. </span>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="#Functions">Functions</a></p>
-<ul>
-<li><p><a class="reference external" href="#Application:-Production-Functions">Application: Production Functions</a></p></li>
-<li><p><a class="reference external" href="#What-are-(Python)-Functions?">What are (Python) Functions?</a></p></li>
-<li><p><a class="reference external" href="#How-to-Define-(Python)-Functions?">How to Define (Python) Functions?</a></p></li>
-<li><p><a class="reference external" href="#More-on-Scope-(Optional)">More on Scope (Optional)</a></p></li>
-<li><p><a class="reference external" href="#Exercises">Exercises</a></p></li>
-</ul>
-</li>
-</ul>
 <p><a id='production-functions'></a></p>
-</div>
 <div class="section" id="what-are-python-functions">
-<h2><span class="section-number">4.4.2. </span>What are (Python) Functions?<a class="headerlink" href="#what-are-python-functions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.4.1. </span>What are (Python) Functions?<a class="headerlink" href="#what-are-python-functions" title="Permalink to this headline">¶</a></h2>
 <p>In this class, we will often talk about <code class="docutils literal notranslate"><span class="pre">function</span></code>s.</p>
 <p>So what is a function?</p>
 <p>We like to think of a function as a production line in a
@@ -656,7 +611,7 @@ sharing pieces of code with collaborators.</p></li>
 </ul>
 </div>
 <div class="section" id="how-to-define-python-functions">
-<h2><span class="section-number">4.4.3. </span>How to Define (Python) Functions?<a class="headerlink" href="#how-to-define-python-functions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.4.2. </span>How to Define (Python) Functions?<a class="headerlink" href="#how-to-define-python-functions" title="Permalink to this headline">¶</a></h2>
 <p>The basic syntax to create our own function is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
     <span class="c1"># step 1</span>
@@ -742,7 +697,7 @@ controls blocks of code (along with the <a class="reference external" href="#sco
 </div>
 <p><a id='scope'></a></p>
 <div class="section" id="scope">
-<h3><span class="section-number">4.4.3.1. </span>Scope<a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.4.2.1. </span>Scope<a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h3>
 <p>Notice that we named the input to the function <code class="docutils literal notranslate"><span class="pre">x</span></code> and we called the output
 <code class="docutils literal notranslate"><span class="pre">the_mean</span></code>.</p>
 <p>When we defined the function, the input was called <code class="docutils literal notranslate"><span class="pre">numbers</span></code> and the output
@@ -817,7 +772,7 @@ don’t have to be given a name outside the function.</p>
 <p><a id='returns-to-scale'></a></p>
 </div>
 <div class="section" id="documentation">
-<h3><span class="section-number">4.4.3.2. </span>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.4.2.2. </span>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
 <p>To provide help information, we need to
 add what Python programmers call a “docstring” to our functions.</p>
 <p>This is done by putting a string (not assigned to any variable name) as
@@ -863,7 +818,7 @@ displayed (or use the Contextual Help window with Jupyterlab and <code class="do
 Computes the returns of a portfolio that invests w on the asset with return r and (1-w) in the risk-free rate
 
 Takes the form F(w, r,rf) = w*r+(1-w)rf, here we fix the rf to 0.01
-<span class=" -Color -Color-Bold -Color-Bold-Red">File:</span>      c:\users\alan.moreira\documents\github\textbook\chapters\essentials\&lt;ipython-input-32-4efdb59d826b&gt;
+<span class=" -Color -Color-Bold -Color-Bold-Red">File:</span>      c:\users\alan.moreira\documents\github\textbook\chapters\essentials\&lt;ipython-input-8-4efdb59d826b&gt;
 <span class=" -Color -Color-Bold -Color-Bold-Red">Type:</span>      function
 </pre></div>
 </div>
@@ -888,12 +843,11 @@ for future readers/users (including yourself) to understand what the code does.<
 </div>
 </div>
 <div class="section" id="default-and-keyword-arguments">
-<h3><span class="section-number">4.4.3.3. </span>Default and Keyword Arguments<a class="headerlink" href="#default-and-keyword-arguments" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.4.2.3. </span>Default and Keyword Arguments<a class="headerlink" href="#default-and-keyword-arguments" title="Permalink to this headline">¶</a></h3>
 <p>Functions can have optional arguments.</p>
 <p>To accomplish this, we must these arguments a <em>default value</em> by saying
 <code class="docutils literal notranslate"><span class="pre">name=default_value</span></code> instead of just <code class="docutils literal notranslate"><span class="pre">name</span></code> as we list the arguments.</p>
-<p>To demonstrate this functionality, let’s now make <span class="math notranslate nohighlight">\( z \)</span> and <span class="math notranslate nohighlight">\( \alpha \)</span>
-arguments to our cobb_douglas function!</p>
+<p>To demonstrate this functionality, let’s now make <span class="math notranslate nohighlight">\(rf \)</span> arguments to our portfolio_return function!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">portfolio_returns</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span><span class="n">rf</span><span class="o">=</span><span class="mf">0.01</span><span class="p">):</span>
@@ -1077,7 +1031,7 @@ inside of another function.</p>
 </div>
 </div>
 <div class="section" id="aside-methods">
-<h3><span class="section-number">4.4.3.4. </span>Aside: Methods<a class="headerlink" href="#aside-methods" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.4.2.4. </span>Aside: Methods<a class="headerlink" href="#aside-methods" title="Permalink to this headline">¶</a></h3>
 <p>As we learned earlier, all variables in Python have a type associated
 with them.</p>
 <p>Different types of variables have different functions or operations

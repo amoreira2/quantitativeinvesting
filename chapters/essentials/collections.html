@@ -178,23 +178,8 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../scientific/numpy1.html">
-     5.1. Numpy
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../scientific/plotting1.html">
-     5.2. Plotting
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../scientific/linear_algebra1.html">
-     5.3. Linear algebra
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../scientific/randomness1.html">
-     5.4. Randomness
+     5.1. Randomness
     </a>
    </li>
   </ul>
@@ -561,35 +546,30 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#contents">
-   4.2.1. Contents
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ordered-collections">
-   4.2.2. Ordered Collections
+   4.2.1. Ordered Collections
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#lists">
-     4.2.2.1. Lists
+     4.2.1.1. Lists
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#what-can-we-do-with-lists">
-       4.2.2.1.1. What Can We Do with Lists?
+       4.2.1.1.1. What Can We Do with Lists?
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#lists-of-different-types">
-     4.2.2.2. Lists of Different Types
+     4.2.1.2. Lists of Different Types
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#the-range-function">
-     4.2.2.3. The
+     4.2.1.3. The
      <code class="docutils literal notranslate">
       <span class="pre">
        range
@@ -599,65 +579,25 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-are-tuples-opt">
-     4.2.2.4. What are Tuples? (opt)
+    <a class="reference internal nav-link" href="#what-are-tuples">
+     4.2.1.4. What are Tuples?
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#list-vs-tuple-which-to-use-opt">
-     4.2.2.5. List vs Tuple: Which to Use? (opt)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zip-and-enumerate-opt">
-     4.2.2.6.
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       zip
-      </span>
-     </code>
-     and
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       enumerate
-      </span>
-     </code>
-     (opt)
+    <a class="reference internal nav-link" href="#list-vs-tuple-which-to-use">
+     4.2.1.5. List vs Tuple: Which to Use?
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#associative-collections-opt">
-   4.2.3. Associative Collections (opt)
+  <a class="reference internal nav-link" href="#associative-collections">
+   4.2.2. Associative Collections
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#dictionaries">
-     4.2.3.1. Dictionaries
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#getting-setting-and-updating-dict-items">
-       4.2.3.1.1. Getting, Setting, and Updating dict Items
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#common-dict-functionality">
-       4.2.3.1.2. Common
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         dict
-        </span>
-       </code>
-       Functionality
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sets-opt">
-     4.2.3.2. Sets (opt)
+     4.2.2.1. Dictionaries
     </a>
    </li>
   </ul>
@@ -675,50 +615,10 @@
                 
   <div class="section" id="collections">
 <h1><span class="section-number">4.2. </span>Collections<a class="headerlink" href="#collections" title="Permalink to this headline">¶</a></h1>
-<p><strong>Outcomes</strong></p>
-<ul class="simple">
-<li><p>Ordered Collections</p>
-<ul>
-<li><p>Know what a list is and a tuple is</p></li>
-<li><p>Know how to tell a list from a tuple</p></li>
-<li><p>Understand the <code class="docutils literal notranslate"><span class="pre">range</span></code>, <code class="docutils literal notranslate"><span class="pre">zip</span></code> and <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> functions</p></li>
-<li><p>Be able to use common list methods like <code class="docutils literal notranslate"><span class="pre">append</span></code>, <code class="docutils literal notranslate"><span class="pre">sort</span></code>,
-and <code class="docutils literal notranslate"><span class="pre">reverse</span></code></p></li>
-</ul>
-</li>
-<li><p>Associative Collections</p>
-<ul>
-<li><p>Understand what a <code class="docutils literal notranslate"><span class="pre">dict</span></code> is</p></li>
-<li><p>Know the distinction between a dicts keys and values</p></li>
-<li><p>Understand when <code class="docutils literal notranslate"><span class="pre">dict</span></code>s are useful</p></li>
-<li><p>Be familiar with common <code class="docutils literal notranslate"><span class="pre">dict</span></code> methods</p></li>
-</ul>
-</li>
-<li><p>Sets  (optional)</p>
-<ul>
-<li><p>Know what a set is</p></li>
-<li><p>Understand how a set differs from a list and a tuple</p></li>
-<li><p>Know when to use a set vs a list or a tuple</p></li>
-</ul>
-</li>
-</ul>
-<p><strong>Outline</strong></p>
-<div class="section" id="contents">
-<h2><span class="section-number">4.2.1. </span>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="#Collections">Collections</a></p>
-<ul>
-<li><p><a class="reference external" href="#Ordered-Collections">Ordered Collections</a></p></li>
-<li><p><a class="reference external" href="#Associative-Collections">Associative Collections</a></p></li>
-<li><p><a class="reference external" href="#Exercises">Exercises</a></p></li>
-</ul>
-</li>
-</ul>
-</div>
 <div class="section" id="ordered-collections">
-<h2><span class="section-number">4.2.2. </span>Ordered Collections<a class="headerlink" href="#ordered-collections" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.2.1. </span>Ordered Collections<a class="headerlink" href="#ordered-collections" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="lists">
-<h3><span class="section-number">4.2.2.1. </span>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.1.1. </span>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h3>
 <p>A Python list is an ordered collection of items.</p>
 <p>We can create lists using the following syntax</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">item1</span><span class="p">,</span> <span class="n">item2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span>  <span class="n">itemN</span><span class="p">]</span>
@@ -759,7 +659,7 @@ and <code class="docutils literal notranslate"><span class="pre">reverse</span><
 </div>
 </div>
 <div class="section" id="what-can-we-do-with-lists">
-<h4><span class="section-number">4.2.2.1.1. </span>What Can We Do with Lists?<a class="headerlink" href="#what-can-we-do-with-lists" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.2.1.1.1. </span>What Can We Do with Lists?<a class="headerlink" href="#what-can-we-do-with-lists" title="Permalink to this headline">¶</a></h4>
 <p>We can access items in a list called <code class="docutils literal notranslate"><span class="pre">mylist</span></code> using <code class="docutils literal notranslate"><span class="pre">mylist[N]</span></code>
 where <code class="docutils literal notranslate"><span class="pre">N</span></code> is an integer.</p>
 <p>Note: Anytime that we use the syntax <code class="docutils literal notranslate"><span class="pre">x[i]</span></code> we are doing what is
@@ -845,19 +745,6 @@ items in a list?</p>
 <p>For our list <code class="docutils literal notranslate"><span class="pre">x</span></code>, other common operations we might want to do are…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
-<span class="n">x</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[12.5, 9.1, 2.0]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">number_list</span><span class="p">)</span>
 <span class="n">number_list</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
@@ -909,45 +796,10 @@ will put the items in alphabetical order.</p>
 </div>
 </div>
 </div>
-<p>However, if you call <code class="docutils literal notranslate"><span class="pre">append</span></code> with a list, it adds a <code class="docutils literal notranslate"><span class="pre">list</span></code> to the end,
-rather than the numbers in that list.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">num_list</span><span class="p">)</span>
-<span class="n">num_list</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">num_list</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 25, 42, 8]
-[10, 25, 42, 8, [20, 4]]
-</pre></div>
-</div>
-</div>
-</div>
-<p>To combine the lists instead…</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">num_list</span><span class="p">)</span>
-<span class="n">num_list</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">num_list</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 25, 42, 8]
-[10, 25, 42, 8, 20, 4]
-</pre></div>
-</div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="lists-of-different-types">
-<h3><span class="section-number">4.2.2.2. </span>Lists of Different Types<a class="headerlink" href="#lists-of-different-types" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.1.2. </span>Lists of Different Types<a class="headerlink" href="#lists-of-different-types" title="Permalink to this headline">¶</a></h3>
 <p>While most examples above have all used a <code class="docutils literal notranslate"><span class="pre">list</span></code> with
 a single type of variable, this is not required.</p>
 <p>Let’s carefully make a small change to the first example: replace <code class="docutils literal notranslate"><span class="pre">2.0</span></code> with <code class="docutils literal notranslate"><span class="pre">2</span></code></p>
@@ -974,8 +826,8 @@ apply to a list.</p>
 </div>
 </div>
 </div>
-<p>Here we have also introduced a new <a class="reference external" href="basics.ipynb#modules">module</a>,
-<a class="reference internal" href="../scientific/index.html"><span class="doc std std-doc">Numpy</span></a>, which provides many functions
+<p>Here we have also introduced a new module,
+Numpy, which provides many functions
 for working with numeric data.</p>
 <p>Taking this further, we can put completely different types of elements
 inside of a list.</p>
@@ -1010,8 +862,8 @@ inside of a list.</p>
 </div>
 </div>
 </div>
-<p>While no programming limitations prevent this, you should be careful if you write code
-with different numeric and non-numeric types in the same list.</p>
+<p><strong>While no programming limitations prevent this, you should be careful if you write code
+with different numeric and non-numeric types in the same list.</strong></p>
 <p>For example, if the types within the list cannot be compared, then how could you sort the elements of the list? (i.e. How do you determine whether the string “hello” is less than the integer 2, “hello” &lt; 2?)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1031,7 +883,7 @@ values with a different type than the existing values.</p></li>
 </ul>
 </div>
 <div class="section" id="the-range-function">
-<h3><span class="section-number">4.2.2.3. </span>The <code class="docutils literal notranslate"><span class="pre">range</span></code> Function<a class="headerlink" href="#the-range-function" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.1.3. </span>The <code class="docutils literal notranslate"><span class="pre">range</span></code> Function<a class="headerlink" href="#the-range-function" title="Permalink to this headline">¶</a></h3>
 <p>One function you will see often in Python is the <code class="docutils literal notranslate"><span class="pre">range</span></code> function.</p>
 <p>It has three versions:</p>
 <ol class="simple">
@@ -1067,8 +919,8 @@ values with a different type than the existing values.</p></li>
 </div>
 </div>
 </div>
-<div class="section" id="what-are-tuples-opt">
-<h3><span class="section-number">4.2.2.4. </span>What are Tuples? (opt)<a class="headerlink" href="#what-are-tuples-opt" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="what-are-tuples">
+<h3><span class="section-number">4.2.1.4. </span>What are Tuples?<a class="headerlink" href="#what-are-tuples" title="Permalink to this headline">¶</a></h3>
 <p>Tuples are very similar to lists and hold ordered collections of items.</p>
 <p>However, tuples and lists have three main differences:</p>
 <ol class="simple">
@@ -1077,7 +929,7 @@ square brackets — <code class="docutils literal notranslate"><span class="pre"
 <li><p>Tuples are <em>immutable</em>, which is a fancy computer science word
 meaning that they can’t be changed or altered after they are created.</p></li>
 <li><p>Tuples and multiple return values
-from functions are tightly connected, as we will see in <a class="reference internal" href="functions.html"><span class="doc std std-doc">functions</span></a>.</p></li>
+from functions are tightly connected, as we will see in functions.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1169,11 +1021,9 @@ tuple(x) is a &lt;class &#39;tuple&#39;&gt;
 </div>
 </div>
 </div>
-<p>This will be a convenient way to work with functions returning
-multiple values, as well as within <a class="reference internal" href="control_flow.html"><span class="doc std std-doc">comprehensions and loops</span></a>.</p>
 </div>
-<div class="section" id="list-vs-tuple-which-to-use-opt">
-<h3><span class="section-number">4.2.2.5. </span>List vs Tuple: Which to Use? (opt)<a class="headerlink" href="#list-vs-tuple-which-to-use-opt" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="list-vs-tuple-which-to-use">
+<h3><span class="section-number">4.2.1.5. </span>List vs Tuple: Which to Use?<a class="headerlink" href="#list-vs-tuple-which-to-use" title="Permalink to this headline">¶</a></h3>
 <p>Should you use a list or tuple?</p>
 <p>This depends on what you are storing, whether you might need to reorder the elements,
 or whether you’d add
@@ -1219,7 +1069,7 @@ complete sense.</p>
 <p>Along these lines, collecting data on China for different
 years may make sense as a list of tuples (e.g. year, GDP,
 and population – although we will see better ways to store this sort of data
-in the <a class="reference internal" href="../pandas/index.html"><span class="doc std std-doc">Pandas</span></a> section).</p>
+in the Pandas section).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">china_data</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2015</span><span class="p">,</span> <span class="mf">11.06</span><span class="p">,</span> <span class="mf">1.371</span><span class="p">),</span> <span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mf">10.48</span><span class="p">,</span> <span class="mf">1.364</span><span class="p">),</span> <span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mf">9.607</span><span class="p">,</span> <span class="mf">1.357</span><span class="p">)]</span>
@@ -1233,139 +1083,20 @@ in the <a class="reference internal" href="../pandas/index.html"><span class="do
 </div>
 </div>
 </div>
-<p>In general, a rule of thumb is to use a list unless you <em>need</em> to use a tuple.</p>
+<p><strong>In general, a rule of thumb is to use a list unless you <em>need</em> to use a tuple.</strong></p>
 <p>Key criteria for tuple use are when you want to:</p>
 <ul class="simple">
 <li><p>ensure the <em>order</em> of elements can’t change</p></li>
 <li><p>ensure the actual values of the elements can’t
 change</p></li>
-<li><p>use the collection as a key in a dict (we will learn what this
-means <span class="xref myst">soon</span>)</p></li>
+<li><p>use the collection as a key in a dict</p></li>
 </ul>
 </div>
-<div class="section" id="zip-and-enumerate-opt">
-<h3><span class="section-number">4.2.2.6. </span><code class="docutils literal notranslate"><span class="pre">zip</span></code> and <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> (opt)<a class="headerlink" href="#zip-and-enumerate-opt" title="Permalink to this headline">¶</a></h3>
-<p>Two functions that can be extremely useful are <code class="docutils literal notranslate"><span class="pre">zip</span></code> and <code class="docutils literal notranslate"><span class="pre">enumerate</span></code>.</p>
-<p>Both of these functions are best understood by example, so let’s see
-them in action and then talk about what they do.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdp_data</span> <span class="o">=</span> <span class="p">[</span><span class="mf">9.607</span><span class="p">,</span> <span class="mf">10.48</span><span class="p">,</span> <span class="mf">11.06</span><span class="p">]</span>
-<span class="n">years</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">2014</span><span class="p">,</span> <span class="mi">2015</span><span class="p">]</span>
-<span class="n">z</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">gdp_data</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;type(z)&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
-</pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type(z) &lt;class &#39;zip&#39;&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<p>To see what is inside <code class="docutils literal notranslate"><span class="pre">z</span></code>, let’s convert it to a list.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(2013, 9.607), (2014, 10.48), (2015, 11.06)]
-</pre></div>
-</div>
-</div>
-</div>
-<p>Notice that we now have a list where each item is a tuple.</p>
-<p>Within each tuple, we have one item from each of the collections we
-passed to the zip function.</p>
-<p>In particular, the first item in <code class="docutils literal notranslate"><span class="pre">z</span></code> contains the first item from
-<code class="docutils literal notranslate"><span class="pre">[2013,</span> <span class="pre">2014,</span> <span class="pre">2015]</span></code> and the first item from <code class="docutils literal notranslate"><span class="pre">[9.607,</span> <span class="pre">10.48,</span> <span class="pre">11.06]</span></code>.</p>
-<p>The second item in <code class="docutils literal notranslate"><span class="pre">z</span></code> contains the second item from each collection
-and so on.</p>
-<p>We can access an element in this and then unpack the resulting
-tuple directly into variables.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">gdp_data</span><span class="p">))</span>
-<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;year = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, GDP = </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>year = 2013, GDP = 9.607
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now let’s experiment with <code class="docutils literal notranslate"><span class="pre">enumerate</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;type(e)&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-<span class="n">e</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type(e) &lt;class &#39;enumerate&#39;&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;enumerate at 0x7f6f60bf41f8&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<p>Again, we call <code class="docutils literal notranslate"><span class="pre">list(e)</span></code> to see what is inside.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0, &#39;a&#39;), (1, &#39;b&#39;), (2, &#39;c&#39;)]
-</pre></div>
-</div>
-</div>
-</div>
-<p>We again have a list of tuples, but this time, the first element in each
-tuple is the <em>index</em> of the second tuple element in the initial
-collection.</p>
-<p>Notice that the third item is <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">'c')</span></code> because
-<code class="docutils literal notranslate"><span class="pre">[&quot;a&quot;,</span> <span class="pre">&quot;b&quot;,</span> <span class="pre">&quot;c&quot;][2]</span></code> is <code class="docutils literal notranslate"><span class="pre">'c'</span></code></p>
-<p>An important quirk of some iterable types that are not lists (such as the above <code class="docutils literal notranslate"><span class="pre">zip</span></code>) is that
-you cannot convert the same type to a list twice.</p>
-<p>This is because <code class="docutils literal notranslate"><span class="pre">zip</span></code>, <code class="docutils literal notranslate"><span class="pre">enumerate</span></code>, and <code class="docutils literal notranslate"><span class="pre">range</span></code> produce what is called a generator.</p>
-<p>A generator will only produce each of its elements a single time, so if you call <code class="docutils literal notranslate"><span class="pre">list</span></code> on the same
-generator a second time, it will not have any elements to iterate over anymore.</p>
-<p>For more information, refer to the <a class="reference external" href="https://docs.python.org/3/howto/functional.html#generators">Python documentation</a>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdp_data</span> <span class="o">=</span> <span class="p">[</span><span class="mf">9.607</span><span class="p">,</span> <span class="mf">10.48</span><span class="p">,</span> <span class="mf">11.06</span><span class="p">]</span>
-<span class="n">years</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">2014</span><span class="p">,</span> <span class="mi">2015</span><span class="p">]</span>
-<span class="n">z</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">gdp_data</span><span class="p">)</span>
-<span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
-<span class="n">m</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(2013, 9.607), (2014, 10.48), (2015, 11.06)]
-[]
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="associative-collections-opt">
-<h2><span class="section-number">4.2.3. </span>Associative Collections (opt)<a class="headerlink" href="#associative-collections-opt" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="associative-collections">
+<h2><span class="section-number">4.2.2. </span>Associative Collections<a class="headerlink" href="#associative-collections" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="dictionaries">
-<h3><span class="section-number">4.2.3.1. </span>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.2.1. </span>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h3>
 <p>A dictionary (or dict) associates <code class="docutils literal notranslate"><span class="pre">key</span></code>s with <code class="docutils literal notranslate"><span class="pre">value</span></code>s.</p>
 <p>It will feel similar to a dictionary for words, where the keys are words and
 the values are the associated definitions.</p>
@@ -1417,347 +1148,6 @@ will be strings, but we could also use numbers (<code class="docutils literal no
 <p>The values can be <strong>any</strong> type and different from each other.</p>
 <p>This next example is meant to emphasize how values can be
 <em>anything</em> – including another dictionary.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">companies</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;AAPL&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;bid&quot;</span><span class="p">:</span> <span class="mf">175.96</span><span class="p">,</span> <span class="s2">&quot;ask&quot;</span><span class="p">:</span> <span class="mf">175.98</span><span class="p">},</span>
-             <span class="s2">&quot;GE&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;bid&quot;</span><span class="p">:</span> <span class="mf">1047.03</span><span class="p">,</span> <span class="s2">&quot;ask&quot;</span><span class="p">:</span> <span class="mf">1048.40</span><span class="p">},</span>
-             <span class="s2">&quot;TVIX&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;bid&quot;</span><span class="p">:</span> <span class="mf">8.38</span><span class="p">,</span> <span class="s2">&quot;ask&quot;</span><span class="p">:</span> <span class="mf">8.40</span><span class="p">}}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">companies</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;AAPL&#39;: {&#39;bid&#39;: 175.96, &#39;ask&#39;: 175.98}, &#39;GE&#39;: {&#39;bid&#39;: 1047.03, &#39;ask&#39;: 1048.4}, &#39;TVIX&#39;: {&#39;bid&#39;: 8.38, &#39;ask&#39;: 8.4}}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="getting-setting-and-updating-dict-items">
-<h4><span class="section-number">4.2.3.1.1. </span>Getting, Setting, and Updating dict Items<a class="headerlink" href="#getting-setting-and-updating-dict-items" title="Permalink to this headline">¶</a></h4>
-<p>We can now ask Python to tell us the value for a particular key by using
-the syntax <code class="docutils literal notranslate"><span class="pre">d[k]</span></code>,  where <code class="docutils literal notranslate"><span class="pre">d</span></code> is our <code class="docutils literal notranslate"><span class="pre">dict</span></code> and <code class="docutils literal notranslate"><span class="pre">k</span></code> is the key for which we want to
-find the value.</p>
-<p>For example,</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">china_data</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;country = </span><span class="si">{</span><span class="n">china_data</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, population = </span><span class="si">{</span><span class="n">china_data</span><span class="p">[</span><span class="s1">&#39;population&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2015
-country = China, population = 1.371
-</pre></div>
-</div>
-</div>
-</div>
-<p>Note: when inside of a formatting string, you can use <code class="docutils literal notranslate"><span class="pre">'</span></code> instead of <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> as above
-to ensure the formatting still works with the embedded code.</p>
-<p>If we ask for the value of a key that is not in the dict, we will get an error.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># uncomment the line below to see the error</span>
-<span class="c1"># china_data[&quot;inflation&quot;]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can also add new items to a dict using the syntax <code class="docutils literal notranslate"><span class="pre">d[new_key]</span> <span class="pre">=</span> <span class="pre">new_value</span></code>.</p>
-<p>Let’s see some examples.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">china_data</span><span class="p">)</span>
-<span class="n">china_data</span><span class="p">[</span><span class="s2">&quot;unemployment&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;4.05%&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">china_data</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;country&#39;: &#39;China&#39;, &#39;year&#39;: 2015, &#39;GDP&#39;: 11.06, &#39;population&#39;: 1.371}
-{&#39;country&#39;: &#39;China&#39;, &#39;year&#39;: 2015, &#39;GDP&#39;: 11.06, &#39;population&#39;: 1.371, &#39;unemployment&#39;: &#39;4.05%&#39;}
-</pre></div>
-</div>
-</div>
-</div>
-<p>To update the value, we use assignment in the same way (which will
-create the key and value as required).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">china_data</span><span class="p">)</span>
-<span class="n">china_data</span><span class="p">[</span><span class="s2">&quot;unemployment&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;4.051%&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">china_data</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;country&#39;: &#39;China&#39;, &#39;year&#39;: 2015, &#39;GDP&#39;: 11.06, &#39;population&#39;: 1.371, &#39;unemployment&#39;: &#39;4.05%&#39;}
-{&#39;country&#39;: &#39;China&#39;, &#39;year&#39;: 2015, &#39;GDP&#39;: 11.06, &#39;population&#39;: 1.371, &#39;unemployment&#39;: &#39;4.051%&#39;}
-</pre></div>
-</div>
-</div>
-</div>
-<p>Or we could change the type.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">china_data</span><span class="p">[</span><span class="s2">&quot;unemployment&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">4.051</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">china_data</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;country&#39;: &#39;China&#39;, &#39;year&#39;: 2015, &#39;GDP&#39;: 11.06, &#39;population&#39;: 1.371, &#39;unemployment&#39;: 4.051}
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="common-dict-functionality">
-<h4><span class="section-number">4.2.3.1.2. </span>Common <code class="docutils literal notranslate"><span class="pre">dict</span></code> Functionality<a class="headerlink" href="#common-dict-functionality" title="Permalink to this headline">¶</a></h4>
-<p>We can do some common things with dicts.</p>
-<p>We will demonstrate them with examples below.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># number of key-value pairs in a dict</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">china_data</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get a list of all the keys</span>
-<span class="nb">list</span><span class="p">(</span><span class="n">china_data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;country&#39;, &#39;year&#39;, &#39;GDP&#39;, &#39;population&#39;, &#39;unemployment&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get a list of all the values</span>
-<span class="nb">list</span><span class="p">(</span><span class="n">china_data</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;China&#39;, 2015, 11.06, 1.371, 4.051]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">more_china_data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;irrigated_land&quot;</span><span class="p">:</span> <span class="mi">690_070</span><span class="p">,</span> <span class="s2">&quot;top_religions&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;buddhist&quot;</span><span class="p">:</span> <span class="mf">18.2</span><span class="p">,</span> <span class="s2">&quot;christian&quot;</span> <span class="p">:</span> <span class="mf">5.1</span><span class="p">,</span> <span class="s2">&quot;muslim&quot;</span><span class="p">:</span> <span class="mf">1.8</span><span class="p">}}</span>
-
-<span class="c1"># Add all key-value pairs in mydict2 to mydict.</span>
-<span class="c1"># if the key already appears in mydict, overwrite the</span>
-<span class="c1"># value with the value in mydict2</span>
-<span class="n">china_data</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">more_china_data</span><span class="p">)</span>
-<span class="n">china_data</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;country&#39;: &#39;China&#39;,
- &#39;year&#39;: 2015,
- &#39;GDP&#39;: 11.06,
- &#39;population&#39;: 1.371,
- &#39;unemployment&#39;: 4.051,
- &#39;irrigated_land&#39;: 690070,
- &#39;top_religions&#39;: {&#39;buddhist&#39;: 18.2, &#39;christian&#39;: 5.1, &#39;muslim&#39;: 1.8}}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the value associated with a key or return a default value</span>
-<span class="c1"># use this to avoid the NameError we saw above if you have a reasonable</span>
-<span class="c1"># default value</span>
-<span class="n">china_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;irrigated_land&quot;</span><span class="p">,</span> <span class="s2">&quot;Data Not Available&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>690070
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">china_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;death_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;Data Not Available&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Data Not Available&#39;
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="sets-opt">
-<h3><span class="section-number">4.2.3.2. </span>Sets (opt)<a class="headerlink" href="#sets-opt" title="Permalink to this headline">¶</a></h3>
-<p>Python has an additional way to represent collections of items: sets.</p>
-<p>Sets come up infrequently, but you should be aware of them.</p>
-<p>If you are familiar with the mathematical concept of sets, then you will
-understand the majority of Python sets already.</p>
-<p>If you don’t know the math behind sets, don’t worry: we’ll cover the
-basics of Python’s sets here.</p>
-<p>A set is an <em>unordered</em> collection of <em>unique</em> elements.</p>
-<p>The syntax for creating a set uses curly bracket <code class="docutils literal notranslate"><span class="pre">{</span></code> and <code class="docutils literal notranslate"><span class="pre">}</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">item1</span><span class="p">,</span> <span class="n">item2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">itemN</span><span class="p">}</span>
-</pre></div>
-</div>
-<p>Here is an example.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;s has type&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
-<span class="n">s</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>s has type &lt;class &#39;set&#39;&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1, 3.0, &#39;hello&#39;}
-</pre></div>
-</div>
-</div>
-</div>
-<p>As with lists and tuples, we can check if something is <code class="docutils literal notranslate"><span class="pre">in</span></code> the set
-and check the set’s length:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;len(s) =&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
-<span class="s2">&quot;hello&quot;</span> <span class="ow">in</span> <span class="n">s</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>len(s) = 3
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</div>
-<p>Unlike lists and tuples, we can’t extract elements of a set <code class="docutils literal notranslate"><span class="pre">s</span></code> using
-<code class="docutils literal notranslate"><span class="pre">s[N]</span></code> where <code class="docutils literal notranslate"><span class="pre">N</span></code> is a number.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uncomment the line below to see what happens</span>
-<span class="c1"># s[1]</span>
-</pre></div>
-</div>
-<p>This is because sets are not ordered, so the notion of getting the
-second element (<code class="docutils literal notranslate"><span class="pre">s[1]</span></code>) is not well defined.</p>
-<p>We add elements to a set <code class="docutils literal notranslate"><span class="pre">s</span></code> using <code class="docutils literal notranslate"><span class="pre">s.add</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">s</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1, 100, 3.0, &#39;hello&#39;}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span> <span class="c1"># nothing happens, why?</span>
-<span class="n">s</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1, 100, 3.0, &#39;hello&#39;}
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can also do set operations.</p>
-<p>Consider the set <code class="docutils literal notranslate"><span class="pre">s</span></code> from above and the set
-<code class="docutils literal notranslate"><span class="pre">s2</span> <span class="pre">=</span> <span class="pre">{&quot;hello&quot;,</span> <span class="pre">&quot;world&quot;}</span></code>.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">s.union(s2)</span></code>: returns a set with all elements in either <code class="docutils literal notranslate"><span class="pre">s</span></code> or
-<code class="docutils literal notranslate"><span class="pre">s2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">s.intersection(s2)</span></code>: returns a set with all elements in both <code class="docutils literal notranslate"><span class="pre">s</span></code>
-and <code class="docutils literal notranslate"><span class="pre">s2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">s.difference(s2)</span></code>: returns a set with all elements in <code class="docutils literal notranslate"><span class="pre">s</span></code> that
-aren’t in <code class="docutils literal notranslate"><span class="pre">s2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">s.symmetric_difference(s2)</span></code>: returns a set with all elements in
-only one of <code class="docutils literal notranslate"><span class="pre">s</span></code> and <code class="docutils literal notranslate"><span class="pre">s2</span></code></p></li>
-</ul>
-<p>As with tuples and lists, a <code class="docutils literal notranslate"><span class="pre">set</span></code> function can convert other
-collections to sets.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="nb">set</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1, 2, 3}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="nb">set</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1, 2, 3}
-</pre></div>
-</div>
-</div>
-</div>
-<p>Likewise, we can convert sets to lists and tuples.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;hello&#39;, 1, 3.0, 100]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">tuple</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;hello&#39;, 1, 3.0, 100)
-</pre></div>
-</div>
-</div>
-</div>
 </div>
 </div>
 </div>

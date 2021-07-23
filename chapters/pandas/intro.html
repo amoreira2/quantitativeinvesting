@@ -178,23 +178,8 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../scientific/numpy1.html">
-     5.1. Numpy
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../scientific/plotting1.html">
-     5.2. Plotting
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../scientific/linear_algebra1.html">
-     5.3. Linear algebra
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../scientific/randomness1.html">
-     5.4. Randomness
+     5.1. Randomness
     </a>
    </li>
   </ul>
@@ -592,13 +577,8 @@
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#unique-values">
-       6.1.1.1.3. Unique Values
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#indexing">
-       6.1.1.1.4. Indexing
+       6.1.1.1.3. Indexing
       </a>
      </li>
     </ul>
@@ -690,38 +670,6 @@
                 
   <div class="section" id="introduction">
 <h1><span class="section-number">6.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p><strong>Outcomes</strong></p>
-<ul class="simple">
-<li><p>Understand the core pandas objects (<code class="docutils literal notranslate"><span class="pre">Series</span></code> and <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>)</p></li>
-<li><p>Index into particular elements of a Series and DataFrame</p></li>
-<li><p>Understand what <code class="docutils literal notranslate"><span class="pre">.dtype</span></code>/<code class="docutils literal notranslate"><span class="pre">.dtypes</span></code> do</p></li>
-<li><p>Make basic visualizations</p></li>
-</ul>
-<p><strong>Data</strong></p>
-<ul class="simple">
-<li><p>US regional unemployment data from Bureau of Labor Statistics</p></li>
-</ul>
-<p><strong>Outline</strong></p>
-<ul class="simple">
-<li><p><a class="reference external" href="#Introduction">Introduction</a></p>
-<ul>
-<li><p><a class="reference external" href="#pandas">pandas</a></p></li>
-<li><p><a class="reference external" href="#Series">Series</a></p></li>
-<li><p><a class="reference external" href="#DataFrame">DataFrame</a></p></li>
-<li><p><a class="reference external" href="#Data-Types">Data Types</a></p></li>
-<li><p><a class="reference external" href="#Changing-DataFrames">Changing DataFrames</a></p></li>
-<li><p><a class="reference external" href="#Exercises">Exercises</a></p></li>
-</ul>
-</li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uncomment following line to install on colab</span>
-<span class="c1">#! pip install qeds</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="section" id="pandas">
 <h2><span class="section-number">6.1.1. </span>pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h2>
 <p>This lecture begins the material on <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
@@ -747,7 +695,7 @@ using is helpful.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0.24.2&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1.2.3&#39;
 </pre></div>
 </div>
 </div>
@@ -757,7 +705,7 @@ using is helpful.</p>
 <p>A Series is a single column of data, with row labels for each
 observation.</p>
 <p>pandas refers to the row labels as the <em>index</em> of the Series.</p>
-<img src="https://datascience.quantecon.org/assets/_static/intro_files/PandasSeries.png" alt="PandasSeries.png" style="">
+<img src="https://datascience.quantecon.org/_static/PandasSeries.png" alt="PandasSeries.png" style="">
 <p>Below, we create a Series which contains the US unemployment rate every
 other year starting in 1995.</p>
 <div class="cell docutils container">
@@ -871,10 +819,10 @@ Name: Unemployment, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7ff4e4364ef0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="../../_images/intro_18_1.png" src="../../_images/intro_18_1.png" />
+<img alt="../../_images/intro_16_1.png" src="../../_images/intro_16_1.png" />
 </div>
 </div>
 <blockquote>
@@ -883,25 +831,8 @@ Name: Unemployment, dtype: float64
 to display figures inside the notebook itself. Also, pandas has much greater visualization functionality than this, but we will study that later on.</p>
 </div></blockquote>
 </div>
-<div class="section" id="unique-values">
-<h4><span class="section-number">6.1.1.1.3. </span>Unique Values<a class="headerlink" href="#unique-values" title="Permalink to this headline">¶</a></h4>
-<p>Though it doesn’t make sense in this data set, we may want to find the
-unique values in a Series – which can be done with the <code class="docutils literal notranslate"><span class="pre">.unique</span></code> method.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unemp</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5.6, 5.3, 4.3, 4.2, 5.8, 4.6, 7.8, 9.1, 8. , 5.7])
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 <div class="section" id="indexing">
-<h4><span class="section-number">6.1.1.1.4. </span>Indexing<a class="headerlink" href="#indexing" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.1.1.1.3. </span>Indexing<a class="headerlink" href="#indexing" title="Permalink to this headline">¶</a></h4>
 <p>Sometimes, we will want to select particular elements from a Series.</p>
 <p>We can do this using <code class="docutils literal notranslate"><span class="pre">.loc[index_items]</span></code>; where <code class="docutils literal notranslate"><span class="pre">index_items</span></code> is
 an item from the index, or a list of items in the index.</p>
@@ -946,7 +877,7 @@ columns.</p>
 database.</p>
 <p>In addition to row labels (an index), DataFrames also have column labels.</p>
 <p>We refer to these column labels as the columns or column names.</p>
-<img src="https://datascience.quantecon.org/assets/_static/intro_files/PandasDataFrame.png" alt="PandasDataFrame.png" style="">
+<img src="https://datascience.quantecon.org/_static/PandasDataFrame.png" alt="PandasDataFrame.png" style="">
 <p>Below, we create a DataFrame that contains the unemployment rate every
 other year by region of the US starting in 1995.</p>
 <div class="cell docutils container">
@@ -1276,10 +1207,10 @@ first or last <code class="docutils literal notranslate"><span class="pre">n</sp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7ff4b78dc278&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="../../_images/intro_35_1.png" src="../../_images/intro_35_1.png" />
+<img alt="../../_images/intro_31_1.png" src="../../_images/intro_31_1.png" />
 </div>
 </div>
 </div>
@@ -1697,7 +1628,7 @@ we get unexpected results…</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NorthEast                                 63.7
-MidWest                                     62
+MidWest                                   62.0
 South        5.35.24.24.05.75.24.37.69.17.45.5
 West                                      72.8
 National                                  65.7

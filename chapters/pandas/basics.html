@@ -178,23 +178,8 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../scientific/numpy1.html">
-     5.1. Numpy
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../scientific/plotting1.html">
-     5.2. Plotting
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../scientific/linear_algebra1.html">
-     5.3. Linear algebra
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../scientific/randomness1.html">
-     5.4. Randomness
+     5.1. Randomness
     </a>
    </li>
   </ul>
@@ -561,77 +546,62 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#outline">
-   6.2.1. Outline
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#industry-portfolios-data">
-   6.2.2. Industry portfolios data
+   6.2.1. Industry portfolios data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#dates-in-pandas">
-   6.2.3. Dates in pandas
+   6.2.2. Dates in pandas
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#dataframe-aggregations">
-   6.2.4. DataFrame Aggregations
+   6.2.3. DataFrame Aggregations
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#built-in-aggregations">
-     6.2.4.1. Built-in Aggregations
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#writing-your-own-aggregation">
-     6.2.4.2. Writing Your Own Aggregation
+     6.2.3.1. Built-in Aggregations
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#transforms">
-   6.2.5. Transforms
+   6.2.4. Transforms
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#built-in-transforms">
-     6.2.5.1. Built-in Transforms
+     6.2.4.1. Built-in Transforms
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#custom-series-transforms">
-     6.2.5.2. Custom Series Transforms
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#custom-scalar-transforms">
-     6.2.5.3. Custom Scalar Transforms
+     6.2.4.2. Custom Series Transforms
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#boolean-selection">
-   6.2.6. Boolean Selection
+   6.2.5. Boolean Selection
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#creating-boolean-dataframes-series">
-     6.2.6.1. Creating Boolean DataFrames/Series
+     6.2.5.1. Creating Boolean DataFrames/Series
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#multiple-conditions">
-       6.2.6.1.1. Multiple Conditions
+       6.2.5.1.1. Multiple Conditions
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#isin">
-       6.2.6.1.2.
+       6.2.5.1.2.
        <code class="docutils literal notranslate">
         <span class="pre">
          isin
@@ -641,7 +611,7 @@
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#any-and-all">
-       6.2.6.1.3.
+       6.2.5.1.3.
        <code class="docutils literal notranslate">
         <span class="pre">
          .any
@@ -672,34 +642,8 @@
                 
   <div class="section" id="basic-functionality">
 <h1><span class="section-number">6.2. </span>Basic Functionality<a class="headerlink" href="#basic-functionality" title="Permalink to this headline">¶</a></h1>
-<p><strong>Outcomes</strong></p>
-<ul class="simple">
-<li><p>Be familiar with <code class="docutils literal notranslate"><span class="pre">datetime</span></code></p></li>
-<li><p>Use built-in aggregation functions and be able to create your own and
-apply them using <code class="docutils literal notranslate"><span class="pre">agg</span></code></p></li>
-<li><p>Use built-in Series transformation functions and be able to create your
-own and apply them using <code class="docutils literal notranslate"><span class="pre">apply</span></code></p></li>
-<li><p>Use built-in scalar transformation functions and be able to create your
-own and apply them using <code class="docutils literal notranslate"><span class="pre">applymap</span></code></p></li>
-<li><p>Be able to select subsets of the DataFrame using boolean selection</p></li>
-<li><p>Know what the “want operator” is and how to apply it</p></li>
-</ul>
-<div class="section" id="outline">
-<h2><span class="section-number">6.2.1. </span>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="#Basic-Functionality">Basic Functionality</a></p>
-<ul>
-<li><p><a class="reference external" href="#Dates-in-pandas">Dates in pandas</a></p></li>
-<li><p><a class="reference external" href="#DataFrame-Aggregations">DataFrame Aggregations</a></p></li>
-<li><p><a class="reference external" href="#Transforms">Transforms</a></p></li>
-<li><p><a class="reference external" href="#Boolean-Selection">Boolean Selection</a></p></li>
-<li><p><a class="reference external" href="#Exercises">Exercises</a></p></li>
-</ul>
-</li>
-</ul>
-</div>
 <div class="section" id="industry-portfolios-data">
-<h2><span class="section-number">6.2.2. </span>Industry portfolios data<a class="headerlink" href="#industry-portfolios-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.2.1. </span>Industry portfolios data<a class="headerlink" href="#industry-portfolios-data" title="Permalink to this headline">¶</a></h2>
 <p>In this lecture, we will use industry portfolio  data by industry at a monthly
 frequency.</p>
 <p>those are portfolio of stocks of firms in different sectors of the economy</p>
@@ -708,11 +652,6 @@ frequency.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1.2.3&#39;
 </pre></div>
 </div>
 </div>
@@ -1151,7 +1090,7 @@ requires a transformation of the data similar to an Excel pivot-table.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Date&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/basics_14_1.png" src="../../_images/basics_14_1.png" />
+<img alt="../../_images/basics_13_1.png" src="../../_images/basics_13_1.png" />
 </div>
 </div>
 <p><a id='exercise-0'></a></p>
@@ -1160,7 +1099,7 @@ requires a transformation of the data similar to an Excel pivot-table.</p>
 </div></blockquote>
 </div>
 <div class="section" id="dates-in-pandas">
-<h2><span class="section-number">6.2.3. </span>Dates in pandas<a class="headerlink" href="#dates-in-pandas" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.2.2. </span>Dates in pandas<a class="headerlink" href="#dates-in-pandas" title="Permalink to this headline">¶</a></h2>
 <p>You might have noticed that our index now has a nice format for the
 dates (<code class="docutils literal notranslate"><span class="pre">YYYY-MM-DD</span></code>) rather than just a year.</p>
 <p>This is because the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> of the index is a variant of <code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p>
@@ -1321,7 +1260,7 @@ Name: 2000-01-31 00:00:00, dtype: float64
 upcoming lecture on time series data.</p>
 </div>
 <div class="section" id="dataframe-aggregations">
-<h2><span class="section-number">6.2.4. </span>DataFrame Aggregations<a class="headerlink" href="#dataframe-aggregations" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.2.3. </span>DataFrame Aggregations<a class="headerlink" href="#dataframe-aggregations" title="Permalink to this headline">¶</a></h2>
 <p>Let’s talk about <em>aggregations</em>.</p>
 <p>Loosely speaking, an aggregation is an operation that combines multiple
 values into a single value.</p>
@@ -1330,7 +1269,7 @@ values into a single value.</p>
 <p>We will use aggregations extensively as we analyze and manipulate our data.</p>
 <p>Thankfully, pandas makes this easy!</p>
 <div class="section" id="built-in-aggregations">
-<h3><span class="section-number">6.2.4.1. </span>Built-in Aggregations<a class="headerlink" href="#built-in-aggregations" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.2.3.1. </span>Built-in Aggregations<a class="headerlink" href="#built-in-aggregations" title="Permalink to this headline">¶</a></h3>
 <p>pandas already has some of the most frequently used aggregations.</p>
 <p>For example:</p>
 <ul class="simple">
@@ -1387,98 +1326,11 @@ dtype: float64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="writing-your-own-aggregation">
-<h3><span class="section-number">6.2.4.2. </span>Writing Your Own Aggregation<a class="headerlink" href="#writing-your-own-aggregation" title="Permalink to this headline">¶</a></h3>
-<p>The built-in aggregations will get us pretty far in our analysis, but
-sometimes we need more flexibility.</p>
-<p>We can have pandas perform custom aggregations by following these two
-steps:</p>
-<ol class="simple">
-<li><p>Write a Python function that takes a <code class="docutils literal notranslate"><span class="pre">Series</span></code> as an input and
-outputs a single value.</p></li>
-<li><p>Call the <code class="docutils literal notranslate"><span class="pre">agg</span></code> method with our new function as an argument.</p></li>
-</ol>
-<p>For example, below, we will classify industry as “high return” or
-“low return ” based on whether their mean returns is above 1% per month</p>
+<p>Note that below <code class="docutils literal notranslate"><span class="pre">min</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span></code> are not in quotes becasue these are functions defined in python enviroment, while <code class="docutils literal notranslate"><span class="pre">mean</span></code> and <code class="docutils literal notranslate"><span class="pre">std</span></code> are in quotes because they are methods of the dataframe.</p>
+<p><code class="docutils literal notranslate"><span class="pre">min</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span></code> are objects that python understand in general, while <code class="docutils literal notranslate"><span class="pre">mean</span></code> and <code class="docutils literal notranslate"><span class="pre">std</span></code> it only understands in the context of the dataframe.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">returns_all</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">industret_raw</span>
-    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-    <span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">&quot;Date&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;industry&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;returns&quot;</span><span class="p">)</span>
-<span class="p">)</span>
-<span class="n">returns</span><span class="o">=</span><span class="n">returns_all</span><span class="p">[</span><span class="n">industries</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
-<span class="c1"># Step 1: We write the (aggregation) function that we&#39;d like to use</span>
-<span class="c1">#</span>
-<span class="k">def</span> <span class="nf">high_or_low</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    This function takes a pandas Series object and returns high</span>
-<span class="sd">    if the mean is above 1 and low if the mean is below 0</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="s2">&quot;low&quot;</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="s2">&quot;high&quot;</span>
-
-    <span class="k">return</span> <span class="n">out</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
-<span class="c1"># Step 2: Apply it via the agg method.</span>
-<span class="c1">#</span>
-<span class="n">returns</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">high_or_low</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>industry
-Autos    high
-Banks    high
-Meals    high
-Softw     low
-Smoke    high
-Telcm     low
-Mines    high
-dtype: object
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># How does this differ from returns.agg(high_or_low)?</span>
-<span class="n">returns</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">high_or_low</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Date
-2020-11-30    high
-2020-12-31    high
-2021-01-31     low
-2021-02-28    high
-2021-03-31    high
-dtype: object
-</pre></div>
-</div>
-</div>
-</div>
-<p>Notice that <code class="docutils literal notranslate"><span class="pre">agg</span></code> can also accept multiple functions at once.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">returns</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">,</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span><span class="s1">&#39;std&#39;</span><span class="p">,</span> <span class="n">high_or_low</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">size</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">,</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span><span class="s1">&#39;std&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1513,53 +1365,43 @@ dtype: object
   <tbody>
     <tr>
       <th>min</th>
-      <td>-36.41</td>
-      <td>-34.0</td>
-      <td>-31.33</td>
-      <td>-99.99</td>
-      <td>-24.93</td>
-      <td>-21.56</td>
-      <td>-34.75</td>
+      <td>10.790000</td>
+      <td>13.000000</td>
+      <td>3.010000</td>
+      <td>-99.990000</td>
+      <td>45.980000</td>
+      <td>317.100000</td>
+      <td>10.270000</td>
     </tr>
     <tr>
       <th>max</th>
-      <td>81.88</td>
-      <td>41.79</td>
-      <td>30.65</td>
-      <td>73.65</td>
-      <td>33.04</td>
-      <td>28.17</td>
-      <td>46.1</td>
+      <td>20561.460000</td>
+      <td>7548.840000</td>
+      <td>10445.510000</td>
+      <td>26799.040000</td>
+      <td>109069.340000</td>
+      <td>24972.990000</td>
+      <td>10770.470000</td>
     </tr>
     <tr>
       <th>mean</th>
-      <td>1.181609</td>
-      <td>1.1673</td>
-      <td>1.080598</td>
-      <td>-40.541838</td>
-      <td>1.140923</td>
-      <td>0.864908</td>
-      <td>1.03496</td>
+      <td>1271.677274</td>
+      <td>952.728619</td>
+      <td>984.425286</td>
+      <td>1550.233544</td>
+      <td>12058.789384</td>
+      <td>3468.995172</td>
+      <td>970.964626</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>8.22145</td>
-      <td>7.04797</td>
-      <td>6.48647</td>
-      <td>50.469517</td>
-      <td>5.822801</td>
-      <td>4.610285</td>
-      <td>7.28218</td>
-    </tr>
-    <tr>
-      <th>high_or_low</th>
-      <td>high</td>
-      <td>high</td>
-      <td>high</td>
-      <td>low</td>
-      <td>high</td>
-      <td>low</td>
-      <td>high</td>
+      <td>1899.907582</td>
+      <td>1566.005467</td>
+      <td>2027.328596</td>
+      <td>3831.668701</td>
+      <td>22297.623981</td>
+      <td>4569.770894</td>
+      <td>1702.291519</td>
     </tr>
   </tbody>
 </table>
@@ -1568,7 +1410,7 @@ dtype: object
 </div>
 </div>
 <div class="section" id="transforms">
-<h2><span class="section-number">6.2.5. </span>Transforms<a class="headerlink" href="#transforms" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.2.4. </span>Transforms<a class="headerlink" href="#transforms" title="Permalink to this headline">¶</a></h2>
 <p>Many analytical operations do not necessarily involve an aggregation.</p>
 <p>The output of a function applied to a Series might need to be a new
 Series.</p>
@@ -1578,7 +1420,7 @@ Series.</p>
 <li><p>Calculate the cumulative sum of elements in each column.</p></li>
 </ul>
 <div class="section" id="built-in-transforms">
-<h3><span class="section-number">6.2.5.1. </span>Built-in Transforms<a class="headerlink" href="#built-in-transforms" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.2.4.1. </span>Built-in Transforms<a class="headerlink" href="#built-in-transforms" title="Permalink to this headline">¶</a></h3>
 <p>pandas comes with many transform functions including:</p>
 <ul class="simple">
 <li><p>Cumulative sum/max/min/product (<code class="docutils literal notranslate"><span class="pre">cum(sum|min|max|prod)</span></code>)</p></li>
@@ -1893,7 +1735,7 @@ Series.</p>
 </ol>
 </div>
 <div class="section" id="custom-series-transforms">
-<h3><span class="section-number">6.2.5.2. </span>Custom Series Transforms<a class="headerlink" href="#custom-series-transforms" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.2.4.2. </span>Custom Series Transforms<a class="headerlink" href="#custom-series-transforms" title="Permalink to this headline">¶</a></h3>
 <p>pandas also simplifies applying custom Series transforms to a Series or the
 columns of a DataFrame. The steps are:</p>
 <ol class="simple">
@@ -1904,6 +1746,114 @@ columns of a DataFrame. The steps are:</p>
 and standard deviation 1.</p>
 <p>After doing this, we can use an aggregation to determine at which date the
 return is most different from “normal times” for each industry.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lets now work with the return data</span>
+
+<span class="n">returns_all</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">industret_raw</span>
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">&quot;Date&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;industry&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;returns&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">returns</span> <span class="o">=</span> <span class="n">returns_all</span><span class="p">[</span><span class="n">industries</span><span class="p">]</span>
+<span class="n">returns</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>industry</th>
+      <th>Autos</th>
+      <th>Banks</th>
+      <th>Meals</th>
+      <th>Softw</th>
+      <th>Smoke</th>
+      <th>Telcm</th>
+      <th>Mines</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1926-07-31</th>
+      <td>16.39</td>
+      <td>4.61</td>
+      <td>1.87</td>
+      <td>-99.99</td>
+      <td>1.29</td>
+      <td>0.83</td>
+      <td>5.64</td>
+    </tr>
+    <tr>
+      <th>1926-08-31</th>
+      <td>4.23</td>
+      <td>11.83</td>
+      <td>-0.13</td>
+      <td>-99.99</td>
+      <td>6.50</td>
+      <td>2.17</td>
+      <td>0.55</td>
+    </tr>
+    <tr>
+      <th>1926-09-30</th>
+      <td>4.83</td>
+      <td>-1.75</td>
+      <td>-0.56</td>
+      <td>-99.99</td>
+      <td>1.26</td>
+      <td>2.41</td>
+      <td>1.74</td>
+    </tr>
+    <tr>
+      <th>1926-10-31</th>
+      <td>-7.93</td>
+      <td>-11.82</td>
+      <td>-4.11</td>
+      <td>-99.99</td>
+      <td>1.06</td>
+      <td>-0.11</td>
+      <td>-3.20</td>
+    </tr>
+    <tr>
+      <th>1926-11-30</th>
+      <td>-0.66</td>
+      <td>-2.97</td>
+      <td>4.33</td>
+      <td>-99.99</td>
+      <td>4.55</td>
+      <td>1.63</td>
+      <td>8.46</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
@@ -2152,19 +2102,9 @@ dtype: datetime64[ns]
 </div>
 </div>
 </div>
-<div class="section" id="custom-scalar-transforms">
-<h3><span class="section-number">6.2.5.3. </span>Custom Scalar Transforms<a class="headerlink" href="#custom-scalar-transforms" title="Permalink to this headline">¶</a></h3>
-<p>As you may have predicted, we can also apply custom scalar transforms to our
-pandas data.</p>
-<p>To do this, we use the following pattern:</p>
-<ol class="simple">
-<li><p>Define a Python function that takes in a scalar and produces a scalar.</p></li>
-<li><p>Pass this function as an argument to the <code class="docutils literal notranslate"><span class="pre">applymap</span></code> Series or DataFrame method.</p></li>
-</ol>
-</div>
 </div>
 <div class="section" id="boolean-selection">
-<h2><span class="section-number">6.2.6. </span>Boolean Selection<a class="headerlink" href="#boolean-selection" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.2.5. </span>Boolean Selection<a class="headerlink" href="#boolean-selection" title="Permalink to this headline">¶</a></h2>
 <p>We have seen how we can select subsets of data by referring to the index
 or column names.</p>
 <p>However, we often want to select based on conditions met by
@@ -2501,7 +2441,7 @@ to index into a Series or DataFrame.</p>
 </div></div></div>
 </div>
 <div class="section" id="creating-boolean-dataframes-series">
-<h3><span class="section-number">6.2.6.1. </span>Creating Boolean DataFrames/Series<a class="headerlink" href="#creating-boolean-dataframes-series" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.2.5.1. </span>Creating Boolean DataFrames/Series<a class="headerlink" href="#creating-boolean-dataframes-series" title="Permalink to this headline">¶</a></h3>
 <p>We can use <span class="xref myst">conditional statements</span> to
 construct Series of booleans from our data.</p>
 <div class="cell docutils container">
@@ -2712,7 +2652,7 @@ dtype: bool
 </div></div></div>
 </div>
 <div class="section" id="multiple-conditions">
-<h4><span class="section-number">6.2.6.1.1. </span>Multiple Conditions<a class="headerlink" href="#multiple-conditions" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.2.5.1.1. </span>Multiple Conditions<a class="headerlink" href="#multiple-conditions" title="Permalink to this headline">¶</a></h4>
 <p>In the boolean section of the <span class="xref myst">basics lecture</span>, we saw
 that we can use the words <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code> to combine multiple booleans into
 a single bool.</p>
@@ -2824,7 +2764,7 @@ dtype: bool
 </div>
 </div>
 <div class="section" id="isin">
-<h4><span class="section-number">6.2.6.1.2. </span><code class="docutils literal notranslate"><span class="pre">isin</span></code><a class="headerlink" href="#isin" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.2.5.1.2. </span><code class="docutils literal notranslate"><span class="pre">isin</span></code><a class="headerlink" href="#isin" title="Permalink to this headline">¶</a></h4>
 <p>Sometimes, we will want to check whether a data point takes on one of a
 several fixed values.</p>
 <p>We could do this by writing <code class="docutils literal notranslate"><span class="pre">(df[&quot;x&quot;]</span> <span class="pre">==</span> <span class="pre">val_1)</span> <span class="pre">|</span> <span class="pre">(df[&quot;x&quot;]</span> <span class="pre">==</span> <span class="pre">val_2)</span></code>
@@ -2919,7 +2859,7 @@ Name: Smoke, dtype: bool
 </div>
 </div>
 <div class="section" id="any-and-all">
-<h4><span class="section-number">6.2.6.1.3. </span><code class="docutils literal notranslate"><span class="pre">.any</span></code> and <code class="docutils literal notranslate"><span class="pre">.all</span></code><a class="headerlink" href="#any-and-all" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.2.5.1.3. </span><code class="docutils literal notranslate"><span class="pre">.any</span></code> and <code class="docutils literal notranslate"><span class="pre">.all</span></code><a class="headerlink" href="#any-and-all" title="Permalink to this headline">¶</a></h4>
 <p>Recall from the boolean section of the <span class="xref myst">basics lecture</span>
 that the Python functions <code class="docutils literal notranslate"><span class="pre">any</span></code> and <code class="docutils literal notranslate"><span class="pre">all</span></code> are aggregation functions that
 take a collection of booleans and return a single boolean.</p>
@@ -3179,8 +3119,9 @@ dtype: bool
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 1: Call .sum to add up the number of True values in `all_low`</span>
 <span class="c1">#         (note that True == 1 and False == 0 in Python, so .sum will count Trues)</span>
-<span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Out of </span><span class="si">{}</span><span class="s2"> months, </span><span class="si">{}</span><span class="s2"> had low returns across all industries&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">all_low</span><span class="p">),</span> <span class="n">all_low</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Out of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">all_low</span><span class="p">)</span><span class="si">}</span><span class="s1"> months, </span><span class="si">{</span><span class="n">all_low</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s1"> had low returns across all industries&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

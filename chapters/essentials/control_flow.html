@@ -180,23 +180,8 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../scientific/numpy1.html">
-     5.1. Numpy
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../scientific/plotting1.html">
-     5.2. Plotting
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../scientific/linear_algebra1.html">
-     5.3. Linear algebra
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../scientific/randomness1.html">
-     5.4. Randomness
+     5.1. Randomness
     </a>
    </li>
   </ul>
@@ -563,18 +548,13 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#outline">
-   4.3.1. Outline
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#conditional-statements-and-blocks">
-   4.3.2. Conditional Statements and Blocks
+   4.3.1. Conditional Statements and Blocks
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#elif-clauses">
-     4.3.2.1.
+     4.3.1.1.
      <code class="docutils literal notranslate">
       <span class="pre">
        elif
@@ -587,17 +567,17 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#iteration">
-   4.3.3. Iteration
+   4.3.2. Iteration
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#a-contrived-example">
-     4.3.3.1. A Contrived Example
+     4.3.2.1. A Contrived Example
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#for-loops">
-     4.3.3.2.
+     4.3.2.2.
      <code class="docutils literal notranslate">
       <span class="pre">
        for
@@ -608,7 +588,7 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#while-loops">
-     4.3.3.3.
+     4.3.2.3.
      <code class="docutils literal notranslate">
       <span class="pre">
        while
@@ -619,7 +599,7 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#break-and-continue">
-     4.3.3.4.
+     4.3.2.4.
      <code class="docutils literal notranslate">
       <span class="pre">
        break
@@ -635,7 +615,7 @@
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#break-out-of-a-loop">
-       4.3.3.4.1.
+       4.3.2.4.1.
        <code class="docutils literal notranslate">
         <span class="pre">
          break
@@ -646,7 +626,7 @@
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#continue-to-the-next-iteration">
-       4.3.3.4.2.
+       4.3.2.4.2.
        <code class="docutils literal notranslate">
         <span class="pre">
          continue
@@ -658,11 +638,6 @@
     </ul>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#comprehension-opt">
-   4.3.4. Comprehension (opt)
-  </a>
  </li>
 </ul>
 
@@ -677,48 +652,10 @@
                 
   <div class="section" id="control-flow">
 <h1><span class="section-number">4.3. </span>Control Flow<a class="headerlink" href="#control-flow" title="Permalink to this headline">¶</a></h1>
-<p><strong>Outcomes</strong></p>
-<ul class="simple">
-<li><p>Conditionals</p>
-<ul>
-<li><p>Understand what a conditional is</p></li>
-<li><p>Be able to construct <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">elif</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code> conditional blocks</p></li>
-<li><p>Understand how conditionals can be used to selectively execute blocks of code</p></li>
-</ul>
-</li>
-<li><p>Iteration</p>
-<ul>
-<li><p>Understand what an iterable is</p></li>
-<li><p>Be able to write <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</p></li>
-<li><p>Understand the keywords <code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code></p></li>
-</ul>
-</li>
-</ul>
-<div class="section" id="outline">
-<h2><span class="section-number">4.3.1. </span>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="#Control-Flow">Control Flow</a></p>
-<ul>
-<li><p><a class="reference external" href="#Net-Present-Values-and-Asset-Pricing">Net Present Values and Asset Pricing</a></p></li>
-<li><p><a class="reference external" href="#Conditional-Statements-and-Blocks">Conditional Statements and Blocks</a></p></li>
-<li><p><a class="reference external" href="#Iteration">Iteration</a></p></li>
-<li><p><a class="reference external" href="#Comprehension">Comprehension</a></p></li>
-<li><p><a class="reference external" href="#Exercises">Exercises</a></p></li>
-</ul>
-</li>
-</ul>
 <p><a id='deterministic-asset-pricing'></a></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p><a id='npv'></a></p>
-</div>
 <div class="section" id="conditional-statements-and-blocks">
-<h2><span class="section-number">4.3.2. </span>Conditional Statements and Blocks<a class="headerlink" href="#conditional-statements-and-blocks" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.3.1. </span>Conditional Statements and Blocks<a class="headerlink" href="#conditional-statements-and-blocks" title="Permalink to this headline">¶</a></h2>
 <p>Sometimes, we will only want to execute some piece of code if a certain condition
 is met.</p>
 <p>These conditions can be anything.</p>
@@ -855,7 +792,7 @@ before, but now, we added an <code class="docutils literal notranslate"><span cl
 </div>
 </div>
 <div class="section" id="elif-clauses">
-<h3><span class="section-number">4.3.2.1. </span><code class="docutils literal notranslate"><span class="pre">elif</span></code> clauses<a class="headerlink" href="#elif-clauses" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.1.1. </span><code class="docutils literal notranslate"><span class="pre">elif</span></code> clauses<a class="headerlink" href="#elif-clauses" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes, you have more than one condition you want to check.</p>
 <p>For example, you might want to run a different set of code based on which
 quarter a particular transaction took place in.</p>
@@ -908,7 +845,7 @@ associated with <code class="docutils literal notranslate"><span class="pre">hal
 </div>
 </div>
 <div class="section" id="iteration">
-<h2><span class="section-number">4.3.3. </span>Iteration<a class="headerlink" href="#iteration" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.3.2. </span>Iteration<a class="headerlink" href="#iteration" title="Permalink to this headline">¶</a></h2>
 <p>When doing computations or analyzing data, we often need to repeat certain
 operations a finite number of times or until some condition is met.</p>
 <p>Examples include processing all data files in a directory (folder), aggregating
@@ -919,7 +856,7 @@ that we wrote down above.)</p>
 <p>We feel the concept is best understood through example, so we will present a
 contrived example and then discuss the details behind doing iteration in Python.</p>
 <div class="section" id="a-contrived-example">
-<h3><span class="section-number">4.3.3.1. </span>A Contrived Example<a class="headerlink" href="#a-contrived-example" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.2.1. </span>A Contrived Example<a class="headerlink" href="#a-contrived-example" title="Permalink to this headline">¶</a></h3>
 <p>Suppose we wanted to print out the first 10 integers and their squares.</p>
 <p>We <em>could</em> do something like this.</p>
 <div class="cell docutils container">
@@ -983,7 +920,7 @@ for each new value it did the operations in the indented block (here
 just one line that called the <code class="docutils literal notranslate"><span class="pre">print</span></code> function).</p>
 </div>
 <div class="section" id="for-loops">
-<h3><span class="section-number">4.3.3.2. </span><code class="docutils literal notranslate"><span class="pre">for</span></code> Loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.2.2. </span><code class="docutils literal notranslate"><span class="pre">for</span></code> Loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h3>
 <p>The general structure of a standard <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is as follows.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
    <span class="c1"># operation 1 with item</span>
@@ -1004,67 +941,9 @@ dicts, and range/zip/enumerate objects are all iterables.</p>
 at a time and execute the loop body for each value.</p>
 <p>When iterating, each <code class="docutils literal notranslate"><span class="pre">item</span></code> in <code class="docutils literal notranslate"><span class="pre">iterable</span></code> might actually contain more than
 one value.</p>
-<p>Recall that tuples (and lists) can be unpacked directly into variables.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">)</span>
-<span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">tup</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;i = </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">, x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, tup = </span><span class="si">{</span><span class="n">tup</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>i = 4, x = test, tup = (4, &#39;test&#39;)
-</pre></div>
-</div>
-</div>
-</div>
-<p>Also, recall that the value of a <code class="docutils literal notranslate"><span class="pre">enumerate(iterable)</span></code> is a tuple of the
-form <code class="docutils literal notranslate"><span class="pre">(i,</span> <span class="pre">x)</span></code> where <code class="docutils literal notranslate"><span class="pre">iterable[i]</span> <span class="pre">==</span> <span class="pre">x</span></code>.</p>
-<p>When we use <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> in a for loop, we can “unpack” both values at the same
-time as follows:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># revenue by quarter</span>
-<span class="n">company_revenue</span> <span class="o">=</span> <span class="p">[</span><span class="mf">5.12</span><span class="p">,</span> <span class="mf">5.20</span><span class="p">,</span> <span class="mf">5.50</span><span class="p">,</span> <span class="mf">6.50</span><span class="p">]</span>
-
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">company_revenue</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;quarter </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2"> revenue is $</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2"> million&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>quarter 0 revenue is $5.12 million
-quarter 1 revenue is $5.2 million
-quarter 2 revenue is $5.5 million
-quarter 3 revenue is $6.5 million
-</pre></div>
-</div>
-</div>
-</div>
-<p>Similarly, the index can be used to access another vector.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Phoenix&quot;</span><span class="p">,</span> <span class="s2">&quot;Austin&quot;</span><span class="p">,</span> <span class="s2">&quot;San Diego&quot;</span><span class="p">,</span> <span class="s2">&quot;New York&quot;</span><span class="p">]</span>
-<span class="n">states</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Arizona&quot;</span><span class="p">,</span> <span class="s2">&quot;Texas&quot;</span><span class="p">,</span> <span class="s2">&quot;California&quot;</span><span class="p">,</span> <span class="s2">&quot;New York&quot;</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">city</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cities</span><span class="p">):</span>
-    <span class="n">state</span> <span class="o">=</span> <span class="n">states</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">city</span><span class="si">}</span><span class="s2"> is in </span><span class="si">{</span><span class="n">state</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Phoenix is in Arizona
-Austin is in Texas
-San Diego is in California
-New York is in New York
-</pre></div>
-</div>
-</div>
-</div>
 </div>
 <div class="section" id="while-loops">
-<h3><span class="section-number">4.3.3.3. </span><code class="docutils literal notranslate"><span class="pre">while</span></code> Loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.2.3. </span><code class="docutils literal notranslate"><span class="pre">while</span></code> Loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">¶</a></h3>
 <p>A related but slightly different form of iteration is to repeat something
 until some condition is met.</p>
 <p>This is typically achieved using a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop.</p>
@@ -1171,9 +1050,9 @@ done
 </div>
 </div>
 <div class="section" id="break-and-continue">
-<h3><span class="section-number">4.3.3.4. </span><code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code><a class="headerlink" href="#break-and-continue" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.2.4. </span><code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code><a class="headerlink" href="#break-and-continue" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="break-out-of-a-loop">
-<h4><span class="section-number">4.3.3.4.1. </span><code class="docutils literal notranslate"><span class="pre">break</span></code> Out of a Loop<a class="headerlink" href="#break-out-of-a-loop" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.3.2.4.1. </span><code class="docutils literal notranslate"><span class="pre">break</span></code> Out of a Loop<a class="headerlink" href="#break-out-of-a-loop" title="Permalink to this headline">¶</a></h4>
 <p>Sometimes we want to stop a loop early if some condition is met.</p>
 <p>Let’s revisit the example of finding the smallest <code class="docutils literal notranslate"><span class="pre">N</span></code> such that
 <span class="math notranslate nohighlight">\( \sum_{i=0}^N i &gt; 1000 \)</span>.</p>
@@ -1201,7 +1080,7 @@ iterating through our range once total goes above 1000.</p>
 </div>
 </div>
 <div class="section" id="continue-to-the-next-iteration">
-<h4><span class="section-number">4.3.3.4.2. </span><code class="docutils literal notranslate"><span class="pre">continue</span></code> to the Next Iteration<a class="headerlink" href="#continue-to-the-next-iteration" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.3.2.4.2. </span><code class="docutils literal notranslate"><span class="pre">continue</span></code> to the Next Iteration<a class="headerlink" href="#continue-to-the-next-iteration" title="Permalink to this headline">¶</a></h4>
 <p>Sometimes we might want to stop the <em>body of a loop</em> early if a condition is met.</p>
 <p>To do this we can use the <code class="docutils literal notranslate"><span class="pre">continue</span></code> keyword.</p>
 <p>The basic syntax for doing this is:</p>
@@ -1237,134 +1116,6 @@ nothing otherwise.</p>
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="comprehension-opt">
-<h2><span class="section-number">4.3.4. </span>Comprehension (opt)<a class="headerlink" href="#comprehension-opt" title="Permalink to this headline">¶</a></h2>
-<p>Often, we will want to perform a very simple operation for every element of some iterable and
-create a new iterable with these values.</p>
-<p>This could be done by writing a for loop and saving each
-value, but often using what is called a <em>comprehension</em> is more readable.</p>
-<p>Like many Python concepts, a comprehension is easiest to understand through example.</p>
-<p>Imagine that we have a list <code class="docutils literal notranslate"><span class="pre">x</span></code> with a list of numbers. We would like to create a list <code class="docutils literal notranslate"><span class="pre">x2</span></code> which has
-the squared values of x.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
-
-<span class="c1"># Create squared values with a loop</span>
-<span class="n">x2_loop</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">x_val</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
-    <span class="n">x2_loop</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x_val</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="c1"># Create squared values with a comprehension</span>
-<span class="n">x2_comp</span> <span class="o">=</span> <span class="p">[</span><span class="n">x_val</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x_val</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">x2_loop</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x2_comp</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 4, 9]
-[0, 1, 4, 9]
-</pre></div>
-</div>
-</div>
-</div>
-<p>Notice that much of the same text appears when we do the operation in the loop and when we do the
-operation with the comprehension.</p>
-<ul class="simple">
-<li><p>We need to specify what we are iterating over – in both cases, this is <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">x_val</span> <span class="pre">in</span> <span class="pre">x</span></code>.</p></li>
-<li><p>We need to square each element <code class="docutils literal notranslate"><span class="pre">x_val**2</span></code>.</p></li>
-<li><p>It needs to be stored somewhere – in <code class="docutils literal notranslate"><span class="pre">x2_loop</span></code>, this is done by appending each element to a list,
-and in <code class="docutils literal notranslate"><span class="pre">x2_comp</span></code>, this is done automatically because the operation is enclosed in a list.</p></li>
-</ul>
-<p>We can do comprehension with many different types of iterables, so we demonstrate a few more below.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a dictionary from lists</span>
-<span class="n">tickers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;AAPL&quot;</span><span class="p">,</span> <span class="s2">&quot;GOOGL&quot;</span><span class="p">,</span> <span class="s2">&quot;TVIX&quot;</span><span class="p">]</span>
-<span class="n">prices</span> <span class="o">=</span> <span class="p">[</span><span class="mf">175.96</span><span class="p">,</span> <span class="mf">1047.43</span><span class="p">,</span> <span class="mf">8.38</span><span class="p">]</span>
-<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">tickers</span><span class="p">,</span> <span class="n">prices</span><span class="p">)}</span>
-<span class="n">d</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;AAPL&#39;: 175.96, &#39;GOOGL&#39;: 1047.43, &#39;TVIX&#39;: 8.38}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a list from a dictionary</span>
-<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;AMZN&quot;</span><span class="p">:</span> <span class="s2">&quot;Seattle&quot;</span><span class="p">,</span> <span class="s2">&quot;TVIX&quot;</span><span class="p">:</span> <span class="s2">&quot;Zurich&quot;</span><span class="p">,</span> <span class="s2">&quot;AAPL&quot;</span><span class="p">:</span> <span class="s2">&quot;Cupertino&quot;</span><span class="p">}</span>
-
-<span class="n">hq_cities</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="n">ticker</span><span class="p">]</span> <span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
-<span class="n">hq_cities</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Seattle&#39;, &#39;Zurich&#39;, &#39;Cupertino&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-
-<span class="c1"># List from list</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-
-<span class="n">sin_x</span> <span class="o">=</span> <span class="p">[</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x_val</span><span class="p">)</span> <span class="k">for</span> <span class="n">x_val</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
-<span class="n">sin_x</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.0,
- 0.8414709848078965,
- 0.9092974268256817,
- 0.1411200080598672,
- -0.7568024953079282,
- -0.9589242746631385,
- -0.27941549819892586,
- 0.6569865987187891,
- 0.9893582466233818,
- 0.4121184852417566]
-</pre></div>
-</div>
-</div>
-</div>
-<p>Finally, we can use this approach to build complicated nested dictionaries.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdp_data</span> <span class="o">=</span> <span class="p">[</span><span class="mf">9.607</span><span class="p">,</span> <span class="mf">10.48</span><span class="p">,</span> <span class="mf">11.06</span><span class="p">]</span>
-<span class="n">years</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">2014</span><span class="p">,</span> <span class="mi">2015</span><span class="p">]</span>
-<span class="n">exports</span> <span class="o">=</span> <span class="p">[</span> <span class="p">{</span><span class="s2">&quot;manufacturing&quot;</span><span class="p">:</span> <span class="mf">2.4</span><span class="p">,</span> <span class="s2">&quot;agriculture&quot;</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span> <span class="s2">&quot;services&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">&quot;manufacturing&quot;</span><span class="p">:</span> <span class="mf">2.5</span><span class="p">,</span> <span class="s2">&quot;agriculture&quot;</span><span class="p">:</span> <span class="mf">1.4</span><span class="p">,</span> <span class="s2">&quot;services&quot;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">&quot;manufacturing&quot;</span><span class="p">:</span> <span class="mf">2.7</span><span class="p">,</span> <span class="s2">&quot;agriculture&quot;</span><span class="p">:</span> <span class="mf">1.4</span><span class="p">,</span> <span class="s2">&quot;services&quot;</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">}]</span>
-<span class="n">data</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">gdp_data</span><span class="p">,</span><span class="n">exports</span><span class="p">)</span>
-<span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">year</span> <span class="p">:</span> <span class="p">{</span><span class="s2">&quot;gdp&quot;</span> <span class="p">:</span> <span class="n">gdp</span><span class="p">,</span> <span class="s2">&quot;exports&quot;</span><span class="p">:</span> <span class="n">exports</span><span class="p">}</span> <span class="k">for</span> <span class="n">year</span><span class="p">,</span> <span class="n">gdp</span><span class="p">,</span> <span class="n">exports</span> <span class="ow">in</span> <span class="n">data</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">data_dict</span><span class="p">)</span>
-
-<span class="c1"># total exports by year</span>
-<span class="p">[</span><span class="n">data_dict</span><span class="p">[</span><span class="n">year</span><span class="p">][</span><span class="s2">&quot;exports&quot;</span><span class="p">][</span><span class="s2">&quot;services&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">data_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{2013: {&#39;gdp&#39;: 9.607, &#39;exports&#39;: {&#39;manufacturing&#39;: 2.4, &#39;agriculture&#39;: 1.5, &#39;services&#39;: 0.5}}, 2014: {&#39;gdp&#39;: 10.48, &#39;exports&#39;: {&#39;manufacturing&#39;: 2.5, &#39;agriculture&#39;: 1.4, &#39;services&#39;: 0.9}}, 2015: {&#39;gdp&#39;: 11.06, &#39;exports&#39;: {&#39;manufacturing&#39;: 2.7, &#39;agriculture&#39;: 1.4, &#39;services&#39;: 1.5}}}
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.5, 0.9, 1.5]
-</pre></div>
 </div>
 </div>
 </div>

@@ -50,8 +50,6 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="canonical" href="https://amoreira2.github.io/quantitativeinvesting/chapters/pandas/the_index.html" />
     <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -180,23 +178,8 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../scientific/numpy1.html">
-     5.1. Numpy
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../scientific/plotting1.html">
-     5.2. Plotting
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../scientific/linear_algebra1.html">
-     5.3. Linear algebra
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../scientific/randomness1.html">
-     5.4. Randomness
+     5.1. Randomness
     </a>
    </li>
   </ul>
@@ -563,50 +546,40 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#outline">
-   6.3.1. Outline
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#so-what-is-this-index">
-   6.3.2. So What is this Index?
+   6.3.1. So What is this Index?
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#automatic-alignment">
-     6.3.2.1. Automatic Alignment
+     6.3.1.1. Automatic Alignment
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#handling-missing-data">
-     6.3.2.2. Handling Missing Data
+     6.3.1.2. Handling Missing Data
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#setting-the-index">
-   6.3.3. Setting the Index
+   6.3.2. Setting the Index
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-contrived-example-opt">
-     6.3.3.1. A contrived example (opt)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#setting-a-hierarchical-index">
-     6.3.3.2. Setting a Hierarchical Index
+     6.3.2.1. Setting a Hierarchical Index
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#slicing-a-hierarchical-index">
-     6.3.3.3. Slicing a Hierarchical Index
+     6.3.2.2. Slicing a Hierarchical Index
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#alignment-with-multiindex">
-     6.3.3.4. Alignment with
+     6.3.2.3. Alignment with
      <code class="docutils literal notranslate">
       <span class="pre">
        MultiIndex
@@ -616,7 +589,7 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pd-indexslice">
-     6.3.3.5.
+     6.3.2.4.
      <code class="docutils literal notranslate">
       <span class="pre">
        pd.IndexSlice
@@ -626,24 +599,24 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#multi-index-columns">
-     6.3.3.6. Multi-index Columns
+     6.3.2.5. Multi-index Columns
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#re-setting-the-index">
-   6.3.4. Re-setting the Index
+   6.3.3. Re-setting the Index
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#choose-the-index-carefully">
-   6.3.5. Choose the Index Carefully
+   6.3.4. Choose the Index Carefully
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#know-your-goal">
-     6.3.5.1. Know Your Goal
+     6.3.4.1. Know Your Goal
     </a>
    </li>
   </ul>
@@ -661,26 +634,6 @@
                 
   <div class="section" id="the-index">
 <h1><span class="section-number">6.3. </span>The Index<a class="headerlink" href="#the-index" title="Permalink to this headline">¶</a></h1>
-<p><strong>Outcomes</strong></p>
-<ul class="simple">
-<li><p>Understand how the index is used to align data</p></li>
-<li><p>Know how to set and reset the index</p></li>
-<li><p>Understand how to select subsets of data by slicing on index and columns</p></li>
-<li><p>Understand that for DataFrames, the column names also align data</p></li>
-</ul>
-<div class="section" id="outline">
-<h2><span class="section-number">6.3.1. </span>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="#The-Index">The Index</a></p>
-<ul>
-<li><p><a class="reference external" href="#So-What-is-this-Index?">So What is this Index?</a></p></li>
-<li><p><a class="reference external" href="#Setting-the-Index">Setting the Index</a></p></li>
-<li><p><a class="reference external" href="#Re-setting-the-Index">Re-setting the Index</a></p></li>
-<li><p><a class="reference external" href="#Choose-the-Index-Carefully">Choose the Index Carefully</a></p></li>
-<li><p><a class="reference external" href="#Exercises">Exercises</a></p></li>
-</ul>
-</li>
-</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -689,9 +642,8 @@
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="so-what-is-this-index">
-<h2><span class="section-number">6.3.2. </span>So What is this Index?<a class="headerlink" href="#so-what-is-this-index" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3.1. </span>So What is this Index?<a class="headerlink" href="#so-what-is-this-index" title="Permalink to this headline">¶</a></h2>
 <p>Every Series or DataFrame has an index.</p>
 <p>We told you that the index was the “row labels” for the data.</p>
 <p>This is true, but an index in pandas does much more than label the rows.</p>
@@ -1295,7 +1247,7 @@ within each DataFrame.</p></li>
 </div>
 <p>Whoa, a lot happened! Let’s break it down.</p>
 <div class="section" id="automatic-alignment">
-<h3><span class="section-number">6.3.2.1. </span>Automatic Alignment<a class="headerlink" href="#automatic-alignment" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.1.1. </span>Automatic Alignment<a class="headerlink" href="#automatic-alignment" title="Permalink to this headline">¶</a></h3>
 <p>For all (row, column) combinations that appear in both DataFrames (e.g.
 rows <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">3]</span></code> and columns <code class="docutils literal notranslate"><span class="pre">[Imports,</span> <span class="pre">Exports]</span></code>), the value of <code class="docutils literal notranslate"><span class="pre">im_ex_tiny</span></code>
 is equal to <code class="docutils literal notranslate"><span class="pre">df_tiny.loc[row,</span> <span class="pre">col]</span> <span class="pre">+</span> <span class="pre">im_ex.loc[row,</span> <span class="pre">col]</span></code>.</p>
@@ -1318,7 +1270,7 @@ extract the value.</p></li>
 quickly</em>.</p>
 </div>
 <div class="section" id="handling-missing-data">
-<h3><span class="section-number">6.3.2.2. </span>Handling Missing Data<a class="headerlink" href="#handling-missing-data" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.1.2. </span>Handling Missing Data<a class="headerlink" href="#handling-missing-data" title="Permalink to this headline">¶</a></h3>
 <p>For all elements in row <code class="docutils literal notranslate"><span class="pre">1</span></code> or columns
 <code class="docutils literal notranslate"><span class="pre">[&quot;country&quot;,</span> <span class="pre">&quot;year&quot;,</span> <span class="pre">&quot;GovExpend&quot;,</span> <span class="pre">&quot;Consumption&quot;,</span> <span class="pre">&quot;GDP&quot;]</span></code>,
 the value in <code class="docutils literal notranslate"><span class="pre">im_ex_tiny</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
@@ -1330,7 +1282,7 @@ that the result is missing (spelled <code class="docutils literal notranslate"><
 </div>
 </div>
 <div class="section" id="setting-the-index">
-<h2><span class="section-number">6.3.3. </span>Setting the Index<a class="headerlink" href="#setting-the-index" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3.2. </span>Setting the Index<a class="headerlink" href="#setting-the-index" title="Permalink to this headline">¶</a></h2>
 <p>For a DataFrame <code class="docutils literal notranslate"><span class="pre">df</span></code>, the <code class="docutils literal notranslate"><span class="pre">df.set_index</span></code> method allows us to use one
 (or more) of the DataFrame’s columns as the index.</p>
 <p>Here’s an example.</p>
@@ -1663,373 +1615,10 @@ that is what we listed first in the call to <code class="docutils literal notran
 </div>
 <p>Setting just the year as index has one more potential issue: we will
 get data alignment only on the year, which may not be sufficient.</p>
-<p>Below an example what might go wrong if you are not careful</p>
-<div class="section" id="a-contrived-example-opt">
-<h3><span class="section-number">6.3.3.1. </span>A contrived example (opt)<a class="headerlink" href="#a-contrived-example-opt" title="Permalink to this headline">¶</a></h3>
-<p>To demonstrate this point, suppose now you are asked to use our WDI dataset
-to compute an approximation for net exports and investment in in 2009.</p>
-<p>As a seasoned economist, you would remember the expenditure formula for GDP is
-written</p>
-<div class="math notranslate nohighlight">
-\[
-GDP = Consumption + Investment + GovExpend + Net Exports
-\]</div>
-<p>which we can rearrange to compute investment as a function of the variables in
-our DataFrame…</p>
-<div class="math notranslate nohighlight">
-\[
-Investment = GDP - Consumption - GovExpend - Net Exports
-\]</div>
-<p>Note that we can compute NetExports as <code class="docutils literal notranslate"><span class="pre">Exports</span> <span class="pre">-</span> <span class="pre">Imports</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx</span> <span class="o">=</span> <span class="n">df_year</span><span class="p">[</span><span class="s2">&quot;Exports&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df_year</span><span class="p">[</span><span class="s2">&quot;Imports&quot;</span><span class="p">]</span>
-<span class="n">nx</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>year
-2017   -0.017201
-2016    0.000619
-2015   -0.006934
-2014   -0.022021
-2013   -0.040596
-2012   -0.041787
-2011   -0.035878
-2010   -0.030393
-2009    0.000896
-2008    0.004068
-2007    0.032451
-2006    0.053530
-2005    0.072729
-2004    0.091902
-2003    0.097794
-2002    0.121850
-2001    0.122673
-2000    0.118702
-2017    0.264214
-dtype: float64
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now, suppose that we accidentally had a bug in our code that swapped
-the data for Canada and Germany’s net exports in 2017.</p>
-<blockquote>
-<div><p><strong>Note</strong></p>
-<p>This example is contrived, but if you were getting unclean data from
-some resource or doing more complicated operations, this type of mistake
-becomes increasingly likely.</p>
-</div></blockquote>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ca17</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">]]</span>
-<span class="n">g17</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">18</span><span class="p">]]</span>
-<span class="n">nx</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">g17</span>
-<span class="n">nx</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">18</span><span class="p">]]</span> <span class="o">=</span> <span class="n">ca17</span>
-
-<span class="n">nx</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>year
-2017    0.264214
-2016    0.000619
-2015   -0.006934
-2014   -0.022021
-2013   -0.040596
-2012   -0.041787
-2011   -0.035878
-2010   -0.030393
-2009    0.000896
-2008    0.004068
-2007    0.032451
-2006    0.053530
-2005    0.072729
-2004    0.091902
-2003    0.097794
-2002    0.121850
-2001    0.122673
-2000    0.118702
-2017   -0.017201
-dtype: float64
-</pre></div>
-</div>
-</div>
-</div>
-<p>Notice that if we now add <code class="docutils literal notranslate"><span class="pre">nx</span></code> to the DataFrame and compute investment
-pandas doesn’t complain.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_year</span><span class="p">[</span><span class="s2">&quot;NetExports&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nx</span>
-<span class="n">df_year</span><span class="p">[</span><span class="s2">&quot;Investment&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_year</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s2">&quot;GDP - Consumption - GovExpend - NetExports&quot;</span><span class="p">)</span>
-<span class="n">df_year</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>country</th>
-      <th>GovExpend</th>
-      <th>Consumption</th>
-      <th>Exports</th>
-      <th>Imports</th>
-      <th>GDP</th>
-      <th>NetExports</th>
-      <th>Investment</th>
-    </tr>
-    <tr>
-      <th>year</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2017</th>
-      <td>Canada</td>
-      <td>0.372665</td>
-      <td>1.095475</td>
-      <td>0.582831</td>
-      <td>0.600031</td>
-      <td>1.868164</td>
-      <td>0.264214</td>
-      <td>0.135811</td>
-    </tr>
-    <tr>
-      <th>2016</th>
-      <td>Canada</td>
-      <td>0.364899</td>
-      <td>1.058426</td>
-      <td>0.576394</td>
-      <td>0.575775</td>
-      <td>1.814016</td>
-      <td>0.000619</td>
-      <td>0.390072</td>
-    </tr>
-    <tr>
-      <th>2015</th>
-      <td>Canada</td>
-      <td>0.358303</td>
-      <td>1.035208</td>
-      <td>0.568859</td>
-      <td>0.575793</td>
-      <td>1.794270</td>
-      <td>-0.006934</td>
-      <td>0.407692</td>
-    </tr>
-    <tr>
-      <th>2014</th>
-      <td>Canada</td>
-      <td>0.353485</td>
-      <td>1.011988</td>
-      <td>0.550323</td>
-      <td>0.572344</td>
-      <td>1.782252</td>
-      <td>-0.022021</td>
-      <td>0.438800</td>
-    </tr>
-    <tr>
-      <th>2013</th>
-      <td>Canada</td>
-      <td>0.351541</td>
-      <td>0.986400</td>
-      <td>0.518040</td>
-      <td>0.558636</td>
-      <td>1.732714</td>
-      <td>-0.040596</td>
-      <td>0.435369</td>
-    </tr>
-    <tr>
-      <th>2012</th>
-      <td>Canada</td>
-      <td>0.354342</td>
-      <td>0.961226</td>
-      <td>0.505969</td>
-      <td>0.547756</td>
-      <td>1.693428</td>
-      <td>-0.041787</td>
-      <td>0.419647</td>
-    </tr>
-    <tr>
-      <th>2011</th>
-      <td>Canada</td>
-      <td>0.351887</td>
-      <td>0.943145</td>
-      <td>0.492349</td>
-      <td>0.528227</td>
-      <td>1.664240</td>
-      <td>-0.035878</td>
-      <td>0.405086</td>
-    </tr>
-    <tr>
-      <th>2010</th>
-      <td>Canada</td>
-      <td>0.347332</td>
-      <td>0.921952</td>
-      <td>0.469949</td>
-      <td>0.500341</td>
-      <td>1.613543</td>
-      <td>-0.030393</td>
-      <td>0.374652</td>
-    </tr>
-    <tr>
-      <th>2009</th>
-      <td>Canada</td>
-      <td>0.339686</td>
-      <td>0.890078</td>
-      <td>0.440692</td>
-      <td>0.439796</td>
-      <td>1.565291</td>
-      <td>0.000896</td>
-      <td>0.334631</td>
-    </tr>
-    <tr>
-      <th>2008</th>
-      <td>Canada</td>
-      <td>0.330766</td>
-      <td>0.889602</td>
-      <td>0.506350</td>
-      <td>0.502281</td>
-      <td>1.612862</td>
-      <td>0.004068</td>
-      <td>0.388425</td>
-    </tr>
-    <tr>
-      <th>2007</th>
-      <td>Canada</td>
-      <td>0.318777</td>
-      <td>0.864012</td>
-      <td>0.530453</td>
-      <td>0.498002</td>
-      <td>1.596876</td>
-      <td>0.032451</td>
-      <td>0.381636</td>
-    </tr>
-    <tr>
-      <th>2006</th>
-      <td>Canada</td>
-      <td>0.311382</td>
-      <td>0.827643</td>
-      <td>0.524461</td>
-      <td>0.470931</td>
-      <td>1.564608</td>
-      <td>0.053530</td>
-      <td>0.372053</td>
-    </tr>
-    <tr>
-      <th>2005</th>
-      <td>Canada</td>
-      <td>0.303043</td>
-      <td>0.794390</td>
-      <td>0.519950</td>
-      <td>0.447222</td>
-      <td>1.524608</td>
-      <td>0.072729</td>
-      <td>0.354447</td>
-    </tr>
-    <tr>
-      <th>2004</th>
-      <td>Canada</td>
-      <td>0.299854</td>
-      <td>0.764357</td>
-      <td>0.508657</td>
-      <td>0.416754</td>
-      <td>1.477317</td>
-      <td>0.091902</td>
-      <td>0.321203</td>
-    </tr>
-    <tr>
-      <th>2003</th>
-      <td>Canada</td>
-      <td>0.294335</td>
-      <td>0.741796</td>
-      <td>0.481993</td>
-      <td>0.384199</td>
-      <td>1.433089</td>
-      <td>0.097794</td>
-      <td>0.299164</td>
-    </tr>
-    <tr>
-      <th>2002</th>
-      <td>Canada</td>
-      <td>0.286094</td>
-      <td>0.721974</td>
-      <td>0.490465</td>
-      <td>0.368615</td>
-      <td>1.407725</td>
-      <td>0.121850</td>
-      <td>0.277806</td>
-    </tr>
-    <tr>
-      <th>2001</th>
-      <td>Canada</td>
-      <td>0.279767</td>
-      <td>0.694230</td>
-      <td>0.484696</td>
-      <td>0.362023</td>
-      <td>1.366590</td>
-      <td>0.122673</td>
-      <td>0.269921</td>
-    </tr>
-    <tr>
-      <th>2000</th>
-      <td>Canada</td>
-      <td>0.270553</td>
-      <td>0.677713</td>
-      <td>0.499526</td>
-      <td>0.380823</td>
-      <td>1.342805</td>
-      <td>0.118702</td>
-      <td>0.275837</td>
-    </tr>
-    <tr>
-      <th>2017</th>
-      <td>Germany</td>
-      <td>0.745579</td>
-      <td>2.112009</td>
-      <td>1.930563</td>
-      <td>1.666348</td>
-      <td>3.883870</td>
-      <td>-0.017201</td>
-      <td>1.043482</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>Because we didn’t also have data alignment on the country, we would have overstated Canada’s investment by 281 billion USD and understated Germany’s by the
-same amount.</p>
-<p>To make these types operation easier, we need to include both the year
+<p>for example here we might need to include both the year
 and country in the index…</p>
-</div>
 <div class="section" id="setting-a-hierarchical-index">
-<h3><span class="section-number">6.3.3.2. </span>Setting a Hierarchical Index<a class="headerlink" href="#setting-a-hierarchical-index" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.2.1. </span>Setting a Hierarchical Index<a class="headerlink" href="#setting-a-hierarchical-index" title="Permalink to this headline">¶</a></h3>
 <p>Include multiple columns in the index is advantageous in some situations.</p>
 <p>These situations might include:</p>
 <ul class="simple">
@@ -2257,7 +1846,7 @@ right-most) level is named <code class="docutils literal notranslate"><span clas
 refer to the DataFrame as having a hierarchical index.</p>
 </div>
 <div class="section" id="slicing-a-hierarchical-index">
-<h3><span class="section-number">6.3.3.3. </span>Slicing a Hierarchical Index<a class="headerlink" href="#slicing-a-hierarchical-index" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.2.2. </span>Slicing a Hierarchical Index<a class="headerlink" href="#slicing-a-hierarchical-index" title="Permalink to this headline">¶</a></h3>
 <p>Now, we can answer our friend’s questions in a much more straightforward way.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2326,12 +1915,12 @@ Series)</p></li>
 </ol>
 </div>
 <div class="section" id="alignment-with-multiindex">
-<h3><span class="section-number">6.3.3.4. </span>Alignment with <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code><a class="headerlink" href="#alignment-with-multiindex" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.2.3. </span>Alignment with <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code><a class="headerlink" href="#alignment-with-multiindex" title="Permalink to this headline">¶</a></h3>
 <p>The data alignment features we talked about above also apply to a
 <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> DataFrame.</p>
 </div>
 <div class="section" id="pd-indexslice">
-<h3><span class="section-number">6.3.3.5. </span><code class="docutils literal notranslate"><span class="pre">pd.IndexSlice</span></code><a class="headerlink" href="#pd-indexslice" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.2.4. </span><code class="docutils literal notranslate"><span class="pre">pd.IndexSlice</span></code><a class="headerlink" href="#pd-indexslice" title="Permalink to this headline">¶</a></h3>
 <p>When we want to extract rows for a few values of the outer index and all
 values for an inner index level, we can use the convenient
 <code class="docutils literal notranslate"><span class="pre">df.loc[[id11,</span> <span class="pre">id22]]</span></code> shorthand.</p>
@@ -2838,9 +2427,231 @@ not outer-most level of our index.</p>
 <p>Notice that the <code class="docutils literal notranslate"><span class="pre">:</span></code> in the first part of <code class="docutils literal notranslate"><span class="pre">[:,</span> <span class="pre">[&quot;A&quot;,</span> <span class="pre">&quot;D&quot;]]</span></code>
 instructed pandas to give us rows for all values of the outer most index
 level and that the <code class="docutils literal notranslate"><span class="pre">:</span></code> just before <code class="docutils literal notranslate"><span class="pre">]</span></code> said grab all the columns.</p>
+<p>You can also select a slice but in this case it is very important that your dataframe is sorted with respect to the index</p>
+<p>uncomment the code below to see the error that you get</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#wdi.loc[pd.IndexSlice[:, 2005:2009], :]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now lets properly sort out data set</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wdi_sorted</span><span class="o">=</span><span class="n">wdi</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">wdi_sorted</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">IndexSlice</span><span class="p">[:,</span> <span class="mi">2005</span><span class="p">:</span><span class="mi">2009</span><span class="p">],</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>GovExpend</th>
+      <th>Consumption</th>
+      <th>Exports</th>
+      <th>Imports</th>
+      <th>GDP</th>
+    </tr>
+    <tr>
+      <th>country</th>
+      <th>year</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">Canada</th>
+      <th>2005</th>
+      <td>0.303043</td>
+      <td>0.794390</td>
+      <td>0.519950</td>
+      <td>0.447222</td>
+      <td>1.524608</td>
+    </tr>
+    <tr>
+      <th>2006</th>
+      <td>0.311382</td>
+      <td>0.827643</td>
+      <td>0.524461</td>
+      <td>0.470931</td>
+      <td>1.564608</td>
+    </tr>
+    <tr>
+      <th>2007</th>
+      <td>0.318777</td>
+      <td>0.864012</td>
+      <td>0.530453</td>
+      <td>0.498002</td>
+      <td>1.596876</td>
+    </tr>
+    <tr>
+      <th>2008</th>
+      <td>0.330766</td>
+      <td>0.889602</td>
+      <td>0.506350</td>
+      <td>0.502281</td>
+      <td>1.612862</td>
+    </tr>
+    <tr>
+      <th>2009</th>
+      <td>0.339686</td>
+      <td>0.890078</td>
+      <td>0.440692</td>
+      <td>0.439796</td>
+      <td>1.565291</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">Germany</th>
+      <th>2005</th>
+      <td>0.591184</td>
+      <td>1.866253</td>
+      <td>1.175200</td>
+      <td>1.028094</td>
+      <td>3.213777</td>
+    </tr>
+    <tr>
+      <th>2006</th>
+      <td>0.596868</td>
+      <td>1.894219</td>
+      <td>1.319574</td>
+      <td>1.142552</td>
+      <td>3.332692</td>
+    </tr>
+    <tr>
+      <th>2007</th>
+      <td>0.605624</td>
+      <td>1.894219</td>
+      <td>1.442436</td>
+      <td>1.213835</td>
+      <td>3.441356</td>
+    </tr>
+    <tr>
+      <th>2008</th>
+      <td>0.626140</td>
+      <td>1.905520</td>
+      <td>1.470300</td>
+      <td>1.241057</td>
+      <td>3.478602</td>
+    </tr>
+    <tr>
+      <th>2009</th>
+      <td>0.645023</td>
+      <td>1.908393</td>
+      <td>1.260525</td>
+      <td>1.121914</td>
+      <td>3.283144</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">United Kingdom</th>
+      <th>2005</th>
+      <td>0.490806</td>
+      <td>1.578914</td>
+      <td>0.640088</td>
+      <td>0.715951</td>
+      <td>2.403352</td>
+    </tr>
+    <tr>
+      <th>2006</th>
+      <td>0.499312</td>
+      <td>1.604404</td>
+      <td>0.717506</td>
+      <td>0.786134</td>
+      <td>2.464591</td>
+    </tr>
+    <tr>
+      <th>2007</th>
+      <td>0.504549</td>
+      <td>1.644789</td>
+      <td>0.710200</td>
+      <td>0.767699</td>
+      <td>2.527327</td>
+    </tr>
+    <tr>
+      <th>2008</th>
+      <td>0.513870</td>
+      <td>1.635333</td>
+      <td>0.713184</td>
+      <td>0.753502</td>
+      <td>2.518585</td>
+    </tr>
+    <tr>
+      <th>2009</th>
+      <td>0.519716</td>
+      <td>1.587152</td>
+      <td>0.653830</td>
+      <td>0.689011</td>
+      <td>2.411632</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">United States</th>
+      <th>2005</th>
+      <td>2.287022</td>
+      <td>9.643098</td>
+      <td>1.431205</td>
+      <td>2.246246</td>
+      <td>14.332500</td>
+    </tr>
+    <tr>
+      <th>2006</th>
+      <td>2.314957</td>
+      <td>9.938503</td>
+      <td>1.564920</td>
+      <td>2.395189</td>
+      <td>14.741688</td>
+    </tr>
+    <tr>
+      <th>2007</th>
+      <td>2.351987</td>
+      <td>10.159387</td>
+      <td>1.701096</td>
+      <td>2.455016</td>
+      <td>15.018268</td>
+    </tr>
+    <tr>
+      <th>2008</th>
+      <td>2.407771</td>
+      <td>10.137847</td>
+      <td>1.797347</td>
+      <td>2.400349</td>
+      <td>14.997756</td>
+    </tr>
+    <tr>
+      <th>2009</th>
+      <td>2.507390</td>
+      <td>10.010687</td>
+      <td>1.646432</td>
+      <td>2.086299</td>
+      <td>14.617299</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 </div>
 <div class="section" id="multi-index-columns">
-<h3><span class="section-number">6.3.3.6. </span>Multi-index Columns<a class="headerlink" href="#multi-index-columns" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.2.5. </span>Multi-index Columns<a class="headerlink" href="#multi-index-columns" title="Permalink to this headline">¶</a></h3>
 <p>The functionality of <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> also applies to the column names.</p>
 <p>Let’s see how it works.</p>
 <div class="cell docutils container">
@@ -3441,7 +3252,7 @@ have a hierarchical index for column names.</p>
 </div>
 </div>
 <div class="section" id="re-setting-the-index">
-<h2><span class="section-number">6.3.4. </span>Re-setting the Index<a class="headerlink" href="#re-setting-the-index" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3.3. </span>Re-setting the Index<a class="headerlink" href="#re-setting-the-index" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">df.reset_index</span></code> method will move one or more level of the index
 back into the DataFrame as a normal column.</p>
 <p>With no additional arguments, it moves all levels out of the index and
@@ -3599,7 +3410,7 @@ sets the index of the returned DataFrame to the default of
 </div>
 </div>
 <div class="section" id="choose-the-index-carefully">
-<h2><span class="section-number">6.3.5. </span>Choose the Index Carefully<a class="headerlink" href="#choose-the-index-carefully" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3.4. </span>Choose the Index Carefully<a class="headerlink" href="#choose-the-index-carefully" title="Permalink to this headline">¶</a></h2>
 <p>So, now that we know that we use index and column names for
 aligning data, “how should we pick the index?” is a natural question to ask.</p>
 <p>To guide us to the right answer, we will list the first two components
@@ -3622,7 +3433,7 @@ represent the date.</p>
 <p>Using hierarchical row and column indices allows us to store higher
 dimensional data in our (inherently) two dimensional DataFrame.</p>
 <div class="section" id="know-your-goal">
-<h3><span class="section-number">6.3.5.1. </span>Know Your Goal<a class="headerlink" href="#know-your-goal" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.4.1. </span>Know Your Goal<a class="headerlink" href="#know-your-goal" title="Permalink to this headline">¶</a></h3>
 <p>The correct column(s) to choose for the index often depends on the context of
 your analysis.</p>
 <p>For example, if I were studying how GDP and consumption evolved over time for

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5.3. Applied Linear Algebra &#8212; Quantitative Investing</title>
+    <title>Applied Linear Algebra &#8212; Quantitative Investing</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -56,8 +56,6 @@
     <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="5.4. Randomness" href="randomness1.html" />
-    <link rel="prev" title="5.2. Plotting" href="plotting1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -87,7 +85,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01/what-is-quant-investing.html">
    1. What is Quantitative Investing?
@@ -169,34 +167,19 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="intro.html">
    5. Scientific Computing
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="numpy1.html">
-     5.1. Numpy
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="plotting1.html">
-     5.2. Plotting
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     5.3. Linear algebra
-    </a>
-   </li>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="randomness1.html">
-     5.4. Randomness
+     5.1. Randomness
     </a>
    </li>
   </ul>
@@ -563,57 +546,45 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#outline">
-   5.3.1. Outline
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#vectors-and-matrices">
-   5.3.2. Vectors and Matrices
+   Vectors and Matrices
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#vectors">
-     5.3.2.1. Vectors
+     Vectors
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#matrices">
-     5.3.2.2. Matrices
+     Matrices
     </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#other-linear-algebra-concepts">
-     5.3.2.3. Other Linear Algebra Concepts
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#transpose">
-       5.3.2.3.1. Transpose
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#identity-matrix">
-       5.3.2.3.2. Identity Matrix
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#inverse-optional-on-first-pass-required-for-chapter-10">
-       5.3.2.3.3. Inverse (optional on first pass, required for Chapter 10)
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transpose">
+   Transpose
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#identity-matrix">
+   Identity Matrix
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inverse">
+   Inverse
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#portfolios">
-   5.3.3. Portfolios
+   Portfolios
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#static-payoffs">
-     5.3.3.1. Static Payoffs
+     Static Payoffs
     </a>
    </li>
   </ul>
@@ -630,22 +601,12 @@
               <div>
                 
   <div class="section" id="applied-linear-algebra">
-<h1><span class="section-number">5.3. </span>Applied Linear Algebra<a class="headerlink" href="#applied-linear-algebra" title="Permalink to this headline">¶</a></h1>
+<h1>Applied Linear Algebra<a class="headerlink" href="#applied-linear-algebra" title="Permalink to this headline">¶</a></h1>
 <p><strong>Outcomes</strong></p>
 <ul class="simple">
 <li><p>Refresh some important linear algebra concepts</p></li>
 <li><p>Apply concepts to understanding unemployment and pricing portfolios</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">numpy</span></code> to do linear algebra operations</p></li>
-</ul>
-<div class="section" id="outline">
-<h2><span class="section-number">5.3.1. </span>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="#Applied-Linear-Algebra">Applied Linear Algebra</a></p>
-<ul>
-<li><p><a class="reference external" href="#Vectors-and-Matrices">Vectors and Matrices</a></p></li>
-<li><p><a class="reference external" href="#Portfolios">Portfolios</a></p></li>
-</ul>
-</li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -659,11 +620,10 @@
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="vectors-and-matrices">
-<h2><span class="section-number">5.3.2. </span>Vectors and Matrices<a class="headerlink" href="#vectors-and-matrices" title="Permalink to this headline">¶</a></h2>
+<h2>Vectors and Matrices<a class="headerlink" href="#vectors-and-matrices" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="vectors">
-<h3><span class="section-number">5.3.2.1. </span>Vectors<a class="headerlink" href="#vectors" title="Permalink to this headline">¶</a></h3>
+<h3>Vectors<a class="headerlink" href="#vectors" title="Permalink to this headline">¶</a></h3>
 <p>A (N-element) vector is <span class="math notranslate nohighlight">\( N \)</span> numbers stored together.</p>
 <p>We typically write a vector as <span class="math notranslate nohighlight">\( x = \begin{bmatrix} x_1 \\ x_2 \\ \dots \\ x_N \end{bmatrix} \)</span>.</p>
 <p>In numpy terms, a vector is a 1-dimensional array.</p>
@@ -723,19 +683,7 @@ Scalar Division [3.  1.5 1. ]
 <p>Another operation very frequently used in data science is the <strong>dot product</strong>.</p>
 <p>The dot between <span class="math notranslate nohighlight">\( x \)</span> and <span class="math notranslate nohighlight">\( y \)</span> is written <span class="math notranslate nohighlight">\( x \cdot y \)</span> and is
 equal to <span class="math notranslate nohighlight">\( \sum_{i=1}^N x_i y_i \)</span>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dot product&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dot product 32
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can also use <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> to denote dot products (and matrix multiplication which we’ll see soon!).</p>
+<p>We can  use <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> to denote dot products (and matrix multiplication which we’ll see soon!).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dot product with @&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">@</span> <span class="n">y</span><span class="p">)</span>
@@ -750,7 +698,7 @@ equal to <span class="math notranslate nohighlight">\( \sum_{i=1}^N x_i y_i \)</
 </div>
 </div>
 <div class="section" id="matrices">
-<h3><span class="section-number">5.3.2.2. </span>Matrices<a class="headerlink" href="#matrices" title="Permalink to this headline">¶</a></h3>
+<h3>Matrices<a class="headerlink" href="#matrices" title="Permalink to this headline">¶</a></h3>
 <p>An <span class="math notranslate nohighlight">\( N \times M \)</span> matrix can be thought of as a collection of M
 N-element vectors stacked side-by-side as columns.</p>
 <p>We write a matrix as</p>
@@ -826,7 +774,7 @@ multiplication</em>.</p>
 element found in the ith row and jth column of the matrix <span class="math notranslate nohighlight">\( x \)</span>.</p>
 <p>The image below from <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Matrix_multiplication_diagram.svg">Wikipedia</a>,
 by Bilou, shows how matrix multiplication simplifies to a series of dot products:</p>
-<img src="https://datascience.quantecon.org/assets/_static/applied_linalg_files/mat_mult_wiki_bilou.png" alt="matmult.png" style="">
+<p><img alt="image" src="https://upload.wikimedia.org/wikipedia/commons/1/11/Matrix_multiplication_diagram.svg" /></p>
 <p>After looking at the math and image above, you might have realized that matrix
 multiplication requires very specific matrix shapes!</p>
 <p>For two matrices <span class="math notranslate nohighlight">\( x, y \)</span> to be multiplied, <span class="math notranslate nohighlight">\( x \)</span>
@@ -853,25 +801,13 @@ matrix multiplication between a matrix and a vector!</p>
 <p>Numpy allows us to do matrix multiplication in three ways.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using the matmul function for two matrices&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x4</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using the dot function for two matrices&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x4</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using @ for two matrices&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using @ for two matrices&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x1</span> <span class="o">@</span> <span class="n">x4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using the matmul function for two matrices
-[[1. 1. 1.]
- [5. 5. 5.]
- [9. 9. 9.]]
-Using the dot function for two matrices
-[[1. 1. 1.]
- [5. 5. 5.]
- [9. 9. 9.]]
-Using @ for two matrices
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using @ for two matrices
 [[1. 1. 1.]
  [5. 5. 5.]
  [9. 9. 9.]]
@@ -881,33 +817,22 @@ Using @ for two matrices
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using the matmul function for vec and mat&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">x1</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using the dot function for vec and mat&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">x1</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using @ for vec and mat&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using @ for vec and mat&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">y1</span> <span class="o">@</span> <span class="n">x1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using the matmul function for vec and mat
-[16 22]
-Using the dot function for vec and mat
-[16 22]
-Using @ for vec and mat
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using @ for vec and mat
 [16 22]
 </pre></div>
 </div>
 </div>
 </div>
-<p>Despite our options, we stick to using <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> because
-it is simplest to read and write.</p>
 </div>
-<div class="section" id="other-linear-algebra-concepts">
-<h3><span class="section-number">5.3.2.3. </span>Other Linear Algebra Concepts<a class="headerlink" href="#other-linear-algebra-concepts" title="Permalink to this headline">¶</a></h3>
+</div>
 <div class="section" id="transpose">
-<h4><span class="section-number">5.3.2.3.1. </span>Transpose<a class="headerlink" href="#transpose" title="Permalink to this headline">¶</a></h4>
+<h2>Transpose<a class="headerlink" href="#transpose" title="Permalink to this headline">¶</a></h2>
 <p>A matrix transpose is an operation that flips all elements of a matrix along the diagonal.</p>
 <p>More formally, the <span class="math notranslate nohighlight">\( (i, j) \)</span> element of <span class="math notranslate nohighlight">\( x \)</span> becomes the <span class="math notranslate nohighlight">\( (j, i) \)</span> element of
 <span class="math notranslate nohighlight">\( x^T \)</span>.</p>
@@ -948,7 +873,7 @@ x = \begin{bmatrix} 1 &amp; 4 &amp; 7 \\
 </div>
 </div>
 <div class="section" id="identity-matrix">
-<h4><span class="section-number">5.3.2.3.2. </span>Identity Matrix<a class="headerlink" href="#identity-matrix" title="Permalink to this headline">¶</a></h4>
+<h2>Identity Matrix<a class="headerlink" href="#identity-matrix" title="Permalink to this headline">¶</a></h2>
 <p>In linear algebra, one particular matrix acts very similarly to how 1 behaves for scalar numbers.</p>
 <p>This matrix is known as the <em>identity matrix</em> and is given by</p>
 <div class="math notranslate nohighlight">
@@ -994,8 +919,8 @@ y @ I
 </div>
 </div>
 </div>
-<div class="section" id="inverse-optional-on-first-pass-required-for-chapter-10">
-<h4><span class="section-number">5.3.2.3.3. </span>Inverse (optional on first pass, required for Chapter 10)<a class="headerlink" href="#inverse-optional-on-first-pass-required-for-chapter-10" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="inverse">
+<h2>Inverse<a class="headerlink" href="#inverse" title="Permalink to this headline">¶</a></h2>
 <p>If you recall, you learned in your primary education about solving equations for certain variables.</p>
 <p>For example, you might have been given the equation</p>
 <div class="math notranslate nohighlight">
@@ -1061,13 +986,11 @@ Check that A @ A inverse is I
 </div>
 </div>
 </div>
-</div>
-</div>
 <div class="section" id="portfolios">
-<h2><span class="section-number">5.3.3. </span>Portfolios<a class="headerlink" href="#portfolios" title="Permalink to this headline">¶</a></h2>
+<h2>Portfolios<a class="headerlink" href="#portfolios" title="Permalink to this headline">¶</a></h2>
 <p>Vectors and inner products give us a convenient way to organize and calculate the value of portfolios of assets</p>
 <div class="section" id="static-payoffs">
-<h3><span class="section-number">5.3.3.1. </span>Static Payoffs<a class="headerlink" href="#static-payoffs" title="Permalink to this headline">¶</a></h3>
+<h3>Static Payoffs<a class="headerlink" href="#static-payoffs" title="Permalink to this headline">¶</a></h3>
 <p>As an example, consider a portfolio with 4 units of asset A, 2.5 units of asset B, and 8 units of
 asset C.</p>
 <p>At a particular point in time, the assets pay the following dvidends <span class="math notranslate nohighlight">\( 3 \)</span>/unit of asset A, <span class="math notranslate nohighlight">\( 5 \)</span>/unit of B, and
@@ -1113,7 +1036,7 @@ loop.</p>
 \[
 p = \sum_{i=0}^{n-1} x_i y_i = x \cdot y
 \]</div>
-<p>This is an inner product as implemented by the <code class="docutils literal notranslate"><span class="pre">np.dot</span></code> function</p>
+<p>This is an inner product as implemented by the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> function</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">@</span> <span class="n">y</span>
@@ -1190,8 +1113,6 @@ r = \sum_{i=0}^{n-1} w_i r_i = w \cdot r
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="plotting1.html" title="previous page"><span class="section-number">5.2. </span>Plotting</a>
-    <a class='right-next' id="next-link" href="randomness1.html" title="next page"><span class="section-number">5.4. </span>Randomness</a>
 
         </div>
         
