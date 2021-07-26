@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4.2. Control Flow &#8212; Quantitative Investing</title>
+    <title>4.3. Control Flow &#8212; Quantitative Investing</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -56,8 +56,8 @@
     <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="5. Scientific Computing" href="../scientific/intro.html" />
-    <link rel="prev" title="4.1. Basics" href="basics.html" />
+    <link rel="next" title="4.4. Functions" href="functions.html" />
+    <link rel="prev" title="4.2. Collections" href="collections.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -152,9 +152,19 @@
      4.1. Basics
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="collections.html">
+     4.2. Collections
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     4.2. Flow control
+     4.3. Flow control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="functions.html">
+     4.4. Functions
     </a>
    </li>
   </ul>
@@ -554,12 +564,12 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#conditional-statements-and-blocks">
-   4.2.1. Conditional Statements and Blocks
+   4.3.1. Conditional Statements and Blocks
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#elif-clauses">
-     4.2.1.1.
+     4.3.1.1.
      <code class="docutils literal notranslate">
       <span class="pre">
        elif
@@ -572,17 +582,17 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#iteration">
-   4.2.2. Iteration
+   4.3.2. Iteration
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#a-contrived-example">
-     4.2.2.1. A Contrived Example
+     4.3.2.1. A Contrived Example
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#for-loops">
-     4.2.2.2.
+     4.3.2.2.
      <code class="docutils literal notranslate">
       <span class="pre">
        for
@@ -593,7 +603,7 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#while-loops">
-     4.2.2.3.
+     4.3.2.3.
      <code class="docutils literal notranslate">
       <span class="pre">
        while
@@ -604,7 +614,7 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#break-and-continue">
-     4.2.2.4.
+     4.3.2.4.
      <code class="docutils literal notranslate">
       <span class="pre">
        break
@@ -620,7 +630,7 @@
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#break-out-of-a-loop">
-       4.2.2.4.1.
+       4.3.2.4.1.
        <code class="docutils literal notranslate">
         <span class="pre">
          break
@@ -631,7 +641,7 @@
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#continue-to-the-next-iteration">
-       4.2.2.4.2.
+       4.3.2.4.2.
        <code class="docutils literal notranslate">
         <span class="pre">
          continue
@@ -656,11 +666,11 @@
               <div>
                 
   <div class="section" id="control-flow">
-<h1><span class="section-number">4.2. </span>Control Flow<a class="headerlink" href="#control-flow" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">4.3. </span>Control Flow<a class="headerlink" href="#control-flow" title="Permalink to this headline">¶</a></h1>
 <p><a id='deterministic-asset-pricing'></a></p>
 <p><a id='npv'></a></p>
 <div class="section" id="conditional-statements-and-blocks">
-<h2><span class="section-number">4.2.1. </span>Conditional Statements and Blocks<a class="headerlink" href="#conditional-statements-and-blocks" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.3.1. </span>Conditional Statements and Blocks<a class="headerlink" href="#conditional-statements-and-blocks" title="Permalink to this headline">¶</a></h2>
 <p>Sometimes, we will only want to execute some piece of code if a certain condition
 is met.</p>
 <p>These conditions can be anything.</p>
@@ -797,7 +807,7 @@ before, but now, we added an <code class="docutils literal notranslate"><span cl
 </div>
 </div>
 <div class="section" id="elif-clauses">
-<h3><span class="section-number">4.2.1.1. </span><code class="docutils literal notranslate"><span class="pre">elif</span></code> clauses<a class="headerlink" href="#elif-clauses" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.1.1. </span><code class="docutils literal notranslate"><span class="pre">elif</span></code> clauses<a class="headerlink" href="#elif-clauses" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes, you have more than one condition you want to check.</p>
 <p>For example, you might want to run a different set of code based on which
 quarter a particular transaction took place in.</p>
@@ -850,7 +860,7 @@ associated with <code class="docutils literal notranslate"><span class="pre">hal
 </div>
 </div>
 <div class="section" id="iteration">
-<h2><span class="section-number">4.2.2. </span>Iteration<a class="headerlink" href="#iteration" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.3.2. </span>Iteration<a class="headerlink" href="#iteration" title="Permalink to this headline">¶</a></h2>
 <p>When doing computations or analyzing data, we often need to repeat certain
 operations a finite number of times or until some condition is met.</p>
 <p>Examples include processing all data files in a directory (folder), aggregating
@@ -861,7 +871,7 @@ that we wrote down above.)</p>
 <p>We feel the concept is best understood through example, so we will present a
 contrived example and then discuss the details behind doing iteration in Python.</p>
 <div class="section" id="a-contrived-example">
-<h3><span class="section-number">4.2.2.1. </span>A Contrived Example<a class="headerlink" href="#a-contrived-example" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.2.1. </span>A Contrived Example<a class="headerlink" href="#a-contrived-example" title="Permalink to this headline">¶</a></h3>
 <p>Suppose we wanted to print out the first 10 integers and their squares.</p>
 <p>We <em>could</em> do something like this.</p>
 <div class="cell docutils container">
@@ -925,7 +935,7 @@ for each new value it did the operations in the indented block (here
 just one line that called the <code class="docutils literal notranslate"><span class="pre">print</span></code> function).</p>
 </div>
 <div class="section" id="for-loops">
-<h3><span class="section-number">4.2.2.2. </span><code class="docutils literal notranslate"><span class="pre">for</span></code> Loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.2.2. </span><code class="docutils literal notranslate"><span class="pre">for</span></code> Loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h3>
 <p>The general structure of a standard <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is as follows.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
    <span class="c1"># operation 1 with item</span>
@@ -948,7 +958,7 @@ at a time and execute the loop body for each value.</p>
 one value.</p>
 </div>
 <div class="section" id="while-loops">
-<h3><span class="section-number">4.2.2.3. </span><code class="docutils literal notranslate"><span class="pre">while</span></code> Loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.2.3. </span><code class="docutils literal notranslate"><span class="pre">while</span></code> Loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">¶</a></h3>
 <p>A related but slightly different form of iteration is to repeat something
 until some condition is met.</p>
 <p>This is typically achieved using a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop.</p>
@@ -1055,9 +1065,9 @@ done
 </div>
 </div>
 <div class="section" id="break-and-continue">
-<h3><span class="section-number">4.2.2.4. </span><code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code><a class="headerlink" href="#break-and-continue" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.2.4. </span><code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code><a class="headerlink" href="#break-and-continue" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="break-out-of-a-loop">
-<h4><span class="section-number">4.2.2.4.1. </span><code class="docutils literal notranslate"><span class="pre">break</span></code> Out of a Loop<a class="headerlink" href="#break-out-of-a-loop" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.3.2.4.1. </span><code class="docutils literal notranslate"><span class="pre">break</span></code> Out of a Loop<a class="headerlink" href="#break-out-of-a-loop" title="Permalink to this headline">¶</a></h4>
 <p>Sometimes we want to stop a loop early if some condition is met.</p>
 <p>Let’s revisit the example of finding the smallest <code class="docutils literal notranslate"><span class="pre">N</span></code> such that
 <span class="math notranslate nohighlight">\( \sum_{i=0}^N i &gt; 1000 \)</span>.</p>
@@ -1085,7 +1095,7 @@ iterating through our range once total goes above 1000.</p>
 </div>
 </div>
 <div class="section" id="continue-to-the-next-iteration">
-<h4><span class="section-number">4.2.2.4.2. </span><code class="docutils literal notranslate"><span class="pre">continue</span></code> to the Next Iteration<a class="headerlink" href="#continue-to-the-next-iteration" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.3.2.4.2. </span><code class="docutils literal notranslate"><span class="pre">continue</span></code> to the Next Iteration<a class="headerlink" href="#continue-to-the-next-iteration" title="Permalink to this headline">¶</a></h4>
 <p>Sometimes we might want to stop the <em>body of a loop</em> early if a condition is met.</p>
 <p>To do this we can use the <code class="docutils literal notranslate"><span class="pre">continue</span></code> keyword.</p>
 <p>The basic syntax for doing this is:</p>
@@ -1152,8 +1162,8 @@ nothing otherwise.</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="basics.html" title="previous page"><span class="section-number">4.1. </span>Basics</a>
-    <a class='right-next' id="next-link" href="../scientific/intro.html" title="next page"><span class="section-number">5. </span>Scientific Computing</a>
+    <a class='left-prev' id="prev-link" href="collections.html" title="previous page"><span class="section-number">4.2. </span>Collections</a>
+    <a class='right-next' id="next-link" href="functions.html" title="next page"><span class="section-number">4.4. </span>Functions</a>
 
         </div>
         
