@@ -613,12 +613,6 @@
                 
   <div class="section" id="applied-linear-algebra">
 <h1><span class="section-number">7.1. </span>Applied Linear Algebra<a class="headerlink" href="#applied-linear-algebra" title="Permalink to this headline">¶</a></h1>
-<p><strong>Outcomes</strong></p>
-<ul class="simple">
-<li><p>Refresh some important linear algebra concepts</p></li>
-<li><p>Apply concepts to understanding unemployment and pricing portfolios</p></li>
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">numpy</span></code> to do linear algebra operations</p></li>
-</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import numpy to prepare for code below</span>
@@ -1002,41 +996,47 @@ Check that A @ A inverse is I
 <p>Vectors and inner products give us a convenient way to organize and calculate the value of portfolios of assets</p>
 <div class="section" id="static-payoffs">
 <h3><span class="section-number">7.1.5.1. </span>Static Payoffs<a class="headerlink" href="#static-payoffs" title="Permalink to this headline">¶</a></h3>
-<p>As an example, consider a portfolio with 4 units of asset A, 2.5 units of asset B, and 8 units of
-asset C.</p>
-<p>At a particular point in time, the assets pay the following dvidends <span class="math notranslate nohighlight">\( 3 \)</span>/unit of asset A, <span class="math notranslate nohighlight">\( 5 \)</span>/unit of B, and
-<span class="math notranslate nohighlight">\( 1.10 \)</span>/unit of C.</p>
-<p>First, calculate the value of dividends  earned by this portfolio directly with a sum.</p>
+<p>As an example, consider a portfolio with 4 dollars of asset A, 2.5 dollars of asset B, and 8 dollars of
+asset C in date 0.</p>
+<p>The assets have the following (net) returns 3%, 5%, and -1.10% in date 1.</p>
+<p>First, calculate the value of the portfolio in the end of date 1</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">4.0</span> <span class="o">*</span> <span class="mf">3.0</span> <span class="o">+</span> <span class="mf">2.5</span> <span class="o">*</span> <span class="mf">5.0</span> <span class="o">+</span> <span class="mi">8</span> <span class="o">*</span> <span class="mf">1.1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">4.0</span> <span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">3</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="mf">2.5</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">5</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="mi">8</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mf">1.1</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33.3
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.832999999999998
 </pre></div>
 </div>
 </div>
 </div>
+<p><strong>Attention</strong></p>
+<p>Why are we dividing by 100 and adding 1?</p>
+<p>Because returns are a number like 5%. So If you had 100 dollars you end up with 105 dollars.</p>
+<p>Meaning you get your “pricipal” plus the return.</p>
+<p>So the “1” here is makign the role of the pricipal, so if you return is 0% you get 100.</p>
+<p>The division by 100 is just making sure that this is in percentage, so that your gross retruns are a number like 1.05 when your net returns are 5%.</p>
 <p>We can make this more convenient and general by using arrays for accounting, and then sum then in a
 loop.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">])</span> <span class="c1"># portfolio units</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">])</span> <span class="c1"># payoffs</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">])</span> <span class="c1"># portfolio positio</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">])</span> <span class="c1"># Asset net returns </span>
+
 <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">p</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> <span class="c1"># i.e. 0, 1, 2</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">p</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">p</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="n">p</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33.3
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.832999999999998
 </pre></div>
 </div>
 </div>
@@ -1050,12 +1050,12 @@ p = \sum_{i=0}^{n-1} x_i y_i = x \cdot y
 <p>This is an inner product as implemented by the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> function</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">@</span> <span class="n">y</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">@</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">y</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33.3
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.832999999999998
 </pre></div>
 </div>
 </div>
@@ -1063,29 +1063,29 @@ p = \sum_{i=0}^{n-1} x_i y_i = x \cdot y
 <p>This approach allows us to simultaneously price different portfolios by stacking them in a matrix and using the dot product (the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> operator does the dot product for us!).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">])</span> <span class="c1"># payoffs</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">])</span> <span class="c1"># returns</span>
 <span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">])</span> <span class="c1"># portfolio 1</span>
 <span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span> <span class="c1"># portfolio 2</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">))</span>
 
 <span class="c1"># calculate with inner products</span>
-<span class="n">p1</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">@</span> <span class="n">y</span>
-<span class="n">p2</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">@</span> <span class="n">y</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">@</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">y</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">@</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">y</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Calculating separately&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">([</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">])</span>
 
 <span class="c1"># or with a matrix multiplication</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Calculating with matrices&quot;</span><span class="p">)</span>
-<span class="n">P</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="n">y</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">y</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating separately
-[33.3, 13.5]
+[14.832999999999998, 3.6350000000000002]
 Calculating with matrices
-[33.3 13.5]
+[14.833  3.635]
 </pre></div>
 </div>
 </div>
@@ -1095,6 +1095,51 @@ Calculating with matrices
 \[
 r = \sum_{i=0}^{n-1} w_i r_i = w \cdot r
 \]</div>
+<p>How do we construct the weights?</p>
+<p>The value of each position divided by the toal value of the portfolio</p>
+<p>What is the value of each position? <code class="docutils literal notranslate"><span class="pre">x</span></code></p>
+<p>What is the value of the porfolio in date 0? <code class="docutils literal notranslate"><span class="pre">sum(x)</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">port_value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">w</span><span class="o">=</span><span class="n">x</span><span class="o">/</span><span class="n">port_value</span>
+
+<span class="n">w</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.27586207, 0.17241379, 0.55172414])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Thus the net returns of the portfolio are</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="nd">@y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.296551724137931
+</pre></div>
+</div>
+</div>
+</div>
+<p>So the final value of the portfolio can be written as</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">port_value</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">w</span><span class="nd">@y</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.833000000000002
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
