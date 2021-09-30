@@ -582,21 +582,21 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#discrete-distributions">
-     6.1.1.4. Discrete Distributions
+    <a class="reference internal nav-link" href="#continuous-distributions">
+     6.1.1.4. Continuous Distributions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optional-content-discrete-distributions">
+     6.1.1.5. Optional content: Discrete Distributions
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#aside-the-extreme-benefits-of-vectorized-computations">
-       6.1.1.4.1. Aside: The extreme benefits of Vectorized Computations
+      <a class="reference internal nav-link" href="#advanced-content-the-extreme-benefits-of-vectorized-computations">
+       6.1.1.5.1. Advanced content: The extreme benefits of Vectorized Computations
       </a>
      </li>
     </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#continuous-distributions">
-     6.1.1.5. Continuous Distributions
-    </a>
    </li>
   </ul>
  </li>
@@ -773,133 +773,8 @@ Numbers</em>.</p>
 </div>
 </div>
 </div>
-<div class="section" id="discrete-distributions">
-<h3><span class="section-number">6.1.1.4. </span>Discrete Distributions<a class="headerlink" href="#discrete-distributions" title="Permalink to this headline">¶</a></h3>
-<p>Sometimes we will encounter variables that can only take one of a
-few possible values.</p>
-<p>We refer to this type of random variable as a discrete distribution.</p>
-<p>For example, consider a small business loan company.</p>
-<p>Imagine that the company’s loan requires a repayment of <span class="math notranslate nohighlight">\( \\\)</span>25,000 $ and must be repaid 1 year
-after the loan was made.</p>
-<p>The company discounts the future at 5%.</p>
-<p>Additionally, the loans made are repaid in full with 75% probability, while
-<span class="math notranslate nohighlight">\( \\\)</span>12,500 $ of loans is repaid with probability 20%, and no repayment with 5%
-probability.</p>
-<p>How much would the small business loan company be willing to loan if they’d like to
-– on average – break even?</p>
-<p>In this case, we can compute this by hand:</p>
-<p>The amount repaid, on average, is: <span class="math notranslate nohighlight">\( 0.75(25,000) + 0.2(12,500) + 0.05(0) = 21,250 \)</span>.</p>
-<p>Since we’ll receive that amount in one year, we have to discount it:
-<span class="math notranslate nohighlight">\( \frac{1}{1+0.05} 21,250 \approx 20238 \)</span>.</p>
-<p>We can now verify by simulating the outcomes of many loans.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You&#39;ll see why we call it `_slow` soon :)</span>
-<span class="k">def</span> <span class="nf">simulate_loan_repayments_slow</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">repayment_full</span><span class="o">=</span><span class="mf">25_000.0</span><span class="p">,</span>
-                                  <span class="n">repayment_part</span><span class="o">=</span><span class="mf">12_500.0</span><span class="p">):</span>
-    <span class="n">repayment_sims</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span>  <span class="c1"># Draw a random number</span>
-
-        <span class="c1"># Full repayment 75% of time</span>
-        <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mf">0.75</span><span class="p">:</span>
-            <span class="n">repaid</span> <span class="o">=</span> <span class="n">repayment_full</span>
-        <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mf">0.95</span><span class="p">:</span>
-            <span class="n">repaid</span> <span class="o">=</span> <span class="n">repayment_part</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">repaid</span> <span class="o">=</span> <span class="mf">0.0</span>
-
-        <span class="n">repayment_sims</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">r</span><span class="p">))</span> <span class="o">*</span> <span class="n">repaid</span>
-
-    <span class="k">return</span> <span class="n">repayment_sims</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">simulate_loan_repayments_slow</span><span class="p">(</span><span class="mi">25_000</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20195.23809523809
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="aside-the-extreme-benefits-of-vectorized-computations">
-<h4><span class="section-number">6.1.1.4.1. </span>Aside: The extreme benefits of Vectorized Computations<a class="headerlink" href="#aside-the-extreme-benefits-of-vectorized-computations" title="Permalink to this headline">¶</a></h4>
-<p>The code above illustrates the concepts we were discussing but is much slower than
-necessary.</p>
-<p>Below is a version of our function that uses numpy arrays to perform computations
-instead of only storing the values.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">simulate_loan_repayments</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">repayment_full</span><span class="o">=</span><span class="mf">25_000.0</span><span class="p">,</span>
-                             <span class="n">repayment_part</span><span class="o">=</span><span class="mf">12_500.0</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Simulate present value of N loans given values for discount rate and</span>
-<span class="sd">    repayment values</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">random_numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-
-    <span class="c1"># start as 0 -- no repayment</span>
-    <span class="n">repayment_sims</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-
-    <span class="c1"># adjust for full and partial repayment</span>
-    <span class="n">partial</span> <span class="o">=</span> <span class="n">random_numbers</span> <span class="o">&lt;=</span> <span class="mf">0.20</span>
-    <span class="n">repayment_sims</span><span class="p">[</span><span class="n">partial</span><span class="p">]</span> <span class="o">=</span> <span class="n">repayment_part</span>
-
-    <span class="n">full</span> <span class="o">=</span> <span class="o">~</span><span class="n">partial</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">random_numbers</span> <span class="o">&lt;=</span> <span class="mf">0.95</span><span class="p">)</span>
-    <span class="n">repayment_sims</span><span class="p">[</span><span class="n">full</span><span class="p">]</span> <span class="o">=</span> <span class="n">repayment_full</span>
-
-    <span class="n">repayment_sims</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">r</span><span class="p">))</span> <span class="o">*</span> <span class="n">repayment_sims</span>
-
-    <span class="k">return</span> <span class="n">repayment_sims</span>
-
-<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">simulate_loan_repayments</span><span class="p">(</span><span class="mi">25_000</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20240.476190476187
-</pre></div>
-</div>
-</div>
-</div>
-<p>We’ll quickly demonstrate the time difference in running both function versions.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> simulate_loan_repayments_slow(250_000)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>117 ms ± 1.36 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> simulate_loan_repayments(250_000)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.21 ms ± 81.8 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
-</pre></div>
-</div>
-</div>
-</div>
-<p>The timings for my computer were 1114 ms for <code class="docutils literal notranslate"><span class="pre">simulate_loan_repayments_slow</span></code> and 4.2 ms for
-<code class="docutils literal notranslate"><span class="pre">simulate_loan_repayments</span></code>.</p>
-<p>This function is simple enough that both times are acceptable, but the 33x time difference could
-matter in a more complicated operation.</p>
-<p>This illustrates a concept called <em>vectorization</em>, which is when computations
-operate on an entire array at a time.</p>
-<p>In general, numpy code that is <em>vectorized</em> will perform better than numpy code that operates on one
-element at a time.</p>
-</div>
-</div>
 <div class="section" id="continuous-distributions">
-<h3><span class="section-number">6.1.1.5. </span>Continuous Distributions<a class="headerlink" href="#continuous-distributions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.1.4. </span>Continuous Distributions<a class="headerlink" href="#continuous-distributions" title="Permalink to this headline">¶</a></h3>
 <p>Recall that a continuous distribution is one where the value can take on an uncountable number of values.</p>
 <p>It differs from a discrete distribution in that the events are not
 countable.</p>
@@ -933,7 +808,7 @@ described by the mean and variance of that distribution.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x20a9ede1400&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/randomness1_21_1.png" src="../../_images/randomness1_21_1.png" />
+<img alt="../../_images/randomness1_13_1.png" src="../../_images/randomness1_13_1.png" />
 </div>
 </div>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">isf</span></code> method to get the inverst cumulative density function of the distribution and recover the threshold associated with a particular probability mass in the tails</p>
@@ -1032,6 +907,131 @@ described by the mean and variance of that distribution.</p>
 </pre></div>
 </div>
 </div>
+</div>
+</div>
+<div class="section" id="optional-content-discrete-distributions">
+<h3><span class="section-number">6.1.1.5. </span>Optional content: Discrete Distributions<a class="headerlink" href="#optional-content-discrete-distributions" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes we will encounter variables that can only take one of a
+few possible values.</p>
+<p>We refer to this type of random variable as a discrete distribution.</p>
+<p>For example, consider a small business loan company.</p>
+<p>Imagine that the company’s loan requires a repayment of <span class="math notranslate nohighlight">\( \\\)</span>25,000 $ and must be repaid 1 year
+after the loan was made.</p>
+<p>The company discounts the future at 5%.</p>
+<p>Additionally, the loans made are repaid in full with 75% probability, while
+<span class="math notranslate nohighlight">\( \\\)</span>12,500 $ of loans is repaid with probability 20%, and no repayment with 5%
+probability.</p>
+<p>How much would the small business loan company be willing to loan if they’d like to
+– on average – break even?</p>
+<p>In this case, we can compute this by hand:</p>
+<p>The amount repaid, on average, is: <span class="math notranslate nohighlight">\( 0.75(25,000) + 0.2(12,500) + 0.05(0) = 21,250 \)</span>.</p>
+<p>Since we’ll receive that amount in one year, we have to discount it:
+<span class="math notranslate nohighlight">\( \frac{1}{1+0.05} 21,250 \approx 20238 \)</span>.</p>
+<p>We can now verify by simulating the outcomes of many loans.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You&#39;ll see why we call it `_slow` soon :)</span>
+<span class="k">def</span> <span class="nf">simulate_loan_repayments_slow</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">repayment_full</span><span class="o">=</span><span class="mf">25_000.0</span><span class="p">,</span>
+                                  <span class="n">repayment_part</span><span class="o">=</span><span class="mf">12_500.0</span><span class="p">):</span>
+    <span class="n">repayment_sims</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span>  <span class="c1"># Draw a random number</span>
+
+        <span class="c1"># Full repayment 75% of time</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mf">0.75</span><span class="p">:</span>
+            <span class="n">repaid</span> <span class="o">=</span> <span class="n">repayment_full</span>
+        <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mf">0.95</span><span class="p">:</span>
+            <span class="n">repaid</span> <span class="o">=</span> <span class="n">repayment_part</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">repaid</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="n">repayment_sims</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">r</span><span class="p">))</span> <span class="o">*</span> <span class="n">repaid</span>
+
+    <span class="k">return</span> <span class="n">repayment_sims</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">simulate_loan_repayments_slow</span><span class="p">(</span><span class="mi">25_000</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20195.23809523809
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="advanced-content-the-extreme-benefits-of-vectorized-computations">
+<h4><span class="section-number">6.1.1.5.1. </span>Advanced content: The extreme benefits of Vectorized Computations<a class="headerlink" href="#advanced-content-the-extreme-benefits-of-vectorized-computations" title="Permalink to this headline">¶</a></h4>
+<p>The code above illustrates the concepts we were discussing but is much slower than
+necessary.</p>
+<p>Below is a version of our function that uses numpy arrays to perform computations
+instead of only storing the values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">simulate_loan_repayments</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">repayment_full</span><span class="o">=</span><span class="mf">25_000.0</span><span class="p">,</span>
+                             <span class="n">repayment_part</span><span class="o">=</span><span class="mf">12_500.0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simulate present value of N loans given values for discount rate and</span>
+<span class="sd">    repayment values</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">random_numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+
+    <span class="c1"># start as 0 -- no repayment</span>
+    <span class="n">repayment_sims</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+
+    <span class="c1"># adjust for full and partial repayment</span>
+    <span class="n">partial</span> <span class="o">=</span> <span class="n">random_numbers</span> <span class="o">&lt;=</span> <span class="mf">0.20</span>
+    <span class="n">repayment_sims</span><span class="p">[</span><span class="n">partial</span><span class="p">]</span> <span class="o">=</span> <span class="n">repayment_part</span>
+
+    <span class="n">full</span> <span class="o">=</span> <span class="o">~</span><span class="n">partial</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">random_numbers</span> <span class="o">&lt;=</span> <span class="mf">0.95</span><span class="p">)</span>
+    <span class="n">repayment_sims</span><span class="p">[</span><span class="n">full</span><span class="p">]</span> <span class="o">=</span> <span class="n">repayment_full</span>
+
+    <span class="n">repayment_sims</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">r</span><span class="p">))</span> <span class="o">*</span> <span class="n">repayment_sims</span>
+
+    <span class="k">return</span> <span class="n">repayment_sims</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">simulate_loan_repayments</span><span class="p">(</span><span class="mi">25_000</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20240.476190476187
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ll quickly demonstrate the time difference in running both function versions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> simulate_loan_repayments_slow(250_000)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>117 ms ± 1.36 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> simulate_loan_repayments(250_000)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.21 ms ± 81.8 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The timings for my computer were 1114 ms for <code class="docutils literal notranslate"><span class="pre">simulate_loan_repayments_slow</span></code> and 4.2 ms for
+<code class="docutils literal notranslate"><span class="pre">simulate_loan_repayments</span></code>.</p>
+<p>This function is simple enough that both times are acceptable, but the 33x time difference could
+matter in a more complicated operation.</p>
+<p>This illustrates a concept called <em>vectorization</em>, which is when computations
+operate on an entire array at a time.</p>
+<p>In general, numpy code that is <em>vectorized</em> will perform better than numpy code that operates on one
+element at a time.</p>
 </div>
 </div>
 </div>
