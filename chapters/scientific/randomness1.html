@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Randomness &#8212; Quantitative Investing</title>
+    <title>6.1. Randomness &#8212; Quantitative Investing</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -56,6 +56,8 @@
     <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="6.2. The choice of frequency and Annualization of returns" href="../Finance/TheChoiceofFrequency.html" />
+    <link rel="prev" title="6. Returns" href="../Finance/Returns.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -89,7 +91,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01/what-is-quant-investing.html">
    1. What is Quantitative Investing?
@@ -243,19 +245,24 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../Finance/Returns.html">
    6. Asset Returns
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     6.1. Modeling randomness
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Finance/TheChoiceofFrequency.html">
-     6.1. The Choice of Frequency and Annualization of Returns
+     6.2. The Choice of Frequency and Annualization of Returns
     </a>
    </li>
   </ul>
@@ -556,39 +563,39 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
-   Randomness
+   6.1.1. Randomness
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#probability">
-     Probability
+     6.1.1.1. Probability
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#simulating-randomness-in-python">
-     Simulating Randomness in Python
+     6.1.1.2. Simulating Randomness in Python
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#why-do-we-need-randomness">
-     Why Do We Need Randomness?
+     6.1.1.3. Why Do We Need Randomness?
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#discrete-distributions">
-     Discrete Distributions
+     6.1.1.4. Discrete Distributions
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#aside-the-extreme-benefits-of-vectorized-computations">
-       Aside: The extreme benefits of Vectorized Computations
+       6.1.1.4.1. Aside: The extreme benefits of Vectorized Computations
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#continuous-distributions">
-     Continuous Distributions
+     6.1.1.5. Continuous Distributions
     </a>
    </li>
   </ul>
@@ -605,9 +612,9 @@
               <div>
                 
   <div class="section" id="randomness">
-<h1>Randomness<a class="headerlink" href="#randomness" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.1. </span>Randomness<a class="headerlink" href="#randomness" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
-<h2>Randomness<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1.1. </span>Randomness<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>We will use the <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> package to simulate randomness in Python.</p>
 <p>This lecture will present various probability distributions and then use
 numpy.random to numerically verify some of the facts associated with them.</p>
@@ -622,7 +629,7 @@ numpy.random to numerically verify some of the facts associated with them.</p>
 </div>
 </div>
 <div class="section" id="probability">
-<h3>Probability<a class="headerlink" href="#probability" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.1.1. </span>Probability<a class="headerlink" href="#probability" title="Permalink to this headline">¶</a></h3>
 <p>Before we learn how to use Python to generate randomness, we should make sure
 that we all agree on some basic concepts of probability.</p>
 <p>To think about the probability of some event occurring, we must understand what possible
@@ -653,7 +660,7 @@ the sum of the probabilities that each event occurs (known as independence).</p>
 help us reason through what is happening.</p>
 </div>
 <div class="section" id="simulating-randomness-in-python">
-<h3>Simulating Randomness in Python<a class="headerlink" href="#simulating-randomness-in-python" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.1.2. </span>Simulating Randomness in Python<a class="headerlink" href="#simulating-randomness-in-python" title="Permalink to this headline">¶</a></h3>
 <p>One of the most basic random numbers is a variable that has equal probability of being any value
 between 0 and 1.</p>
 <p>You may have previously learned about this probability distribution as the Uniform(0, 1).</p>
@@ -724,7 +731,7 @@ between 0 and 1.</p>
 </div>
 </div>
 <div class="section" id="why-do-we-need-randomness">
-<h3>Why Do We Need Randomness?<a class="headerlink" href="#why-do-we-need-randomness" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.1.3. </span>Why Do We Need Randomness?<a class="headerlink" href="#why-do-we-need-randomness" title="Permalink to this headline">¶</a></h3>
 <p>As economists and data scientists, we study complex systems.</p>
 <p>These systems have inherent randomness, but they do not readily reveal their underlying distribution
 to us.</p>
@@ -767,7 +774,7 @@ Numbers</em>.</p>
 </div>
 </div>
 <div class="section" id="discrete-distributions">
-<h3>Discrete Distributions<a class="headerlink" href="#discrete-distributions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.1.4. </span>Discrete Distributions<a class="headerlink" href="#discrete-distributions" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes we will encounter variables that can only take one of a
 few possible values.</p>
 <p>We refer to this type of random variable as a discrete distribution.</p>
@@ -817,7 +824,7 @@ probability.</p>
 </div>
 </div>
 <div class="section" id="aside-the-extreme-benefits-of-vectorized-computations">
-<h4>Aside: The extreme benefits of Vectorized Computations<a class="headerlink" href="#aside-the-extreme-benefits-of-vectorized-computations" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.1.1.4.1. </span>Aside: The extreme benefits of Vectorized Computations<a class="headerlink" href="#aside-the-extreme-benefits-of-vectorized-computations" title="Permalink to this headline">¶</a></h4>
 <p>The code above illustrates the concepts we were discussing but is much slower than
 necessary.</p>
 <p>Below is a version of our function that uses numpy arrays to perform computations
@@ -892,7 +899,7 @@ element at a time.</p>
 </div>
 </div>
 <div class="section" id="continuous-distributions">
-<h3>Continuous Distributions<a class="headerlink" href="#continuous-distributions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.1.5. </span>Continuous Distributions<a class="headerlink" href="#continuous-distributions" title="Permalink to this headline">¶</a></h3>
 <p>Recall that a continuous distribution is one where the value can take on an uncountable number of values.</p>
 <p>It differs from a discrete distribution in that the events are not
 countable.</p>
@@ -1059,6 +1066,24 @@ described by the mean and variance of that distribution.</p>
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="../Finance/Returns.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">6. </span>Returns</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../Finance/TheChoiceofFrequency.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">6.2. </span>The choice of frequency and Annualization of returns</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         
