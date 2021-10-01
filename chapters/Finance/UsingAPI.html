@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>8.1. Using APIs &#8212; Quantitative Investing</title>
+    <title>8.1. Dat APIs &#8212; Quantitative Investing</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -294,7 +294,7 @@
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     8.1. Using APIs
+     8.1. Data APIs
     </a>
    </li>
   </ul>
@@ -573,8 +573,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="using-apis">
-<h1><span class="section-number">8.1. </span>Using APIs<a class="headerlink" href="#using-apis" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="dat-apis">
+<h1><span class="section-number">8.1. </span>Dat APIs<a class="headerlink" href="#dat-apis" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>Pandas has an eco-system of APIs that allow you to get data from the web directly into a pandas dataframe</p></li>
 </ul>
@@ -841,297 +841,6 @@ Requirement already satisfied: six&gt;=1.5 in c:\programdata\anaconda3\lib\site-
 <img alt="../../_images/UsingAPI_10_1.png" src="../../_images/UsingAPI_10_1.png" />
 </div>
 </div>
-<p><strong>Options too (opt)</strong></p>
-<p>If you are very bold you can also get into options</p>
-<p>You can get strikes and maturities</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">Call</span><span class="p">(</span><span class="s1">&#39;GME&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">expirations</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">strikes</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">30</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No options listed for given date, using 07-05-2021 instead
-[&#39;07-05-2021&#39;, &#39;14-05-2021&#39;, &#39;21-05-2021&#39;, &#39;28-05-2021&#39;, &#39;04-06-2021&#39;]
-(10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">Call</span><span class="p">(</span><span class="s1">&#39;GME&#39;</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2021</span><span class="p">,</span> <span class="n">strike</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">implied_volatility</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9663713014521318
-</pre></div>
-</div>
-</div>
-</div>
-<p>It is cool: We can even recover the entire volatility smile by looking across strikes</p>
-<p>Ask Robert Novy-MArx all about it in the Option class!</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-<span class="n">ticker</span><span class="o">=</span><span class="s1">&#39;SPY&#39;</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">Put</span><span class="p">(</span><span class="n">ticker</span><span class="p">)</span>
-<span class="n">spot</span> <span class="o">=</span> <span class="n">Stock</span><span class="p">(</span><span class="n">ticker</span><span class="p">)</span><span class="o">.</span><span class="n">price</span>
-<span class="n">strikes</span><span class="o">=</span><span class="n">g</span><span class="o">.</span><span class="n">strikes</span>
-<span class="n">expirations</span><span class="o">=</span><span class="n">g</span><span class="o">.</span><span class="n">expirations</span>
-<span class="n">m</span><span class="o">=</span><span class="mi">10</span>
-<span class="n">maturity</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">expirations</span><span class="p">[</span><span class="n">m</span><span class="p">],</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">-%m-%Y&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">maturity</span><span class="p">)</span>
-<span class="n">smile</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([],</span><span class="n">index</span><span class="o">=</span><span class="p">[])</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">Call</span><span class="p">(</span><span class="n">ticker</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">maturity</span><span class="o">.</span><span class="n">day</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">maturity</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">maturity</span><span class="o">.</span><span class="n">year</span><span class="p">)</span>
-<span class="n">strikes</span><span class="o">=</span><span class="n">g</span><span class="o">.</span><span class="n">strikes</span>
-<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">strikes</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">]:</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="o">/</span><span class="n">spot</span><span class="o">&gt;</span><span class="mf">0.9</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">s</span><span class="o">/</span><span class="n">spot</span><span class="o">&lt;</span><span class="mf">1.1</span><span class="p">):</span>
-        <span class="n">g</span><span class="o">.</span><span class="n">set_strike</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-        <span class="n">smile</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">=</span><span class="n">g</span><span class="o">.</span><span class="n">implied_volatility</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2021-05-28 00:00:00
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-109-8ccfd570ac19&gt;:10: DeprecationWarning: The default dtype for empty Series will be &#39;object&#39; instead of &#39;float64&#39; in a future version. Specify a dtype explicitly to silence this warning.
-  smile=pd.Series([],index=[])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smile</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
-</pre></div>
-</div>
-<img alt="../../_images/UsingAPI_16_1.png" src="../../_images/UsingAPI_16_1.png" />
-</div>
-</div>
-<p><strong>WRDS</strong></p>
-<p>WRDS has all sorts of amazing data for finance. For equity prices and mutual funds in particular.</p>
-<p>You can easily register for an account here <a class="reference external" href="https://wrds-www.wharton.upenn.edu/register/">https://wrds-www.wharton.upenn.edu/register/</a></p>
-<p>In this class we will use it go get stock market data and also data on company earnigns and other balance sheet information</p>
-<p>Google/Yahoo finance data are nice to play with, but they tend to have errors in it. So if you are doing serious work I will probably advise agaist using them only. And WRDS is really the gold standard, but the data publication lag is long, so you can use it to do research, but not to trade</p>
-<p>to use it you have to load two libraries</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">wrds</span>
-<span class="kn">import</span> <span class="nn">psycopg2</span> 
-</pre></div>
-</div>
-</div>
-</div>
-<p>You then initiate a connection when you are requested to type your pasword and username</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conn</span><span class="o">=</span><span class="n">wrds</span><span class="o">.</span><span class="n">Connection</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter your WRDS username [Alan.Moreira]: moreira5
-Enter your password: ···········
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WRDS recommends setting up a .pgpass file.
-You can find more info here:
-https://www.postgresql.org/docs/9.5/static/libpq-pgpass.html.
-Loading library list...
-Done
-</pre></div>
-</div>
-</div>
-</div>
-<p>With this connection you can use their SQL interface to get the desired data</p>
-<p>Here I recommend most copying and pasting code across the web.</p>
-<p>This website by Freda Drechsler provides lots of guidance and code on how to do it</p>
-<p><a class="reference external" href="https://www.fredasongdrechsler.com/intro-to-python-for-fnce/maneuvering-wrds-data">https://www.fredasongdrechsler.com/intro-to-python-for-fnce/maneuvering-wrds-data</a></p>
-<p>and also has lots of code that teaches you how to get both financial and accouting information from WRDS, for example, (<a class="reference external" href="https://www.fredasongdrechsler.com/full-python-code/dgtw">https://www.fredasongdrechsler.com/full-python-code/dgtw</a>)</p>
-<p>Below we will simply write a fucntion that dowloads dailt return data for a given firm</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_returns</span><span class="p">(</span><span class="n">tickers</span><span class="p">,</span><span class="n">conn</span><span class="p">,</span><span class="n">startdate</span><span class="p">,</span><span class="n">enddate</span><span class="p">):</span>
-    <span class="n">ticker</span><span class="o">=</span><span class="n">tickers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">raw_sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">                          select a.permno, b.ticker, a.date,a.ret </span>
-<span class="s2">                          from crsp.dsf as a</span>
-<span class="s2">                          left join crsp.msenames as b</span>
-<span class="s2">                          on a.permno=b.permno</span>
-<span class="s2">                          and b.namedt&lt;=a.date</span>
-<span class="s2">                          and a.date&lt;=b.nameendt</span>
-<span class="s2">                          where a.date between &#39;&quot;&quot;&quot;</span><span class="o">+</span> <span class="n">startdate</span><span class="o">+</span><span class="s2">&quot;&quot;&quot;&#39;  and &#39;&quot;&quot;&quot;</span><span class="o">+</span> <span class="n">enddate</span><span class="o">+</span>            
-                          <span class="sd">&quot;&quot;&quot;&#39; and  b.ticker=&#39;&quot;&quot;&quot;</span><span class="o">+</span><span class="n">ticker</span><span class="o">+</span><span class="s2">&quot;&#39;&quot;</span><span class="p">)</span>
-            
-    <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="s1">&#39;permno&#39;</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">df</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">get_returns</span><span class="p">([</span><span class="s1">&#39;TSLA&#39;</span><span class="p">],</span><span class="n">conn</span><span class="p">,</span><span class="s1">&#39;1/1/2017&#39;</span><span class="p">,</span><span class="s1">&#39;1/1/2022&#39;</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>If I wanted other information I would have to know this information is named in the database</p>
-<p>For example,</p>
-<ul class="simple">
-<li><p>vol gets tradign volume (in shares),</p></li>
-<li><p>prc gets the unadjusted price,</p></li>
-<li><p>retx gets returns without dividends</p></li>
-<li><p>shrout gets share outstanding</p></li>
-</ul>
-<p>In the end of this notebook you put a list of data that this particular data set in wrds allow you easy access <a class="reference external" href="http://to.It">to.It</a> also has a description of how missing values are handled.</p>
-<p>To construct the market cap you need both the price and the shareoutstanding, which you can easily download with a single function call by adding to your code</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">tickers</span><span class="p">,</span><span class="n">conn</span><span class="p">,</span><span class="n">startdate</span><span class="p">,</span><span class="n">enddate</span><span class="p">):</span>
-    <span class="n">ticker</span><span class="o">=</span><span class="n">tickers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">raw_sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">                          select a.permno, b.ticker, a.date,a.prc,a.shrout </span>
-<span class="s2">                          from crsp.dsf as a</span>
-<span class="s2">                          left join crsp.msenames as b</span>
-<span class="s2">                          on a.permno=b.permno</span>
-<span class="s2">                          and b.namedt&lt;=a.date</span>
-<span class="s2">                          and a.date&lt;=b.nameendt</span>
-<span class="s2">                          where a.date between &#39;&quot;&quot;&quot;</span><span class="o">+</span> <span class="n">startdate</span><span class="o">+</span><span class="s2">&quot;&quot;&quot;&#39;  and &#39;&quot;&quot;&quot;</span><span class="o">+</span> <span class="n">enddate</span><span class="o">+</span>            
-                          <span class="sd">&quot;&quot;&quot;&#39; and  b.ticker=&#39;&quot;&quot;&quot;</span><span class="o">+</span><span class="n">ticker</span><span class="o">+</span><span class="s2">&quot;&#39;&quot;</span><span class="p">)</span>
-            
-    <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="s1">&#39;permno&#39;</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
- <span class="c1">#   I commented out this step because now I would like to get more than one variable so I cannot unstack</span>
-  <span class="c1">#  df=df[variable].unstack()</span>
-    <span class="k">return</span> <span class="n">df</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">get_data</span><span class="p">([</span><span class="s1">&#39;TSLA&#39;</span><span class="p">],</span><span class="n">conn</span><span class="p">,</span><span class="s1">&#39;1/1/2005&#39;</span><span class="p">,</span><span class="s1">&#39;1/1/2022&#39;</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>ticker</th>
-      <th>prc</th>
-      <th>shrout</th>
-    </tr>
-    <tr>
-      <th>date</th>
-      <th>permno</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2020-12-24</th>
-      <th>93436.0</th>
-      <td>TSLA</td>
-      <td>661.770020</td>
-      <td>947901.0</td>
-    </tr>
-    <tr>
-      <th>2020-12-28</th>
-      <th>93436.0</th>
-      <td>TSLA</td>
-      <td>663.690002</td>
-      <td>947901.0</td>
-    </tr>
-    <tr>
-      <th>2020-12-29</th>
-      <th>93436.0</th>
-      <td>TSLA</td>
-      <td>665.989990</td>
-      <td>947901.0</td>
-    </tr>
-    <tr>
-      <th>2020-12-30</th>
-      <th>93436.0</th>
-      <td>TSLA</td>
-      <td>694.780029</td>
-      <td>947901.0</td>
-    </tr>
-    <tr>
-      <th>2020-12-31</th>
-      <th>93436.0</th>
-      <td>TSLA</td>
-      <td>705.669983</td>
-      <td>947901.0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;mcap&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">prc</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">*</span><span class="n">df</span><span class="o">.</span><span class="n">shrout</span>
-<span class="c1"># the use a negative price to say that the price is not based on end of day transaction </span>
-<span class="c1">#but a mid price between bid and ask</span>
-<span class="n">df</span><span class="o">.</span><span class="n">mcap</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;date,permno&#39;&gt;
-</pre></div>
-</div>
-<img alt="../../_images/UsingAPI_28_1.png" src="../../_images/UsingAPI_28_1.png" />
-</div>
-</div>
-<p>This is ugly because we have the permno, the indentity of security as an index. To fix this, lets take this out of the index</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">mcap</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;date&#39;&gt;
-</pre></div>
-</div>
-<img alt="../../_images/UsingAPI_30_1.png" src="../../_images/UsingAPI_30_1.png" />
-</div>
-</div>
-<p>Truly mind blowing!</p>
 <p><strong>Pandas Datareader</strong></p>
 <p>this gives you acess to several data servers</p>
 <p>We will be particularly interested in the one Ken French updates with several quant strategies</p>
@@ -1908,6 +1617,219 @@ This file was created by CMPT_IND_RETS using the 202103 CRSP database. It contai
 </div>
 </div>
 </div>
+<p><strong>WRDS</strong></p>
+<p>WRDS has all sorts of amazing data for finance. For equity prices and mutual funds in particular.</p>
+<p>You can easily register for an account here <a class="reference external" href="https://wrds-www.wharton.upenn.edu/register/">https://wrds-www.wharton.upenn.edu/register/</a></p>
+<p>In this class we will use it go get stock market data and also data on company earnigns and other balance sheet information</p>
+<p>Google/Yahoo finance data are nice to play with, but they tend to have errors in it. So if you are doing serious work I will probably advise agaist using them only. And WRDS is really the gold standard, but the data publication lag is long, so you can use it to do research, but not to trade</p>
+<p>to use it you have to load two libraries</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">wrds</span>
+<span class="kn">import</span> <span class="nn">psycopg2</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>You then initiate a connection when you are requested to type your pasword and username</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conn</span><span class="o">=</span><span class="n">wrds</span><span class="o">.</span><span class="n">Connection</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter your WRDS username [Alan.Moreira]: moreira5
+Enter your password: ···········
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WRDS recommends setting up a .pgpass file.
+You can find more info here:
+https://www.postgresql.org/docs/9.5/static/libpq-pgpass.html.
+Loading library list...
+Done
+</pre></div>
+</div>
+</div>
+</div>
+<p>With this connection you can use their SQL interface to get the desired data</p>
+<p>Here I recommend most copying and pasting code across the web.</p>
+<p>This website by Freda Drechsler provides lots of guidance and code on how to do it</p>
+<p><a class="reference external" href="https://www.fredasongdrechsler.com/intro-to-python-for-fnce/maneuvering-wrds-data">https://www.fredasongdrechsler.com/intro-to-python-for-fnce/maneuvering-wrds-data</a></p>
+<p>and also has lots of code that teaches you how to get both financial and accouting information from WRDS, for example, (<a class="reference external" href="https://www.fredasongdrechsler.com/full-python-code/dgtw">https://www.fredasongdrechsler.com/full-python-code/dgtw</a>)</p>
+<p>Below we will simply write a fucntion that dowloads dailt return data for a given firm</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_returns</span><span class="p">(</span><span class="n">tickers</span><span class="p">,</span><span class="n">conn</span><span class="p">,</span><span class="n">startdate</span><span class="p">,</span><span class="n">enddate</span><span class="p">):</span>
+    <span class="n">ticker</span><span class="o">=</span><span class="n">tickers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">raw_sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                          select a.permno, b.ticker, a.date,a.ret </span>
+<span class="s2">                          from crsp.dsf as a</span>
+<span class="s2">                          left join crsp.msenames as b</span>
+<span class="s2">                          on a.permno=b.permno</span>
+<span class="s2">                          and b.namedt&lt;=a.date</span>
+<span class="s2">                          and a.date&lt;=b.nameendt</span>
+<span class="s2">                          where a.date between &#39;&quot;&quot;&quot;</span><span class="o">+</span> <span class="n">startdate</span><span class="o">+</span><span class="s2">&quot;&quot;&quot;&#39;  and &#39;&quot;&quot;&quot;</span><span class="o">+</span> <span class="n">enddate</span><span class="o">+</span>            
+                          <span class="sd">&quot;&quot;&quot;&#39; and  b.ticker=&#39;&quot;&quot;&quot;</span><span class="o">+</span><span class="n">ticker</span><span class="o">+</span><span class="s2">&quot;&#39;&quot;</span><span class="p">)</span>
+            
+    <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="s1">&#39;permno&#39;</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">get_returns</span><span class="p">([</span><span class="s1">&#39;TSLA&#39;</span><span class="p">],</span><span class="n">conn</span><span class="p">,</span><span class="s1">&#39;1/1/2017&#39;</span><span class="p">,</span><span class="s1">&#39;1/1/2022&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If I wanted other information I would have to know this information is named in the database</p>
+<p>For example,</p>
+<ul class="simple">
+<li><p>vol gets tradign volume (in shares),</p></li>
+<li><p>prc gets the unadjusted price,</p></li>
+<li><p>retx gets returns without dividends</p></li>
+<li><p>shrout gets share outstanding</p></li>
+</ul>
+<p>In the end of this notebook you put a list of data that this particular data set in wrds allow you easy access <a class="reference external" href="http://to.It">to.It</a> also has a description of how missing values are handled.</p>
+<p>To construct the market cap you need both the price and the shareoutstanding, which you can easily download with a single function call by adding to your code</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">tickers</span><span class="p">,</span><span class="n">conn</span><span class="p">,</span><span class="n">startdate</span><span class="p">,</span><span class="n">enddate</span><span class="p">):</span>
+    <span class="n">ticker</span><span class="o">=</span><span class="n">tickers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">raw_sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                          select a.permno, b.ticker, a.date,a.prc,a.shrout </span>
+<span class="s2">                          from crsp.dsf as a</span>
+<span class="s2">                          left join crsp.msenames as b</span>
+<span class="s2">                          on a.permno=b.permno</span>
+<span class="s2">                          and b.namedt&lt;=a.date</span>
+<span class="s2">                          and a.date&lt;=b.nameendt</span>
+<span class="s2">                          where a.date between &#39;&quot;&quot;&quot;</span><span class="o">+</span> <span class="n">startdate</span><span class="o">+</span><span class="s2">&quot;&quot;&quot;&#39;  and &#39;&quot;&quot;&quot;</span><span class="o">+</span> <span class="n">enddate</span><span class="o">+</span>            
+                          <span class="sd">&quot;&quot;&quot;&#39; and  b.ticker=&#39;&quot;&quot;&quot;</span><span class="o">+</span><span class="n">ticker</span><span class="o">+</span><span class="s2">&quot;&#39;&quot;</span><span class="p">)</span>
+            
+    <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="s1">&#39;permno&#39;</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+ <span class="c1">#   I commented out this step because now I would like to get more than one variable so I cannot unstack</span>
+  <span class="c1">#  df=df[variable].unstack()</span>
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">get_data</span><span class="p">([</span><span class="s1">&#39;TSLA&#39;</span><span class="p">],</span><span class="n">conn</span><span class="p">,</span><span class="s1">&#39;1/1/2005&#39;</span><span class="p">,</span><span class="s1">&#39;1/1/2022&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>ticker</th>
+      <th>prc</th>
+      <th>shrout</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th>permno</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-12-24</th>
+      <th>93436.0</th>
+      <td>TSLA</td>
+      <td>661.770020</td>
+      <td>947901.0</td>
+    </tr>
+    <tr>
+      <th>2020-12-28</th>
+      <th>93436.0</th>
+      <td>TSLA</td>
+      <td>663.690002</td>
+      <td>947901.0</td>
+    </tr>
+    <tr>
+      <th>2020-12-29</th>
+      <th>93436.0</th>
+      <td>TSLA</td>
+      <td>665.989990</td>
+      <td>947901.0</td>
+    </tr>
+    <tr>
+      <th>2020-12-30</th>
+      <th>93436.0</th>
+      <td>TSLA</td>
+      <td>694.780029</td>
+      <td>947901.0</td>
+    </tr>
+    <tr>
+      <th>2020-12-31</th>
+      <th>93436.0</th>
+      <td>TSLA</td>
+      <td>705.669983</td>
+      <td>947901.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;mcap&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">prc</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">*</span><span class="n">df</span><span class="o">.</span><span class="n">shrout</span>
+<span class="c1"># the use a negative price to say that the price is not based on end of day transaction </span>
+<span class="c1">#but a mid price between bid and ask</span>
+<span class="n">df</span><span class="o">.</span><span class="n">mcap</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;date,permno&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/UsingAPI_34_1.png" src="../../_images/UsingAPI_34_1.png" />
+</div>
+</div>
+<p>This is ugly because we have the permno, the indentity of security as an index. To fix this, lets take this out of the index</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">mcap</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;date&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/UsingAPI_36_1.png" src="../../_images/UsingAPI_36_1.png" />
+</div>
+</div>
+<p>Truly mind blowing!</p>
 <p><strong>Variable reference for WRDS CRSP data set</strong>
 <img alt="image.png" src="../../_images/usingAPI1.jpg" />
 <img alt="image.png" src="../../_images/usingAPI2.jpg" />

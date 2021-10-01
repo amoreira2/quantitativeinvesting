@@ -56,7 +56,7 @@
     <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="8.1. Using APIs" href="UsingAPI.html" />
+    <link rel="next" title="8.1. Dat APIs" href="UsingAPI.html" />
     <link rel="prev" title="7.1. Applied Linear Algebra" href="../scientific/linear_algebra1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -296,7 +296,7 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="UsingAPI.html">
-     8.1. Using APIs
+     8.1. Data APIs
     </a>
    </li>
   </ul>
@@ -707,48 +707,6 @@ memory usage: 35.4 KB
 <p>x determines composition of risky portfolio (x in the US market, 1-x in international market)</p>
 <p>just as above</p>
 <p>And xf determines allocation between riks-free and risky-portfolio (xf in the riskfree and 1-xf on the risky portfolio)</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="n">wf</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">wf</span><span class="p">)</span>
-<span class="c1"># choosing some risk-free rate</span>
-
-<span class="n">rf</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">100</span><span class="o">/</span><span class="mi">12</span>
-
-<span class="c1"># I am settign to 1% per year. Divide by 100 to put in percent as the return data</span>
-<span class="c1"># and divided by 12 to make it monthly as the return data</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.  0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1. ]
-[0.  0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1. ]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UsW</span><span class="o">=</span><span class="p">[]</span>
-<span class="k">for</span> <span class="n">xf</span> <span class="ow">in</span> <span class="n">wf</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">w</span><span class="p">:</span>
-        <span class="c1">#construct risky portfolio</span>
-        <span class="n">W</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">])</span>
-        <span class="c1">#variance of risky portfolio</span>
-        <span class="n">varW</span><span class="o">=</span><span class="n">W</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span> <span class="o">@</span> <span class="n">W</span>
-        <span class="c1"># variance of final portfolio</span>
-        <span class="n">var</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">xf</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">varW</span><span class="p">)</span>
-        <span class="c1">#expected excess return of risky portfolio</span>
-        <span class="n">erW</span><span class="o">=</span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
-        <span class="c1"># expected return of finanl portfolio </span>
-        <span class="n">er</span><span class="o">=</span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">xf</span><span class="p">)</span><span class="o">+</span><span class="n">rf</span>
-        <span class="n">UsW</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">xf</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">,</span><span class="n">var</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,</span><span class="n">er</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>Note that the expected return term is <code class="docutils literal notranslate"><span class="pre">+rf</span></code> instead of <code class="docutils literal notranslate"><span class="pre">+rf*xf</span></code> because we are using excess return instead of return. To better understand, we write out the expected return in the following way where <span class="math notranslate nohighlight">\(R_W\)</span> below is the return on the risky portfolio</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{align}
@@ -774,29 +732,181 @@ Var[r_p]&amp;=Var[(1-x_f) \times R_W^e] \\
 &amp;= (1-x_f)^2 Var[R_W^e]  
 \end{align}
 \)</span></p>
-<p>Stopped here</p>
+<p>And the volatility (also called standard deviation</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{align}
+STD[r_p]&amp;=\sqrt{Var[r_p]}\\
+&amp;=\sqrt{Var[(1-x_f) \times R_W^e + R_f]} \\
+&amp;=\sqrt{Var[(1-x_f) \times R_W^e]} \\
+&amp;= \sqrt{(1-x_f)^2 Var[R_W^e]}\\  
+&amp;= \sqrt{(1-x_f)^2}\sqrt{ Var[R_W^e]}\\
+&amp;= {(1-x_f)}{ STD[R_W^e]}
+\end{align}
+\)</span></p>
+<p>LEts start by combining one asset, say the US market with the risk-free rate using different weights on the risk-free rate and this particular risk portfolio</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UsW</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">UsW</span><span class="p">)</span>
-<span class="c1"># 2 is selecting the column with the volatility and 3 is selecting the column with the average excess return</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
-<span class="c1"># below I am using the boolean indexing UsW[:,0]==0 to select only portfolio with zero weight on the risk-free asset and plotting it in blue.</span>
-<span class="c1"># recall that column 0 has the position on the risk-free asset</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wf</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Volatility&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average return&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wf</span><span class="p">)</span>
+<span class="c1"># choosing some risk-free rate</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">rf</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">100</span><span class="o">/</span><span class="mi">12</span>
+
+<span class="c1"># I am settign to 1% per year. Divide by 100 to put in percent as the return data</span>
+<span class="c1"># and divided by 12 to make it monthly as the return data</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/CapitalAllocationLine_13_0.png" src="../../_images/CapitalAllocationLine_13_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.  0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1. ]
+</pre></div>
 </div>
 </div>
+</div>
+<p>We know compute the averagereturn and the population volatility/variance for each of the portfolios associated with the weights in <span class="math notranslate nohighlight">\(wf\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UsW</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">xf</span> <span class="ow">in</span> <span class="n">wf</span><span class="p">:</span>
+
+        <span class="n">varW</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">var</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        
+        <span class="c1"># variance of final portfolio since xf is the weight on the risk-free rate </span>
+        <span class="c1"># so 1-xf is the weight on the risky asset</span>
+        <span class="n">var</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">xf</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">varW</span><span class="p">)</span>
+        <span class="c1">#expected excess return of risky portfolio</span>
+        <span class="n">erW</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        
+        <span class="c1"># expected return of finanl portfolio </span>
+        <span class="n">er</span><span class="o">=</span><span class="n">erW</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">xf</span><span class="p">)</span><span class="o">+</span><span class="n">rf</span>
+        <span class="n">UsW</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">xf</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">var</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,</span><span class="n">er</span><span class="p">])</span>
+<span class="n">UsW</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.0, 0, 0.044135871293866175, 0.005973673364245234],
+ [0.1, 0, 0.03972228416447956, 0.005459639361154045],
+ [0.2, 0, 0.03530869703509294, 0.004945605358062854],
+ [0.30000000000000004, 0, 0.030895109905706316, 0.004431571354971664],
+ [0.4, 0, 0.026481522776319703, 0.003917537351880474],
+ [0.5, 0, 0.022067935646933087, 0.003403503348789284],
+ [0.6000000000000001, 0, 0.017654348517546464, 0.0028894693456980934],
+ [0.7000000000000001, 0, 0.013240761388159848, 0.0023754353426069033],
+ [0.8, 0, 0.008827174258773232, 0.0018614013395157132],
+ [0.9, 0, 0.004413587129386616, 0.0013473673364245234],
+ [1.0, 0, 0.0, 0.0008333333333333334]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lets now plot the resulting average return against sample volatility and variance</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UsW</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">UsW</span><span class="p">)</span>
+<span class="c1"># 2 is selecting the column with the volatility and 3 is selecting the column with the average excess return</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="c1"># below I am using the boolean indexing UsW[:,0]==0 to select only portfolio with zero weight on the risk-free asset and plotting it in blue.</span>
+<span class="c1"># recall that column 0 has the position on the risk-free asset</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Sample Volatility&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average return&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="c1"># below I am using the boolean indexing UsW[:,0]==0 to select only portfolio with zero weight on the risk-free asset and plotting it in blue.</span>
+<span class="c1"># recall that column 0 has the position on the risk-free asset</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Sample Variance&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average return&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Average return&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/CapitalAllocationLine_15_1.png" src="../../_images/CapitalAllocationLine_15_1.png" />
+<img alt="../../_images/CapitalAllocationLine_15_2.png" src="../../_images/CapitalAllocationLine_15_2.png" />
+</div>
+</div>
+<p>You see clearly the relationship predicted by the formulas above</p>
+<p>The Investment frontier in ExpectedReturn-volatility space is linear because as you increase your laoding on the risky asset, both expected return and volatility grow proportionally</p>
+<p>In variance space you see that variance grows faster—since it it standard deviation to the power of 2. So as you increase the loading o the risky asset, variance grows intially slower, and the much faster, hence the kind of concave increase in average returns</p>
+<p>Now lets make this interesting</p>
+<p>We will now at the same time vary the relative weight on the risk-free asset and the risky portfolio and change the coposition of the risky portoflio by changing the relative weight on the us market vs international market</p>
+<p>We will accomplish this with the following double for loop</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+<span class="n">UsW</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">xf</span> <span class="ow">in</span> <span class="n">wf</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">w</span><span class="p">:</span>
+        <span class="c1">#construct risky portfolio</span>
+        <span class="n">W</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">])</span>
+        <span class="c1">#variance of risky portfolio</span>
+        <span class="n">varW</span><span class="o">=</span><span class="n">W</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span> <span class="o">@</span> <span class="n">W</span>
+        <span class="c1"># variance of final portfolio</span>
+        <span class="n">var</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">xf</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">varW</span><span class="p">)</span>
+        <span class="c1">#expected excess return of risky portfolio</span>
+        <span class="n">erW</span><span class="o">=</span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+        <span class="c1"># expected return of finanl portfolio </span>
+        <span class="n">er</span><span class="o">=</span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">xf</span><span class="p">)</span><span class="o">+</span><span class="n">rf</span>
+        <span class="n">UsW</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">xf</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">,</span><span class="n">var</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,</span><span class="n">er</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.  0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1. ]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UsW</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">UsW</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="c1"># 2 is selecting the column with the volatility and 3 is selecting the column with the average excess return</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+
+
+
+<span class="c1"># below I am using the boolean indexing UsW[:,0]==0 to select only portfolio with zero weight on the risk-free asset and plotting it in blue.</span>
+<span class="c1"># recall that column 0 has the position on the risk-free asset</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Sample Volatility&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Average return&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Average return&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/CapitalAllocationLine_19_1.png" src="../../_images/CapitalAllocationLine_19_1.png" />
+</div>
+</div>
+<p>What do you see above?</p>
 <ul class="simple">
-<li><p>blue is the xf=0 case, where the portfolios is fully invested in the risky-portfolio</p></li>
+<li><p>In orange the portfolios where the risky portfolio is exactly the US market, but has different weights on the risk-free asset</p></li>
+<li><p>In black you have the same thign, but now of the international market</p></li>
+<li><p>In blue you the portfolios that have exaclty zero weight on the risk-free rate, but different compositions of the risky portfolio</p></li>
+<li><p>in green you have the portfolio that has weight of 1 on the risk-free rate</p></li>
+<li><p>In red you have all the other portfolios wich have varying risky portfolio compositions and varying weights combining this risky portfolio with the risk-free rate</p></li>
+</ul>
+<ul class="simple">
 <li><p>How to read this plot? Say you want a portoflio with at most 0.03 monthly volatility. What does this plot tell you?</p></li>
 <li><p>Which units are this? Can you convert it to annual units? How?</p></li>
 <li><p>what is noteworthy about the shape of these different curves?</p></li>
@@ -807,7 +917,7 @@ Var[r_p]&amp;=Var[(1-x_f) \times R_W^e] \\
 
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Variance&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Sample Variance&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average return&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -815,7 +925,7 @@ Var[r_p]&amp;=Var[(1-x_f) \times R_W^e] \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/CapitalAllocationLine_15_0.png" src="../../_images/CapitalAllocationLine_15_0.png" />
+<img alt="../../_images/CapitalAllocationLine_22_0.png" src="../../_images/CapitalAllocationLine_22_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -823,6 +933,11 @@ Var[r_p]&amp;=Var[(1-x_f) \times R_W^e] \\
 <li><p>What about investors that would like to take more risk, can they benefit of the risk-free asset?</p></li>
 <li><p>yes, if they can borrow at the risk-free rate</p></li>
 </ul>
+<p><strong>so what does borrowing means?</strong></p>
+<p>It means that you agree to pays some rate of return in exchange for getting a dollar today to invest.</p>
+<p>So you have a <strong>negative</strong> weight on the risk-free rate. Say if you have a weight of -0.5 on the risk-free rate it means that for each dollar that you have in your portfolio you are borrowing 0.5 and investing in the risky portolio 1.5 dollars</p>
+<p>We say that you are are <strong>leveraged</strong> becasue your assets side (1.5 dollars) worth more than your networth (1 dollar) because you are borrowing the 0.5 dollars.</p>
+<p>So lets see hat that looks like by considering negative weights on the riks-free asset  (xf&lt;0)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UsW</span><span class="o">=</span><span class="p">[]</span>
@@ -858,12 +973,12 @@ Var[r_p]&amp;=Var[(1-x_f) \times R_W^e] \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/CapitalAllocationLine_17_0.png" src="../../_images/CapitalAllocationLine_17_0.png" />
+<img alt="../../_images/CapitalAllocationLine_24_0.png" src="../../_images/CapitalAllocationLine_24_0.png" />
 </div>
 </div>
 <ul class="simple">
-<li><p>What is the intepretation of a negative <span class="math notranslate nohighlight">\(w_f\)</span>? Doe it make sense?</p></li>
-<li><p>What is the interpretation of a <span class="math notranslate nohighlight">\(w_f\)</span> above 1? Does it make sense?</p></li>
+<li><p>What is the intepretation of a negative <span class="math notranslate nohighlight">\(x_f\)</span>? Doe it make sense?</p></li>
+<li><p>What is the interpretation of a <span class="math notranslate nohighlight">\(x_f\)</span> above 1? Does it make sense?</p></li>
 <li><p>Is the investors likely to be able to borrow at the risk-free rate?</p></li>
 </ul>
 <div class="toctree-wrapper compound">
@@ -912,7 +1027,7 @@ Var[r_p]&amp;=Var[(1-x_f) \times R_W^e] \\
         <a class="right-next" href="UsingAPI.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">8.1. </span>Using APIs</p>
+                <p class="prevnext-title"><span class="section-number">8.1. </span>Dat APIs</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
