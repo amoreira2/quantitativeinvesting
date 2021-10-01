@@ -604,12 +604,16 @@ memory usage: 35.4 KB
 <li><p>In this case, the only way that an investor can change the risk profile of her portfolio is by changing the relative weights across the risky assets</p></li>
 <li><p>In practice investors can invest in the risk-free asset, which has zero volatility.</p></li>
 <li><p>This means that they can potentially derisk their portfolio by keeping the relative weights across assets constant and simply invest more in the risk-free asset</p></li>
-<li><p>So we will now work with excess returns (which we study in Notebook 3) and the risk-free rate, separating cleaning the risk-free component of these risky asset returns</p></li>
+<li><p>So we will now work with excess returns and the risk-free rate, separating cleaning the risk-free component of these risky asset returns</p></li>
+<li><p><strong>this has the added benefit of cleanly separate what needs estiamting (average excess returns of risky assets and their covariances) from the level of the risk-free rate at a given point in time whcih is known</strong></p></li>
 </ul>
 <p><strong>Constructing excess returns</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># here are the excess returns Re=R-rf</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># (select three assets) (subtract the risk-free asset) (drop the risk-free asset)</span>
+<span class="c1"># note axis parameters telling along whcih axes the subtraction adn droping occurs.</span>
+<span class="c1">#Try ommiting each axis paraemtner and see what you get</span>
+
 <span class="n">Re</span><span class="o">=</span><span class="p">(</span><span class="n">Data</span><span class="p">[[</span><span class="s1">&#39;RF&#39;</span><span class="p">,</span><span class="s1">&#39;MKT&#39;</span><span class="p">,</span><span class="s1">&#39;WorldxUSA&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">Data</span><span class="p">[</span><span class="s1">&#39;RF&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;RF&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">Re</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
@@ -745,24 +749,32 @@ memory usage: 35.4 KB
 </div>
 </div>
 </div>
-<p>Note that the expected return term is <code class="docutils literal notranslate"><span class="pre">+rf</span></code> instead of <code class="docutils literal notranslate"><span class="pre">+rf*xf</span></code> because we are using excess return instead of return. To better understand, we write out the expected return in the following way where <span class="math notranslate nohighlight">\(RW\)</span> below is the return on the risky portfolio</p>
+<p>Note that the expected return term is <code class="docutils literal notranslate"><span class="pre">+rf</span></code> instead of <code class="docutils literal notranslate"><span class="pre">+rf*xf</span></code> because we are using excess return instead of return. To better understand, we write out the expected return in the following way where <span class="math notranslate nohighlight">\(R_W\)</span> below is the return on the risky portfolio</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{align}
-E[r_p]&amp;=E[x_f \times R_f + (1-x_f) \times R_W] \\
-E[r_p]&amp;=x_f \times R_f + (1-x_f) \times E[R_W] \\
-&amp;= x_f \times r_f + (1-x_f) \times E[(R_W-r_f)] + (1-x_f) \times r_f \\
-&amp;= (1-x_f) \times E[(R_W-r_f)] + r_f \\
-&amp;=(1-x_f) \times E[R_W^e] + r_f
+r_p&amp;=x_f \times R_f + (1-x_f) \times R_W \\
+&amp;= x_f \times R_f + (1-x_f) \times E[(R_W-R_f)] + (1-x_f) \times R_f \\
+&amp;= (1-x_f) \times (R_W-R_f)] + R_f \\
+&amp;=(1-x_f) \times R_W^e + R_f
 \end{align}
 \)</span></p>
+<p>where <span class="math notranslate nohighlight">\(R^e_W\)</span> is the <strong>excess return</strong> on the risky portolio.
+$</p>
+<p>Thus we can write:</p>
+<p>\begin{align}
+E[r_p]&amp;=E[(1-x_f) \times R_W^e + R_f]\
+E[r_p]&amp;=(1-x_f) \times E[R_W^e] + R_f
+\end{align}
+$</p>
 <p>Note also the math for the variance of the portfolio which is particular case of what we learn in the portfolio math chapter but with a zero volatility asset:</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{align}
-Var[r_p]&amp;=Var[x_f \times R_f + (1-x_f) \times R_W] \\
-Var[r_p]&amp;=Var[(1-x_f) \times R_W] \\
-&amp;= (1-x_f)^2 Var[R_W]  
+Var[r_p]&amp;=Var[(1-x_f) \times R_W^e + R_f] \\
+Var[r_p]&amp;=Var[(1-x_f) \times R_W^e] \\
+&amp;= (1-x_f)^2 Var[R_W^e]  
 \end{align}
 \)</span></p>
+<p>Stopped here</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UsW</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">UsW</span><span class="p">)</span>
@@ -780,7 +792,7 @@ Var[r_p]&amp;=Var[(1-x_f) \times R_W] \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/CapitalAllocationLine_12_0.png" src="../../_images/CapitalAllocationLine_12_0.png" />
+<img alt="../../_images/CapitalAllocationLine_13_0.png" src="../../_images/CapitalAllocationLine_13_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -803,7 +815,7 @@ Var[r_p]&amp;=Var[(1-x_f) \times R_W] \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/CapitalAllocationLine_14_0.png" src="../../_images/CapitalAllocationLine_14_0.png" />
+<img alt="../../_images/CapitalAllocationLine_15_0.png" src="../../_images/CapitalAllocationLine_15_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -846,7 +858,7 @@ Var[r_p]&amp;=Var[(1-x_f) \times R_W] \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/CapitalAllocationLine_16_0.png" src="../../_images/CapitalAllocationLine_16_0.png" />
+<img alt="../../_images/CapitalAllocationLine_17_0.png" src="../../_images/CapitalAllocationLine_17_0.png" />
 </div>
 </div>
 <ul class="simple">

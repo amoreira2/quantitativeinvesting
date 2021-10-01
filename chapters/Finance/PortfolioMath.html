@@ -620,7 +620,7 @@
 <p>This below is the vector of return realization for a particular date</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Data</span><span class="p">[</span><span class="s1">&#39;1963-02&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;1963-02&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -823,7 +823,7 @@ Length: 647, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1f82fa015b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Date&#39;&gt;
 </pre></div>
 </div>
 <img alt="../../_images/PortfolioMath_13_1.png" src="../../_images/PortfolioMath_13_1.png" />
@@ -836,7 +836,7 @@ Length: 647, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007367453311403502
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007367453311403508
 </pre></div>
 </div>
 </div>
@@ -876,7 +876,7 @@ Length: 647, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007376761284897114
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007376761284897112
 </pre></div>
 </div>
 </div>
@@ -884,18 +884,60 @@ Length: 647, dtype: float64
 <p>It should be true that taking the sample mean of our portfolio return realizations should give the same answer</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">Data</span> <span class="o">@</span> <span class="n">W</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007367453311403508
+</pre></div>
+</div>
+</div>
+</div>
+<p>or more directly</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Rp</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007367453311403502
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007367453311403508
 </pre></div>
 </div>
 </div>
 </div>
 <p><strong>Portfolio Variance</strong></p>
-<p>Two asset case:</p>
+<p>Empirically the easiest way to compute the variance of a portfolio is to simply take the variance of the portfolio.</p>
+<p>This returns to us the Realized variance of the portfolio in the sample</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Rp</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0005461927564874862
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#or also</span>
+
+<span class="p">(</span><span class="n">Data</span> <span class="o">@</span> <span class="n">W</span><span class="p">)</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0005461927564874862
+</pre></div>
+</div>
+</div>
+</div>
+<p>When think about optimal portfolio construction is useful to have a way to go from the variance/covariances of the individual assets to variance of the portfolio</p>
+<p><strong>Two asset case:</strong></p>
 <div class="math notranslate nohighlight">
 \[Var(r_p)= Var(w_1r_1+w_2r_2)=Cov(w_1r_1+w_2r_2,w_1r_1+w_2r_2)\]</div>
 <ul class="simple">
@@ -1046,6 +1088,30 @@ Length: 647, dtype: float64
 </div>
 </div>
 </div>
+<p>We can check that this vector notation deliver the same as the double sum by using two for loops</p>
+<div class="math notranslate nohighlight">
+\[\sum_{j=1}^N \sum_{i=1}^N w_jw_iCov(r_j, r_i)=W' Cov(R) W\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cov</span><span class="o">=</span><span class="n">Data</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
+<span class="n">covariance_sum</span><span class="o">=</span><span class="mi">0</span> <span class="c1">#initiate the sum at zero</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cov</span><span class="o">.</span><span class="n">index</span><span class="p">:</span> <span class="c1"># loop across all assets</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">cov</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">i_pos</span><span class="o">=</span><span class="n">cov</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="c1"># this gets the position of the particular asset so we can locate the proper posiiton on the vector</span>
+        <span class="n">j_pos</span><span class="o">=</span><span class="n">cov</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="c1"># same thing, but for the other asset in the double sum</span>
+        <span class="n">covariance_sum</span><span class="o">=</span><span class="n">covariance_sum</span><span class="o">+</span><span class="n">cov</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">W</span><span class="p">[</span><span class="n">i_pos</span><span class="p">]</span><span class="o">*</span><span class="n">W</span><span class="p">[</span><span class="n">j_pos</span><span class="p">]</span>
+        
+        
+<span class="n">covariance_sum</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0005455164562658997
+</pre></div>
+</div>
+</div>
+</div>
 <p>to get the volatility, i.e. , standard deviation:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1059,7 +1125,7 @@ Length: 647, dtype: float64
 </div>
 </div>
 </div>
-<p>Again, the sample variance of the portfolio return realizations we constructed above should exactly match this:</p>
+<p>Again, as we did before, the sample variance of the portfolio return realizations we constructed above should exactly match this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Rp</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
@@ -1079,6 +1145,21 @@ Length: 647, dtype: float64
 <li><p>You can estimate the covariance matrix across assets using .cov() method and apply the quadratic formula “W &#64; Data.cov() &#64; W”</p></li>
 </ol>
 <p>They are <strong>MATHEMATICALLY</strong> identical! option 2 is easier and more intuitive , but option 1 is important to understand portfolio maximization which we will do soon</p>
+<p><strong>A comment on sample moments vs populational moments</strong></p>
+<p>We care about the population variance, i.e. what is the true variance of these assets goign forward</p>
+<p>We use the realized variance to the extent it help us estimate this.</p>
+<p>Just like with average returns and expected returns</p>
+<p>The key assumption, which tends to be ok over long time-peridos (say acorss years) is that the volatility is kind of stable, so we use the overall variance to gauge what the population is.</p>
+<p>We will later discuss methods that deal with time-variation in these moments, but for now lets think as the population moments being constant</p>
+<p><strong>dealing wiht the risk-free rate</strong></p>
+<p>Again the risk-free rate is different, becasue as we discussed variation in the risk-free rate directly tracks what people expect to get from investing in the risk-free asset in different points in time, and not risk, so the formal way to think about it is what people call the Law of interated expectations</p>
+<div class="math notranslate nohighlight">
+\[Var(R)=Var(E_t[R])+E(Var_t[R])\]</div>
+<p>So the overal variance of a series is the sum of the vairance of what people expected at a point in time and the average value of the variance of the asset at a given point in time</p>
+<p>For a risky asset, we think that there is very little variation in <span class="math notranslate nohighlight">\(E_t[R]\)</span> so the overall variance measures entirely the average risk of the asset</p>
+<p>For a risk-less asset, there is by defintion not conditional variance, so the second term is zero, so all the variantion of the asset is about variation in these expectations.</p>
+<p>This means that is <strong>weird</strong> to add the risk-free rate when you do variance calculations becasue you are attributing to risk, which was actually variation in what people expected to earn</p>
+<p>In practice the variation in the risk-free is very small to have much of an effect, but next chapter we will disucss how to deal with it properly.</p>
 <p><strong>Diversification</strong></p>
 <ul class="simple">
 <li><p>A key concept in investing is diversification</p></li>
@@ -1224,7 +1305,7 @@ Length: 647, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/PortfolioMath_36_0.png" src="../../_images/PortfolioMath_36_0.png" />
+<img alt="../../_images/PortfolioMath_44_0.png" src="../../_images/PortfolioMath_44_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1287,7 +1368,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/PortfolioMath_41_0.png" src="../../_images/PortfolioMath_41_0.png" />
+<img alt="../../_images/PortfolioMath_49_0.png" src="../../_images/PortfolioMath_49_0.png" />
 </div>
 </div>
 <ul class="simple">
