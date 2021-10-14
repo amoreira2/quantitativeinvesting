@@ -634,12 +634,14 @@ computer’s operating system.</p>
 <li><p>Right click on the icon “Anaconda Prompt” and choose “Run as administrator”</p></li>
 </ul>
 <p><strong>Run the following commands line by line (meaning you type the first command on the prompt and presse ‘Enter’ then write the next line and so on)</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n fin418 <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6 matplotlib scikit-learn scipy pandas numpy statsmodels psycopg2 
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n fin418 <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.8 matplotlib scikit-learn scipy pandas numpy statsmodels psycopg2 
 conda activate fin418
 pip install fredapi wrds datascience pandas-datareader
 conda install -c conda-forge jupyterlab
 </pre></div>
 </div>
+<p><strong>NOTE:  for some people 3.8 does not work and lead to error. If you encounter installation errors, try to change the first line above to</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">-n</span> <span class="pre">fin418</span> <span class="pre">python=3.6</span> <span class="pre">matplotlib</span> <span class="pre">scikit-learn</span> <span class="pre">scipy</span> <span class="pre">pandas</span> <span class="pre">numpy</span> <span class="pre">statsmodels</span> <span class="pre">psycopg2</span></code></p>
 <p>Press <code class="docutils literal notranslate"><span class="pre">y</span></code> and enter whenever you see <code class="docutils literal notranslate"><span class="pre">Proceed</span> <span class="pre">[y]/n</span></code> from your terminal.</p>
 <ul class="simple">
 <li><p>Close the command window after the installation finishes, log out of Windows, and then log in.</p></li>
