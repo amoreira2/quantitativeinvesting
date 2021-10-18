@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4.5. Introduction to Numpy &#8212; Quantitative Investing</title>
+    <title>Introduction to Numpy &#8212; Quantitative Investing</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -34,28 +34,26 @@
     
   <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://amoreira2.github.io/quantitativeinvesting/chapters/scientific/numpy1.html" />
+    <link rel="canonical" href="https://amoreira2.github.io/quantitativeinvesting/chapters/essentials/numpy1.html" />
     <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="4.6. Plotting" href="plotting1.html" />
-    <link rel="prev" title="4.4. Functions" href="../essentials/functions.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -89,7 +87,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01/what-is-quant-investing.html">
    1. What is Quantitative Investing?
@@ -139,44 +137,34 @@
    3. First Steps with Python
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../essentials/essentials.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="essentials.html">
    4. Python Essentials
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../essentials/basics.html">
+    <a class="reference internal" href="basics.html">
      4.1. Basics
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../essentials/collections.html">
+    <a class="reference internal" href="collections.html">
      4.2. Collections
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../essentials/control_flow.html">
+    <a class="reference internal" href="control_flow.html">
      4.3. Flow control
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../essentials/functions.html">
+    <a class="reference internal" href="functions.html">
      4.4. Functions
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     4.5. Numpy
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="plotting1.html">
-     4.6. Plotting
     </a>
    </li>
   </ul>
@@ -254,7 +242,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="randomness1.html">
+    <a class="reference internal" href="../scientific/randomness1.html">
      6.1. Modeling randomness
     </a>
    </li>
@@ -264,7 +252,7 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="linear_algebra1.html">
+    <a class="reference internal" href="../scientific/linear_algebra1.html">
      6.3. Linear algebra Review
     </a>
    </li>
@@ -471,7 +459,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/chapters/scientific/numpy1.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/chapters/essentials/numpy1.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -491,7 +479,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/amoreira2/Lectures/issues/new?title=Issue%20on%20page%20%2Fchapters/scientific/numpy1.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/amoreira2/Lectures/issues/new?title=Issue%20on%20page%20%2Fchapters/essentials/numpy1.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -512,21 +500,21 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/amoreira2/Lectures/main?urlpath=lab/tree/chapters/scientific/numpy1.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/amoreira2/Lectures/main?urlpath=lab/tree/chapters/essentials/numpy1.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://pims.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https://github.com/amoreira2/Lectures&urlpath=lab/tree/Lectures/chapters/scientific/numpy1.ipynb&branch=main"><button type="button"
+        <a class="jupyterhub-button" href="https://pims.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https://github.com/amoreira2/Lectures&urlpath=lab/tree/Lectures/chapters/essentials/numpy1.ipynb&branch=main"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
                     alt="Interact on JupyterHub">JupyterHub</button></a>
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/amoreira2/Lectures/blob/main/chapters/scientific/numpy1.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/amoreira2/Lectures/blob/main/chapters/essentials/numpy1.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -547,73 +535,73 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#numpy-arrays">
-   4.5.1. Numpy Arrays
+   Numpy Arrays
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#what-is-an-array">
-     4.5.1.1. What is an Array?
+     What is an Array?
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#array-indexing">
-       4.5.1.1.1. Array Indexing
+       Array Indexing
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#array-functionality">
-     4.5.1.2. Array Functionality
+     Array Functionality
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#array-properties">
-       4.5.1.2.1. Array Properties
+       Array Properties
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#creating-arrays">
-       4.5.1.2.2. Creating Arrays
+       Creating Arrays
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#broadcasting-operations">
-       4.5.1.2.3. Broadcasting Operations
+       Broadcasting Operations
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#universal-functions">
-     4.5.1.3. Universal Functions
+     Universal Functions
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#other-useful-array-operations">
-     4.5.1.4. Other Useful Array Operations
+     Other Useful Array Operations
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#a-list-of-some-array-methods">
-     4.5.1.5. A list of some Array Methods
+     A list of some Array Methods
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#mutability-and-copying-arrays">
-     4.5.1.6. Mutability and Copying Arrays
+     Mutability and Copying Arrays
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#making-copies">
-       4.5.1.6.1. Making Copies
+       Making Copies
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#comparisons">
-     4.5.1.7. Comparisons
+     Comparisons
     </a>
    </li>
   </ul>
@@ -629,10 +617,10 @@
         
               <div>
                 
-  <div class="section" id="introduction-to-numpy">
-<h1><span class="section-number">4.5. </span>Introduction to Numpy<a class="headerlink" href="#introduction-to-numpy" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-numpy">
+<h1>Introduction to Numpy<a class="headerlink" href="#introduction-to-numpy" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="numpy-arrays">
-<h2><span class="section-number">4.5.1. </span>Numpy Arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">¶</a></h2>
+<h2>Numpy Arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">¶</a></h2>
 <p>Now that we have learned the fundamentals of programming in Python, we will learn how we can use Python
 to perform the computations required in data science and economics. We call these the “scientific Python tools”.</p>
 <p>The foundational library that helps us perform these computations is known as <code class="docutils literal notranslate"><span class="pre">numpy</span></code> (numerical
@@ -654,7 +642,7 @@ nickname <code class="docutils literal notranslate"><span class="pre">np</span><
 </div>
 </div>
 <div class="section" id="what-is-an-array">
-<h3><span class="section-number">4.5.1.1. </span>What is an Array?<a class="headerlink" href="#what-is-an-array" title="Permalink to this headline">¶</a></h3>
+<h3>What is an Array?<a class="headerlink" href="#what-is-an-array" title="Permalink to this headline">¶</a></h3>
 <p>An array is a multi-dimensional grid of values.</p>
 <p>What does this mean? It is easier to demonstrate than to explain.</p>
 <p>In this block of code, we build a 1-dimensional array.</p>
@@ -783,7 +771,7 @@ example, if we wanted to access the <code class="docutils literal notranslate"><
 </div>
 <p>This continues to generalize, since numpy gives us as many dimensions as we want in an array.</p>
 <div class="section" id="array-indexing">
-<h4><span class="section-number">4.5.1.1.1. </span>Array Indexing<a class="headerlink" href="#array-indexing" title="Permalink to this headline">¶</a></h4>
+<h4>Array Indexing<a class="headerlink" href="#array-indexing" title="Permalink to this headline">¶</a></h4>
 <p>Now that there are multiple dimensions, indexing might feel somewhat non-obvious.</p>
 <p>Do the rows or columns come first? In higher dimensions, what is the order of
 the index?</p>
@@ -845,9 +833,9 @@ slice out subsets of the elements by doing <code class="docutils literal notrans
 </div>
 </div>
 <div class="section" id="array-functionality">
-<h3><span class="section-number">4.5.1.2. </span>Array Functionality<a class="headerlink" href="#array-functionality" title="Permalink to this headline">¶</a></h3>
+<h3>Array Functionality<a class="headerlink" href="#array-functionality" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="array-properties">
-<h4><span class="section-number">4.5.1.2.1. </span>Array Properties<a class="headerlink" href="#array-properties" title="Permalink to this headline">¶</a></h4>
+<h4>Array Properties<a class="headerlink" href="#array-properties" title="Permalink to this headline">¶</a></h4>
 <p>All numpy arrays have various useful properties.</p>
 <p>Properties are similar to methods in that they’re accessed through
 the “dot notation.” However, they aren’t a function so we don’t need parentheses.</p>
@@ -920,7 +908,7 @@ float64
 </div>
 </div>
 <div class="section" id="creating-arrays">
-<h4><span class="section-number">4.5.1.2.2. </span>Creating Arrays<a class="headerlink" href="#creating-arrays" title="Permalink to this headline">¶</a></h4>
+<h4>Creating Arrays<a class="headerlink" href="#creating-arrays" title="Permalink to this headline">¶</a></h4>
 <p>It’s usually impractical to define arrays by hand as we have done so far.</p>
 <p>We’ll often need to create an array with default values and then fill it
 with other values.</p>
@@ -962,7 +950,7 @@ array filled with 0s or 1s respectively.</p>
 </div>
 </div>
 <div class="section" id="broadcasting-operations">
-<h4><span class="section-number">4.5.1.2.3. </span>Broadcasting Operations<a class="headerlink" href="#broadcasting-operations" title="Permalink to this headline">¶</a></h4>
+<h4>Broadcasting Operations<a class="headerlink" href="#broadcasting-operations" title="Permalink to this headline">¶</a></h4>
 <p>Two types of operations that will be useful for arrays of any dimension are:</p>
 <ol class="simple">
 <li><p>Operations between an array and a single number.</p></li>
@@ -1031,7 +1019,7 @@ x - y [[0. 1.]
 </div>
 </div>
 <div class="section" id="universal-functions">
-<h3><span class="section-number">4.5.1.3. </span>Universal Functions<a class="headerlink" href="#universal-functions" title="Permalink to this headline">¶</a></h3>
+<h3>Universal Functions<a class="headerlink" href="#universal-functions" title="Permalink to this headline">¶</a></h3>
 <p>We will often need to transform data by applying a function to every element of an array.</p>
 <p>Numpy has good support for these operations, called <em>universal functions</em> or ufuncs for short.</p>
 <p>The
@@ -1099,7 +1087,7 @@ just saw, as a ufunc.</p>
 </div>
 </div>
 <div class="section" id="other-useful-array-operations">
-<h3><span class="section-number">4.5.1.4. </span>Other Useful Array Operations<a class="headerlink" href="#other-useful-array-operations" title="Permalink to this headline">¶</a></h3>
+<h3>Other Useful Array Operations<a class="headerlink" href="#other-useful-array-operations" title="Permalink to this headline">¶</a></h3>
 <p>We have barely scratched the surface of what is possible using numpy arrays.</p>
 <p>We hope you will experiment with other functions from numpy and see how they
 work.</p>
@@ -1205,7 +1193,7 @@ of what else you might find.</p>
 </div>
 </div>
 <div class="section" id="a-list-of-some-array-methods">
-<h3><span class="section-number">4.5.1.5. </span>A list of some Array Methods<a class="headerlink" href="#a-list-of-some-array-methods" title="Permalink to this headline">¶</a></h3>
+<h3>A list of some Array Methods<a class="headerlink" href="#a-list-of-some-array-methods" title="Permalink to this headline">¶</a></h3>
 <p><a id='index-6'></a>
 Arrays have useful methods, all of which are carefully optimized</p>
 <div class="cell docutils container">
@@ -1376,7 +1364,7 @@ Arrays have useful methods, all of which are carefully optimized</p>
 </div>
 </div>
 <div class="section" id="mutability-and-copying-arrays">
-<h3><span class="section-number">4.5.1.6. </span>Mutability and Copying Arrays<a class="headerlink" href="#mutability-and-copying-arrays" title="Permalink to this headline">¶</a></h3>
+<h3>Mutability and Copying Arrays<a class="headerlink" href="#mutability-and-copying-arrays" title="Permalink to this headline">¶</a></h3>
 <p>NumPy arrays are mutable data types, like Python lists.</p>
 <p>In other words, their contents can be altered (mutated) in memory after initialization.</p>
 <p>We already saw examples above.</p>
@@ -1443,7 +1431,7 @@ array (the Python assignment model is described in more detail <a class="referen
 <p>It means that we pass around only pointers to data, rather than making copies.</p>
 <p>Making copies is expensive in terms of both speed and memory.</p>
 <div class="section" id="making-copies">
-<h4><span class="section-number">4.5.1.6.1. </span>Making Copies<a class="headerlink" href="#making-copies" title="Permalink to this headline">¶</a></h4>
+<h4>Making Copies<a class="headerlink" href="#making-copies" title="Permalink to this headline">¶</a></h4>
 <p>It is of course possible to make <code class="docutils literal notranslate"><span class="pre">b</span></code> an independent copy of <code class="docutils literal notranslate"><span class="pre">a</span></code> when required.</p>
 <p>This can be done using <code class="docutils literal notranslate"><span class="pre">np.copy</span></code></p>
 <div class="cell docutils container">
@@ -1502,7 +1490,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="section" id="comparisons">
-<h3><span class="section-number">4.5.1.7. </span>Comparisons<a class="headerlink" href="#comparisons" title="Permalink to this headline">¶</a></h3>
+<h3>Comparisons<a class="headerlink" href="#comparisons" title="Permalink to this headline">¶</a></h3>
 <p><a id='index-10'></a>
 As a rule, comparisons on arrays are done element-wise</p>
 <div class="cell docutils container">
@@ -1627,7 +1615,7 @@ As a rule, comparisons on arrays are done element-wise</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./chapters/scientific"
+            path: "./chapters/essentials"
         },
         predefinedOutput: true
     }
@@ -1643,24 +1631,6 @@ As a rule, comparisons on arrays are done element-wise</p>
 
 <div class='prev-next-bottom'>
     
-    <div id="prev">
-        <a class="left-prev" href="../essentials/functions.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">4.4. </span>Functions</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="plotting1.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">4.6. </span>Plotting</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
 
 </div>
         

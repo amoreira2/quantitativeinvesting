@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4.6. Plotting &#8212; Quantitative Investing</title>
+    <title>Plotting &#8212; Quantitative Investing</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -34,28 +34,26 @@
     
   <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://amoreira2.github.io/quantitativeinvesting/chapters/scientific/plotting1.html" />
+    <link rel="canonical" href="https://amoreira2.github.io/quantitativeinvesting/chapters/essentials/plotting1.html" />
     <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="5. Working with Data" href="../pandas/workingwithdata.html" />
-    <link rel="prev" title="4.5. Introduction to Numpy" href="numpy1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -89,7 +87,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01/what-is-quant-investing.html">
    1. What is Quantitative Investing?
@@ -139,44 +137,34 @@
    3. First Steps with Python
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../essentials/essentials.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="essentials.html">
    4. Python Essentials
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../essentials/basics.html">
+    <a class="reference internal" href="basics.html">
      4.1. Basics
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../essentials/collections.html">
+    <a class="reference internal" href="collections.html">
      4.2. Collections
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../essentials/control_flow.html">
+    <a class="reference internal" href="control_flow.html">
      4.3. Flow control
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../essentials/functions.html">
+    <a class="reference internal" href="functions.html">
      4.4. Functions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="numpy1.html">
-     4.5. Numpy
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     4.6. Plotting
     </a>
    </li>
   </ul>
@@ -254,7 +242,7 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="randomness1.html">
+    <a class="reference internal" href="../scientific/randomness1.html">
      6.1. Modeling randomness
     </a>
    </li>
@@ -264,7 +252,7 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="linear_algebra1.html">
+    <a class="reference internal" href="../scientific/linear_algebra1.html">
      6.3. Linear algebra Review
     </a>
    </li>
@@ -471,7 +459,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/chapters/scientific/plotting1.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/chapters/essentials/plotting1.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -491,7 +479,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/amoreira2/Lectures/issues/new?title=Issue%20on%20page%20%2Fchapters/scientific/plotting1.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/amoreira2/Lectures/issues/new?title=Issue%20on%20page%20%2Fchapters/essentials/plotting1.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -512,21 +500,21 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/amoreira2/Lectures/main?urlpath=lab/tree/chapters/scientific/plotting1.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/amoreira2/Lectures/main?urlpath=lab/tree/chapters/essentials/plotting1.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://pims.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https://github.com/amoreira2/Lectures&urlpath=lab/tree/Lectures/chapters/scientific/plotting1.ipynb&branch=main"><button type="button"
+        <a class="jupyterhub-button" href="https://pims.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https://github.com/amoreira2/Lectures&urlpath=lab/tree/Lectures/chapters/essentials/plotting1.ipynb&branch=main"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../_static/images/logo_jupyterhub.svg"
                     alt="Interact on JupyterHub">JupyterHub</button></a>
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/amoreira2/Lectures/blob/main/chapters/scientific/plotting1.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/amoreira2/Lectures/blob/main/chapters/essentials/plotting1.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -547,12 +535,11 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#visualization">
-   4.6.1. Visualization
+   Visualization
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#matplotlib">
-   4.6.2.
    <code class="docutils literal notranslate">
     <span class="pre">
      matplotlib
@@ -562,73 +549,73 @@
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#first-plot">
-     4.6.2.1. First Plot
+     First Plot
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#two-ways-of-making-a-plot">
-     4.6.2.2. Two ways of making a plot
+     Two ways of making a plot
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-apis">
-   4.6.3. The APIs
+   The APIs
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#the-simple-api">
-     4.6.3.1. The simple API
+     The simple API
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#the-object-oriented-api">
-     4.6.3.2. The Object-Oriented API
+     The Object-Oriented API
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#tweaks">
-     4.6.3.3. Tweaks
+     Tweaks
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#difference-between-figure-and-axis">
-   4.6.4. Difference between Figure and Axis
+   Difference between Figure and Axis
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#more-features">
-   4.6.5. More Features
+   More Features
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#multiple-plots-on-one-axis">
-     4.6.5.1. Multiple Plots on One Axis
+     Multiple Plots on One Axis
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#multiple-subplots">
-     4.6.5.2. Multiple Subplots
+     Multiple Subplots
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#bar">
-     4.6.5.3. Bar
+     Bar
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#scatter-and-annotation">
-     4.6.5.4. Scatter and annotation
+     Scatter and annotation
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#further-reading">
-   4.6.6. Further Reading
+   Further Reading
   </a>
  </li>
 </ul>
@@ -642,10 +629,10 @@
         
               <div>
                 
-  <div class="section" id="plotting">
-<h1><span class="section-number">4.6. </span>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="plotting">
+<h1>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="visualization">
-<h2><span class="section-number">4.6.1. </span>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h2>
+<h2>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h2>
 <p>One of the most important outputs of your analysis will be the visualizations that you choose to
 communicate what you’ve discovered.</p>
 <p>Here are what some people – whom we think have earned the right to an opinion on this
@@ -672,7 +659,7 @@ more about what makes a useful visualization.</p>
 </ul>
 </div>
 <div class="section" id="matplotlib">
-<h2><span class="section-number">4.6.2. </span><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code><a class="headerlink" href="#matplotlib" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code><a class="headerlink" href="#matplotlib" title="Permalink to this headline">¶</a></h2>
 <p>The most widely used plotting package in Python is matplotlib.</p>
 <p>The standard import alias is</p>
 <div class="cell docutils container">
@@ -697,7 +684,7 @@ inside of the notebook itself instead of creating new windows with the image.</p
 </div>
 <p>The commands with <code class="docutils literal notranslate"><span class="pre">%</span></code> before them are called <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html">Magics</a>.</p>
 <div class="section" id="first-plot">
-<h3><span class="section-number">4.6.2.1. </span>First Plot<a class="headerlink" href="#first-plot" title="Permalink to this headline">¶</a></h3>
+<h3>First Plot<a class="headerlink" href="#first-plot" title="Permalink to this headline">¶</a></h3>
 <p>Let’s create our first plot!</p>
 <p>After creating it, we will walk through the steps one-by-one to understand what they do.</p>
 <div class="cell docutils container">
@@ -728,7 +715,7 @@ inside of the notebook itself instead of creating new windows with the image.</p
 </ol>
 </div>
 <div class="section" id="two-ways-of-making-a-plot">
-<h3><span class="section-number">4.6.2.2. </span>Two ways of making a plot<a class="headerlink" href="#two-ways-of-making-a-plot" title="Permalink to this headline">¶</a></h3>
+<h3>Two ways of making a plot<a class="headerlink" href="#two-ways-of-making-a-plot" title="Permalink to this headline">¶</a></h3>
 <p>Matplotlib is unusual in that it offers two different interfaces to plotting.</p>
 <p>One is a simple API (Application Programming Interface).</p>
 <p>The other is a more “Pythonic” object-oriented API.</p>
@@ -737,9 +724,9 @@ inside of the notebook itself instead of creating new windows with the image.</p
 </div>
 </div>
 <div class="section" id="the-apis">
-<h2><span class="section-number">4.6.3. </span>The APIs<a class="headerlink" href="#the-apis" title="Permalink to this headline">¶</a></h2>
+<h2>The APIs<a class="headerlink" href="#the-apis" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="the-simple-api">
-<h3><span class="section-number">4.6.3.1. </span>The simple API<a class="headerlink" href="#the-simple-api" title="Permalink to this headline">¶</a></h3>
+<h3>The simple API<a class="headerlink" href="#the-simple-api" title="Permalink to this headline">¶</a></h3>
 <p>Here’s the kind of easy example you might find in introductory treatments</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -767,7 +754,7 @@ inside of the notebook itself instead of creating new windows with the image.</p
 <p>This leads us to the alternative, object-oriented Matplotlib API.</p>
 </div>
 <div class="section" id="the-object-oriented-api">
-<h3><span class="section-number">4.6.3.2. </span>The Object-Oriented API<a class="headerlink" href="#the-object-oriented-api" title="Permalink to this headline">¶</a></h3>
+<h3>The Object-Oriented API<a class="headerlink" href="#the-object-oriented-api" title="Permalink to this headline">¶</a></h3>
 <p>Here’s the code corresponding to the preceding figure using the object-oriented API</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -793,7 +780,7 @@ inside of the notebook itself instead of creating new windows with the image.</p
 <p>This will become more clear as we go along.</p>
 </div>
 <div class="section" id="tweaks">
-<h3><span class="section-number">4.6.3.3. </span>Tweaks<a class="headerlink" href="#tweaks" title="Permalink to this headline">¶</a></h3>
+<h3>Tweaks<a class="headerlink" href="#tweaks" title="Permalink to this headline">¶</a></h3>
 <p>Here we’ve changed the line to red and added a legend</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -843,7 +830,7 @@ inside of the notebook itself instead of creating new windows with the image.</p
 </div>
 </div>
 <div class="section" id="difference-between-figure-and-axis">
-<h2><span class="section-number">4.6.4. </span>Difference between Figure and Axis<a class="headerlink" href="#difference-between-figure-and-axis" title="Permalink to this headline">¶</a></h2>
+<h2>Difference between Figure and Axis<a class="headerlink" href="#difference-between-figure-and-axis" title="Permalink to this headline">¶</a></h2>
 <p>We’ve found that the easiest way for us to distinguish between the figure and axis objects is to
 think about them as a framed painting.</p>
 <p>The axis is the canvas; it is where we “draw” our plots.</p>
@@ -864,12 +851,12 @@ think about them as a framed painting.</p>
 </div>
 </div>
 <div class="section" id="more-features">
-<h2><span class="section-number">4.6.5. </span>More Features<a class="headerlink" href="#more-features" title="Permalink to this headline">¶</a></h2>
+<h2>More Features<a class="headerlink" href="#more-features" title="Permalink to this headline">¶</a></h2>
 <p>Matplotlib has a huge array of functions and features, which you can discover
 over time as you have need for them.</p>
 <p>We mention just a few.</p>
 <div class="section" id="multiple-plots-on-one-axis">
-<h3><span class="section-number">4.6.5.1. </span>Multiple Plots on One Axis<a class="headerlink" href="#multiple-plots-on-one-axis" title="Permalink to this headline">¶</a></h3>
+<h3>Multiple Plots on One Axis<a class="headerlink" href="#multiple-plots-on-one-axis" title="Permalink to this headline">¶</a></h3>
 <p>It’s straightforward to generate multiple plots on the same axes.</p>
 <p>Here’s an example that randomly generates three normal densities and adds a label with their standard deviation</p>
 <div class="cell docutils container">
@@ -899,7 +886,7 @@ over time as you have need for them.</p>
 </div>
 </div>
 <div class="section" id="multiple-subplots">
-<h3><span class="section-number">4.6.5.2. </span>Multiple Subplots<a class="headerlink" href="#multiple-subplots" title="Permalink to this headline">¶</a></h3>
+<h3>Multiple Subplots<a class="headerlink" href="#multiple-subplots" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes we want multiple subplots in one figure.</p>
 <p>Here’s an example that generates 6 histograms for 6 different draws of the standard normal distribution</p>
 <div class="cell docutils container">
@@ -927,7 +914,7 @@ over time as you have need for them.</p>
 </div>
 </div>
 <div class="section" id="bar">
-<h3><span class="section-number">4.6.5.3. </span>Bar<a class="headerlink" href="#bar" title="Permalink to this headline">¶</a></h3>
+<h3>Bar<a class="headerlink" href="#bar" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">countries</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;CAN&quot;</span><span class="p">,</span> <span class="s2">&quot;MEX&quot;</span><span class="p">,</span> <span class="s2">&quot;USA&quot;</span><span class="p">]</span>
@@ -952,7 +939,7 @@ over time as you have need for them.</p>
 </div>
 </div>
 <div class="section" id="scatter-and-annotation">
-<h3><span class="section-number">4.6.5.4. </span>Scatter and annotation<a class="headerlink" href="#scatter-and-annotation" title="Permalink to this headline">¶</a></h3>
+<h3>Scatter and annotation<a class="headerlink" href="#scatter-and-annotation" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">50</span>
@@ -990,7 +977,7 @@ over time as you have need for them.</p>
 </div>
 </div>
 <div class="section" id="further-reading">
-<h2><span class="section-number">4.6.6. </span>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>The <a class="reference external" href="http://matplotlib.org/gallery.html">Matplotlib gallery</a> provides many examples.</p></li>
 <li><p>A nice <a class="reference external" href="http://scipy-lectures.org/intro/matplotlib/index.html">Matplotlib tutorial</a> by Nicolas Rougier, Mike Muller and Gael Varoquaux.</p></li>
@@ -1012,7 +999,7 @@ over time as you have need for them.</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./chapters/scientific"
+            path: "./chapters/essentials"
         },
         predefinedOutput: true
     }
@@ -1028,24 +1015,6 @@ over time as you have need for them.</p>
 
 <div class='prev-next-bottom'>
     
-    <div id="prev">
-        <a class="left-prev" href="numpy1.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">4.5. </span>Introduction to Numpy</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="../pandas/workingwithdata.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">5. </span>Working with Data</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
 
 </div>
         
