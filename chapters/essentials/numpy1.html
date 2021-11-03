@@ -43,6 +43,8 @@
     <script src="../../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -589,61 +591,93 @@
      </li>
     </ul>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#array-functionality">
+   4.5.2. Array Functionality
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#array-functionality">
-     4.5.1.2. Array Functionality
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#array-properties">
-       4.5.1.2.1. Array Properties
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#creating-arrays">
-       4.5.1.2.2. Creating Arrays
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#broadcasting-operations">
-       4.5.1.2.3. Broadcasting Operations
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#universal-functions">
-     4.5.1.3. Universal Functions
+    <a class="reference internal nav-link" href="#array-properties">
+     4.5.2.1. Array Properties
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#other-useful-array-operations">
-     4.5.1.4. Other Useful Array Operations
+    <a class="reference internal nav-link" href="#creating-arrays">
+     4.5.2.2. Creating Arrays
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-list-of-some-array-methods">
-     4.5.1.5. A list of some Array Methods
+    <a class="reference internal nav-link" href="#broadcasting-operations">
+     4.5.2.3. Broadcasting Operations
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mutability-and-copying-arrays">
-     4.5.1.6. Mutability and Copying Arrays
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#making-copies">
-       4.5.1.6.1. Making Copies
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#comparisons">
-     4.5.1.7. Comparisons
+    <a class="reference internal nav-link" href="#dot-product">
+     4.5.2.4. Dot Product
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizing-vectors">
+   4.5.3. Visualizing Vectors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrices">
+   4.5.4. Matrices
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transpose">
+     4.5.4.1. Transpose
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#identity-matrix">
+     4.5.4.2. Identity Matrix
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matrix-multiplication">
+     4.5.4.3. Matrix Multiplication
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#universal-functions">
+   4.5.5. Universal Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-useful-array-operations">
+   4.5.6. Other Useful Array Operations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-list-of-some-array-methods">
+   4.5.7. A list of some Array Methods
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mutability-and-copying-arrays">
+   4.5.8. Mutability and Copying Arrays
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#making-copies">
+     4.5.8.1. Making Copies
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparisons">
+   4.5.9. Comparisons
+  </a>
  </li>
 </ul>
 
@@ -871,10 +905,11 @@ slice out subsets of the elements by doing <code class="docutils literal notrans
 </div>
 </div>
 </div>
+</div>
 <div class="section" id="array-functionality">
-<h3><span class="section-number">4.5.1.2. </span>Array Functionality<a class="headerlink" href="#array-functionality" title="Permalink to this headline">¶</a></h3>
+<h2><span class="section-number">4.5.2. </span>Array Functionality<a class="headerlink" href="#array-functionality" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="array-properties">
-<h4><span class="section-number">4.5.1.2.1. </span>Array Properties<a class="headerlink" href="#array-properties" title="Permalink to this headline">¶</a></h4>
+<h3><span class="section-number">4.5.2.1. </span>Array Properties<a class="headerlink" href="#array-properties" title="Permalink to this headline">¶</a></h3>
 <p>All numpy arrays have various useful properties.</p>
 <p>Properties are similar to methods in that they’re accessed through
 the “dot notation.” However, they aren’t a function so we don’t need parentheses.</p>
@@ -947,7 +982,7 @@ float64
 </div>
 </div>
 <div class="section" id="creating-arrays">
-<h4><span class="section-number">4.5.1.2.2. </span>Creating Arrays<a class="headerlink" href="#creating-arrays" title="Permalink to this headline">¶</a></h4>
+<h3><span class="section-number">4.5.2.2. </span>Creating Arrays<a class="headerlink" href="#creating-arrays" title="Permalink to this headline">¶</a></h3>
 <p>It’s usually impractical to define arrays by hand as we have done so far.</p>
 <p>We’ll often need to create an array with default values and then fill it
 with other values.</p>
@@ -989,7 +1024,7 @@ array filled with 0s or 1s respectively.</p>
 </div>
 </div>
 <div class="section" id="broadcasting-operations">
-<h4><span class="section-number">4.5.1.2.3. </span>Broadcasting Operations<a class="headerlink" href="#broadcasting-operations" title="Permalink to this headline">¶</a></h4>
+<h3><span class="section-number">4.5.2.3. </span>Broadcasting Operations<a class="headerlink" href="#broadcasting-operations" title="Permalink to this headline">¶</a></h3>
 <p>Two types of operations that will be useful for arrays of any dimension are:</p>
 <ol class="simple">
 <li><p>Operations between an array and a single number.</p></li>
@@ -1056,9 +1091,259 @@ x - y [[0. 1.]
 </div>
 </div>
 </div>
+<div class="section" id="dot-product">
+<h3><span class="section-number">4.5.2.4. </span>Dot Product<a class="headerlink" href="#dot-product" title="Permalink to this headline">¶</a></h3>
+<p>Another operation very frequently used in data science is the <strong>dot product</strong>.</p>
+<p>The dot between <span class="math notranslate nohighlight">\( x \)</span> and <span class="math notranslate nohighlight">\( y \)</span> is written <span class="math notranslate nohighlight">\( x \cdot y \)</span> and is
+equal to <span class="math notranslate nohighlight">\( \sum_{i=1}^N x_i y_i \)</span>.</p>
+<p><strong>(We will use this one a lot!)</strong></p>
+<p>We can  use <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> to denote dot products (and matrix multiplication which we’ll see soon!).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dot product with @&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">@</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dot product with @ 32
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="visualizing-vectors">
+<h2><span class="section-number">4.5.3. </span>Visualizing Vectors<a class="headerlink" href="#visualizing-vectors" title="Permalink to this headline">¶</a></h2>
+<p>A (N-element) vector is <span class="math notranslate nohighlight">\( N \)</span> numbers stored together.</p>
+<p>We typically write a vector as <span class="math notranslate nohighlight">\( x = \begin{bmatrix} x_1 \\ x_2 \\ \dots \\ x_N \end{bmatrix} \)</span>.</p>
+<p>In numpy terms, a vector is a 1-dimensional array.</p>
+</div>
+<div class="section" id="matrices">
+<h2><span class="section-number">4.5.4. </span>Matrices<a class="headerlink" href="#matrices" title="Permalink to this headline">¶</a></h2>
+<p>An <span class="math notranslate nohighlight">\( N \times M \)</span> matrix can be thought of as a collection of M
+N-element vectors stacked side-by-side as columns.</p>
+<p>We write a matrix as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} x_{11} &amp; x_{12} &amp; \dots &amp; x_{1M} \\
+                x_{21} &amp; \dots &amp; \dots &amp; x_{2M} \\
+                \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\
+                x_{N1} &amp; x_{N2} &amp; \dots &amp; x_{NM}
+\end{bmatrix}
+\end{split}\]</div>
+<p>In numpy terms, a matrix is a 2-dimensional array.</p>
+<p>We can create a matrix by passing a list of lists to the <code class="docutils literal notranslate"><span class="pre">np.array</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can perform element-wise and scalar operations as we did with vectors. In fact, we can do
+these two operations on arrays of any dimension.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Element-wise Addition</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Element-wise Subtraction</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Element-wise Multiplication</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Element-wise Division</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Scalar Addition</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Scalar Subtraction</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="mi">3</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Scalar Multiplication</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Scalar Division</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="mi">3</span> <span class="o">/</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Element-wise Addition
+ [[2. 3. 4.]
+ [5. 6. 7.]]
+Element-wise Subtraction
+ [[0. 1. 2.]
+ [3. 4. 5.]]
+Element-wise Multiplication
+ [[1. 2. 3.]
+ [4. 5. 6.]]
+Element-wise Division
+ [[1. 2. 3.]
+ [4. 5. 6.]]
+Scalar Addition
+ [[4 5 6]
+ [7 8 9]]
+Scalar Subtraction
+ [[ 2  1  0]
+ [-1 -2 -3]]
+Scalar Multiplication
+ [[ 3  6  9]
+ [12 15 18]]
+Scalar Division
+ [[3.   1.5  1.  ]
+ [0.75 0.6  0.5 ]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="transpose">
+<h3><span class="section-number">4.5.4.1. </span>Transpose<a class="headerlink" href="#transpose" title="Permalink to this headline">¶</a></h3>
+<p>A matrix transpose is an operation that flips all elements of a matrix along the diagonal.</p>
+<p>More formally, the <span class="math notranslate nohighlight">\( (i, j) \)</span> element of <span class="math notranslate nohighlight">\( x \)</span> becomes the <span class="math notranslate nohighlight">\( (j, i) \)</span> element of
+<span class="math notranslate nohighlight">\( x^T \)</span>.</p>
+<p>In particular, let <span class="math notranslate nohighlight">\( x \)</span> be given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+x = \begin{bmatrix} 1 &amp; 2 &amp; 3 \\
+                    4 &amp; 5 &amp; 6 \\
+                    7 &amp; 8 &amp; 9 \\
+    \end{bmatrix}
+\end{split}\]</div>
+<p>then <span class="math notranslate nohighlight">\( x \)</span> transpose, written as <span class="math notranslate nohighlight">\( x' \)</span>, is given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+x = \begin{bmatrix} 1 &amp; 4 &amp; 7 \\
+                    2 &amp; 5 &amp; 8 \\
+                    3 &amp; 6 &amp; 9 \\
+    \end{bmatrix}
+\end{split}\]</div>
+<p>In Python, we do this by</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x transpose is&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x transpose is
+[[1 4 7]
+ [2 5 8]
+ [3 6 9]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="identity-matrix">
+<h3><span class="section-number">4.5.4.2. </span>Identity Matrix<a class="headerlink" href="#identity-matrix" title="Permalink to this headline">¶</a></h3>
+<p>In linear algebra, one particular matrix acts very similarly to how 1 behaves for scalar numbers.</p>
+<p>This matrix is known as the <em>identity matrix</em> and is given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+I = \begin{bmatrix} 1  &amp; 0 &amp; 0 &amp; \dots &amp; 0 \\
+                    0 &amp; 1 &amp; 0 &amp; \dots &amp; 0 \\
+                    \vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots \\
+                    0 &amp; 0 &amp; 0 &amp; \dots &amp; 1
+    \end{bmatrix}
+\end{split}\]</div>
+<p>As seen above, it has 1s on the diagonal and 0s everywhere else.</p>
+<p>When we multiply any matrix or vector by the identity matrix, we get the original matrix or vector
+back!</p>
+<p>Let’s see some examples.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I @ x&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">I</span> <span class="o">@</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x @ I&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">@</span> <span class="n">I</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I @ y&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">I</span> <span class="o">@</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y @ I&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">@</span> <span class="n">I</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I @ x 
+ [[0. 1. 2.]
+ [3. 4. 5.]
+ [6. 7. 8.]]
+x @ I 
+ [[0. 1. 2.]
+ [3. 4. 5.]
+ [6. 7. 8.]]
+I @ y 
+ [1. 2. 3.]
+y @ I 
+ [1. 2. 3.]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="matrix-multiplication">
+<h3><span class="section-number">4.5.4.3. </span>Matrix Multiplication<a class="headerlink" href="#matrix-multiplication" title="Permalink to this headline">¶</a></h3>
+<p>Similar to how we combine vectors with a dot product, matrices can do what we’ll call <em>matrix
+multiplication</em>.</p>
+<p>Matrix multiplication is effectively a generalization of dot products.</p>
+<p><strong>Matrix multiplication</strong>: Let <span class="math notranslate nohighlight">\( v = x \cdot y \)</span> then we can write
+<span class="math notranslate nohighlight">\( v_{ij} = \sum_{k=1}^N x_{ik} y_{kj} \)</span> where <span class="math notranslate nohighlight">\( x_{ij} \)</span> is notation that denotes the
+element found in the ith row and jth column of the matrix <span class="math notranslate nohighlight">\( x \)</span>.</p>
+<p>The image below from <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Matrix_multiplication_diagram.svg">Wikipedia</a>,
+by Bilou, shows how matrix multiplication simplifies to a series of dot products:</p>
+<p><img alt="image" src="https://upload.wikimedia.org/wikipedia/commons/1/11/Matrix_multiplication_diagram.svg" /></p>
+<p>After looking at the math and image above, you might have realized that matrix
+multiplication requires very specific matrix shapes!</p>
+<p>For two matrices <span class="math notranslate nohighlight">\( x, y \)</span> to be multiplied, <span class="math notranslate nohighlight">\( x \)</span>
+must have the same number of columns as <span class="math notranslate nohighlight">\( y \)</span> has rows.</p>
+<p>Formally, we require that for some integer numbers, <span class="math notranslate nohighlight">\( M, N, \)</span> and <span class="math notranslate nohighlight">\( K \)</span>
+that if <span class="math notranslate nohighlight">\( x \)</span> is <span class="math notranslate nohighlight">\( N \times M \)</span> then <span class="math notranslate nohighlight">\( y \)</span> must be <span class="math notranslate nohighlight">\( M \times
+K \)</span>.</p>
+<p>If we think of a vector as a <span class="math notranslate nohighlight">\( 1 \times M \)</span> or <span class="math notranslate nohighlight">\( M \times 1 \)</span> matrix, we can even do
+matrix multiplication between a matrix and a vector!</p>
+<p>Let’s see some examples of this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
+<span class="n">x3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">x4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Numpy allows us to do matrix multiplication in three ways.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using @ for two matrices&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x1</span> <span class="o">@</span> <span class="n">x4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using @ for two matrices
+[[1. 1. 1.]
+ [5. 5. 5.]
+ [9. 9. 9.]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using @ for vec and mat&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y1</span> <span class="o">@</span> <span class="n">x1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using @ for vec and mat
+[16 22]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="universal-functions">
-<h3><span class="section-number">4.5.1.3. </span>Universal Functions<a class="headerlink" href="#universal-functions" title="Permalink to this headline">¶</a></h3>
+<h2><span class="section-number">4.5.5. </span>Universal Functions<a class="headerlink" href="#universal-functions" title="Permalink to this headline">¶</a></h2>
 <p>We will often need to transform data by applying a function to every element of an array.</p>
 <p>Numpy has good support for these operations, called <em>universal functions</em> or ufuncs for short.</p>
 <p>The
@@ -1126,7 +1411,7 @@ just saw, as a ufunc.</p>
 </div>
 </div>
 <div class="section" id="other-useful-array-operations">
-<h3><span class="section-number">4.5.1.4. </span>Other Useful Array Operations<a class="headerlink" href="#other-useful-array-operations" title="Permalink to this headline">¶</a></h3>
+<h2><span class="section-number">4.5.6. </span>Other Useful Array Operations<a class="headerlink" href="#other-useful-array-operations" title="Permalink to this headline">¶</a></h2>
 <p>We have barely scratched the surface of what is possible using numpy arrays.</p>
 <p>We hope you will experiment with other functions from numpy and see how they
 work.</p>
@@ -1232,7 +1517,7 @@ of what else you might find.</p>
 </div>
 </div>
 <div class="section" id="a-list-of-some-array-methods">
-<h3><span class="section-number">4.5.1.5. </span>A list of some Array Methods<a class="headerlink" href="#a-list-of-some-array-methods" title="Permalink to this headline">¶</a></h3>
+<h2><span class="section-number">4.5.7. </span>A list of some Array Methods<a class="headerlink" href="#a-list-of-some-array-methods" title="Permalink to this headline">¶</a></h2>
 <p><a id='index-6'></a>
 Arrays have useful methods, all of which are carefully optimized</p>
 <div class="cell docutils container">
@@ -1403,7 +1688,7 @@ Arrays have useful methods, all of which are carefully optimized</p>
 </div>
 </div>
 <div class="section" id="mutability-and-copying-arrays">
-<h3><span class="section-number">4.5.1.6. </span>Mutability and Copying Arrays<a class="headerlink" href="#mutability-and-copying-arrays" title="Permalink to this headline">¶</a></h3>
+<h2><span class="section-number">4.5.8. </span>Mutability and Copying Arrays<a class="headerlink" href="#mutability-and-copying-arrays" title="Permalink to this headline">¶</a></h2>
 <p>NumPy arrays are mutable data types, like Python lists.</p>
 <p>In other words, their contents can be altered (mutated) in memory after initialization.</p>
 <p>We already saw examples above.</p>
@@ -1470,7 +1755,7 @@ array (the Python assignment model is described in more detail <a class="referen
 <p>It means that we pass around only pointers to data, rather than making copies.</p>
 <p>Making copies is expensive in terms of both speed and memory.</p>
 <div class="section" id="making-copies">
-<h4><span class="section-number">4.5.1.6.1. </span>Making Copies<a class="headerlink" href="#making-copies" title="Permalink to this headline">¶</a></h4>
+<h3><span class="section-number">4.5.8.1. </span>Making Copies<a class="headerlink" href="#making-copies" title="Permalink to this headline">¶</a></h3>
 <p>It is of course possible to make <code class="docutils literal notranslate"><span class="pre">b</span></code> an independent copy of <code class="docutils literal notranslate"><span class="pre">a</span></code> when required.</p>
 <p>This can be done using <code class="docutils literal notranslate"><span class="pre">np.copy</span></code></p>
 <div class="cell docutils container">
@@ -1529,7 +1814,7 @@ array (the Python assignment model is described in more detail <a class="referen
 </div>
 </div>
 <div class="section" id="comparisons">
-<h3><span class="section-number">4.5.1.7. </span>Comparisons<a class="headerlink" href="#comparisons" title="Permalink to this headline">¶</a></h3>
+<h2><span class="section-number">4.5.9. </span>Comparisons<a class="headerlink" href="#comparisons" title="Permalink to this headline">¶</a></h2>
 <p><a id='index-10'></a>
 As a rule, comparisons on arrays are done element-wise</p>
 <div class="cell docutils container">
@@ -1634,7 +1919,6 @@ As a rule, comparisons on arrays are done element-wise</p>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 5. ,  7.5, 10. ])
 </pre></div>
-</div>
 </div>
 </div>
 </div>
