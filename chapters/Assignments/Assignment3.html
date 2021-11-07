@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>17. Assignments &#8212; Quantitative Investing</title>
+    <title>17.16. Assignment 3 &#8212; Quantitative Investing</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -50,12 +50,11 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://amoreira2.github.io/quantitativeinvesting/chapters/Assignments/Assignments.html" />
+    <link rel="canonical" href="https://amoreira2.github.io/quantitativeinvesting/chapters/Assignments/Assignment3.html" />
     <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="17.1. Assigment 0" href="Assignment0.html" />
-    <link rel="prev" title="16. Additional Statistics Material" href="../additional/additional.html" />
+    <link rel="prev" title="17.12. Assigment 2" href="Assignment2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -431,7 +430,7 @@
   </a>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="Assignments.html">
    17. Assignments
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
@@ -439,7 +438,7 @@
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="Assignment0.html">
      17.1. Assigment 0
@@ -455,8 +454,8 @@
      17.12. Assigment 2
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Assignment3.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      17.16. Assignment 3
     </a>
    </li>
@@ -503,9 +502,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/chapters/Assignments/Assignments.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/chapters/Assignments/Assignment3.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -523,7 +522,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/amoreira2/Lectures/issues/new?title=Issue%20on%20page%20%2Fchapters/Assignments/Assignments.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/amoreira2/Lectures/issues/new?title=Issue%20on%20page%20%2Fchapters/Assignments/Assignment3.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -539,11 +538,67 @@
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/amoreira2/Lectures/main?urlpath=lab/tree/chapters/Assignments/Assignment3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://pims.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https://github.com/amoreira2/Lectures&urlpath=lab/tree/Lectures/chapters/Assignments/Assignment3.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/amoreira2/Lectures/blob/main/chapters/Assignments/Assignment3.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   17.16. Assignment 3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#write-your-name-and-simon-email">
+   17.17. Write your name and simon email
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#perusall">
+   17.18. Perusall
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   17.19. Exercises
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -552,11 +607,91 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="assignments">
-<h1><span class="section-number">17. </span>Assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">¶</a></h1>
-<p>Please see below the class Assignments</p>
-<div class="toctree-wrapper compound">
+  <div class="tex2jax_ignore mathjax_ignore section" id="assignment-3">
+<h1><span class="section-number">17.16. </span>Assignment 3<a class="headerlink" href="#assignment-3" title="Permalink to this headline">¶</a></h1>
+<p>Instructions: This problem set should be done individually.</p>
+<p>Answer each question in the designated space below.</p>
+<p>After you are done, save and upload in blackboard.</p>
+<p>Please check that you are submitting the correct file. One way to avoid mistakes is to save it with a different name.</p>
 </div>
+<div class="tex2jax_ignore mathjax_ignore section" id="write-your-name-and-simon-email">
+<h1><span class="section-number">17.17. </span>Write your name and simon email<a class="headerlink" href="#write-your-name-and-simon-email" title="Permalink to this headline">¶</a></h1>
+<p>Please write names below</p>
+<ul class="simple">
+<li><p>[Name]:</p></li>
+<li><p>[email]:</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="perusall">
+<h1><span class="section-number">17.18. </span>Perusall<a class="headerlink" href="#perusall" title="Permalink to this headline">¶</a></h1>
+<p>Click on the “Market Efficiency” link in assigments. This will direct you to Perusall where you will have instructions of what to do in a box that will pop up in the bottom left corner of your screen.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="exercises">
+<h1><span class="section-number">17.19. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p>Start by importing pandas and loading the data set.</p></li>
+</ol>
+<p>The dataset has address <code class="docutils literal notranslate"><span class="pre">https://raw.githubusercontent.com/mwaskom/seaborn-data/master/diamonds.csv</span></code></p>
+<p>Name <code class="docutils literal notranslate"><span class="pre">diamonds</span></code> this dataset, then print <code class="docutils literal notranslate"><span class="pre">print(diamonds)</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="c1"># import data here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Print the first 5 rows of the dataframe.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Write a Pandas program to find the number of rows and columns and data type of each column of diamonds DataFrame.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Write a Pandas program to create a new ‘Quality-color’ Series (use bracket notation to define the Series name) of the diamonds DataFrame.
+Hint: ‘Quality-color’ should combine the information in cut and color column.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Write a Pandas program to set an existing column as the index of diamonds DataFrame.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Reimport the diamonds data if you don’t want to keep the changes in the preceding exercises.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Write a Pandas program to filter the DataFrame rows to only show carat weight at least 0.3.</p></li>
+</ol>
+<ol class="simple">
+<li><p>(hard) Write a Pandas program to calculate count, minimum, maximum price for each cut of diamonds DataFrame.
+Hint: you will need <code class="docutils literal notranslate"><span class="pre">groupby</span></code>.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Write a Pandas program to drop a row if any or all values in a row are missing of diamonds DataFrame on carat and cut columns.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Write a Pandas program to read rows 0 through 2 (inclusive), columns ‘color’ and ‘price’ of diamonds DataFrame.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Write a Pandas program to create a histogram of the ‘carat’ Series (distribution of a numerical variable) of diamonds DataFrame.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Write a Pandas program to get 5 randomly sampled rows from diamonds DataFrame.
+Hint: you will need <code class="docutils literal notranslate"><span class="pre">sample</span></code>.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Write a Pandas program to find the details of the diamonds where length&gt;5, width&gt;5 and depth&gt;5.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Write a Pandas program to find the diamonds that are either Premium or Ideal.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Write a Pandas program to display all column labels of diamonds DataFrame.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Write a Pandas program to calculate the mean of each column of diamonds DataFrame.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Write a Pandas program to sort a Series by its values.</p></li>
+</ol>
 </div>
 
     <script type="text/x-thebe-config">
@@ -589,23 +724,14 @@
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../additional/additional.html" title="previous page">
+        <a class="left-prev" href="Assignment2.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">16. </span>Additional Statistics Material</p>
+                <p class="prevnext-title"><span class="section-number">17.12. </span>Assigment 2</p>
             </div>
         </a>
     </div>
-     <div id="next">
-        <a class="right-next" href="Assignment0.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">17.1. </span>Assigment 0</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
 
 </div>
         
