@@ -595,23 +595,18 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#date-formatting">
-   5.4.3. Date Formatting
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#extracting-data">
-   5.4.4. Extracting Data
+   5.4.3. Extracting Data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#accessing-date-properties">
-   5.4.5. Accessing Date Properties
+   5.4.4. Accessing Date Properties
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#leads-and-lags-df-shift">
-   5.4.6. Leads and Lags:
+   5.4.5. Leads and Lags:
    <code class="docutils literal notranslate">
     <span class="pre">
      df.shift
@@ -621,7 +616,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#rolling-computations-rolling">
-   5.4.7. Rolling Computations:
+   5.4.6. Rolling Computations:
    <code class="docutils literal notranslate">
     <span class="pre">
      .rolling
@@ -631,7 +626,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#changing-frequencies-resample-opt">
-   5.4.8. Changing Frequencies:
+   5.4.7. Changing Frequencies:
    <code class="docutils literal notranslate">
     <span class="pre">
      .resample
@@ -811,27 +806,8 @@ a single date.</p>
 </div>
 </div>
 </div>
-<div class="section" id="date-formatting">
-<h2><span class="section-number">5.4.3. </span>Date Formatting<a class="headerlink" href="#date-formatting" title="Permalink to this headline">¶</a></h2>
-<p>We can use the <code class="docutils literal notranslate"><span class="pre">%</span></code>pattern format to have pandas write <code class="docutils literal notranslate"><span class="pre">datetime</span></code>
-objects as specially formatted strings using the <code class="docutils literal notranslate"><span class="pre">strftime</span></code> (string
-format time) method.</p>
-<p>For example,</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">christmas</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;We love %A %B </span><span class="si">%d</span><span class="s2"> (also written </span><span class="si">%c</span><span class="s2">)&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;We love Monday December 25 (also written Mon Dec 25 00:00:00 2017)&#39;
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 <div class="section" id="extracting-data">
-<h2><span class="section-number">5.4.4. </span>Extracting Data<a class="headerlink" href="#extracting-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.4.3. </span>Extracting Data<a class="headerlink" href="#extracting-data" title="Permalink to this headline">¶</a></h2>
 <p>When the index of a DataFrame has date information and pandas
 recognizes the values as <code class="docutils literal notranslate"><span class="pre">datetime</span></code> values, we can leverage some
 convenient indexing features for extracting data.</p>
@@ -846,8 +822,10 @@ so let’s load up some data and take a look.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas_datareader.data</span> <span class="k">as</span> <span class="nn">pdr</span>
 <span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
 
+<span class="c1"># yahoo, not currently working</span>
 <span class="c1">#df = web.DataReader(&#39;GME&#39;, &#39;yahoo&#39;, start=&#39;2019-09-10&#39;, end=&#39;2019-10-09&#39;)</span>
 
+<span class="c1"># alpha vantage, require api key</span>
 <span class="n">gme</span><span class="o">=</span> <span class="n">pdr</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s2">&quot;GME&quot;</span><span class="p">,</span> <span class="s2">&quot;av-daily&quot;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
                       <span class="n">end</span><span class="o">=</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
                      <span class="n">api_key</span><span class="o">=</span><span class="s1">&#39;N78MZQUK4ZCDUABU&#39;</span><span class="p">)</span>
@@ -1700,7 +1678,7 @@ date for selection.</p>
 </div>
 </div>
 <div class="section" id="accessing-date-properties">
-<h2><span class="section-number">5.4.5. </span>Accessing Date Properties<a class="headerlink" href="#accessing-date-properties" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.4.4. </span>Accessing Date Properties<a class="headerlink" href="#accessing-date-properties" title="Permalink to this headline">¶</a></h2>
 <p>Sometimes, we would like to directly access a part of the date/time.</p>
 <p>If our date/time information is in the index, we can to <code class="docutils literal notranslate"><span class="pre">df.index.XX</span></code>
 where <code class="docutils literal notranslate"><span class="pre">XX</span></code> is replaced by <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code>, or whatever we would
@@ -1860,7 +1838,7 @@ Name: index, dtype: int64
 </div>
 </div>
 <div class="section" id="leads-and-lags-df-shift">
-<h2><span class="section-number">5.4.6. </span>Leads and Lags: <code class="docutils literal notranslate"><span class="pre">df.shift</span></code><a class="headerlink" href="#leads-and-lags-df-shift" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.4.5. </span>Leads and Lags: <code class="docutils literal notranslate"><span class="pre">df.shift</span></code><a class="headerlink" href="#leads-and-lags-df-shift" title="Permalink to this headline">¶</a></h2>
 <p>When doing time series analysis, we often want to compare data at one
 date against data at another date.</p>
 <p>pandas can help us with this if we leverage the <code class="docutils literal notranslate"><span class="pre">shift</span></code> method.</p>
@@ -2277,7 +2255,7 @@ Name: close, dtype: float64
 </div>
 </div>
 <div class="section" id="rolling-computations-rolling">
-<h2><span class="section-number">5.4.7. </span>Rolling Computations: <code class="docutils literal notranslate"><span class="pre">.rolling</span></code><a class="headerlink" href="#rolling-computations-rolling" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.4.6. </span>Rolling Computations: <code class="docutils literal notranslate"><span class="pre">.rolling</span></code><a class="headerlink" href="#rolling-computations-rolling" title="Permalink to this headline">¶</a></h2>
 <p>pandas has facilities that enable easy computation of <em>rolling
 statistics</em>.</p>
 <p>These are best understood by example, so we will dive right in.</p>
@@ -2477,7 +2455,7 @@ window for the whole dataset.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1c4d19cd3a0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/timeseries_63_1.png" src="../../_images/timeseries_63_1.png" />
+<img alt="../../_images/timeseries_61_1.png" src="../../_images/timeseries_61_1.png" />
 </div>
 </div>
 <p>We can also ask pandas to <code class="docutils literal notranslate"><span class="pre">apply</span></code> custom functions, similar to what we
@@ -2514,7 +2492,7 @@ Name: open, dtype: float64
 </div>
 </div>
 <div class="section" id="changing-frequencies-resample-opt">
-<h2><span class="section-number">5.4.8. </span>Changing Frequencies: <code class="docutils literal notranslate"><span class="pre">.resample</span></code> (Opt)<a class="headerlink" href="#changing-frequencies-resample-opt" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.4.7. </span>Changing Frequencies: <code class="docutils literal notranslate"><span class="pre">.resample</span></code> (Opt)<a class="headerlink" href="#changing-frequencies-resample-opt" title="Permalink to this headline">¶</a></h2>
 <p>In addition to computing rolling statistics, we can also change the
 frequency of the data.</p>
 <p>For example, instead of a monthly moving average, suppose that we wanted
