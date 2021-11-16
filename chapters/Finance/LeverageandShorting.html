@@ -605,19 +605,20 @@
 <h1><span class="section-number">9.2. </span>Levering up and Shorting<a class="headerlink" href="#levering-up-and-shorting" title="Permalink to this headline">¶</a></h1>
 <p>So far we wrote the portfolio return as simple product of weights and individual asset returns</p>
 <div class="math notranslate nohighlight">
-\[r^p_t=W_tR_t+(1-\sum_i^Iw_i)r^f_t\]</div>
+\[r^p_t=W R_t+(1-\sum_i^I w_{i})r^f_t\]</div>
 <p>where <span class="math notranslate nohighlight">\(R\)</span> is a a vector of riksy asset returns.</p>
+<p>And <span class="math notranslate nohighlight">\(W=[w_1,w_2,...w_I]\)</span> is a vector of asset weights</p>
 <p>In practice things are not quite as simple.</p>
-<p>First lets discuss what happens as <span class="math notranslate nohighlight">\((1-\sum_i^Iw_i)\)</span> goes from a number between 0 and 1 to a a negative number.  meaning you have a positive fraction allocated to the risk-free asset to a negative number.</p>
-<p>The case when this is above 1 is not very relevant as it would imply you are shorting the risky assets to invest more in the risk-free asset, which typically has much lower expected returns.</p>
 <p><strong>Leverage</strong></p>
-<p>When <span class="math notranslate nohighlight">\((1-\sum_i^Iw_i)\in[0,1]\)</span> you have a postive fraction of your portfolio in the risk-free asset. In this case you earn something close to the 3 month t-bill rate. In practice it can be a tiny bit higher or a tiny bit lower if you park the money in a money market fund account in your broker. Of course you can literally just buy the t-bill if you want so the rate that you earn will be pretty close to the tbill rate.</p>
-<p>You can easily get this t-bill rate <a class="reference external" href="https://fred.stlouisfed.org/series/DTB3">from FRED</a>. Of course you can use the API and get this data quickly by using it’s name <code class="docutils literal notranslate"><span class="pre">DTB3</span></code>.</p>
-<p>When <span class="math notranslate nohighlight">\((1-\sum_i^Iw_i)&lt;0\)</span> you have a negative weight on the risk-free asset. It means that you are borowing money to invest more in the risky assets, mechanically <span class="math notranslate nohighlight">\(\sum_i^Iw_i&gt;1\)</span>.</p>
+<p>When <span class="math notranslate nohighlight">\((1-\sum_i^Iw_i)\in[0,1]\)</span> you have a postive fraction of your portfolio in the risk-free asset.</p>
+<p>In this case you earn something close to the 3 month t-bill rate.</p>
+<p>(In practice it can be a tiny bit higher or a tiny bit lower if you park the money in a money market fund account in your broker. Of course you can literally just buy the t-bill if you want so the rate that you earn will be pretty close to the tbill rate.)</p>
+<p>You can easily get this t-bill rate <a class="reference external" href="https://fred.stlouisfed.org/series/DTB3">from FRED</a>.( Of course you can use the API and get this data quickly by using it’s name <code class="docutils literal notranslate"><span class="pre">DTB3</span></code>.)</p>
+<p>When <span class="math notranslate nohighlight">\((1-\sum_i^Iw_i)&lt;0\)</span> you have a negative weight on the risk-free asset.</p>
+<p>This means that you are borowing money to invest more in the risky assets, mechanically <span class="math notranslate nohighlight">\(\sum_i^Iw_i&gt;1\)</span>.</p>
 <p>What happens in this case?</p>
 <ul class="simple">
 <li><p>No one will lend you money at the same rate the US gov get to borrow! They get to borrow at the lowest USD rates out there!</p></li>
-<li><p>in practice it will depend on how large your portfolio is and your broker</p></li>
 <li><p>here are the <a class="reference external" href="https://www.interactivebrokers.com/en/index.php?f=46376">lending rates of a big retail broker</a></p></li>
 <li><p>Here is snapshot from May/2021</p></li>
 </ul>
@@ -626,7 +627,7 @@
 <li><p>The structure of the rate is the following</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[r^b_t=r^{benchmark}_t+spread\]</div>
+\[r^b=r^{benchmark}+spread\]</div>
 <ul class="simple">
 <li><p>The benchmark is something that is very close to the treasury rate</p></li>
 <li><p>Here what your portfolio looks like</p></li>
@@ -639,15 +640,18 @@
 <div class="math notranslate nohighlight">
 \[r^p_t=W_tR_t+(1-\sum_i^Iw_i)r^f_t+\min(1-\sum_i^Iw_i,0)spread_t\]</div>
 <ul class="simple">
-<li><p>so the spread compensate the broker for the risk it bears by lending to you instead of lending to the US government</p></li>
-<li><p>The key difference if that when you lend to the US goverment you give then the money and a promise to pay back, the tbill which only has value if they indeed pay you back</p></li>
-<li><p>The broker when it lends to you will not take these chances, so your loan will be backed by the assets in your portfolio</p></li>
+<li><p>so the spread compensate the broker for the risk it bears when it lends to you instead of lending to the US government</p></li>
+<li><p>The broker when it lends to you ask the loan to be backed/collaterized by the assets in your portfolio (just like a house backs a mortgage)</p></li>
 <li><p>this mean there will be a limit on your leverage. Typically this takes the following form</p>
 <ul>
 <li><p><span class="math notranslate nohighlight">\(\sum_i^Iw_i\leq 1/m_{initial}\)</span> and <span class="math notranslate nohighlight">\(\sum_i^Iw_i&lt;1/m_{maintenance}\)</span> with  <span class="math notranslate nohighlight">\(1/m_{maintenance}&gt;1/m_{initial}\)</span></p></li>
 <li><p>For US retail investors <span class="math notranslate nohighlight">\(m_{initial}=0.5\)</span> and <span class="math notranslate nohighlight">\(m_{maintenance}\)</span> varies a bit</p></li>
 </ul>
 </li>
+<li><p>margin is exactly the inverse of gross leverage. When m=1, your gross leverage is 1/m=1 which means you cannot borrow anything</p></li>
+<li><p>in this case for each dollar you have invested you have to put exactyl one dollar in.</p></li>
+<li><p>when margin is 0.5, it means that your gross leverage is 1/0.5=2, which means that for each dollar you have you can buy 2 dollars in risky assets</p></li>
+<li><p>so the bank lends to you another dollar for each dollar you put it</p></li>
 <li><p>here is for a US retial broker. Focus on the top row, 50% initial , 30% maintenance, which translates to 1/0.5=2 initial leverage and 1/0.3=2.33 maintenance leverage</p></li>
 </ul>
 <p><img alt="image.png" src="../../_images/leverageandshorting2.jpg" /></p>
@@ -660,6 +664,18 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">200</span><span class="o">/</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2.0, 1.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">140</span><span class="o">/</span><span class="mi">40</span><span class="p">,</span><span class="mi">100</span><span class="o">/</span><span class="mi">40</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -670,9 +686,21 @@
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">/</span><span class="mf">3.5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2857142857142857
+</pre></div>
+</div>
+</div>
+</div>
 <ul class="simple">
 <li><p>your leverage went from 2 to 3.5</p></li>
-<li><p>You now have only 40/140=0.28% on marign</p></li>
+<li><p>You now have only 40/140=28% on marign</p></li>
 <li><p>you are violating the maintenance constraint, which is 30%. What happens now?</p></li>
 <li><p>your prime broker will ask for cash so you get back to 30%</p></li>
 <li><p>To keep your 140 position you need to have 140*0.3=42 networth so you need to inject 42-40=2k.</p></li>
@@ -710,95 +738,265 @@
 <li><p>For example, it is typical to make the amount of leverage that you can get to depend on your portfolio volatility</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[l_t\leq c\sigma_t(r_p)\]</div>
+\[l_t\leq \overline{l}-c\sigma_t(r_p)\]</div>
 <ul class="simple">
 <li><p>This means that if volatilitiy goes up at the same time as your assets go down in value, as it typically happens, you face demand in cash both from your losses buy also from a reduction in your leverage limits</p></li>
 </ul>
 <p><strong>Aplication: All in on Tesla</strong></p>
-<p>Jackie is a complete believer on Tesla and decide to all here savings, 1 Million dollars on Tesla in early 2017, and lever up to the maximum allowed by it’s broker to 50%, so a total position of 1.5 million dollars that she commited to stick with it. broker changed 1% on top of the tbill rate which was at zero.</p>
-<p>The broker made clear that a fraction of the tesla shares would have to sold everytime leverage went above 80%. The amount sold would have to bring the account leverage back to 50%.</p>
-<blockquote>
-<div><p>What would happen if JAckie was evne more commited and kept relveraging her account back to 50% everytime it dropped below 40%</p>
-</div></blockquote>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lets start by loading TESLA daily returns</span>
-<span class="kn">import</span> <span class="nn">wrds</span>
-<span class="kn">import</span> <span class="nn">psycopg2</span> 
-<span class="n">conn</span><span class="o">=</span><span class="n">wrds</span><span class="o">.</span><span class="n">Connection</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter your WRDS username [Alan.Moreira]: moreira5
-Enter your password: ···········
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WRDS recommends setting up a .pgpass file.
-You can find more info here:
-https://www.postgresql.org/docs/9.5/static/libpq-pgpass.html.
-Loading library list...
-Done
-</pre></div>
-</div>
-</div>
-</div>
+<p>Jackie is a complete believer on Tesla and decide to invest all her savings, 1 Million dollars on Tesla in early 2015, and lever up to the maximum allowed by it’s broker to 2 (inital margin 0.5), so a total position of 2 million dollars that she commited to stick with it.</p>
+<p>The broker changed 1% on top of the tbill rate which was at zero.</p>
+<p>The broker made clear that a fraction of the tesla shares would have to sold everytime leverage went above 1/0.3, i.e. a maintenance margin of 0.3 . The amount sold would have to bring the account margin back to 0.3.</p>
 <p>We will now do a for loop that simulates the dealer margin re-balancing strategy</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we will no use the wrds function we created in out codesnipets file</span>
-<span class="kn">from</span> <span class="nn">codesnippets</span> <span class="kn">import</span> <span class="n">get_returns_daily</span> 
-
-<span class="n">df</span><span class="o">=</span><span class="n">get_returns_daily</span><span class="p">([</span><span class="s1">&#39;TSLA&#39;</span><span class="p">],</span><span class="n">conn</span><span class="p">,</span><span class="s1">&#39;1/1/2017&#39;</span><span class="p">,</span><span class="s1">&#39;1/1/2022&#39;</span><span class="p">)</span>
-
-<span class="n">val</span><span class="o">=</span><span class="mi">1000000</span> <span class="c1"># inital portfolio value</span>
-
-<span class="n">rl</span><span class="o">=</span><span class="mf">0.01</span><span class="o">/</span><span class="mi">252</span> <span class="c1">#borrowing spread</span>
-<span class="n">linitial</span><span class="o">=</span><span class="mf">0.5</span> <span class="c1"># Initial margin</span>
-<span class="n">lmax</span><span class="o">=</span><span class="mf">0.3</span> <span class="c1"># minimum margin</span>
-<span class="n">lmin</span><span class="o">=</span><span class="mi">0</span> <span class="c1"># Minimum leverage before you rebalance back to some target leverage. If set to zero, no rebalancing</span>
-<span class="n">ltarget</span><span class="o">=</span><span class="mf">1.5</span> <span class="c1"># target leverage (set to initiaL if desired is higher than initial)</span>
-<span class="n">w0</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">ltarget</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">ltarget</span><span class="p">]])</span><span class="o">*</span><span class="n">val</span> <span class="c1"># initiate  portfolio at the target leverage</span>
-<span class="n">W</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">w0</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Asset&#39;</span><span class="p">,</span><span class="s1">&#39;rf&#39;</span><span class="p">])</span> <span class="c1"># containet to store  portfolio overtime</span>
-
-<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
-    <span class="n">w0</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="nb">float</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">d</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">),</span><span class="n">rl</span><span class="p">]]))</span><span class="o">*</span><span class="n">w0</span> <span class="c1"># update portfolio position given relaized return</span>
-    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">w0</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
-        <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;Asset&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">w0</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;rf&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">w0</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">break</span>
-    <span class="k">if</span> <span class="n">w0</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">w0</span><span class="p">)</span><span class="o">&lt;-</span><span class="mi">1</span><span class="o">/</span><span class="n">lmax</span><span class="p">:</span>
-        <span class="n">w0</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">w0</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="o">/</span><span class="n">linitial</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">linitial</span><span class="o">+</span><span class="mi">1</span><span class="p">]])</span>
-    <span class="k">elif</span> <span class="n">w0</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">w0</span><span class="p">)</span><span class="o">&gt;-</span><span class="n">lmin</span><span class="p">:</span>
-        <span class="n">w0</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">w0</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">ltarget</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">ltarget</span><span class="p">]])</span>     
-    <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;Asset&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">w0</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;rf&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">w0</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-        
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas_datareader.data</span> <span class="k">as</span> <span class="nn">web</span>
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+<span class="n">df</span><span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s2">&quot;TSLA&quot;</span><span class="p">,</span> <span class="s2">&quot;av-daily&quot;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+                      <span class="n">end</span><span class="o">=</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                     <span class="n">api_key</span><span class="o">=</span><span class="s1">&#39;N78MZQUK4ZCDUABU&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">W</span><span class="p">[</span><span class="s1">&#39;2017&#39;</span><span class="p">:</span><span class="s1">&#39;2020&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mf">1e6</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">logy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="c1">#(W[&#39;2017&#39;:&#39;2020&#39;][&#39;Asset&#39;]/1e6).plot(logy=False)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Networth&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="p">(</span><span class="o">-</span><span class="n">W</span><span class="p">[</span><span class="s1">&#39;2017&#39;</span><span class="p">:</span><span class="s1">&#39;2020&#39;</span><span class="p">][</span><span class="s1">&#39;rf&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">W</span><span class="p">[</span><span class="s1">&#39;2017&#39;</span><span class="p">:</span><span class="s1">&#39;2020&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;leverage&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="p">((</span><span class="n">W</span><span class="p">[</span><span class="s1">&#39;2017&#39;</span><span class="p">:</span><span class="s1">&#39;2020&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">21</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">*</span><span class="mi">252</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;vol&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># construct close to close returns from price changes</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+<span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;return&#39;</span><span class="p">]]</span>
+
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;vol&#39;)
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>return</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-01-03</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2017-01-04</th>
+      <td>0.046085</td>
+    </tr>
+    <tr>
+      <th>2017-01-05</th>
+      <td>-0.001057</td>
+    </tr>
+    <tr>
+      <th>2017-01-06</th>
+      <td>0.009967</td>
+    </tr>
+    <tr>
+      <th>2017-01-09</th>
+      <td>0.009912</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2020-07-27</th>
+      <td>0.086521</td>
+    </tr>
+    <tr>
+      <th>2020-07-28</th>
+      <td>-0.040991</td>
+    </tr>
+    <tr>
+      <th>2020-07-29</th>
+      <td>0.015320</td>
+    </tr>
+    <tr>
+      <th>2020-07-30</th>
+      <td>-0.007751</td>
+    </tr>
+    <tr>
+      <th>2020-07-31</th>
+      <td>-0.038138</td>
+    </tr>
+  </tbody>
+</table>
+<p>901 rows × 1 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">val</span><span class="o">=</span><span class="mi">1_000_000</span> <span class="c1"># inital portfolio value</span>
+
+<span class="n">rl</span><span class="o">=</span><span class="mf">0.01</span><span class="o">/</span><span class="mi">252</span> <span class="c1">#borrowing spread</span>
+<span class="n">m_initial</span><span class="o">=</span><span class="mf">0.5</span> <span class="c1"># Initial margin</span>
+<span class="n">m_maintenance</span><span class="o">=</span><span class="mf">0.3</span> <span class="c1"># maintenance/minimum margin</span>
+<span class="n">pos_RiskyAsset</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">m_initial</span><span class="o">*</span><span class="n">val</span>
+<span class="n">pos_SafeAsset</span><span class="o">=</span><span class="n">val</span><span class="o">-</span><span class="n">pos_RiskyAsset</span>
+
+<span class="n">W</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([],</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Risky&#39;</span><span class="p">,</span><span class="s1">&#39;Safe&#39;</span><span class="p">])</span> <span class="c1"># containet to store  portfolio overtime</span>
+<span class="n">d</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;Risky&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pos_RiskyAsset</span> <span class="c1"># position in Tesla at the start</span>
+<span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;Safe&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pos_SafeAsset</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+    <span class="n">returnRiskyAsset</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">d</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+    <span class="n">pos_RiskyAsset</span><span class="o">=</span><span class="n">pos_RiskyAsset</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">returnRiskyAsset</span><span class="p">)</span>
+    <span class="n">pos_SafeAsset</span><span class="o">=</span><span class="n">pos_SafeAsset</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">rl</span><span class="p">)</span>
+    <span class="n">networth</span><span class="o">=</span> <span class="n">pos_RiskyAsset</span><span class="o">+</span> <span class="n">pos_SafeAsset</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">networth</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span> <span class="c1"># sum of w0 gives us the networth. IF that goes negative, trader goes banktrupt and it is liquidated</span>
+        <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;Risky&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pos_RiskyAsset</span> <span class="c1"># position in Tesla at the start</span>
+        <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;Safe&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pos_SafeAsset</span>
+        <span class="k">break</span> 
+    <span class="k">if</span> <span class="n">networth</span><span class="o">/</span><span class="n">pos_RiskyAsset</span><span class="o">&lt;</span><span class="n">m_maintenance</span><span class="p">:</span> <span class="c1"># accoutn is in breach and trader has to rebalance (sell some stock to satisfy their position limits)</span>
+        <span class="nb">print</span><span class="p">([</span><span class="n">pos_RiskyAsset</span><span class="p">,</span><span class="n">pos_SafeAsset</span><span class="p">])</span>
+        <span class="n">pos_RiskyAsset</span><span class="o">=</span><span class="n">networth</span><span class="o">*</span><span class="mi">1</span><span class="o">/</span><span class="n">m_maintenance</span>
+        <span class="n">post_SafeAsset</span><span class="o">=</span><span class="n">networth</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">m_maintenance</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">([</span><span class="n">pos_RiskyAsset</span><span class="p">,</span><span class="n">pos_SafeAsset</span><span class="p">])</span>
+        
+    <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;Risky&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pos_RiskyAsset</span> 
+    <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;Safe&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pos_SafeAsset</span>
+<span class="n">W</span>      
 </pre></div>
 </div>
-<img alt="../../_images/LeverageandShorting_8_1.png" src="../../_images/LeverageandShorting_8_1.png" />
-<img alt="../../_images/LeverageandShorting_8_2.png" src="../../_images/LeverageandShorting_8_2.png" />
-<img alt="../../_images/LeverageandShorting_8_3.png" src="../../_images/LeverageandShorting_8_3.png" />
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                Risky       Safe
+2017-01-03  2000000.0 -1000000.0
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Risky</th>
+      <th>Safe</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-01-03</th>
+      <td>2000000.0</td>
+      <td>-1000000.0</td>
+    </tr>
+    <tr>
+      <th>2017-01-04</th>
+      <td>2092170.14609</td>
+      <td>-1000039.68254</td>
+    </tr>
+    <tr>
+      <th>2017-01-05</th>
+      <td>2089958.062584</td>
+      <td>-1000079.366654</td>
+    </tr>
+    <tr>
+      <th>2017-01-06</th>
+      <td>2110788.5156</td>
+      <td>-1000119.052343</td>
+    </tr>
+    <tr>
+      <th>2017-01-09</th>
+      <td>2131711.138762</td>
+      <td>-1000158.739607</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2020-07-27</th>
+      <td>14190515.691967</td>
+      <td>-1036194.481947</td>
+    </tr>
+    <tr>
+      <th>2020-07-28</th>
+      <td>13608829.899995</td>
+      <td>-1036235.600776</td>
+    </tr>
+    <tr>
+      <th>2020-07-29</th>
+      <td>13817318.77045</td>
+      <td>-1036276.721236</td>
+    </tr>
+    <tr>
+      <th>2020-07-30</th>
+      <td>13710217.060694</td>
+      <td>-1036317.843328</td>
+    </tr>
+    <tr>
+      <th>2020-07-31</th>
+      <td>13187335.821927</td>
+      <td>-1036358.967052</td>
+    </tr>
+  </tbody>
+</table>
+<p>901 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mf">1e6</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">logy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1">#(W[&#39;2017&#39;:&#39;2020&#39;][&#39;Asset&#39;]/1e6).plot(logy=False)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Networth&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="p">(</span><span class="o">-</span><span class="n">W</span><span class="p">[</span><span class="s1">&#39;Safe&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">W</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Gross leverage&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">W</span><span class="p">[</span><span class="s1">&#39;Risky&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;margin&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="p">(</span><span class="n">W</span><span class="p">[</span><span class="s1">&#39;Risky&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">val</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">logy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Tesla position&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="p">((</span><span class="n">W</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">21</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">*</span><span class="mi">252</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;volatility&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;volatility&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/LeverageandShorting_11_1.png" src="../../_images/LeverageandShorting_11_1.png" />
+<img alt="../../_images/LeverageandShorting_11_2.png" src="../../_images/LeverageandShorting_11_2.png" />
+<img alt="../../_images/LeverageandShorting_11_3.png" src="../../_images/LeverageandShorting_11_3.png" />
+<img alt="../../_images/LeverageandShorting_11_4.png" src="../../_images/LeverageandShorting_11_4.png" />
+<img alt="../../_images/LeverageandShorting_11_5.png" src="../../_images/LeverageandShorting_11_5.png" />
 </div>
 </div>
 <p><strong>Shorting</strong></p>
@@ -832,7 +1030,7 @@ Done
 </ul>
 <p><img alt="image.png" src="../../_images/leverageandshorting4.jpg" /></p>
 <ul class="simple">
-<li><p>A full portfolio looks like (here I am assuming you don’t lever up)</p></li>
+<li><p>A full portfolio looks like</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\sum_i^I w^i\times r^i_t+(1-\sum_i^I w^i)r^f_t+\sum_i^I\min(w^i,0)sf^i_t+\min(1-\sum_i^Iw_i,0)spread_t\]</div>
@@ -840,50 +1038,273 @@ Done
 <li><p>Where <span class="math notranslate nohighlight">\(\sum_i^I |w^i|\leq 1/m_{initial}\)</span></p></li>
 </ul>
 <p><strong>Application: Shorting GME</strong></p>
-<p>Now consider a big unconsitraiend hedge fund that started shorting GME early 2020. We will now assume that they jsut inject cash as nedded in the trade. We will then track their capital commited to the trade and their dollar “P&amp;L” , i.e the dollars profits/losses of the trade.</p>
-<p>We will start assuming shorting fee is zero</p>
+<p>Now consider a big unconstraiend hedge fund that started shorting GME in March/2020 betting that COVID would be the nail on the coffin of the Game chain.</p>
+<p>Assumptions</p>
+<p>We will now assume that they jsut inject cash as nedded in the trade.</p>
+<p>We will then track their capital commited to the trade and their dollar “P&amp;L” , i.e the dollars profits/losses of the trade.</p>
+<p>We will start assuming shorting fee is zero.</p>
+<p>We will start with capital of 1 million and inject capital as the bank demands capital, and cash out whenever my leverage goes down below the initial leverage limit</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">get_returns_daily</span><span class="p">([</span><span class="s1">&#39;GME&#39;</span><span class="p">],</span><span class="n">conn</span><span class="p">,</span><span class="s1">&#39;1/1/2020&#39;</span><span class="p">,</span><span class="s1">&#39;1/1/2022&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s2">&quot;GME&quot;</span><span class="p">,</span> <span class="s2">&quot;av-daily&quot;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+                      <span class="n">end</span><span class="o">=</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                     <span class="n">api_key</span><span class="o">=</span><span class="s1">&#39;N78MZQUK4ZCDUABU&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+<span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;close&#39;</span><span class="p">,</span><span class="s1">&#39;return&#39;</span><span class="p">]]</span>
 
-<span class="n">val</span><span class="o">=</span><span class="mi">1000000</span> <span class="c1"># inital portfolio value</span>
-<span class="n">sf</span><span class="o">=</span><span class="mi">0</span><span class="o">/</span><span class="mi">252</span><span class="c1"># shorting fee</span>
-<span class="n">rf</span><span class="o">=</span><span class="mi">0</span><span class="o">/</span><span class="mi">252</span> <span class="c1"># tbill</span>
-<span class="n">linitial</span><span class="o">=</span><span class="mf">0.5</span> <span class="c1"># Initial margin</span>
-<span class="n">lmax</span><span class="o">=</span><span class="mf">0.3</span> <span class="c1"># minimum margin</span>
-<span class="n">w0</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">linitial</span><span class="p">,</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="n">linitial</span><span class="p">]])</span><span class="o">*</span><span class="n">val</span> <span class="c1"># initiate  portfolio at the target leverage</span>
-<span class="n">W</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">w0</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Asset&#39;</span><span class="p">,</span><span class="s1">&#39;rf&#39;</span><span class="p">])</span> <span class="c1"># container to store  portfolio overtime</span>
-<span class="n">Capital</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;capital&#39;</span><span class="p">])</span>
-
-
-<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
-    <span class="n">w0</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">w0</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">w0</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">sf</span>
-    <span class="n">w0</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="nb">float</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">d</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">),</span><span class="n">rf</span><span class="p">]]))</span><span class="o">*</span><span class="n">w0</span><span class="c1"># update portfolio position given relaized return</span>
-    
-    <span class="n">Capital</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;capital&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
-    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">w0</span><span class="p">)</span><span class="o">&lt;</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">w0</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="n">lmax</span> <span class="p">:</span>
-        <span class="n">Capital</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;capital&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="n">w0</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">lmax</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">w0</span><span class="p">))</span> <span class="c1"># how mcuh capital is injected in the trade</span>
-        <span class="n">w0</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">w0</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="p">(</span><span class="o">-</span><span class="n">w0</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">lmax</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">w0</span><span class="p">))</span> <span class="c1"># change in the risk-free positions</span>
-    <span class="k">elif</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">w0</span><span class="p">)</span><span class="o">&gt;</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">w0</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="n">lmax</span> <span class="p">:</span>
-        <span class="n">Capital</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;capital&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="n">w0</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">lmax</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">w0</span><span class="p">))</span> <span class="c1"># how much capital is released of the trade</span>
-        <span class="n">w0</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">w0</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="p">(</span><span class="o">-</span><span class="n">w0</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">lmax</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">w0</span><span class="p">))</span>    <span class="c1"># change in the risk-free positions</span>
-  
-    <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;Asset&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">w0</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;rf&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">w0</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-        
+<span class="n">df</span><span class="p">[:</span><span class="s1">&#39;2020-3&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">close</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../../_images/LeverageandShorting_14_1.png" src="../../_images/LeverageandShorting_14_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Keep returns going forward (starting in april 2020)</span>
+<span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2020-4&#39;</span><span class="p">:,[</span><span class="s1">&#39;return&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mf">1e6</span><span class="p">)</span><span class="o">.</span><span class="n">subtract</span><span class="p">((</span><span class="n">Capital</span><span class="o">.</span><span class="n">capital</span><span class="o">/</span><span class="mf">1e6</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(),</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">logy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>return</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-04-01</th>
+      <td>-0.071429</td>
+    </tr>
+    <tr>
+      <th>2020-04-02</th>
+      <td>-0.123077</td>
+    </tr>
+    <tr>
+      <th>2020-04-03</th>
+      <td>-0.017544</td>
+    </tr>
+    <tr>
+      <th>2020-04-06</th>
+      <td>0.103571</td>
+    </tr>
+    <tr>
+      <th>2020-04-07</th>
+      <td>0.058252</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2021-10-26</th>
+      <td>0.022245</td>
+    </tr>
+    <tr>
+      <th>2021-10-27</th>
+      <td>-0.024348</td>
+    </tr>
+    <tr>
+      <th>2021-10-28</th>
+      <td>0.053830</td>
+    </tr>
+    <tr>
+      <th>2021-10-29</th>
+      <td>0.003610</td>
+    </tr>
+    <tr>
+      <th>2021-11-01</th>
+      <td>0.090349</td>
+    </tr>
+  </tbody>
+</table>
+<p>401 rows × 1 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">val</span><span class="o">=</span><span class="mi">1_000_000</span> <span class="c1"># inital capital</span>
+
+<span class="n">sf</span><span class="o">=</span><span class="mi">0</span><span class="o">/</span><span class="mi">252</span><span class="c1"># shorting fee</span>
+<span class="n">rf</span><span class="o">=</span><span class="mi">0</span><span class="o">/</span><span class="mi">252</span> <span class="c1"># tbill</span>
+<span class="n">pos_RiskyAsset</span><span class="o">=-</span><span class="mi">1</span><span class="o">/</span><span class="n">m_initial</span><span class="o">*</span><span class="n">val</span> <span class="c1"># it is negative becasue you are shorting!</span>
+<span class="n">pos_SafeAsset</span><span class="o">=</span><span class="n">val</span><span class="o">-</span><span class="n">pos_RiskyAsset</span>
+
+<span class="n">W</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([],</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Risky&#39;</span><span class="p">,</span><span class="s1">&#39;Safe&#39;</span><span class="p">])</span> <span class="c1"># containet to store  portfolio overtime</span>
+<span class="n">d</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;Risky&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pos_RiskyAsset</span> <span class="c1"># position in Tesla at the start</span>
+<span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;Safe&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pos_SafeAsset</span>
+<span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;capital&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">val</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+    <span class="n">pos_SafeAsset</span><span class="o">=</span><span class="n">pos_SafeAsset</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">rf</span><span class="p">)</span><span class="o">+</span><span class="n">pos_RiskyAsset</span><span class="o">*</span><span class="n">sf</span>
+    <span class="n">returnRiskyAsset</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">d</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+    <span class="n">pos_RiskyAsset</span><span class="o">=</span><span class="n">pos_RiskyAsset</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">returnRiskyAsset</span><span class="p">)</span>
+    <span class="n">networth</span><span class="o">=</span> <span class="n">pos_RiskyAsset</span><span class="o">+</span> <span class="n">pos_SafeAsset</span> 
+    <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;capital&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+    
+    
+    <span class="k">if</span> <span class="n">networth</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">pos_RiskyAsset</span><span class="p">)</span><span class="o">&lt;</span><span class="n">m_maintenance</span><span class="p">:</span> <span class="c1"># if you breach the maintanece margim</span>
+        <span class="n">neededcapital</span><span class="o">=</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">pos_RiskyAsset</span><span class="p">)</span><span class="o">*</span><span class="n">m_maintenance</span><span class="o">-</span><span class="n">networth</span><span class="p">)</span>
+        <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;capital&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">neededcapital</span> <span class="c1"># how mcuh capital is injected in the trade</span>
+        <span class="n">pos_SafeAsset</span><span class="o">=</span><span class="n">pos_SafeAsset</span><span class="o">+</span><span class="n">neededcapital</span> <span class="c1"># change in the risk-free positions</span>
+    <span class="k">elif</span> <span class="n">networth</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">pos_RiskyAsset</span><span class="p">)</span><span class="o">&gt;</span><span class="n">m_initial</span><span class="p">:</span> <span class="c1"># if you have enough capital that allows you to relase some capital of the trade</span>
+        <span class="n">releasedcapital</span><span class="o">=</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">pos_RiskyAsset</span><span class="p">)</span><span class="o">*</span><span class="n">m_initial</span><span class="o">-</span><span class="n">networth</span><span class="p">)</span>
+        <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;capital&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">releasedcapital</span> <span class="c1"># how mcuh capital is injected in the trade</span>
+        <span class="n">pos_SafeAsset</span><span class="o">=</span><span class="n">pos_SafeAsset</span><span class="o">+</span><span class="n">releasedcapital</span> <span class="c1"># change in the risk-free positions</span>
+  
+    <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;Risky&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pos_RiskyAsset</span> <span class="c1"># position in Tesla at the start</span>
+    <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;Safe&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pos_SafeAsset</span>
+<span class="n">W</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                Risky       Safe    capital
+2020-04-01 -2000000.0  3000000.0  1000000.0
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Risky</th>
+      <th>Safe</th>
+      <th>capital</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-04-01</th>
+      <td>-2000000.0</td>
+      <td>3000000.0</td>
+      <td>1.000000e+06</td>
+    </tr>
+    <tr>
+      <th>2020-04-02</th>
+      <td>-1753846.153846</td>
+      <td>2630769.230769</td>
+      <td>-3.692308e+05</td>
+    </tr>
+    <tr>
+      <th>2020-04-03</th>
+      <td>-1723076.923077</td>
+      <td>2584615.384615</td>
+      <td>-4.615385e+04</td>
+    </tr>
+    <tr>
+      <th>2020-04-06</th>
+      <td>-1901538.461538</td>
+      <td>2584615.384615</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <th>2020-04-07</th>
+      <td>-2012307.692308</td>
+      <td>2616000.0</td>
+      <td>3.138462e+04</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2021-10-26</th>
+      <td>-109440000.0</td>
+      <td>156738461.538462</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <th>2021-10-27</th>
+      <td>-106775384.615385</td>
+      <td>156738461.538462</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <th>2021-10-28</th>
+      <td>-112523076.923077</td>
+      <td>156738461.538462</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <th>2021-10-29</th>
+      <td>-112929230.769231</td>
+      <td>156738461.538462</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <th>2021-11-01</th>
+      <td>-123132307.692308</td>
+      <td>160072000.0</td>
+      <td>3.333538e+06</td>
+    </tr>
+  </tbody>
+</table>
+<p>401 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">val</span><span class="p">)</span><span class="o">.</span><span class="n">subtract</span><span class="p">((</span><span class="n">W</span><span class="o">.</span><span class="n">capital</span><span class="o">/</span><span class="n">val</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(),</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">logy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="c1">#(W[&#39;2017&#39;:&#39;2020&#39;][&#39;Asset&#39;]/1e6).plot(logy=False)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;P &amp; L&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="p">(</span><span class="n">Capital</span><span class="o">/</span><span class="mf">1e6</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">logy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">capital</span><span class="o">/</span><span class="n">val</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">logy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1">#(W[&#39;2017&#39;:&#39;2020&#39;][&#39;Asset&#39;]/1e6).plot(logy=False)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Capital injections&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">capital</span><span class="o">/</span><span class="n">val</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">logy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="c1">#(W[&#39;2017&#39;:&#39;2020&#39;][&#39;Asset&#39;]/1e6).plot(logy=False)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Capital&#39;</span><span class="p">)</span>
+
+
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 
 <span class="p">((</span><span class="n">W</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">21</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">*</span><span class="mi">252</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
@@ -895,37 +1316,21 @@ Done
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;vol&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/LeverageandShorting_12_1.png" src="../../_images/LeverageandShorting_12_1.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
-</pre></div>
-</div>
-<img alt="../../_images/LeverageandShorting_12_3.png" src="../../_images/LeverageandShorting_12_3.png" />
-<img alt="../../_images/LeverageandShorting_12_4.png" src="../../_images/LeverageandShorting_12_4.png" />
+<img alt="../../_images/LeverageandShorting_18_1.png" src="../../_images/LeverageandShorting_18_1.png" />
+<img alt="../../_images/LeverageandShorting_18_2.png" src="../../_images/LeverageandShorting_18_2.png" />
+<img alt="../../_images/LeverageandShorting_18_3.png" src="../../_images/LeverageandShorting_18_3.png" />
+<img alt="../../_images/LeverageandShorting_18_4.png" src="../../_images/LeverageandShorting_18_4.png" />
 </div>
 </div>
-<p>Suppose you were a hedge fund with 200M capital, you placed a fairly small 1 million dollar trade. You were fully commited and thoguht you had the cpaital to support it.</p>
-<p>By late january sustaining the trade required 140 million dollars! And this does not take into account the fact that margin requirements became much tighter du to the immense volatiltiy of GME stock in the period.</p>
+<p>Suppose you were a hedge fund with 200M capital, you placed a fairly small 1 million dollar trade. You were fully commited and thoguht you had the capital to support it.</p>
+<p>By late january sustaining the trade required 250 million dollars! And this does not take into account the fact that margin requirements became much tighter du to the immense volatiltiy of GME stock in the period.</p>
 <ul class="simple">
-<li><p>You can see above that the volatiltiy of the fund net position went to 800%!</p></li>
-<li><p>This is 50% daily volatility!</p></li>
-<li><p>A two standard deviaiton event would wipe out your margin!</p></li>
+<li><p>You can see above that the volatiltiy of the fund net position went to 35,000%!</p></li>
 <li><p>As response to this retail brokers increase margin requirements on GME shorts to 300%</p></li>
 <li><p>I am not sure what institutional brokers did, but likely they increased their leverage reuqirements too.</p></li>
-<li><p>This implies required capital would increase 6 fold going from 140 to 840 Million dollars</p></li>
-<li><p>840 million dollars to sustain the 1 million dollars trade!</p></li>
+<li><p>This implies required capital would increase 6 foldfold (from 0.5 to 3 initial margin) going from 250 million to 1.5 billion dollars!</p></li>
+<li><p>1.5 Billion dollars to sustain the 1 million dollars trade!</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">8</span><span class="o">/</span><span class="mi">252</span><span class="o">**</span><span class="mf">0.5</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5039526306789696
-</pre></div>
-</div>
-</div>
-</div>
 </div>
 
     <script type="text/x-thebe-config">
