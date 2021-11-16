@@ -688,7 +688,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">/</span><span class="mf">3.5</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">40</span><span class="o">/</span><span class="mi">140</span>
 </pre></div>
 </div>
 </div>
@@ -743,7 +743,7 @@
 <li><p>This means that if volatilitiy goes up at the same time as your assets go down in value, as it typically happens, you face demand in cash both from your losses buy also from a reduction in your leverage limits</p></li>
 </ul>
 <p><strong>Aplication: All in on Tesla</strong></p>
-<p>Jackie is a complete believer on Tesla and decide to invest all her savings, 1 Million dollars on Tesla in early 2015, and lever up to the maximum allowed by it’s broker to 2 (inital margin 0.5), so a total position of 2 million dollars that she commited to stick with it.</p>
+<p>Jackie is a complete believer on Tesla and decide to invest all her savings, 1 Million dollars on Tesla in early 2017, and lever up to the maximum allowed by it’s broker to 2 (inital margin 0.5), so a total position of 2 million dollars that she commited to stick with it.</p>
 <p>The broker changed 1% on top of the tbill rate which was at zero.</p>
 <p>The broker made clear that a fraction of the tesla shares would have to sold everytime leverage went above 1/0.3, i.e. a maintenance margin of 0.3 . The amount sold would have to bring the account margin back to 0.3.</p>
 <p>We will now do a for loop that simulates the dealer margin re-balancing strategy</p>
@@ -847,7 +847,7 @@
 
 <span class="n">rl</span><span class="o">=</span><span class="mf">0.01</span><span class="o">/</span><span class="mi">252</span> <span class="c1">#borrowing spread</span>
 <span class="n">m_initial</span><span class="o">=</span><span class="mf">0.5</span> <span class="c1"># Initial margin</span>
-<span class="n">m_maintenance</span><span class="o">=</span><span class="mf">0.3</span> <span class="c1"># maintenance/minimum margin</span>
+<span class="n">m_maintenance</span><span class="o">=</span><span class="mf">0.4</span> <span class="c1"># maintenance/minimum margin</span>
 <span class="n">pos_RiskyAsset</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">m_initial</span><span class="o">*</span><span class="n">val</span>
 <span class="n">pos_SafeAsset</span><span class="o">=</span><span class="n">val</span><span class="o">-</span><span class="n">pos_RiskyAsset</span>
 
@@ -870,7 +870,7 @@
     <span class="k">if</span> <span class="n">networth</span><span class="o">/</span><span class="n">pos_RiskyAsset</span><span class="o">&lt;</span><span class="n">m_maintenance</span><span class="p">:</span> <span class="c1"># accoutn is in breach and trader has to rebalance (sell some stock to satisfy their position limits)</span>
         <span class="nb">print</span><span class="p">([</span><span class="n">pos_RiskyAsset</span><span class="p">,</span><span class="n">pos_SafeAsset</span><span class="p">])</span>
         <span class="n">pos_RiskyAsset</span><span class="o">=</span><span class="n">networth</span><span class="o">*</span><span class="mi">1</span><span class="o">/</span><span class="n">m_maintenance</span>
-        <span class="n">post_SafeAsset</span><span class="o">=</span><span class="n">networth</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">m_maintenance</span><span class="p">)</span>
+        <span class="n">post_SafeAsset</span><span class="o">=</span><span class="n">networth</span><span class="o">-</span><span class="n">pos_RiskyAsset</span>
         <span class="nb">print</span><span class="p">([</span><span class="n">pos_RiskyAsset</span><span class="p">,</span><span class="n">pos_SafeAsset</span><span class="p">])</span>
         
     <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;Risky&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pos_RiskyAsset</span> 
@@ -882,6 +882,14 @@
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                Risky       Safe
 2017-01-03  2000000.0 -1000000.0
+[1706622.4249965441, -1024297.959301626]
+[1705811.1642372953, -1024297.959301626]
+[1648784.9646983622, -1024338.6060460426]
+[1561115.8966307987, -1024338.6060460426]
+[1688730.1647634946, -1024379.2544034254]
+[1660877.275900173, -1024379.2544034254]
+[1686528.2214318959, -1024419.9043738381]
+[1655270.7926451443, -1024419.9043738381]
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -939,27 +947,27 @@
     </tr>
     <tr>
       <th>2020-07-27</th>
-      <td>14190515.691967</td>
+      <td>12963298.806432</td>
       <td>-1036194.481947</td>
     </tr>
     <tr>
       <th>2020-07-28</th>
-      <td>13608829.899995</td>
+      <td>12431918.066192</td>
       <td>-1036235.600776</td>
     </tr>
     <tr>
       <th>2020-07-29</th>
-      <td>13817318.77045</td>
+      <td>12622376.509295</td>
       <td>-1036276.721236</td>
     </tr>
     <tr>
       <th>2020-07-30</th>
-      <td>13710217.060694</td>
+      <td>12524537.114562</td>
       <td>-1036317.843328</td>
     </tr>
     <tr>
       <th>2020-07-31</th>
-      <td>13187335.821927</td>
+      <td>12046875.422376</td>
       <td>-1036358.967052</td>
     </tr>
   </tbody>
@@ -973,7 +981,7 @@
 <span class="c1">#(W[&#39;2017&#39;:&#39;2020&#39;][&#39;Asset&#39;]/1e6).plot(logy=False)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Networth&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="p">(</span><span class="o">-</span><span class="n">W</span><span class="p">[</span><span class="s1">&#39;Safe&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">W</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="p">(</span><span class="n">W</span><span class="p">[</span><span class="s1">&#39;Risky&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">W</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Gross leverage&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">W</span><span class="p">[</span><span class="s1">&#39;Risky&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
@@ -1153,7 +1161,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">val</span><span class="o">=</span><span class="mi">1_000_000</span> <span class="c1"># inital capital</span>
-
+<span class="n">m_initial</span><span class="o">=</span><span class="mf">0.5</span>
+<span class="n">m_m_maintenance</span><span class="o">=</span><span class="mf">0.3</span>
 <span class="n">sf</span><span class="o">=</span><span class="mi">0</span><span class="o">/</span><span class="mi">252</span><span class="c1"># shorting fee</span>
 <span class="n">rf</span><span class="o">=</span><span class="mi">0</span><span class="o">/</span><span class="mi">252</span> <span class="c1"># tbill</span>
 <span class="n">pos_RiskyAsset</span><span class="o">=-</span><span class="mi">1</span><span class="o">/</span><span class="n">m_initial</span><span class="o">*</span><span class="n">val</span> <span class="c1"># it is negative becasue you are shorting!</span>
@@ -1178,10 +1187,6 @@
         <span class="n">neededcapital</span><span class="o">=</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">pos_RiskyAsset</span><span class="p">)</span><span class="o">*</span><span class="n">m_maintenance</span><span class="o">-</span><span class="n">networth</span><span class="p">)</span>
         <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;capital&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">neededcapital</span> <span class="c1"># how mcuh capital is injected in the trade</span>
         <span class="n">pos_SafeAsset</span><span class="o">=</span><span class="n">pos_SafeAsset</span><span class="o">+</span><span class="n">neededcapital</span> <span class="c1"># change in the risk-free positions</span>
-    <span class="k">elif</span> <span class="n">networth</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">pos_RiskyAsset</span><span class="p">)</span><span class="o">&gt;</span><span class="n">m_initial</span><span class="p">:</span> <span class="c1"># if you have enough capital that allows you to relase some capital of the trade</span>
-        <span class="n">releasedcapital</span><span class="o">=</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">pos_RiskyAsset</span><span class="p">)</span><span class="o">*</span><span class="n">m_initial</span><span class="o">-</span><span class="n">networth</span><span class="p">)</span>
-        <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;capital&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">releasedcapital</span> <span class="c1"># how mcuh capital is injected in the trade</span>
-        <span class="n">pos_SafeAsset</span><span class="o">=</span><span class="n">pos_SafeAsset</span><span class="o">+</span><span class="n">releasedcapital</span> <span class="c1"># change in the risk-free positions</span>
   
     <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;Risky&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pos_RiskyAsset</span> <span class="c1"># position in Tesla at the start</span>
     <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;Safe&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pos_SafeAsset</span>
@@ -1222,31 +1227,31 @@
       <th>2020-04-01</th>
       <td>-2000000.0</td>
       <td>3000000.0</td>
-      <td>1.000000e+06</td>
+      <td>1000000.0</td>
     </tr>
     <tr>
       <th>2020-04-02</th>
       <td>-1753846.153846</td>
-      <td>2630769.230769</td>
-      <td>-3.692308e+05</td>
+      <td>3000000.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>2020-04-03</th>
       <td>-1723076.923077</td>
-      <td>2584615.384615</td>
-      <td>-4.615385e+04</td>
+      <td>3000000.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>2020-04-06</th>
       <td>-1901538.461538</td>
-      <td>2584615.384615</td>
-      <td>0.000000e+00</td>
+      <td>3000000.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>2020-04-07</th>
       <td>-2012307.692308</td>
-      <td>2616000.0</td>
-      <td>3.138462e+04</td>
+      <td>3000000.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1257,37 +1262,49 @@
     <tr>
       <th>2021-10-26</th>
       <td>-109440000.0</td>
-      <td>156738461.538462</td>
-      <td>0.000000e+00</td>
+      <td>299393230.769231</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>2021-10-27</th>
       <td>-106775384.615385</td>
-      <td>156738461.538462</td>
-      <td>0.000000e+00</td>
+      <td>299393230.769231</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>2021-10-28</th>
       <td>-112523076.923077</td>
-      <td>156738461.538462</td>
-      <td>0.000000e+00</td>
+      <td>299393230.769231</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>2021-10-29</th>
       <td>-112929230.769231</td>
-      <td>156738461.538462</td>
-      <td>0.000000e+00</td>
+      <td>299393230.769231</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>2021-11-01</th>
       <td>-123132307.692308</td>
-      <td>160072000.0</td>
-      <td>3.333538e+06</td>
+      <td>299393230.769231</td>
+      <td>0.0</td>
     </tr>
   </tbody>
 </table>
 <p>401 rows × 3 columns</p>
 </div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span><span class="o">*</span><span class="mf">0.3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8999999999999999
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1316,20 +1333,20 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;vol&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/LeverageandShorting_18_1.png" src="../../_images/LeverageandShorting_18_1.png" />
-<img alt="../../_images/LeverageandShorting_18_2.png" src="../../_images/LeverageandShorting_18_2.png" />
-<img alt="../../_images/LeverageandShorting_18_3.png" src="../../_images/LeverageandShorting_18_3.png" />
-<img alt="../../_images/LeverageandShorting_18_4.png" src="../../_images/LeverageandShorting_18_4.png" />
+<img alt="../../_images/LeverageandShorting_19_1.png" src="../../_images/LeverageandShorting_19_1.png" />
+<img alt="../../_images/LeverageandShorting_19_2.png" src="../../_images/LeverageandShorting_19_2.png" />
+<img alt="../../_images/LeverageandShorting_19_3.png" src="../../_images/LeverageandShorting_19_3.png" />
+<img alt="../../_images/LeverageandShorting_19_4.png" src="../../_images/LeverageandShorting_19_4.png" />
 </div>
 </div>
 <p>Suppose you were a hedge fund with 200M capital, you placed a fairly small 1 million dollar trade. You were fully commited and thoguht you had the capital to support it.</p>
-<p>By late january sustaining the trade required 250 million dollars! And this does not take into account the fact that margin requirements became much tighter du to the immense volatiltiy of GME stock in the period.</p>
+<p>By late january sustaining the trade required 300 million dollars! And this does not take into account the fact that margin requirements became much tighter du to the immense volatiltiy of GME stock in the period.</p>
 <ul class="simple">
-<li><p>You can see above that the volatiltiy of the fund net position went to 35,000%!</p></li>
+<li><p>You can see above that the volatiltiy of the fund net position went to 1,200%!</p></li>
 <li><p>As response to this retail brokers increase margin requirements on GME shorts to 300%</p></li>
 <li><p>I am not sure what institutional brokers did, but likely they increased their leverage reuqirements too.</p></li>
-<li><p>This implies required capital would increase 6 foldfold (from 0.5 to 3 initial margin) going from 250 million to 1.5 billion dollars!</p></li>
-<li><p>1.5 Billion dollars to sustain the 1 million dollars trade!</p></li>
+<li><p>This implies required capital would increase 6 foldfold (from 0.5 to 3 initial margin) going from 300 million to 1.8 billion dollars!</p></li>
+<li><p>1.8 Billion dollars to sustain the 1 million dollars trade!</p></li>
 </ul>
 </div>
 
