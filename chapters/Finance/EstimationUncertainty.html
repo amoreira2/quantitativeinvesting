@@ -1039,8 +1039,8 @@
 <span class="n">CovRe</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
 <span class="n">T</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="n">asset</span><span class="o">=</span><span class="s1">&#39;BondUS&#39;</span>
-<span class="n">pertubation</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">asset</span><span class="o">=</span><span class="s1">&#39;EM&#39;</span>
+<span class="n">pertubation</span><span class="o">=-</span><span class="mi">2</span>
 <span class="n">mu</span><span class="o">=</span><span class="n">Re</span><span class="p">[</span><span class="n">asset</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">musigma</span><span class="o">=</span><span class="n">Re</span><span class="p">[</span><span class="n">asset</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="n">T</span><span class="o">**</span><span class="mf">0.5</span>
 <span class="c1"># I am creating a copy of the average return vector so I can pertubate it below </span>
@@ -1076,34 +1076,34 @@
     <tr style="text-align: right;">
       <th></th>
       <th>samplemean</th>
-      <th>BondUS-1std</th>
+      <th>EM--2std</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>MKTUS</th>
       <td>1.835334</td>
-      <td>2.059998</td>
+      <td>1.209463</td>
     </tr>
     <tr>
       <th>BondUS</th>
       <td>1.423373</td>
-      <td>0.005406</td>
+      <td>1.817124</td>
     </tr>
     <tr>
       <th>EM</th>
       <td>1.605223</td>
-      <td>1.489592</td>
+      <td>3.776018</td>
     </tr>
     <tr>
       <th>MKTxUS</th>
       <td>-1.026421</td>
-      <td>-1.304515</td>
+      <td>-2.323700</td>
     </tr>
     <tr>
       <th>BondxUS</th>
       <td>3.365823</td>
-      <td>4.542260</td>
+      <td>3.416515</td>
     </tr>
   </tbody>
 </table>
@@ -1135,34 +1135,34 @@
     <tr style="text-align: right;">
       <th></th>
       <th>samplemean</th>
-      <th>BondUS-1std</th>
+      <th>EM--2std</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>MKTUS</th>
       <td>0.254790</td>
-      <td>0.303265</td>
+      <td>0.153185</td>
     </tr>
     <tr>
       <th>BondUS</th>
       <td>0.197599</td>
-      <td>0.000796</td>
+      <td>0.230149</td>
     </tr>
     <tr>
       <th>EM</th>
       <td>0.222844</td>
-      <td>0.219292</td>
+      <td>0.478254</td>
     </tr>
     <tr>
       <th>MKTxUS</th>
       <td>-0.142493</td>
-      <td>-0.192045</td>
+      <td>-0.294310</td>
     </tr>
     <tr>
       <th>BondxUS</th>
       <td>0.467259</td>
-      <td>0.668693</td>
+      <td>0.432721</td>
     </tr>
   </tbody>
 </table>
