@@ -775,58 +775,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>avg_std</th>
-      <th>avg</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>MKTUS</th>
-      <td>2.082192</td>
-      <td>6.168408</td>
-    </tr>
-    <tr>
-      <th>BondUS</th>
-      <td>1.652384</td>
-      <td>3.027184</td>
-    </tr>
-    <tr>
-      <th>EM</th>
-      <td>2.813385</td>
-      <td>8.307944</td>
-    </tr>
-    <tr>
-      <th>MKTxUS</th>
-      <td>2.203549</td>
-      <td>4.978818</td>
-    </tr>
-    <tr>
-      <th>BondxUS</th>
-      <td>0.951332</td>
-      <td>2.464985</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -847,6 +795,11 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#number of years</span>
 <span class="n">T</span><span class="o">/</span><span class="mi">12</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>53.916666666666664
 </pre></div>
 </div>
 </div>
@@ -1002,8 +955,8 @@
     </tr>
     <tr>
       <th>BTC</th>
-      <td>27.293186</td>
-      <td>47.460296</td>
+      <td>27.189478</td>
+      <td>46.409588</td>
     </tr>
   </tbody>
 </table>
@@ -1049,8 +1002,8 @@
 <span class="n">CovRe</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
 <span class="n">T</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="n">asset</span><span class="o">=</span><span class="s1">&#39;EM&#39;</span>
-<span class="n">pertubation</span><span class="o">=-</span><span class="mi">2</span>
+<span class="n">asset</span><span class="o">=</span><span class="s1">&#39;MKTUS&#39;</span>
+<span class="n">pertubation</span><span class="o">=</span><span class="mi">1</span>
 <span class="n">mu</span><span class="o">=</span><span class="n">Re</span><span class="p">[</span><span class="n">asset</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">musigma</span><span class="o">=</span><span class="n">Re</span><span class="p">[</span><span class="n">asset</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="n">T</span><span class="o">**</span><span class="mf">0.5</span>
 <span class="c1"># I am creating a copy of the average return vector so I can pertubate it below </span>
@@ -1086,34 +1039,34 @@
     <tr style="text-align: right;">
       <th></th>
       <th>samplemean</th>
-      <th>EM--2std</th>
+      <th>MKTUS-1std</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>MKTUS</th>
       <td>1.835334</td>
-      <td>1.209463</td>
+      <td>0.296359</td>
     </tr>
     <tr>
       <th>BondUS</th>
       <td>1.423373</td>
-      <td>1.817124</td>
+      <td>1.706476</td>
     </tr>
     <tr>
       <th>EM</th>
       <td>1.605223</td>
-      <td>3.776018</td>
+      <td>1.836827</td>
     </tr>
     <tr>
       <th>MKTxUS</th>
       <td>-1.026421</td>
-      <td>-2.323700</td>
+      <td>-0.221975</td>
     </tr>
     <tr>
       <th>BondxUS</th>
       <td>3.365823</td>
-      <td>3.416515</td>
+      <td>2.913552</td>
     </tr>
   </tbody>
 </table>
