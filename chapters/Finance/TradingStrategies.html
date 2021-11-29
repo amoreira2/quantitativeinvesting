@@ -623,7 +623,7 @@
 <ul class="simple">
 <li><p>A trading strategy is a procedure that maps any information known up to time t, into a set of trading instructions for time  <span class="math notranslate nohighlight">\(T&gt;t\)</span>.</p>
 <ul>
-<li><p>This means, that formally the mean-variance analysis we did so far was not evaluated as a trading strategy since we used data of the whole sample to estimate the weights of our strategy and evalauted the strategy</p></li>
+<li><p>formally the mean-variance analysis we did so far was not a valid trading strategy: we used data of the whole sample to estimate the weights of our strategy and evaluated the strategy in the same sample</p></li>
 </ul>
 </li>
 <li><p>The weights of a trading strategy must either:</p>
@@ -637,7 +637,6 @@
 <li><p>It is very important that you are clear about where the dollars that you invest come from, so that the weights can add up to 1 (if you have some capital) or zero (if the strategy is self-financed and demand zero capital).</p>
 <ul>
 <li><p>In practice all strategies demand capital as no bank allow us to borrow without putting some capital in, but these self financed strategies are quite convenient to work with as they are all in the “Excess Return Space” since they have zero cost.</p></li>
-<li><p>we will discuss how shorting requires capital in detail</p></li>
 </ul>
 </li>
 </ul>
@@ -648,7 +647,7 @@
 <li><p>This is valid because you are trading after the information is known.</p></li>
 </ul>
 </li>
-<li><p>Example of INVALID trading strategy: On Friday buy all the stocks that will have positive news coverage during the weekend, and sell all the stocks that will have negative coverage during the weekend.</p>
+<li><p>Example of INVALID trading strategy: On Friday buy all the stocks that WILL have positive news coverage during the weekend, and sell all the stocks that WILL have negative coverage during the weekend.</p>
 <ul>
 <li><p>This is Invalid because you are trading before the information is known.</p></li>
 </ul>
@@ -662,7 +661,7 @@
 </ul>
 <p><strong>Types of trading strategies</strong></p>
 <ul class="simple">
-<li><p>Strategic allocation: How you allocate across broad asset classes: Cash, Equities (US, Developed Markets, Emerging Markets), Government bonds (US, …), Corporate bonds(US, …), Commodities, Private equity, real assets (land,…)</p>
+<li><p><strong>Strategic allocation</strong>: How you allocate across broad asset classes: Cash, Equities (US, Developed Markets, Emerging Markets), Government bonds (US, …), Corporate bonds(US, …), Commodities, Private equity, real assets (land,…)</p>
 <ul>
 <li><p>The strategy takes positions on broader asset classes. For example pension funds tend to follow a 70-30 split between equity and bonds</p></li>
 <li><p>An example is of this is the mean-variance anaylsis we did last few chapters.</p></li>
@@ -670,12 +669,12 @@
 <li><p>Another example is RISK-PARITY which we will discuss later</p></li>
 </ul>
 </li>
-<li><p>Timing: Easier to think in terms of one risky asset and cash. The strategy basically goes in and out of an asset according to some model that forecasts time-variaiton either in returns of the risky asset realitve to cash or in it’s riskness</p>
+<li><p><strong>Timing</strong>: Easier to think in terms of one risky asset and cash. The strategy basically goes in and out of an asset according to some model that forecasts time-variaiton either in returns of the risky asset realitve to cash or in it’s riskness</p>
 <ul>
 <li><p>You obvioulsy can time multiple things at the same time, but it is useful separation to help understand what the strategy is doing</p></li>
 </ul>
 </li>
-<li><p>Cross-sectional (within asset class): This is about how you invest within an asset class. The “defaul” option is to do a market-cap weighted portfolio which we will discuss below. The cross-sectional strategies use some information to deviate from the market portfolio in the asset class</p>
+<li><p><strong>Cross-sectional</strong> (within asset class): This is about how you invest within an asset class. The “defaul” option is to do a market-cap weighted portfolio which we will discuss below. The cross-sectional strategies use some information to deviate from the market portfolio in the asset class</p>
 <ul>
 <li><p>The are cross-sectional strategies everywhere: equities, gov bonds, corp bonds, futures, equity indexes, currencies, commodities, options, crypto currrencies</p></li>
 <li><p>All these asset classes have lots of data and are naturally a good place to do quantitative investing</p></li>
@@ -690,11 +689,16 @@
 <li><p>So given data <span class="math notranslate nohighlight">\(X_{t}\)</span>, a quatitative trading strategy is a function that maps data into weights <span class="math notranslate nohighlight">\(W_{t+1}=f(X_t)\)</span></p></li>
 </ul>
 <p><strong>Our First Quantitative Strategy</strong></p>
-<p>Our MV optimization was quantitative but it would be only a valid strategy if we used future data to evaluate it.</p>
+<p>Our MV optimization was quantitative but it would be only a valid strategy if we used Other data to evaluate it.</p>
 <p>So one option would be to wait for new data to evaluate.</p>
-<p>Here what we will do is to do the mean-variance analysis assuming I am an investor that is doing this in real time, so I will say the investor will start in 1973, 10 years after the beggining of the sample and simply use the past data to estimate the means and covariances, compute the weights and invest on the assets according to this strategy for the next month.</p>
+<p>Here what we will do: do the mean-variance analysis assuming I am an investor that is doing this in real time</p>
+<ul class="simple">
+<li><p>so I will say the investor will start in 1973, 10 years after the beggining of the sample</p></li>
+<li><p>simply use the past data to estimate the means and covariances,</p></li>
+<li><p>compute the weights and invest on the assets according to this strategy for the next month.</p></li>
+</ul>
 <p>I will do that for the entire sample.</p>
-<p>This will be valid because at not moment I will use information that an investor would not have had available in real time.</p>
+<p>This will be valid because at no moment I will use information that an investor would not have had available in real time.</p>
 <hr class="docutils" />
 <p><em>An aside</em></p>
 <p>It is also valid in another conceputal sense: Markowitz dissertation was published in 1954, so in 73 we would know how to use these techiniques. This sounds strange, but this type of validity is important for example when we evalaute trading strategies associated with published papers. When we look back in the sample before the paper existed in some way we are endowing the information that he didn’t have even if he might have the informaation that he needs to construc the trading signals</p>
@@ -958,9 +962,9 @@ dtype: float64
 </table>
 </div></div></div>
 </div>
-<p>In lots of ways this being too tought on the investor. He/She had to stick with the same weights as even as new data rolled in.</p>
-<p>So now we will do somethign a bit more sophisitcated and re-estimate our weights every month starting in 1973</p>
-<p>The investor will have the entrie data up to that year to construct it’s weights</p>
+<p>In lots of ways this being too tougth on a real world quant investor. He/She had to stick with the SAME weights as even as new data rolled in.</p>
+<p>So now we will do somethign a bit more sophisticated and re-estimate our weights every month starting in 1973</p>
+<p>The investor will have the entire data up to that year to construct it’s weights</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Re</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">Re</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">119</span><span class="p">]]</span>
@@ -1255,7 +1259,9 @@ $<span class="math notranslate nohighlight">\(W_{minvariance}=\frac{Var(R)^{-1}\
 </div>
 </div>
 <p><strong>The Market-Cap Weighted strategy</strong></p>
-<p>This is the foundational quantitative strategy. It used to be that people when started investing in the market would start by choosing a few stocks. It made sense. It was super costly to trade multiple stocks. You had to be crazy wealthy to have a fully diversified portfolio of stocks</p>
+<p>This is the foundational quantitative strategy.</p>
+<p>It used to be that people when started investing in stocks would start by choosing a few stocks.</p>
+<p>It made sense. It was super costly to trade multiple stocks. You had to be crazy wealthy to have a fully diversified portfolio of stocks</p>
 <p>So Vanguard comes along and start offering mutual funds that invest in all assets of a given asset class by simply by them in proportion to their market values.</p>
 <p>So in this case <span class="math notranslate nohighlight">\(M_t=[m_t^{AAPL},m_t^{GOOG},m_t^{TSLA},..]\)</span> has the market capitalization of all the assets in the universe. Where market capitalization is simply</p>
 <div class="math notranslate nohighlight">
@@ -1263,7 +1269,7 @@ $<span class="math notranslate nohighlight">\(W_{minvariance}=\frac{Var(R)^{-1}\
 <p>The strategy then set the weights simply to</p>
 <div class="math notranslate nohighlight">
 \[W_t=\frac{M_t}{\sum_i^Im^i_t}\]</div>
-<p>So at end of month t you look at the market caps, construct the weights and buy the stocks accordingly earning <span class="math notranslate nohighlight">\(W_tR_{t+1}\)</span> the end of the next month</p>
+<p>So at end of month <strong>t</strong> you look at the market caps, construct the weights and buy the stocks accordingly earning <span class="math notranslate nohighlight">\(W_tR_{t+1}\)</span> the end of the next month</p>
 <p>This portfolio has lots of beautiful properties</p>
 <ol class="simple">
 <li><p>In aggregate people will have to hold this portfolio, so the Capital Asset Pricing Model intuition tell us that this portfolio should be at the tangency frontier (in reality it is not–more on that coming– but it should at least be much closer to it then a a portfolio made of a just a few stocks)</p></li>
