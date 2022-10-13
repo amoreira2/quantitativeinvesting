@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>5.3. The Index &#8212; Quantitative Investing</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,37 +20,36 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/book.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://amoreira2.github.io/quantitativeinvesting/chapters/pandas/the_index.html" />
     <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
@@ -63,7 +64,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -72,9 +87,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -488,118 +504,245 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/chapters/pandas/the_index.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/amoreira2/Lectures"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/amoreira2/Lectures/issues/new?title=Issue%20on%20page%20%2Fchapters/pandas/the_index.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/amoreira2/Lectures/main?urlpath=lab/tree/chapters/pandas/the_index.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        <a class="jupyterhub-button" href="https://pims.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https://github.com/amoreira2/Lectures&urlpath=lab/tree/Lectures/chapters/pandas/the_index.ipynb&branch=main"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="../../_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/amoreira2/Lectures/blob/main/chapters/pandas/the_index.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/amoreira2/Lectures/main?urlpath=lab/tree/chapters/pandas/the_index.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://pims.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https%3A//github.com/amoreira2/Lectures&urlpath=lab/tree/Lectures/chapters/pandas/the_index.ipynb&branch=main"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/amoreira2/Lectures/blob/main/chapters/pandas/the_index.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/amoreira2/Lectures"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/amoreira2/Lectures/issues/new?title=Issue%20on%20page%20%2Fchapters/pandas/the_index.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/chapters/pandas/the_index.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#so-what-is-this-index">
    5.3.1. So What is this Index?
@@ -678,17 +821,111 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>The Index</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#so-what-is-this-index">
+   5.3.1. So What is this Index?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#automatic-alignment">
+     5.3.1.1. Automatic Alignment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#handling-missing-data">
+     5.3.1.2. Handling Missing Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setting-the-index">
+   5.3.2. Setting the Index
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-a-hierarchical-index">
+     5.3.2.1. Setting a Hierarchical Index
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slicing-a-hierarchical-index">
+     5.3.2.2. Slicing a Hierarchical Index
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#alignment-with-multiindex">
+     5.3.2.3. Alignment with
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       MultiIndex
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pd-indexslice">
+     5.3.2.4.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       pd.IndexSlice
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multi-index-columns">
+     5.3.2.5. Multi-index Columns
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#re-setting-the-index">
+   5.3.3. Re-setting the Index
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choose-the-index-carefully">
+   5.3.4. Choose the Index Carefully
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#know-your-goal">
+     5.3.4.1. Know Your Goal
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="the-index">
-<h1><span class="section-number">5.3. </span>The Index<a class="headerlink" href="#the-index" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="the-index">
+<h1><span class="section-number">5.3. </span>The Index<a class="headerlink" href="#the-index" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -697,8 +934,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="so-what-is-this-index">
-<h2><span class="section-number">5.3.1. </span>So What is this Index?<a class="headerlink" href="#so-what-is-this-index" title="Permalink to this headline">¶</a></h2>
+<section id="so-what-is-this-index">
+<h2><span class="section-number">5.3.1. </span>So What is this Index?<a class="headerlink" href="#so-what-is-this-index" title="Permalink to this headline">#</a></h2>
 <p>Every Series or DataFrame has an index.</p>
 <p>We told you that the index was the “row labels” for the data.</p>
 <p>This is true, but an index in pandas does much more than label the rows.</p>
@@ -1301,8 +1538,8 @@ within each DataFrame.</p></li>
 </div></div></div>
 </div>
 <p>Whoa, a lot happened! Let’s break it down.</p>
-<div class="section" id="automatic-alignment">
-<h3><span class="section-number">5.3.1.1. </span>Automatic Alignment<a class="headerlink" href="#automatic-alignment" title="Permalink to this headline">¶</a></h3>
+<section id="automatic-alignment">
+<h3><span class="section-number">5.3.1.1. </span>Automatic Alignment<a class="headerlink" href="#automatic-alignment" title="Permalink to this headline">#</a></h3>
 <p>For all (row, column) combinations that appear in both DataFrames (e.g.
 rows <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">3]</span></code> and columns <code class="docutils literal notranslate"><span class="pre">[Imports,</span> <span class="pre">Exports]</span></code>), the value of <code class="docutils literal notranslate"><span class="pre">im_ex_tiny</span></code>
 is equal to <code class="docutils literal notranslate"><span class="pre">df_tiny.loc[row,</span> <span class="pre">col]</span> <span class="pre">+</span> <span class="pre">im_ex.loc[row,</span> <span class="pre">col]</span></code>.</p>
@@ -1323,9 +1560,9 @@ extract the value.</p></li>
 </ul>
 <p>In pandas, this happens automatically, behind the scenes, and <em>very
 quickly</em>.</p>
-</div>
-<div class="section" id="handling-missing-data">
-<h3><span class="section-number">5.3.1.2. </span>Handling Missing Data<a class="headerlink" href="#handling-missing-data" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="handling-missing-data">
+<h3><span class="section-number">5.3.1.2. </span>Handling Missing Data<a class="headerlink" href="#handling-missing-data" title="Permalink to this headline">#</a></h3>
 <p>For all elements in row <code class="docutils literal notranslate"><span class="pre">1</span></code> or columns
 <code class="docutils literal notranslate"><span class="pre">[&quot;country&quot;,</span> <span class="pre">&quot;year&quot;,</span> <span class="pre">&quot;GovExpend&quot;,</span> <span class="pre">&quot;Consumption&quot;,</span> <span class="pre">&quot;GDP&quot;]</span></code>,
 the value in <code class="docutils literal notranslate"><span class="pre">im_ex_tiny</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
@@ -1334,10 +1571,10 @@ the value in <code class="docutils literal notranslate"><span class="pre">im_ex_
 only find a value in one DataFrame: the other value was missing.</p>
 <p>When pandas tries to add a number to something that is missing, it says
 that the result is missing (spelled <code class="docutils literal notranslate"><span class="pre">NaN</span></code>).</p>
-</div>
-</div>
-<div class="section" id="setting-the-index">
-<h2><span class="section-number">5.3.2. </span>Setting the Index<a class="headerlink" href="#setting-the-index" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="setting-the-index">
+<h2><span class="section-number">5.3.2. </span>Setting the Index<a class="headerlink" href="#setting-the-index" title="Permalink to this headline">#</a></h2>
 <p>For a DataFrame <code class="docutils literal notranslate"><span class="pre">df</span></code>, the <code class="docutils literal notranslate"><span class="pre">df.set_index</span></code> method allows us to use one
 (or more) of the DataFrame’s columns as the index.</p>
 <p>Here’s an example.</p>
@@ -1672,8 +1909,8 @@ that is what we listed first in the call to <code class="docutils literal notran
 get data alignment only on the year, which may not be sufficient.</p>
 <p>for example here we might need to include both the year
 and country in the index…</p>
-<div class="section" id="setting-a-hierarchical-index">
-<h3><span class="section-number">5.3.2.1. </span>Setting a Hierarchical Index<a class="headerlink" href="#setting-a-hierarchical-index" title="Permalink to this headline">¶</a></h3>
+<section id="setting-a-hierarchical-index">
+<h3><span class="section-number">5.3.2.1. </span>Setting a Hierarchical Index<a class="headerlink" href="#setting-a-hierarchical-index" title="Permalink to this headline">#</a></h3>
 <p>Include multiple columns in the index is advantageous in some situations.</p>
 <p>These situations might include:</p>
 <ul class="simple">
@@ -1899,9 +2136,9 @@ names to <code class="docutils literal notranslate"><span class="pre">set_index<
 right-most) level is named <code class="docutils literal notranslate"><span class="pre">year</span></code>.</p>
 <p>When a DataFrame’s index has multiple levels, we (and the pandas documentation)
 refer to the DataFrame as having a hierarchical index.</p>
-</div>
-<div class="section" id="slicing-a-hierarchical-index">
-<h3><span class="section-number">5.3.2.2. </span>Slicing a Hierarchical Index<a class="headerlink" href="#slicing-a-hierarchical-index" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="slicing-a-hierarchical-index">
+<h3><span class="section-number">5.3.2.2. </span>Slicing a Hierarchical Index<a class="headerlink" href="#slicing-a-hierarchical-index" title="Permalink to this headline">#</a></h3>
 <p>Now, we can answer our friend’s questions in a much more straightforward way.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1968,14 +2205,14 @@ Series)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">df.loc[rows,</span> <span class="pre">[&quot;GDP&quot;,</span> <span class="pre">&quot;Consumption&quot;]]</span></code>: return the rows specified by rows
 (see rules above) and only columns <code class="docutils literal notranslate"><span class="pre">GDP</span></code> and <code class="docutils literal notranslate"><span class="pre">Consumption</span></code></p></li>
 </ol>
-</div>
-<div class="section" id="alignment-with-multiindex">
-<h3><span class="section-number">5.3.2.3. </span>Alignment with <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code><a class="headerlink" href="#alignment-with-multiindex" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="alignment-with-multiindex">
+<h3><span class="section-number">5.3.2.3. </span>Alignment with <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code><a class="headerlink" href="#alignment-with-multiindex" title="Permalink to this headline">#</a></h3>
 <p>The data alignment features we talked about above also apply to a
 <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> DataFrame.</p>
-</div>
-<div class="section" id="pd-indexslice">
-<h3><span class="section-number">5.3.2.4. </span><code class="docutils literal notranslate"><span class="pre">pd.IndexSlice</span></code><a class="headerlink" href="#pd-indexslice" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="pd-indexslice">
+<h3><span class="section-number">5.3.2.4. </span><code class="docutils literal notranslate"><span class="pre">pd.IndexSlice</span></code><a class="headerlink" href="#pd-indexslice" title="Permalink to this headline">#</a></h3>
 <p>When we want to extract rows for a few values of the outer index and all
 values for an inner index level, we can use the convenient
 <code class="docutils literal notranslate"><span class="pre">df.loc[[id11,</span> <span class="pre">id22]]</span></code> shorthand.</p>
@@ -2704,9 +2941,9 @@ level and that the <code class="docutils literal notranslate"><span class="pre">
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="multi-index-columns">
-<h3><span class="section-number">5.3.2.5. </span>Multi-index Columns<a class="headerlink" href="#multi-index-columns" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="multi-index-columns">
+<h3><span class="section-number">5.3.2.5. </span>Multi-index Columns<a class="headerlink" href="#multi-index-columns" title="Permalink to this headline">#</a></h3>
 <p>The functionality of <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> also applies to the column names.</p>
 <p>Let’s see how it works.</p>
 <div class="cell docutils container">
@@ -3304,10 +3541,10 @@ have a hierarchical index for column names.</p>
 </table>
 </div></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="re-setting-the-index">
-<h2><span class="section-number">5.3.3. </span>Re-setting the Index<a class="headerlink" href="#re-setting-the-index" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="re-setting-the-index">
+<h2><span class="section-number">5.3.3. </span>Re-setting the Index<a class="headerlink" href="#re-setting-the-index" title="Permalink to this headline">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">df.reset_index</span></code> method will move one or more level of the index
 back into the DataFrame as a normal column.</p>
 <p>With no additional arguments, it moves all levels out of the index and
@@ -3463,9 +3700,9 @@ sets the index of the returned DataFrame to the default of
 <p>72 rows × 7 columns</p>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="choose-the-index-carefully">
-<h2><span class="section-number">5.3.4. </span>Choose the Index Carefully<a class="headerlink" href="#choose-the-index-carefully" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="choose-the-index-carefully">
+<h2><span class="section-number">5.3.4. </span>Choose the Index Carefully<a class="headerlink" href="#choose-the-index-carefully" title="Permalink to this headline">#</a></h2>
 <p>So, now that we know that we use index and column names for
 aligning data, “how should we pick the index?” is a natural question to ask.</p>
 <p>To guide us to the right answer, we will list the first two components
@@ -3487,8 +3724,8 @@ of data</p></li>
 represent the date.</p>
 <p>Using hierarchical row and column indices allows us to store higher
 dimensional data in our (inherently) two dimensional DataFrame.</p>
-<div class="section" id="know-your-goal">
-<h3><span class="section-number">5.3.4.1. </span>Know Your Goal<a class="headerlink" href="#know-your-goal" title="Permalink to this headline">¶</a></h3>
+<section id="know-your-goal">
+<h3><span class="section-number">5.3.4.1. </span>Know Your Goal<a class="headerlink" href="#know-your-goal" title="Permalink to this headline">#</a></h3>
 <p>The correct column(s) to choose for the index often depends on the context of
 your analysis.</p>
 <p>For example, if I were studying how GDP and consumption evolved over time for
@@ -3499,9 +3736,9 @@ variable on the index and have years be columns.</p>
 <p>Following the tidy data rules above and thinking about how you intend to <em>use</em>
 the data – and a little practice – will enable you to consistently select the
 correct index.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -3525,9 +3762,11 @@ correct index.</p>
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="basics.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -3543,26 +3782,28 @@ correct index.</p>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Alan Moreira<br/>
-        
-            &copy; Copyright 2021 Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Alan Moreira<br/>
+  
+      &copy; Copyright 2021 Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

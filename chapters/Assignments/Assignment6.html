@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>17.26. Assignment 6 &#8212; Quantitative Investing</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,40 +20,39 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/book.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="canonical" href="https://amoreira2.github.io/quantitativeinvesting/chapters/Assignments/Assignment6.html" />
     <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -65,7 +66,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -74,9 +89,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -490,118 +506,245 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/chapters/Assignments/Assignment6.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/amoreira2/Lectures"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/amoreira2/Lectures/issues/new?title=Issue%20on%20page%20%2Fchapters/Assignments/Assignment6.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/amoreira2/Lectures/main?urlpath=lab/tree/chapters/Assignments/Assignment6.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        <a class="jupyterhub-button" href="https://pims.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https://github.com/amoreira2/Lectures&urlpath=lab/tree/Lectures/chapters/Assignments/Assignment6.ipynb&branch=main"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="../../_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/amoreira2/Lectures/blob/main/chapters/Assignments/Assignment6.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/amoreira2/Lectures/main?urlpath=lab/tree/chapters/Assignments/Assignment6.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://pims.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https%3A//github.com/amoreira2/Lectures&urlpath=lab/tree/Lectures/chapters/Assignments/Assignment6.ipynb&branch=main"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/amoreira2/Lectures/blob/main/chapters/Assignments/Assignment6.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/amoreira2/Lectures"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/amoreira2/Lectures/issues/new?title=Issue%20on%20page%20%2Fchapters/Assignments/Assignment6.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/chapters/Assignments/Assignment6.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    17.26. Assignment 6
@@ -721,26 +864,161 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Assignment 6</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   17.26. Assignment 6
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#names-of-your-group-members">
+   17.27. Names of your group members
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   17.28. Exercises
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preliminaries">
+     17.28.1. 1. Preliminaries
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expected-excess-return-estimation">
+     17.28.2. 2. Expected excess return estimation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expected-excess-return-uncertainty">
+     17.28.3. 3. Expected excess return uncertainty
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#constructing-a-confidence-interval-for-the-expected-excess-return-1">
+     17.28.4. 4. Constructing a confidence interval for the expected excess return 1
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#constructing-a-confidence-interval-for-the-expected-excess-return-2">
+     17.28.5. 5. Constructing a confidence interval for the expected excess return 2
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compute-the-tangency-portfolio-weights-for-a-portfolio-with-annualized-volatility-of-10">
+     17.28.6. 6. Compute the tangency portfolio weights for a portfolio with annualized volatility of 10%
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sensitivity-to-uncertainty-of-the-tangent-portfolio-calculation-1">
+     17.28.7. 7. Sensitivity to uncertainty of the Tangent portfolio calculation 1
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#discuss-what-you-notice-in-the-plot-above-how-much-do-the-weights-change-which-assets-are-impacted-why">
+     17.28.8. 8. Discuss what you notice in the plot above. How much do the weights change? Which assets are impacted? Why?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#performance-impact-of-estimation-uncertainty">
+     17.28.9. 9. Performance impact of estimation uncertainty
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#discuss-the-results-that-you-obtained-above">
+     17.28.10. 10. Discuss the results that you obtained above
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reporduce-analysis-of-exercises-7-9-for-all-assets">
+     17.28.11. 11. Reporduce analysis of Exercises 7-9 for all assets
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-do-you-think-is-the-key-takeaway-from-the-analysis-above">
+     17.28.12. 12. What do you think is the key takeaway from the analysis above?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#monte-carlo-1">
+     17.28.13. 13. Monte Carlo 1
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#monte-carlo-2">
+     17.28.14. 14. Monte Carlo 2
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#monte-carlo-3">
+     17.28.15. 15. Monte Carlo 3
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#monte-carlo-4">
+     17.28.16. 16. Monte Carlo 4
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-do-you-conclude">
+     17.28.17. 17. What do you conclude?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bootstrap">
+     17.28.18. 18. Bootstrap
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compare-the-results-in-16-and-18-does-the-key-takeway-change-does-the-distribution-of-the-sr-of-our-strategy-change">
+     17.28.19. 19. Compare the results in 16 and 18. Does the key takeway change? Does the distribution of the SR of our strategy change?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#please-explain-why-an-investor-should-care-about-these-results">
+     17.28.20. 20. Please explain why an investor should care about these results.
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="assignment-6">
-<h1><span class="section-number">17.26. </span>Assignment 6<a class="headerlink" href="#assignment-6" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="assignment-6">
+<h1><span class="section-number">17.26. </span>Assignment 6<a class="headerlink" href="#assignment-6" title="Permalink to this headline">#</a></h1>
 <p>Instructions: This problem set should be done in a <strong>group</strong>.</p>
 <p>Your group was assigned at orientation and you can find it in blackboard as well.</p>
 <p>You will use this same group to do your final project.</p>
 <p>Answer each question in the designated space below.</p>
 <p>After you are done. save and upload in blackboard.</p>
 <p>Please check that you are submitting the correct file. One way to avoid mistakes is to save it with a different name.</p>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="names-of-your-group-members">
-<h1><span class="section-number">17.27. </span>Names of your group members<a class="headerlink" href="#names-of-your-group-members" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="names-of-your-group-members">
+<h1><span class="section-number">17.27. </span>Names of your group members<a class="headerlink" href="#names-of-your-group-members" title="Permalink to this headline">#</a></h1>
 <p>Please write names below</p>
 <ul class="simple">
 <li><p>[Name]:</p></li>
@@ -749,11 +1027,11 @@
 <li><p>[Name]:</p></li>
 <li><p>[Name]:</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="exercises">
-<h1><span class="section-number">17.28. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="preliminaries">
-<h2><span class="section-number">17.28.1. </span>1. Preliminaries<a class="headerlink" href="#preliminaries" title="Permalink to this headline">¶</a></h2>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="exercises">
+<h1><span class="section-number">17.28. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h1>
+<section id="preliminaries">
+<h2><span class="section-number">17.28.1. </span>1. Preliminaries<a class="headerlink" href="#preliminaries" title="Permalink to this headline">#</a></h2>
 <p>You will work with the same dataset as in Assigment 5.
 The dataset has address</p>
 <p><code class="docutils literal notranslate"><span class="pre">url='https://github.com/amoreira2/Lectures/blob/main/assets/data/Assignment5.xlsx?raw=true'</span></code></p>
@@ -768,22 +1046,22 @@ The dataset has address</p>
 <li><p>Call this dataframe with the 49 excess returns time series <code class="docutils literal notranslate"><span class="pre">df</span></code>.</p></li>
 </ul>
 <p>And call <code class="docutils literal notranslate"><span class="pre">df.head()</span></code> so you can see things were imported correctly.</p>
-</div>
-<div class="section" id="expected-excess-return-estimation">
-<h2><span class="section-number">17.28.2. </span>2. Expected excess return estimation<a class="headerlink" href="#expected-excess-return-estimation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="expected-excess-return-estimation">
+<h2><span class="section-number">17.28.2. </span>2. Expected excess return estimation<a class="headerlink" href="#expected-excess-return-estimation" title="Permalink to this headline">#</a></h2>
 <p>Compute the sample mean as the estimators for the expected excess returns of the 49 assets.</p>
 <p>Call this <code class="docutils literal notranslate"><span class="pre">ERe</span></code>.</p>
-</div>
-<div class="section" id="expected-excess-return-uncertainty">
-<h2><span class="section-number">17.28.3. </span>3. Expected excess return uncertainty<a class="headerlink" href="#expected-excess-return-uncertainty" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="expected-excess-return-uncertainty">
+<h2><span class="section-number">17.28.3. </span>3. Expected excess return uncertainty<a class="headerlink" href="#expected-excess-return-uncertainty" title="Permalink to this headline">#</a></h2>
 <p>We will now construct an estimator for the amount of uncertainty in our sample mean estimator. If we assume that each individual asset is uncorrelated over time (not terrible assumption), then the variance of the mean is</p>
 <div class="math notranslate nohighlight">
 \[var(\bar{r_i}) = var(\frac{\sum_t^T r_{i,t}}{T})=\frac{\sum_t^T var( r_{i,t})}{T^2} = \frac{var(r_{i,t})}{T}\]</div>
 <p>So all you need is the sample size (T) and the variance of each asset to obtain the varaince of our estimator.</p>
 <p>Please use this formula to compute the <strong>STANDARD DEVIATION</strong> of sample average estimator of each 49 asset. Call this <code class="docutils literal notranslate"><span class="pre">ERe_se</span></code>.</p>
-</div>
-<div class="section" id="constructing-a-confidence-interval-for-the-expected-excess-return-1">
-<h2><span class="section-number">17.28.4. </span>4. Constructing a confidence interval for the expected excess return 1<a class="headerlink" href="#constructing-a-confidence-interval-for-the-expected-excess-return-1" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="constructing-a-confidence-interval-for-the-expected-excess-return-1">
+<h2><span class="section-number">17.28.4. </span>4. Constructing a confidence interval for the expected excess return 1<a class="headerlink" href="#constructing-a-confidence-interval-for-the-expected-excess-return-1" title="Permalink to this headline">#</a></h2>
 <p>We will now want to construct the 95% confidence interval for our estimator. The interval is such that it contains the true mean 95% of the time.</p>
 <p>The way to do this is to use the normal distribution CDF to figure out the threshold that leaves only 2.5% probability at the each side of the tails.</p>
 <p>Why 2.5% and not 5%? Because it is symmetric, so there is 2.5% probability in the left tail and 2.5 % in the right tail so overall there is only 5% probability that the expected return is out of the interval. Thus there is 95% probability that it is in the interval.</p>
@@ -797,9 +1075,9 @@ The dataset has address</p>
 <p>Make sure that this threshold is positive (if you got from the left tail, you will have to take the absolute value or just get from the right tail).</p>
 <p>Make sure you did things correctly by calling <code class="docutils literal notranslate"><span class="pre">print(threshold)</span></code>.</p>
 <p>You can always check in the normal table that you did things correctly <a class="reference external" href="https://en.wikipedia.org/wiki/Normal_distribution">https://en.wikipedia.org/wiki/Normal_distribution</a>.</p>
-</div>
-<div class="section" id="constructing-a-confidence-interval-for-the-expected-excess-return-2">
-<h2><span class="section-number">17.28.5. </span>5. Constructing a confidence interval for the expected excess return 2<a class="headerlink" href="#constructing-a-confidence-interval-for-the-expected-excess-return-2" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="constructing-a-confidence-interval-for-the-expected-excess-return-2">
+<h2><span class="section-number">17.28.5. </span>5. Constructing a confidence interval for the expected excess return 2<a class="headerlink" href="#constructing-a-confidence-interval-for-the-expected-excess-return-2" title="Permalink to this headline">#</a></h2>
 <p>Armed with these threshold you can construct the interval as follows</p>
 <div class="math notranslate nohighlight">
 \[[\bar{r}-threshold\times\sigma(\bar{r}),\bar{r}+threshold\times\sigma(\bar{r})]\]</div>
@@ -809,16 +1087,16 @@ The dataset has address</p>
 <p>Create an empty dataframe which has the names of industries as index and ‘lower’ and ‘upper’ as column names. Name it <code class="docutils literal notranslate"><span class="pre">ERe_ci</span></code>.</p>
 <p>Store the lower and upper bounds of CI into this dataframe.</p>
 <p>Call <code class="docutils literal notranslate"><span class="pre">ERe_ci.head()</span></code></p>
-</div>
-<div class="section" id="compute-the-tangency-portfolio-weights-for-a-portfolio-with-annualized-volatility-of-10">
-<h2><span class="section-number">17.28.6. </span>6. Compute the tangency portfolio weights for a portfolio with annualized volatility of 10%<a class="headerlink" href="#compute-the-tangency-portfolio-weights-for-a-portfolio-with-annualized-volatility-of-10" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="compute-the-tangency-portfolio-weights-for-a-portfolio-with-annualized-volatility-of-10">
+<h2><span class="section-number">17.28.6. </span>6. Compute the tangency portfolio weights for a portfolio with annualized volatility of 10%<a class="headerlink" href="#compute-the-tangency-portfolio-weights-for-a-portfolio-with-annualized-volatility-of-10" title="Permalink to this headline">#</a></h2>
 <p>Store these in a dataframe whose rows are the names of the assets and the first column has the label ‘mve_data’.</p>
 <p>Name this data frame <code class="docutils literal notranslate"><span class="pre">Weights</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">print(Weights)</span></code></p>
 <p>TIP: You did this in Assigment 5.</p>
-</div>
-<div class="section" id="sensitivity-to-uncertainty-of-the-tangent-portfolio-calculation-1">
-<h2><span class="section-number">17.28.7. </span>7. Sensitivity to uncertainty of the Tangent portfolio calculation 1<a class="headerlink" href="#sensitivity-to-uncertainty-of-the-tangent-portfolio-calculation-1" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="sensitivity-to-uncertainty-of-the-tangent-portfolio-calculation-1">
+<h2><span class="section-number">17.28.7. </span>7. Sensitivity to uncertainty of the Tangent portfolio calculation 1<a class="headerlink" href="#sensitivity-to-uncertainty-of-the-tangent-portfolio-calculation-1" title="Permalink to this headline">#</a></h2>
 <p>Now we will compute the tangency portfolio but using a slightly different estimate for the mean.</p>
 <p>Instead of using the sample mean for each asset, first we will pick one asset, like <code class="docutils literal notranslate"><span class="pre">Hlth</span></code>.</p>
 <p>Change its mean to be its lower bound of CI in Exercise 5 and then recalculate the tangency portfolio weights.</p>
@@ -826,23 +1104,23 @@ The dataset has address</p>
 <p>Create another column with weights computed from the perturbation in which its mean is changed to be the upper bound of CI, label this column <code class="docutils literal notranslate"><span class="pre">mve_Hlth+1.95</span> </code>.</p>
 <p>Do a bar plot of these three sets of weights using Weights.plot.bar().</p>
 <p>Tip: you might want to create a copy of your ERe estimator before you do the perturbation.</p>
-</div>
-<div class="section" id="discuss-what-you-notice-in-the-plot-above-how-much-do-the-weights-change-which-assets-are-impacted-why">
-<h2><span class="section-number">17.28.8. </span>8. Discuss what you notice in the plot above. How much do the weights change? Which assets are impacted? Why?<a class="headerlink" href="#discuss-what-you-notice-in-the-plot-above-how-much-do-the-weights-change-which-assets-are-impacted-why" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="discuss-what-you-notice-in-the-plot-above-how-much-do-the-weights-change-which-assets-are-impacted-why">
+<h2><span class="section-number">17.28.8. </span>8. Discuss what you notice in the plot above. How much do the weights change? Which assets are impacted? Why?<a class="headerlink" href="#discuss-what-you-notice-in-the-plot-above-how-much-do-the-weights-change-which-assets-are-impacted-why" title="Permalink to this headline">#</a></h2>
 <p>Answer here:</p>
-</div>
-<div class="section" id="performance-impact-of-estimation-uncertainty">
-<h2><span class="section-number">17.28.9. </span>9. Performance impact of estimation uncertainty<a class="headerlink" href="#performance-impact-of-estimation-uncertainty" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="performance-impact-of-estimation-uncertainty">
+<h2><span class="section-number">17.28.9. </span>9. Performance impact of estimation uncertainty<a class="headerlink" href="#performance-impact-of-estimation-uncertainty" title="Permalink to this headline">#</a></h2>
 <p>Your Weight dataframe has 3 different weight schemes.</p>
 <p>Compute the in-sample Sharpe Ratio for these 3 different weight schemes.</p>
 <p>Notice that you should use the <strong>real</strong> data (e.g. <code class="docutils literal notranslate"><span class="pre">df</span></code>,<code class="docutils literal notranslate"><span class="pre">ERe</span></code>,<code class="docutils literal notranslate"><span class="pre">CovRe</span></code> ) to compute the Sharpe ratio.</p>
-</div>
-<div class="section" id="discuss-the-results-that-you-obtained-above">
-<h2><span class="section-number">17.28.10. </span>10. Discuss the results that you obtained above<a class="headerlink" href="#discuss-the-results-that-you-obtained-above" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="discuss-the-results-that-you-obtained-above">
+<h2><span class="section-number">17.28.10. </span>10. Discuss the results that you obtained above<a class="headerlink" href="#discuss-the-results-that-you-obtained-above" title="Permalink to this headline">#</a></h2>
 <p>Answer here:</p>
-</div>
-<div class="section" id="reporduce-analysis-of-exercises-7-9-for-all-assets">
-<h2><span class="section-number">17.28.11. </span>11. Reporduce analysis of Exercises 7-9 for all assets<a class="headerlink" href="#reporduce-analysis-of-exercises-7-9-for-all-assets" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="reporduce-analysis-of-exercises-7-9-for-all-assets">
+<h2><span class="section-number">17.28.11. </span>11. Reporduce analysis of Exercises 7-9 for all assets<a class="headerlink" href="#reporduce-analysis-of-exercises-7-9-for-all-assets" title="Permalink to this headline">#</a></h2>
 <p>Use a for loop to loop through the 49 portfolios and create the “perturbed” weights and the Sharpe Ratio of the perturbed weights.</p>
 <p>Then record for each asset the average drop in the Sharpe Ratio  associated with the perturbation in the tangency portfolio weights.</p>
 <p>Record in a dataframe named <code class="docutils literal notranslate"><span class="pre">dSR</span></code> (difference in SR):</p>
@@ -852,46 +1130,46 @@ The dataset has address</p>
 <p><code class="docutils literal notranslate"><span class="pre">dSR</span></code> should be a dataframe with industry names as index and a column, called <code class="docutils literal notranslate"><span class="pre">SR_change</span></code>, containing the results of the calculation from the expression above.</p>
 <p>Note that all you need to do here is to get the code you developed above and adapt it to work with a for loop.</p>
 <p>Do a bar plot of this Sharpe ratio change.</p>
-</div>
-<div class="section" id="what-do-you-think-is-the-key-takeaway-from-the-analysis-above">
-<h2><span class="section-number">17.28.12. </span>12. What do you think is the key takeaway from the analysis above?<a class="headerlink" href="#what-do-you-think-is-the-key-takeaway-from-the-analysis-above" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="what-do-you-think-is-the-key-takeaway-from-the-analysis-above">
+<h2><span class="section-number">17.28.12. </span>12. What do you think is the key takeaway from the analysis above?<a class="headerlink" href="#what-do-you-think-is-the-key-takeaway-from-the-analysis-above" title="Permalink to this headline">#</a></h2>
 <p>Answer here:</p>
-</div>
-<div class="section" id="monte-carlo-1">
-<h2><span class="section-number">17.28.13. </span>13. Monte Carlo 1<a class="headerlink" href="#monte-carlo-1" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="monte-carlo-1">
+<h2><span class="section-number">17.28.13. </span>13. Monte Carlo 1<a class="headerlink" href="#monte-carlo-1" title="Permalink to this headline">#</a></h2>
 <p>So far our focus is on the estimation uncertainty of risk premiums. Covariance matrices also need to be estimated.</p>
 <p>You will now implement a Monte-Carlo method to evaluate the overall uncertainty in the construction of the tangency portfolio.</p>
 <p>You already have the sample estimates from the vector of expected excess returns <code class="docutils literal notranslate"><span class="pre">ERe</span></code> and the variance-covariance matrix <code class="docutils literal notranslate"><span class="pre">CovRe</span></code>  (you used those in Exercise 6).</p>
 <p>Now you use the function <code class="docutils literal notranslate"><span class="pre">np.random.multivariate_normal</span></code> to simulate draws from a multivariate normal distribution with vector of mean equal to <code class="docutils literal notranslate"><span class="pre">ERe</span></code> and the covariance matrix equal to <code class="docutils literal notranslate"><span class="pre">CovRe</span></code>.</p>
 <p>(TIP: type <code class="docutils literal notranslate"><span class="pre">np.random.multivariate_normal?</span></code> to see how this function works.)</p>
 <p>First write the code that draws ONE realization of returns for this set of 49 assets. So you should get a vector 49 by 1 that changes every time you run the cell.</p>
-</div>
-<div class="section" id="monte-carlo-2">
-<h2><span class="section-number">17.28.14. </span>14. Monte Carlo 2<a class="headerlink" href="#monte-carlo-2" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="monte-carlo-2">
+<h2><span class="section-number">17.28.14. </span>14. Monte Carlo 2<a class="headerlink" href="#monte-carlo-2" title="Permalink to this headline">#</a></h2>
 <p>Now set the parameter <code class="docutils literal notranslate"><span class="pre">size</span></code> in the ‘multivaraite_normal’ function to draw T realizations of the 49 assets, where you set T to the number of months you have in the data set.</p>
 <p>Print the shape of your draw. This should return you a T by N matrix of returns, something with exactly the same shape as our data set.</p>
 <p>And every time you run the cell again you get a different realization.</p>
-</div>
-<div class="section" id="monte-carlo-3">
-<h2><span class="section-number">17.28.15. </span>15. Monte Carlo 3<a class="headerlink" href="#monte-carlo-3" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="monte-carlo-3">
+<h2><span class="section-number">17.28.15. </span>15. Monte Carlo 3<a class="headerlink" href="#monte-carlo-3" title="Permalink to this headline">#</a></h2>
 <p>Now copy the code above, so you have a simulated sample of monthly industry returns.</p>
 <p>Use the simulated return data and the weights in <code class="docutils literal notranslate"><span class="pre">mve_data</span></code> column of the dataframe <code class="docutils literal notranslate"><span class="pre">Weights</span></code> to construct a time-series of portfolio excess return.</p>
 <p>Compute and print its Sharpe Ratio.</p>
 <p>Every time you run this cell you should get a different Sharpe Ratio. This variation reflects the amount of overall uncertainty built in our investment strategy.</p>
-</div>
-<div class="section" id="monte-carlo-4">
-<h2><span class="section-number">17.28.16. </span>16. Monte Carlo 4<a class="headerlink" href="#monte-carlo-4" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="monte-carlo-4">
+<h2><span class="section-number">17.28.16. </span>16. Monte Carlo 4<a class="headerlink" href="#monte-carlo-4" title="Permalink to this headline">#</a></h2>
 <p>Now copy the code of the question above and write a foor loop around it.</p>
 <p>Loop throught this code 1000 times and each time record the resulting Sharpe Ratio.</p>
 <p>Save this in a dataframe called <code class="docutils literal notranslate"><span class="pre">MC</span></code>.</p>
 <p>Create a histogram of these Sharpe Ratios with 50 bins using the method <code class="docutils literal notranslate"><span class="pre">.hist</span></code></p>
-</div>
-<div class="section" id="what-do-you-conclude">
-<h2><span class="section-number">17.28.17. </span>17. What do you conclude?<a class="headerlink" href="#what-do-you-conclude" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="what-do-you-conclude">
+<h2><span class="section-number">17.28.17. </span>17. What do you conclude?<a class="headerlink" href="#what-do-you-conclude" title="Permalink to this headline">#</a></h2>
 <p>Answer here:</p>
-</div>
-<div class="section" id="bootstrap">
-<h2><span class="section-number">17.28.18. </span>18. Bootstrap<a class="headerlink" href="#bootstrap" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="bootstrap">
+<h2><span class="section-number">17.28.18. </span>18. Bootstrap<a class="headerlink" href="#bootstrap" title="Permalink to this headline">#</a></h2>
 <p>The Monte-Carlo approach assumes that the distribution of returns is normal which is a good approximation but not literally true. It turns out that we can use another approach called Bootstrap that instead of sampling from the nomral distribution, samples from the actual data.</p>
 <p>Basically, bootstrap approach randomly draws one observation (one month of 49 industy returns in our case) from the real dataset, treats it as a new observation in the simulated sample and repeats this process until the simulated sample has needed sample size. Observations are drawn with replacement, which means we draw from the whole real dataset everytime so it is very likely that some data points are drawn more than once.</p>
 <p>So you keep all your code from question 16, the only difference is that instead of calling ‘np.random.multivariate_normal’ to draw a sample, we will use the method ‘sample’ (<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.sample.html">https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.sample.html</a>).</p>
@@ -899,16 +1177,16 @@ The dataset has address</p>
 <p>Now you can simply plug this realziation in your code from question 16.</p>
 <p>But save the results in a dataframe called <code class="docutils literal notranslate"><span class="pre">Boot</span></code>.</p>
 <p>Create a histogram of these Sharpe Ratios with 50 bins using the method <code class="docutils literal notranslate"><span class="pre">.hist</span></code></p>
-</div>
-<div class="section" id="compare-the-results-in-16-and-18-does-the-key-takeway-change-does-the-distribution-of-the-sr-of-our-strategy-change">
-<h2><span class="section-number">17.28.19. </span>19. Compare the results in 16 and 18. Does the key takeway change? Does the distribution of the SR of our strategy change?<a class="headerlink" href="#compare-the-results-in-16-and-18-does-the-key-takeway-change-does-the-distribution-of-the-sr-of-our-strategy-change" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="compare-the-results-in-16-and-18-does-the-key-takeway-change-does-the-distribution-of-the-sr-of-our-strategy-change">
+<h2><span class="section-number">17.28.19. </span>19. Compare the results in 16 and 18. Does the key takeway change? Does the distribution of the SR of our strategy change?<a class="headerlink" href="#compare-the-results-in-16-and-18-does-the-key-takeway-change-does-the-distribution-of-the-sr-of-our-strategy-change" title="Permalink to this headline">#</a></h2>
 <p>Answer here:</p>
-</div>
-<div class="section" id="please-explain-why-an-investor-should-care-about-these-results">
-<h2><span class="section-number">17.28.20. </span>20. Please explain why an investor should care about these results.<a class="headerlink" href="#please-explain-why-an-investor-should-care-about-these-results" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="please-explain-why-an-investor-should-care-about-these-results">
+<h2><span class="section-number">17.28.20. </span>20. Please explain why an investor should care about these results.<a class="headerlink" href="#please-explain-why-an-investor-should-care-about-these-results" title="Permalink to this headline">#</a></h2>
 <p>Answer here:</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -932,9 +1210,11 @@ The dataset has address</p>
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="Assignment5.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -950,26 +1230,28 @@ The dataset has address</p>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Alan Moreira<br/>
-        
-            &copy; Copyright 2021 Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Alan Moreira<br/>
+  
+      &copy; Copyright 2021 Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
