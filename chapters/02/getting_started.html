@@ -525,7 +525,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/amoreira2/Lectures/main?urlpath=lab/tree/chapters/02/getting_started.ipynb"
+        <a href="https://mybinder.org/v2/gh/amoreira2/Lectures/main?urlpath=tree/chapters/02/getting_started.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -538,24 +538,6 @@ title="Launch on Binder"
     <img src="../../_static/images/logo_binder.svg">
   </span>
 <span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://pims.syzygy.ca/jupyter/hub/user-redirect/git-pull?repo=https%3A//github.com/amoreira2/Lectures&urlpath=lab/tree/Lectures/chapters/02/getting_started.ipynb&branch=main"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on JupyterHub"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../../_static/images/logo_jupyterhub.svg">
-  </span>
-<span class="headerbtn__text-container">JupyterHub</span>
 </a>
 
       </li>
@@ -719,13 +701,18 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#google-colab">
+     2.1.2. Google Colab
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#running-the-lectures">
-     2.1.2. Running the Lectures
+     2.1.3. Running the Lectures
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#jupyter-basics">
-     2.1.3. Jupyter Basics
+     2.1.4. Jupyter Basics
     </a>
    </li>
   </ul>
@@ -765,13 +752,18 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#google-colab">
+     2.1.2. Google Colab
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#running-the-lectures">
-     2.1.2. Running the Lectures
+     2.1.3. Running the Lectures
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#jupyter-basics">
-     2.1.3. Jupyter Basics
+     2.1.4. Jupyter Basics
     </a>
    </li>
   </ul>
@@ -851,8 +843,14 @@ and <a class="reference external" href="https://www.techatbloomberg.com/blog/ins
 to adopt Jupyter as a tool of choice for data analytics and reporting.</p>
 <p>We will follow in their path and leverage Jupyter Notebook throughout these materials.</p>
 </section>
+<section id="google-colab">
+<h3><span class="section-number">2.1.2. </span>Google Colab<a class="headerlink" href="#google-colab" title="Permalink to this headline">#</a></h3>
+<p>We will be using the Free google Colab plataform (as you use in GBA-Stats)</p>
+<p>This is cloud based software that allow us to run jupyter notebooks without having to install any softward in your machine</p>
+<p>But you should feel free to install locally in your machine– BUT YOU DON’T NEED TO DO IT.</p>
+</section>
 <section id="running-the-lectures">
-<h3><span class="section-number">2.1.2. </span>Running the Lectures<a class="headerlink" href="#running-the-lectures" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.1.3. </span>Running the Lectures<a class="headerlink" href="#running-the-lectures" title="Permalink to this headline">#</a></h3>
 <p>The interactivity of a Jupyter notebook is driven by two main components:</p>
 <ol class="simple">
 <li><p>Server that is responsible for executing code</p></li>
@@ -863,7 +861,7 @@ to adopt Jupyter as a tool of choice for data analytics and reporting.</p>
 the GUI.</p>
 <p>You can choose to interact with these materials from two server environments:</p>
 <ol class="simple">
-<li><p>The cloud</p></li>
+<li><p>The cloud  (we will use google Colab)</p></li>
 <li><p>Your own computer</p></li>
 </ol>
 <p><strong>Cloud Computing</strong></p>
@@ -881,10 +879,7 @@ with our lectures — we often take this route with our colleagues over coffee (
 conversation stimulants).</p></li>
 </ol>
 <p>If you would like to work on these lectures from the cloud, please read the instructions for
-getting set up with <span class="xref myst">cloud computing</span>.</p>
-<p>These instructions describe several of the possible computing environments that you can choose,
-discuss their pros and cons, and explain what JupyterHub is.</p>
-<p>After reading the instructions, return to this page and proceed with the Jupyter Basics section.</p>
+getting set up with <span class="xref myst">cloud computing</span>. That is my recommendation for most of you.</p>
 <p><strong>Local Installation</strong></p>
 <p>With a local installation, you will install the required software onto your own computer.</p>
 <p>This is typically a straightforward task and, once you have done this, you will be able to run the
@@ -899,23 +894,11 @@ and show you how to open JupyterLab.</p>
 Basics section.</p>
 </section>
 <section id="jupyter-basics">
-<h3><span class="section-number">2.1.3. </span>Jupyter Basics<a class="headerlink" href="#jupyter-basics" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.1.4. </span>Jupyter Basics<a class="headerlink" href="#jupyter-basics" title="Permalink to this headline">#</a></h3>
 <p>Now that you can open a JupyterLab instance on the cloud or on your own computer, we can talk about
 how you should use them.</p>
 <p>Note, not all of this will apply if you are using the Google Colab cloud server since they are
 running a modified version of Jupyter. For more help on using Colab, see their help menu.</p>
-<p><strong>JupyterLab Dashboard</strong></p>
-<p>When you open a new session in Jupyter, you will be taken to the JupyterLab dashboard page.</p>
-<p>This page shows the file system of the machine running the Jupyter server and allows you to
-navigate and open particular Jupyter Notebooks (or other types of files!).</p>
-<p>The dashboard page is shown below.</p>
-<img src="https://datascience.quantecon.org/_static/jupyter_lab_dashboard.png" style="">
-<br>
-<p>You can open existing files or change folders by double clicking on them in the left panel of the
-dashboard (similar to a file explorer you would find on your computer).</p>
-<p>You can create new notebooks by clicking <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3</span></code> in the Launcher (see red square in the image).</p>
-<p>If you don’t see the Launcher as one of your tabs, you can open it by clicking the <code class="docutils literal notranslate"><span class="pre">+</span></code> at the top
-of the file explorer section of the JupyterLab dashboard (see the red circle in the image).</p>
 <p><strong>Editing Jupyter Notebooks</strong></p>
 <p>Once you have opened a particular notebook, you can be in one of two “edit modes”.</p>
 <ol class="simple">
