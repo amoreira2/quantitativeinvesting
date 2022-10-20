@@ -1069,19 +1069,6 @@ inside of a list.</p>
 </div>
 </div>
 </div>
-<p>To see the types of individual elements in the list:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;type(x[0]) = </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">}</span><span class="s2">, type(x[0]) = </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="si">}</span><span class="s2">, type(x[2]) = </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type(x[0]) = &lt;class &#39;int&#39;&gt;, type(x[0]) = &lt;class &#39;str&#39;&gt;, type(x[2]) = &lt;class &#39;float&#39;&gt;
-</pre></div>
-</div>
-</div>
-</div>
 <p><strong>While no programming limitations prevent this, you should be careful if you write code
 with different numeric and non-numeric types in the same list.</strong></p>
 <p>For example, if the types within the list cannot be compared, then how could you sort the elements of the list? (i.e. How do you determine whether the string “hello” is less than the integer 2, “hello” &lt; 2?)</p>
@@ -1249,6 +1236,14 @@ tuple(x) is a &lt;class &#39;tuple&#39;&gt;
 or whether you’d add
 new elements without a complete reinterpretation of the
 underlying data.</p>
+<p><strong>In general, a rule of thumb is to use a list unless you <em>need</em> to use a tuple.</strong></p>
+<p>Key criteria for tuple use are when you want to:</p>
+<ul class="simple">
+<li><p>ensure the <em>order</em> of elements can’t change</p></li>
+<li><p>ensure the actual values of the elements can’t
+change</p></li>
+<li><p>use the collection as a key in a dict</p></li>
+</ul>
 <p>For example, take data representing the GDP (in trillions) and population
 (in billions) for China in 2015.</p>
 <div class="cell docutils container">
@@ -1303,14 +1298,6 @@ in the Pandas section).</p>
 </div>
 </div>
 </div>
-<p><strong>In general, a rule of thumb is to use a list unless you <em>need</em> to use a tuple.</strong></p>
-<p>Key criteria for tuple use are when you want to:</p>
-<ul class="simple">
-<li><p>ensure the <em>order</em> of elements can’t change</p></li>
-<li><p>ensure the actual values of the elements can’t
-change</p></li>
-<li><p>use the collection as a key in a dict</p></li>
-</ul>
 </section>
 </section>
 <section id="associative-collections">
