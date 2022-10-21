@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>6.3. Applied Linear Algebra &#8212; Quantitative Investing</title>
+    <title>6.4. Applied Linear Algebra &#8212; Quantitative Investing</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="6.4. Dat APIs" href="../Finance/UsingAPI.html" />
-    <link rel="prev" title="6.2. The choice of frequency and Annualization of returns" href="../Finance/TheChoiceofFrequency.html" />
+    <link rel="next" title="6.5. Dat APIs" href="../Finance/UsingAPI.html" />
+    <link rel="prev" title="6.3. The choice of frequency and Annualization of returns" href="../Finance/TheChoiceofFrequency.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -275,23 +275,28 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul class="current">
    <li class="toctree-l2">
+    <a class="reference internal" href="../Finance/Returns1.html">
+     6.1. Returns
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="randomness1.html">
-     6.1. Modeling randomness
+     6.2. Modeling randomness
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Finance/TheChoiceofFrequency.html">
-     6.2. The Choice of Frequency and Annualization of Returns
+     6.3. The Choice of Frequency and Annualization of Returns
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     6.3. Linear algebra Review
+     6.4. Linear algebra Review
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Finance/UsingAPI.html">
-     6.4. Data APIs
+     6.5. Data APIs
     </a>
    </li>
   </ul>
@@ -694,44 +699,44 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#vectors-and-matrices">
-   6.3.1. Vectors and Matrices
+   6.4.1. Vectors and Matrices
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#vectors">
-     6.3.1.1. Vectors
+     6.4.1.1. Vectors
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#matrices">
-     6.3.1.2. Matrices
+     6.4.1.2. Matrices
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#transpose">
-   6.3.2. Transpose
+   6.4.2. Transpose
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#identity-matrix">
-   6.3.3. Identity Matrix
+   6.4.3. Identity Matrix
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#inverse">
-   6.3.4. Inverse
+   6.4.4. Inverse
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#portfolios">
-   6.3.5. Portfolios
+   6.4.5. Portfolios
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#static-payoffs">
-     6.3.5.1. Static Payoffs
+     6.4.5.1. Static Payoffs
     </a>
    </li>
   </ul>
@@ -757,44 +762,44 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#vectors-and-matrices">
-   6.3.1. Vectors and Matrices
+   6.4.1. Vectors and Matrices
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#vectors">
-     6.3.1.1. Vectors
+     6.4.1.1. Vectors
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#matrices">
-     6.3.1.2. Matrices
+     6.4.1.2. Matrices
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#transpose">
-   6.3.2. Transpose
+   6.4.2. Transpose
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#identity-matrix">
-   6.3.3. Identity Matrix
+   6.4.3. Identity Matrix
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#inverse">
-   6.3.4. Inverse
+   6.4.4. Inverse
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#portfolios">
-   6.3.5. Portfolios
+   6.4.5. Portfolios
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#static-payoffs">
-     6.3.5.1. Static Payoffs
+     6.4.5.1. Static Payoffs
     </a>
    </li>
   </ul>
@@ -810,7 +815,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="applied-linear-algebra">
-<h1><span class="section-number">6.3. </span>Applied Linear Algebra<a class="headerlink" href="#applied-linear-algebra" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">6.4. </span>Applied Linear Algebra<a class="headerlink" href="#applied-linear-algebra" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import numpy to prepare for code below</span>
@@ -824,9 +829,9 @@ title="Print to PDF"
 </div>
 </div>
 <section id="vectors-and-matrices">
-<h2><span class="section-number">6.3.1. </span>Vectors and Matrices<a class="headerlink" href="#vectors-and-matrices" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.4.1. </span>Vectors and Matrices<a class="headerlink" href="#vectors-and-matrices" title="Permalink to this headline">#</a></h2>
 <section id="vectors">
-<h3><span class="section-number">6.3.1.1. </span>Vectors<a class="headerlink" href="#vectors" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.4.1.1. </span>Vectors<a class="headerlink" href="#vectors" title="Permalink to this headline">#</a></h3>
 <p>A (N-element) vector is <span class="math notranslate nohighlight">\( N \)</span> numbers stored together.</p>
 <p>We typically write a vector as <span class="math notranslate nohighlight">\( x = \begin{bmatrix} x_1 \\ x_2 \\ \dots \\ x_N \end{bmatrix} \)</span>.</p>
 <p>In numpy terms, a vector is a 1-dimensional array.</p>
@@ -901,7 +906,7 @@ equal to <span class="math notranslate nohighlight">\( \sum_{i=1}^N x_i y_i \)</
 </div>
 </section>
 <section id="matrices">
-<h3><span class="section-number">6.3.1.2. </span>Matrices<a class="headerlink" href="#matrices" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.4.1.2. </span>Matrices<a class="headerlink" href="#matrices" title="Permalink to this headline">#</a></h3>
 <p>An <span class="math notranslate nohighlight">\( N \times M \)</span> matrix can be thought of as a collection of M
 N-element vectors stacked side-by-side as columns.</p>
 <p>We write a matrix as</p>
@@ -1035,7 +1040,7 @@ matrix multiplication between a matrix and a vector!</p>
 </section>
 </section>
 <section id="transpose">
-<h2><span class="section-number">6.3.2. </span>Transpose<a class="headerlink" href="#transpose" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.4.2. </span>Transpose<a class="headerlink" href="#transpose" title="Permalink to this headline">#</a></h2>
 <p>A matrix transpose is an operation that flips all elements of a matrix along the diagonal.</p>
 <p>More formally, the <span class="math notranslate nohighlight">\( (i, j) \)</span> element of <span class="math notranslate nohighlight">\( x \)</span> becomes the <span class="math notranslate nohighlight">\( (j, i) \)</span> element of
 <span class="math notranslate nohighlight">\( x^T \)</span>.</p>
@@ -1076,7 +1081,7 @@ x = \begin{bmatrix} 1 &amp; 4 &amp; 7 \\
 </div>
 </section>
 <section id="identity-matrix">
-<h2><span class="section-number">6.3.3. </span>Identity Matrix<a class="headerlink" href="#identity-matrix" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.4.3. </span>Identity Matrix<a class="headerlink" href="#identity-matrix" title="Permalink to this headline">#</a></h2>
 <p>In linear algebra, one particular matrix acts very similarly to how 1 behaves for scalar numbers.</p>
 <p>This matrix is known as the <em>identity matrix</em> and is given by</p>
 <div class="math notranslate nohighlight">
@@ -1123,7 +1128,7 @@ y @ I
 </div>
 </section>
 <section id="inverse">
-<h2><span class="section-number">6.3.4. </span>Inverse<a class="headerlink" href="#inverse" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.4.4. </span>Inverse<a class="headerlink" href="#inverse" title="Permalink to this headline">#</a></h2>
 <p>If you recall, you learned in your primary education about solving equations for certain variables.</p>
 <p>For example, you might have been given the equation</p>
 <div class="math notranslate nohighlight">
@@ -1190,10 +1195,10 @@ Check that A @ A inverse is I
 </div>
 </section>
 <section id="portfolios">
-<h2><span class="section-number">6.3.5. </span>Portfolios<a class="headerlink" href="#portfolios" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.4.5. </span>Portfolios<a class="headerlink" href="#portfolios" title="Permalink to this headline">#</a></h2>
 <p>Vectors and inner products give us a convenient way to organize and calculate the value of portfolios of assets</p>
 <section id="static-payoffs">
-<h3><span class="section-number">6.3.5.1. </span>Static Payoffs<a class="headerlink" href="#static-payoffs" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.4.5.1. </span>Static Payoffs<a class="headerlink" href="#static-payoffs" title="Permalink to this headline">#</a></h3>
 <p>As an example, consider a portfolio with 4 dollars of asset A, 2.5 dollars of asset B, and 8 dollars of
 asset C in date 0.</p>
 <p>The assets have the following (net) returns 3%, 5%, and -1.10% in date 1.</p>
@@ -1373,13 +1378,13 @@ r = \sum_{i=0}^{n-1} w_i r_i = w \cdot r
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">6.2. </span>The choice of frequency and Annualization of returns</p>
+            <p class="prev-next-title"><span class="section-number">6.3. </span>The choice of frequency and Annualization of returns</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../Finance/UsingAPI.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">6.4. </span>Dat APIs</p>
+        <p class="prev-next-title"><span class="section-number">6.5. </span>Dat APIs</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
