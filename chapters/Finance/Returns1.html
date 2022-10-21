@@ -719,16 +719,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-equity-risky-premium">
-   6.1.4.
-   <strong>
-    The Equity Risky Premium
-   </strong>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#excess-returns">
-   6.1.5.
+   6.1.4.
    <strong>
     Excess returns
    </strong>
@@ -775,16 +767,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-equity-risky-premium">
-   6.1.4.
-   <strong>
-    The Equity Risky Premium
-   </strong>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#excess-returns">
-   6.1.5.
+   6.1.4.
    <strong>
     Excess returns
    </strong>
@@ -814,9 +798,11 @@ title="Print to PDF"
 <section class="tex2jax_ignore mathjax_ignore" id="returns">
 <h1><span class="section-number">6.1. </span>Returns<a class="headerlink" href="#returns" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
-<li><p>In this section we define what are returns, which is the key variable of analysis in finance (and this class).</p></li>
+<li><p>Define what are returns, which is the key variable of analysis in finance (and this class).</p></li>
 <li><p>Discuss how to think them of random variables</p></li>
 <li><p>Discuss the key statistical “moments” that we will use to capture their behavior (i.e. how risky they are)</p></li>
+<li><p>Discuss the normal distribution specifically</p></li>
+<li><p>Define the concept of Excess returns</p></li>
 </ul>
 <p><strong>What is a return?</strong></p>
 <ul class="simple">
@@ -1516,8 +1502,38 @@ title="Print to PDF"
 <li><p>What is safer for an international investor? US bond portfolio or World bond portfolio?</p></li>
 </ul>
 </section>
-<section id="the-equity-risky-premium">
-<h2><span class="section-number">6.1.4. </span><strong>The Equity Risky Premium</strong><a class="headerlink" href="#the-equity-risky-premium" title="Permalink to this headline">#</a></h2>
+<section id="excess-returns">
+<h2><span class="section-number">6.1.4. </span><strong>Excess returns</strong><a class="headerlink" href="#excess-returns" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>It is convenient to decompose the return earned in terms of what you earn due to</p>
+<ol class="simple">
+<li><p>compensation for waiting (time-value of money)</p></li>
+<li><p>compensation for bearing risk (risk premium)</p></li>
+</ol>
+</li>
+<li><p>To do the decomposition, we will do the following:</p>
+<ul>
+<li><p>We first define an “<b>excess return</b>”： the return minus the risk-free rate</p></li>
+</ul>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[R_i^e=R_i-R_f\]</div>
+<ul>
+<li><p>We typically use the returns of a 3-month treasury bill to measure <span class="math notranslate nohighlight">\(R_f\)</span></p></li>
+<li><p>So the excess return of the market is</p>
+<div class="math notranslate nohighlight">
+\[R^e_{MKT}=R_{MKT}-R_f\]</div>
+</li>
+<li><p>i.e. how much more I would get if I invested in the market instead of a short-term risk-free U.S. treasury bond</p></li>
+<li><p>We call the <strong>Expected difference</strong>, the <b>Risk-Premium</b></p>
+<div class="math notranslate nohighlight">
+\[E[R_i^e]=E[R_i-R_f]\]</div>
+</li>
+<li><p>It is how much more you expect to get by investing in asset <span class="math notranslate nohighlight">\(i\)</span> instead of the risk-free asset</p></li>
+<li><p>When asset <span class="math notranslate nohighlight">\(i\)</span> is the total market portfolio of US equities, we call this, the <b>Equity Risky Premium</b></p></li>
+</ul>
+<p><strong>The Equity Risky Premium</strong></p>
 <p>The expected difference in return earned by investing in the aggreagate stock market portfolio instead of the risk-free rate</p>
 <div class="math notranslate nohighlight">
 \[E[R_{MKT}-R_f]\]</div>
@@ -1549,7 +1565,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x272170afd30&gt;
 </pre></div>
 </div>
-<img alt="../../_images/Returns1_53_1.png" src="../../_images/Returns1_53_1.png" />
+<img alt="../../_images/Returns1_54_1.png" src="../../_images/Returns1_54_1.png" />
 </div>
 </div>
 <p>This means that someone that invested 1 dollar in the market in 63, would have 182 dollars today.</p>
@@ -1571,41 +1587,10 @@ dtype: float64
 </div>
 </div>
 </div>
-</section>
-<section id="excess-returns">
-<h2><span class="section-number">6.1.5. </span><strong>Excess returns</strong><a class="headerlink" href="#excess-returns" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>It is convenient to decompose the return earned in terms of what you earn due to</p>
-<ol class="simple">
-<li><p>compensation for waiting (time-value of money)</p></li>
-<li><p>compensation for bearing risk (risk premium)</p></li>
-</ol>
-</li>
-<li><p>To do the decomposition, we will do the following:</p>
-<ul>
-<li><p>We first define an “<b>excess return</b>”： the return minus the risk-free rate</p></li>
-</ul>
-</li>
-</ul>
-<div class="math notranslate nohighlight">
-\[R_i^e=R_i-R_f\]</div>
-<ul>
-<li><p>We typically use the returns of a 3-month treasury bill to measure <span class="math notranslate nohighlight">\(R_f\)</span></p></li>
-<li><p>So the excess return of the market is</p>
-<div class="math notranslate nohighlight">
-\[R^e_{MKT}=R_{MKT}-R_f\]</div>
-</li>
-<li><p>i.e. how much more I would get if I invested in the market instead of a short-term risk-free U.S. treasury bond</p></li>
-<li><p>We call the <strong>Expected difference</strong>, the <b>Risk-Premium</b></p>
-<div class="math notranslate nohighlight">
-\[E[R_i^e]=E[R_i-R_f]\]</div>
-</li>
-<li><p>It is how much more you expect to get by investing in asset <span class="math notranslate nohighlight">\(i\)</span> instead of the risk-free asset</p></li>
-<li><p>When asset <span class="math notranslate nohighlight">\(i\)</span> is the total market portfolio of US equities, we call this, the <b>Equity Risky Premium</b></p></li>
-</ul>
 <p><strong>Why Excess returns are useful?</strong></p>
 <p>All asset returns have both the risk-free component in it and the risk-premium component.</p>
-<p>The risk-free component is directly observed– for example in dollars it is convention to use the yield on the 3 month US goverment treasury bill.</p>
+<p>The risk-free component is directly observed– for example in dollars it is convention to use the yield on the 3 month US goverment treasury bill</p>
+<p>The average risk-free rate of the last 30 years tells you nothing about the risk-less rate today BECAUSE you can directly observe it. It is literally the rate of return that you get for sure if you buy a tbill and hold ultill maturity–and this rate of return is know in advance becasue we know the final price of the tbill.</p>
 <p>The particular instrument that you use to measure the risk-free rate might vary depending on a variety of complicated considerations</p>
 <ul class="simple">
 <li><p>Is it funded instrument vs not funded (bills vs swaps)</p></li>
@@ -1613,11 +1598,10 @@ dtype: float64
 <li><p>Can you borrow at this rate (bills vs your broker lending rate)</p></li>
 </ul>
 <p>But the important point is that at any given moment you know the true risk-free rate. There is no point in estimating it</p>
-<p>The average risk-free rate of the last 30 years tells you nothing about the risk-less rate today BECAUSE you can directly observe it. It is literally thw rate of return that you get for sure if you buy a tbill and hold ultill maturity–and this rate of return is know in advance becasue we know the final price of the tbill.</p>
 <p><strong>Trading Interpretation</strong></p>
 <ul class="simple">
 <li><p>Excess reutrns have a nice trading interpretation.</p></li>
-<li><p>For example the excess return on the market is</p></li>
+<li><p>For example the excess return on the market (portfolio) is</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[R^{e,MKT}=R^{MKT}-R^F\]</div>
@@ -1630,9 +1614,10 @@ dtype: float64
 <p><em>Reality is a bit more complicated</em></p>
 <ul class="simple">
 <li><p>we will discuss this later, but in practice you always have to put some capital on the trade</p></li>
-<li><p>some investors don;t really need to put much like banks and dealers, but others like retail investors are asket to put much more.</p></li>
-<li><p>These portfolios are nevertheless super useful empirically to understand the data even if in the real world you cannot directly buy the zero cost portfolios</p></li>
+<li><p>some investors don’t really need to put much like banks and dealers, but others like retail investors are asked to put much more.And often the amount of capital that you have to put on a “zero-cost” trade fluctuates with liquidity conditions (a lot during crises, not much during booms)</p></li>
+<li><p>These portfolios are nevertheless super useful empirically to understand the data even if in the real world you cannot directly buy the zero cost portfolios without putting capital</p></li>
 </ul>
+<p><em>Why is it that a broker dealer will ask you to put some capital to back the trade?</em></p>
 <p><strong>How to go from the SAMPLE to the POPULATION distribution?</strong></p>
 <p>We are interested in the true distribution of an asset returns going forward</p>
 <p>WE have it’s historical behavior.How do we extrapolate from it to the future?</p>
