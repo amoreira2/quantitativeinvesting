@@ -1633,23 +1633,26 @@ dtype: float64
 <h2><span class="section-number">6.1.5. </span>Sample averages vs Population Expectations<a class="headerlink" href="#sample-averages-vs-population-expectations" title="Permalink to this headline">#</a></h2>
 <p><strong>How to go from the SAMPLE to the POPULATION distribution?</strong></p>
 <p>We are interested in the true distribution of an asset returns going forward</p>
-<p>WE have it’s historical behavior.How do we extrapolate from it to the future?</p>
+<p>But we only have it’s historical behavior.</p>
+<p>How do we extrapolate from it to the future?</p>
 <p>We need a model!</p>
 <p>In most of this class we will use a model where the distribution of excess returns is constant (does not vary over time).</p>
 <ul class="simple">
 <li><p>under this assumption the sample mean of the asset excess return is a good estimator for the expected return of the asset going forward</p></li>
 <li><p>under the assumption that investors expected the average, the standard deviaiton is a good measure of the asset risk, becasue it measures deviations from expectations</p></li>
-<li><p>This however is not agood model for the risk-free rate!</p></li>
-<li><p>We interpret the time-variation in the risk-free rate as all about time-variaiton in what investors expected to get from investign in the tbill and none of it as risk/deviations of expectation</p></li>
+<li><p>This however is not a good model for the risk-free rate!The risk-free rate obviously move over time!</p></li>
+<li><p>Time-variation in the risk-free rate as all about time-variaiton in what investors expected to get from investign in the tbill and none of it as risk/deviations of expectation</p></li>
 </ul>
 <p><strong>why?</strong></p>
 <p>Becasue we know that investor know the tbill yield so they perfectly know what they will get from investing in the tbill–and that is the reason we call it risk-free rate!</p>
 <p><em>Reality is a bit more complicated</em></p>
-<p>This “constant premiuns” with time-varying risk-free rate allows us go a long way.</p>
+<p>This “constant premiuns” with time-varying risk-free rate allows us to go a long way.</p>
 <p>But of course the data is more complicated!</p>
 <ul class="simple">
-<li><p>you might be able to predict an asset and in this case, volatility will over-estimate the degree of risk, since part of the movement was not surprising to you</p></li>
-<li><p>certianly in the data there is some evidecne that we can predict some moments and we will certainly talk about it, but for know we will stick with this simpler model to interpret the data</p></li>
+<li><p>you might be able to predict the excess returns of an asset and in this case, i.e. there is time time-variation in the return premium to hold the assey</p></li>
+<li><p>In this case volatility will over-estimate the degree of risk, since part of the movement was not surprising to you– so it is not risk</p></li>
+<li><p>certainly in the data there is some evidecne that we can predict excess returns a little bitbut by and large the constant premium assumption is a good approximation for an asset as the market portoflio</p></li>
+<li><p>Obvioulsy not good a approximation for an assets that it’s riskness has changed– Evergrande bonds have a very different risk today vs 5 years ago!</p></li>
 </ul>
 </section>
 </section>
