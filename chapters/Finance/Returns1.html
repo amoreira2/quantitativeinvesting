@@ -710,6 +710,30 @@ title="Print to PDF"
    6.1.2. A quick review of randomness and probability distributions
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-normal-distribution">
+   6.1.3.
+   <strong>
+    The Normal distribution
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-equity-risky-premium">
+   6.1.4.
+   <strong>
+    The Equity Risky Premium
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#excess-returns">
+   6.1.5.
+   <strong>
+    Excess returns
+   </strong>
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -740,6 +764,30 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#a-quick-review-of-randomness-and-probability-distributions">
    6.1.2. A quick review of randomness and probability distributions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-normal-distribution">
+   6.1.3.
+   <strong>
+    The Normal distribution
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-equity-risky-premium">
+   6.1.4.
+   <strong>
+    The Equity Risky Premium
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#excess-returns">
+   6.1.5.
+   <strong>
+    Excess returns
+   </strong>
   </a>
  </li>
 </ul>
@@ -1015,7 +1063,9 @@ title="Print to PDF"
 <li><p>For population means they are weighted by the <strong>expected</strong> frequency, i.e. the probabilities</p></li>
 <li><p>We say that the sample average is an <strong>ESTIMATOR</strong> for the true expected value</p></li>
 </ul>
-<p><strong>The Normal distribution</strong></p>
+</section>
+<section id="the-normal-distribution">
+<h2><span class="section-number">6.1.3. </span><strong>The Normal distribution</strong><a class="headerlink" href="#the-normal-distribution" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Most of what we do does not depend on the assumption of normality</p></li>
 <li><p>But normal distributions are very useful in statistical tests</p></li>
@@ -1465,10 +1515,13 @@ title="Print to PDF"
 <li><p>What is safer for an US investor? US bond portfolio or World bond portfolio?</p></li>
 <li><p>What is safer for an international investor? US bond portfolio or World bond portfolio?</p></li>
 </ul>
-<p><strong>Equity Risky Premium</strong></p>
-<p>The average difference in return earned by investing in the aggreagate stock market portfolio instead of the risk-free rate</p>
+</section>
+<section id="the-equity-risky-premium">
+<h2><span class="section-number">6.1.4. </span><strong>The Equity Risky Premium</strong><a class="headerlink" href="#the-equity-risky-premium" title="Permalink to this headline">#</a></h2>
+<p>The expected difference in return earned by investing in the aggreagate stock market portfolio instead of the risk-free rate</p>
 <div class="math notranslate nohighlight">
 \[E[R_{MKT}-R_f]\]</div>
+<p>One good estimate of it simply uses the sample mean</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">Data</span><span class="o">.</span><span class="n">MKT</span><span class="o">-</span><span class="n">Data</span><span class="o">.</span><span class="n">RF</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*</span><span class="mi">100</span>
@@ -1518,7 +1571,9 @@ dtype: float64
 </div>
 </div>
 </div>
-<p><strong>Excess returns</strong></p>
+</section>
+<section id="excess-returns">
+<h2><span class="section-number">6.1.5. </span><strong>Excess returns</strong><a class="headerlink" href="#excess-returns" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>It is convenient to decompose the return earned in terms of what you earn due to</p>
 <ol class="simple">
