@@ -729,7 +729,8 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fredapi</span> <span class="kn">import</span> <span class="n">Fred</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install fredapi</span>
+<span class="kn">from</span> <span class="nn">fredapi</span> <span class="kn">import</span> <span class="n">Fred</span>
 <span class="n">fred</span> <span class="o">=</span> <span class="n">Fred</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s1">&#39;f9207136b3333d7cf92c07273f6f5530&#39;</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">fred</span><span class="o">.</span><span class="n">get_series</span><span class="p">(</span><span class="s1">&#39;DTB3&#39;</span><span class="p">)</span>
 <span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
@@ -737,14 +738,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: fredapi in c:\programdata\anaconda3\lib\site-packages (0.4.2)
-Requirement already satisfied: pandas in c:\programdata\anaconda3\lib\site-packages (from fredapi) (1.0.5)
-Requirement already satisfied: pytz&gt;=2017.2 in c:\programdata\anaconda3\lib\site-packages (from pandas-&gt;fredapi) (2020.1)
-Requirement already satisfied: numpy&gt;=1.13.3 in c:\programdata\anaconda3\lib\site-packages (from pandas-&gt;fredapi) (1.18.5)
-Requirement already satisfied: python-dateutil&gt;=2.6.1 in c:\programdata\anaconda3\lib\site-packages (from pandas-&gt;fredapi) (2.8.1)
-Requirement already satisfied: six&gt;=1.5 in c:\programdata\anaconda3\lib\site-packages (from python-dateutil&gt;=2.6.1-&gt;pandas-&gt;fredapi) (1.15.0)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
+<img alt="../../_images/UsingAPI_2_1.png" src="../../_images/UsingAPI_2_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -755,7 +752,7 @@ Requirement already satisfied: six&gt;=1.5 in c:\programdata\anaconda3\lib\site-
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1f82fef2880&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
 <img alt="../../_images/UsingAPI_3_1.png" src="../../_images/UsingAPI_3_1.png" />
@@ -764,7 +761,8 @@ Requirement already satisfied: six&gt;=1.5 in c:\programdata\anaconda3\lib\site-
 <p><strong>Google Trends</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pytrends.request</span> <span class="kn">import</span> <span class="n">TrendReq</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install pytrends</span>
+<span class="kn">from</span> <span class="nn">pytrends.request</span> <span class="kn">import</span> <span class="n">TrendReq</span>
 <span class="n">pytrend</span> <span class="o">=</span> <span class="n">TrendReq</span><span class="p">()</span>
 <span class="n">pytrend</span><span class="o">.</span><span class="n">build_payload</span><span class="p">(</span><span class="n">kw_list</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;wallstreetbets&#39;</span><span class="p">,</span><span class="s1">&#39;GME&#39;</span><span class="p">],</span><span class="n">timeframe</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
 <span class="n">Googletrends</span><span class="o">=</span><span class="n">pytrend</span><span class="o">.</span><span class="n">interest_over_time</span><span class="p">()</span>
@@ -789,16 +787,8 @@ Requirement already satisfied: six&gt;=1.5 in c:\programdata\anaconda3\lib\site-
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You will have to install it the first tiem you ever run this, </span>
-<span class="c1">#so uncomment the comment below</span>
-<span class="c1">#!pip install wallstreet</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wallstreet</span> <span class="kn">import</span> <span class="n">Stock</span><span class="p">,</span> <span class="n">Call</span><span class="p">,</span> <span class="n">Put</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install wallstreet</span>
+<span class="kn">from</span> <span class="nn">wallstreet</span> <span class="kn">import</span> <span class="n">Stock</span><span class="p">,</span> <span class="n">Call</span><span class="p">,</span> <span class="n">Put</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">Stock</span><span class="p">(</span><span class="s1">&#39;GME&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -812,7 +802,7 @@ Requirement already satisfied: six&gt;=1.5 in c:\programdata\anaconda3\lib\site-
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>202.1
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25.3
 </pre></div>
 </div>
 </div>
@@ -856,53 +846,53 @@ Requirement already satisfied: six&gt;=1.5 in c:\programdata\anaconda3\lib\site-
   <tbody>
     <tr>
       <th>0</th>
-      <td>2019-02-19</td>
-      <td>11.460000</td>
-      <td>11.470000</td>
-      <td>11.130000</td>
-      <td>11.200000</td>
-      <td>10.832469</td>
-      <td>3305600</td>
+      <td>2020-01-27</td>
+      <td>1.050000</td>
+      <td>1.087500</td>
+      <td>1.040000</td>
+      <td>1.070000</td>
+      <td>1.070000</td>
+      <td>8490000</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2019-02-20</td>
-      <td>11.230000</td>
-      <td>11.300000</td>
-      <td>11.150000</td>
-      <td>11.200000</td>
-      <td>10.832469</td>
-      <td>2960500</td>
+      <td>2020-01-28</td>
+      <td>1.075000</td>
+      <td>1.075000</td>
+      <td>1.045000</td>
+      <td>1.052500</td>
+      <td>1.052500</td>
+      <td>8579600</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2019-02-21</td>
-      <td>11.230000</td>
-      <td>11.290000</td>
-      <td>11.010000</td>
-      <td>11.030000</td>
-      <td>10.668048</td>
-      <td>2489200</td>
+      <td>2020-01-29</td>
+      <td>1.055000</td>
+      <td>1.080000</td>
+      <td>1.032500</td>
+      <td>1.032500</td>
+      <td>1.032500</td>
+      <td>6210400</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>2019-02-22</td>
-      <td>11.020000</td>
-      <td>11.380000</td>
-      <td>11.020000</td>
-      <td>11.370000</td>
-      <td>10.996891</td>
-      <td>3249500</td>
+      <td>2020-01-30</td>
+      <td>1.025000</td>
+      <td>1.030000</td>
+      <td>0.970000</td>
+      <td>0.982500</td>
+      <td>0.982500</td>
+      <td>12026000</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>2019-02-25</td>
-      <td>11.380000</td>
-      <td>11.800000</td>
-      <td>11.380000</td>
-      <td>11.550000</td>
-      <td>11.170984</td>
-      <td>3594500</td>
+      <td>2020-01-31</td>
+      <td>0.977500</td>
+      <td>0.985000</td>
+      <td>0.957500</td>
+      <td>0.960000</td>
+      <td>0.960000</td>
+      <td>11566800</td>
     </tr>
     <tr>
       <th>...</th>
@@ -916,53 +906,53 @@ Requirement already satisfied: six&gt;=1.5 in c:\programdata\anaconda3\lib\site-
     </tr>
     <tr>
       <th>687</th>
-      <td>2021-11-08</td>
-      <td>212.500000</td>
-      <td>225.039993</td>
-      <td>212.009995</td>
-      <td>218.639999</td>
-      <td>218.639999</td>
-      <td>2157900</td>
+      <td>2022-10-17</td>
+      <td>25.370001</td>
+      <td>26.410000</td>
+      <td>25.240000</td>
+      <td>25.959999</td>
+      <td>25.959999</td>
+      <td>3172200</td>
     </tr>
     <tr>
       <th>688</th>
-      <td>2021-11-09</td>
-      <td>222.000000</td>
-      <td>223.490005</td>
-      <td>204.440002</td>
-      <td>206.600006</td>
-      <td>206.600006</td>
-      <td>1845300</td>
+      <td>2022-10-18</td>
+      <td>27.100000</td>
+      <td>27.740000</td>
+      <td>26.129999</td>
+      <td>26.670000</td>
+      <td>26.670000</td>
+      <td>4402600</td>
     </tr>
     <tr>
       <th>689</th>
-      <td>2021-11-10</td>
-      <td>202.119995</td>
-      <td>207.389999</td>
-      <td>196.500000</td>
-      <td>199.190002</td>
-      <td>199.190002</td>
-      <td>1309400</td>
+      <td>2022-10-19</td>
+      <td>26.000000</td>
+      <td>26.180000</td>
+      <td>24.270000</td>
+      <td>24.540001</td>
+      <td>24.540001</td>
+      <td>5318400</td>
     </tr>
     <tr>
       <th>690</th>
-      <td>2021-11-11</td>
-      <td>200.000000</td>
-      <td>208.089996</td>
-      <td>198.149994</td>
-      <td>204.320007</td>
-      <td>204.320007</td>
-      <td>1079400</td>
+      <td>2022-10-20</td>
+      <td>24.650000</td>
+      <td>25.450001</td>
+      <td>24.070000</td>
+      <td>24.410000</td>
+      <td>24.410000</td>
+      <td>5148600</td>
     </tr>
     <tr>
       <th>691</th>
-      <td>2021-11-12</td>
-      <td>202.139999</td>
-      <td>205.360001</td>
-      <td>197.880005</td>
-      <td>202.100006</td>
-      <td>202.100006</td>
-      <td>926700</td>
+      <td>2022-10-21</td>
+      <td>24.150000</td>
+      <td>25.330000</td>
+      <td>24.100000</td>
+      <td>25.299999</td>
+      <td>25.299999</td>
+      <td>2999649</td>
     </tr>
   </tbody>
 </table>
@@ -980,7 +970,7 @@ Requirement already satisfied: six&gt;=1.5 in c:\programdata\anaconda3\lib\site-
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Wild!&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/UsingAPI_11_1.png" src="../../_images/UsingAPI_11_1.png" />
+<img alt="../../_images/UsingAPI_10_1.png" src="../../_images/UsingAPI_10_1.png" />
 </div>
 </div>
 <p><strong>Pandas Datareader</strong></p>
@@ -990,7 +980,8 @@ Requirement already satisfied: six&gt;=1.5 in c:\programdata\anaconda3\lib\site-
 <p>Please check out <a class="reference external" href="https://pandas-datareader.readthedocs.io/en/latest/remote_data.html">https://pandas-datareader.readthedocs.io/en/latest/remote_data.html</a> all the possiblities</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas_datareader.famafrench</span> <span class="kn">import</span> <span class="n">get_available_datasets</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install pandas_datareader</span>
+<span class="kn">from</span> <span class="nn">pandas_datareader.famafrench</span> <span class="kn">import</span> <span class="n">get_available_datasets</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">get_available_datasets</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -1741,15 +1732,37 @@ This file was created by CMPT_IND_RETS using the 202103 CRSP database. It contai
 </div>
 </div>
 <p><strong>WRDS</strong></p>
+<p>This is harder and more sophisticated</p>
+<p>You DONT NEED TO USE THIS IF YOU DONT WANT!</p>
 <p>WRDS has all sorts of amazing data for finance. For equity prices and mutual funds in particular.</p>
 <p>You can easily register for an account here <a class="reference external" href="https://wrds-www.wharton.upenn.edu/register/">https://wrds-www.wharton.upenn.edu/register/</a></p>
 <p>In this class we will use it go get stock market data and also data on company earnigns and other balance sheet information</p>
-<p>Google/Yahoo finance data are nice to play with, but they tend to have errors in it. So if you are doing serious work I will probably advise agaist using them only. And WRDS is really the gold standard, but the data publication lag is long, so you can use it to do research, but not to trade</p>
-<p>to use it you have to load two libraries</p>
+<p>Google/Yahoo finance data are nice to play with, but they tend to have errors in it. So if you are doing serious work I will probably advise agaist using them only.</p>
+<p>WRDS is really the gold standard, but the data publication lag is long, so you can use it to do research, but not to trade</p>
+<p>To use it you have to load two libraries</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">wrds</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install wrds</span>
+<span class="kn">import</span> <span class="nn">wrds</span>
 <span class="kn">import</span> <span class="nn">psycopg2</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting wrds
+  Downloading wrds-3.1.2-py3-none-any.whl (13 kB)
+Requirement already satisfied: sqlalchemy in c:\users\alan.moreira\anaconda3\lib\site-packages (from wrds) (1.4.32)
+Collecting psycopg2-binary
+  Downloading psycopg2_binary-2.9.4-cp39-cp39-win_amd64.whl (1.2 MB)
+Requirement already satisfied: mock in c:\users\alan.moreira\anaconda3\lib\site-packages (from wrds) (4.0.3)
+Requirement already satisfied: pandas in c:\users\alan.moreira\anaconda3\lib\site-packages (from wrds) (1.4.2)
+Requirement already satisfied: numpy in c:\users\alan.moreira\anaconda3\lib\site-packages (from wrds) (1.21.5)
+Requirement already satisfied: pytz&gt;=2020.1 in c:\users\alan.moreira\anaconda3\lib\site-packages (from pandas-&gt;wrds) (2021.3)
+Requirement already satisfied: python-dateutil&gt;=2.8.1 in c:\users\alan.moreira\anaconda3\lib\site-packages (from pandas-&gt;wrds) (2.8.2)
+Requirement already satisfied: six&gt;=1.5 in c:\users\alan.moreira\anaconda3\lib\site-packages (from python-dateutil&gt;=2.8.1-&gt;pandas-&gt;wrds) (1.16.0)
+Requirement already satisfied: greenlet!=0.4.17 in c:\users\alan.moreira\anaconda3\lib\site-packages (from sqlalchemy-&gt;wrds) (1.1.1)
+Installing collected packages: psycopg2-binary, wrds
+Successfully installed psycopg2-binary-2.9.4 wrds-3.1.2
 </pre></div>
 </div>
 </div>
@@ -1762,13 +1775,17 @@ This file was created by CMPT_IND_RETS using the 202103 CRSP database. It contai
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter your WRDS username [Alan Moreira]: moreira5
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter your WRDS username [Alan.Moreira]: moreira5
 Enter your password: ···········
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WRDS recommends setting up a .pgpass file.
-You can find more info here:
-https://www.postgresql.org/docs/9.5/static/libpq-pgpass.html.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Create .pgpass file now [y/n]?:  y
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created .pgpass file successfully.
 Loading library list...
 Done
 </pre></div>
@@ -1780,7 +1797,7 @@ Done
 <p>This website by Freda Drechsler provides lots of guidance and code on how to do it</p>
 <p><a class="reference external" href="https://www.fredasongdrechsler.com/intro-to-python-for-fnce/maneuvering-wrds-data">https://www.fredasongdrechsler.com/intro-to-python-for-fnce/maneuvering-wrds-data</a></p>
 <p>and also has lots of code that teaches you how to get both financial and accouting information from WRDS, for example, (<a class="reference external" href="https://www.fredasongdrechsler.com/full-python-code/dgtw">https://www.fredasongdrechsler.com/full-python-code/dgtw</a>)</p>
-<p>Below we will simply write a fucntion that dowloads dailt return data for a given firm</p>
+<p>Below we will simply write a function that dowloads dailt return data for a given firm</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_returns</span><span class="p">(</span><span class="n">tickers</span><span class="p">,</span><span class="n">conn</span><span class="p">,</span><span class="n">startdate</span><span class="p">,</span><span class="n">enddate</span><span class="p">):</span>
@@ -1813,7 +1830,7 @@ Done
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;date&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/UsingAPI_28_1.png" src="../../_images/UsingAPI_28_1.png" />
+<img alt="../../_images/UsingAPI_27_1.png" src="../../_images/UsingAPI_27_1.png" />
 </div>
 </div>
 <p>If I wanted other information I would have to know this information is named in the database</p>
@@ -1889,39 +1906,39 @@ Done
   </thead>
   <tbody>
     <tr>
-      <th>2020-12-24</th>
+      <th>2021-12-27</th>
       <th>93436.0</th>
       <td>TSLA</td>
-      <td>661.770020</td>
-      <td>947901.0</td>
+      <td>1093.939941</td>
+      <td>1004265.0</td>
     </tr>
     <tr>
-      <th>2020-12-28</th>
+      <th>2021-12-28</th>
       <th>93436.0</th>
       <td>TSLA</td>
-      <td>663.690002</td>
-      <td>947901.0</td>
+      <td>1088.469971</td>
+      <td>1004265.0</td>
     </tr>
     <tr>
-      <th>2020-12-29</th>
+      <th>2021-12-29</th>
       <th>93436.0</th>
       <td>TSLA</td>
-      <td>665.989990</td>
-      <td>947901.0</td>
+      <td>1086.189941</td>
+      <td>1004265.0</td>
     </tr>
     <tr>
-      <th>2020-12-30</th>
+      <th>2021-12-30</th>
       <th>93436.0</th>
       <td>TSLA</td>
-      <td>694.780029</td>
-      <td>947901.0</td>
+      <td>1070.339966</td>
+      <td>1004265.0</td>
     </tr>
     <tr>
-      <th>2020-12-31</th>
+      <th>2021-12-31</th>
       <th>93436.0</th>
       <td>TSLA</td>
-      <td>705.669983</td>
-      <td>947901.0</td>
+      <td>1056.780029</td>
+      <td>1033534.0</td>
     </tr>
   </tbody>
 </table>
@@ -1940,7 +1957,7 @@ Done
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;date,permno&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/UsingAPI_33_1.png" src="../../_images/UsingAPI_33_1.png" />
+<img alt="../../_images/UsingAPI_32_1.png" src="../../_images/UsingAPI_32_1.png" />
 </div>
 </div>
 <p>This is ugly because we have the permno, the indentity of security as an index. To fix this, lets take this out of the index</p>
@@ -1955,10 +1972,9 @@ Done
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;date&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/UsingAPI_35_1.png" src="../../_images/UsingAPI_35_1.png" />
+<img alt="../../_images/UsingAPI_34_1.png" src="../../_images/UsingAPI_34_1.png" />
 </div>
 </div>
-<p>Truly mind blowing!</p>
 <p><strong>Variable reference for WRDS CRSP data set</strong>
 <img alt="image.png" src="../../_images/usingAPI1.jpg" />
 <img alt="image.png" src="../../_images/usingAPI2.jpg" />

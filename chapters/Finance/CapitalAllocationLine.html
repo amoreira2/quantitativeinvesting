@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>8. The Capital Allocation Line: Adding the Risk-free rate &#8212; Quantitative Investing</title>
+    <title>8. The Capital Allocation Line &#8212; Quantitative Investing</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -687,7 +687,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>The Capital Allocation Line: Adding the Risk-free rate</h1>
+                <h1>The Capital Allocation Line</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -732,24 +732,22 @@ memory usage: 35.4 KB
 </div>
 </div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="the-capital-allocation-line-adding-the-risk-free-rate">
-<h1><span class="section-number">8. </span>The Capital Allocation Line: Adding the Risk-free rate<a class="headerlink" href="#the-capital-allocation-line-adding-the-risk-free-rate" title="Permalink to this headline">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="the-capital-allocation-line">
+<h1><span class="section-number">8. </span>The Capital Allocation Line<a class="headerlink" href="#the-capital-allocation-line" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>So far we looked at an investor that is fully invested across risky assets</p></li>
 <li><p>In this case, the only way that an investor can change the risk profile of her portfolio is by changing the relative weights across the risky assets</p></li>
 <li><p>In practice investors can invest in the risk-free asset, which has zero volatility.</p></li>
 <li><p>This means that they can potentially derisk their portfolio by keeping the relative weights across assets constant and simply invest more in the risk-free asset</p></li>
 <li><p>So we will now work with excess returns and the risk-free rate, separating cleaning the risk-free component of these risky asset returns</p></li>
-<li><p><strong>this has the added benefit of cleanly separate what needs estiamting (average excess returns of risky assets and their covariances) from the level of the risk-free rate at a given point in time whcih is known</strong></p></li>
+<li><p>Empirically this separation of risky returns from the risk-free  cleanly separate what needs estimating (average excess returns of risky assets and their covariances) from the level of the risk-free rate at a given point in time which is observable</p></li>
 </ul>
 <p><strong>Constructing excess returns</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># (select three assets) (subtract the risk-free asset) (drop the risk-free asset)</span>
-<span class="c1"># note axis parameters telling along whcih axes the subtraction adn droping occurs.</span>
-<span class="c1">#Try ommiting each axis paraemtner and see what you get</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Try ommiting the axis paraemtner and see what you get. What happened?</span>
 
-<span class="n">Re</span><span class="o">=</span><span class="p">(</span><span class="n">Data</span><span class="p">[[</span><span class="s1">&#39;RF&#39;</span><span class="p">,</span><span class="s1">&#39;MKT&#39;</span><span class="p">,</span><span class="s1">&#39;WorldxUSA&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">Data</span><span class="p">[</span><span class="s1">&#39;RF&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;RF&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Re</span><span class="o">=</span><span class="p">(</span><span class="n">Data</span><span class="p">[[</span><span class="s1">&#39;MKT&#39;</span><span class="p">,</span><span class="s1">&#39;WorldxUSA&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">Data</span><span class="p">[</span><span class="s1">&#39;RF&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
 
 <span class="n">Re</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
@@ -813,6 +811,8 @@ memory usage: 35.4 KB
 </table>
 </div></div></div>
 </div>
+<p><strong>note:</strong> axis parameters tells along whcih axes the subtraction occurs, i.e.
+#along which dimension python matches both datasets</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UsW</span><span class="o">=</span><span class="p">[]</span>
@@ -824,66 +824,57 @@ memory usage: 35.4 KB
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Volatility&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average Excess return&#39;</span><span class="p">)</span>
-<span class="c1"># plt.ylim([0,0.062])</span>
-<span class="c1"># plt.xlim([0,0.17])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/CapitalAllocationLine_5_0.png" src="../../_images/CapitalAllocationLine_5_0.png" />
+<img alt="../../_images/CapitalAllocationLine_6_0.png" src="../../_images/CapitalAllocationLine_6_0.png" />
 </div>
 </div>
-<blockquote>
-<div><p>Why not compute the covariance matrix including the risk-free asset?</p>
-</div></blockquote>
 <p><strong>Adding the Risk-free Rate</strong></p>
-<p>construct vector of weights</p>
-<p>x determines composition of risky portfolio (x in the US market, 1-x in international market)</p>
-<p>just as above</p>
-<p>And xf determines allocation between riks-free and risky-portfolio (xf in the riskfree and 1-xf on the risky portfolio)</p>
-<p>Note that the expected return term is <code class="docutils literal notranslate"><span class="pre">+rf</span></code> instead of <code class="docutils literal notranslate"><span class="pre">+rf*xf</span></code> because we are using excess return instead of return. To better understand, we write out the expected return in the following way where <span class="math notranslate nohighlight">\(R_W\)</span> below is the return on the risky portfolio</p>
+<p>x: pins down vector of risky weights (x in the US market, 1-x in international market)</p>
+<p>y: determines allocation between risk-free and risky-portfolio (y in the riskfree and 1-y on the risky portfolio)</p>
+<p>Note that the expected return term is <code class="docutils literal notranslate"><span class="pre">+rf</span></code> instead of <code class="docutils literal notranslate"><span class="pre">+rf*y</span></code> because we are using excess return instead of return. To better understand, we write out the expected return in the following way where <span class="math notranslate nohighlight">\(R_W\)</span> below is the return on the risky portfolio</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{align}
-r_p&amp;=x_f \times R_f + (1-x_f) \times R_W \\
-&amp;= x_f \times R_f + (1-x_f) \times E[(R_W-R_f)] + (1-x_f) \times R_f \\
-&amp;= (1-x_f) \times (R_W-R_f)] + R_f \\
-&amp;=(1-x_f) \times R_W^e + R_f
+r_p&amp;=y\times R_f + (1-y) \times R_W \\
+&amp;= y \times R_f + (1-y) \times E[(R_W-R_f)] + (1-y) \times R_f \\
+&amp;= (1-y) \times (R_W-R_f)] + R_f \\
+&amp;=(1-y) \times R_W^e + R_f
 \end{align}
 \)</span></p>
 <p>where <span class="math notranslate nohighlight">\(R^e_W\)</span> is the <strong>excess return</strong> on the risky portolio.
 $</p>
 <p>Thus we can write:</p>
 <p>\begin{align}
-E[r_p]&amp;=E[(1-x_f) \times R_W^e + R_f]\
-E[r_p]&amp;=(1-x_f) \times E[R_W^e] + R_f
-\end{align}
-$</p>
-<p>Note also the math for the variance of the portfolio which is particular case of what we learn in the portfolio math chapter but with a zero volatility asset:</p>
+E[r_p]&amp;=E[(1-y) \times R_W^e + R_f]\
+E[r_p]&amp;=(1-y) \times E[R_W^e] + R_f
+\end{align}</p>
+<p>The math for the variance of the portfolio is particular case of what we learned last chapter</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{align}
-Var[r_p]&amp;=Var[(1-x_f) \times R_W^e + R_f] \\
-Var[r_p]&amp;=Var[(1-x_f) \times R_W^e] \\
-&amp;= (1-x_f)^2 Var[R_W^e]  
+Var[r_p]&amp;=Var[(1-y) \times R_W^e + R_f] \\
+Var[r_p]&amp;=Var[(1-y) \times R_W^e] \\
+&amp;= (1-y)^2 Var[R_W^e]  
 \end{align}
 \)</span></p>
-<p>And the volatility (also called standard deviation</p>
+<p>And the volatility (also called standard deviation)</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{align}
 STD[r_p]&amp;=\sqrt{Var[r_p]}\\
-&amp;=\sqrt{Var[(1-x_f) \times R_W^e + R_f]} \\
-&amp;=\sqrt{Var[(1-x_f) \times R_W^e]} \\
-&amp;= \sqrt{(1-x_f)^2 Var[R_W^e]}\\  
-&amp;= \sqrt{(1-x_f)^2}\sqrt{ Var[R_W^e]}\\
-&amp;= {(1-x_f)}{ STD[R_W^e]}
+&amp;=\sqrt{Var[(1-y) \times R_W^e + R_f]} \\
+&amp;=\sqrt{Var[(1-y) \times R_W^e]} \\
+&amp;= \sqrt{(1-y)^2 Var[R_W^e]}\\  
+&amp;= {(1-y)}{ STD[R_W^e]}
 \end{align}
 \)</span></p>
-<p>LEts start by combining one asset, say the US market with the risk-free rate using different weights on the risk-free rate and this particular risk portfolio</p>
+<p>Lets start by combining one asset, say the US market with the risk-free rate using different weights on the risk-free rate and this particular risk portfolio</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wf</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">wf</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
 <span class="c1"># choosing some risk-free rate</span>
 
 <span class="n">rf</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">100</span><span class="o">/</span><span class="mi">12</span>
@@ -903,34 +894,34 @@ STD[r_p]&amp;=\sqrt{Var[r_p]}\\
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UsW</span><span class="o">=</span><span class="p">[]</span>
-<span class="k">for</span> <span class="n">xf</span> <span class="ow">in</span> <span class="n">wf</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">Y</span><span class="p">:</span>
 
         <span class="n">varW</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">var</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         
         <span class="c1"># variance of final portfolio since xf is the weight on the risk-free rate </span>
         <span class="c1"># so 1-xf is the weight on the risky asset</span>
-        <span class="n">var</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">xf</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">varW</span><span class="p">)</span>
+        <span class="n">var</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">varW</span><span class="p">)</span>
         <span class="c1">#expected excess return of risky portfolio</span>
         <span class="n">erW</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         
         <span class="c1"># expected return of finanl portfolio </span>
-        <span class="n">er</span><span class="o">=</span><span class="n">erW</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">xf</span><span class="p">)</span><span class="o">+</span><span class="n">rf</span>
-        <span class="n">UsW</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">xf</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">var</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,</span><span class="n">er</span><span class="p">])</span>
+        <span class="n">er</span><span class="o">=</span><span class="n">erW</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">+</span><span class="n">rf</span>
+        <span class="n">UsW</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">y</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">var</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,</span><span class="n">er</span><span class="p">])</span>
 <span class="n">UsW</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.0, 0, 0.044135871293866175, 0.005973673364245234],
- [0.1, 0, 0.03972228416447956, 0.005459639361154045],
- [0.2, 0, 0.03530869703509294, 0.004945605358062854],
- [0.30000000000000004, 0, 0.030895109905706316, 0.004431571354971664],
- [0.4, 0, 0.026481522776319703, 0.003917537351880474],
- [0.5, 0, 0.022067935646933087, 0.003403503348789284],
- [0.6000000000000001, 0, 0.017654348517546464, 0.0028894693456980934],
- [0.7000000000000001, 0, 0.013240761388159848, 0.0023754353426069033],
- [0.8, 0, 0.008827174258773232, 0.0018614013395157132],
- [0.9, 0, 0.004413587129386616, 0.0013473673364245234],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.0, 0, 0.04413587129386619, 0.005973673364245237],
+ [0.1, 0, 0.03972228416447957, 0.005459639361154046],
+ [0.2, 0, 0.035308697035092956, 0.004945605358062857],
+ [0.30000000000000004, 0, 0.03089510990570633, 0.004431571354971665],
+ [0.4, 0, 0.026481522776319714, 0.003917537351880475],
+ [0.5, 0, 0.022067935646933094, 0.003403503348789285],
+ [0.6000000000000001, 0, 0.01765434851754647, 0.0028894693456980943],
+ [0.7000000000000001, 0, 0.013240761388159853, 0.002375435342606904],
+ [0.8, 0, 0.008827174258773236, 0.0018614013395157137],
+ [0.9, 0, 0.004413587129386618, 0.0013473673364245236],
  [1.0, 0, 0.0, 0.0008333333333333334]]
 </pre></div>
 </div>
@@ -971,34 +962,31 @@ STD[r_p]&amp;=\sqrt{Var[r_p]}\\
 </div>
 </div>
 <p>You see clearly the relationship predicted by the formulas above</p>
-<p>The Investment frontier in ExpectedReturn-volatility space is linear because as you increase your laoding on the risky asset, both expected return and volatility grow proportionally</p>
-<p>In variance space you see that variance grows faster—since it it standard deviation to the power of 2. So as you increase the loading o the risky asset, variance grows intially slower, and the much faster, hence the kind of concave increase in average returns</p>
+<p>The Investment frontier in ExpectedReturn-volatility space is linear because as you increase your loading on the risky asset, both expected return and volatility grow proportionally</p>
+<p>In variance space you see that variance grows faster—since it it standard deviation to the power of 2.</p>
+<p>So as you increase the loading o the risky asset, variance grows intially slower, and the much faster, hence the kind of concave increase in average returns</p>
 <p>Now lets make this interesting</p>
 <p>We will now at the same time vary the relative weight on the risk-free asset and the risky portfolio and change the coposition of the risky portoflio by changing the relative weight on the us market vs international market</p>
 <p>We will accomplish this with the following double for loop</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">Y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+
 <span class="n">UsW</span><span class="o">=</span><span class="p">[]</span>
-<span class="k">for</span> <span class="n">xf</span> <span class="ow">in</span> <span class="n">wf</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">w</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">Y</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">:</span>
         <span class="c1">#construct risky portfolio</span>
         <span class="n">W</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">])</span>
         <span class="c1">#variance of risky portfolio</span>
         <span class="n">varW</span><span class="o">=</span><span class="n">W</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span> <span class="o">@</span> <span class="n">W</span>
         <span class="c1"># variance of final portfolio</span>
-        <span class="n">var</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">xf</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">varW</span><span class="p">)</span>
+        <span class="n">var</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">varW</span><span class="p">)</span>
         <span class="c1">#expected excess return of risky portfolio</span>
         <span class="n">erW</span><span class="o">=</span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
         <span class="c1"># expected return of finanl portfolio </span>
-        <span class="n">er</span><span class="o">=</span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">xf</span><span class="p">)</span><span class="o">+</span><span class="n">rf</span>
-        <span class="n">UsW</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">xf</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">,</span><span class="n">var</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,</span><span class="n">er</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.  0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1. ]
+        <span class="n">er</span><span class="o">=</span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">+</span><span class="n">rf</span>
+        <span class="n">UsW</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">y</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">,</span><span class="n">var</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,</span><span class="n">er</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1036,10 +1024,10 @@ STD[r_p]&amp;=\sqrt{Var[r_p]}\\
 <p>What do you see above?</p>
 <ul class="simple">
 <li><p>In orange the portfolios where the risky portfolio is exactly the US market, but has different weights on the risk-free asset</p></li>
-<li><p>In black you have the same thign, but now of the international market</p></li>
+<li><p>In black you portfolio comprised of the international market but with different weights on the risk-free asset</p></li>
 <li><p>In blue you the portfolios that have exaclty zero weight on the risk-free rate, but different compositions of the risky portfolio</p></li>
 <li><p>in green you have the portfolio that has weight of 1 on the risk-free rate</p></li>
-<li><p>In red you have all the other portfolios wich have varying risky portfolio compositions and varying weights combining this risky portfolio with the risk-free rate</p></li>
+<li><p>In red you have all the other portfolios which have varying risky portfolio compositions and varying weights combining this risky portfolio with the risk-free rate</p></li>
 </ul>
 <ul class="simple">
 <li><p>How to read this plot? Say you want a portoflio with at most 0.03 monthly volatility. What does this plot tell you?</p></li>
@@ -1068,29 +1056,32 @@ STD[r_p]&amp;=\sqrt{Var[r_p]}\\
 <li><p>What about investors that would like to take more risk, can they benefit of the risk-free asset?</p></li>
 <li><p>yes, if they can borrow at the risk-free rate</p></li>
 </ul>
-<p><strong>so what does borrowing means?</strong></p>
 <p>It means that you agree to pays some rate of return in exchange for getting a dollar today to invest.</p>
-<p>So you have a <strong>negative</strong> weight on the risk-free rate. Say if you have a weight of -0.5 on the risk-free rate it means that for each dollar that you have in your portfolio you are borrowing 0.5 and investing in the risky portolio 1.5 dollars</p>
-<p>We say that you are are <strong>leveraged</strong> becasue your assets side (1.5 dollars) worth more than your networth (1 dollar) because you are borrowing the 0.5 dollars.</p>
-<p>So lets see hat that looks like by considering negative weights on the riks-free asset  (xf&lt;0)</p>
+<p>So you have a <strong>negative</strong> weight on the risk-free rate.</p>
+<p>Say if you have a weight of -0.5 on the risk-free rate it means that for each dollar that you have in your portfolio you are borrowing 0.5 and investing in the risky portolio 1.5 dollars</p>
+<p>We say that you are are <strong>leveraged</strong> because your assets side (1.5 dollars) worth more than your networth (1 dollar) because you are borrowing the 0.5 dollars.</p>
+<p>So lets see hat that looks like by considering negative weights on the risk-free asset  (y&lt;0)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UsW</span><span class="o">=</span><span class="p">[]</span>
-<span class="n">w</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="n">wf</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">X</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">Y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">xf</span> <span class="ow">in</span> <span class="n">wf</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">w</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">Y</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">:</span>
         <span class="n">W</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">])</span>
-        <span class="n">UsW</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">xf</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">,(</span><span class="mi">1</span><span class="o">-</span><span class="n">xf</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span> <span class="o">@</span> <span class="n">W</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,(</span><span class="n">W</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">xf</span><span class="p">)</span><span class="o">+</span><span class="n">rf</span><span class="p">])</span>
+        <span class="n">UsW</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">y</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">,(</span><span class="mi">1</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span> <span class="o">@</span> <span class="n">W</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,(</span><span class="n">W</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">+</span><span class="n">rf</span><span class="p">])</span>
 
-<span class="n">w</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="n">wf</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">xf</span> <span class="ow">in</span> <span class="n">wf</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">w</span><span class="p">:</span>
+<span class="n">X</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">Y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">Y</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">:</span>
         <span class="n">W</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">])</span>
-        <span class="n">UsW</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">xf</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">,(</span><span class="mi">1</span><span class="o">-</span><span class="n">xf</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span> <span class="o">@</span> <span class="n">W</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,(</span><span class="n">W</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">xf</span><span class="p">)</span><span class="o">+</span><span class="n">rf</span><span class="p">])</span>
+        <span class="n">UsW</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">y</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">,(</span><span class="mi">1</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span> <span class="o">@</span> <span class="n">W</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,(</span><span class="n">W</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">+</span><span class="n">rf</span><span class="p">])</span>
+
         
         
 <span class="n">UsW</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">UsW</span><span class="p">)</span>

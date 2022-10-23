@@ -57,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="8. The Capital Allocation Line: Adding the Risk-free rate" href="CapitalAllocationLine.html" />
+    <link rel="next" title="8. The Capital Allocation Line" href="CapitalAllocationLine.html" />
     <link rel="prev" title="6.5. Dat APIs" href="UsingAPI.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -675,12 +675,63 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#portfolio-weights">
+   7.1.
+   <strong>
+    Portfolio weights
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#portfolio-returns">
+   7.2.
+   <strong>
+    Portfolio returns
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#portfolio-expected-returns">
+   7.3.
+   <strong>
+    Portfolio Expected returns
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#portfolio-variance">
+   7.4.
+   <strong>
+    Portfolio Variance
+   </strong>
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -692,6 +743,46 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#portfolio-weights">
+   7.1.
+   <strong>
+    Portfolio weights
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#portfolio-returns">
+   7.2.
+   <strong>
+    Portfolio returns
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#portfolio-expected-returns">
+   7.3.
+   <strong>
+    Portfolio Expected returns
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#portfolio-variance">
+   7.4.
+   <strong>
+    Portfolio Variance
+   </strong>
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -721,7 +812,8 @@ title="Print to PDF"
 <h1><span class="section-number">7. </span>Portfolios<a class="headerlink" href="#portfolios" title="Permalink to this headline">#</a></h1>
 <p>In this section we will learn how to do some basic math at portfolio level. You will know how to calculate return, expected return, and volatility given portfolio weights.</p>
 <p>A portfolio is described by a set of assets and a set of weights invested in each asset.</p>
-<p><strong>Portfolio weights</strong></p>
+<section id="portfolio-weights">
+<h2><span class="section-number">7.1. </span><strong>Portfolio weights</strong><a class="headerlink" href="#portfolio-weights" title="Permalink to this headline">#</a></h2>
 <ul>
 <li><p>The portfolio weight for stock <span class="math notranslate nohighlight">\(j\)</span> , denoted <span class="math notranslate nohighlight">\(w_j\)</span>, is the fraction of a portfolio value held in stock <span class="math notranslate nohighlight">\(j\)</span></p>
 <div class="math notranslate nohighlight">
@@ -743,7 +835,9 @@ title="Print to PDF"
 </ul>
 </li>
 </ul>
-<p><strong>Portfolio returns</strong></p>
+</section>
+<section id="portfolio-returns">
+<h2><span class="section-number">7.2. </span><strong>Portfolio returns</strong><a class="headerlink" href="#portfolio-returns" title="Permalink to this headline">#</a></h2>
 <div class="math notranslate nohighlight">
 \[ r_p=\sum_{j=1}^N w_jr_j=W'R\]</div>
 <ul class="simple">
@@ -971,12 +1065,14 @@ Length: 647, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007367453311403508
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007367453311403502
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>Portfolio Expected returns</strong></p>
+</section>
+<section id="portfolio-expected-returns">
+<h2><span class="section-number">7.3. </span><strong>Portfolio Expected returns</strong><a class="headerlink" href="#portfolio-expected-returns" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>The expected return of a portfolio is the portfolio weighted average of the expected returns of the individual assets.</p></li>
 </ul>
@@ -1011,7 +1107,7 @@ Length: 647, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007376761284897112
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007376761284897114
 </pre></div>
 </div>
 </div>
@@ -1024,7 +1120,7 @@ Length: 647, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007367453311403508
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007367453311403502
 </pre></div>
 </div>
 </div>
@@ -1037,12 +1133,14 @@ Length: 647, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007367453311403508
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007367453311403502
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>Portfolio Variance</strong></p>
+</section>
+<section id="portfolio-variance">
+<h2><span class="section-number">7.4. </span><strong>Portfolio Variance</strong><a class="headerlink" href="#portfolio-variance" title="Permalink to this headline">#</a></h2>
 <p>Empirically the easiest way to compute the variance of a portfolio is to simply take the variance of the portfolio.</p>
 <p>This returns to us the Realized variance of the portfolio in the sample</p>
 <div class="cell docutils container">
@@ -1052,7 +1150,7 @@ Length: 647, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0005461927564874862
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.000546192756487486
 </pre></div>
 </div>
 </div>
@@ -1066,7 +1164,7 @@ Length: 647, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0005461927564874862
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.000546192756487486
 </pre></div>
 </div>
 </div>
@@ -1098,6 +1196,9 @@ Length: 647, dtype: float64
 \[\sum_{j=1}^N \sum_{i=1}^N w_jw_iCov(r_j, r_i)=W' Cov(R) W\]</div>
 <ul class="simple">
 <li><p>where <span class="math notranslate nohighlight">\(Cov(R)\)</span> is the N by N variance covariance matrix of the assets and W is the vector of weights</p></li>
+</ul>
+<p><em>An aside</em></p>
+<ul class="simple">
 <li><p>Why is this?</p></li>
 </ul>
 <div class="math notranslate nohighlight">
@@ -1218,7 +1319,7 @@ Length: 647, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0005455164562658996
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0005455164562658994
 </pre></div>
 </div>
 </div>
@@ -1255,7 +1356,7 @@ Length: 647, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02335629371852263
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.023356293718522624
 </pre></div>
 </div>
 </div>
@@ -1268,7 +1369,7 @@ Length: 647, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.023370767135194474
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02337076713519447
 </pre></div>
 </div>
 </div>
@@ -1279,9 +1380,10 @@ Length: 647, dtype: float64
 <li><p>Compute the time-series the portfolio returns. This will give you one time-series whch you can simply compute the variance (“.var()” method</p></li>
 <li><p>You can estimate the covariance matrix across assets using .cov() method and apply the quadratic formula “W &#64; Data.cov() &#64; W”</p></li>
 </ol>
-<p>They are <strong>MATHEMATICALLY</strong> identical! option 2 is easier and more intuitive , but option 1 is important to understand portfolio maximization which we will do soon</p>
+<p>They are identical approaches and produce the same result.</p>
+<p>Option 2 is easier and more intuitive , but option 1 is important to understand portfolio maximization which we will do soon</p>
 <p><strong>A comment on sample moments vs populational moments</strong></p>
-<p>We care about the population variance, i.e. what is the true variance of these assets goign forward</p>
+<p>We care about the population variance, i.e. what is the true variance of these assets going forward</p>
 <p>We use the realized variance to the extent it help us estimate this.</p>
 <p>Just like with average returns and expected returns</p>
 <p>The key assumption, which tends to be ok over long time-peridos (say acorss years) is that the volatility is kind of stable, so we use the overall variance to gauge what the population is.</p>
@@ -1291,10 +1393,9 @@ Length: 647, dtype: float64
 <div class="math notranslate nohighlight">
 \[Var(R)=Var(E_t[R])+E(Var_t[R])\]</div>
 <p>So the overal variance of a series is the sum of the vairance of what people expected at a point in time and the average value of the variance of the asset at a given point in time</p>
-<p>For a risky asset, we think that there is very little variation in <span class="math notranslate nohighlight">\(E_t[R]\)</span> so the overall variance measures entirely the average risk of the asset</p>
-<p>For a risk-less asset, there is by defintion not conditional variance, so the second term is zero, so all the variantion of the asset is about variation in these expectations.</p>
-<p>This means that is <strong>weird</strong> to add the risk-free rate when you do variance calculations becasue you are attributing to risk, which was actually variation in what people expected to earn</p>
-<p>In practice the variation in the risk-free is very small to have much of an effect, but next chapter we will disucss how to deal with it properly.</p>
+<p>For a risky asset, we think that there is very little variation in <span class="math notranslate nohighlight">\(E_t[R]\)</span> so the overall variance is all risk.</p>
+<p>For a risk-less asset, there is zero risk, so the second term is zero, and all the variantion of the asset is about variation in these expectations.</p>
+<p>This means that is wrong to add the risk-free rate when you do variance calculations because you are attributing to risk, which is variation in what people expected to earn (and that is not risk)</p>
 <p><strong>Diversification</strong></p>
 <ul class="simple">
 <li><p>A key concept in investing is diversification</p></li>
@@ -1372,38 +1473,12 @@ Length: 647, dtype: float64
 <span class="n">w</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.05</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">w</span><span class="p">:</span>
     <span class="n">W</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">])</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
     <span class="c1"># save the weight on the world market as the first element of UsW</span>
     <span class="c1"># save the vol of the investor&#39;s portfolio as the second element of UsW</span>
     <span class="c1">#UsW.append([1-x,((W.T @ D.cov() @ W)**0.5)*12**0.5])</span>
     <span class="n">Rp</span><span class="o">=</span><span class="n">D</span><span class="o">@</span> <span class="n">W</span>
-    <span class="n">UsW</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">,</span><span class="n">Rp</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">*</span><span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span><span class="p">])</span>
+    <span class="n">UsW</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">,</span><span class="n">Rp</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">*</span><span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span><span class="p">])</span>
     
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0. 1.]
-[0.05 0.95]
-[0.1 0.9]
-[0.15 0.85]
-[0.2 0.8]
-[0.25 0.75]
-[0.3 0.7]
-[0.35 0.65]
-[0.4 0.6]
-[0.45 0.55]
-[0.5 0.5]
-[0.55 0.45]
-[0.6 0.4]
-[0.65 0.35]
-[0.7 0.3]
-[0.75 0.25]
-[0.8 0.2]
-[0.85 0.15]
-[0.9 0.1]
-[0.95 0.05]
-[1. 0.]
 </pre></div>
 </div>
 </div>
@@ -1411,15 +1486,19 @@ Length: 647, dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UsW</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">UsW</span><span class="p">)</span>
-<span class="c1"># The first column of UsW is the weights on the world market</span>
+<span class="c1"># The first column of UsW is the weights on the US market</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
-<span class="c1"># The second column of UsW is the vol of the portfolio</span>
+<span class="c1"># The second column of UsW is the weights on the World market</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1"># The third column of UsW is the vol of the portfolio</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.95 0.9  0.85 0.8  0.75 0.7  0.65 0.6  0.55 0.5  0.45 0.4  0.35
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.   0.05 0.1  0.15 0.2  0.25 0.3  0.35 0.4  0.45 0.5  0.55 0.6  0.65
+ 0.7  0.75 0.8  0.85 0.9  0.95 1.  ]
+[1.   0.95 0.9  0.85 0.8  0.75 0.7  0.65 0.6  0.55 0.5  0.45 0.4  0.35
  0.3  0.25 0.2  0.15 0.1  0.05 0.  ]
 [0.16154465 0.15824199 0.15517892 0.15236987 0.14982914 0.14757059
  0.14560735 0.1439515  0.14261376 0.14160313 0.14092665 0.14058915
@@ -1432,7 +1511,7 @@ Length: 647, dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a sacatter plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Weight on World&#39;</span><span class="p">)</span>
 <span class="c1">#plt.ylim([0.04,0.05])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1539,13 +1618,13 @@ dtype: float64
 </div>
 </div>
 <ul class="simple">
-<li><p>So it seems like that for some investors there is no diversification benefit?</p></li>
-<li><p>If you are a US investor and you are comfortable with the US market volatlity, why would you ever invest in an asset of lower expected return?</p></li>
 <li><p>For the world investors, clearly they can benefit of holding a bit of the US market-and this does not depend on the preferences for risk as they can get higher returns and lower volatility through diversification</p></li>
+<li><p>If you are a US investor and you are comfortable with the US market volatlity, why would you ever invest in an asset of lower expected return?</p></li>
 </ul>
 <blockquote>
 <div><p>Why might the US investor want to invest in the world market even if if has a lower expected return and higher variance?</p>
 </div></blockquote>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1585,7 +1664,7 @@ dtype: float64
     <a class='right-next' id="next-link" href="CapitalAllocationLine.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>The Capital Allocation Line: Adding the Risk-free rate</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>The Capital Allocation Line</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

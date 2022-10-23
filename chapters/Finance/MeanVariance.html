@@ -58,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="9.1. Case study on international portfolio diversification" href="CaseStudy.html" />
-    <link rel="prev" title="8. The Capital Allocation Line: Adding the Risk-free rate" href="CapitalAllocationLine.html" />
+    <link rel="prev" title="8. The Capital Allocation Line" href="CapitalAllocationLine.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -717,16 +717,17 @@ title="Print to PDF"
 <h1><span class="section-number">9. </span>The Mean-Variance Frontier<a class="headerlink" href="#the-mean-variance-frontier" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Below I reproduce the plot of constructed last chapter</p></li>
-<li><p>It shows the average <strong>EXCESS</strong> return and standard deviation for portfolios that vary the weight in the risk-free asset and also the weight between the US stock market and the international stock market</p></li>
+<li><p>It shows the average <strong>EXCESS</strong> return and standard deviation for portfolios with different weights in the risk-free asset, the US stock market, and the international stock market</p></li>
 </ul>
 <p><img alt="MVfrontier" src="../../_images/MV1.jpg" /></p>
 <ul class="simple">
-<li><p>Note the upper envelope that defines the “investment frontier”, i.e., what is achievable in terms of risk and returns</p></li>
-<li><p>If you are in this envelope, you know that in order to get less risk you will have to get less return</p></li>
-<li><p>There is no portfolio with a higher average return and the same volatility</p></li>
+<li><p>The upper envelope that defines the “investment frontier”, i.e., what is achievable in terms of risk and expected returns</p></li>
+<li><p>If you are in this envelope, you know that in order to get less risk you will have to reduce your expected return</p></li>
+<li><p>There is no portfolio with a higher expected return and the same volatility</p></li>
 <li><p>And no portfolio with the same expected return and lower volatility</p></li>
 <li><p>In volatility-expected return space all these “investment frontier” portfolio are in a straight line</p></li>
-<li><p>Meaning that they achieve exactly the same ratio or expected excess return per unit of volatility since a straight line has constant slope</p></li>
+<li><p>What dow this mean?</p></li>
+<li><p>These portfolios achieve exactly the same ratio of expected excess return per unit of volatility since a straight line has constant slope</p></li>
 <li><p>So all these portfolios have exactly the same Sharpe ratio (<span class="math notranslate nohighlight">\(\frac{E[r_p-R_f]}{std(r_p-R_f)}\)</span>)</p></li>
 <li><p>This is also the maximum SR among all possible portfolios of the basis assets</p>
 <ul>
@@ -739,71 +740,74 @@ title="Print to PDF"
 </div></blockquote>
 <p><strong>Mathematical derivation of the Mean-variance Frontier</strong></p>
 <ul class="simple">
-<li><p>These portfolios all can be thought as minimizing variance/volatility for a given desired expected return</p></li>
-<li><p>or maximizing expected returns for a given dislike of variance</p></li>
+<li><p>These portfolios all can be thought as minimizing variance for a given desired expected return</p></li>
+<li><p>or maximizing expected returns for a given aversion to variance</p></li>
 <li><p>Formally they are choosing their composition of their portfolio</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[r_p(W)=X'R+(1-\sum_i^I W_i)r_f\]</div>
+\[r_p(X)=X'R+(1-\sum_i^I x_i)r_f\]</div>
 <ul class="simple">
-<li><p>Which is a portfolio that invests in risky assets (vector of returns R) and the rest <span class="math notranslate nohighlight">\((1-\sum_i^I W_i)\)</span> at the risk-free rate.</p></li>
+<li><p>Which is a portfolio that invests in risky assets (vector of returns R) and the rest <span class="math notranslate nohighlight">\((1-\sum_i^I x_i)\)</span> at the risk-free rate.</p></li>
 <li><p>note that I use big R here to emphasize that this is a vector of asset returns, like (<span class="math notranslate nohighlight">\([r^{AAPL},r^{TSLA},..]\)</span>), and little <span class="math notranslate nohighlight">\(r_f\)</span> to emphasize this is just a scalar (like 1%)</p></li>
-<li><p>Note that <span class="math notranslate nohighlight">\((1-\sum_i^I W_i)&lt;0\)</span>. what is the interpretation of this number being negative? What is the interpretation of being positive?</p></li>
-<li><p>So given weights W, asset returns R and rf, the portfolio returns <span class="math notranslate nohighlight">\(r_p(W)\)</span></p></li>
+<li><p>Note that <span class="math notranslate nohighlight">\((1-\sum_i^I x_i)&lt;0\)</span>. what is the interpretation of this number being negative? What is the interpretation of being positive?</p></li>
+<li><p>So given weights X, asset returns R and rf, the portfolio returns <span class="math notranslate nohighlight">\(r_p(X)\)</span></p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
-maximize_{W} E[r_p(W)]- \frac{\gamma}{2} Var(r_p(W))\\
+maximize_{X} E[r_p(X)]- \frac{\gamma}{2} Var(r_p(X))\\
 \end{aligned}
 \end{split}\]</div>
 <p><strong>Excess return representation</strong></p>
 <p>It is much easier to do the math and see what is going on if we separate the excess returns and the return piece so we represent our portfolio as</p>
 <div class="math notranslate nohighlight">
-\[r_p(W)=W'R+(1-\sum_i^I W_i)r_f=W'R+r_f-(\sum_i^I W_i)r_f=W'(R-r_f)+r_f\]</div>
+\[r_p(X)=X'R+(1-\sum_i^I x_i)r_f=X'R+r_f-(\sum_i^I x_i)r_f=X'(R-r_f)+r_f\]</div>
 <div class="math notranslate nohighlight">
-\[r_p(W)=W'R^e+r_f\]</div>
+\[r_p(X)=X'R^e+r_f\]</div>
 <ul class="simple">
 <li><p>where <span class="math notranslate nohighlight">\(R^e\)</span>  is the vector of excess returns</p></li>
 <li><p>It is KEY to note that all the risky assets are now zero cost portfolios</p></li>
-<li><p>so each risky asset is really a portfolio that is long the risky asset and short the risk-free rate</p></li>
-<li><p>this means that no matter the sum of the weights in W, the cost of this risky portfolio is zero</p></li>
-<li><p>so the way this works is that you get your dollar and invest in the risk-free rate and now decide “two things”</p>
+<li><p>So each risky asset is really a portfolio that is long the risky asset and short the risk-free rate</p></li>
+<li><p>This means that no matter the sum of the weights in X, the cost of this risky portfolio is zero</p></li>
+<li><p>How this this works?</p></li>
+<li><p>Say you have 1m dollar to invest</p>
 <ul>
-<li><p>What your risky portfolio should look like by choosing <span class="math notranslate nohighlight">\(W/\sum w_i\)</span></p></li>
-<li><p>How much of this dollar to allocate to the risk asset , by choosing <span class="math notranslate nohighlight">\(\sum w_i\)</span> the total fraction invested in the risky assets</p></li>
-<li><p>If  <span class="math notranslate nohighlight">\(\sum w_i&gt;1\)</span> then you are leveraging, i.e. borrowing money to invest more than you have in the risky assets, so you are shorting the risk-free asset</p></li>
-<li><p>It <span class="math notranslate nohighlight">\(\sum w_i&lt;1\)</span> then you are leaving some money invested in the risk-free rate, so you are buying the risk free asset</p></li>
+<li><p>We represent your portfolio as:</p></li>
+<li><p>The compositions/relative weights  <span class="math notranslate nohighlight">\(X/\sum x_i\)</span> of your risky portfolio</p></li>
+<li><p>How much of this dollar to allocate to you risky portfolio by choosing <span class="math notranslate nohighlight">\(\sum x_i\)</span> the total fraction of your wealth invested in risky assets</p></li>
 </ul>
 </li>
+<li><p>If  <span class="math notranslate nohighlight">\(\sum x_i&gt;1\)</span> then you are leveraging since you are investing more that 100% of your wealth in the risky assets, i.e. borrowing money to invest more than you have in the risky assets.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\sum x_i&lt;1\)</span> then you are invest a fraction less than 1 in the risky portfolio, thus you are leaving some money invested in the risk-free asset</p></li>
 </ul>
+<p>You can think borrowing as shorting. They are different words for the same thing when used in the context of risk-free assets</p>
 <p><strong>Solution</strong></p>
 <ul class="simple">
-<li><p>First write our objective function using the linear algebra we learned</p></li>
+<li><p>First write our objective function in vector notation</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[E[r_p(W)]- \frac{\gamma}{2} Var(r_p(W))=E[r_f+W'R^e]- \frac{\gamma}{2} Var(r_f+W'R^e)\]</div>
+\[E[r_p(X)]- \frac{\gamma}{2} Var(r_p(X))=E[r_f+X'R^e]- \frac{\gamma}{2} Var(r_f+X'R^e)\]</div>
 <div class="math notranslate nohighlight">
-\[E[r_p(W)]- \frac{\gamma}{2} Var(r_p(W))=r_f+W'E[R^e]- \frac{\gamma}{2} W'Var(R^e)W\]</div>
+\[E[r_p(X)]- \frac{\gamma}{2} Var(r_p(X))=r_f+X'E[R^e]- \frac{\gamma}{2} X'Var(R^e)W\]</div>
 <ul class="simple">
-<li><p>All you need is to take the derivative of the expression with respect to the risky portfolio weights <span class="math notranslate nohighlight">\(W\)</span> :</p></li>
+<li><p>All you need is to take the derivative of the expression with respect to the risky portfolio weights <span class="math notranslate nohighlight">\(X\)</span> :</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[E[R^e]- 2\gamma/2 Var(R^e)W\]</div>
+\[E[R^e]- 2\gamma/2 Var(R^e)X\]</div>
 <ul class="simple">
 <li><p>and impose the “first order condition”:
 $<span class="math notranslate nohighlight">\(
 \begin{aligned}
-E[R^e]- \gamma Var(R^e)W^*=0
+E[R^e]- \gamma Var(R^e)X^*=0
 \end{aligned}
 \)</span>$</p></li>
-<li><p>which simply means that if <span class="math notranslate nohighlight">\(W^*\)</span> is really the weight that maximizes the expression, if you move it a little bit in any direction, the value of the expression shouldn’t move much</p></li>
-<li><p>In fact, for a tiny move in either direction, the benefit should be zero either way</p></li>
-<li><p>Here is the intuition:</p>
-<ul>
-<li><p>Lets consider that we want to find the x that maximizes: <span class="math notranslate nohighlight">\(4x-x^2\)</span></p></li>
+<li><p>which simply means that if <span class="math notranslate nohighlight">\(X^*\)</span> is really the weight that maximizes the expression, if you move it a little bit in any direction, the value of the expression shouldn’t move much</p></li>
 </ul>
-</li>
+<p><em>An aside</em></p>
+<ul class="simple">
+<li><p>What is the intution for this condition?</p></li>
+<li><p>It says that for a tiny move in either direction, the benefit should be zero either way</p></li>
+<li><p>Lets consider that we want to find the x that maximizes: <span class="math notranslate nohighlight">\(4x-x^2\)</span></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -821,15 +825,14 @@ E[R^e]- \gamma Var(R^e)W^*=0
 </div>
 <ul class="simple">
 <li><p>This is maximized at 2</p></li>
-<li><p>The FOC for this case is simply</p></li>
+<li><p>The FOC for this case is simply the derivatinve of <span class="math notranslate nohighlight">\(4x-x^2\)</span> which is</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[4-2x^*=0\]</div>
 <ul class="simple">
 <li><p>Which means <span class="math notranslate nohighlight">\(x^*=2\)</span></p></li>
-<li><p>You see in the plot that pertubating x a little bit has not effect on the value</p></li>
-<li><p>close to the optimal, the expression is flat.</p></li>
-<li><p>This is a general result</p></li>
+<li><p>You see in the plot that pertubating x a little bit has no effect on the value</p></li>
+<li><p>close to the peak, the expression is flat.</p></li>
 </ul>
 <p><strong>The Tangecy  portfolio</strong></p>
 <ul class="simple">
@@ -837,22 +840,21 @@ E[R^e]- \gamma Var(R^e)W^*=0
 </ul>
 <p><span class="math notranslate nohighlight">\(
 \begin{align}
-\gamma Var(R^e)W^* &amp;=E[R^e]\\
-(\gamma Var(R^e))^{-1}\gamma Var(R^e)W^* &amp;=(\gamma Var(R^e))^{-1}E[R^e]\\
-W^* &amp;=(\gamma Var(R^e))^{-1}E[R^e]\\
-W^* &amp;=\frac{1}{\gamma} Var(R^e)^{-1}E[R^e]
+\gamma Var(R^e)X^* &amp;=E[R^e]\\
+(\gamma Var(R^e))^{-1}\gamma Var(R^e)X^* &amp;=(\gamma Var(R^e))^{-1}E[R^e]\\
+X^* &amp;=(\gamma Var(R^e))^{-1}E[R^e]\\
+X^* &amp;=\frac{1}{\gamma} Var(R^e)^{-1}E[R^e]
 \end{align}\)</span></p>
 <ul class="simple">
 <li><p>We simply multiplied both the RHS and the LHS by the inverse of the matrix <span class="math notranslate nohighlight">\(\gamma Var(R^e)\)</span> that was multiplying the weight</p></li>
-<li><p>This is equivalent to solving 5x=4, by dividing though by 5 to get x=4/5</p></li>
+<li><p>This is equivalent to solving 5x=4, by dividing though by 5 to get x=4/5, but in matrix form</p></li>
 </ul>
 <p><em>Questions</em></p>
 <ul class="simple">
 <li><p>How does your distaste for risk <span class="math notranslate nohighlight">\(\gamma\)</span> impact your portfolio composition?</p></li>
 <li><p>Does it impact the relative weights in the risky assets?</p></li>
-<li><p>Note that <span class="math notranslate nohighlight">\(W^*\)</span> is the optimal position in risky assets and therefore has the same dimension as the number of assets you are considering.</p></li>
-<li><p>In our simple case 2 assets</p></li>
 </ul>
+<p>Note that <span class="math notranslate nohighlight">\(X^*\)</span> is the optimal position in risky assets and therefore has the same dimension as the number of assets you are considering.</p>
 <hr class="docutils" />
 <p><em>Aside: Three different problems with exactly the same solution</em></p>
 <p>We solved this problem</p>
@@ -862,14 +864,14 @@ W^* &amp;=\frac{1}{\gamma} Var(R^e)^{-1}E[R^e]
 maximize_{(X)} E[X'R^e]- \gamma/2 Var(X'R^e)\\
 \end{aligned}
 \end{split}\]</div>
-<p>This problem has the same solution as minimizing the variance subject to hitting a desired expected return target</p>
+<p>This problem has the same solution as minimizing the variance subject to hitting a desired minimum expected return target</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
 minimize_{(X)} Var(X'R^e) \text{    subject to } E[X'R^e]\geq\mu^{Desired}\\
 \end{aligned}
 \end{split}\]</div>
-<p>or maximizing the expected  return subject to hitting a desired volatility  target</p>
+<p>or maximizing the expected  return subject to hitting a maximum desired volatility  target</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -881,11 +883,12 @@ maximize_{(X)} E(X'R^e) \text{   subject to } Var(X'R^e)\leq Var^{Desired}\\
 <p><em>Aside: Matrix inversion</em></p>
 <ul class="simple">
 <li><p>You only need to understand how to operationaize it and in an conceptual level what it does</p></li>
-<li><p>But you don’t need to really get the tiny details here.</p></li>
-<li><p>If you are itnerested. Please see this below.</p></li>
-<li><p>If you need even more please see section 5.3</p></li>
-<li><p>Note that <span class="math notranslate nohighlight">\((2)^{-1}=1/2=0.5\)</span> (naturally!), <span class="math notranslate nohighlight">\((Var(R^e))^{-1}\)</span> is kind of like this,</p></li>
-<li><p>but more complicated because <span class="math notranslate nohighlight">\(Var(R^e)\)</span> is a N by N matrix and we can’t simply divide over</p></li>
+<li><p>But you don’t need to follow all the mathematical details</p></li>
+<li><p>If you are interested. you can look in our linear algebra review in <a class="reference external" href="https://amoreira2.github.io/quantitativeinvesting/chapters/scientific/linear_algebra1.html">https://amoreira2.github.io/quantitativeinvesting/chapters/scientific/linear_algebra1.html</a></p></li>
+<li><p>I also provide a summary below</p></li>
+<li><p>Note that <span class="math notranslate nohighlight">\((2)^{-1}=1/2=0.5\)</span> (naturally!)</p></li>
+<li><p><span class="math notranslate nohighlight">\((Var(R^e))^{-1}\)</span> is just like this</p></li>
+<li><p>but more complicated because <span class="math notranslate nohighlight">\(Var(R^e)\)</span> is a N by N matrix and we can’t simply divide over to solve for X</p></li>
 <li><p>The definition of the inverse function is <span class="math notranslate nohighlight">\(f(x)=x^{-1}=y\)</span> where <span class="math notranslate nohighlight">\(y*x=1\)</span></p></li>
 <li><p>for matrices it is the same: <span class="math notranslate nohighlight">\((Var(R^e))^{-1}Var(R^e)=I\)</span>, but now instead of 1, we have an identity matrix, which is a matrix with 1’s in the diagonal and zero everywhere else</p></li>
 <li><p>For example, lets say we want to inverse a 2 by 2 matrix:</p></li>
@@ -909,6 +912,7 @@ $<span class="math notranslate nohighlight">\(
 <li><p>which in this case has an easy solution [a,b,c,d]=[1/3,-7/27,0,1/9]</p></li>
 <li><p>But we should be thankful for being born after the 70’s, when people had to do these inversions by hand–for very large matrices</p></li>
 <li><p>Now we can simply us the linear algebra library build in numpy  we discussed in Notebook 1 and invert the matrix</p></li>
+<li><p>so we don’t really to know this, but rather simpky understand conceptually what it means</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -960,7 +964,7 @@ $<span class="math notranslate nohighlight">\(
 <p>First lets construct our vector of excess returns for our risky two assets US equity market and International equity market</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Re</span><span class="o">=</span><span class="p">(</span><span class="n">Data</span><span class="p">[[</span><span class="s1">&#39;RF&#39;</span><span class="p">,</span><span class="s1">&#39;MKT&#39;</span><span class="p">,</span><span class="s1">&#39;WorldxUSA&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">Data</span><span class="p">[</span><span class="s1">&#39;RF&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;RF&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Re</span><span class="o">=</span><span class="p">(</span><span class="n">Data</span><span class="p">[[</span><span class="s1">&#39;MKT&#39;</span><span class="p">,</span><span class="s1">&#39;WorldxUSA&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">Data</span><span class="p">[</span><span class="s1">&#39;RF&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
 <span class="n">Re</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1142,41 +1146,11 @@ dtype: float64
 </div>
 </div>
 </div>
-<p><strong>But what is your risk-aversion?</strong></p>
-<p>That is a hard question to answer!</p>
-<p>A more productive way to think about this choice is in terms of the level of volatility that you are comfortable with.</p>
-<p>You can basically choose a gamma that implements your desired volatility</p>
-<p>using that <span class="math notranslate nohighlight">\(W^*=\frac{1}{\gamma}E[R^e]'Var(R^e)^{-1}\)</span> we get</p>
-<div class="math notranslate nohighlight">
-\[Var((W^*)'R^e)=Var(\frac{1}{\gamma}E[R^e]'Var(R^e)^{-1}R^e)\]</div>
-<p>We first pull the <span class="math notranslate nohighlight">\(1/\gamma\)</span> out. Recall that <span class="math notranslate nohighlight">\(Var(nx)=n^2Var(x)\)</span></p>
-<div class="math notranslate nohighlight">
-\[Var((W^*)'R^e)=\frac{1}{\gamma^2}Var(E[R^e]'Var(R^e)^{-1}R^e)\]</div>
-<p>We now simply pull the vector <span class="math notranslate nohighlight">\(E[R^e]'Var(R^e)^{-1}\)</span> out which because it is a vector the math is a bit <a class="reference external" href="http://different.In">different.In</a> this case if the random variable X is a vector being multiplied by another vector W, then <span class="math notranslate nohighlight">\(Var(WX)=WVar(X)W^T\)</span>. Apply this here we get</p>
-<div class="math notranslate nohighlight">
-\[Var((W^*)'R^e)=\frac{1}{\gamma^2}E[R^e]'Var(R^e)^{-1}Var(R^e)Var(R^e)^{-1}E[R^e]\]</div>
-<p>Using that <span class="math notranslate nohighlight">\(Var(R^e)^{-1}Var(R^e)=I\)</span>, i.e. the identity matrix, we get</p>
-<p><span class="math notranslate nohighlight">\(Var((W^*)'R^e)=\frac{1}{\gamma^2}E[R^e]'Var(R^e)^{-1}E[R^e]\)</span></p>
-<p>We can now solve for the desired level, say you want you portfolio to be mean-variance efficient and have volatility (meaning standard deviation) equal to a target <span class="math notranslate nohighlight">\(\sigma^{D}\)</span>, D for desired.</p>
-<p><span class="math notranslate nohighlight">\(\sigma^D=\sqrt{Var((W^*)'R^e)}=\frac{1}{\gamma}\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}\)</span></p>
-<p>where above we took the square root to go from variance to standard deviation. We can now solve for <span class="math notranslate nohighlight">\(\gamma\)</span></p>
-<div class="math notranslate nohighlight">
-\[\gamma(\sigma^D)=\frac{\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}}{\sigma^D}\]</div>
-<p>Thus the optimal weights are</p>
-<div class="math notranslate nohighlight">
-\[W^*(\sigma^D)'=\frac{\sigma^D}{\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}}E[R^e]'Var(R^e)^{-1}\]</div>
-<p>the intuition here is simple. <span class="math notranslate nohighlight">\(\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}\)</span> is the volatility of the optimal portfolio with risk-aversion 1 ,i.e. the portfolio <span class="math notranslate nohighlight">\(W^*=E[R^e]'Var(R^e)^{-1}\)</span>. You simply scale up the weights up and down to hit your desired volatility level</p>
-<p>The important point is that <span class="math notranslate nohighlight">\(\frac{\sigma^D}{\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}}\)</span> is a scalar, so you are increasing/decreasing exposure in the risky asset proportionally.</p>
-<p>Your position in the risk-free asset can be simply solved for</p>
-<div class="math notranslate nohighlight">
-\[1-1'W^*(\sigma^D)=1- \frac{\sigma^D}{\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}}1'Var(R^e)^{-1}E[R^e]\]</div>
-<p>So the more volatility you want, the less you invest in the risk-free asset and the more you invest in the risky assets.</p>
 <p><strong>Two-fund separation</strong></p>
 <ul class="simple">
-<li><p>This above is a classic result in finance.</p></li>
 <li><p>It tells us that the decision of which assets to invest is completely independent of your risk-aversion</p></li>
 <li><p>Your risky portfolio is always the same, and you risk-aversion simply determines how much of it you will have, versus the risk-free rate</p></li>
-<li><p>Please take a moment to appreciate this because understanding this result</p></li>
+<li><p>Please take a moment to appreciate this</p></li>
 <li><p>Why that happens?</p></li>
 </ul>
 <p>Because any portfolio that is proportional to <span class="math notranslate nohighlight">\(Var(R^e)^{-1}E[R^e]\)</span> achieve the highest feasible Sharpe Ratio</p>
@@ -1185,31 +1159,31 @@ dtype: float64
 </ul>
 <p>Recall what a SR is : <span class="math notranslate nohighlight">\(E[r-r_f]/\sigma(r-r_f)\)</span>. Since this portfolio solves the problem of maximizing expected return for a given level of volatility, it also is the portfolio with maximum Sharpe Ratio</p>
 <p>Note further that any linear combination of this portfolio with the risk-free rate will achieve exactly the same sharpe ratio.</p>
-<p>Let <span class="math notranslate nohighlight">\(r_p=r_f+wr^*\)</span> then <span class="math notranslate nohighlight">\(E[r_p-r_f]/\sigma(r_p-r_f)=E[wr^*]/\sigma(wr^*)=E[r^*]/\sigma(r^*)\)</span></p>
-<p>Which happens because the risk-free rate has zero volatility.</p>
+<p>Let <span class="math notranslate nohighlight">\(r_p=r_f+wr^*\)</span> then <span class="math notranslate nohighlight">\(E[r_p-r_f]/\sigma(r_p)=E[wr^*]/\sigma(wr^*+r_f)=E[r^*]/\sigma(r^*)\)</span></p>
 <p><strong>Properties of the Tangency Portfolio</strong></p>
 <p>Any portfolio that is proportional to  <span class="math notranslate nohighlight">\(Var(R^e)^{-1}E[R^e]\)</span> is in the <strong>Tangency</strong> of the mean-variance frontier</p>
-<p>I will refer to <span class="math notranslate nohighlight">\(W_T=Var(R^e)^{-1}E[R^e]\)</span> as the tangency portfolio, but formally any other portfolio that is of the form <span class="math notranslate nohighlight">\(x W_T\)</span> where x is a scalar is also tangency.</p>
+<p>I will refer to <span class="math notranslate nohighlight">\(X_T=Var(R^e)^{-1}E[R^e]\)</span> as the tangency portfolio, but formally any other portfolio that is of the form <span class="math notranslate nohighlight">\(y X_T\)</span> where y is a scalar is also tangency.</p>
 <ol class="simple">
 <li><p>What is the expected excess return of the tangency portfolio?</p></li>
 </ol>
 <div class="math notranslate nohighlight">
-\[E[W_T'R^e]=E[E[R^e]'Var(R^e)^{-1}R^e]=E[R^e]'Var(R^e)^{-1}E[R^e]\]</div>
+\[E[yX_T'R^e]=E[E[R^e]'Var(R^e)^{-1}R^e]=yE[R^e]'Var(R^e)^{-1}E[R^e]\]</div>
 <ol class="simple">
 <li><p>What is the volatility of the tangency portfolio?</p></li>
 </ol>
 <div class="math notranslate nohighlight">
-\[Var[W_T'R^e]=Var(E[R^e]'Var(R^e)^{-1}R^e)=E[R^e]'Var(R^e)^{-1}Var(R^e)Var(R^e)^{-1}E[R^e]\]</div>
+\[Var[yX_T'R^e]=y^2Var(E[R^e]'Var(R^e)^{-1}R^e)=y^2E[R^e]'Var(R^e)^{-1}Var(R^e)Var(R^e)^{-1}E[R^e]\]</div>
 <div class="math notranslate nohighlight">
-\[Var[W_T'R^e]=E[R^e]'Var(R^e)^{-1}E[R^e]\]</div>
+\[Var[yX_T'R^e]=y^2E[R^e]'Var(R^e)^{-1}E[R^e]\]</div>
 <div class="math notranslate nohighlight">
-\[STD[W_T'R^e]=\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}\]</div>
+\[STD[yX_T'R^e]=y\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}\]</div>
 <ol class="simple">
 <li><p>What is the Sharpe Ratio of the Tangency portfolio?</p></li>
 </ol>
 <div class="math notranslate nohighlight">
-\[\frac{E[W_T'R^e]}{STD[W_T'R^e]}=\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}\]</div>
-<p>As we saw before, the Sharpe Ratio is invariant to the precise location that you choose in the investment frontier. Of course volatility and Expected excess return will vary, but any leverage effect will exactly cancel out when you look at the Sharpe Ratio</p>
+\[\frac{E[yW_T'R^e]}{STD[yW_T'R^e+r_f]}=\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}\]</div>
+<p>As we saw before, the Sharpe Ratio is invariant to the precise location that you choose in the investment frontier.</p>
+<p>Volatility and Expected excess return will vary, but any leverage effect will exactly cancel out when you look at the Sharpe Ratio</p>
 <p>So Sharpe Ratio is nice because it is invariant to leverage</p>
 <p><strong>Portfolio advice summary (so far!)</strong></p>
 <ul class="simple">
@@ -1259,7 +1233,7 @@ dtype: float64
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">8. </span>The Capital Allocation Line: Adding the Risk-free rate</p>
+            <p class="prev-next-title"><span class="section-number">8. </span>The Capital Allocation Line</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="CaseStudy.html" title="next page">
