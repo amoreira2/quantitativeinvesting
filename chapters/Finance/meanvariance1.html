@@ -6,55 +6,57 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Data Types &#8212; Quantitative Investing</title>
+    <title>9. Mean Variance Frontier &#8212; Quantitative Investing</title>
     
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
-    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/book.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/book.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://amoreira2.github.io/quantitativeinvesting/chapters/03/4/Data_Types.html" />
-    <link rel="shortcut icon" href="../../../_static/figuremain2.jpg"/>
-    <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" />
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://amoreira2.github.io/quantitativeinvesting/chapters/Finance/meanvariance1.html" />
+    <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="9.1. The Mean-Variance Frontier" href="MeanVariance.html" />
+    <link rel="prev" title="8. The Capital Allocation Line" href="CapitalAllocationLine.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -89,26 +91,26 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="bd-sidebar noprint" id="site-navigation">
     <div class="bd-sidebar__content">
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../../index.html">
+    <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
       
       
-      <img src="../../../_static/figuremain2.jpg" class="logo" alt="logo">
+      <img src="../../_static/figuremain2.jpg" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Quantitative Investing</h1>
       
     </a>
-</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../01/what-is-quant-investing.html">
+  <a class="reference internal" href="../01/what-is-quant-investing.html">
    1. What is Quantitative Investing?
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
@@ -118,19 +120,19 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../01/statistical-techniques.html">
+    <a class="reference internal" href="../01/statistical-techniques.html">
      1.1. Statistical Techniques
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../01/computational-tools.html">
+    <a class="reference internal" href="../01/computational-tools.html">
      1.2. Computational tools
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../02/getting_started.html">
+  <a class="reference internal" href="../02/getting_started.html">
    2. Getting Started
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
@@ -140,24 +142,24 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../02/local_install.html">
+    <a class="reference internal" href="../02/local_install.html">
      2.3. Local installation
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../02/cloud_setup.html">
+    <a class="reference internal" href="../02/cloud_setup.html">
      2.4. Cloud Setup
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../programming-in-python.html">
+  <a class="reference internal" href="../03/programming-in-python.html">
    3. First Steps with Python
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../essentials/essentials.html">
+  <a class="reference internal" href="../essentials/essentials.html">
    4. Python Essentials
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
@@ -167,39 +169,39 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../essentials/basics.html">
+    <a class="reference internal" href="../essentials/basics.html">
      4.1. Basics
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../essentials/collections.html">
+    <a class="reference internal" href="../essentials/collections.html">
      4.2. Collections
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../essentials/control_flow.html">
+    <a class="reference internal" href="../essentials/control_flow.html">
      4.3. Flow control
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../essentials/functions.html">
+    <a class="reference internal" href="../essentials/functions.html">
      4.4. Functions
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../essentials/numpy1.html">
+    <a class="reference internal" href="../essentials/numpy1.html">
      4.5. Numpy
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../essentials/plotting1.html">
+    <a class="reference internal" href="../essentials/plotting1.html">
      4.6. Plotting
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../pandas/workingwithdata.html">
+  <a class="reference internal" href="../pandas/workingwithdata.html">
    5. Working with Data
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
@@ -209,59 +211,59 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../pandas/intro.html">
+    <a class="reference internal" href="../pandas/intro.html">
      5.1. Introduction
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../pandas/basics.html">
+    <a class="reference internal" href="../pandas/basics.html">
      5.2. Pandas Basics
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../pandas/the_index.html">
+    <a class="reference internal" href="../pandas/the_index.html">
      5.3. Indexing
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../pandas/timeseries.html">
+    <a class="reference internal" href="../pandas/timeseries.html">
      5.4. Time-Series
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../pandas/data_clean.html">
+    <a class="reference internal" href="../pandas/data_clean.html">
      5.5. Cleaning data (opt)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../pandas/reshape.html">
+    <a class="reference internal" href="../pandas/reshape.html">
      5.6. Reshape (opt)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../pandas/merge.html">
+    <a class="reference internal" href="../pandas/merge.html">
      5.7. Merge (opt)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../pandas/groupby.html">
+    <a class="reference internal" href="../pandas/groupby.html">
      5.8. Group-by (opt)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../pandas/matplotlib.html">
+    <a class="reference internal" href="../pandas/matplotlib.html">
      5.9. Plotting (opt)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../pandas/storage_formats.html">
+    <a class="reference internal" href="../pandas/storage_formats.html">
      5.10. Data Storage (opt)
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../Finance/Returns.html">
+  <a class="reference internal" href="Returns.html">
    6. Asset Returns
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
@@ -271,86 +273,86 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../Finance/Returns1.html">
+    <a class="reference internal" href="Returns1.html">
      6.1. Returns
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../scientific/randomness1.html">
+    <a class="reference internal" href="../scientific/randomness1.html">
      6.2. Modeling randomness
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../Finance/TheChoiceofFrequency.html">
+    <a class="reference internal" href="TheChoiceofFrequency.html">
      6.3. The Choice of Frequency and Annualization of Returns
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../scientific/linear_algebra1.html">
+    <a class="reference internal" href="../scientific/linear_algebra1.html">
      6.4. Linear algebra Review
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../Finance/UsingAPI.html">
+    <a class="reference internal" href="UsingAPI.html">
      6.5. Data APIs
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../Finance/PortfolioMath.html">
+  <a class="reference internal" href="PortfolioMath.html">
    7. Portfolio Math
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../Finance/CapitalAllocationLine.html">
+  <a class="reference internal" href="CapitalAllocationLine.html">
    8. Capital Allocation
   </a>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../Finance/meanvariance1.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
    9. Mean Variance Frontier
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../Finance/MeanVariance.html">
+    <a class="reference internal" href="MeanVariance.html">
      9.1. Mean Variance Efficient Portfolios
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../Finance/CaseStudy.html">
+    <a class="reference internal" href="CaseStudy.html">
      9.2. Case Study in International Diversification
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../Finance/LeverageandShorting.html">
+    <a class="reference internal" href="LeverageandShorting.html">
      9.3. Leverage and Shorting
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../Finance/Portfoliooptimizationwithconstraints.html">
+    <a class="reference internal" href="Portfoliooptimizationwithconstraints.html">
      9.4. Portfolio Optimization with constraints
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../Finance/EstimationUncertainty.html">
+  <a class="reference internal" href="EstimationUncertainty.html">
    10. Estimation Uncertainty and It's Implications for investing
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../Finance/TradingStrategies.html">
+  <a class="reference internal" href="TradingStrategies.html">
    11. Trading Strategies
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../Finance/Timing.html">
+  <a class="reference internal" href="Timing.html">
    12. Timing Strategies
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
@@ -360,14 +362,14 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../Finance/Volatilitytiming.html">
+    <a class="reference internal" href="Volatilitytiming.html">
      12.1. Volatility Timing
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../Finance/crosssectionalequitystrategies.html">
+  <a class="reference internal" href="crosssectionalequitystrategies.html">
    13. Cross-Sectional Equity Strategies
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
@@ -377,24 +379,24 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../Finance/Valueinvesting.html">
+    <a class="reference internal" href="Valueinvesting.html">
      13.1. Value
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../Finance/Momentum.html">
+    <a class="reference internal" href="Momentum.html">
      13.2. Momentum
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../Finance/OtherEquityStrategies.html">
+    <a class="reference internal" href="OtherEquityStrategies.html">
      13.3. Other Equity strategies
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../Finance/Evaluation.html">
+  <a class="reference internal" href="Evaluation.html">
    14. Evaluating a Trading Strategy
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
@@ -404,29 +406,29 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../Finance/Econometrics.html">
+    <a class="reference internal" href="Econometrics.html">
      14.1. The Econometrics of Strategy Evalaution
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../Finance/outofsample.html">
+    <a class="reference internal" href="outofsample.html">
      14.2. Out of Sample Analysis
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../Finance/TailandBackground.html">
+    <a class="reference internal" href="TailandBackground.html">
      14.3. Tail Risks and Background Risks
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../Finance/MultiFactorModels.html">
+    <a class="reference internal" href="MultiFactorModels.html">
      14.4. Multifactor Models
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../Finance/Topics.html">
+  <a class="reference internal" href="Topics.html">
    15. Topics in Quantitative Investing
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
@@ -436,29 +438,29 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../Finance/Equilbrium.html">
+    <a class="reference internal" href="Equilbrium.html">
      15.1. Intepreting Factor models
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../Finance/Implementation.html">
+    <a class="reference internal" href="Implementation.html">
      15.2. Strategy Implementation
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../Finance/Horizon.html">
+    <a class="reference internal" href="Horizon.html">
      15.3. Investment horizon effects
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../additional/additional.html">
+  <a class="reference internal" href="../additional/additional.html">
    16. Additional Statistics Material
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../Assignments/Assignments.html">
+  <a class="reference internal" href="../Assignments/Assignments.html">
    17. Assignments
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
@@ -468,7 +470,7 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../Assignments/Assignment0.html">
+    <a class="reference internal" href="../Assignments/Assignment0.html">
      17.1. Assigment 0
     </a>
    </li>
@@ -525,53 +527,6 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/amoreira2/Lectures/main?urlpath=tree/chapters/03/4/Data_Types.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://colab.research.google.com/github/amoreira2/Lectures/blob/main/chapters/03/4/Data_Types.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../../../_static/images/logo_colab.png">
-  </span>
-<span class="headerbtn__text-container">Colab</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -611,7 +566,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/amoreira2/Lectures/issues/new?title=Issue%20on%20page%20%2Fchapters/03/4/Data_Types.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/amoreira2/Lectures/issues/new?title=Issue%20on%20page%20%2Fchapters/Finance/meanvariance1.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -639,7 +594,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../../_sources/chapters/03/4/Data_Types.ipynb"
+        <a href="../../_sources/chapters/Finance/meanvariance1.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -650,7 +605,7 @@ title="Download source file"
 <span class="headerbtn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="headerbtn__text-container">.md</span>
 </a>
 
       </li>
@@ -688,7 +643,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Data Types</h1>
+                <h1>Mean Variance Frontier</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -700,23 +655,10 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="data-types">
-<h1>Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">#</a></h1>
-<p>Every value has a type, and the built-in <code class="docutils literal notranslate"><span class="pre">type</span></code> function returns the type of the result of any expression.</p>
-<p>One type we have encountered already is a built-in function. Python indicates that the type is a <code class="docutils literal notranslate"><span class="pre">builtin_function_or_method</span></code>; the distinction between a <em>function</em> and a <em>method</em> is not important at this stage.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="nb">abs</span><span class="p">)</span>
-</pre></div>
+  <section class="tex2jax_ignore mathjax_ignore" id="mean-variance-frontier">
+<h1><span class="section-number">9. </span>Mean Variance Frontier<a class="headerlink" href="#mean-variance-frontier" title="Permalink to this headline">#</a></h1>
+<div class="toctree-wrapper compound">
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>builtin_function_or_method
-</pre></div>
-</div>
-</div>
-</div>
-<p>This chapter will explore many useful types of data.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -732,7 +674,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./chapters/03/4"
+            path: "./chapters/Finance"
         },
         predefinedOutput: true
     }
@@ -746,6 +688,20 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="CapitalAllocationLine.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">8. </span>The Capital Allocation Line</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="MeanVariance.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">9.1. </span>The Mean-Variance Frontier</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
@@ -767,7 +723,7 @@ title="Print to PDF"
     </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
 
   </body>
