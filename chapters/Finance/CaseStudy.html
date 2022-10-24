@@ -680,12 +680,63 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#targeting-desired-voaltiltiy">
+   9.2.1.
+   <strong>
+    Targeting desired Voaltiltiy
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#targeting-desired-expected-return">
+   9.2.2.
+   <strong>
+    Targeting Desired Expected Return
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#domestic-tangency-portfolio">
+   9.2.3.
+   <strong>
+    Domestic Tangency Portfolio
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#two-mean-variance-frontiers-for-domestic-and-global-investors">
+   9.2.4.
+   <strong>
+    Two mean-variance frontiers: For domestic and Global investors
+   </strong>
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -697,6 +748,46 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#targeting-desired-voaltiltiy">
+   9.2.1.
+   <strong>
+    Targeting desired Voaltiltiy
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#targeting-desired-expected-return">
+   9.2.2.
+   <strong>
+    Targeting Desired Expected Return
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#domestic-tangency-portfolio">
+   9.2.3.
+   <strong>
+    Domestic Tangency Portfolio
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#two-mean-variance-frontiers-for-domestic-and-global-investors">
+   9.2.4.
+   <strong>
+    Two mean-variance frontiers: For domestic and Global investors
+   </strong>
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -1255,18 +1346,20 @@ dtype: float64
 </table>
 </div></div></div>
 </div>
-<p><strong>Targeting desired Voaltiltiy</strong></p>
+<section id="targeting-desired-voaltiltiy">
+<h2><span class="section-number">9.2.1. </span><strong>Targeting desired Voaltiltiy</strong><a class="headerlink" href="#targeting-desired-voaltiltiy" title="Permalink to this headline">#</a></h2>
 <p>We will first find the particular scaling of the tangendy porfolio that implements a desired level of volatility</p>
-<p>As we previously saw</p>
+<p>We shown that for weights <span class="math notranslate nohighlight">\(X=E[R^e]'Var(R^e)^{-1}\)</span>, the volatility is <span class="math notranslate nohighlight">\(\sigma(X'R^e)=\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}\)</span></p>
+<p>Thus to get a portfolio of vol <span class="math notranslate nohighlight">\(\sigma^D\)</span> all we need to lever it up/down by this factor</p>
 <div class="math notranslate nohighlight">
 \[W^*(\sigma^D)'=\frac{\sigma^D}{\sqrt{E[R^e]'Var(R^e)^{-1}E[R^e]}}E[R^e]'Var(R^e)^{-1}\]</div>
-<p>where the denominator is the Sharpe Ratio of the tangency</p>
+<p>This dominator alos happens to be Sharpe-Ratio of the tangency portfolio</p>
 <div class="math notranslate nohighlight">
 \[W^*(\sigma^D)=\frac{\sigma^D}{SR_*}W^*\]</div>
 <p>So you simply scale down the weights depending on whether your desired volatiltiy.</p>
 <p>In this case the obtained expected excess return is</p>
 <div class="math notranslate nohighlight">
-\[\mu^D-r_f=\frac{\sigma^D}{SR_*}E[W^*R^e]=\frac{\sigma^D}{SR_*}SR_*^2=\sigma^DSR^*\]</div>
+\[\mu^D-r_f=\sigma^D SR_*\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># I am setting the target to be annual volatiltiy of 20% and </span>
@@ -1334,7 +1427,9 @@ dtype: float64
 </table>
 </div></div></div>
 </div>
-<p><strong>Targeting Desired Expected Return</strong></p>
+</section>
+<section id="targeting-desired-expected-return">
+<h2><span class="section-number">9.2.2. </span><strong>Targeting Desired Expected Return</strong><a class="headerlink" href="#targeting-desired-expected-return" title="Permalink to this headline">#</a></h2>
 <p><span class="math notranslate nohighlight">\(\begin{align}
   \mu^{D}&amp;=r_f+wE[R^*] \\
   w &amp;=\frac{\mu^{D}-r_f}{E[R^*]} \\
@@ -1342,10 +1437,9 @@ dtype: float64
   &amp;=\frac{\mu^{D}-r_f}{SR_*^2} \\
   \end{align}\)</span></p>
 <p>where the last step simply uses that the denominator is the square of the Sharpe Ratio of the tangency portfolio</p>
-<p>In this case the portfolio volatiliy is simply</p>
+<p>Because SR is expected excess return over the volatility <span class="math notranslate nohighlight">\(\mu^D-r_f=\sigma^D SR_*\)</span>, then the obtained vol is simply</p>
 <div class="math notranslate nohighlight">
-\[\sigma^D=\frac{\mu^{D}-r_f}{SR_*^2}STD(R^*)=\frac{\mu^{D}-r_f}{SR_*^2}SR_*=\frac{\mu^{D}-r_f}{SR_*}\]</div>
-<p>Here below I will simply set a target for the desired expected excess return</p>
+\[\sigma^D=\frac{\mu^{D}-r_f}{SR_*}\]</div>
 <p>If one wanted to set the target for the expected returns one ould simply subtract the <strong>current</strong> risk-free rate of this desired level</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1440,12 +1534,14 @@ dtype: float64
 </table>
 </div></div></div>
 </div>
-<p><strong>Domestic Tangency Portfolio</strong></p>
+</section>
+<section id="domestic-tangency-portfolio">
+<h2><span class="section-number">9.2.3. </span><strong>Domestic Tangency Portfolio</strong><a class="headerlink" href="#domestic-tangency-portfolio" title="Permalink to this headline">#</a></h2>
 <p>we only keep the first two columns MKT and Bonds</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ERe_dom</span><span class="o">=</span><span class="n">ERe</span><span class="p">[[</span><span class="s1">&#39;MKTUS&#39;</span><span class="p">,</span><span class="s1">&#39;BondUS&#39;</span><span class="p">]]</span>
-<span class="n">CovRe_dom</span><span class="o">=</span><span class="n">CovRe</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;MKTUS&#39;</span><span class="p">,</span><span class="s1">&#39;BondUS&#39;</span><span class="p">],[</span><span class="s1">&#39;MKTUS&#39;</span><span class="p">,</span><span class="s1">&#39;BondUS&#39;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ERe_dom=?</span>
+<span class="c1">#CovRe_dom=?</span>
 </pre></div>
 </div>
 </div>
@@ -1453,8 +1549,8 @@ dtype: float64
 <p>The Sharpe Ratio of the domestic Tangency portolio</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SR_dom</span><span class="o">=</span><span class="p">(</span><span class="n">ERe_dom</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">CovRe_dom</span><span class="p">)</span> <span class="o">@</span> <span class="n">ERe_dom</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">SR_dom</span><span class="o">*</span><span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#SR_dom=?</span>
+<span class="c1">#print(SR_dom*12**0.5)</span>
 </pre></div>
 </div>
 </div>
@@ -1569,7 +1665,7 @@ dtype: float64
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this difference is the benefits of international diversification</span>
 
-<span class="p">(</span><span class="n">SR_int</span><span class="o">-</span><span class="n">SR_dom</span><span class="p">)</span><span class="o">*</span><span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span>
+<span class="c1">#(SR_int-SR_dom)*12**0.5</span>
 </pre></div>
 </div>
 </div>
@@ -1587,7 +1683,7 @@ dtype: float64
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># international diversification</span>
 <span class="n">voltarget</span><span class="o">=</span><span class="mf">0.2</span><span class="o">/</span><span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span>
-<span class="p">[</span><span class="n">SR_int</span><span class="o">*</span><span class="n">voltarget</span><span class="p">,</span><span class="n">SR_dom</span><span class="o">*</span><span class="n">voltarget</span><span class="p">]</span>
+<span class="c1">#[SR_int*voltarget,SR_dom*voltarget]</span>
 </pre></div>
 </div>
 </div>
@@ -1597,51 +1693,35 @@ dtype: float64
 </div>
 </div>
 </div>
+<p>How much your returns increase when you go global for this voltarget above?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># annualized  your returns increase by </span>
-<span class="p">(</span><span class="n">SR_int</span><span class="o">*</span><span class="n">voltarget</span> <span class="o">-</span><span class="n">SR_dom</span><span class="o">*</span><span class="n">voltarget</span><span class="p">)</span><span class="o">*</span><span class="mi">12</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02138630960025343
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># in percent?</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># in percentual increase it is very meaningful</span>
-<span class="p">(</span><span class="n">SR_int</span><span class="o">*</span><span class="n">voltarget</span> <span class="o">-</span><span class="n">SR_dom</span><span class="o">*</span><span class="n">voltarget</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">SR_dom</span><span class="o">*</span><span class="n">voltarget</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.23240999221793937
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>The mean-variance frontier in it’s full glory</strong></p>
+</section>
+<section id="two-mean-variance-frontiers-for-domestic-and-global-investors">
+<h2><span class="section-number">9.2.4. </span><strong>Two mean-variance frontiers: For domestic and Global investors</strong><a class="headerlink" href="#two-mean-variance-frontiers-for-domestic-and-global-investors" title="Permalink to this headline">#</a></h2>
 <p>We will now plot the two frontiers together with the underlying assets</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lets visualize this in a plot including the two investment frontiers</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # Lets visualize this in a plot including the two investment frontiers</span>
 
-<span class="c1"># set different expected return targets</span>
-<span class="n">mu_target</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="o">/</span><span class="mi">12</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
-<span class="c1"># international portfolios</span>
+<span class="c1"># # set different expected return targets</span>
+<span class="c1"># mu_target=np.linspace(0,0.1/12,20)</span>
+<span class="c1"># # international portfolios</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mu_target</span><span class="o">/</span><span class="n">SR_int</span><span class="p">,</span><span class="n">mu_target</span><span class="p">)</span>
+<span class="c1"># plt.plot(mu_target/SR_int,mu_target)</span>
 
-<span class="c1">#Domestic portfolios</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mu_target</span><span class="o">/</span><span class="n">SR_dom</span><span class="p">,</span><span class="n">mu_target</span><span class="p">)</span>
-<span class="c1">#Individual assets</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;standard deviation&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;expected return&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Benefits of international diversification&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="c1"># #Domestic portfolios</span>
+<span class="c1"># plt.plot(mu_target/SR_dom,mu_target)</span>
+<span class="c1"># #Individual assets</span>
+<span class="c1"># plt.xlabel(&#39;standard deviation&#39;)</span>
+<span class="c1"># plt.ylabel(&#39;expected return&#39;)</span>
+<span class="c1"># plt.title(&#39;Benefits of international diversification&#39;)</span>
+<span class="c1"># plt.scatter(Re.std(),Re.mean())</span>
 </pre></div>
 </div>
 </div>
@@ -1649,33 +1729,34 @@ dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x216674229a0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/CaseStudy_34_1.png" src="../../_images/CaseStudy_34_1.png" />
+<img alt="../../_images/CaseStudy_35_1.png" src="../../_images/CaseStudy_35_1.png" />
 </div>
 </div>
 <p>Lets add label to the dots so we know which asset corresponds to each point</p>
 <p>For that I will run the same code above and add a for loop that lopps though the column name of the <code class="docutils literal notranslate"><span class="pre">Re</span></code> dataframe and uses the text functio to write the column name in the correct position where the x-dimension is the asset volatility and y-dimension is the asset avereage return</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu_target</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="o">/</span><span class="mi">12</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mu_target</span><span class="o">/</span><span class="n">SR_int</span><span class="p">,</span><span class="n">mu_target</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mu_target</span><span class="o">/</span><span class="n">SR_dom</span><span class="p">,</span><span class="n">mu_target</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mu_target=np.linspace(0,0.1/12,20)</span>
+<span class="c1"># plt.plot(mu_target/SR_int,mu_target)</span>
+<span class="c1"># plt.plot(mu_target/SR_dom,mu_target)</span>
+<span class="c1"># plt.scatter(Re.std(),Re.mean())</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;standard deviation&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;expected return&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Benefits of international diversification&#39;</span><span class="p">)</span>
-<span class="c1"># lets add some labels so we know which point is each portfolio</span>
+<span class="c1"># plt.xlabel(&#39;standard deviation&#39;)</span>
+<span class="c1"># plt.ylabel(&#39;expected return&#39;)</span>
+<span class="c1"># plt.title(&#39;Benefits of international diversification&#39;)</span>
+<span class="c1"># # lets add some labels so we know which point is each portfolio</span>
 
 
-<span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">Re</span><span class="o">.</span><span class="n">columns</span> <span class="p">:</span>
-   <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">std</span><span class="p">()[</span><span class="n">label</span><span class="p">],</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="n">label</span><span class="p">],</span><span class="n">label</span><span class="p">)</span>
+<span class="c1"># for label in Re.columns :</span>
+<span class="c1">#    plt.text(Re.std()[label],Re.mean()[label],label)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/CaseStudy_36_0.png" src="../../_images/CaseStudy_36_0.png" />
+<img alt="../../_images/CaseStudy_37_0.png" src="../../_images/CaseStudy_37_0.png" />
 </div>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">

@@ -732,16 +732,15 @@ title="Print to PDF"
 <li><p>Investment managers rarely apply the Markowitz framework in it’s more pure form as studied in Chapter 9</p></li>
 <li><p>Pension funds typically use a 60/40 equity/bond allocation</p></li>
 <li><p>Why not used more often?</p></li>
-<li><p>It requires specifying expected return assumption for entire universe of assets</p></li>
+<li><p>It requires specifying expected returns for entire universe of assets</p></li>
 <li><p>Mean-variance optimization weights heavily on assets that have extreme average returns in the sample and with attractive covariance properties, i.e., high correlation with asset yielding slightly different return</p></li>
 <li><p>What problems that might cause?</p></li>
 <li><p>The key problem is that we are dealing with a limited sample of data</p></li>
 <li><p>We are interested in finding the ex-ante tangency portfolio</p></li>
 <li><p>But the basic MV analysis identifies the ex-post tangency portfolio, i.e. a portfolio that did well in the sample, but it can be a statistical fluke</p></li>
+<li><p>The issue is that we do not observe the true population expectation and covariances, but only have a sample estimate</p></li>
 </ul>
-<blockquote>
-<div><p>How to evaluate the amount of uncertainty and it’s impact on our results?</p>
-</div></blockquote>
+<p><strong>How to evaluate the amount of uncertainty and it’s impact on our results?</strong></p>
 <ul class="simple">
 <li><p>We will start by evaluating the uncertainty regarding our average expected excess return estimates for each asset</p></li>
 <li><p>We will then show how the weights change as we pertubate these estimates in a way that is consistent with the amount of uncertainty</p></li>
@@ -880,18 +879,6 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">6.18</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="mf">1.64</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.459999999999999
-</pre></div>
-</div>
-</div>
-</div>
 <ul class="simple">
 <li><p>Note that our data set has  50 years of data, there is still considerable uncertainty, specially for bonds</p></li>
 </ul>
@@ -917,7 +904,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/EstimationUncertainty_11_0.png" src="../../_images/EstimationUncertainty_11_0.png" />
+<img alt="../../_images/EstimationUncertainty_10_0.png" src="../../_images/EstimationUncertainty_10_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -928,7 +915,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/EstimationUncertainty_12_0.png" src="../../_images/EstimationUncertainty_12_0.png" />
+<img alt="../../_images/EstimationUncertainty_11_0.png" src="../../_images/EstimationUncertainty_11_0.png" />
 </div>
 </div>
 <p>A noteworthy aspect of this estimate is that it has a really long sample it is really hard to reject the hypothesis that all these assets have exactly the same premium!</p>
@@ -952,7 +939,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="../../_images/EstimationUncertainty_15_1.png" src="../../_images/EstimationUncertainty_15_1.png" />
+<img alt="../../_images/EstimationUncertainty_14_1.png" src="../../_images/EstimationUncertainty_14_1.png" />
 </div>
 </div>
 <p>The issue with a new asset is that we only talk about it becasue it had high returns</p>
@@ -977,7 +964,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;date&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/EstimationUncertainty_17_1.png" src="../../_images/EstimationUncertainty_17_1.png" />
+<img alt="../../_images/EstimationUncertainty_16_1.png" src="../../_images/EstimationUncertainty_16_1.png" />
 </div>
 </div>
 <p>So this says end of 2017. So I will start the sample in 2018.</p>
@@ -999,7 +986,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/EstimationUncertainty_20_0.png" src="../../_images/EstimationUncertainty_20_0.png" />
+<img alt="../../_images/EstimationUncertainty_19_0.png" src="../../_images/EstimationUncertainty_19_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1344,27 +1331,6 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we can also pertubate in the other direction</span>
-
-<span class="n">Wmve</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([],</span><span class="n">index</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-
-<span class="n">ERe</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">CovRe</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
-<span class="n">T</span><span class="o">=</span><span class="n">Re</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="n">pertubation</span><span class="o">=</span><span class="mi">1</span>
-<span class="k">for</span> <span class="n">asset</span> <span class="ow">in</span> <span class="n">Re</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-    <span class="n">ERemsig</span><span class="o">=</span><span class="n">ERe</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="n">mu</span><span class="o">=</span><span class="n">Re</span><span class="p">[</span><span class="n">asset</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="n">musigma</span><span class="o">=</span><span class="n">Re</span><span class="p">[</span><span class="n">asset</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="n">T</span><span class="o">**</span><span class="mf">0.5</span>
-    <span class="c1">#I cnahged the minus to plus in the line below</span>
-    <span class="n">ERemsig</span><span class="p">[</span><span class="n">asset</span><span class="p">]</span><span class="o">=</span><span class="n">mu</span><span class="o">+</span><span class="n">pertubation</span><span class="o">*</span><span class="n">musigma</span>
-
-    <span class="c1"># mve for sample mean</span>
-    <span class="n">Wmve</span><span class="p">[</span><span class="s1">&#39;samplemean&#39;</span><span class="p">]</span> <span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">CovRe</span><span class="p">)</span> <span class="o">@</span> <span class="n">ERe</span>
-    <span class="c1"># mve for perturbed mean</span>
-    <span class="n">Wmve</span><span class="p">[</span><span class="n">asset</span><span class="o">+</span><span class="s1">&#39;+&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">pertubation</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;std&#39;</span><span class="p">]</span> <span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">CovRe</span><span class="p">)</span> <span class="o">@</span> <span class="n">ERemsig</span>
-<span class="n">Wmve_plus</span><span class="o">=</span><span class="n">Wmve</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">Wmve_plus</span>
 </pre></div>
 </div>
 </div>
@@ -1451,8 +1417,7 @@ title="Print to PDF"
 <p>If they add up to a negative number, you will be fliping the direction of thw weights when you do such a nomralization, so it might be safer to normalize by the absolute value of the sum to preserve the sign of the weigths</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Wmve_plus</span><span class="o">/</span><span class="n">Wmve_plus</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-<span class="n">display</span><span class="p">(</span><span class="n">Wmve_minus</span><span class="o">/</span><span class="n">Wmve_minus</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Wmve_minus</span><span class="o">/</span><span class="n">Wmve_minus</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1693,7 +1658,7 @@ title="Print to PDF"
 </table>
 </div></div></div>
 </div>
-<p>Note here that this is only ons source of uncertainty, uncertainty about average returns, and asset by asset.</p>
+<p>Note here that this is only one source of uncertainty, uncertainty about average returns, and asset by asset.</p>
 <p>In practice you care about:</p>
 <ul class="simple">
 <li><p>Uncertainty about the average returns of all assets at the same time. Imagine the double yammy where US MKT has lower returns and international market has higher returns!</p></li>

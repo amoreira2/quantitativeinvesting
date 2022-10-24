@@ -680,12 +680,63 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quantitative-trading-strategies">
+   11.1.
+   <strong>
+    Quantitative trading strategies
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#our-first-quantitative-strategy">
+   11.2.
+   <strong>
+    Our First Quantitative Strategy
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#practical-approaches-to-deal-with-estimation-uncertainty-in-the-mean-variance-framework">
+   11.3.
+   <strong>
+    Practical approaches to deal with Estimation Uncertainty in the Mean-Variance framework
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-market-cap-weighted-strategy">
+   11.4.
+   <strong>
+    The Market-Cap Weighted strategy
+   </strong>
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -697,6 +748,46 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quantitative-trading-strategies">
+   11.1.
+   <strong>
+    Quantitative trading strategies
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#our-first-quantitative-strategy">
+   11.2.
+   <strong>
+    Our First Quantitative Strategy
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#practical-approaches-to-deal-with-estimation-uncertainty-in-the-mean-variance-framework">
+   11.3.
+   <strong>
+    Practical approaches to deal with Estimation Uncertainty in the Mean-Variance framework
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-market-cap-weighted-strategy">
+   11.4.
+   <strong>
+    The Market-Cap Weighted strategy
+   </strong>
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -727,7 +818,8 @@ title="Print to PDF"
 <ul class="simple">
 <li><p>A trading strategy is a procedure that maps any information known up to time t, into a set of trading instructions for time  <span class="math notranslate nohighlight">\(T&gt;t\)</span>.</p>
 <ul>
-<li><p>formally the mean-variance analysis we did so far was not a valid trading strategy: we used data of the whole sample to estimate the weights of our strategy and evaluated the strategy in the same sample</p></li>
+<li><p>the mean-variance analysis we did so far was not a valid trading strategy:</p></li>
+<li><p>we used data of the whole sample to estimate the weights of our strategy and evaluated the strategy in the same sample</p></li>
 </ul>
 </li>
 <li><p>The weights of a trading strategy must either:</p>
@@ -756,7 +848,7 @@ title="Print to PDF"
 <li><p>This is Invalid because you are trading before the information is known.</p></li>
 </ul>
 </li>
-<li><p>This might sound ridicoulous. Obviously you can not trade on the information that is not known at the time of the trade!</p></li>
+<li><p>This might sound ridicolous. Obviously you can not trade on the information that is not known at the time of the trade!</p></li>
 <li><p>But note that we will be “simulating” the trading process using HISTORICAL data, so we can easily get confused and use “future” information in the strategy construction process.</p>
 <ul>
 <li><p>In fact that was exactly what we did in our mean-variance analysis!</p></li>
@@ -786,13 +878,16 @@ title="Print to PDF"
 </ul>
 </li>
 </ul>
-<p><strong>Quantitative trading strategies</strong></p>
+<section id="quantitative-trading-strategies">
+<h2><span class="section-number">11.1. </span><strong>Quantitative trading strategies</strong><a class="headerlink" href="#quantitative-trading-strategies" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>In this class we will focus on quantitative trading strategies.</p></li>
 <li><p>Stragies that get some hard data about one or multiple assets and transform this data “mechanically”  into  portfolio weights</p></li>
 <li><p>So given data <span class="math notranslate nohighlight">\(X_{t}\)</span>, a quatitative trading strategy is a function that maps data into weights <span class="math notranslate nohighlight">\(W_{t+1}=f(X_t)\)</span></p></li>
 </ul>
-<p><strong>Our First Quantitative Strategy</strong></p>
+</section>
+<section id="our-first-quantitative-strategy">
+<h2><span class="section-number">11.2. </span><strong>Our First Quantitative Strategy</strong><a class="headerlink" href="#our-first-quantitative-strategy" title="Permalink to this headline">#</a></h2>
 <p>Our MV optimization was quantitative but it would be only a valid strategy if we used Other data to evaluate it.</p>
 <p>So one option would be to wait for new data to evaluate.</p>
 <p>Here what we will do: do the mean-variance analysis assuming I am an investor that is doing this in real time</p>
@@ -805,10 +900,10 @@ title="Print to PDF"
 <p>This will be valid because at no moment I will use information that an investor would not have had available in real time.</p>
 <hr class="docutils" />
 <p><em>An aside</em></p>
-<p>It is also valid in another conceputal sense: Markowitz dissertation was published in 1954, so in 73 we would know how to use these techiniques. This sounds strange, but this type of validity is important for example when we evalaute trading strategies associated with published papers. When we look back in the sample before the paper existed in some way we are endowing the information that he didn’t have even if he might have the informaation that he needs to construc the trading signals</p>
+<p>It is also valid in another conceputal sense: Markowitz dissertation was published in 1954, so in 73 we would know how to use these techiniques. This sounds strange, but this type of validity is important for example when we evaluate trading strategies associated with published papers. When we look back in the sample before the paper existed in some way we are endowing the information that he didn’t have even if he might have the informaation that he needs to construc the trading signals</p>
 <hr class="docutils" />
 <p>We will construct a portolio that in tagency in the estimating sample and in the estimation sample has a volatility of 15%.</p>
-<p>We will start by using jsut the first 10 years and evalauting on the rest of the sample as a warm up</p>
+<p>We will start by using just the first 10 years and evalauting on the rest of the sample as a warm up (because it is simpler)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Re</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">*</span><span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span>
@@ -1066,26 +1161,10 @@ dtype: float64
 </table>
 </div></div></div>
 </div>
-<p>In lots of ways this being too tougth on a real world quant investor. He/She had to stick with the SAME weights as even as new data rolled in.</p>
-<p>So now we will do somethign a bit more sophisticated and re-estimate our weights every month starting in 1973</p>
+<p>In lots of ways this being too tougth on a real world quant investor.</p>
+<p>He/She had to stick with the SAME weights as even as new data rolled in.</p>
+<p>So Lets re-estimate our weights every month starting in 1973</p>
 <p>The investor will have the entire data up to that year to construct it’s weights</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Re</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">Re</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">119</span><span class="p">]]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MKTUS      0.006200
-BondUS     0.022583
-EM         0.062621
-MKTxUS     0.029464
-BondxUS   -0.000907
-Name: 1972-12-31 00:00:00, dtype: float64
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">InSampleResults</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([],</span><span class="n">index</span><span class="o">=</span><span class="p">[])</span>
@@ -1128,7 +1207,7 @@ Name: 1972-12-31 00:00:00, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Sharpe Ratio&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/TradingStrategies_14_1.png" src="../../_images/TradingStrategies_14_1.png" />
+<img alt="../../_images/TradingStrategies_13_1.png" src="../../_images/TradingStrategies_13_1.png" />
 </div>
 </div>
 <p>It is interesting also to look at the average reutrns and volatility in a rolling basis</p>
@@ -1149,7 +1228,7 @@ Name: 1972-12-31 00:00:00, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Volatility&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/TradingStrategies_16_1.png" src="../../_images/TradingStrategies_16_1.png" />
+<img alt="../../_images/TradingStrategies_15_1.png" src="../../_images/TradingStrategies_15_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1169,10 +1248,12 @@ Name: 1972-12-31 00:00:00, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Average Return&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/TradingStrategies_17_1.png" src="../../_images/TradingStrategies_17_1.png" />
+<img alt="../../_images/TradingStrategies_16_1.png" src="../../_images/TradingStrategies_16_1.png" />
 </div>
 </div>
-<p><strong>Practical approaches to deal with Estimation Uncertainty in the Mean-Variance framework</strong></p>
+</section>
+<section id="practical-approaches-to-deal-with-estimation-uncertainty-in-the-mean-variance-framework">
+<h2><span class="section-number">11.3. </span><strong>Practical approaches to deal with Estimation Uncertainty in the Mean-Variance framework</strong><a class="headerlink" href="#practical-approaches-to-deal-with-estimation-uncertainty-in-the-mean-variance-framework" title="Permalink to this headline">#</a></h2>
 <p>In econometrics there is a whole field dedicated towards finding features of the data that are “robust”. Features that don’t vary too much from sample to sample.</p>
 <p>As you can see this can be super useful here.</p>
 <p>This techniques get complicated very quickly with Bayesian methods, Shrinkage methods, and so on. Well beyond the scope of this class.</p>
@@ -1203,47 +1284,6 @@ $<span class="math notranslate nohighlight">\(W_{minvariance}=\frac{Var(R)^{-1}\
 </div></blockquote>
 <p>So you see here that the problem is really identical to the mean-variance problem. We simply substituted the vector or Expected returns by a vector of ones.</p>
 <p>The end result is that now the solution is the portfolio that minimizes variance while being fully invested as the constraint <span class="math notranslate nohighlight">\(\mathbf{1}'W=1\)</span> means <span class="math notranslate nohighlight">\(\sum_i^I w_i*1=1\)</span></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">InSampleResults</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([],</span><span class="n">index</span><span class="o">=</span><span class="p">[])</span>
-<span class="n">Strategy</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([],</span><span class="n">index</span><span class="o">=</span><span class="p">[])</span>
-<span class="n">sigmaD</span><span class="o">=</span><span class="mf">0.15</span><span class="o">/</span><span class="p">(</span><span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">Emv</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">Re</span><span class="p">[</span><span class="s1">&#39;1973-1&#39;</span><span class="p">:]</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
-    <span class="n">ERe</span><span class="o">=</span><span class="n">Re</span><span class="p">[:</span><span class="n">date</span><span class="o">-</span> <span class="n">pd</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="n">CovRe</span><span class="o">=</span><span class="n">Re</span><span class="p">[:</span><span class="n">date</span><span class="o">-</span> <span class="n">pd</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
-     <span class="c1"># the only difference is that now I use the vector ones instead of </span>
-        <span class="c1">#sample means for expected returns</span>
-    <span class="n">W</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">CovRe</span><span class="p">)</span> <span class="o">@</span> <span class="n">Emv</span> <span class="o">*</span> <span class="p">(</span><span class="n">sigmaD</span><span class="o">/</span><span class="p">(</span><span class="n">Emv</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">CovRe</span><span class="p">)</span> <span class="o">@</span> <span class="n">Emv</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
-
-    <span class="n">InSampleResults</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">date</span><span class="p">,</span><span class="s1">&#39;avgreturn&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">W</span> <span class="o">@</span> <span class="n">ERe</span><span class="o">*</span><span class="mi">12</span>
-    <span class="n">InSampleResults</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">date</span><span class="p">,</span><span class="s1">&#39;volatility&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">W</span> <span class="o">@</span> <span class="n">CovRe</span> <span class="o">@</span> <span class="n">W</span><span class="o">*</span><span class="mi">12</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
-    <span class="n">InSampleResults</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">date</span><span class="p">,</span><span class="s1">&#39;sharperatio&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">W</span> <span class="o">@</span> <span class="n">ERe</span><span class="o">*</span><span class="mi">12</span><span class="o">/</span><span class="p">(</span><span class="n">W</span> <span class="o">@</span> <span class="n">CovRe</span> <span class="o">@</span> <span class="n">W</span><span class="o">*</span><span class="mi">12</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
-    <span class="n">Strategy</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">date</span><span class="p">,</span><span class="s1">&#39;Returns&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">W</span> <span class="o">@</span> <span class="n">Re</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">date</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
-<span class="n">InSampleResults</span><span class="o">.</span><span class="n">sharperatio</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="c1"># Iam using this as trick to plot an horizontal line. So I am getting the dataframing with all the dates and simply subsituting the value of Sharpe ratio below</span>
-<span class="n">OutofSample</span><span class="o">=</span><span class="n">InSampleResults</span><span class="o">.</span><span class="n">sharperatio</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">OutofSample</span><span class="p">[:]</span><span class="o">=</span><span class="p">(</span><span class="n">Strategy</span><span class="o">.</span><span class="n">Returns</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*</span><span class="mi">12</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Strategy</span><span class="o">.</span><span class="n">Returns</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">*</span><span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">OutofSample</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;in sample&#39;</span><span class="p">,</span><span class="s1">&#39;out of sample&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sharpe Ratio&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Sharpe Ratio&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/TradingStrategies_20_1.png" src="../../_images/TradingStrategies_20_1.png" />
-</div>
-</div>
 <p><strong>Risk- Parity</strong></p>
 <ul class="simple">
 <li><p>Risk-parity investing: Mean-variance investing under the assumption that all expected returns are equal, and the correlations across all assets are zero.</p>
@@ -1286,83 +1326,9 @@ $<span class="math notranslate nohighlight">\(W_{minvariance}=\frac{Var(R)^{-1}\
 </div></blockquote>
 <p>Below we will implement the second approach.</p>
 <p>The key trick that we will use is the <code class="docutils literal notranslate"><span class="pre">np.diag()</span></code> function to extract the diagonal of the covariance matrix when applied to a matrix and to build a matrix only with the diagonal terms when applied to a vector</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 513.35357526,  815.14734135,  281.19004241,  458.3662201 ,
-       2459.19902061])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">()))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.00194798, 0.        , 0.        , 0.        , 0.        ],
-       [0.        , 0.00122677, 0.        , 0.        , 0.        ],
-       [0.        , 0.        , 0.00355631, 0.        , 0.        ],
-       [0.        , 0.        , 0.        , 0.00218166, 0.        ],
-       [0.        , 0.        , 0.        , 0.        , 0.00040664]])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">InSampleResults</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([],</span><span class="n">index</span><span class="o">=</span><span class="p">[])</span>
-<span class="n">Strategy</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([],</span><span class="n">index</span><span class="o">=</span><span class="p">[])</span>
-<span class="n">sigmaD</span><span class="o">=</span><span class="mf">0.15</span><span class="o">/</span><span class="p">(</span><span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
-
-<span class="n">Ones</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-
-<span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">Re</span><span class="p">[</span><span class="s1">&#39;1973-1&#39;</span><span class="p">:]</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
-    <span class="n">ERe</span><span class="o">=</span><span class="n">Re</span><span class="p">[:</span><span class="n">date</span><span class="o">-</span> <span class="n">pd</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="n">CovRe</span><span class="o">=</span><span class="n">Re</span><span class="p">[:</span><span class="n">date</span><span class="o">-</span> <span class="n">pd</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
-    
-    <span class="c1"># this below is the key difference where I coistruct the covriance </span>
-    <span class="c1"># and the expected returns under the risk parity assumption to construc the weights </span>
-    <span class="n">CovRP</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">Re</span><span class="p">[:</span><span class="n">date</span><span class="o">-</span> <span class="n">pd</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">cov</span><span class="p">()))</span>
-    <span class="n">ERP</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">Re</span><span class="p">[:</span><span class="n">date</span><span class="o">-</span> <span class="n">pd</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">cov</span><span class="p">())</span><span class="o">**</span><span class="mf">0.5</span>
-
-    <span class="n">W</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">CovRP</span><span class="p">)</span> <span class="o">@</span> <span class="n">ERP</span> <span class="o">*</span> <span class="p">(</span><span class="n">sigmaD</span><span class="o">/</span><span class="p">(</span><span class="n">ERP</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">CovRP</span><span class="p">)</span> <span class="o">@</span> <span class="n">ERP</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
-
-    <span class="n">InSampleResults</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">date</span><span class="p">,</span><span class="s1">&#39;avgreturn&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">W</span> <span class="o">@</span> <span class="n">ERe</span><span class="o">*</span><span class="mi">12</span>
-    <span class="n">InSampleResults</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">date</span><span class="p">,</span><span class="s1">&#39;volatility&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">W</span> <span class="o">@</span> <span class="n">CovRe</span> <span class="o">@</span> <span class="n">W</span><span class="o">*</span><span class="mi">12</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
-    <span class="n">InSampleResults</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">date</span><span class="p">,</span><span class="s1">&#39;sharperatio&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">W</span> <span class="o">@</span> <span class="n">ERe</span><span class="o">*</span><span class="mi">12</span><span class="o">/</span><span class="p">(</span><span class="n">W</span> <span class="o">@</span> <span class="n">CovRe</span> <span class="o">@</span> <span class="n">W</span><span class="o">*</span><span class="mi">12</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
-    <span class="n">Strategy</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">date</span><span class="p">,</span><span class="s1">&#39;Returns&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">W</span> <span class="o">@</span> <span class="n">Re</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">date</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
-<span class="n">InSampleResults</span><span class="o">.</span><span class="n">sharperatio</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="c1"># Iam using this as trick to plot an horizontal line. So I am getting the dataframing with all the dates and simply subsituting the value of Sharpe ratio below</span>
-<span class="n">OutofSample</span><span class="o">=</span><span class="n">InSampleResults</span><span class="o">.</span><span class="n">sharperatio</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">OutofSample</span><span class="p">[:]</span><span class="o">=</span><span class="p">(</span><span class="n">Strategy</span><span class="o">.</span><span class="n">Returns</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*</span><span class="mi">12</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Strategy</span><span class="o">.</span><span class="n">Returns</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">*</span><span class="mi">12</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">OutofSample</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;in sample&#39;</span><span class="p">,</span><span class="s1">&#39;out of sample&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sharpe Ratio&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Sharpe Ratio&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/TradingStrategies_25_1.png" src="../../_images/TradingStrategies_25_1.png" />
-</div>
-</div>
-<p><strong>The Market-Cap Weighted strategy</strong></p>
+</section>
+<section id="the-market-cap-weighted-strategy">
+<h2><span class="section-number">11.4. </span><strong>The Market-Cap Weighted strategy</strong><a class="headerlink" href="#the-market-cap-weighted-strategy" title="Permalink to this headline">#</a></h2>
 <p>This is the foundational quantitative strategy.</p>
 <p>It used to be that people when started investing in stocks would start by choosing a few stocks.</p>
 <p>It made sense. It was super costly to trade multiple stocks. You had to be crazy wealthy to have a fully diversified portfolio of stocks</p>
@@ -1640,7 +1606,7 @@ Done
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;date&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/TradingStrategies_37_1.png" src="../../_images/TradingStrategies_37_1.png" />
+<img alt="../../_images/TradingStrategies_30_1.png" src="../../_images/TradingStrategies_30_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1654,9 +1620,10 @@ Done
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;date&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/TradingStrategies_38_1.png" src="../../_images/TradingStrategies_38_1.png" />
+<img alt="../../_images/TradingStrategies_31_1.png" src="../../_images/TradingStrategies_31_1.png" />
 </div>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">

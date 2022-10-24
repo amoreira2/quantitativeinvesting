@@ -680,12 +680,47 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aplication-all-in-on-tesla">
+   9.3.1.
+   <strong>
+    Aplication: All in on Tesla
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#shorting">
+   9.3.2.
+   <strong>
+    Shorting
+   </strong>
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -697,6 +732,30 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aplication-all-in-on-tesla">
+   9.3.1.
+   <strong>
+    Aplication: All in on Tesla
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#shorting">
+   9.3.2.
+   <strong>
+    Shorting
+   </strong>
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -719,15 +778,13 @@ title="Print to PDF"
 <h1><span class="section-number">9.3. </span>Levering up and Shorting<a class="headerlink" href="#levering-up-and-shorting" title="Permalink to this headline">#</a></h1>
 <p>So far we wrote the portfolio return as simple product of weights and individual asset returns</p>
 <div class="math notranslate nohighlight">
-\[r^p_t=W R_t+(1-\sum_i^I w_{i})r^f_t\]</div>
+\[r^p=W R+(1-\sum_i^I w_{i})r^f\]</div>
 <p>where <span class="math notranslate nohighlight">\(R\)</span> is a a vector of riksy asset returns.</p>
 <p>And <span class="math notranslate nohighlight">\(W=[w_1,w_2,...w_I]\)</span> is a vector of asset weights</p>
 <p>In practice things are not quite as simple.</p>
-<p><strong>Leverage</strong></p>
 <p>When <span class="math notranslate nohighlight">\((1-\sum_i^Iw_i)\in[0,1]\)</span> you have a postive fraction of your portfolio in the risk-free asset.</p>
 <p>In this case you earn something close to the 3 month t-bill rate.</p>
-<p>(In practice it can be a tiny bit higher or a tiny bit lower if you park the money in a money market fund account in your broker. Of course you can literally just buy the t-bill if you want so the rate that you earn will be pretty close to the tbill rate.)</p>
-<p>You can easily get this t-bill rate <a class="reference external" href="https://fred.stlouisfed.org/series/DTB3">from FRED</a>.( Of course you can use the API and get this data quickly by using it’s name <code class="docutils literal notranslate"><span class="pre">DTB3</span></code>.)</p>
+<p><strong>Leverage</strong></p>
 <p>When <span class="math notranslate nohighlight">\((1-\sum_i^Iw_i)&lt;0\)</span> you have a negative weight on the risk-free asset.</p>
 <p>This means that you are borowing money to invest more in the risky assets, mechanically <span class="math notranslate nohighlight">\(\sum_i^Iw_i&gt;1\)</span>.</p>
 <p>What happens in this case?</p>
@@ -744,15 +801,15 @@ title="Print to PDF"
 \[r^b=r^{benchmark}+spread\]</div>
 <ul class="simple">
 <li><p>The benchmark is something that is very close to the treasury rate</p></li>
-<li><p>Here what your portfolio looks like</p></li>
+<li><p>Here what your portfolio return looks like</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[r^p_t=W_tR_t+\max(1-\sum_i^Iw_i,0)r^f_t+\min(1-\sum_i^Iw_i,0)r^b_t\]</div>
+\[r^p=W_tR+\max(1-\sum_i^Iw_i,0)r^f+\min(1-\sum_i^Iw_i,0)r^b\]</div>
 <ul class="simple">
 <li><p>so you earn rf is weight on the rf is positive, but pay rb if the weight is negative. Can rewrite as</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[r^p_t=W_tR_t+(1-\sum_i^Iw_i)r^f_t+\min(1-\sum_i^Iw_i,0)spread_t\]</div>
+\[r^p=W_tR+(1-\sum_i^Iw_i)r^f+\min(1-\sum_i^Iw_i,0)spread\]</div>
 <ul class="simple">
 <li><p>so the spread compensate the broker for the risk it bears when it lends to you instead of lending to the US government</p></li>
 <li><p>The broker when it lends to you ask the loan to be backed/collaterized by the assets in your portfolio (just like a house backs a mortgage)</p></li>
@@ -820,12 +877,7 @@ title="Print to PDF"
 <li><p>To keep your 140 position you need to have 140*0.3=42 networth so you need to inject 42-40=2k.</p></li>
 </ul>
 <ul class="simple">
-<li><p>What happens if you don’t inject the cash in time?</p>
-<ul>
-<li><p>This situation tends to be representative as you likely don’t have spare cash otherwise you would not be levering up</p></li>
-<li><p>But it is possible that you have other assets that you can sell/borrow against</p></li>
-</ul>
-</li>
+<li><p>What happens if you don’t inject the cash in time?</p></li>
 <li><p>You will simply reduce your position in the risky asset to get back to the limit</p></li>
 <li><p>This means that margin have to come down to <span class="math notranslate nohighlight">\(0.3\times x=40\)</span> and therefore you have to sell 140-40/0.3=140-133=7k  of your risky asset position</p></li>
 </ul>
@@ -849,14 +901,15 @@ title="Print to PDF"
 <li><p>It will vary wildly from market to market and in OTC markets this will depend on the relationship you have with your broker</p></li>
 <li><p>For example the Achelegos fund was leveraged 10 to 1, so for each 1 dollar o networth they had 10 dollars of risky assets</p></li>
 <li><p>Often this leverage constraint is given by sometype of risk-management at the portfolio level</p></li>
-<li><p>For example, it is typical to make the amount of leverage that you can get to depend on your portfolio volatility</p></li>
+<li><p>For example, it is typical to make the amount of margin  that you have to post depend on your portfolio volatility</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[l_t\leq \overline{l}-c\sigma_t(r_p)\]</div>
+\[m\geq \overline{m}+c\sigma(r_p)\]</div>
 <ul class="simple">
-<li><p>This means that if volatilitiy goes up at the same time as your assets go down in value, as it typically happens, you face demand in cash both from your losses buy also from a reduction in your leverage limits</p></li>
+<li><p>This means that if volatilitiy goes up at the same time as your assets go down in value you face demand for cash both from your losses buy also from an increase in the margin you need to sustain your trade</p></li>
 </ul>
-<p><strong>Aplication: All in on Tesla</strong></p>
+<section id="aplication-all-in-on-tesla">
+<h2><span class="section-number">9.3.1. </span><strong>Aplication: All in on Tesla</strong><a class="headerlink" href="#aplication-all-in-on-tesla" title="Permalink to this headline">#</a></h2>
 <p>Jackie is a complete believer on Tesla and decide to invest all her savings, 1 Million dollars on Tesla in early 2017, and lever up to the maximum allowed by it’s broker to 2 (inital margin 0.5), so a total position of 2 million dollars that she commited to stick with it.</p>
 <p>The broker changed 1% on top of the tbill rate which was at zero.</p>
 <p>The broker made clear that a fraction of the tesla shares would have to sold everytime leverage went above 1/0.3, i.e. a maintenance margin of 0.3 . The amount sold would have to bring the account margin back to 0.3.</p>
@@ -961,7 +1014,7 @@ title="Print to PDF"
 
 <span class="n">rl</span><span class="o">=</span><span class="mf">0.01</span><span class="o">/</span><span class="mi">252</span> <span class="c1">#borrowing spread</span>
 <span class="n">m_initial</span><span class="o">=</span><span class="mf">0.5</span> <span class="c1"># Initial margin</span>
-<span class="n">m_maintenance</span><span class="o">=</span><span class="mf">0.4</span> <span class="c1"># maintenance/minimum margin</span>
+<span class="n">m_maintenance</span><span class="o">=</span><span class="mf">0.3</span> <span class="c1"># maintenance/minimum margin</span>
 <span class="n">pos_RiskyAsset</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">m_initial</span><span class="o">*</span><span class="n">val</span>
 <span class="n">pos_SafeAsset</span><span class="o">=</span><span class="n">val</span><span class="o">-</span><span class="n">pos_RiskyAsset</span>
 
@@ -1121,29 +1174,35 @@ title="Print to PDF"
 <img alt="../../_images/LeverageandShorting_11_5.png" src="../../_images/LeverageandShorting_11_5.png" />
 </div>
 </div>
-<p><strong>Shorting</strong></p>
-<p>Shorting is conceptually very similar to leverage. You borrow an asset and pay some lending fee to borrow it (perhaps this fee will be zero if there is ample supply). And of course once you borrow you immediately sell and get the cash from the sale. The broker facilitating this transaction will typically ask you to  keep some margin in you account.</p>
-<p>We see in the top line of the margin requirement numbers that the margin requirements for shorting is set to 50% with the maintenance at 30%. For shorting I find it easier to think in terms of margin. So this says that you need to have 50% of the value of your short position to start the trade, but this can go down to up to 30%.</p>
+</section>
+<section id="shorting">
+<h2><span class="section-number">9.3.2. </span><strong>Shorting</strong><a class="headerlink" href="#shorting" title="Permalink to this headline">#</a></h2>
+<p>Shorting is conceptually very similar to leverage.</p>
+<p>You borrow an asset and pay some lending fee to borrow it (perhaps this fee will be zero if there is ample supply).</p>
+<p>And of course once you borrow you immediately sell and get the cash from the sale. The broker facilitating this transaction will typically ask you to  keep some margin in you account.</p>
+<p>We see in the top line of the margin requirement numbers that the margin requirements for shorting is set to 50% with the maintenance at 30%.</p>
+<p>So this says that you need to have 50% of the value of your short position to start the trade, but this can go down to up to 30%.</p>
 <ul class="simple">
 <li><p>This means that if you have 1 million in cash you can short at most 2 million of apple stock</p></li>
-<li><p>you actually earn interest on this 3 million, but paying the lending fee on the 2 million borrowed stock</p></li>
-<li><p>here what your returns look like for shorting stock i</p></li>
+<li><p>you actually earn interest on this 3 million, but pay the shorting fee <span class="math notranslate nohighlight">\(sf^i\)</span> on the 2 million borrowed stock</p></li>
+<li><p>here what your portfolio look like</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[w\times r^i_t+(1-w)r^f+\min(w,0)sf^i\]</div>
+\[w\times r^i+(1-w)r^f+\min(w,0)sf^i\]</div>
 <ul class="simple">
 <li><p>where inital margin constraint  implies that |w| has to be lower than 2.</p></li>
 <li><p>and after the trade is initated is cannot go above 1/0.3</p></li>
 </ul>
 <p><strong>How does this work for a long-short trade?</strong></p>
-<p>Suppose you want to a “market netural trade where you buy 1M worth of different fintech stocks and short 1M worth of banks. How mucy capital do you need?</p>
+<p>Suppose you want a “market netural trade where you buy 1M worth of different fintech stocks and short 1M worth of banks. How much capital do you need?</p>
 <ul class="simple">
 <li><p>to initiate the long-trade you will need 500k, 50% margin on 1M position</p></li>
 <li><p>same thing for the short position, you will need 500 to satisfy the 50% marging</p></li>
-<li><p>So in the end your portfolio looks like (+1M Fintech,-1M Banks, 1M treasuries)</p></li>
-<li><p>so your 1 Million dollar still earns the risk-free rate</p></li>
-<li><p>so for someone that can fund themselves at the risk-free rate– or have money parked in treasuries anyways, the lond-short is costless as we modeled</p></li>
-<li><p>In practice most arbitrageurs have the bear minimum in treasuries and have a much higher cost of funding then treasuries</p></li>
+<li><p>in the end your portfolio looks like (+1M Fintech,-1M Banks, 1M treasuries)</p></li>
+<li><p>your 1 Million dollar still earns the risk-free rate</p></li>
+<li><p>for someone that can fund themselves at the risk-free rate– or have money parked in treasuries anyways, the long-short is “costless” in terms of deployed capital</p></li>
+<li><p>they don’t need to change any of their allocation to accomodate the long-short trade</p></li>
+<li><p>In practice most arbitrageurs have the bare minimum in treasuries and have a much higher cost of funding then treasuries</p></li>
 </ul>
 <p><strong>Shorting fees</strong></p>
 <ul class="simple">
@@ -1160,12 +1219,14 @@ title="Print to PDF"
 <li><p>Where <span class="math notranslate nohighlight">\(\sum_i^I |w^i|\leq 1/m_{initial}\)</span></p></li>
 </ul>
 <p><strong>Application: Shorting GME</strong></p>
-<p>Now consider a big unconstraiend hedge fund that started shorting GME in March/2020 betting that COVID would be the nail on the coffin of the Game chain.</p>
-<p>Assumptions</p>
-<p>We will now assume that they jsut inject cash as nedded in the trade.</p>
-<p>We will then track their capital commited to the trade and their dollar “P&amp;L” , i.e the dollars profits/losses of the trade.</p>
-<p>We will start assuming shorting fee is zero.</p>
-<p>We will start with capital of 1 million and inject capital as the bank demands capital, and cash out whenever my leverage goes down below the initial leverage limit</p>
+<p>Now consider a big unconstraiend hedge fund that started shorting GME in March/2020 betting that COVID would drive GME into bankruptcy.</p>
+<p>Assumptions about how they  will trade</p>
+<ol class="simple">
+<li><p>they inject cash as nedded in the trade.</p></li>
+<li><p>We will then track their capital commited to the trade and their dollar “P&amp;L” , i.e the dollars profits/losses of the trade.</p></li>
+<li><p>We will start assuming shorting fee is zero for simplicty</p></li>
+<li><p>We will start with capital of 1 million and inject capital as the bank demands capital, and cash out whenever my leverage goes down below the initial leverage limit</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s2">&quot;GME&quot;</span><span class="p">,</span> <span class="s2">&quot;av-daily&quot;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
@@ -1286,7 +1347,7 @@ title="Print to PDF"
 <span class="n">d</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;Risky&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pos_RiskyAsset</span> <span class="c1"># position in Tesla at the start</span>
 <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;Safe&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pos_SafeAsset</span>
-<span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;capital&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">val</span>
+<span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;injected capital&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">val</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
@@ -1294,12 +1355,12 @@ title="Print to PDF"
     <span class="n">returnRiskyAsset</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">d</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
     <span class="n">pos_RiskyAsset</span><span class="o">=</span><span class="n">pos_RiskyAsset</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">returnRiskyAsset</span><span class="p">)</span>
     <span class="n">networth</span><span class="o">=</span> <span class="n">pos_RiskyAsset</span><span class="o">+</span> <span class="n">pos_SafeAsset</span> 
-    <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;capital&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;injected capital&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
     
     
     <span class="k">if</span> <span class="n">networth</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">pos_RiskyAsset</span><span class="p">)</span><span class="o">&lt;</span><span class="n">m_maintenance</span><span class="p">:</span> <span class="c1"># if you breach the maintanece margim</span>
         <span class="n">neededcapital</span><span class="o">=</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">pos_RiskyAsset</span><span class="p">)</span><span class="o">*</span><span class="n">m_maintenance</span><span class="o">-</span><span class="n">networth</span><span class="p">)</span>
-        <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;capital&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">neededcapital</span> <span class="c1"># how mcuh capital is injected in the trade</span>
+        <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;injected capital&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">neededcapital</span> <span class="c1"># how mcuh capital is injected in the trade</span>
         <span class="n">pos_SafeAsset</span><span class="o">=</span><span class="n">pos_SafeAsset</span><span class="o">+</span><span class="n">neededcapital</span> <span class="c1"># change in the risk-free positions</span>
   
     <span class="n">W</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">d</span><span class="p">,</span><span class="s1">&#39;Risky&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pos_RiskyAsset</span> <span class="c1"># position in Tesla at the start</span>
@@ -1453,15 +1514,17 @@ title="Print to PDF"
 <img alt="../../_images/LeverageandShorting_19_4.png" src="../../_images/LeverageandShorting_19_4.png" />
 </div>
 </div>
-<p>Suppose you were a hedge fund with 200M capital, you placed a fairly small 1 million dollar trade. You were fully commited and thoguht you had the capital to support it.</p>
-<p>By late january sustaining the trade required 300 million dollars! And this does not take into account the fact that margin requirements became much tighter du to the immense volatiltiy of GME stock in the period.</p>
+<p>Suppose you were a hedge fund with 200M capital, you placed a fairly small 1 million dollar trade. You were fully commited and thought you had the capital to support the trade</p>
+<p>By late january sustaining the trade required 300 million dollars!</p>
+<p>And this does not take into account the fact that margin requirements became much tighter due to the immense volatiltiy of GME stock in the period.</p>
 <ul class="simple">
 <li><p>You can see above that the volatiltiy of the fund net position went to 1,200%!</p></li>
-<li><p>As response to this retail brokers increase margin requirements on GME shorts to 300%</p></li>
+<li><p>As response to this retail brokers increase margin requirements on GME shorts to 300% (from 50%). So to sustain 1 dollar of a short position you need to put 3 dollars instead of 50 cents.</p></li>
 <li><p>I am not sure what institutional brokers did, but likely they increased their leverage reuqirements too.</p></li>
 <li><p>This implies required capital would increase 6 foldfold (from 0.5 to 3 initial margin) going from 300 million to 1.8 billion dollars!</p></li>
 <li><p>1.8 Billion dollars to sustain the 1 million dollars trade!</p></li>
 </ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
