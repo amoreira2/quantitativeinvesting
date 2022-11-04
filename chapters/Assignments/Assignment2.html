@@ -726,13 +726,13 @@ title="Print to PDF"
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#part-a-functions">
-     Part A: Functions
+    <a class="reference internal nav-link" href="#function-and-numpy">
+     Function and Numpy
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#part-b-numpy">
-     Part B: Numpy
+    <a class="reference internal nav-link" href="#applications">
+     Applications
     </a>
    </li>
   </ul>
@@ -777,13 +777,13 @@ title="Print to PDF"
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#part-a-functions">
-     Part A: Functions
+    <a class="reference internal nav-link" href="#function-and-numpy">
+     Function and Numpy
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#part-b-numpy">
-     Part B: Numpy
+    <a class="reference internal nav-link" href="#applications">
+     Applications
     </a>
    </li>
   </ul>
@@ -819,8 +819,8 @@ title="Print to PDF"
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="exercises">
 <h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h1>
-<section id="part-a-functions">
-<h2>Part A: Functions<a class="headerlink" href="#part-a-functions" title="Permalink to this headline">#</a></h2>
+<section id="function-and-numpy">
+<h2>Function and Numpy<a class="headerlink" href="#function-and-numpy" title="Permalink to this headline">#</a></h2>
 <p><strong>Exercise 1</strong></p>
 <p>Define a function named <code class="docutils literal notranslate"><span class="pre">var</span></code> that takes a list (call it <code class="docutils literal notranslate"><span class="pre">x</span></code>) and
 computes the variance. This function should use the mean function that we
@@ -835,41 +835,7 @@ defined in chapter 4.4.</p>
 </div>
 </div>
 <p><strong>Exercise 2</strong></p>
-<p>Redefine the <code class="docutils literal notranslate"><span class="pre">return_given_fee</span></code> function  we defined in chapter 4.4 and add a docstring.</p>
-<p>Confirm that it works by running the cell containing <code class="docutils literal notranslate"><span class="pre">return_given_fee?</span></code> below.</p>
-<p><em>Note</em>: You do not need to change the actual code in the function — just
-copy/paste and add a docstring in the correct line.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># re-define the `returns_to_scale` function here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test it here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Exercise 3</strong></p>
-<p>Experiment with the <code class="docutils literal notranslate"><span class="pre">sep</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code> arguments to the <code class="docutils literal notranslate"><span class="pre">print</span></code> function. Try printing “Hello World” using different values of these arguments.</p>
-<p>These arguments can <em>only</em> be set by name.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here.</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="part-b-numpy">
-<h2>Part B: Numpy<a class="headerlink" href="#part-b-numpy" title="Permalink to this headline">#</a></h2>
-<p><strong>Exercise 1</strong></p>
-<p>Import the numpy package under the name <code class="docutils literal notranslate"><span class="pre">np</span></code>.</p>
-<p><strong>Exercise 2</strong></p>
-<p>Create a 3d numpy array using the following list. Label this array x_3d.</p>
+<p>Import the numpy package under the name <code class="docutils literal notranslate"><span class="pre">np</span></code>, then create a 3d numpy array using the following list. Label this array x_3d.</p>
 <p><code class="docutils literal notranslate"><span class="pre">templist=[[[1,</span> <span class="pre">2,</span> <span class="pre">3],</span> <span class="pre">[4,</span> <span class="pre">5,</span> <span class="pre">6]],</span> <span class="pre">[[10,</span> <span class="pre">20,</span> <span class="pre">30],</span> <span class="pre">[40,</span> <span class="pre">50,</span> <span class="pre">60]]]</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -883,43 +849,25 @@ copy/paste and add a docstring in the correct line.</p>
 </div>
 </div>
 <p><strong>Exercise 3</strong></p>
-<p>Use index to select the number 5, 10, and 60 respectively by indexing appropriately.</p>
-<p>Building an understanding of indexing means working through this
-type of operation several times – without skipping steps!</p>
+<p>Extract (1) the number 5, (2) the array <code class="docutils literal notranslate"><span class="pre">[[5,</span> <span class="pre">6],</span> <span class="pre">[50,</span> <span class="pre">60]]</span></code> from <code class="docutils literal notranslate"><span class="pre">x_3d</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select 5 and print</span>
 
-<span class="c1"># select 10 and print</span>
-
-<span class="c1"># select 60 and print</span>
+<span class="c1"># select [[5,6], [50,60]] and print</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p><strong>Exercise 4</strong></p>
-<p>Look at the 2-dimensional array <code class="docutils literal notranslate"><span class="pre">x_2d</span></code> below. Extract 4 from this array.</p>
-<p>When using indexing, does the innermost index correspond to rows or columns? What does the
-outermost index correspond to?</p>
-<p>Write your thoughts.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x_2d</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Your answer:</p>
+<p>Create a zero vector of size 10, then replace the fifth value with 1.</p>
 <p><strong>Exercise 5</strong></p>
-<p>What would you do to extract the array <code class="docutils literal notranslate"><span class="pre">[[5,</span> <span class="pre">6],</span> <span class="pre">[50,</span> <span class="pre">60]]</span></code> from <code class="docutils literal notranslate"><span class="pre">x_3d</span></code>?</p>
-<p><strong>Exercise 6</strong></p>
-<p>Create a zero vector of size 10.</p>
-<p><strong>Exercise 7</strong></p>
-<p>Create a zero vector of size 10 but the fifth value which is 1.</p>
-<p><strong>Exercise 8</strong></p>
-<p>Do you recall what multiplication by an integer did for lists?</p>
-<p>How does mulitplying an array is different? Please create a list and an array and demonstrate the difference. Then explain below.</p>
+<p>Do you recall what multiplication by an integer did for lists? How does mulitplying an array is different?</p>
+<p>(1) create a list of <code class="docutils literal notranslate"><span class="pre">[1,2,3]</span></code></p>
+<p>(2) multiply the list by 2 and print</p>
+<p>(3) create an array using the list of <code class="docutils literal notranslate"><span class="pre">[1,2,3]</span></code></p>
+<p>(4) multiply the array by 2 and print</p>
+<p>Explain the difference</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#code here</span>
@@ -934,94 +882,156 @@ outermost index correspond to?</p>
 </div>
 </div>
 </div>
-<p><strong>Exercise 9</strong></p>
-<p>Let’s revisit a bond pricing example we saw in Control flow.</p>
-<p>Recall that the equation for pricing a bond with coupon payment <span class="math notranslate nohighlight">\( C \)</span>,
-face value <span class="math notranslate nohighlight">\( M \)</span>, yield to maturity <span class="math notranslate nohighlight">\( i \)</span>, and periods to maturity
-<span class="math notranslate nohighlight">\( N \)</span> is</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
-    P &amp;= \left(\sum_{n=1}^N \frac{C}{(i+1)^n}\right) + \frac{M}{(1+i)^N} \\
-      &amp;= C \left(\frac{1 - (1+i)^{-N}}{i} \right) + M(1+i)^{-N}
-\end{align*}
-\end{split}\]</div>
-<p>In the code cell below, we have defined variables for <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">M</span></code> and <code class="docutils literal notranslate"><span class="pre">C</span></code>.</p>
-<p>You have two tasks:</p>
-<ol class="simple">
-<li><p>Define a numpy array <code class="docutils literal notranslate"><span class="pre">N</span></code> that contains all maturities between 1 and 10 (<em>hint</em> look at the <code class="docutils literal notranslate"><span class="pre">np.arange</span></code> function).</p></li>
-<li><p>Define a numpy array <code class="docutils literal notranslate"><span class="pre">CF</span></code> that contains all cash flows from year 1 to year 10 of the bond.</p></li>
-<li><p>Using the equation above, determine the discounted value for each cash flow and comupte the bond price.</p></li>
-</ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mf">0.03</span>
-<span class="n">M</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">C</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="c1"># year to maturity =10</span>
-<span class="c1"># Define N array here</span>
-
-<span class="c1"># Define CF array here</span>
-
-<span class="c1"># price bonds here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Exercise 10</strong></p>
+<p><strong>Exercise 6</strong></p>
 <p>Consider the polynomial expression</p>
 <div class="math notranslate nohighlight">
 \[
 p(x,a) = a_0 + a_1 x + a_2 x^2 + \cdots a_N x^N = \sum_{n=0}^N a_n x^n \tag{1}
 \]</div>
-<p>Now write a new function that does the same job, but uses NumPy arrays and array operations for its computations, rather than any form of Python loop.</p>
-<p>(Such functionality is already implemented as <code class="docutils literal notranslate"><span class="pre">np.poly1d</span></code>, but for the sake of the exercise don’t use this class).</p>
-<p>Demonstrate it works using a vector of <code class="docutils literal notranslate"><span class="pre">a=[0.2,0.3,0.1,0.5,0.7]</span></code> and <code class="docutils literal notranslate"><span class="pre">x=0.3</span></code>.</p>
+<p>Write a function that does the same job</p>
+<p>(1) function input: a, x</p>
+<p>(2) function output: p</p>
+<p>(3) uses NumPy arrays and array operations for its computations, rather than any form of Python loop.</p>
+<p>(4) do not use pre-defined function <code class="docutils literal notranslate"><span class="pre">np.poly1d</span></code></p>
+<p>(5) demonstrate it works using a vector of <code class="docutils literal notranslate"><span class="pre">a=[0.2,0.3,0.1,0.5,0.7]</span></code> and <code class="docutils literal notranslate"><span class="pre">x=0.3</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">poly</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="c1"># your code here</span>
+    
+    <span class="k">return</span> <span class="n">p</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>Exercise 11</strong></p>
-<p>Create a vector array and Reverse it (first element becomes last).</p>
-<p><strong>Exercise 12</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test your function here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 7</strong></p>
+<p>Reverse a vector (first element becomes last).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.7</span><span class="p">])</span>
+<span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 8</strong></p>
 <p>Create a 3x3 matrix with values ranging from 0 to 8.</p>
-<p><strong>Exercise 13</strong></p>
+<p><strong>Exercise 9</strong></p>
 <p>Create a 3x3 identity matrix.</p>
-<p><strong>Exercise 14</strong></p>
+<p><strong>Exercise 10</strong></p>
 <p>Create a 10x10 array with random values and find the minimum and maximum values.</p>
-<p><strong>Exercise 15</strong></p>
+<p><strong>Exercise 11</strong></p>
 <p>Create and normalize a 5x5 random matrix so that all its entries add up to 1.</p>
-<p><strong>Exercise 16</strong></p>
+<p><strong>Exercise 12</strong></p>
 <p>Create a vector of size 10 with values ranging from 0 to 1, both exclusive (exclude 0 and 1).</p>
-<p><strong>Exercise 17</strong></p>
-<p>How to find the closest value (to a given scalar) in a vector?</p>
-<p><strong>Exercise 18</strong></p>
+<p><strong>Exercise 13</strong></p>
+<p>Find the closest value (to a given scalar <span class="math notranslate nohighlight">\(a\)</span>) in a vector <span class="math notranslate nohighlight">\(x\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mf">0.5</span>
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.18178469</span><span class="p">,</span> <span class="mf">0.00253498</span><span class="p">,</span> <span class="mf">0.82598284</span><span class="p">,</span> <span class="mf">0.56536106</span><span class="p">,</span> <span class="mf">0.34953837</span><span class="p">,</span> <span class="mf">0.04747678</span><span class="p">,</span>
+ <span class="mf">0.46308758</span><span class="p">,</span> <span class="mf">0.37809284</span><span class="p">,</span> <span class="mf">0.95064092</span><span class="p">,</span> <span class="mf">0.51180091</span><span class="p">])</span>
+<span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 14</strong></p>
 <p>Build a 4 by 4 matrix with any numbers of your choosing, then subtract the mean of each row of a matrix.</p>
-<p><strong>Exercise 19</strong></p>
+<p><strong>Exercise 15</strong></p>
 <p>Sort the matrix you build above according to column 3.</p>
-<p><strong>Exercise 20</strong></p>
-<p>Build a function that finds the nearest value in an array to a given value. Demonstrate that your function works for a particular array and number of your choosing.</p>
-<p><strong>Exercise 21</strong></p>
+<p><strong>Exercise 16</strong></p>
 <p>Plot the function</p>
 <div class="math notranslate nohighlight">
 \[
-f(x) = \cos(\pi \theta x) \exp(-x)
+f(x) = \theta x^2
 \]</div>
 <p>over the interval <span class="math notranslate nohighlight">\( [0, 5] \)</span> for each <span class="math notranslate nohighlight">\( \theta \)</span> in <code class="docutils literal notranslate"><span class="pre">np.linspace(0,</span> <span class="pre">2,</span> <span class="pre">10)</span></code>.</p>
 <p>Place all the curves in the same figure.</p>
-<p>The output should look like this</p>
-<p><img alt="https://python-programming.quantecon.org/_static/lecture_specific/matplotlib/matplotlib_ex1.png" src="https://python-programming.quantecon.org/_static/lecture_specific/matplotlib/matplotlib_ex1.png" /></p>
+<p>The output should look like this <img alt="download-2.png" src="chapters/Assignments/attachment:download-2.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="c1">#set default figure size</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># TODO: define an array of theta below using np.linspace(0, 2, 10)</span>
+
+<span class="c1"># TODO: define an array of x below using np.linspace(-5, 5, 200)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">theta</span><span class="p">:</span>
+    <span class="c1"># TODO: define y=f(x) below</span>
+    
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>Exercise 22</strong></p>
+</section>
+<section id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">#</a></h2>
+<p><strong>Exercise 17</strong></p>
+<p>Let’s revisit a bond pricing example we saw in Control flow.</p>
+<p>Recall that the equation for pricing a bond with coupon payment <span class="math notranslate nohighlight">\( C \)</span>,
+face value <span class="math notranslate nohighlight">\( M \)</span>, yield to maturity <span class="math notranslate nohighlight">\( i \)</span>, and periods to maturity
+is <span class="math notranslate nohighlight">\( N \)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+    P &amp;= \left(\sum_{n=1}^N \frac{C}{(i+1)^n}\right) + \frac{M}{(1+i)^N}
+\end{align*}
+\]</div>
+<p>In the code cell below, we have defined variables for <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">M</span></code> and <code class="docutils literal notranslate"><span class="pre">C</span></code>.</p>
+<p>Do the followings:</p>
+<ol class="simple">
+<li><p>Define a numpy array <code class="docutils literal notranslate"><span class="pre">N</span></code> that contains 10 periods to maturities from 1 to 10 (<em>hint</em> look at the <code class="docutils literal notranslate"><span class="pre">np.arange</span></code> function).</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[N=[1, 2, ... , 10]\]</div>
+<ol class="simple">
+<li><p>Define a numpy array <code class="docutils literal notranslate"><span class="pre">CF</span></code> that contains the cash flow from year 1 to year 10.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[CF=[C, C,...,C+M]\]</div>
+<ol class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">N</span></code> and <code class="docutils literal notranslate"><span class="pre">CF</span></code> that you just defined, define a numpy array <code class="docutils literal notranslate"><span class="pre">dCF</span></code> that contains the discounted cash flow from year 1 to year 10.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[dCF=[\frac{C}{(i+1)}, \frac{C}{(i+1)^2},...,\frac{C+M}{(i+1)^{10}}]\]</div>
+<ol class="simple">
+<li><p>Comupte the bond price by summing over <code class="docutils literal notranslate"><span class="pre">dCF</span></code></p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[P=\frac{C}{(i+1)}+ \frac{C}{(i+1)^2}+...+\frac{C+M}{(i+1)^{10}}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mf">0.03</span>
+<span class="n">M</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">C</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># Define N array below</span>
+
+<span class="c1"># Define CF array below</span>
+
+<span class="c1"># Define dCF array below</span>
+
+<span class="c1"># calculate price bonds below</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 18</strong></p>
 <p>Alice is a stock broker who owns two types of assets: A and B. She owns 100 units of asset A and 50 units of asset B.</p>
 <p>The current interest rate is 5%.
 Each of the A assets has a remaining maturity of 6 years and pays
@@ -1030,45 +1040,11 @@ of 4 years and pays \\\)</span>500 each year.</p>
 <p>Alice would like to retire if she
 can sell her assets for more than \$500,000. Use vector addition, scalar
 multiplication, and dot products to determine whether she can retire.</p>
-<p>Hint: Use the interest rate to compute the value of each asset, then compute the overall value of Alice portfolio.</p>
+<p>Hint: Use the interest rate to compute the value of each asset, then compute the overall value of Alice portfolio. Following the similar steps in the previous question for asset A and B, respectively.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Exercise 23</strong></p>
-<p>Which of the following operations will work and which will create errors because of size issues? (given the arrays below)</p>
-<p>Simply type next to each of operations “works” or “doesn’t work” without running the code.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span> <span class="o">@</span> <span class="n">x2</span>
-<span class="n">x2</span> <span class="o">@</span> <span class="n">x1</span>
-<span class="n">x2</span> <span class="o">@</span> <span class="n">x3</span>
-<span class="n">x3</span> <span class="o">@</span> <span class="n">x2</span>
-<span class="n">x1</span> <span class="o">@</span> <span class="n">x3</span>
-<span class="n">x4</span> <span class="o">@</span> <span class="n">y1</span>
-<span class="n">x4</span> <span class="o">@</span> <span class="n">y2</span>
-<span class="n">y1</span> <span class="o">@</span> <span class="n">x4</span>
-<span class="n">y2</span> <span class="o">@</span> <span class="n">x4</span>
-</pre></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
-<span class="n">x3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-<span class="n">x4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-
-<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Test out your intuitions in the code cell below</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test your intuitions here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span><span class="o">=</span><span class="mf">0.05</span>
+<span class="c1"># your code below</span>
 </pre></div>
 </div>
 </div>
