@@ -719,11 +719,6 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#discussion-forum-assignment">
-   Discussion Forum Assignment
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
    Exercises
   </a>
@@ -758,11 +753,6 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#discussion-forum-assignment">
-   Discussion Forum Assignment
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
    Exercises
   </a>
@@ -792,43 +782,170 @@ title="Print to PDF"
 <li><p>[email]:</p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="discussion-forum-assignment">
-<h1>Discussion Forum Assignment<a class="headerlink" href="#discussion-forum-assignment" title="Permalink to this headline">#</a></h1>
-<p>Click on the “Market Efficiency” link in the discussion forum assignment</p>
-<p><a class="reference external" href="https://edstem.org/us/courses/30665/discussion/1972568">https://edstem.org/us/courses/30665/discussion/1972568</a></p>
-</section>
 <section class="tex2jax_ignore mathjax_ignore" id="exercises">
 <h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h1>
-<p>Exercise 1. Start by importing pandas and loading the data set.</p>
-<p>The dataset has address <code class="docutils literal notranslate"><span class="pre">https://raw.githubusercontent.com/mwaskom/seaborn-data/master/diamonds.csv</span></code></p>
-<p>Name <code class="docutils literal notranslate"><span class="pre">diamonds</span></code> this dataset, then print <code class="docutils literal notranslate"><span class="pre">print(diamonds)</span></code>.</p>
+<p><strong>Exercise 1.</strong></p>
+<p>Start by importing pandas and loading the data set.</p>
+<p>The dataset has address ``</p>
+<p>Name <code class="docutils literal notranslate"><span class="pre">housing</span></code> this dataset, then print <code class="docutils literal notranslate"><span class="pre">print(housing)</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="c1"># import data here</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Exercise 2. Print the first 5 rows of the dataframe.</p>
-<p>Exercise  3. Write a Pandas program to find the number of rows and columns and data type of each column of diamonds DataFrame.</p>
-<p>Exercise 4. Write a Pandas program to create a new ‘Quality-color’ Series (use bracket notation to define the Series name) of the diamonds DataFrame.
-Hint: ‘Quality-color’ should combine the information in cut and color column.</p>
-<p>Exercise 5. Write a Pandas program to set an existing column as the index of diamonds DataFrame.</p>
-<p>Exercise 6. Reimport the diamonds data if you don’t want to keep the changes in the preceding exercises.</p>
-<p>Exercise 7. Write a Pandas program to filter the DataFrame rows to only show carat weight at least 0.3.</p>
-<p>Exercise  8. (hard) Write a Pandas program to calculate count, minimum, maximum price for each cut of diamonds DataFrame.
-Hint: you will need <code class="docutils literal notranslate"><span class="pre">groupby</span></code>.</p>
-<p>Exercise  9. Write a Pandas program to drop a row if any or all values in a row are missing of diamonds DataFrame on carat and cut columns.</p>
-<p>Exercise  10. Write a Pandas program to read rows 0 through 2 (inclusive), columns ‘color’ and ‘price’ of diamonds DataFrame.</p>
-<p>Exercise 11. Write a Pandas program to create a histogram of the ‘carat’ Series (distribution of a numerical variable) of diamonds DataFrame.</p>
-<p>Exercise  12. Write a Pandas program to get 5 randomly sampled rows from diamonds DataFrame.
-Hint: you will need <code class="docutils literal notranslate"><span class="pre">sample</span></code>.</p>
-<p>Exercise  13. Write a Pandas program to find the details of the diamonds where length&gt;5, width&gt;5 and depth&gt;5.</p>
-<p>Exercise 14. Write a Pandas program to find the diamonds that are either Premium or Ideal.</p>
-<p>Exercise  15. Write a Pandas program to display all column labels of diamonds DataFrame.</p>
-<p>Exercise  16. Write a Pandas program to calculate the mean of each column of diamonds DataFrame.</p>
-<p>Exercise 18. Write a Pandas program to sort a Series by its values.</p>
+<p><strong>Exercise 2.</strong></p>
+<p>Print the first 5 rows of the dataframe.</p>
+<p>Hint: use <code class="docutils literal notranslate"><span class="pre">head</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 3.</strong></p>
+<p>Write a Pandas program to find the number of rows and columns and data type of each column of housing DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of rows and columns:&quot;</span><span class="p">)</span>
+<span class="c1"># your code here</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Data type of each column:&quot;</span><span class="p">)</span>
+<span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 4.</strong></p>
+<p>Write a Pandas program to combine longitude and latitude into one new column. Name the new column ‘Coordinates’. Each value has the format of <code class="docutils literal notranslate"><span class="pre">[longitude,latitude]</span></code>. For example, the first row has the value of <code class="docutils literal notranslate"><span class="pre">[-122.23,37.88]</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+
+<span class="n">housing</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 5.</strong></p>
+<p>Write a Pandas program to set the column of <code class="docutils literal notranslate"><span class="pre">population</span></code> as the index of the DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">housing</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 6.</strong></p>
+<p>Reimport the data to drop the changes in the preceding exercises.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="c1"># import data here</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">housing</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 7.</strong></p>
+<p>create a new column, call it “incomeLevel”, assign values using the following rule:</p>
+<ul class="simple">
+<li><p>“Low” if medianIncome is at the bottom the 25th percentile</p></li>
+<li><p>“Below Median” if medianIncome is above the 25th percentile but below the 50th percentile</p></li>
+<li><p>“Above Median” if medianIncome is above the 50th percentile but below the 75th percentile</p></li>
+<li><p>“High” if medianIncome is at the top 25th percentile</p></li>
+</ul>
+<p>Hint: use <code class="docutils literal notranslate"><span class="pre">quantile</span></code> function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">housing</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 8.</strong>(hard)</p>
+<p>Write a Pandas program and use <code class="docutils literal notranslate"><span class="pre">groupby</span></code> to calculate count, minimum, maximum for medianHouseValue for each category of incomeLevel</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 9.</strong></p>
+<p>Write a Pandas program to show the data where the incomeLevel is either ‘High’ or ‘Above Median’.</p>
+<p>Hint: try using <code class="docutils literal notranslate"><span class="pre">isin</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 10.</strong></p>
+<p>Write a Pandas program to read rows 0 through 2 (inclusive), columns ‘totalRooms’ and ‘totalBedrooms’ of the DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 11.</strong></p>
+<p>Write a Pandas program to create a histogram of the ‘households’ Series (distribution of a numerical variable) of the DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 12.</strong></p>
+<p>Write a Pandas program to get 5 randomly sampled rows from the DataFrame.</p>
+<p>Hint: you will need <code class="docutils literal notranslate"><span class="pre">sample</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 13.</strong></p>
+<p>Write a Pandas program to show the data where populaiton&gt;2500 and medianIncome&gt;12.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 14.</strong></p>
+<p>Write a Pandas program to display all column name of the DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 15.</strong></p>
+<p>Write a Pandas program to sort a the data by the value of medianHouseValue in a descending order.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
