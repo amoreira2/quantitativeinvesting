@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Assignment 5 &#8212; Quantitative Investing</title>
+    <title>17.24. Assigment 5 solution &#8212; Quantitative Investing</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -57,6 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/figuremain2.jpg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="17.20. Assignment 4" href="Assignment4.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -108,7 +109,7 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01/what-is-quant-investing.html">
    1. What is Quantitative Investing?
@@ -459,16 +460,16 @@ const thebe_selector_output = ".output, .cell_output"
    16. Additional Statistics Material
   </a>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="Assignments.html">
    17. Assignments
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
   <label for="toctree-checkbox-11">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="Assignment0.html">
      17.1. Assigment 0
@@ -492,6 +493,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="Assignment4.html">
      17.20. Assignment 4
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     17.24. Assigment 5 solution
     </a>
    </li>
   </ul>
@@ -722,130 +728,23 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Assignment 5
+   17.24. Assigment 5 solution
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#write-name-of-your-group-member">
-   Write name of your group member
+  <a class="reference internal nav-link" href="#write-your-name-and-simon-email">
+   17.25. Write your name and simon email
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#discussion-forum-assignment">
-   Discussion Forum Assignment
+   17.26. Discussion Forum Assignment
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   Exercises
+   17.27. Exercises
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#start-by-importing-pandas-numpy-matplotlib-and-loading-the-data-set">
-     Start by importing pandas, numpy, matplotlib, and loading the data set.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#advanced-date-manipulation">
-     Advanced date manipulation
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#importing-risk-free-rate">
-     Importing risk-free rate
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#constructing-excess-returns-a">
-     Constructing excess returns A
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#constructing-excess-returns-b">
-     Constructing excess returns B
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#drop-missing-observations">
-     Drop missing observations
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#moments">
-     Moments
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#storing-the-weights">
-     Storing the weights
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#weighting-scheme-1">
-     Weighting scheme 1
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#weighting-scheme-2">
-     Weighting scheme 2
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-mathematical-problems-weights-w1-and-w2-are-solutions-to">
-     What mathematical problems weights W1 and W2 are solutions to?
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#strategy-returns">
-     Strategy returns
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sharpe-ratios">
-     Sharpe Ratios
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sharpe-ratios-2">
-     Sharpe Ratios 2
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#normalization">
-     Normalization
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#interpretation">
-     Interpretation
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-efficient-frontier-1">
-     The Efficient frontier 1
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#risk-free-rates">
-     Risk free rates?
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-efficient-frontier-2">
-     The Efficient frontier 2
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-efficient-frontier-3">
-     The Efficient frontier 3
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-efficient-frontier-4">
-     The Efficient frontier 4
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -856,7 +755,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Assignment 5</h1>
+                <h1>Assigment 5 solution</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -868,130 +767,23 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Assignment 5
+   17.24. Assigment 5 solution
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#write-name-of-your-group-member">
-   Write name of your group member
+  <a class="reference internal nav-link" href="#write-your-name-and-simon-email">
+   17.25. Write your name and simon email
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#discussion-forum-assignment">
-   Discussion Forum Assignment
+   17.26. Discussion Forum Assignment
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   Exercises
+   17.27. Exercises
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#start-by-importing-pandas-numpy-matplotlib-and-loading-the-data-set">
-     Start by importing pandas, numpy, matplotlib, and loading the data set.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#advanced-date-manipulation">
-     Advanced date manipulation
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#importing-risk-free-rate">
-     Importing risk-free rate
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#constructing-excess-returns-a">
-     Constructing excess returns A
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#constructing-excess-returns-b">
-     Constructing excess returns B
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#drop-missing-observations">
-     Drop missing observations
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#moments">
-     Moments
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#storing-the-weights">
-     Storing the weights
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#weighting-scheme-1">
-     Weighting scheme 1
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#weighting-scheme-2">
-     Weighting scheme 2
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-mathematical-problems-weights-w1-and-w2-are-solutions-to">
-     What mathematical problems weights W1 and W2 are solutions to?
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#strategy-returns">
-     Strategy returns
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sharpe-ratios">
-     Sharpe Ratios
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sharpe-ratios-2">
-     Sharpe Ratios 2
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#normalization">
-     Normalization
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#interpretation">
-     Interpretation
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-efficient-frontier-1">
-     The Efficient frontier 1
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#risk-free-rates">
-     Risk free rates?
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-efficient-frontier-2">
-     The Efficient frontier 2
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-efficient-frontier-3">
-     The Efficient frontier 3
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-efficient-frontier-4">
-     The Efficient frontier 4
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -1003,212 +795,407 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="assignment-5">
-<h1>Assignment 5<a class="headerlink" href="#assignment-5" title="Permalink to this headline">#</a></h1>
-<p>Instructions: This problem set should be done in a <strong>group</strong>.</p>
-<p>Your group was assigned at orientation and you can find it in blackbaord as well by clicking on the left tab called “groups”</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="assigment-5-solution">
+<h1><span class="section-number">17.24. </span>Assigment 5 solution<a class="headerlink" href="#assigment-5-solution" title="Permalink to this headline">#</a></h1>
+<p>Instructions: This problem set should be done individually</p>
 <p>Answer each question in the designated space below</p>
 <p>After you are done. save and upload in blackboard.</p>
 <p>Please check that you are submitting the correct file. One way to avoid mistakes is to save it with a different name.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="write-name-of-your-group-member">
-<h1>Write name of your group member<a class="headerlink" href="#write-name-of-your-group-member" title="Permalink to this headline">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="write-your-name-and-simon-email">
+<h1><span class="section-number">17.25. </span>Write your name and simon email<a class="headerlink" href="#write-your-name-and-simon-email" title="Permalink to this headline">#</a></h1>
 <p>Please write names below</p>
 <ul class="simple">
-<li><p>[Name,email]:</p></li>
-<li><p>[Name,email]:</p></li>
-<li><p>[Name,email]:</p></li>
-<li><p>[Name,email]:</p></li>
-<li><p>[Name,email]:</p></li>
+<li><p>[Name]:</p></li>
+<li><p>[email]:</p></li>
 </ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="discussion-forum-assignment">
-<h1>Discussion Forum Assignment<a class="headerlink" href="#discussion-forum-assignment" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">17.26. </span>Discussion Forum Assignment<a class="headerlink" href="#discussion-forum-assignment" title="Permalink to this headline">#</a></h1>
 <p>Do the Factor investing assignment</p>
 <p><a class="reference external" href="https://edstem.org/us/courses/30665/discussion/1987589">https://edstem.org/us/courses/30665/discussion/1987589</a></p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="exercises">
-<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h1>
-<section id="start-by-importing-pandas-numpy-matplotlib-and-loading-the-data-set">
-<h2>Start by importing pandas, numpy, matplotlib, and loading the data set.<a class="headerlink" href="#start-by-importing-pandas-numpy-matplotlib-and-loading-the-data-set" title="Permalink to this headline">#</a></h2>
+<h1><span class="section-number">17.27. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h1>
+<p><strong>Exercise 1</strong></p>
+<p>Start by importing pandas, numpy, maplotlib, and loading the data set.</p>
 <p>The dataset has address</p>
 <p><code class="docutils literal notranslate"><span class="pre">url='https://github.com/amoreira2/Lectures/blob/main/assets/data/Assignment5.xlsx?raw=true'</span></code></p>
 <p>I strongly recommend you download first and look at the data set.</p>
 <p>This file contains multiple sheets, you should use <code class="docutils literal notranslate"><span class="pre">read_excel</span></code> to get the data that contains the 49 value-weighted industry portfolios.</p>
 <p>See here:<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_excel.html">https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_excel.html</a> .</p>
+<p>Do the followings:</p>
 <ol class="simple">
-<li><p>Import this dataframe as <code class="docutils literal notranslate"><span class="pre">df_ind</span></code>:</p>
+<li><p>Import this dataframe as <code class="docutils literal notranslate"><span class="pre">df_ind</span></code></p>
 <ul class="simple">
 <li><p>Use “sheet_name” to select the desired excel sheet.</p></li>
 <li><p>Use “skip_rows” to skip the initial rows before the data.</p></li>
-<li><p>Figure out what is the code for missing values and change the option <code class="docutils literal notranslate"><span class="pre">na_values</span></code> appropriately.</p></li>
-<li><p>If you look at the excel file you will see that there are other data sets stacked horizontally. Use the <code class="docutils literal notranslate"><span class="pre">usecols</span></code> option to select the range of columns you want imported.</p></li>
+<li><p>Figure out what is the code for missing value and change the option <code class="docutils literal notranslate"><span class="pre">na_values</span></code> appropriately</p></li>
+<li><p>If you look at the excel file you will see that there are other data sets stacked horizontally. Use the <code class="docutils literal notranslate"><span class="pre">usecols</span></code> option to select the range of columns you want imported</p></li>
+<li><p>You can take a look at Lab3 material for some examples of importing excel data and using these options.</p></li>
 </ul>
 </li>
-<li><p>Change the name of the column with the date information to ‘date’.</p></li>
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">to_datetime</span></code> so python understands the column date as a datetime object (you will have to use the option format).</p></li>
-<li><p>Set date as index.</p></li>
+<li><p>Change the name of the column with the date information to date</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">to_datetime</span></code> so python understand the column date as a datetime object (you will have to use the option format)</p></li>
+<li><p>Set date as index</p></li>
 <li><p>Call <code class="docutils literal notranslate"><span class="pre">df_ind.info()</span></code> so you check all the tasks were accomplished.</p></li>
-<li><p>In the next cell, call <code class="docutils literal notranslate"><span class="pre">df_ind.head()</span></code>.</p></li>
+<li><p>In the next cell, call <code class="docutils literal notranslate"><span class="pre">df_ind.head()</span></code></p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+<span class="kn">from</span> <span class="nn">pandas.tseries.offsets</span> <span class="kn">import</span> <span class="n">MonthEnd</span>
+
+<span class="c1"># your code below</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="advanced-date-manipulation">
-<h2>Advanced date manipulation<a class="headerlink" href="#advanced-date-manipulation" title="Permalink to this headline">#</a></h2>
-<p>What do you notice about the dates? They are monthly, but they are showing as the start of the month. In fact these returns are end of month to end of month returns. So we will now convert the data to end of month. To do that you should read this link</p>
-<p><a class="reference external" href="https://stackoverflow.com/questions/37354105/find-the-end-of-the-month-of-a-pandas-dataframe-series">https://stackoverflow.com/questions/37354105/find-the-end-of-the-month-of-a-pandas-dataframe-series</a></p>
-<p>If you google “pandas end of month” that is the first thing that comes out. Read the answer and apply to your problem.</p>
-<p>Hint: you aready set date as index, so you cannot do stuff like <code class="docutils literal notranslate"><span class="pre">df_ind.date</span></code> or <code class="docutils literal notranslate"><span class="pre">df_ind['date']</span></code>  and have to adjust the code accordingly. Think about how to access the index.</p>
-<p>After changing the date, call <code class="docutils literal notranslate"><span class="pre">df_ind.head()</span></code> and verify that it did what it should do by comparing the date here with what it was above.</p>
-</section>
-<section id="importing-risk-free-rate">
-<h2>Importing risk-free rate<a class="headerlink" href="#importing-risk-free-rate" title="Permalink to this headline">#</a></h2>
-<p>In this same file there is another sheet with market returns and the risk-free rate.</p>
-<p>Import them as <code class="docutils literal notranslate"><span class="pre">df_rmrf</span></code> by following all the steps you did in the above two questions.</p>
-<p>Call <code class="docutils literal notranslate"><span class="pre">df_ind.info()</span></code> so you check all the tasks were accomplished.</p>
-<p>In the next cell, call <code class="docutils literal notranslate"><span class="pre">df_ind.head()</span></code>.</p>
-</section>
-<section id="constructing-excess-returns-a">
-<h2>Constructing excess returns A<a class="headerlink" href="#constructing-excess-returns-a" title="Permalink to this headline">#</a></h2>
-<p>Select one industry and construct the excess returns of that industry by subtracting the risk-free rate RF from it.</p>
-<p>Compute the mean of this excess return.</p>
-<p>How does it compare to the mean of the raw returns of that industry and the risk free rate?</p>
-</section>
-<section id="constructing-excess-returns-b">
-<h2>Constructing excess returns B<a class="headerlink" href="#constructing-excess-returns-b" title="Permalink to this headline">#</a></h2>
-<p>We now want to construct excess returns for all industry portfolios, so we need to subtract the risk-free rate from all of columns at the same time.</p>
-<p>You can do that using the method <code class="docutils literal notranslate"><span class="pre">.subtract()</span></code> with the option ‘axis’ to tell along which dimension (rows or columns).</p>
-<p>Go ahead, google “pandas subtract” to see how this works.</p>
-<p>The new data frame should be named df_inde (e for excess returns of industries).</p>
-</section>
-<section id="drop-missing-observations">
-<h2>Drop missing observations<a class="headerlink" href="#drop-missing-observations" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_inde</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ind</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 2. Advanced date manipulation</strong></p>
+<ol class="simple">
+<li><p>convert the date from the start of the month to end of the month.</p></li>
+<li><p>call <code class="docutils literal notranslate"><span class="pre">df_ind.head()</span></code> and verify it works</p></li>
+</ol>
+<p><strong><em>Hint:</em></strong></p>
+<ul class="simple">
+<li><p>Read this link: <a class="reference external" href="https://stackoverflow.com/questions/37354105/find-the-end-of-the-month-of-a-pandas-dataframe-series">https://stackoverflow.com/questions/37354105/find-the-end-of-the-month-of-a-pandas-dataframe-series</a>.
+If you google “pandas end of month” that is the first thing that comes out. Read the answer and apply to your problem.</p></li>
+<li><p>you aready set date as index, so you cannot do stuff like <code class="docutils literal notranslate"><span class="pre">df_ind.date</span></code> or <code class="docutils literal notranslate"><span class="pre">df_ind['date']</span></code>  and have to adjust the code accordingly. Think about how to access the index.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code below</span>
+
+<span class="n">df_ind</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 3. Importing risk-free rate</strong></p>
+<ol class="simple">
+<li><p>In this same file there is another sheet with market returns and the risk-free rate. Import them as <code class="docutils literal notranslate"><span class="pre">df_rmrf</span></code> by following all the steps you did in the above two questions</p></li>
+<li><p>Call <code class="docutils literal notranslate"><span class="pre">df_rmrf.info()</span></code> so you check all the tasks were accomplished.</p></li>
+<li><p>In the next cell, call <code class="docutils literal notranslate"><span class="pre">df_rmrf.head()</span></code></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code below</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_rmrf</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_rmrf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 4. Constructing excess returns A</strong></p>
+<ol class="simple">
+<li><p>for the industry <code class="docutils literal notranslate"><span class="pre">Agric</span></code>, construct the excess return by subtracting the risk-free rate RF from it.</p></li>
+<li><p>compute the mean of this excess return.</p></li>
+<li><p>print it along with the mean of the raw returns and the risk free rate to compare</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code below</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 5. Constructing excess returns B</strong></p>
+<ol class="simple">
+<li><p>construct excess returns for all portfolio by subtracting the risk-free rate from all of columns at the same time</p></li>
+<li><p>name the new data frame <code class="docutils literal notranslate"><span class="pre">df_inde</span></code> ( for excess returns)</p></li>
+</ol>
+<p><strong><em>Hint:</em></strong></p>
+<ul class="simple">
+<li><p>You can do that using the method <code class="docutils literal notranslate"><span class="pre">.subtract()</span></code> with the option axis to tell along which dimension</p></li>
+<li><p>Go ahead , google “pandas subtract” to see how this works</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code below </span>
+
+<span class="n">df_inde</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 6. Drop missing observations</strong></p>
 <p>You may notice that excess returns of some industries are not available at the beginning of the sample.</p>
 <p>If we want all the industries to have same period of data in <code class="docutils literal notranslate"><span class="pre">df_inde</span></code>, we need to drop some observations.</p>
-<p>Use method <code class="docutils literal notranslate"><span class="pre">dropna</span></code> to drop rows in <code class="docutils literal notranslate"><span class="pre">df_inde</span></code> if any industry is missing.</p>
-<p>After that, <code class="docutils literal notranslate"><span class="pre">print(df_inde.shape)</span></code> to see the changes in the length of the sample.</p>
-</section>
-<section id="moments">
-<h2>Moments<a class="headerlink" href="#moments" title="Permalink to this headline">#</a></h2>
-<p>We will now estimate the risk premium in each of these portfolio and the covariance between these portfolios.</p>
-<p>Start by using the method <code class="docutils literal notranslate"><span class="pre">mean</span></code> on the excess return data frame to obtain a vector of average excess returns which we will use as our ESTIMATE for these portfolio risk-premiums.</p>
-<p>Call this vector <code class="docutils literal notranslate"><span class="pre">ERe</span></code>.</p>
-<p>Then use <code class="docutils literal notranslate"><span class="pre">cov</span></code> method to estiamte the covariance, call this <code class="docutils literal notranslate"><span class="pre">CovRe</span></code>, which we will use as our ESTIMATE for the TRUE covariance matrix between there portfolios.</p>
-<p>Print <code class="docutils literal notranslate"><span class="pre">ERe</span></code> and <code class="docutils literal notranslate"><span class="pre">CovRe</span></code>.</p>
-</section>
-<section id="storing-the-weights">
-<h2>Storing the weights<a class="headerlink" href="#storing-the-weights" title="Permalink to this headline">#</a></h2>
-<p>Lets create a dataframe to store our weights.</p>
+<p>Do the followings:</p>
+<ol class="simple">
+<li><p>Use method <code class="docutils literal notranslate"><span class="pre">dropna</span></code> to drop rows in <code class="docutils literal notranslate"><span class="pre">df_inde</span></code> if <strong>ANY</strong> industry is missing.</p></li>
+<li><p>After that, <code class="docutils literal notranslate"><span class="pre">print(df_inde.shape)</span></code> to see the changes in the length.</p></li>
+</ol>
+<p><strong><em>Hint</em></strong></p>
+<ul class="simple">
+<li><p>when you call <code class="docutils literal notranslate"><span class="pre">dropna</span></code> function, use <code class="docutils literal notranslate"><span class="pre">axis</span></code> and <code class="docutils literal notranslate"><span class="pre">how</span></code> option to drop missing values if <strong>ANY</strong> industry is missing</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code below</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 7. Moments</strong></p>
+<p>We will now estimate the risk-premium in each of these portfolio and the covariance between these portfolios.</p>
+<p>Do the followings:</p>
+<ol class="simple">
+<li><p>using the method <code class="docutils literal notranslate"><span class="pre">mean</span></code> on the excess return data frame to obtain a vector of average excess returns which we will use as our ESTIMATE for these portfolio risk-premiums. call this vector <code class="docutils literal notranslate"><span class="pre">ERe</span></code></p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">cov</span></code> method to estiamte the covariance of excess returns, call this <code class="docutils literal notranslate"><span class="pre">CovRe</span></code>, which we will use as our ESTIMATE for the TRUE covariance matrix between these portfolios</p></li>
+<li><p>Print <code class="docutils literal notranslate"><span class="pre">ERe</span></code> and <code class="docutils literal notranslate"><span class="pre">CovRe</span></code></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code below</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ERe</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CovRe</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 8. Storing the weights</strong></p>
+<p>Lets create a storage for our weights.</p>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> function to create an empty dataframe with name Weights which has as index the name of the different industries in df_ind and column names as ‘W1’ and ‘W2’.</p>
-</section>
-<section id="weighting-scheme-1">
-<h2>Weighting scheme 1<a class="headerlink" href="#weighting-scheme-1" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code below</span>
+
+<span class="n">Weights</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 9. Weighting scheme 1</strong></p>
 <p>We will now find the weights by applying the formula</p>
 <div class="math notranslate nohighlight">
 \[ W=E[R^e]&#64;Var(R^e)^{-1} \]</div>
-<p>For that you need to find inverse of the covariance matrix <code class="docutils literal notranslate"><span class="pre">CovRe</span></code> you just estimated.</p>
-<p>You do that by using the function <code class="docutils literal notranslate"><span class="pre">np.linalg.inv</span></code>.</p>
-<p>Assign the weight vector to the column ‘W1’ of Weights dataframe.</p>
-</section>
-<section id="weighting-scheme-2">
-<h2>Weighting scheme 2<a class="headerlink" href="#weighting-scheme-2" title="Permalink to this headline">#</a></h2>
+<p>For that you need to inverse the covariance matrix <code class="docutils literal notranslate"><span class="pre">CovRe</span></code> you just estimated.</p>
+<p>You do that using the function <code class="docutils literal notranslate"><span class="pre">np.linalg.inv</span></code>.</p>
+<p>Attribute the weight vector to the column ‘W1’</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code below</span>
+
+<span class="n">Weights</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 10. Weighting scheme 2</strong></p>
 <p>We will now find the weights by applying the formula</p>
 <div class="math notranslate nohighlight">
 \[ W= \frac{\mathbf{1} &#64;Var(R^e)^{-1}}{\mathbf{1} &#64;Var(R^e)^{-1} &#64; \mathbf{1}'} \]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathbf{1}\)</span> is a vector of 1 that has the length same as the number of assets.</p>
-<p>Assign this vector to the column ‘W2’ of Weights dataframe..</p>
-</section>
-<section id="what-mathematical-problems-weights-w1-and-w2-are-solutions-to">
-<h2>What mathematical problems weights W1 and W2 are solutions to?<a class="headerlink" href="#what-mathematical-problems-weights-w1-and-w2-are-solutions-to" title="Permalink to this headline">#</a></h2>
-<p>Answer below:</p>
-</section>
-<section id="strategy-returns">
-<h2>Strategy returns<a class="headerlink" href="#strategy-returns" title="Permalink to this headline">#</a></h2>
-<p>Use weights W1 and W2 to construct the time series of the strategy returns.</p>
-<p>The output should be one dataframe called df_wR whose rows are the dates of df_inde and in the columns we have the names ‘W1’ and ‘W2’ and the values are the strategy return implied by the respective weights.</p>
-</section>
-<section id="sharpe-ratios">
-<h2>Sharpe Ratios<a class="headerlink" href="#sharpe-ratios" title="Permalink to this headline">#</a></h2>
-<p>A key measure of risk-reward profile of an investment is the so called Sharpe ratio.</p>
-<p>The Sharpe ratio is a ratio of the average excess return of a strategy relative to it’s standard deviation.</p>
-<p>Compute the Sharpe ratios for both strategies from df_wR above and report them in annualized units.</p>
-</section>
-<section id="sharpe-ratios-2">
-<h2>Sharpe Ratios 2<a class="headerlink" href="#sharpe-ratios-2" title="Permalink to this headline">#</a></h2>
-<p>What did you find? Is the difference between these Sharpe ratios as expected? Explain.</p>
-<p>Answer here:</p>
-</section>
-<section id="normalization">
-<h2>Normalization<a class="headerlink" href="#normalization" title="Permalink to this headline">#</a></h2>
-<p>While strategy 2 was solved by imposing a constraint on weights so that they add up to 1, strategy 1 does not impose any constraint on the weights as it imposes a constraint on the expected return target.</p>
+<p>Attribute this vector to the column ‘W2’</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code below</span>
+
+<span class="n">Weights</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 11. What mathematical problems weights W1 and W2 are solutions to?</strong></p>
+<p>(This will not be graded. )</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Answer here: </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 12. Strategy returns</strong></p>
+<p>Use weight W1 and W2 to construct the time series of the strategy returns</p>
+<p>The output should be one dataframe called <code class="docutils literal notranslate"><span class="pre">df_wR</span></code> which rows are the dates of <code class="docutils literal notranslate"><span class="pre">df_inde</span></code> and in the columns we have the names <code class="docutils literal notranslate"><span class="pre">W1</span></code> and <code class="docutils literal notranslate"><span class="pre">W2</span></code> and the values are the strategy return implied by the respective weights.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code below</span>
+
+<span class="n">df_wR</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 13. Sharpe Ratios</strong></p>
+<p>A key measue of risk-reward is the so called Sharpe ratio.</p>
+<p>the Sharpe ratio is a ratio of the average excess return of a strategy relative to it’s standard deviation.</p>
+<p>Do the followings:</p>
+<ol class="simple">
+<li><p>compute the Sharpe ratio for both strategies above and report them in annualized units</p></li>
+<li><p>comment on what you find. is the difference between these Sharpe ratios as expected? explain.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code below</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your comments below </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 14. Normalization</strong></p>
+<p>While strategy 2 was solved by imposing a constraint on weights so that they add up to 1, strategy 1 does not impose any constraint on the weights as it imposes a constraint on the expected return target</p>
 <p>Imposing a constraint is a choice because we are working with excess returns, so the weights do not need to add up to 1 because these assets cost zero–i.e. each asset is a strategy that is self funded, which invests in the asset with money borrowed at the risk-free rate.</p>
 <p>This is all fine and good, but it means that leverage that comes out of the weights <span class="math notranslate nohighlight">\(W1=E[E^e]&#64;Var(R^e)^{-1} \)</span> is not determinate. Any set of weights proportional to W1 will achieve the same Sharpe Ratio.</p>
-<p>In the exercise below we will trace the entire frontier by changing how much you leverage your investment in the portfolio.</p>
-<p><strong>For now I would like you to simply transform the weights W1 by multiplying them by a constant (your job is to figure out what this constant must be) so that the new strategy associated with these new weights (call it W3) have the same in sample volatility as the strategy associated with W2.</strong></p>
-<p>Record this new strategy in <code class="docutils literal notranslate"><span class="pre">df_wR</span></code>.</p>
-<p>Now plot the cumulative returns (as seen for example in Chapter 7) of strategies W2 and W3. Note that stock returns from the data are in percentages, so you may need to rescale (divide by 100) the portfolio returns when you compute the cumulative returns.</p>
-</section>
-<section id="interpretation">
-<h2>Interpretation<a class="headerlink" href="#interpretation" title="Permalink to this headline">#</a></h2>
-<p>Given what you know about their Sharpe Ratios, are the results surprising? Explain.</p>
-<p>Answer here:</p>
-</section>
-<section id="the-efficient-frontier-1">
-<h2>The Efficient frontier 1<a class="headerlink" href="#the-efficient-frontier-1" title="Permalink to this headline">#</a></h2>
-<p>We will now construct the investment  frontier using portfolio strategy ‘W1’.</p>
-<p>The key idea is that any portfolio that is on the frontier must have returns of the form</p>
+<p>In the exercise below we will trace the entire frontier by changing this proportionality constant.</p>
+<p>Do the followings:</p>
+<ol class="simple">
+<li><p>transform the weights W1 by multiplying it by a constant (your job is to figure out what this constant must be) so that the new strategy associated with these new weights (call it W3) have the same in sample volatility as the strategy associated with W2.</p></li>
+<li><p>record this new strategy in <code class="docutils literal notranslate"><span class="pre">df_wR</span></code>.</p></li>
+<li><p>plot the cumulative returns (as seen for example in Chapter 7) of strategies W2 and W3. Note that stock returns from the data are in percentages, so you may need to rescale the portfolio returns to the unit of 1 when you compute the cumulative returns.</p></li>
+<li><p>given what you know about their Sharpe Ratios, are the results surprising? explain</p></li>
+</ol>
+<p><strong><em>Hint:</em></strong>
+$<span class="math notranslate nohighlight">\( K =\sigma(R^e_{p2}) = c\cdot \sigma( R^e_{p1}) = \sigma(c\cdot R^e_{p1}) = \sigma( R^e_{p3})   \)</span>$</p>
+<div class="math notranslate nohighlight">
+\[ c = \sigma(R^e_{p2}) / \sigma( R^e_{p1})  \]</div>
+<div class="math notranslate nohighlight">
+\[  R^e_{p3} = c\cdot R^e_{p1} = (\sigma(R^e_{p2}) / \sigma( R^e_{p1})) \cdot R^e_{p1}   \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code below</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your explanation below</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 15. The Efficient Frontier 1</strong></p>
+<p>We will now construct the investment frontier using portfolio strategy <code class="docutils literal notranslate"><span class="pre">W1</span></code>.</p>
+<p>The key idea is that any portolio that is in the frontier must have returns of the form</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align} 
 r^{frontier} &amp;= w \cdot r^f+(1-w)(W1 &#64; R) \\
-&amp;= r^f+(1-w)(W1 &#64; (R-r^f)) \\
+&amp;= r^f+(1-w)(W1 &#64; (R-rf)) \\
 &amp;= r^f+w (W1 &#64; R^{e})
 \end{align}
 \end{split}\]</div>
-<p>In terms of weights, the frontier is of the form <span class="math notranslate nohighlight">\([1,w*W1]\)</span> that is, a weight on 1 the risk-free rate plus a weight <span class="math notranslate nohighlight">\(w*W1\)</span> on the long-short portfolios <span class="math notranslate nohighlight">\(R^e\)</span>, where <span class="math notranslate nohighlight">\(w\)</span> is any scalar greater than 0 and <span class="math notranslate nohighlight">\(W1\)</span> is the weight that solves the problem you described in question 10.</p>
-<p>This means that we can write any portfolio on the efficient frontier as:</p>
+<p>In terms of weights, the frontier is of the form <span class="math notranslate nohighlight">\([1,w*W1]\)</span> that is, a weight 1 on the risk-free rate plus a weight <span class="math notranslate nohighlight">\(w*W1\)</span> on the long-short portfolios <span class="math notranslate nohighlight">\(R^e\)</span>, where <span class="math notranslate nohighlight">\(w\)</span> is any scalar greater than 0 and <span class="math notranslate nohighlight">\(W1\)</span> is the weight that solves the problem you described in question 10.</p>
+<p>This means that we can write any portfolio in the efficient frontier as:</p>
 <div class="math notranslate nohighlight">
 \[E[R^{frontier}]=r^f+w W1 E[R^e]\]</div>
 <div class="math notranslate nohighlight">
 \[STD[R^{frontier}]=STD[r^f+wW1 R^{e}]=wSTD[W1 R^{e}]\]</div>
-<p>Thus to trace out the frontier you will need the mean and the volatility of the portfolio constructed with weights <code class="docutils literal notranslate"><span class="pre">W1</span></code>.</p>
-<p>Plot the mean-standard deviation efficient frontier by varying the weight <span class="math notranslate nohighlight">\(w\)</span> in the expression above from zero to some arbitrary positive value, for example pick a maximum value consistent with an <strong>annual</strong>  volatility equal to 20%, so that it traces out the frontier up to the point that you have a volatility of 20%. The plot should have <span class="math notranslate nohighlight">\(wSTD[W1 R^{e}]\)</span> on the x-axis and <span class="math notranslate nohighlight">\(r^f+w W1 E[R^e]\)</span> on the y-axis. Both mean and standard deviation should be annualized.</p>
-<p>Hint: find the upper bound of <span class="math notranslate nohighlight">\(w\)</span> and then use <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code> to create a array of <span class="math notranslate nohighlight">\(w\)</span>.</p>
-</section>
-<section id="risk-free-rates">
-<h2>Risk free rates?<a class="headerlink" href="#risk-free-rates" title="Permalink to this headline">#</a></h2>
+<p>Thus to trace-out the frontier you will need the mean and the volatility of the portfolio constructed with weights <code class="docutils literal notranslate"><span class="pre">W1</span></code></p>
+<p>Do the followings to plot the frontier:</p>
+<ol class="simple">
+<li><p>plot the mean-standard deviation efficient frontier by varying the weight <span class="math notranslate nohighlight">\(w\)</span> in the expression above from zero to some positive value <span class="math notranslate nohighlight">\(\bar{w}\)</span></p></li>
+<li><p>pick <span class="math notranslate nohighlight">\(\bar{w}\)</span> consistent with an <strong>annual</strong> volatility equal to 20%, so that it traces out the frontier up to the point that you have a volatility of 20%.</p></li>
+<li><p>the plot should have <span class="math notranslate nohighlight">\(wSTD[W1 R^{e}]\)</span> in the x-axis and <span class="math notranslate nohighlight">\(r^f+w W1 E[R^e]\)</span> in the y-axis.</p></li>
+<li><p>both mean and standard deviation should be annualized.</p></li>
+</ol>
+<p><strong><em>Hint:</em></strong>
+find the upper bound of <span class="math notranslate nohighlight">\(w\)</span> and then use <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code> to create a array of <span class="math notranslate nohighlight">\(w\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code below</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 16. Risk free rates?</strong></p>
 <p>Which risk-free rate should you use in the question above? The historical average? The current one? What do you think?</p>
-<p>Answer here:</p>
-</section>
-<section id="the-efficient-frontier-2">
-<h2>The Efficient frontier 2<a class="headerlink" href="#the-efficient-frontier-2" title="Permalink to this headline">#</a></h2>
-<p>For contrast, plot the means and standard deviations of the individual industry portfolios in the same plot above. So these will be additional 49 points in the same plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Answer here: </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 17. The Efficient frontier 2</strong></p>
+<p>For contrast, plot the means and standard deviations of the individual industry portfolio in the same plot above. So these will be additional 49 points in the same plot.</p>
 <p>You can simply copy the code from the question (EF1) above and add the points here.</p>
-<p>HINT: you might find <code class="docutils literal notranslate"><span class="pre">plt.scatter</span></code> useful.</p>
-</section>
-<section id="the-efficient-frontier-3">
-<h2>The Efficient frontier 3<a class="headerlink" href="#the-efficient-frontier-3" title="Permalink to this headline">#</a></h2>
+<p><strong><em>Hint:</em></strong> you might find <code class="docutils literal notranslate"><span class="pre">plt.scatter</span></code> useful.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code below</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 18. The Efficient frontier 3</strong></p>
 <p>Plot portfolio <code class="docutils literal notranslate"><span class="pre">W2</span></code> in the mean-standard-deviation plot as well. To do that we will follow the same strategy we did for the portfolio above</p>
 <div class="math notranslate nohighlight">
 \[E[R2]=r^f+E[W2 &#64;R^{e}]\]</div>
 <div class="math notranslate nohighlight">
 \[STD[R2]=STD[W2 &#64; R^{e}]\]</div>
-<p>Again simply the copy the code of EF2 and add the additional code to plot portfolio <code class="docutils literal notranslate"><span class="pre">W2</span></code> as an extra point on the plot.</p>
-</section>
-<section id="the-efficient-frontier-4">
-<h2>The Efficient frontier 4<a class="headerlink" href="#the-efficient-frontier-4" title="Permalink to this headline">#</a></h2>
-<p>Can you explain why we are first taking out the risk-free rate to compute average excess returns and the covariance matrix if we later add back?</p>
-<p>Explain</p>
-<p>Answer here:</p>
-</section>
+<p>Again simply copy the code of EF2 and add the additional code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code below</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 19. The Efficient frontier 4</strong></p>
+<p>Explain the followings:</p>
+<ol>
+<li><p>why we first take out the risk-free rate to compute average excess returns and the covariance matrix?</p></li>
+<li><p>if instead, we do not take the risk-free rate out, and later add it back</p>
+<p>2.1 would the weights for strategy 2 be meaningfully impacted?</p>
+<p>2.2 would the weights for strategy 1 be meaningfully impacted?</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Answer here: </span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1238,6 +1225,13 @@ r^{frontier} &amp;= w \cdot r^f+(1-w)(W1 &#64; R) \\
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Assignment4.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">17.20. </span>Assignment 4</p>
+        </div>
+    </a>
 </div>
             </footer>
         </div>
