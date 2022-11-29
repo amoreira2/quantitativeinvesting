@@ -960,7 +960,7 @@ maximize_{X} E[r_p(X)]- \frac{\gamma}{2} Var(r_p(X))\\
 <div class="math notranslate nohighlight">
 \[E[r_p(X)]- \frac{\gamma}{2} Var(r_p(X))=E[r_f+X'R^e]- \frac{\gamma}{2} Var(r_f+X'R^e)\]</div>
 <div class="math notranslate nohighlight">
-\[E[r_p(X)]- \frac{\gamma}{2} Var(r_p(X))=r_f+X'E[R^e]- \frac{\gamma}{2} X'Var(R^e)W\]</div>
+\[E[r_p(X)]- \frac{\gamma}{2} Var(r_p(X))=r_f+X'E[R^e]- \frac{\gamma}{2} X'Var(R^e)X\]</div>
 <ul class="simple">
 <li><p>All you need is to take the derivative of the expression with respect to the risky portfolio weights <span class="math notranslate nohighlight">\(X\)</span> :</p></li>
 </ul>
@@ -1348,7 +1348,7 @@ dtype: float64
 <li><p>What is the expected excess return of the tangency portfolio?</p></li>
 </ol>
 <div class="math notranslate nohighlight">
-\[E[yX_T'R^e]=E[E[R^e]'Var(R^e)^{-1}R^e]=yE[R^e]'Var(R^e)^{-1}E[R^e]\]</div>
+\[E[yX_T'R^e]=yE[E[R^e]'Var(R^e)^{-1}R^e]=yE[R^e]'Var(R^e)^{-1}E[R^e]\]</div>
 <ol class="simple">
 <li><p>What is the volatility of the tangency portfolio?</p></li>
 </ol>
