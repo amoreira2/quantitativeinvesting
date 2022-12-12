@@ -853,9 +853,12 @@ memory usage: 35.4 KB
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UsW</span><span class="o">=</span><span class="p">[]</span>
 <span class="n">w</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.05</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">w</span><span class="p">:</span>
+              <span class="c1">#[US weight, world weight]</span>
     <span class="n">W</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">])</span>
+    <span class="c1">#[World weight, Annualized volatility, annualized average returns]</span>
     <span class="n">UsW</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">,(</span><span class="n">W</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Re</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span> <span class="o">@</span> <span class="n">W</span><span class="o">*</span><span class="mi">12</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,</span><span class="n">W</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Re</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">*</span><span class="mi">12</span><span class="p">])</span>
 <span class="n">UsW</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">UsW</span><span class="p">)</span>
+<span class="c1"># annualized volatility, annualized average return</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Volatility&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average Excess return&#39;</span><span class="p">)</span>
@@ -912,7 +915,7 @@ STD[r_p]&amp;=\sqrt{Var[r_p]}\\
 <span class="nb">print</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
 <span class="c1"># choosing some risk-free rate</span>
 
-<span class="n">rf</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">100</span><span class="o">/</span><span class="mi">12</span>
+<span class="n">rf</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="mi">12</span>
 
 <span class="c1"># I am settign to 1% per year. Divide by 100 to put in percent as the return data</span>
 <span class="c1"># and divided by 12 to make it monthly as the return data</span>
@@ -925,7 +928,7 @@ STD[r_p]&amp;=\sqrt{Var[r_p]}\\
 </div>
 </div>
 </div>
-<p>We know compute the averagereturn and the population volatility/variance for each of the portfolios associated with the weights in <span class="math notranslate nohighlight">\(wf\)</span></p>
+<p>We know compute the averagereturn and the population volatility/variance for each of the portfolios associated with the weights in <span class="math notranslate nohighlight">\(y\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UsW</span><span class="o">=</span><span class="p">[]</span>
@@ -1039,9 +1042,12 @@ STD[r_p]&amp;=\sqrt{Var[r_p]}\\
 <span class="c1"># recall that column 0 has the position on the risk-free asset</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
 
-
+<span class="c1"># risk position concentrated on the world market</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="c1">#risk position concentratel on us market</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+
+<span class="c1"># fully invested on therisk-free asset</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">UsW</span><span class="p">[</span><span class="n">UsW</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Sample Volatility&#39;</span><span class="p">)</span>
